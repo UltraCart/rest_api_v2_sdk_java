@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accountSid** | **String** |  |  [optional]
+**aiTwimlAppSid** | **String** |  |  [optional]
 **apiKeyId** | **String** |  |  [optional]
 **apiKeyName** | **String** |  |  [optional]
 **authToken** | **String** |  |  [optional]

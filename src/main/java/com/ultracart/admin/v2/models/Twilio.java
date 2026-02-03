@@ -29,13 +29,16 @@ import java.util.List;
 /**
  * Twilio
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:17:39.164-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:21:21.310-05:00")
 
 
 
 public class Twilio {
   @SerializedName("account_sid")
   private String accountSid = null;
+
+  @SerializedName("ai_twiml_app_sid")
+  private String aiTwimlAppSid = null;
 
   @SerializedName("api_key_id")
   private String apiKeyId = null;
@@ -77,6 +80,24 @@ public class Twilio {
 
   public void setAccountSid(String accountSid) {
     this.accountSid = accountSid;
+  }
+
+  public Twilio aiTwimlAppSid(String aiTwimlAppSid) {
+    this.aiTwimlAppSid = aiTwimlAppSid;
+    return this;
+  }
+
+   /**
+   * Get aiTwimlAppSid
+   * @return aiTwimlAppSid
+  **/
+  @ApiModelProperty(value = "")
+  public String getAiTwimlAppSid() {
+    return aiTwimlAppSid;
+  }
+
+  public void setAiTwimlAppSid(String aiTwimlAppSid) {
+    this.aiTwimlAppSid = aiTwimlAppSid;
   }
 
   public Twilio apiKeyId(String apiKeyId) {
@@ -242,6 +263,7 @@ public class Twilio {
     }
     Twilio twilio = (Twilio) o;
     return Objects.equals(this.accountSid, twilio.accountSid) &&
+        Objects.equals(this.aiTwimlAppSid, twilio.aiTwimlAppSid) &&
         Objects.equals(this.apiKeyId, twilio.apiKeyId) &&
         Objects.equals(this.apiKeyName, twilio.apiKeyName) &&
         Objects.equals(this.authToken, twilio.authToken) &&
@@ -254,7 +276,7 @@ public class Twilio {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, apiKeyId, apiKeyName, authToken, espTwilioUuid, inboundTwimlAppSid, outboundTwimlAppSid, phoneNumbers, twilioWorkspaceSid);
+    return Objects.hash(accountSid, aiTwimlAppSid, apiKeyId, apiKeyName, authToken, espTwilioUuid, inboundTwimlAppSid, outboundTwimlAppSid, phoneNumbers, twilioWorkspaceSid);
   }
 
 
@@ -264,6 +286,7 @@ public class Twilio {
     sb.append("class Twilio {\n");
     
     sb.append("    accountSid: ").append(toIndentedString(accountSid)).append("\n");
+    sb.append("    aiTwimlAppSid: ").append(toIndentedString(aiTwimlAppSid)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
     sb.append("    apiKeyName: ").append(toIndentedString(apiKeyName)).append("\n");
     sb.append("    authToken: ").append(toIndentedString(authToken)).append("\n");

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **callRoutingPreference** | [**CallRoutingPreferenceEnum**](#CallRoutingPreferenceEnum) | The call routing preference |  [optional]
 **cellphone** | **String** | Cellphone number of agent in E.164 format |  [optional]
 **conversationPbxAgentUuid** | **String** | Conversation Pbx Agent unique identifier |  [optional]
+**cosUuid** | **String** | Class of Service UUID. If null, the merchant default CoS applies. |  [optional]
 **defaultPhoneNumberUuid** | **String** | The default phone number that this agent should dial out to the PSTN with. |  [optional]
 **extension** | **Integer** | Extension |  [optional]
 **fullName** | **String** | Full name |  [optional]
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 **twilioTaskrouterWorkerId** | **String** | Twilio taskrouter worker Id |  [optional]
 **unavailablePlayAudioUuid** | **String** | Unavailable play audio UUID |  [optional]
 **unavailableSay** | **String** | Unavailable say |  [optional]
-**unavailableSayVoice** | **String** | Unavailable say voice |  [optional]
+**unavailableSayVoice** | [**UnavailableSayVoiceEnum**](#UnavailableSayVoiceEnum) | Unavailable say voice |  [optional]
 **userId** | **Integer** | User Id |  [optional]
 **voicemail** | **Boolean** | True if this agent has voicemail configured |  [optional]
 
@@ -33,6 +34,14 @@ Name | Value
 SOFTPHONE | &quot;softphone&quot;
 HARDWARE_PHONE | &quot;hardware_phone&quot;
 CELLPHONE | &quot;cellphone&quot;
+
+
+<a name="UnavailableSayVoiceEnum"></a>
+## Enum: UnavailableSayVoiceEnum
+Name | Value
+---- | -----
+MAN | &quot;man&quot;
+WOMAN | &quot;woman&quot;
 
 
 

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:17:39.164-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:21:21.310-05:00")
 
 
 
@@ -95,6 +95,9 @@ public class ConversationPbxAgent {
   @SerializedName("conversation_pbx_agent_uuid")
   private String conversationPbxAgentUuid = null;
 
+  @SerializedName("cos_uuid")
+  private String cosUuid = null;
+
   @SerializedName("default_phone_number_uuid")
   private String defaultPhoneNumberUuid = null;
 
@@ -134,8 +137,55 @@ public class ConversationPbxAgent {
   @SerializedName("unavailable_say")
   private String unavailableSay = null;
 
+  /**
+   * Unavailable say voice
+   */
+  @JsonAdapter(UnavailableSayVoiceEnum.Adapter.class)
+  public enum UnavailableSayVoiceEnum {
+    MAN("man"),
+    
+    WOMAN("woman");
+
+    private String value;
+
+    UnavailableSayVoiceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UnavailableSayVoiceEnum fromValue(String text) {
+      for (UnavailableSayVoiceEnum b : UnavailableSayVoiceEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UnavailableSayVoiceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UnavailableSayVoiceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UnavailableSayVoiceEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UnavailableSayVoiceEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("unavailable_say_voice")
-  private String unavailableSayVoice = null;
+  private UnavailableSayVoiceEnum unavailableSayVoice = null;
 
   @SerializedName("user_id")
   private Integer userId = null;
@@ -213,6 +263,24 @@ public class ConversationPbxAgent {
 
   public void setConversationPbxAgentUuid(String conversationPbxAgentUuid) {
     this.conversationPbxAgentUuid = conversationPbxAgentUuid;
+  }
+
+  public ConversationPbxAgent cosUuid(String cosUuid) {
+    this.cosUuid = cosUuid;
+    return this;
+  }
+
+   /**
+   * Class of Service UUID. If null, the merchant default CoS applies.
+   * @return cosUuid
+  **/
+  @ApiModelProperty(value = "Class of Service UUID. If null, the merchant default CoS applies.")
+  public String getCosUuid() {
+    return cosUuid;
+  }
+
+  public void setCosUuid(String cosUuid) {
+    this.cosUuid = cosUuid;
   }
 
   public ConversationPbxAgent defaultPhoneNumberUuid(String defaultPhoneNumberUuid) {
@@ -457,7 +525,7 @@ public class ConversationPbxAgent {
     this.unavailableSay = unavailableSay;
   }
 
-  public ConversationPbxAgent unavailableSayVoice(String unavailableSayVoice) {
+  public ConversationPbxAgent unavailableSayVoice(UnavailableSayVoiceEnum unavailableSayVoice) {
     this.unavailableSayVoice = unavailableSayVoice;
     return this;
   }
@@ -467,11 +535,11 @@ public class ConversationPbxAgent {
    * @return unavailableSayVoice
   **/
   @ApiModelProperty(value = "Unavailable say voice")
-  public String getUnavailableSayVoice() {
+  public UnavailableSayVoiceEnum getUnavailableSayVoice() {
     return unavailableSayVoice;
   }
 
-  public void setUnavailableSayVoice(String unavailableSayVoice) {
+  public void setUnavailableSayVoice(UnavailableSayVoiceEnum unavailableSayVoice) {
     this.unavailableSayVoice = unavailableSayVoice;
   }
 
@@ -525,6 +593,7 @@ public class ConversationPbxAgent {
         Objects.equals(this.callRoutingPreference, conversationPbxAgent.callRoutingPreference) &&
         Objects.equals(this.cellphone, conversationPbxAgent.cellphone) &&
         Objects.equals(this.conversationPbxAgentUuid, conversationPbxAgent.conversationPbxAgentUuid) &&
+        Objects.equals(this.cosUuid, conversationPbxAgent.cosUuid) &&
         Objects.equals(this.defaultPhoneNumberUuid, conversationPbxAgent.defaultPhoneNumberUuid) &&
         Objects.equals(this.extension, conversationPbxAgent.extension) &&
         Objects.equals(this.fullName, conversationPbxAgent.fullName) &&
@@ -545,7 +614,7 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
   }
 
 
@@ -558,6 +627,7 @@ public class ConversationPbxAgent {
     sb.append("    callRoutingPreference: ").append(toIndentedString(callRoutingPreference)).append("\n");
     sb.append("    cellphone: ").append(toIndentedString(cellphone)).append("\n");
     sb.append("    conversationPbxAgentUuid: ").append(toIndentedString(conversationPbxAgentUuid)).append("\n");
+    sb.append("    cosUuid: ").append(toIndentedString(cosUuid)).append("\n");
     sb.append("    defaultPhoneNumberUuid: ").append(toIndentedString(defaultPhoneNumberUuid)).append("\n");
     sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");

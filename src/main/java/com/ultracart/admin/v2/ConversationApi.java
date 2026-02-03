@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.ConversationAgentAuthResponse;
 import com.ultracart.admin.v2.models.ConversationAgentProfile;
 import com.ultracart.admin.v2.models.ConversationAgentProfileResponse;
@@ -72,6 +73,10 @@ import com.ultracart.admin.v2.models.ConversationPbxAvailablePhoneNumbersRespons
 import com.ultracart.admin.v2.models.ConversationPbxCallResponse;
 import com.ultracart.admin.v2.models.ConversationPbxCallSearchRequest;
 import com.ultracart.admin.v2.models.ConversationPbxCallSearchResponse;
+import com.ultracart.admin.v2.models.ConversationPbxClassOfService;
+import com.ultracart.admin.v2.models.ConversationPbxClassOfServiceResponse;
+import com.ultracart.admin.v2.models.ConversationPbxClassOfServicesResponse;
+import com.ultracart.admin.v2.models.ConversationPbxCosAuditLogsResponse;
 import com.ultracart.admin.v2.models.ConversationPbxCustomerSnapshotRequest;
 import com.ultracart.admin.v2.models.ConversationPbxCustomerSnapshotResponse;
 import com.ultracart.admin.v2.models.ConversationPbxHardwarePhone;
@@ -1146,6 +1151,129 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = deletePbxAudioValidateBeforeCall(conversationPbxAudioUuid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deletePbxClassOfService
+     * @param classOfServiceUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deletePbxClassOfServiceCall(String classOfServiceUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service/{classOfServiceUuid}"
+            .replaceAll("\\{" + "classOfServiceUuid" + "\\}", apiClient.escapeString(classOfServiceUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deletePbxClassOfServiceValidateBeforeCall(String classOfServiceUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'classOfServiceUuid' is set
+        if (classOfServiceUuid == null) {
+            throw new ApiException("Missing the required parameter 'classOfServiceUuid' when calling deletePbxClassOfService(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = deletePbxClassOfServiceCall(classOfServiceUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete pbx class of service
+     * Delete a class of service 
+     * @param classOfServiceUuid  (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public BaseResponse deletePbxClassOfService(String classOfServiceUuid) throws ApiException {
+        ApiResponse<BaseResponse> resp = deletePbxClassOfServiceWithHttpInfo(classOfServiceUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Delete pbx class of service
+     * Delete a class of service 
+     * @param classOfServiceUuid  (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<BaseResponse> deletePbxClassOfServiceWithHttpInfo(String classOfServiceUuid) throws ApiException {
+        com.squareup.okhttp.Call call = deletePbxClassOfServiceValidateBeforeCall(classOfServiceUuid, null, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete pbx class of service (asynchronously)
+     * Delete a class of service 
+     * @param classOfServiceUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deletePbxClassOfServiceAsync(String classOfServiceUuid, final ApiCallback<BaseResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deletePbxClassOfServiceValidateBeforeCall(classOfServiceUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -6473,6 +6601,373 @@ public class ConversationApi {
         return call;
     }
     /**
+     * Build call for getPbxClassOfService
+     * @param classOfServiceUuid  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxClassOfServiceCall(String classOfServiceUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service/{classOfServiceUuid}"
+            .replaceAll("\\{" + "classOfServiceUuid" + "\\}", apiClient.escapeString(classOfServiceUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxClassOfServiceValidateBeforeCall(String classOfServiceUuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'classOfServiceUuid' is set
+        if (classOfServiceUuid == null) {
+            throw new ApiException("Missing the required parameter 'classOfServiceUuid' when calling getPbxClassOfService(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getPbxClassOfServiceCall(classOfServiceUuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx class of service
+     * Retrieve a single class of service 
+     * @param classOfServiceUuid  (required)
+     * @return ConversationPbxClassOfServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxClassOfServiceResponse getPbxClassOfService(String classOfServiceUuid) throws ApiException {
+        ApiResponse<ConversationPbxClassOfServiceResponse> resp = getPbxClassOfServiceWithHttpInfo(classOfServiceUuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx class of service
+     * Retrieve a single class of service 
+     * @param classOfServiceUuid  (required)
+     * @return ApiResponse&lt;ConversationPbxClassOfServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxClassOfServiceResponse> getPbxClassOfServiceWithHttpInfo(String classOfServiceUuid) throws ApiException {
+        com.squareup.okhttp.Call call = getPbxClassOfServiceValidateBeforeCall(classOfServiceUuid, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx class of service (asynchronously)
+     * Retrieve a single class of service 
+     * @param classOfServiceUuid  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxClassOfServiceAsync(String classOfServiceUuid, final ApiCallback<ConversationPbxClassOfServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxClassOfServiceValidateBeforeCall(classOfServiceUuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPbxClassesOfService
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxClassesOfServiceCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxClassesOfServiceValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getPbxClassesOfServiceCall(progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx classes of service
+     * Retrieve all classes of service for the merchant 
+     * @return ConversationPbxClassOfServicesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxClassOfServicesResponse getPbxClassesOfService() throws ApiException {
+        ApiResponse<ConversationPbxClassOfServicesResponse> resp = getPbxClassesOfServiceWithHttpInfo();
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx classes of service
+     * Retrieve all classes of service for the merchant 
+     * @return ApiResponse&lt;ConversationPbxClassOfServicesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxClassOfServicesResponse> getPbxClassesOfServiceWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = getPbxClassesOfServiceValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServicesResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx classes of service (asynchronously)
+     * Retrieve all classes of service for the merchant 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxClassesOfServiceAsync(final ApiCallback<ConversationPbxClassOfServicesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxClassesOfServiceValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServicesResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPbxCosAuditLogs
+     * @param since ISO timestamp to filter entries since (optional)
+     * @param agentLogin Filter by agent login (optional)
+     * @param limit Maximum number of entries to return (default 100) (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPbxCosAuditLogsCall(String since, String agentLogin, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service/audit_log";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (since != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("since", since));
+        if (agentLogin != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("agent_login", agentLogin));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPbxCosAuditLogsValidateBeforeCall(String since, String agentLogin, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsCall(since, agentLogin, limit, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get pbx class of service audit logs
+     * Retrieve audit log entries for class of service enforcement 
+     * @param since ISO timestamp to filter entries since (optional)
+     * @param agentLogin Filter by agent login (optional)
+     * @param limit Maximum number of entries to return (default 100) (optional)
+     * @return ConversationPbxCosAuditLogsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(String since, String agentLogin, Integer limit) throws ApiException {
+        ApiResponse<ConversationPbxCosAuditLogsResponse> resp = getPbxCosAuditLogsWithHttpInfo(since, agentLogin, limit);
+        return resp.getData();
+    }
+
+    /**
+     * Get pbx class of service audit logs
+     * Retrieve audit log entries for class of service enforcement 
+     * @param since ISO timestamp to filter entries since (optional)
+     * @param agentLogin Filter by agent login (optional)
+     * @param limit Maximum number of entries to return (default 100) (optional)
+     * @return ApiResponse&lt;ConversationPbxCosAuditLogsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxCosAuditLogsResponse> getPbxCosAuditLogsWithHttpInfo(String since, String agentLogin, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get pbx class of service audit logs (asynchronously)
+     * Retrieve audit log entries for class of service enforcement 
+     * @param since ISO timestamp to filter entries since (optional)
+     * @param agentLogin Filter by agent login (optional)
+     * @param limit Maximum number of entries to return (default 100) (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPbxCosAuditLogsAsync(String since, String agentLogin, Integer limit, final ApiCallback<ConversationPbxCosAuditLogsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getPbxHardwarePhone
      * @param conversationPbxHardwarePhoneUuid  (required)
      * @param progressListener Progress listener
@@ -9590,6 +10085,128 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = insertPbxAudioValidateBeforeCall(pbxAudio, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for insertPbxClassOfService
+     * @param classOfService Class of service (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call insertPbxClassOfServiceCall(ConversationPbxClassOfService classOfService, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = classOfService;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call insertPbxClassOfServiceValidateBeforeCall(ConversationPbxClassOfService classOfService, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'classOfService' is set
+        if (classOfService == null) {
+            throw new ApiException("Missing the required parameter 'classOfService' when calling insertPbxClassOfService(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = insertPbxClassOfServiceCall(classOfService, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Insert pbx class of service
+     * Create a new class of service 
+     * @param classOfService Class of service (required)
+     * @return ConversationPbxClassOfServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxClassOfServiceResponse insertPbxClassOfService(ConversationPbxClassOfService classOfService) throws ApiException {
+        ApiResponse<ConversationPbxClassOfServiceResponse> resp = insertPbxClassOfServiceWithHttpInfo(classOfService);
+        return resp.getData();
+    }
+
+    /**
+     * Insert pbx class of service
+     * Create a new class of service 
+     * @param classOfService Class of service (required)
+     * @return ApiResponse&lt;ConversationPbxClassOfServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxClassOfServiceResponse> insertPbxClassOfServiceWithHttpInfo(ConversationPbxClassOfService classOfService) throws ApiException {
+        com.squareup.okhttp.Call call = insertPbxClassOfServiceValidateBeforeCall(classOfService, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Insert pbx class of service (asynchronously)
+     * Create a new class of service 
+     * @param classOfService Class of service (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call insertPbxClassOfServiceAsync(ConversationPbxClassOfService classOfService, final ApiCallback<ConversationPbxClassOfServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = insertPbxClassOfServiceValidateBeforeCall(classOfService, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -13274,6 +13891,138 @@ public class ConversationApi {
 
         com.squareup.okhttp.Call call = updatePbxAudioValidateBeforeCall(conversationPbxAudioUuid, pbxAudio, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updatePbxClassOfService
+     * @param classOfServiceUuid  (required)
+     * @param classOfService Class of service (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call updatePbxClassOfServiceCall(String classOfServiceUuid, ConversationPbxClassOfService classOfService, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = classOfService;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/class_of_service/{classOfServiceUuid}"
+            .replaceAll("\\{" + "classOfServiceUuid" + "\\}", apiClient.escapeString(classOfServiceUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updatePbxClassOfServiceValidateBeforeCall(String classOfServiceUuid, ConversationPbxClassOfService classOfService, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'classOfServiceUuid' is set
+        if (classOfServiceUuid == null) {
+            throw new ApiException("Missing the required parameter 'classOfServiceUuid' when calling updatePbxClassOfService(Async)");
+        }
+        
+        // verify the required parameter 'classOfService' is set
+        if (classOfService == null) {
+            throw new ApiException("Missing the required parameter 'classOfService' when calling updatePbxClassOfService(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = updatePbxClassOfServiceCall(classOfServiceUuid, classOfService, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update pbx class of service
+     * Update an existing class of service 
+     * @param classOfServiceUuid  (required)
+     * @param classOfService Class of service (required)
+     * @return ConversationPbxClassOfServiceResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ConversationPbxClassOfServiceResponse updatePbxClassOfService(String classOfServiceUuid, ConversationPbxClassOfService classOfService) throws ApiException {
+        ApiResponse<ConversationPbxClassOfServiceResponse> resp = updatePbxClassOfServiceWithHttpInfo(classOfServiceUuid, classOfService);
+        return resp.getData();
+    }
+
+    /**
+     * Update pbx class of service
+     * Update an existing class of service 
+     * @param classOfServiceUuid  (required)
+     * @param classOfService Class of service (required)
+     * @return ApiResponse&lt;ConversationPbxClassOfServiceResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ConversationPbxClassOfServiceResponse> updatePbxClassOfServiceWithHttpInfo(String classOfServiceUuid, ConversationPbxClassOfService classOfService) throws ApiException {
+        com.squareup.okhttp.Call call = updatePbxClassOfServiceValidateBeforeCall(classOfServiceUuid, classOfService, null, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update pbx class of service (asynchronously)
+     * Update an existing class of service 
+     * @param classOfServiceUuid  (required)
+     * @param classOfService Class of service (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updatePbxClassOfServiceAsync(String classOfServiceUuid, ConversationPbxClassOfService classOfService, final ApiCallback<ConversationPbxClassOfServiceResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updatePbxClassOfServiceValidateBeforeCall(classOfServiceUuid, classOfService, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ConversationPbxClassOfServiceResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

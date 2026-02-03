@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**deletePbxAddress**](ConversationApi.md#deletePbxAddress) | **DELETE** /conversation/pbx/address/{conversationPbxAddressUuid} | Delete pbx address
 [**deletePbxAgentVoicemail**](ConversationApi.md#deletePbxAgentVoicemail) | **DELETE** /conversation/pbx/agent/voicemails/{recording_sid} | Delete Agent Voicemail
 [**deletePbxAudio**](ConversationApi.md#deletePbxAudio) | **DELETE** /conversation/pbx/audio/{conversationPbxAudioUuid} | Delete pbx audio
+[**deletePbxClassOfService**](ConversationApi.md#deletePbxClassOfService) | **DELETE** /conversation/pbx/class_of_service/{classOfServiceUuid} | Delete pbx class of service
 [**deletePbxHardwarePhone**](ConversationApi.md#deletePbxHardwarePhone) | **DELETE** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Delete pbx hardware phone
 [**deletePbxMenu**](ConversationApi.md#deletePbxMenu) | **DELETE** /conversation/pbx/menu/{conversationPbxMenuUuid} | Delete pbx menu
 [**deletePbxPhoneNumber**](ConversationApi.md#deletePbxPhoneNumber) | **DELETE** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Delete pbx phoneNumber
@@ -56,6 +57,9 @@ Method | HTTP request | Description
 [**getPbxAudioUsage**](ConversationApi.md#getPbxAudioUsage) | **GET** /conversation/pbx/audio/{conversationPbxAudioUuid}/usage | Get pbx audio usage
 [**getPbxAudios**](ConversationApi.md#getPbxAudios) | **GET** /conversation/pbx/audio | Get pbx audios
 [**getPbxCall**](ConversationApi.md#getPbxCall) | **GET** /conversation/pbx/call/{callUuid} | Get pbx call record
+[**getPbxClassOfService**](ConversationApi.md#getPbxClassOfService) | **GET** /conversation/pbx/class_of_service/{classOfServiceUuid} | Get pbx class of service
+[**getPbxClassesOfService**](ConversationApi.md#getPbxClassesOfService) | **GET** /conversation/pbx/class_of_service | Get pbx classes of service
+[**getPbxCosAuditLogs**](ConversationApi.md#getPbxCosAuditLogs) | **GET** /conversation/pbx/class_of_service/audit_log | Get pbx class of service audit logs
 [**getPbxHardwarePhone**](ConversationApi.md#getPbxHardwarePhone) | **GET** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Get pbx hardware phone
 [**getPbxHardwarePhoneManufacturers**](ConversationApi.md#getPbxHardwarePhoneManufacturers) | **GET** /conversation/pbx/hardware_phone/manufacturers | Get pbx hardware phone manufacturers
 [**getPbxHardwarePhones**](ConversationApi.md#getPbxHardwarePhones) | **GET** /conversation/pbx/hardware_phone | Get pbx hardware phones
@@ -82,6 +86,7 @@ Method | HTTP request | Description
 [**insertConversationEngagement**](ConversationApi.md#insertConversationEngagement) | **POST** /conversation/engagements | Insert a engagement
 [**insertPbxAddress**](ConversationApi.md#insertPbxAddress) | **POST** /conversation/pbx/address | Insert pbx address
 [**insertPbxAudio**](ConversationApi.md#insertPbxAudio) | **POST** /conversation/pbx/audio | Insert pbx audio
+[**insertPbxClassOfService**](ConversationApi.md#insertPbxClassOfService) | **POST** /conversation/pbx/class_of_service | Insert pbx class of service
 [**insertPbxHardwarePhone**](ConversationApi.md#insertPbxHardwarePhone) | **POST** /conversation/pbx/hardware_phone | Insert pbx hardware phone
 [**insertPbxMenu**](ConversationApi.md#insertPbxMenu) | **POST** /conversation/pbx/menu | Insert pbx menu
 [**insertPbxQueue**](ConversationApi.md#insertPbxQueue) | **POST** /conversation/pbx/queue | Insert pbx queue
@@ -111,6 +116,7 @@ Method | HTTP request | Description
 [**updatePbxAddress**](ConversationApi.md#updatePbxAddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 [**updatePbxAgent**](ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 [**updatePbxAudio**](ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+[**updatePbxClassOfService**](ConversationApi.md#updatePbxClassOfService) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 [**updatePbxHardwarePhone**](ConversationApi.md#updatePbxHardwarePhone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
 [**updatePbxMenu**](ConversationApi.md#updatePbxMenu) | **PUT** /conversation/pbx/menu/{conversationPbxMenuUuid} | Update pbx menu
 [**updatePbxPhoneNumber**](ConversationApi.md#updatePbxPhoneNumber) | **PUT** /conversation/pbx/phone_number/{conversationPbxPhoneNumberUuid} | Update pbx phoneNumber
@@ -511,6 +517,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deletePbxClassOfService"></a>
+# **deletePbxClassOfService**
+> BaseResponse deletePbxClassOfService(classOfServiceUuid)
+
+Delete pbx class of service
+
+Delete a class of service 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String classOfServiceUuid = "classOfServiceUuid_example"; // String | 
+try {
+    BaseResponse result = apiInstance.deletePbxClassOfService(classOfServiceUuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#deletePbxClassOfService");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **String**|  |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
 
 ### Authorization
 
@@ -2678,6 +2734,156 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getPbxClassOfService"></a>
+# **getPbxClassOfService**
+> ConversationPbxClassOfServiceResponse getPbxClassOfService(classOfServiceUuid)
+
+Get pbx class of service
+
+Retrieve a single class of service 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String classOfServiceUuid = "classOfServiceUuid_example"; // String | 
+try {
+    ConversationPbxClassOfServiceResponse result = apiInstance.getPbxClassOfService(classOfServiceUuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getPbxClassOfService");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **String**|  |
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getPbxClassesOfService"></a>
+# **getPbxClassesOfService**
+> ConversationPbxClassOfServicesResponse getPbxClassesOfService()
+
+Get pbx classes of service
+
+Retrieve all classes of service for the merchant 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+try {
+    ConversationPbxClassOfServicesResponse result = apiInstance.getPbxClassesOfService();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getPbxClassesOfService");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPbxClassOfServicesResponse**](ConversationPbxClassOfServicesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getPbxCosAuditLogs"></a>
+# **getPbxCosAuditLogs**
+> ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(since, agentLogin, limit)
+
+Get pbx class of service audit logs
+
+Retrieve audit log entries for class of service enforcement 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String since = "since_example"; // String | ISO timestamp to filter entries since
+String agentLogin = "agentLogin_example"; // String | Filter by agent login
+Integer limit = 56; // Integer | Maximum number of entries to return (default 100)
+try {
+    ConversationPbxCosAuditLogsResponse result = apiInstance.getPbxCosAuditLogs(since, agentLogin, limit);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getPbxCosAuditLogs");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **String**| ISO timestamp to filter entries since | [optional]
+ **agentLogin** | **String**| Filter by agent login | [optional]
+ **limit** | **Integer**| Maximum number of entries to return (default 100) | [optional]
+
+### Return type
+
+[**ConversationPbxCosAuditLogsResponse**](ConversationPbxCosAuditLogsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getPbxHardwarePhone"></a>
 # **getPbxHardwarePhone**
 > ConversationPbxHardwarePhoneResponse getPbxHardwarePhone(conversationPbxHardwarePhoneUuid)
@@ -3942,6 +4148,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="insertPbxClassOfService"></a>
+# **insertPbxClassOfService**
+> ConversationPbxClassOfServiceResponse insertPbxClassOfService(classOfService)
+
+Insert pbx class of service
+
+Create a new class of service 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+ConversationPbxClassOfService classOfService = new ConversationPbxClassOfService(); // ConversationPbxClassOfService | Class of service
+try {
+    ConversationPbxClassOfServiceResponse result = apiInstance.insertPbxClassOfService(classOfService);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#insertPbxClassOfService");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfService** | [**ConversationPbxClassOfService**](ConversationPbxClassOfService.md)| Class of service |
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="insertPbxHardwarePhone"></a>
@@ -5426,6 +5682,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updatePbxClassOfService"></a>
+# **updatePbxClassOfService**
+> ConversationPbxClassOfServiceResponse updatePbxClassOfService(classOfServiceUuid, classOfService)
+
+Update pbx class of service
+
+Update an existing class of service 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String classOfServiceUuid = "classOfServiceUuid_example"; // String | 
+ConversationPbxClassOfService classOfService = new ConversationPbxClassOfService(); // ConversationPbxClassOfService | Class of service
+try {
+    ConversationPbxClassOfServiceResponse result = apiInstance.updatePbxClassOfService(classOfServiceUuid, classOfService);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#updatePbxClassOfService");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **classOfServiceUuid** | **String**|  |
+ **classOfService** | [**ConversationPbxClassOfService**](ConversationPbxClassOfService.md)| Class of service |
+
+### Return type
+
+[**ConversationPbxClassOfServiceResponse**](ConversationPbxClassOfServiceResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="updatePbxHardwarePhone"></a>

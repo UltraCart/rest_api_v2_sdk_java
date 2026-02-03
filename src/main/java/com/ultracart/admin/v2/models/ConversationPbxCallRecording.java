@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * ConversationPbxCallRecording
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-02T13:17:39.164-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-03T10:21:21.310-05:00")
 
 
 
@@ -41,6 +41,9 @@ public class ConversationPbxCallRecording {
 
   @SerializedName("is_primary")
   private Boolean isPrimary = null;
+
+  @SerializedName("recording_s3_key")
+  private String recordingS3Key = null;
 
   @SerializedName("recording_sid")
   private String recordingSid = null;
@@ -106,6 +109,24 @@ public class ConversationPbxCallRecording {
 
   public void setIsPrimary(Boolean isPrimary) {
     this.isPrimary = isPrimary;
+  }
+
+  public ConversationPbxCallRecording recordingS3Key(String recordingS3Key) {
+    this.recordingS3Key = recordingS3Key;
+    return this;
+  }
+
+   /**
+   * S3 key for the recording audio file
+   * @return recordingS3Key
+  **/
+  @ApiModelProperty(value = "S3 key for the recording audio file")
+  public String getRecordingS3Key() {
+    return recordingS3Key;
+  }
+
+  public void setRecordingS3Key(String recordingS3Key) {
+    this.recordingS3Key = recordingS3Key;
   }
 
   public ConversationPbxCallRecording recordingSid(String recordingSid) {
@@ -193,6 +214,7 @@ public class ConversationPbxCallRecording {
     return Objects.equals(this.channels, conversationPbxCallRecording.channels) &&
         Objects.equals(this.durationSeconds, conversationPbxCallRecording.durationSeconds) &&
         Objects.equals(this.isPrimary, conversationPbxCallRecording.isPrimary) &&
+        Objects.equals(this.recordingS3Key, conversationPbxCallRecording.recordingS3Key) &&
         Objects.equals(this.recordingSid, conversationPbxCallRecording.recordingSid) &&
         Objects.equals(this.recordingUrl, conversationPbxCallRecording.recordingUrl) &&
         Objects.equals(this.status, conversationPbxCallRecording.status) &&
@@ -201,7 +223,7 @@ public class ConversationPbxCallRecording {
 
   @Override
   public int hashCode() {
-    return Objects.hash(channels, durationSeconds, isPrimary, recordingSid, recordingUrl, status, transcript);
+    return Objects.hash(channels, durationSeconds, isPrimary, recordingS3Key, recordingSid, recordingUrl, status, transcript);
   }
 
 
@@ -213,6 +235,7 @@ public class ConversationPbxCallRecording {
     sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
     sb.append("    isPrimary: ").append(toIndentedString(isPrimary)).append("\n");
+    sb.append("    recordingS3Key: ").append(toIndentedString(recordingS3Key)).append("\n");
     sb.append("    recordingSid: ").append(toIndentedString(recordingSid)).append("\n");
     sb.append("    recordingUrl: ").append(toIndentedString(recordingUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
