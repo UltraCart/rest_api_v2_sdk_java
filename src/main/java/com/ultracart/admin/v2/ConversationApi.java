@@ -6840,13 +6840,14 @@ public class ConversationApi {
      * Build call for getPbxCosAuditLogs
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getPbxCosAuditLogsCall(String since, String agentLogin, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getPbxCosAuditLogsCall(String since, String agentLogin, String action, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6858,6 +6859,8 @@ public class ConversationApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("since", since));
         if (agentLogin != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("agent_login", agentLogin));
+        if (action != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("action", action));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
@@ -6894,10 +6897,10 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getPbxCosAuditLogsValidateBeforeCall(String since, String agentLogin, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getPbxCosAuditLogsValidateBeforeCall(String since, String agentLogin, String action, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = getPbxCosAuditLogsCall(since, agentLogin, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsCall(since, agentLogin, action, limit, progressListener, progressRequestListener);
         return call;
 
     }
@@ -6907,12 +6910,13 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @return ConversationPbxCosAuditLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(String since, String agentLogin, Integer limit) throws ApiException {
-        ApiResponse<ConversationPbxCosAuditLogsResponse> resp = getPbxCosAuditLogsWithHttpInfo(since, agentLogin, limit);
+    public ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(String since, String agentLogin, String action, Integer limit) throws ApiException {
+        ApiResponse<ConversationPbxCosAuditLogsResponse> resp = getPbxCosAuditLogsWithHttpInfo(since, agentLogin, action, limit);
         return resp.getData();
     }
 
@@ -6921,12 +6925,13 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @return ApiResponse&lt;ConversationPbxCosAuditLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ConversationPbxCosAuditLogsResponse> getPbxCosAuditLogsWithHttpInfo(String since, String agentLogin, Integer limit) throws ApiException {
-        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, null, null);
+    public ApiResponse<ConversationPbxCosAuditLogsResponse> getPbxCosAuditLogsWithHttpInfo(String since, String agentLogin, String action, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, action, limit, null, null);
         Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -6936,12 +6941,13 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPbxCosAuditLogsAsync(String since, String agentLogin, Integer limit, final ApiCallback<ConversationPbxCosAuditLogsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPbxCosAuditLogsAsync(String since, String agentLogin, String action, Integer limit, final ApiCallback<ConversationPbxCosAuditLogsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -6962,7 +6968,7 @@ public class ConversationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, action, limit, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

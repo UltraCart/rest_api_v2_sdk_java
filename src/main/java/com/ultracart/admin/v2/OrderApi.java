@@ -50,6 +50,7 @@ import com.ultracart.admin.v2.models.OrderReplacement;
 import com.ultracart.admin.v2.models.OrderReplacementResponse;
 import com.ultracart.admin.v2.models.OrderResponse;
 import com.ultracart.admin.v2.models.OrderTokenResponse;
+import com.ultracart.admin.v2.models.OrderUpsellCartRequest;
 import com.ultracart.admin.v2.models.OrderValidationRequest;
 import com.ultracart.admin.v2.models.OrderValidationResponse;
 import com.ultracart.admin.v2.models.OrdersResponse;
@@ -2133,6 +2134,144 @@ public class OrderApi {
 
         com.squareup.okhttp.Call call = getOrderEdiDocumentsValidateBeforeCall(orderId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrderEdiDocumentsResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getOrderUpsellCart
+     * @param upsellCartRequest Request for the upsell cart (required)
+     * @param orderId The order id to base things on. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getOrderUpsellCartCall(OrderUpsellCartRequest upsellCartRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = upsellCartRequest;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/upsell_with_cart"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getOrderUpsellCartValidateBeforeCall(OrderUpsellCartRequest upsellCartRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'upsellCartRequest' is set
+        if (upsellCartRequest == null) {
+            throw new ApiException("Missing the required parameter 'upsellCartRequest' when calling getOrderUpsellCart(Async)");
+        }
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getOrderUpsellCart(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = getOrderUpsellCartCall(upsellCartRequest, orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get Order Upsell Cart
+     * Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+     * @param upsellCartRequest Request for the upsell cart (required)
+     * @param orderId The order id to base things on. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse getOrderUpsellCart(OrderUpsellCartRequest upsellCartRequest, String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = getOrderUpsellCartWithHttpInfo(upsellCartRequest, orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Get Order Upsell Cart
+     * Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+     * @param upsellCartRequest Request for the upsell cart (required)
+     * @param orderId The order id to base things on. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> getOrderUpsellCartWithHttpInfo(OrderUpsellCartRequest upsellCartRequest, String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = getOrderUpsellCartValidateBeforeCall(upsellCartRequest, orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get Order Upsell Cart (asynchronously)
+     * Creates a new cart using cloned information from the order, but with a specific set of items, coupons and optionally a checkout URL to return the customer to 
+     * @param upsellCartRequest Request for the upsell cart (required)
+     * @param orderId The order id to base things on. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getOrderUpsellCartAsync(OrderUpsellCartRequest upsellCartRequest, String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getOrderUpsellCartValidateBeforeCall(upsellCartRequest, orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

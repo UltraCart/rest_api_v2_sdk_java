@@ -2832,7 +2832,7 @@ This endpoint does not need any parameter.
 
 <a name="getPbxCosAuditLogs"></a>
 # **getPbxCosAuditLogs**
-> ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(since, agentLogin, limit)
+> ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(since, agentLogin, action, limit)
 
 Get pbx class of service audit logs
 
@@ -2853,9 +2853,10 @@ ConversationApi apiInstance = new ConversationApi(apiKey);
 
 String since = "since_example"; // String | ISO timestamp to filter entries since
 String agentLogin = "agentLogin_example"; // String | Filter by agent login
+String action = "action_example"; // String | Action
 Integer limit = 56; // Integer | Maximum number of entries to return (default 100)
 try {
-    ConversationPbxCosAuditLogsResponse result = apiInstance.getPbxCosAuditLogs(since, agentLogin, limit);
+    ConversationPbxCosAuditLogsResponse result = apiInstance.getPbxCosAuditLogs(since, agentLogin, action, limit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConversationApi#getPbxCosAuditLogs");
@@ -2869,6 +2870,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **since** | **String**| ISO timestamp to filter entries since | [optional]
  **agentLogin** | **String**| Filter by agent login | [optional]
+ **action** | **String**| Action | [optional]
  **limit** | **Integer**| Maximum number of entries to return (default 100) | [optional]
 
 ### Return type
