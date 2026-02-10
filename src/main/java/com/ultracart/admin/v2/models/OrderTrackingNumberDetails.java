@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderTrackingNumberDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T11:52:46.260-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T12:32:25.863-05:00[America/Indianapolis]")
 public class OrderTrackingNumberDetails {
   public static final String SERIALIZED_NAME_ACTUAL_DELIVERY_DATE = "actual_delivery_date";
   @SerializedName(SERIALIZED_NAME_ACTUAL_DELIVERY_DATE)
