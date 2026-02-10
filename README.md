@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-02-03T10:36:58.010-05:00[America/Indianapolis]
+- Build date: 2026-02-10T11:52:46.260-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.57</version>
+    <version>4.1.58</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.57"
+     implementation "com.ultracart:rest-sdk:4.1.58"
   }
 ```
 
@@ -372,7 +372,6 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getInventorySnapshot**](docs/ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
-*ItemApi* | [**getItemShippingDistributionCenterByCode**](docs/ItemApi.md#getItemShippingDistributionCenterByCode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 *ItemApi* | [**getReview**](docs/ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
@@ -384,8 +383,6 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
-*ItemApi* | [**updateItemInventories**](docs/ItemApi.md#updateItemInventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
-*ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -407,6 +404,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrderEdiDocuments**](docs/OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
+*OrderApi* | [**getOrderUpsellCart**](docs/OrderApi.md#getOrderUpsellCart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 *OrderApi* | [**getOrders**](docs/OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
@@ -1290,8 +1288,6 @@ Class | Method | HTTP request | Description
  - [ItemInventorySnapshot](docs/ItemInventorySnapshot.md)
  - [ItemInventorySnapshotDistributionCenter](docs/ItemInventorySnapshotDistributionCenter.md)
  - [ItemInventorySnapshotResponse](docs/ItemInventorySnapshotResponse.md)
- - [ItemInventoryUpdate](docs/ItemInventoryUpdate.md)
- - [ItemInventoryUpdateRequest](docs/ItemInventoryUpdateRequest.md)
  - [ItemKitComponent](docs/ItemKitComponent.md)
  - [ItemKitDefinition](docs/ItemKitDefinition.md)
  - [ItemOption](docs/ItemOption.md)
@@ -1323,7 +1319,6 @@ Class | Method | HTTP request | Description
  - [ItemShippingDestinationMarkup](docs/ItemShippingDestinationMarkup.md)
  - [ItemShippingDestinationRestriction](docs/ItemShippingDestinationRestriction.md)
  - [ItemShippingDistributionCenter](docs/ItemShippingDistributionCenter.md)
- - [ItemShippingDistributionCenterResponse](docs/ItemShippingDistributionCenterResponse.md)
  - [ItemShippingMethod](docs/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/ItemShippingPackageRequirement.md)
  - [ItemTag](docs/ItemTag.md)
@@ -1429,6 +1424,7 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetail](docs/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/OrderTrackingNumberDetails.md)
  - [OrderTransactionalMerchantNote](docs/OrderTransactionalMerchantNote.md)
+ - [OrderUpsellCartRequest](docs/OrderUpsellCartRequest.md)
  - [OrderUtm](docs/OrderUtm.md)
  - [OrderValidationRequest](docs/OrderValidationRequest.md)
  - [OrderValidationResponse](docs/OrderValidationResponse.md)
@@ -1692,6 +1688,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 4.1.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
 | 4.1.56 | 02/02/2026 | conversations - add default phone number to the agent auth |
 | 4.1.55 | 02/02/2026 | conversations - add enumerated values for say voice on queue and agent |

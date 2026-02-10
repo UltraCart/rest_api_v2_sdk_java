@@ -2490,7 +2490,7 @@ This endpoint does not need any parameter.
 
 <a name="getPbxCosAuditLogs"></a>
 # **getPbxCosAuditLogs**
-> ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(since, agentLogin, limit)
+> ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(since, agentLogin, action, limit)
 
 Get pbx class of service audit logs
 
@@ -2508,6 +2508,7 @@ Retrieve audit log entries for class of service enforcement
 |------------- | ------------- | ------------- | -------------|
 | **since** | **String**| ISO timestamp to filter entries since | [optional] |
 | **agentLogin** | **String**| Filter by agent login | [optional] |
+| **action** | **String**| Action | [optional] |
 | **limit** | **Integer**| Maximum number of entries to return (default 100) | [optional] |
 
 ### Return type

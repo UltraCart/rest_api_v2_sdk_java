@@ -638,8 +638,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -671,7 +669,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -779,6 +776,7 @@ docs/OrderTokenResponse.md
 docs/OrderTrackingNumberDetail.md
 docs/OrderTrackingNumberDetails.md
 docs/OrderTransactionalMerchantNote.md
+docs/OrderUpsellCartRequest.md
 docs/OrderUtm.md
 docs/OrderValidationRequest.md
 docs/OrderValidationResponse.md
@@ -1619,8 +1617,6 @@ src/main/java/com/ultracart/admin/v2/models/ItemInternal.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshot.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotDistributionCenter.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotResponse.java
-src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdate.java
-src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitComponent.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitDefinition.java
 src/main/java/com/ultracart/admin/v2/models/ItemOption.java
@@ -1652,7 +1648,6 @@ src/main/java/com/ultracart/admin/v2/models/ItemShippingCase.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationMarkup.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationRestriction.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenter.java
-src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenterResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingMethod.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingPackageRequirement.java
 src/main/java/com/ultracart/admin/v2/models/ItemTag.java
@@ -1758,6 +1753,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetail.java
 src/main/java/com/ultracart/admin/v2/models/OrderTrackingNumberDetails.java
 src/main/java/com/ultracart/admin/v2/models/OrderTransactionalMerchantNote.java
+src/main/java/com/ultracart/admin/v2/models/OrderUpsellCartRequest.java
 src/main/java/com/ultracart/admin/v2/models/OrderUtm.java
 src/main/java/com/ultracart/admin/v2/models/OrderValidationRequest.java
 src/main/java/com/ultracart/admin/v2/models/OrderValidationResponse.java

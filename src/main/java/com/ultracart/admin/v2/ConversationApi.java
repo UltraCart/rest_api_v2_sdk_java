@@ -8160,6 +8160,7 @@ public class ConversationApi {
      * Build call for getPbxCosAuditLogs
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8175,7 +8176,7 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPbxCosAuditLogsCall(String since, String agentLogin, Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPbxCosAuditLogsCall(String since, String agentLogin, String action, Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8208,6 +8209,10 @@ public class ConversationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("agent_login", agentLogin));
         }
 
+        if (action != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("action", action));
+        }
+
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
@@ -8233,10 +8238,10 @@ public class ConversationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPbxCosAuditLogsValidateBeforeCall(String since, String agentLogin, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPbxCosAuditLogsValidateBeforeCall(String since, String agentLogin, String action, Integer limit, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getPbxCosAuditLogsCall(since, agentLogin, limit, _callback);
+        okhttp3.Call localVarCall = getPbxCosAuditLogsCall(since, agentLogin, action, limit, _callback);
         return localVarCall;
 
     }
@@ -8246,6 +8251,7 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @return ConversationPbxCosAuditLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8260,8 +8266,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(String since, String agentLogin, Integer limit) throws ApiException {
-        ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResp = getPbxCosAuditLogsWithHttpInfo(since, agentLogin, limit);
+    public ConversationPbxCosAuditLogsResponse getPbxCosAuditLogs(String since, String agentLogin, String action, Integer limit) throws ApiException {
+        ApiResponse<ConversationPbxCosAuditLogsResponse> localVarResp = getPbxCosAuditLogsWithHttpInfo(since, agentLogin, action, limit);
         return localVarResp.getData();
     }
 
@@ -8270,6 +8276,7 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @return ApiResponse&lt;ConversationPbxCosAuditLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8284,8 +8291,8 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<ConversationPbxCosAuditLogsResponse> getPbxCosAuditLogsWithHttpInfo(String since, String agentLogin, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, null);
+    public ApiResponse<ConversationPbxCosAuditLogsResponse> getPbxCosAuditLogsWithHttpInfo(String since, String agentLogin, String action, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, action, limit, null);
         Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8295,6 +8302,7 @@ public class ConversationApi {
      * Retrieve audit log entries for class of service enforcement 
      * @param since ISO timestamp to filter entries since (optional)
      * @param agentLogin Filter by agent login (optional)
+     * @param action Action (optional)
      * @param limit Maximum number of entries to return (default 100) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -8310,9 +8318,9 @@ public class ConversationApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getPbxCosAuditLogsAsync(String since, String agentLogin, Integer limit, final ApiCallback<ConversationPbxCosAuditLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call getPbxCosAuditLogsAsync(String since, String agentLogin, String action, Integer limit, final ApiCallback<ConversationPbxCosAuditLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, limit, _callback);
+        okhttp3.Call localVarCall = getPbxCosAuditLogsValidateBeforeCall(since, agentLogin, action, limit, _callback);
         Type localVarReturnType = new TypeToken<ConversationPbxCosAuditLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
