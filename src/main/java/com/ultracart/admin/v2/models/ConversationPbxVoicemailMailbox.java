@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxVoicemailMailbox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-10T12:32:25.863-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:24:41.514-05:00[America/Indianapolis]")
 public class ConversationPbxVoicemailMailbox {
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID = "conversation_pbx_voicemail_mailbox_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID)

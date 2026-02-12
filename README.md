@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-02-10T12:32:25.863-05:00[America/Indianapolis]
+- Build date: 2026-02-12T16:24:41.514-05:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.59</version>
+    <version>4.1.62</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.59"
+     implementation "com.ultracart:rest-sdk:4.1.62"
   }
 ```
 
@@ -1688,6 +1688,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.62 | 02/12/2026 | build automation run, no code changes |
+| 4.1.61 | 02/12/2026 | order - methods to release held orders |
+| 4.1.60 | 02/12/2026 | auto order - properties, item add-ons, and item properties |
 | 4.1.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
 | 4.1.58 | 02/10/2026 | conversations - new method to look up an item with sparse variations. |
 | 4.1.57 | 02/03/2026 | conversations - pbx class of service objects and endpoints |
