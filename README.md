@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-02-12T15:34:18.709-05:00
+  - Build date: 2026-02-12T16:08:36.126-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.61</version>
+  <version>3.11.62</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.61"
+compile "com.ultracart:rest-sdk:3.11.62"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.61.jar`
+* `target/rest-sdk-3.11.62.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1700,6 +1700,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.62 | 02/12/2026 | build automation run, no code changes |
 | 3.11.61 | 02/12/2026 | order - methods to release held orders |
 | 3.11.60 | 02/12/2026 | auto order - properties, item add-ons, and item properties |
 | 3.11.59 | 02/10/2026 | conversations - new method to look up an item with sparse variations |
