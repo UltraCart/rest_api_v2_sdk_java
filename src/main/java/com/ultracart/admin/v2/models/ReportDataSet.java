@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * ReportDataSet
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-10T12:20:25.611-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T10:18:40.405-05:00")
 
 
 
