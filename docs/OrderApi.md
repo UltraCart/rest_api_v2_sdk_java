@@ -24,6 +24,8 @@ Method | HTTP request | Description
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
+[**heldOrderAddItemsAndRelease**](OrderApi.md#heldOrderAddItemsAndRelease) | **PUT** /order/orders/{order_id}/hold/add_items_and_release | Add items and release a held order
+[**heldOrderRelease**](OrderApi.md#heldOrderRelease) | **PUT** /order/orders/{order_id}/hold/release | Release a held order
 [**insertOrder**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
 [**isRefundableOrder**](OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
@@ -1128,6 +1130,112 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="heldOrderAddItemsAndRelease"></a>
+# **heldOrderAddItemsAndRelease**
+> OrderResponse heldOrderAddItemsAndRelease(addItemsAndReleaseRequest, orderId, expand)
+
+Add items and release a held order
+
+This method adds items to an order in the hold stage and releases it 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest = new OrderAddItemsAndReleaseRequest(); // OrderAddItemsAndReleaseRequest | Add items and release request
+String orderId = "orderId_example"; // String | The order id to release.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.heldOrderAddItemsAndRelease(addItemsAndReleaseRequest, orderId, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#heldOrderAddItemsAndRelease");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **addItemsAndReleaseRequest** | [**OrderAddItemsAndReleaseRequest**](OrderAddItemsAndReleaseRequest.md)| Add items and release request |
+ **orderId** | **String**| The order id to release. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="heldOrderRelease"></a>
+# **heldOrderRelease**
+> OrderResponse heldOrderRelease(orderId, expand)
+
+Release a held order
+
+This method releases an order from the hold stage 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.OrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+OrderApi apiInstance = new OrderApi(apiKey);
+
+String orderId = "orderId_example"; // String | The order id to release.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    OrderResponse result = apiInstance.heldOrderRelease(orderId, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrderApi#heldOrderRelease");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderId** | **String**| The order id to release. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**OrderResponse**](OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 <a name="insertOrder"></a>

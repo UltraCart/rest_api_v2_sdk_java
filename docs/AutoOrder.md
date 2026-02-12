@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **originalOrder** | [**Order**](Order.md) |  |  [optional]
 **originalOrderId** | **String** | The original order id that this auto order is associated with. |  [optional]
 **overrideAffiliateId** | **Integer** | Override the affiliate id given credit for rebills of this auto order |  [optional]
+**properties** | [**List&lt;AutoOrderProperty&gt;**](AutoOrderProperty.md) | Array of property objects |  [optional]
 **rebillOrders** | [**List&lt;Order&gt;**](Order.md) | Rebill orders that have taken place on this auto order |  [optional]
 **rotatingTransactionGatewayCode** | **String** | The RTG code associated with this order for future rebills |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | The status of the auto order |  [optional]

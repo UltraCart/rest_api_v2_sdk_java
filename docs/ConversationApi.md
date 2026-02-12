@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**getConversationDepartments**](ConversationApi.md#getConversationDepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 [**getConversationEngagement**](ConversationApi.md#getConversationEngagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 [**getConversationEngagements**](ConversationApi.md#getConversationEngagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
+[**getConversationItemVariations**](ConversationApi.md#getConversationItemVariations) | **GET** /conversation/items/{merchant_item_id}/variations | Retrieve an item with sparse variations populated
 [**getConversationKnowledgeBaseDocumentUploadUrl**](ConversationApi.md#getConversationKnowledgeBaseDocumentUploadUrl) | **GET** /conversation/agent/profiles/{user_id}/knowledge_base/upload_url/{extension} | Get a pre-signed conversation knowledge base document upload URL
 [**getConversationMessages**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**getConversationMultimediaUploadUrl**](ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
@@ -1690,6 +1691,56 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ConversationEngagementsResponse**](ConversationEngagementsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getConversationItemVariations"></a>
+# **getConversationItemVariations**
+> ItemResponse getConversationItemVariations(merchantItemId)
+
+Retrieve an item with sparse variations populated
+
+Retrieve an item with sparse variations populated 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.ConversationApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+ConversationApi apiInstance = new ConversationApi(apiKey);
+
+String merchantItemId = "merchantItemId_example"; // String | 
+try {
+    ItemResponse result = apiInstance.getConversationItemVariations(merchantItemId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConversationApi#getConversationItemVariations");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantItemId** | **String**|  |
+
+### Return type
+
+[**ItemResponse**](ItemResponse.md)
 
 ### Authorization
 

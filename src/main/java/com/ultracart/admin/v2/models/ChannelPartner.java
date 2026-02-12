@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ChannelPartner
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:08:36.126-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:00:28.544-05:00")
 
 
 

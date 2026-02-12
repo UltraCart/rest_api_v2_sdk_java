@@ -34,6 +34,7 @@ import com.ultracart.admin.v2.models.BaseResponse;
 import java.math.BigDecimal;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import com.ultracart.admin.v2.models.Order;
+import com.ultracart.admin.v2.models.OrderAddItemsAndReleaseRequest;
 import com.ultracart.admin.v2.models.OrderAssignToAffiliateRequest;
 import com.ultracart.admin.v2.models.OrderByTokenQuery;
 import com.ultracart.admin.v2.models.OrderEdiDocumentsResponse;
@@ -2845,6 +2846,273 @@ public class OrderApi {
 
         com.squareup.okhttp.Call call = getOrdersByQueryValidateBeforeCall(orderQuery, limit, offset, sort, expand, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<OrdersResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for heldOrderAddItemsAndRelease
+     * @param addItemsAndReleaseRequest Add items and release request (required)
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call heldOrderAddItemsAndReleaseCall(OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = addItemsAndReleaseRequest;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/hold/add_items_and_release"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call heldOrderAddItemsAndReleaseValidateBeforeCall(OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'addItemsAndReleaseRequest' is set
+        if (addItemsAndReleaseRequest == null) {
+            throw new ApiException("Missing the required parameter 'addItemsAndReleaseRequest' when calling heldOrderAddItemsAndRelease(Async)");
+        }
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling heldOrderAddItemsAndRelease(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = heldOrderAddItemsAndReleaseCall(addItemsAndReleaseRequest, orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Add items and release a held order
+     * This method adds items to an order in the hold stage and releases it 
+     * @param addItemsAndReleaseRequest Add items and release request (required)
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse heldOrderAddItemsAndRelease(OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = heldOrderAddItemsAndReleaseWithHttpInfo(addItemsAndReleaseRequest, orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Add items and release a held order
+     * This method adds items to an order in the hold stage and releases it 
+     * @param addItemsAndReleaseRequest Add items and release request (required)
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> heldOrderAddItemsAndReleaseWithHttpInfo(OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = heldOrderAddItemsAndReleaseValidateBeforeCall(addItemsAndReleaseRequest, orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Add items and release a held order (asynchronously)
+     * This method adds items to an order in the hold stage and releases it 
+     * @param addItemsAndReleaseRequest Add items and release request (required)
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call heldOrderAddItemsAndReleaseAsync(OrderAddItemsAndReleaseRequest addItemsAndReleaseRequest, String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = heldOrderAddItemsAndReleaseValidateBeforeCall(addItemsAndReleaseRequest, orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for heldOrderRelease
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call heldOrderReleaseCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/hold/release"
+            .replaceAll("\\{" + "order_id" + "\\}", apiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (expand != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("_expand", expand));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call heldOrderReleaseValidateBeforeCall(String orderId, String expand, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling heldOrderRelease(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = heldOrderReleaseCall(orderId, expand, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Release a held order
+     * This method releases an order from the hold stage 
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return OrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OrderResponse heldOrderRelease(String orderId, String expand) throws ApiException {
+        ApiResponse<OrderResponse> resp = heldOrderReleaseWithHttpInfo(orderId, expand);
+        return resp.getData();
+    }
+
+    /**
+     * Release a held order
+     * This method releases an order from the hold stage 
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;OrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OrderResponse> heldOrderReleaseWithHttpInfo(String orderId, String expand) throws ApiException {
+        com.squareup.okhttp.Call call = heldOrderReleaseValidateBeforeCall(orderId, expand, null, null);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Release a held order (asynchronously)
+     * This method releases an order from the hold stage 
+     * @param orderId The order id to release. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call heldOrderReleaseAsync(String orderId, String expand, final ApiCallback<OrderResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = heldOrderReleaseValidateBeforeCall(orderId, expand, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<OrderResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

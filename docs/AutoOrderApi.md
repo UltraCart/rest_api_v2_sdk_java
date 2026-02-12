@@ -14,6 +14,9 @@ Method | HTTP request | Description
 [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**pauseAutoOrder**](AutoOrderApi.md#pauseAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**updateAutoOrderItemAddOns**](AutoOrderApi.md#updateAutoOrderItemAddOns) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons
+[**updateAutoOrderItemProperties**](AutoOrderApi.md#updateAutoOrderItemProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties
+[**updateAutoOrderProperties**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties
 [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
 
@@ -578,6 +581,172 @@ Name | Type | Description  | Notes
  **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update |
  **autoOrderOid** | **Integer**| The auto order oid to update. |
  **validateOriginalOrder** | **String**| Validate original order before updating | [optional]
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateAutoOrderItemAddOns"></a>
+# **updateAutoOrderItemAddOns**
+> AutoOrderResponse updateAutoOrderItemAddOns(autoOrderAddOnsUpdateRequest, autoOrderOid, autoOrderItemOid, expand)
+
+Update an auto order item add ons
+
+Update an auto order item add ons.  Returns the auto order based upon expansion 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+
+AutoOrderAddonItemsUpdateRequest autoOrderAddOnsUpdateRequest = new AutoOrderAddonItemsUpdateRequest(); // AutoOrderAddonItemsUpdateRequest | Auto order add ons update request
+Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+Integer autoOrderItemOid = 56; // Integer | The auto order item oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.updateAutoOrderItemAddOns(autoOrderAddOnsUpdateRequest, autoOrderOid, autoOrderItemOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#updateAutoOrderItemAddOns");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderAddOnsUpdateRequest** | [**AutoOrderAddonItemsUpdateRequest**](AutoOrderAddonItemsUpdateRequest.md)| Auto order add ons update request |
+ **autoOrderOid** | **Integer**| The auto order oid to update. |
+ **autoOrderItemOid** | **Integer**| The auto order item oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateAutoOrderItemProperties"></a>
+# **updateAutoOrderItemProperties**
+> AutoOrderResponse updateAutoOrderItemProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, autoOrderItemOid, expand)
+
+Update an auto order item properties
+
+Update an auto order item properties.  Returns the auto order based upon expansion 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+
+AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest = new AutoOrderPropertiesUpdateRequest(); // AutoOrderPropertiesUpdateRequest | Auto order property update request
+Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+Integer autoOrderItemOid = 56; // Integer | The auto order item oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.updateAutoOrderItemProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, autoOrderItemOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#updateAutoOrderItemProperties");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request |
+ **autoOrderOid** | **Integer**| The auto order oid to update. |
+ **autoOrderItemOid** | **Integer**| The auto order item oid to update. |
+ **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+<a name="updateAutoOrderProperties"></a>
+# **updateAutoOrderProperties**
+> AutoOrderResponse updateAutoOrderProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, expand)
+
+Update an auto order properties
+
+Update an auto order properties.  Returns the auto order based upon expansion 
+
+### Example
+```java
+// Import classes:
+//import com.ultracart.admin.v2.swagger.ApiClient;
+//import com.ultracart.admin.v2.swagger.ApiException;
+//import com.ultracart.admin.v2.swagger.Configuration;
+//import com.ultracart.admin.v2.swagger.auth.*;
+//import com.ultracart.admin.v2.AutoOrderApi;
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+final String apiKey = "109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00";
+AutoOrderApi apiInstance = new AutoOrderApi(apiKey);
+
+AutoOrderPropertiesUpdateRequest autoOrderPropertiesUpdateRequest = new AutoOrderPropertiesUpdateRequest(); // AutoOrderPropertiesUpdateRequest | Auto order property update request
+Integer autoOrderOid = 56; // Integer | The auto order oid to update.
+String expand = "expand_example"; // String | The object expansion to perform on the result.  See documentation for examples
+try {
+    AutoOrderResponse result = apiInstance.updateAutoOrderProperties(autoOrderPropertiesUpdateRequest, autoOrderOid, expand);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AutoOrderApi#updateAutoOrderProperties");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request |
+ **autoOrderOid** | **Integer**| The auto order oid to update. |
  **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

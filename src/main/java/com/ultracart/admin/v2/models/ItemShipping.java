@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:08:36.126-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:00:28.544-05:00")
 
 
 
@@ -168,6 +168,9 @@ public class ItemShipping {
 
   @SerializedName("restrict_shipment_on_wednesday")
   private Boolean restrictShipmentOnWednesday = null;
+
+  @SerializedName("send_to_hold_before_fulfillment")
+  private Boolean sendToHoldBeforeFulfillment = null;
 
   @SerializedName("ship_separately")
   private Boolean shipSeparately = null;
@@ -997,6 +1000,24 @@ public class ItemShipping {
     this.restrictShipmentOnWednesday = restrictShipmentOnWednesday;
   }
 
+  public ItemShipping sendToHoldBeforeFulfillment(Boolean sendToHoldBeforeFulfillment) {
+    this.sendToHoldBeforeFulfillment = sendToHoldBeforeFulfillment;
+    return this;
+  }
+
+   /**
+   * Send order to hold stage before fulfillment
+   * @return sendToHoldBeforeFulfillment
+  **/
+  @ApiModelProperty(value = "Send order to hold stage before fulfillment")
+  public Boolean isSendToHoldBeforeFulfillment() {
+    return sendToHoldBeforeFulfillment;
+  }
+
+  public void setSendToHoldBeforeFulfillment(Boolean sendToHoldBeforeFulfillment) {
+    this.sendToHoldBeforeFulfillment = sendToHoldBeforeFulfillment;
+  }
+
   public ItemShipping shipSeparately(Boolean shipSeparately) {
     this.shipSeparately = shipSeparately;
     return this;
@@ -1193,6 +1214,7 @@ public class ItemShipping {
         Objects.equals(this.restrictShipmentOnThursday, itemShipping.restrictShipmentOnThursday) &&
         Objects.equals(this.restrictShipmentOnTuesday, itemShipping.restrictShipmentOnTuesday) &&
         Objects.equals(this.restrictShipmentOnWednesday, itemShipping.restrictShipmentOnWednesday) &&
+        Objects.equals(this.sendToHoldBeforeFulfillment, itemShipping.sendToHoldBeforeFulfillment) &&
         Objects.equals(this.shipSeparately, itemShipping.shipSeparately) &&
         Objects.equals(this.shipSeparatelyAdditionalWeight, itemShipping.shipSeparatelyAdditionalWeight) &&
         Objects.equals(this.shipSeparatelyHeight, itemShipping.shipSeparatelyHeight) &&
@@ -1205,7 +1227,7 @@ public class ItemShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, sendToHoldBeforeFulfillment, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
 
@@ -1256,6 +1278,7 @@ public class ItemShipping {
     sb.append("    restrictShipmentOnThursday: ").append(toIndentedString(restrictShipmentOnThursday)).append("\n");
     sb.append("    restrictShipmentOnTuesday: ").append(toIndentedString(restrictShipmentOnTuesday)).append("\n");
     sb.append("    restrictShipmentOnWednesday: ").append(toIndentedString(restrictShipmentOnWednesday)).append("\n");
+    sb.append("    sendToHoldBeforeFulfillment: ").append(toIndentedString(sendToHoldBeforeFulfillment)).append("\n");
     sb.append("    shipSeparately: ").append(toIndentedString(shipSeparately)).append("\n");
     sb.append("    shipSeparatelyAdditionalWeight: ").append(toIndentedString(shipSeparatelyAdditionalWeight)).append("\n");
     sb.append("    shipSeparatelyHeight: ").append(toIndentedString(shipSeparatelyHeight)).append("\n");

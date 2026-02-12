@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.AutoOrderAddonItem;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.AutoOrderManagement;
+import com.ultracart.admin.v2.models.AutoOrderProperty;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ import java.util.List;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:08:36.126-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:00:28.544-05:00")
 
 
 
@@ -110,6 +111,9 @@ public class AutoOrder {
 
   @SerializedName("override_affiliate_id")
   private Integer overrideAffiliateId = null;
+
+  @SerializedName("properties")
+  private List<AutoOrderProperty> properties = null;
 
   @SerializedName("rebill_orders")
   private List<Order> rebillOrders = null;
@@ -627,6 +631,32 @@ public class AutoOrder {
     this.overrideAffiliateId = overrideAffiliateId;
   }
 
+  public AutoOrder properties(List<AutoOrderProperty> properties) {
+    this.properties = properties;
+    return this;
+  }
+
+  public AutoOrder addPropertiesItem(AutoOrderProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<AutoOrderProperty>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Array of property objects
+   * @return properties
+  **/
+  @ApiModelProperty(value = "Array of property objects")
+  public List<AutoOrderProperty> getProperties() {
+    return properties;
+  }
+
+  public void setProperties(List<AutoOrderProperty> properties) {
+    this.properties = properties;
+  }
+
   public AutoOrder rebillOrders(List<Order> rebillOrders) {
     this.rebillOrders = rebillOrders;
     return this;
@@ -723,6 +753,7 @@ public class AutoOrder {
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
         Objects.equals(this.overrideAffiliateId, autoOrder.overrideAffiliateId) &&
+        Objects.equals(this.properties, autoOrder.properties) &&
         Objects.equals(this.rebillOrders, autoOrder.rebillOrders) &&
         Objects.equals(this.rotatingTransactionGatewayCode, autoOrder.rotatingTransactionGatewayCode) &&
         Objects.equals(this.status, autoOrder.status);
@@ -730,7 +761,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, properties, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
 
@@ -763,6 +794,7 @@ public class AutoOrder {
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
     sb.append("    overrideAffiliateId: ").append(toIndentedString(overrideAffiliateId)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    rebillOrders: ").append(toIndentedString(rebillOrders)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

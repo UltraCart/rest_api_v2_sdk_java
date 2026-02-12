@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**addOns** | [**List&lt;AutoOrderAddonItem&gt;**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. |  [optional]
 **arbitraryItemId** | **String** | Arbitrary item id that should be rebilled instead of the normal schedule |  [optional]
 **arbitraryPercentageDiscount** | [**BigDecimal**](BigDecimal.md) | An arbitrary percentage discount to provide on future rebills |  [optional]
 **arbitraryQuantity** | [**BigDecimal**](BigDecimal.md) | Arbitrary quantity to rebill |  [optional]
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **paypalPayerId** | **String** | The PayPal Payer ID tied to this item |  [optional]
 **paypalRecurringPaymentProfileId** | **String** | The PayPal Profile ID tied to this item |  [optional]
 **preshipmentNoticeSent** | **Boolean** | True if the preshipment notice associated with the next rebill has been sent |  [optional]
+**properties** | [**List&lt;AutoOrderProperty&gt;**](AutoOrderProperty.md) | Array of property objects |  [optional]
 **rebillValue** | [**BigDecimal**](BigDecimal.md) | The value of the rebills of this item |  [optional]
 **remainingRepeatCount** | **Integer** | The number of rebills remaining before this item is complete |  [optional]
 **simpleSchedule** | [**AutoOrderItemSimpleSchedule**](AutoOrderItemSimpleSchedule.md) |  |  [optional]

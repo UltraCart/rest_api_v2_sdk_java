@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EmailCommseqPostcard
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:08:36.126-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:00:28.544-05:00")
 
 
 
@@ -257,10 +257,10 @@ public class EmailCommseqPostcard {
   }
 
    /**
-   * URL to screenshot of the front of the postcard
+   * URL to screenshot of the back of the postcard
    * @return screenshotBackUrl
   **/
-  @ApiModelProperty(value = "URL to screenshot of the front of the postcard")
+  @ApiModelProperty(value = "URL to screenshot of the back of the postcard")
   public String getScreenshotBackUrl() {
     return screenshotBackUrl;
   }
