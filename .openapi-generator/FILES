@@ -30,6 +30,7 @@ docs/ApplyLibraryItemResponse.md
 docs/AutoOrder.md
 docs/AutoOrderAddonItem.md
 docs/AutoOrderAddonItemOption.md
+docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
 docs/AutoOrderConsolidate.md
 docs/AutoOrderItem.md
@@ -38,6 +39,8 @@ docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
 docs/AutoOrderManagement.md
+docs/AutoOrderPropertiesUpdateRequest.md
+docs/AutoOrderProperty.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
 docs/AutoOrderResponse.md
@@ -638,6 +641,8 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
+docs/ItemInventoryUpdate.md
+docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -669,6 +674,7 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
+docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -707,6 +713,7 @@ docs/OauthApi.md
 docs/OauthRevokeSuccessResponse.md
 docs/OauthTokenResponse.md
 docs/Order.md
+docs/OrderAddItemsAndReleaseRequest.md
 docs/OrderAffiliate.md
 docs/OrderAffiliateLedger.md
 docs/OrderApi.md
@@ -1020,6 +1027,7 @@ src/main/java/com/ultracart/admin/v2/models/ApplyLibraryItemResponse.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrder.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItem.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemOption.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemsUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderConsolidate.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItem.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemFutureSchedule.java
@@ -1027,6 +1035,8 @@ src/main/java/com/ultracart/admin/v2/models/AutoOrderItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemSimpleSchedule.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderLog.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderManagement.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderPropertiesUpdateRequest.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderProperty.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQuery.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQueryBatch.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderResponse.java
@@ -1617,6 +1627,8 @@ src/main/java/com/ultracart/admin/v2/models/ItemInternal.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshot.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotDistributionCenter.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotResponse.java
+src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdate.java
+src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitComponent.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitDefinition.java
 src/main/java/com/ultracart/admin/v2/models/ItemOption.java
@@ -1648,6 +1660,7 @@ src/main/java/com/ultracart/admin/v2/models/ItemShippingCase.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationMarkup.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationRestriction.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenter.java
+src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenterResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingMethod.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingPackageRequirement.java
 src/main/java/com/ultracart/admin/v2/models/ItemTag.java
@@ -1685,6 +1698,7 @@ src/main/java/com/ultracart/admin/v2/models/Notification.java
 src/main/java/com/ultracart/admin/v2/models/OauthRevokeSuccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/OauthTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/Order.java
+src/main/java/com/ultracart/admin/v2/models/OrderAddItemsAndReleaseRequest.java
 src/main/java/com/ultracart/admin/v2/models/OrderAffiliate.java
 src/main/java/com/ultracart/admin/v2/models/OrderAffiliateLedger.java
 src/main/java/com/ultracart/admin/v2/models/OrderAssignToAffiliateRequest.java

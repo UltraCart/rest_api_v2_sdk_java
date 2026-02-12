@@ -14,6 +14,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query |
 | [**pauseAutoOrder**](AutoOrderApi.md#pauseAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid}/pause | Pause auto order |
 | [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order |
+| [**updateAutoOrderItemAddOns**](AutoOrderApi.md#updateAutoOrderItemAddOns) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons |
+| [**updateAutoOrderItemProperties**](AutoOrderApi.md#updateAutoOrderItemProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties |
+| [**updateAutoOrderProperties**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties |
 | [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders |
 
 
@@ -1233,6 +1236,143 @@ public class UpdateAutoOrder {
 | **autoOrderOid** | **Integer**| The auto order oid to update. | |
 | **autoOrder** | [**AutoOrder**](AutoOrder.md)| Auto order to update | |
 | **validateOriginalOrder** | **String**| Validate original order before updating | [optional] |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateAutoOrderItemAddOns"></a>
+# **updateAutoOrderItemAddOns**
+> AutoOrderResponse updateAutoOrderItemAddOns(autoOrderOid, autoOrderItemOid, autoOrderAddOnsUpdateRequest, expand)
+
+Update an auto order item add ons
+
+Update an auto order item add ons.  Returns the auto order based upon expansion 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to update. | |
+| **autoOrderItemOid** | **Integer**| The auto order item oid to update. | |
+| **autoOrderAddOnsUpdateRequest** | [**AutoOrderAddonItemsUpdateRequest**](AutoOrderAddonItemsUpdateRequest.md)| Auto order add ons update request | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateAutoOrderItemProperties"></a>
+# **updateAutoOrderItemProperties**
+> AutoOrderResponse updateAutoOrderItemProperties(autoOrderOid, autoOrderItemOid, autoOrderPropertiesUpdateRequest, expand)
+
+Update an auto order item properties
+
+Update an auto order item properties.  Returns the auto order based upon expansion 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to update. | |
+| **autoOrderItemOid** | **Integer**| The auto order item oid to update. | |
+| **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateAutoOrderProperties"></a>
+# **updateAutoOrderProperties**
+> AutoOrderResponse updateAutoOrderProperties(autoOrderOid, autoOrderPropertiesUpdateRequest, expand)
+
+Update an auto order properties
+
+Update an auto order properties.  Returns the auto order based upon expansion 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to update. | |
+| **autoOrderPropertiesUpdateRequest** | [**AutoOrderPropertiesUpdateRequest**](AutoOrderPropertiesUpdateRequest.md)| Auto order property update request | |
 | **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type

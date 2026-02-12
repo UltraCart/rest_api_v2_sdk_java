@@ -58,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:24:41.514-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:14:13.190-05:00[America/Indianapolis]")
 public class ItemShipping {
   public static final String SERIALIZED_NAME_ALLOW_BACK_ORDER = "allow_back_order";
   @SerializedName(SERIALIZED_NAME_ALLOW_BACK_ORDER)
@@ -227,6 +227,10 @@ public class ItemShipping {
   public static final String SERIALIZED_NAME_RESTRICT_SHIPMENT_ON_WEDNESDAY = "restrict_shipment_on_wednesday";
   @SerializedName(SERIALIZED_NAME_RESTRICT_SHIPMENT_ON_WEDNESDAY)
   private Boolean restrictShipmentOnWednesday;
+
+  public static final String SERIALIZED_NAME_SEND_TO_HOLD_BEFORE_FULFILLMENT = "send_to_hold_before_fulfillment";
+  @SerializedName(SERIALIZED_NAME_SEND_TO_HOLD_BEFORE_FULFILLMENT)
+  private Boolean sendToHoldBeforeFulfillment;
 
   public static final String SERIALIZED_NAME_SHIP_SEPARATELY = "ship_separately";
   @SerializedName(SERIALIZED_NAME_SHIP_SEPARATELY)
@@ -1277,6 +1281,29 @@ public class ItemShipping {
   }
 
 
+  public ItemShipping sendToHoldBeforeFulfillment(Boolean sendToHoldBeforeFulfillment) {
+    
+    this.sendToHoldBeforeFulfillment = sendToHoldBeforeFulfillment;
+    return this;
+  }
+
+   /**
+   * Send order to hold stage before fulfillment
+   * @return sendToHoldBeforeFulfillment
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send order to hold stage before fulfillment")
+
+  public Boolean getSendToHoldBeforeFulfillment() {
+    return sendToHoldBeforeFulfillment;
+  }
+
+
+  public void setSendToHoldBeforeFulfillment(Boolean sendToHoldBeforeFulfillment) {
+    this.sendToHoldBeforeFulfillment = sendToHoldBeforeFulfillment;
+  }
+
+
   public ItemShipping shipSeparately(Boolean shipSeparately) {
     
     this.shipSeparately = shipSeparately;
@@ -1513,6 +1540,7 @@ public class ItemShipping {
         Objects.equals(this.restrictShipmentOnThursday, itemShipping.restrictShipmentOnThursday) &&
         Objects.equals(this.restrictShipmentOnTuesday, itemShipping.restrictShipmentOnTuesday) &&
         Objects.equals(this.restrictShipmentOnWednesday, itemShipping.restrictShipmentOnWednesday) &&
+        Objects.equals(this.sendToHoldBeforeFulfillment, itemShipping.sendToHoldBeforeFulfillment) &&
         Objects.equals(this.shipSeparately, itemShipping.shipSeparately) &&
         Objects.equals(this.shipSeparatelyAdditionalWeight, itemShipping.shipSeparatelyAdditionalWeight) &&
         Objects.equals(this.shipSeparatelyHeight, itemShipping.shipSeparatelyHeight) &&
@@ -1525,7 +1553,7 @@ public class ItemShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, sendToHoldBeforeFulfillment, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
   @Override
@@ -1574,6 +1602,7 @@ public class ItemShipping {
     sb.append("    restrictShipmentOnThursday: ").append(toIndentedString(restrictShipmentOnThursday)).append("\n");
     sb.append("    restrictShipmentOnTuesday: ").append(toIndentedString(restrictShipmentOnTuesday)).append("\n");
     sb.append("    restrictShipmentOnWednesday: ").append(toIndentedString(restrictShipmentOnWednesday)).append("\n");
+    sb.append("    sendToHoldBeforeFulfillment: ").append(toIndentedString(sendToHoldBeforeFulfillment)).append("\n");
     sb.append("    shipSeparately: ").append(toIndentedString(shipSeparately)).append("\n");
     sb.append("    shipSeparatelyAdditionalWeight: ").append(toIndentedString(shipSeparatelyAdditionalWeight)).append("\n");
     sb.append("    shipSeparatelyHeight: ").append(toIndentedString(shipSeparatelyHeight)).append("\n");
@@ -1646,6 +1675,7 @@ public class ItemShipping {
     openapiFields.add("restrict_shipment_on_thursday");
     openapiFields.add("restrict_shipment_on_tuesday");
     openapiFields.add("restrict_shipment_on_wednesday");
+    openapiFields.add("send_to_hold_before_fulfillment");
     openapiFields.add("ship_separately");
     openapiFields.add("ship_separately_additional_weight");
     openapiFields.add("ship_separately_height");

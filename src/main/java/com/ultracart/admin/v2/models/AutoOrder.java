@@ -24,6 +24,7 @@ import com.ultracart.admin.v2.models.AutoOrderAddonItem;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.AutoOrderManagement;
+import com.ultracart.admin.v2.models.AutoOrderProperty;
 import com.ultracart.admin.v2.models.Order;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -54,7 +55,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:24:41.514-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:14:13.190-05:00[America/Indianapolis]")
 public class AutoOrder {
   public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
   @SerializedName(SERIALIZED_NAME_ADD_ONS)
@@ -151,6 +152,10 @@ public class AutoOrder {
   public static final String SERIALIZED_NAME_OVERRIDE_AFFILIATE_ID = "override_affiliate_id";
   @SerializedName(SERIALIZED_NAME_OVERRIDE_AFFILIATE_ID)
   private Integer overrideAffiliateId;
+
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private List<AutoOrderProperty> properties = null;
 
   public static final String SERIALIZED_NAME_REBILL_ORDERS = "rebill_orders";
   @SerializedName(SERIALIZED_NAME_REBILL_ORDERS)
@@ -794,6 +799,37 @@ public class AutoOrder {
   }
 
 
+  public AutoOrder properties(List<AutoOrderProperty> properties) {
+    
+    this.properties = properties;
+    return this;
+  }
+
+  public AutoOrder addPropertiesItem(AutoOrderProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Array of property objects
+   * @return properties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of property objects")
+
+  public List<AutoOrderProperty> getProperties() {
+    return properties;
+  }
+
+
+  public void setProperties(List<AutoOrderProperty> properties) {
+    this.properties = properties;
+  }
+
+
   public AutoOrder rebillOrders(List<Order> rebillOrders) {
     
     this.rebillOrders = rebillOrders;
@@ -905,6 +941,7 @@ public class AutoOrder {
         Objects.equals(this.originalOrder, autoOrder.originalOrder) &&
         Objects.equals(this.originalOrderId, autoOrder.originalOrderId) &&
         Objects.equals(this.overrideAffiliateId, autoOrder.overrideAffiliateId) &&
+        Objects.equals(this.properties, autoOrder.properties) &&
         Objects.equals(this.rebillOrders, autoOrder.rebillOrders) &&
         Objects.equals(this.rotatingTransactionGatewayCode, autoOrder.rotatingTransactionGatewayCode) &&
         Objects.equals(this.status, autoOrder.status);
@@ -912,7 +949,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, properties, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
   @Override
@@ -943,6 +980,7 @@ public class AutoOrder {
     sb.append("    originalOrder: ").append(toIndentedString(originalOrder)).append("\n");
     sb.append("    originalOrderId: ").append(toIndentedString(originalOrderId)).append("\n");
     sb.append("    overrideAffiliateId: ").append(toIndentedString(overrideAffiliateId)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    rebillOrders: ").append(toIndentedString(rebillOrders)).append("\n");
     sb.append("    rotatingTransactionGatewayCode: ").append(toIndentedString(rotatingTransactionGatewayCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -992,6 +1030,7 @@ public class AutoOrder {
     openapiFields.add("original_order");
     openapiFields.add("original_order_id");
     openapiFields.add("override_affiliate_id");
+    openapiFields.add("properties");
     openapiFields.add("rebill_orders");
     openapiFields.add("rotating_transaction_gateway_code");
     openapiFields.add("status");
@@ -1095,6 +1134,18 @@ public class AutoOrder {
       }
       if (jsonObj.get("original_order_id") != null && !jsonObj.get("original_order_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `original_order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_order_id").toString()));
+      }
+      JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
+      if (jsonArrayproperties != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("properties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
+        }
+
+        // validate the optional field `properties` (array)
+        for (int i = 0; i < jsonArrayproperties.size(); i++) {
+          AutoOrderProperty.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
+        };
       }
       JsonArray jsonArrayrebillOrders = jsonObj.getAsJsonArray("rebill_orders");
       if (jsonArrayrebillOrders != null) {

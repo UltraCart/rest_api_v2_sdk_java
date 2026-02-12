@@ -20,9 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrderAddonItem;
 import com.ultracart.admin.v2.models.AutoOrderItemFutureSchedule;
 import com.ultracart.admin.v2.models.AutoOrderItemOption;
 import com.ultracart.admin.v2.models.AutoOrderItemSimpleSchedule;
+import com.ultracart.admin.v2.models.AutoOrderProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -53,8 +55,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T16:24:41.514-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:14:13.190-05:00[America/Indianapolis]")
 public class AutoOrderItem {
+  public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
+  @SerializedName(SERIALIZED_NAME_ADD_ONS)
+  private List<AutoOrderAddonItem> addOns = null;
+
   public static final String SERIALIZED_NAME_ARBITRARY_ITEM_ID = "arbitrary_item_id";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_ITEM_ID)
   private String arbitraryItemId;
@@ -232,6 +238,10 @@ public class AutoOrderItem {
   @SerializedName(SERIALIZED_NAME_PRESHIPMENT_NOTICE_SENT)
   private Boolean preshipmentNoticeSent;
 
+  public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+  @SerializedName(SERIALIZED_NAME_PROPERTIES)
+  private List<AutoOrderProperty> properties = null;
+
   public static final String SERIALIZED_NAME_REBILL_VALUE = "rebill_value";
   @SerializedName(SERIALIZED_NAME_REBILL_VALUE)
   private BigDecimal rebillValue;
@@ -246,6 +256,37 @@ public class AutoOrderItem {
 
   public AutoOrderItem() { 
   }
+
+  public AutoOrderItem addOns(List<AutoOrderAddonItem> addOns) {
+    
+    this.addOns = addOns;
+    return this;
+  }
+
+  public AutoOrderItem addAddOnsItem(AutoOrderAddonItem addOnsItem) {
+    if (this.addOns == null) {
+      this.addOns = new ArrayList<>();
+    }
+    this.addOns.add(addOnsItem);
+    return this;
+  }
+
+   /**
+   * Array of addon objects instructing which items to add to auto order and how many times they should be added.
+   * @return addOns
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of addon objects instructing which items to add to auto order and how many times they should be added.")
+
+  public List<AutoOrderAddonItem> getAddOns() {
+    return addOns;
+  }
+
+
+  public void setAddOns(List<AutoOrderAddonItem> addOns) {
+    this.addOns = addOns;
+  }
+
 
   public AutoOrderItem arbitraryItemId(String arbitraryItemId) {
     
@@ -838,6 +879,37 @@ public class AutoOrderItem {
   }
 
 
+  public AutoOrderItem properties(List<AutoOrderProperty> properties) {
+    
+    this.properties = properties;
+    return this;
+  }
+
+  public AutoOrderItem addPropertiesItem(AutoOrderProperty propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new ArrayList<>();
+    }
+    this.properties.add(propertiesItem);
+    return this;
+  }
+
+   /**
+   * Array of property objects
+   * @return properties
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of property objects")
+
+  public List<AutoOrderProperty> getProperties() {
+    return properties;
+  }
+
+
+  public void setProperties(List<AutoOrderProperty> properties) {
+    this.properties = properties;
+  }
+
+
   public AutoOrderItem rebillValue(BigDecimal rebillValue) {
     
     this.rebillValue = rebillValue;
@@ -917,7 +989,8 @@ public class AutoOrderItem {
       return false;
     }
     AutoOrderItem autoOrderItem = (AutoOrderItem) o;
-    return Objects.equals(this.arbitraryItemId, autoOrderItem.arbitraryItemId) &&
+    return Objects.equals(this.addOns, autoOrderItem.addOns) &&
+        Objects.equals(this.arbitraryItemId, autoOrderItem.arbitraryItemId) &&
         Objects.equals(this.arbitraryPercentageDiscount, autoOrderItem.arbitraryPercentageDiscount) &&
         Objects.equals(this.arbitraryQuantity, autoOrderItem.arbitraryQuantity) &&
         Objects.equals(this.arbitraryScheduleDays, autoOrderItem.arbitraryScheduleDays) &&
@@ -942,6 +1015,7 @@ public class AutoOrderItem {
         Objects.equals(this.paypalPayerId, autoOrderItem.paypalPayerId) &&
         Objects.equals(this.paypalRecurringPaymentProfileId, autoOrderItem.paypalRecurringPaymentProfileId) &&
         Objects.equals(this.preshipmentNoticeSent, autoOrderItem.preshipmentNoticeSent) &&
+        Objects.equals(this.properties, autoOrderItem.properties) &&
         Objects.equals(this.rebillValue, autoOrderItem.rebillValue) &&
         Objects.equals(this.remainingRepeatCount, autoOrderItem.remainingRepeatCount) &&
         Objects.equals(this.simpleSchedule, autoOrderItem.simpleSchedule);
@@ -949,13 +1023,14 @@ public class AutoOrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, rebillValue, remainingRepeatCount, simpleSchedule);
+    return Objects.hash(addOns, arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, properties, rebillValue, remainingRepeatCount, simpleSchedule);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoOrderItem {\n");
+    sb.append("    addOns: ").append(toIndentedString(addOns)).append("\n");
     sb.append("    arbitraryItemId: ").append(toIndentedString(arbitraryItemId)).append("\n");
     sb.append("    arbitraryPercentageDiscount: ").append(toIndentedString(arbitraryPercentageDiscount)).append("\n");
     sb.append("    arbitraryQuantity: ").append(toIndentedString(arbitraryQuantity)).append("\n");
@@ -981,6 +1056,7 @@ public class AutoOrderItem {
     sb.append("    paypalPayerId: ").append(toIndentedString(paypalPayerId)).append("\n");
     sb.append("    paypalRecurringPaymentProfileId: ").append(toIndentedString(paypalRecurringPaymentProfileId)).append("\n");
     sb.append("    preshipmentNoticeSent: ").append(toIndentedString(preshipmentNoticeSent)).append("\n");
+    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    rebillValue: ").append(toIndentedString(rebillValue)).append("\n");
     sb.append("    remainingRepeatCount: ").append(toIndentedString(remainingRepeatCount)).append("\n");
     sb.append("    simpleSchedule: ").append(toIndentedString(simpleSchedule)).append("\n");
@@ -1006,6 +1082,7 @@ public class AutoOrderItem {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("add_ons");
     openapiFields.add("arbitrary_item_id");
     openapiFields.add("arbitrary_percentage_discount");
     openapiFields.add("arbitrary_quantity");
@@ -1031,6 +1108,7 @@ public class AutoOrderItem {
     openapiFields.add("paypal_payer_id");
     openapiFields.add("paypal_recurring_payment_profile_id");
     openapiFields.add("preshipment_notice_sent");
+    openapiFields.add("properties");
     openapiFields.add("rebill_value");
     openapiFields.add("remaining_repeat_count");
     openapiFields.add("simple_schedule");
@@ -1060,6 +1138,18 @@ public class AutoOrderItem {
         if (!AutoOrderItem.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoOrderItem` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayaddOns = jsonObj.getAsJsonArray("add_ons");
+      if (jsonArrayaddOns != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("add_ons").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `add_ons` to be an array in the JSON string but got `%s`", jsonObj.get("add_ons").toString()));
+        }
+
+        // validate the optional field `add_ons` (array)
+        for (int i = 0; i < jsonArrayaddOns.size(); i++) {
+          AutoOrderAddonItem.validateJsonObject(jsonArrayaddOns.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("arbitrary_item_id") != null && !jsonObj.get("arbitrary_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `arbitrary_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arbitrary_item_id").toString()));
@@ -1120,6 +1210,18 @@ public class AutoOrderItem {
       }
       if (jsonObj.get("paypal_recurring_payment_profile_id") != null && !jsonObj.get("paypal_recurring_payment_profile_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paypal_recurring_payment_profile_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paypal_recurring_payment_profile_id").toString()));
+      }
+      JsonArray jsonArrayproperties = jsonObj.getAsJsonArray("properties");
+      if (jsonArrayproperties != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("properties").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `properties` to be an array in the JSON string but got `%s`", jsonObj.get("properties").toString()));
+        }
+
+        // validate the optional field `properties` (array)
+        for (int i = 0; i < jsonArrayproperties.size(); i++) {
+          AutoOrderProperty.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
+        };
       }
       // validate the optional field `simple_schedule`
       if (jsonObj.getAsJsonObject("simple_schedule") != null) {
