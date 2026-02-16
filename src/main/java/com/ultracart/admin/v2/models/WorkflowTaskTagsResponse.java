@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WorkflowTaskTagsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:01:12.525-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T12:01:34.191-05:00[America/Indianapolis]")
 public class WorkflowTaskTagsResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ItemContentMultimedia;
+import com.ultracart.admin.v2.models.ItemPricing;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemVariantItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:01:12.525-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T12:01:34.191-05:00[America/Indianapolis]")
 public class ItemVariantItem {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -71,6 +72,10 @@ public class ItemVariantItem {
   public static final String SERIALIZED_NAME_VARIANT_MERCHANT_ITEM_OID = "variant_merchant_item_oid";
   @SerializedName(SERIALIZED_NAME_VARIANT_MERCHANT_ITEM_OID)
   private Integer variantMerchantItemOid;
+
+  public static final String SERIALIZED_NAME_VARIANT_PRICING = "variant_pricing";
+  @SerializedName(SERIALIZED_NAME_VARIANT_PRICING)
+  private ItemPricing variantPricing;
 
   public static final String SERIALIZED_NAME_VARIATION_OPTIONS = "variation_options";
   @SerializedName(SERIALIZED_NAME_VARIATION_OPTIONS)
@@ -198,6 +203,29 @@ public class ItemVariantItem {
   }
 
 
+  public ItemVariantItem variantPricing(ItemPricing variantPricing) {
+    
+    this.variantPricing = variantPricing;
+    return this;
+  }
+
+   /**
+   * Get variantPricing
+   * @return variantPricing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ItemPricing getVariantPricing() {
+    return variantPricing;
+  }
+
+
+  public void setVariantPricing(ItemPricing variantPricing) {
+    this.variantPricing = variantPricing;
+  }
+
+
   public ItemVariantItem variationOptions(List<String> variationOptions) {
     
     this.variationOptions = variationOptions;
@@ -275,13 +303,14 @@ public class ItemVariantItem {
         Objects.equals(this.variantDefaultMultimedia, itemVariantItem.variantDefaultMultimedia) &&
         Objects.equals(this.variantMerchantItemId, itemVariantItem.variantMerchantItemId) &&
         Objects.equals(this.variantMerchantItemOid, itemVariantItem.variantMerchantItemOid) &&
+        Objects.equals(this.variantPricing, itemVariantItem.variantPricing) &&
         Objects.equals(this.variationOptions, itemVariantItem.variationOptions) &&
         Objects.equals(this.variations, itemVariantItem.variations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
+    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variantPricing, variationOptions, variations);
   }
 
   @Override
@@ -293,6 +322,7 @@ public class ItemVariantItem {
     sb.append("    variantDefaultMultimedia: ").append(toIndentedString(variantDefaultMultimedia)).append("\n");
     sb.append("    variantMerchantItemId: ").append(toIndentedString(variantMerchantItemId)).append("\n");
     sb.append("    variantMerchantItemOid: ").append(toIndentedString(variantMerchantItemOid)).append("\n");
+    sb.append("    variantPricing: ").append(toIndentedString(variantPricing)).append("\n");
     sb.append("    variationOptions: ").append(toIndentedString(variationOptions)).append("\n");
     sb.append("    variations: ").append(toIndentedString(variations)).append("\n");
     sb.append("}");
@@ -322,6 +352,7 @@ public class ItemVariantItem {
     openapiFields.add("variant_default_multimedia");
     openapiFields.add("variant_merchant_item_id");
     openapiFields.add("variant_merchant_item_oid");
+    openapiFields.add("variant_pricing");
     openapiFields.add("variation_options");
     openapiFields.add("variations");
 
@@ -360,6 +391,10 @@ public class ItemVariantItem {
       }
       if (jsonObj.get("variant_merchant_item_id") != null && !jsonObj.get("variant_merchant_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `variant_merchant_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variant_merchant_item_id").toString()));
+      }
+      // validate the optional field `variant_pricing`
+      if (jsonObj.getAsJsonObject("variant_pricing") != null) {
+        ItemPricing.validateJsonObject(jsonObj.getAsJsonObject("variant_pricing"));
       }
       // ensure the json data is an array
       if (jsonObj.get("variation_options") != null && !jsonObj.get("variation_options").isJsonArray()) {
