@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ItemContentMultimedia;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemVariantItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:14:13.190-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:01:12.525-05:00[America/Indianapolis]")
 public class ItemVariantItem {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -58,6 +59,10 @@ public class ItemVariantItem {
   public static final String SERIALIZED_NAME_MERCHANT_ITEM_MULTIMEDIA_OID = "merchant_item_multimedia_oid";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_MULTIMEDIA_OID)
   private Integer merchantItemMultimediaOid;
+
+  public static final String SERIALIZED_NAME_VARIANT_DEFAULT_MULTIMEDIA = "variant_default_multimedia";
+  @SerializedName(SERIALIZED_NAME_VARIANT_DEFAULT_MULTIMEDIA)
+  private ItemContentMultimedia variantDefaultMultimedia;
 
   public static final String SERIALIZED_NAME_VARIANT_MERCHANT_ITEM_ID = "variant_merchant_item_id";
   @SerializedName(SERIALIZED_NAME_VARIANT_MERCHANT_ITEM_ID)
@@ -121,6 +126,29 @@ public class ItemVariantItem {
 
   public void setMerchantItemMultimediaOid(Integer merchantItemMultimediaOid) {
     this.merchantItemMultimediaOid = merchantItemMultimediaOid;
+  }
+
+
+  public ItemVariantItem variantDefaultMultimedia(ItemContentMultimedia variantDefaultMultimedia) {
+    
+    this.variantDefaultMultimedia = variantDefaultMultimedia;
+    return this;
+  }
+
+   /**
+   * Get variantDefaultMultimedia
+   * @return variantDefaultMultimedia
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ItemContentMultimedia getVariantDefaultMultimedia() {
+    return variantDefaultMultimedia;
+  }
+
+
+  public void setVariantDefaultMultimedia(ItemContentMultimedia variantDefaultMultimedia) {
+    this.variantDefaultMultimedia = variantDefaultMultimedia;
   }
 
 
@@ -244,6 +272,7 @@ public class ItemVariantItem {
     ItemVariantItem itemVariantItem = (ItemVariantItem) o;
     return Objects.equals(this.description, itemVariantItem.description) &&
         Objects.equals(this.merchantItemMultimediaOid, itemVariantItem.merchantItemMultimediaOid) &&
+        Objects.equals(this.variantDefaultMultimedia, itemVariantItem.variantDefaultMultimedia) &&
         Objects.equals(this.variantMerchantItemId, itemVariantItem.variantMerchantItemId) &&
         Objects.equals(this.variantMerchantItemOid, itemVariantItem.variantMerchantItemOid) &&
         Objects.equals(this.variationOptions, itemVariantItem.variationOptions) &&
@@ -252,7 +281,7 @@ public class ItemVariantItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, merchantItemMultimediaOid, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
+    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
   }
 
   @Override
@@ -261,6 +290,7 @@ public class ItemVariantItem {
     sb.append("class ItemVariantItem {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    merchantItemMultimediaOid: ").append(toIndentedString(merchantItemMultimediaOid)).append("\n");
+    sb.append("    variantDefaultMultimedia: ").append(toIndentedString(variantDefaultMultimedia)).append("\n");
     sb.append("    variantMerchantItemId: ").append(toIndentedString(variantMerchantItemId)).append("\n");
     sb.append("    variantMerchantItemOid: ").append(toIndentedString(variantMerchantItemOid)).append("\n");
     sb.append("    variationOptions: ").append(toIndentedString(variationOptions)).append("\n");
@@ -289,6 +319,7 @@ public class ItemVariantItem {
     openapiFields = new HashSet<String>();
     openapiFields.add("description");
     openapiFields.add("merchant_item_multimedia_oid");
+    openapiFields.add("variant_default_multimedia");
     openapiFields.add("variant_merchant_item_id");
     openapiFields.add("variant_merchant_item_oid");
     openapiFields.add("variation_options");
@@ -322,6 +353,10 @@ public class ItemVariantItem {
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `variant_default_multimedia`
+      if (jsonObj.getAsJsonObject("variant_default_multimedia") != null) {
+        ItemContentMultimedia.validateJsonObject(jsonObj.getAsJsonObject("variant_default_multimedia"));
       }
       if (jsonObj.get("variant_merchant_item_id") != null && !jsonObj.get("variant_merchant_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `variant_merchant_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variant_merchant_item_id").toString()));
