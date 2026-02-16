@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * OrderItemEdi
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T10:45:13.857-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:47:51.140-05:00")
 
 
 

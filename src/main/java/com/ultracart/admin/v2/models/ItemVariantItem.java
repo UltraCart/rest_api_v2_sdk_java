@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ItemContentMultimedia;
+import com.ultracart.admin.v2.models.ItemPricing;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * ItemVariantItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T10:45:13.857-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:47:51.140-05:00")
 
 
 
@@ -49,6 +50,9 @@ public class ItemVariantItem {
 
   @SerializedName("variant_merchant_item_oid")
   private Integer variantMerchantItemOid = null;
+
+  @SerializedName("variant_pricing")
+  private ItemPricing variantPricing = null;
 
   @SerializedName("variation_options")
   private List<String> variationOptions = null;
@@ -146,6 +150,24 @@ public class ItemVariantItem {
     this.variantMerchantItemOid = variantMerchantItemOid;
   }
 
+  public ItemVariantItem variantPricing(ItemPricing variantPricing) {
+    this.variantPricing = variantPricing;
+    return this;
+  }
+
+   /**
+   * Get variantPricing
+   * @return variantPricing
+  **/
+  @ApiModelProperty(value = "")
+  public ItemPricing getVariantPricing() {
+    return variantPricing;
+  }
+
+  public void setVariantPricing(ItemPricing variantPricing) {
+    this.variantPricing = variantPricing;
+  }
+
   public ItemVariantItem variationOptions(List<String> variationOptions) {
     this.variationOptions = variationOptions;
     return this;
@@ -213,13 +235,14 @@ public class ItemVariantItem {
         Objects.equals(this.variantDefaultMultimedia, itemVariantItem.variantDefaultMultimedia) &&
         Objects.equals(this.variantMerchantItemId, itemVariantItem.variantMerchantItemId) &&
         Objects.equals(this.variantMerchantItemOid, itemVariantItem.variantMerchantItemOid) &&
+        Objects.equals(this.variantPricing, itemVariantItem.variantPricing) &&
         Objects.equals(this.variationOptions, itemVariantItem.variationOptions) &&
         Objects.equals(this.variations, itemVariantItem.variations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
+    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variantPricing, variationOptions, variations);
   }
 
 
@@ -233,6 +256,7 @@ public class ItemVariantItem {
     sb.append("    variantDefaultMultimedia: ").append(toIndentedString(variantDefaultMultimedia)).append("\n");
     sb.append("    variantMerchantItemId: ").append(toIndentedString(variantMerchantItemId)).append("\n");
     sb.append("    variantMerchantItemOid: ").append(toIndentedString(variantMerchantItemOid)).append("\n");
+    sb.append("    variantPricing: ").append(toIndentedString(variantPricing)).append("\n");
     sb.append("    variationOptions: ").append(toIndentedString(variationOptions)).append("\n");
     sb.append("    variations: ").append(toIndentedString(variations)).append("\n");
     sb.append("}");
