@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ItemContentMultimedia;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * ItemVariantItem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-12T17:00:28.544-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T10:45:13.857-05:00")
 
 
 
@@ -39,6 +40,9 @@ public class ItemVariantItem {
 
   @SerializedName("merchant_item_multimedia_oid")
   private Integer merchantItemMultimediaOid = null;
+
+  @SerializedName("variant_default_multimedia")
+  private ItemContentMultimedia variantDefaultMultimedia = null;
 
   @SerializedName("variant_merchant_item_id")
   private String variantMerchantItemId = null;
@@ -86,6 +90,24 @@ public class ItemVariantItem {
 
   public void setMerchantItemMultimediaOid(Integer merchantItemMultimediaOid) {
     this.merchantItemMultimediaOid = merchantItemMultimediaOid;
+  }
+
+  public ItemVariantItem variantDefaultMultimedia(ItemContentMultimedia variantDefaultMultimedia) {
+    this.variantDefaultMultimedia = variantDefaultMultimedia;
+    return this;
+  }
+
+   /**
+   * Get variantDefaultMultimedia
+   * @return variantDefaultMultimedia
+  **/
+  @ApiModelProperty(value = "")
+  public ItemContentMultimedia getVariantDefaultMultimedia() {
+    return variantDefaultMultimedia;
+  }
+
+  public void setVariantDefaultMultimedia(ItemContentMultimedia variantDefaultMultimedia) {
+    this.variantDefaultMultimedia = variantDefaultMultimedia;
   }
 
   public ItemVariantItem variantMerchantItemId(String variantMerchantItemId) {
@@ -188,6 +210,7 @@ public class ItemVariantItem {
     ItemVariantItem itemVariantItem = (ItemVariantItem) o;
     return Objects.equals(this.description, itemVariantItem.description) &&
         Objects.equals(this.merchantItemMultimediaOid, itemVariantItem.merchantItemMultimediaOid) &&
+        Objects.equals(this.variantDefaultMultimedia, itemVariantItem.variantDefaultMultimedia) &&
         Objects.equals(this.variantMerchantItemId, itemVariantItem.variantMerchantItemId) &&
         Objects.equals(this.variantMerchantItemOid, itemVariantItem.variantMerchantItemOid) &&
         Objects.equals(this.variationOptions, itemVariantItem.variationOptions) &&
@@ -196,7 +219,7 @@ public class ItemVariantItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, merchantItemMultimediaOid, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
+    return Objects.hash(description, merchantItemMultimediaOid, variantDefaultMultimedia, variantMerchantItemId, variantMerchantItemOid, variationOptions, variations);
   }
 
 
@@ -207,6 +230,7 @@ public class ItemVariantItem {
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    merchantItemMultimediaOid: ").append(toIndentedString(merchantItemMultimediaOid)).append("\n");
+    sb.append("    variantDefaultMultimedia: ").append(toIndentedString(variantDefaultMultimedia)).append("\n");
     sb.append("    variantMerchantItemId: ").append(toIndentedString(variantMerchantItemId)).append("\n");
     sb.append("    variantMerchantItemOid: ").append(toIndentedString(variantMerchantItemOid)).append("\n");
     sb.append("    variationOptions: ").append(toIndentedString(variationOptions)).append("\n");

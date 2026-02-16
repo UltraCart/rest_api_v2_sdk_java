@@ -2,7 +2,7 @@
 
 UltraCart Rest API V2
 - API version: 2.0.0
-  - Build date: 2026-02-12T17:00:28.544-05:00
+  - Build date: 2026-02-16T10:45:13.857-05:00
 
 UltraCart REST API Version 2
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.ultracart</groupId>
   <artifactId>rest-sdk</artifactId>
-  <version>3.11.63</version>
+  <version>3.11.64</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.ultracart:rest-sdk:3.11.63"
+compile "com.ultracart:rest-sdk:3.11.64"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/rest-sdk-3.11.63.jar`
+* `target/rest-sdk-3.11.64.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -1716,6 +1716,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.11.64 | 02/16/2026 | conversation - fix pbx call transcript segment speaker enum for leading space |
 | 3.11.63 | 02/12/2026 | build automation issue |
 | 3.11.62 | 02/12/2026 | build automation run, no code changes |
 | 3.11.61 | 02/12/2026 | order - methods to release held orders |
