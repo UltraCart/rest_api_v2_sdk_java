@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T12:01:34.191-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:17:02.252-05:00[America/Indianapolis]")
 public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CHAT_ADMIN = "chat_admin";
   @SerializedName(SERIALIZED_NAME_CHAT_ADMIN)
@@ -67,6 +67,10 @@ public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME = "conversation_participant_name";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PARTICIPANT_NAME)
   private String conversationParticipantName;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_PROFILE = "customer_profile";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_PROFILE)
+  private Boolean customerProfile;
 
   public static final String SERIALIZED_NAME_DEFAULT_PHONE_NUMBER = "default_phone_number";
   @SerializedName(SERIALIZED_NAME_DEFAULT_PHONE_NUMBER)
@@ -220,6 +224,29 @@ public class ConversationAgentAuth {
 
   public void setConversationParticipantName(String conversationParticipantName) {
     this.conversationParticipantName = conversationParticipantName;
+  }
+
+
+  public ConversationAgentAuth customerProfile(Boolean customerProfile) {
+    
+    this.customerProfile = customerProfile;
+    return this;
+  }
+
+   /**
+   * Get customerProfile
+   * @return customerProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCustomerProfile() {
+    return customerProfile;
+  }
+
+
+  public void setCustomerProfile(Boolean customerProfile) {
+    this.customerProfile = customerProfile;
   }
 
 
@@ -598,6 +625,7 @@ public class ConversationAgentAuth {
         Objects.equals(this.chatUser, conversationAgentAuth.chatUser) &&
         Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
+        Objects.equals(this.customerProfile, conversationAgentAuth.customerProfile) &&
         Objects.equals(this.defaultPhoneNumber, conversationAgentAuth.defaultPhoneNumber) &&
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
@@ -617,7 +645,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
@@ -628,6 +656,7 @@ public class ConversationAgentAuth {
     sb.append("    chatUser: ").append(toIndentedString(chatUser)).append("\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
+    sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    defaultPhoneNumber: ").append(toIndentedString(defaultPhoneNumber)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
@@ -669,6 +698,7 @@ public class ConversationAgentAuth {
     openapiFields.add("chat_user");
     openapiFields.add("conversation_participant_arn");
     openapiFields.add("conversation_participant_name");
+    openapiFields.add("customer_profile");
     openapiFields.add("default_phone_number");
     openapiFields.add("group_ids");
     openapiFields.add("jwt");
