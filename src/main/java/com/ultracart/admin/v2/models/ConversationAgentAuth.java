@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:47:51.140-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:01:04.214-05:00")
 
 
 
@@ -46,6 +46,9 @@ public class ConversationAgentAuth {
 
   @SerializedName("conversation_participant_name")
   private String conversationParticipantName = null;
+
+  @SerializedName("customer_profile")
+  private Boolean customerProfile = null;
 
   @SerializedName("default_phone_number")
   private String defaultPhoneNumber = null;
@@ -162,6 +165,24 @@ public class ConversationAgentAuth {
 
   public void setConversationParticipantName(String conversationParticipantName) {
     this.conversationParticipantName = conversationParticipantName;
+  }
+
+  public ConversationAgentAuth customerProfile(Boolean customerProfile) {
+    this.customerProfile = customerProfile;
+    return this;
+  }
+
+   /**
+   * Get customerProfile
+   * @return customerProfile
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isCustomerProfile() {
+    return customerProfile;
+  }
+
+  public void setCustomerProfile(Boolean customerProfile) {
+    this.customerProfile = customerProfile;
   }
 
   public ConversationAgentAuth defaultPhoneNumber(String defaultPhoneNumber) {
@@ -464,6 +485,7 @@ public class ConversationAgentAuth {
         Objects.equals(this.chatUser, conversationAgentAuth.chatUser) &&
         Objects.equals(this.conversationParticipantArn, conversationAgentAuth.conversationParticipantArn) &&
         Objects.equals(this.conversationParticipantName, conversationAgentAuth.conversationParticipantName) &&
+        Objects.equals(this.customerProfile, conversationAgentAuth.customerProfile) &&
         Objects.equals(this.defaultPhoneNumber, conversationAgentAuth.defaultPhoneNumber) &&
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
@@ -483,7 +505,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
 
@@ -496,6 +518,7 @@ public class ConversationAgentAuth {
     sb.append("    chatUser: ").append(toIndentedString(chatUser)).append("\n");
     sb.append("    conversationParticipantArn: ").append(toIndentedString(conversationParticipantArn)).append("\n");
     sb.append("    conversationParticipantName: ").append(toIndentedString(conversationParticipantName)).append("\n");
+    sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    defaultPhoneNumber: ").append(toIndentedString(defaultPhoneNumber)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");

@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * ChannelPartnersResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:47:51.140-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:01:04.214-05:00")
 
 
 
