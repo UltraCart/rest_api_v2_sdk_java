@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerActivity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:17:02.252-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:23:31.235-05:00[America/Indianapolis]")
 public class CustomerActivity {
   public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
   @SerializedName(SERIALIZED_NAME_ACTIVITIES)
@@ -78,6 +78,14 @@ public class CustomerActivity {
   public static final String SERIALIZED_NAME_PROPERTIES_LIST = "properties_list";
   @SerializedName(SERIALIZED_NAME_PROPERTIES_LIST)
   private List<Property> propertiesList = null;
+
+  public static final String SERIALIZED_NAME_SMS = "sms";
+  @SerializedName(SERIALIZED_NAME_SMS)
+  private String sms;
+
+  public static final String SERIALIZED_NAME_SMS_STOP = "sms_stop";
+  @SerializedName(SERIALIZED_NAME_SMS_STOP)
+  private Boolean smsStop;
 
   public static final String SERIALIZED_NAME_SPAM_COMPLAINT = "spam_complaint";
   @SerializedName(SERIALIZED_NAME_SPAM_COMPLAINT)
@@ -260,6 +268,52 @@ public class CustomerActivity {
   }
 
 
+  public CustomerActivity sms(String sms) {
+    
+    this.sms = sms;
+    return this;
+  }
+
+   /**
+   * Get sms
+   * @return sms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getSms() {
+    return sms;
+  }
+
+
+  public void setSms(String sms) {
+    this.sms = sms;
+  }
+
+
+  public CustomerActivity smsStop(Boolean smsStop) {
+    
+    this.smsStop = smsStop;
+    return this;
+  }
+
+   /**
+   * Get smsStop
+   * @return smsStop
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSmsStop() {
+    return smsStop;
+  }
+
+
+  public void setSmsStop(Boolean smsStop) {
+    this.smsStop = smsStop;
+  }
+
+
   public CustomerActivity spamComplaint(Boolean spamComplaint) {
     
     this.spamComplaint = spamComplaint;
@@ -322,13 +376,15 @@ public class CustomerActivity {
         Objects.equals(this.memberships, customerActivity.memberships) &&
         Objects.equals(this.metrics, customerActivity.metrics) &&
         Objects.equals(this.propertiesList, customerActivity.propertiesList) &&
+        Objects.equals(this.sms, customerActivity.sms) &&
+        Objects.equals(this.smsStop, customerActivity.smsStop) &&
         Objects.equals(this.spamComplaint, customerActivity.spamComplaint) &&
         Objects.equals(this.spamComplaintDts, customerActivity.spamComplaintDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, spamComplaint, spamComplaintDts);
+    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, sms, smsStop, spamComplaint, spamComplaintDts);
   }
 
   @Override
@@ -341,6 +397,8 @@ public class CustomerActivity {
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    propertiesList: ").append(toIndentedString(propertiesList)).append("\n");
+    sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
+    sb.append("    smsStop: ").append(toIndentedString(smsStop)).append("\n");
     sb.append("    spamComplaint: ").append(toIndentedString(spamComplaint)).append("\n");
     sb.append("    spamComplaintDts: ").append(toIndentedString(spamComplaintDts)).append("\n");
     sb.append("}");
@@ -371,6 +429,8 @@ public class CustomerActivity {
     openapiFields.add("memberships");
     openapiFields.add("metrics");
     openapiFields.add("properties_list");
+    openapiFields.add("sms");
+    openapiFields.add("sms_stop");
     openapiFields.add("spam_complaint");
     openapiFields.add("spam_complaint_dts");
 
@@ -450,6 +510,9 @@ public class CustomerActivity {
         for (int i = 0; i < jsonArraypropertiesList.size(); i++) {
           Property.validateJsonObject(jsonArraypropertiesList.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("sms") != null && !jsonObj.get("sms").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms").toString()));
       }
       if (jsonObj.get("spam_complaint_dts") != null && !jsonObj.get("spam_complaint_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `spam_complaint_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spam_complaint_dts").toString()));

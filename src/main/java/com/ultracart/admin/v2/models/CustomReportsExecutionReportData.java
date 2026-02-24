@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReportsExecutionReportData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:17:02.252-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:23:31.235-05:00[America/Indianapolis]")
 public class CustomReportsExecutionReportData {
   public static final String SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OID = "data_warehouse_report_config_oid";
   @SerializedName(SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OID)

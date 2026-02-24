@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationInsertKnowledgeBaseDocumentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:17:02.252-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:23:31.235-05:00[America/Indianapolis]")
 public class ConversationInsertKnowledgeBaseDocumentRequest {
   public static final String SERIALIZED_NAME_ORIGINAL_FILE_NAME = "original_file_name";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_FILE_NAME)
