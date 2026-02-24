@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * CustomerActivity
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:01:04.214-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:07:40.657-05:00")
 
 
 
@@ -55,6 +55,12 @@ public class CustomerActivity {
 
   @SerializedName("properties_list")
   private List<Property> propertiesList = null;
+
+  @SerializedName("sms")
+  private String sms = null;
+
+  @SerializedName("sms_stop")
+  private Boolean smsStop = null;
 
   @SerializedName("spam_complaint")
   private Boolean spamComplaint = null;
@@ -202,6 +208,42 @@ public class CustomerActivity {
     this.propertiesList = propertiesList;
   }
 
+  public CustomerActivity sms(String sms) {
+    this.sms = sms;
+    return this;
+  }
+
+   /**
+   * Get sms
+   * @return sms
+  **/
+  @ApiModelProperty(value = "")
+  public String getSms() {
+    return sms;
+  }
+
+  public void setSms(String sms) {
+    this.sms = sms;
+  }
+
+  public CustomerActivity smsStop(Boolean smsStop) {
+    this.smsStop = smsStop;
+    return this;
+  }
+
+   /**
+   * Get smsStop
+   * @return smsStop
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSmsStop() {
+    return smsStop;
+  }
+
+  public void setSmsStop(Boolean smsStop) {
+    this.smsStop = smsStop;
+  }
+
   public CustomerActivity spamComplaint(Boolean spamComplaint) {
     this.spamComplaint = spamComplaint;
     return this;
@@ -254,13 +296,15 @@ public class CustomerActivity {
         Objects.equals(this.memberships, customerActivity.memberships) &&
         Objects.equals(this.metrics, customerActivity.metrics) &&
         Objects.equals(this.propertiesList, customerActivity.propertiesList) &&
+        Objects.equals(this.sms, customerActivity.sms) &&
+        Objects.equals(this.smsStop, customerActivity.smsStop) &&
         Objects.equals(this.spamComplaint, customerActivity.spamComplaint) &&
         Objects.equals(this.spamComplaintDts, customerActivity.spamComplaintDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, spamComplaint, spamComplaintDts);
+    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, sms, smsStop, spamComplaint, spamComplaintDts);
   }
 
 
@@ -275,6 +319,8 @@ public class CustomerActivity {
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    propertiesList: ").append(toIndentedString(propertiesList)).append("\n");
+    sb.append("    sms: ").append(toIndentedString(sms)).append("\n");
+    sb.append("    smsStop: ").append(toIndentedString(smsStop)).append("\n");
     sb.append("    spamComplaint: ").append(toIndentedString(spamComplaint)).append("\n");
     sb.append("    spamComplaintDts: ").append(toIndentedString(spamComplaintDts)).append("\n");
     sb.append("}");

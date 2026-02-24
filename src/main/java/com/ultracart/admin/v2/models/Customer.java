@@ -48,7 +48,7 @@ import java.util.List;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-18T16:01:04.214-05:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:07:40.657-05:00")
 
 
 
@@ -1182,10 +1182,10 @@ public class Customer {
   }
 
    /**
-   * Referral Source
+   * Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.
    * @return referralSource
   **/
-  @ApiModelProperty(value = "Referral Source")
+  @ApiModelProperty(value = "Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow.")
   public String getReferralSource() {
     return referralSource;
   }

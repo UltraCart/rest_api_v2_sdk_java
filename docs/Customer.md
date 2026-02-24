@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 **qbTaxExemptionReasonCode** | **Integer** | QuickBooks tax exemption reason code |  [optional]
 **quotes** | [**List&lt;Order&gt;**](Order.md) | Quotes associated with this customer profile |  [optional]
 **quotesSummary** | [**CustomerQuotesSummary**](CustomerQuotesSummary.md) |  |  [optional]
-**referralSource** | **String** | Referral Source |  [optional]
+**referralSource** | **String** | Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow. |  [optional]
 **reviewer** | [**CustomerReviewer**](CustomerReviewer.md) |  |  [optional]
 **salesRepCode** | **String** | Sales rep code |  [optional]
 **sendSignupNotification** | **Boolean** | Send signup notification, if true during customer creation, will send a notification. |  [optional]
