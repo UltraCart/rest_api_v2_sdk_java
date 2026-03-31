@@ -710,6 +710,7 @@ docs/Mailgun.md
 docs/Metric.md
 docs/Notification.md
 docs/OauthApi.md
+docs/OauthDeviceAuthorizationResponse.md
 docs/OauthRevokeSuccessResponse.md
 docs/OauthTokenResponse.md
 docs/Order.md
@@ -1695,6 +1696,7 @@ src/main/java/com/ultracart/admin/v2/models/LookupResponse.java
 src/main/java/com/ultracart/admin/v2/models/Mailgun.java
 src/main/java/com/ultracart/admin/v2/models/Metric.java
 src/main/java/com/ultracart/admin/v2/models/Notification.java
+src/main/java/com/ultracart/admin/v2/models/OauthDeviceAuthorizationResponse.java
 src/main/java/com/ultracart/admin/v2/models/OauthRevokeSuccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/OauthTokenResponse.java
 src/main/java/com/ultracart/admin/v2/models/Order.java

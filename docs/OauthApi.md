@@ -5,12 +5,13 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**oauthAccessToken**](OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token. |
+| [**oauthDeviceAuthorize**](OauthApi.md#oauthDeviceAuthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow. |
 | [**oauthRevoke**](OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application. |
 
 
 <a name="oauthAccessToken"></a>
 # **oauthAccessToken**
-> OauthTokenResponse oauthAccessToken(clientId, grantType, code, redirectUri, refreshToken)
+> OauthTokenResponse oauthAccessToken(clientId, grantType, code, redirectUri, refreshToken, deviceCode)
 
 Exchange authorization code for access token.
 
@@ -93,6 +94,7 @@ public class OauthAccessToken {
 | **code** | **String**| Authorization code received back from the browser redirect | [optional] |
 | **redirectUri** | **String**| The URI that you redirect the browser to start the authorization process | [optional] |
 | **refreshToken** | **String**| The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token | [optional] |
+| **deviceCode** | **String**| The device code received from /oauth/device/authorize | [optional] |
 
 ### Return type
 
@@ -111,6 +113,47 @@ public class OauthAccessToken {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="oauthDeviceAuthorize"></a>
+# **oauthDeviceAuthorize**
+> oauthDeviceAuthorize(clientId, scope)
+
+Initiate a device authorization flow.
+
+Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **clientId** | **String**| The OAuth application client_id. | |
+| **scope** | **String**| The application-level scope (e.g., crm, ultraship). | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 

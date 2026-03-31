@@ -108,6 +108,7 @@ public class OauthApi {
      * @param code Authorization code received back from the browser redirect (optional)
      * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param deviceCode The device code received from /oauth/device/authorize (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -119,7 +120,7 @@ public class OauthApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call oauthAccessTokenCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call oauthAccessTokenCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, String deviceCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -164,6 +165,10 @@ public class OauthApi {
             localVarFormParams.put("refresh_token", refreshToken);
         }
 
+        if (deviceCode != null) {
+            localVarFormParams.put("device_code", deviceCode);
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -185,7 +190,7 @@ public class OauthApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call oauthAccessTokenValidateBeforeCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call oauthAccessTokenValidateBeforeCall(String clientId, String grantType, String code, String redirectUri, String refreshToken, String deviceCode, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
@@ -198,7 +203,7 @@ public class OauthApi {
         }
         
 
-        okhttp3.Call localVarCall = oauthAccessTokenCall(clientId, grantType, code, redirectUri, refreshToken, _callback);
+        okhttp3.Call localVarCall = oauthAccessTokenCall(clientId, grantType, code, redirectUri, refreshToken, deviceCode, _callback);
         return localVarCall;
 
     }
@@ -211,6 +216,7 @@ public class OauthApi {
      * @param code Authorization code received back from the browser redirect (optional)
      * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param deviceCode The device code received from /oauth/device/authorize (optional)
      * @return OauthTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -221,8 +227,8 @@ public class OauthApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public OauthTokenResponse oauthAccessToken(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
-        ApiResponse<OauthTokenResponse> localVarResp = oauthAccessTokenWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken);
+    public OauthTokenResponse oauthAccessToken(String clientId, String grantType, String code, String redirectUri, String refreshToken, String deviceCode) throws ApiException {
+        ApiResponse<OauthTokenResponse> localVarResp = oauthAccessTokenWithHttpInfo(clientId, grantType, code, redirectUri, refreshToken, deviceCode);
         return localVarResp.getData();
     }
 
@@ -234,6 +240,7 @@ public class OauthApi {
      * @param code Authorization code received back from the browser redirect (optional)
      * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param deviceCode The device code received from /oauth/device/authorize (optional)
      * @return ApiResponse&lt;OauthTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -244,8 +251,8 @@ public class OauthApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<OauthTokenResponse> oauthAccessTokenWithHttpInfo(String clientId, String grantType, String code, String redirectUri, String refreshToken) throws ApiException {
-        okhttp3.Call localVarCall = oauthAccessTokenValidateBeforeCall(clientId, grantType, code, redirectUri, refreshToken, null);
+    public ApiResponse<OauthTokenResponse> oauthAccessTokenWithHttpInfo(String clientId, String grantType, String code, String redirectUri, String refreshToken, String deviceCode) throws ApiException {
+        okhttp3.Call localVarCall = oauthAccessTokenValidateBeforeCall(clientId, grantType, code, redirectUri, refreshToken, deviceCode, null);
         Type localVarReturnType = new TypeToken<OauthTokenResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -258,6 +265,7 @@ public class OauthApi {
      * @param code Authorization code received back from the browser redirect (optional)
      * @param redirectUri The URI that you redirect the browser to start the authorization process (optional)
      * @param refreshToken The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     * @param deviceCode The device code received from /oauth/device/authorize (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -269,11 +277,158 @@ public class OauthApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call oauthAccessTokenAsync(String clientId, String grantType, String code, String redirectUri, String refreshToken, final ApiCallback<OauthTokenResponse> _callback) throws ApiException {
+    public okhttp3.Call oauthAccessTokenAsync(String clientId, String grantType, String code, String redirectUri, String refreshToken, String deviceCode, final ApiCallback<OauthTokenResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = oauthAccessTokenValidateBeforeCall(clientId, grantType, code, redirectUri, refreshToken, _callback);
+        okhttp3.Call localVarCall = oauthAccessTokenValidateBeforeCall(clientId, grantType, code, redirectUri, refreshToken, deviceCode, _callback);
         Type localVarReturnType = new TypeToken<OauthTokenResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for oauthDeviceAuthorize
+     * @param clientId The OAuth application client_id. (required)
+     * @param scope The application-level scope (e.g., crm, ultraship). (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call oauthDeviceAuthorizeCall(String clientId, String scope, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/oauth/device/authorize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (clientId != null) {
+            localVarFormParams.put("client_id", clientId);
+        }
+
+        if (scope != null) {
+            localVarFormParams.put("scope", scope);
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call oauthDeviceAuthorizeValidateBeforeCall(String clientId, String scope, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'clientId' is set
+        if (clientId == null) {
+            throw new ApiException("Missing the required parameter 'clientId' when calling oauthDeviceAuthorize(Async)");
+        }
+        
+        // verify the required parameter 'scope' is set
+        if (scope == null) {
+            throw new ApiException("Missing the required parameter 'scope' when calling oauthDeviceAuthorize(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = oauthDeviceAuthorizeCall(clientId, scope, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Initiate a device authorization flow.
+     * Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param scope The application-level scope (e.g., crm, ultraship). (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void oauthDeviceAuthorize(String clientId, String scope) throws ApiException {
+        oauthDeviceAuthorizeWithHttpInfo(clientId, scope);
+    }
+
+    /**
+     * Initiate a device authorization flow.
+     * Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param scope The application-level scope (e.g., crm, ultraship). (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> oauthDeviceAuthorizeWithHttpInfo(String clientId, String scope) throws ApiException {
+        okhttp3.Call localVarCall = oauthDeviceAuthorizeValidateBeforeCall(clientId, scope, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Initiate a device authorization flow. (asynchronously)
+     * Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
+     * @param clientId The OAuth application client_id. (required)
+     * @param scope The application-level scope (e.g., crm, ultraship). (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call oauthDeviceAuthorizeAsync(String clientId, String scope, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = oauthDeviceAuthorizeValidateBeforeCall(clientId, scope, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

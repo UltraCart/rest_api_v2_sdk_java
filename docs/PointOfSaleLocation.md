@@ -17,6 +17,7 @@
 |**posLocationOid** | **Integer** | Object identifier of the point of sale location. |  [optional] |
 |**postalCode** | **String** | Postal code |  [optional] |
 |**stateProvince** | **String** | State/province |  [optional] |
+|**taxCounty** | **String** | Tax county associated with this address.  Need when a self managed tax configuration is being used. |  [optional] |
 
 
 

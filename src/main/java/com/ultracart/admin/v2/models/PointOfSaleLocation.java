@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * PointOfSaleLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-24T10:23:31.235-05:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T14:18:34.994-04:00[America/Indianapolis]")
 public class PointOfSaleLocation {
   public static final String SERIALIZED_NAME_ADDDRESS2 = "adddress2";
   @SerializedName(SERIALIZED_NAME_ADDDRESS2)
@@ -88,6 +88,10 @@ public class PointOfSaleLocation {
   public static final String SERIALIZED_NAME_STATE_PROVINCE = "state_province";
   @SerializedName(SERIALIZED_NAME_STATE_PROVINCE)
   private String stateProvince;
+
+  public static final String SERIALIZED_NAME_TAX_COUNTY = "tax_county";
+  @SerializedName(SERIALIZED_NAME_TAX_COUNTY)
+  private String taxCounty;
 
   public PointOfSaleLocation() { 
   }
@@ -322,6 +326,29 @@ public class PointOfSaleLocation {
   }
 
 
+  public PointOfSaleLocation taxCounty(String taxCounty) {
+    
+    this.taxCounty = taxCounty;
+    return this;
+  }
+
+   /**
+   * Tax county associated with this address.  Need when a self managed tax configuration is being used.
+   * @return taxCounty
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tax county associated with this address.  Need when a self managed tax configuration is being used.")
+
+  public String getTaxCounty() {
+    return taxCounty;
+  }
+
+
+  public void setTaxCounty(String taxCounty) {
+    this.taxCounty = taxCounty;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -341,12 +368,13 @@ public class PointOfSaleLocation {
         Objects.equals(this.merchantId, pointOfSaleLocation.merchantId) &&
         Objects.equals(this.posLocationOid, pointOfSaleLocation.posLocationOid) &&
         Objects.equals(this.postalCode, pointOfSaleLocation.postalCode) &&
-        Objects.equals(this.stateProvince, pointOfSaleLocation.stateProvince);
+        Objects.equals(this.stateProvince, pointOfSaleLocation.stateProvince) &&
+        Objects.equals(this.taxCounty, pointOfSaleLocation.taxCounty);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adddress2, address1, city, country, distributionCenterCode, externalId, merchantId, posLocationOid, postalCode, stateProvince);
+    return Objects.hash(adddress2, address1, city, country, distributionCenterCode, externalId, merchantId, posLocationOid, postalCode, stateProvince, taxCounty);
   }
 
   @Override
@@ -363,6 +391,7 @@ public class PointOfSaleLocation {
     sb.append("    posLocationOid: ").append(toIndentedString(posLocationOid)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    stateProvince: ").append(toIndentedString(stateProvince)).append("\n");
+    sb.append("    taxCounty: ").append(toIndentedString(taxCounty)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -395,6 +424,7 @@ public class PointOfSaleLocation {
     openapiFields.add("pos_location_oid");
     openapiFields.add("postal_code");
     openapiFields.add("state_province");
+    openapiFields.add("tax_county");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -448,6 +478,9 @@ public class PointOfSaleLocation {
       }
       if (jsonObj.get("state_province") != null && !jsonObj.get("state_province").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `state_province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state_province").toString()));
+      }
+      if (jsonObj.get("tax_county") != null && !jsonObj.get("tax_county").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tax_county` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tax_county").toString()));
       }
   }
 

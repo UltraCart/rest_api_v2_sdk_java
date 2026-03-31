@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-02-24T10:23:31.235-05:00[America/Indianapolis]
+- Build date: 2026-03-31T14:18:34.994-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.67</version>
+    <version>4.1.68</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.67"
+     implementation "com.ultracart:rest-sdk:4.1.68"
   }
 ```
 
@@ -394,6 +394,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
+*OauthApi* | [**oauthDeviceAuthorize**](docs/OauthApi.md#oauthDeviceAuthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**assignToAffiliate**](docs/OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
@@ -1368,6 +1369,7 @@ Class | Method | HTTP request | Description
  - [Mailgun](docs/Mailgun.md)
  - [Metric](docs/Metric.md)
  - [Notification](docs/Notification.md)
+ - [OauthDeviceAuthorizationResponse](docs/OauthDeviceAuthorizationResponse.md)
  - [OauthRevokeSuccessResponse](docs/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/OauthTokenResponse.md)
  - [Order](docs/Order.md)
@@ -1704,6 +1706,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.68 | 03/31/2026 | oauth - device support |
 | 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |
 | 4.1.66 | 02/18/2026 | conversations - agent auth customer_profile flag |
 | 4.1.65 | 02/16/2026 | item - include variant pricing in the response |
