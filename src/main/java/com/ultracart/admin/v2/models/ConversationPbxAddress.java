@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T14:51:13.628-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T12:58:50.365-04:00[America/Indianapolis]")
 public class ConversationPbxAddress {
   public static final String SERIALIZED_NAME_ADDRESS_SID = "address_sid";
   @SerializedName(SERIALIZED_NAME_ADDRESS_SID)

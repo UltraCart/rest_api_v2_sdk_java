@@ -116036,65 +116036,89 @@ components:
             limit: 9
             next_offset: 9
         queues:
-        - wait_warning_seconds: 9
-          voicemail: true
-          max_hold_seconds: 5
-          say: say
+        - wait_warning_seconds: 1
           merchant_id: merchant_id
           play_audio_uuid: play_audio_uuid
-          wrap_up_seconds: 3
-          wait_critical_seconds: 7
+          wrap_up_seconds: 1
+          wait_critical_seconds: 1
+          callback_offer_after_seconds: 7
+          callback_retry_delay_seconds: 3
           no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
-          ai_priority: neutral
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
-          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-          say_voice: man
-          record_call: true
           no_agent_available_say: no_agent_available_say
+          callback_offer_interval_seconds: 9
           members:
             groups:
-            - 5
-            - 5
+            - 4
+            - 4
             users:
-            - 2
-            - 2
-          name: name
+            - 7
+            - 7
           ai_timeout_seconds: 1
-          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_hours_only: true
+          callback_max_offers: 5
+          callback_announce_audio_uuid: callback_announce_audio_uuid
+          callback_confirm_audio_uuid: callback_confirm_audio_uuid
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+          voicemail: true
+          callback_confirm_say: callback_confirm_say
+          max_hold_seconds: 2
+          callback_enabled: true
+          say: say
+          callback_max_attempts: 5
+          ai_priority: neutral
+          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+          say_voice: man
+          record_call: true
+          callback_max_pending: 2
+          name: name
+          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_announce_say: callback_announce_say
           no_agent_available_say_voice: man
-        - wait_warning_seconds: 9
-          voicemail: true
-          max_hold_seconds: 5
-          say: say
+        - wait_warning_seconds: 1
           merchant_id: merchant_id
           play_audio_uuid: play_audio_uuid
-          wrap_up_seconds: 3
-          wait_critical_seconds: 7
+          wrap_up_seconds: 1
+          wait_critical_seconds: 1
+          callback_offer_after_seconds: 7
+          callback_retry_delay_seconds: 3
           no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
-          ai_priority: neutral
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
-          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-          say_voice: man
-          record_call: true
           no_agent_available_say: no_agent_available_say
+          callback_offer_interval_seconds: 9
           members:
             groups:
-            - 5
-            - 5
+            - 4
+            - 4
             users:
-            - 2
-            - 2
-          name: name
+            - 7
+            - 7
           ai_timeout_seconds: 1
-          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_hours_only: true
+          callback_max_offers: 5
+          callback_announce_audio_uuid: callback_announce_audio_uuid
+          callback_confirm_audio_uuid: callback_confirm_audio_uuid
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+          voicemail: true
+          callback_confirm_say: callback_confirm_say
+          max_hold_seconds: 2
+          callback_enabled: true
+          say: say
+          callback_max_attempts: 5
+          ai_priority: neutral
+          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+          say_voice: man
+          record_call: true
+          callback_max_pending: 2
+          name: name
+          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_announce_say: callback_announce_say
           no_agent_available_say_voice: man
         success: true
         voicemail_mailboxes:
@@ -116102,7 +116126,7 @@ components:
           voicemail_mailbox_id: voicemail_mailbox_id
           voicemail_mailbox_type: agent
           voicemail_prompt_say: voicemail_prompt_say
-          user_id: 2
+          user_id: 6
           voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
           send_notices_to_email: send_notices_to_email
           voicemail_prompt_say_voice: man
@@ -116114,7 +116138,7 @@ components:
           voicemail_mailbox_id: voicemail_mailbox_id
           voicemail_mailbox_type: agent
           voicemail_prompt_say: voicemail_prompt_say
-          user_id: 2
+          user_id: 6
           voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
           send_notices_to_email: send_notices_to_email
           voicemail_prompt_say_voice: man
@@ -133749,35 +133773,47 @@ components:
       type: object
     ConversationPbxQueue:
       example:
-        wait_warning_seconds: 9
-        voicemail: true
-        max_hold_seconds: 5
-        say: say
+        wait_warning_seconds: 1
         merchant_id: merchant_id
         play_audio_uuid: play_audio_uuid
-        wrap_up_seconds: 3
-        wait_critical_seconds: 7
+        wrap_up_seconds: 1
+        wait_critical_seconds: 1
+        callback_offer_after_seconds: 7
+        callback_retry_delay_seconds: 3
         no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
         twilio_workspace_queue_sid: twilio_workspace_queue_sid
-        ai_priority: neutral
         automatic_coach_agent_uuid: automatic_coach_agent_uuid
-        conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
         hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-        say_voice: man
-        record_call: true
         no_agent_available_say: no_agent_available_say
+        callback_offer_interval_seconds: 9
         members:
           groups:
-          - 5
-          - 5
+          - 4
+          - 4
           users:
-          - 2
-          - 2
-        name: name
+          - 7
+          - 7
         ai_timeout_seconds: 1
-        twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+        callback_hours_only: true
+        callback_max_offers: 5
+        callback_announce_audio_uuid: callback_announce_audio_uuid
+        callback_confirm_audio_uuid: callback_confirm_audio_uuid
         announce_queue_position: true
         conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+        voicemail: true
+        callback_confirm_say: callback_confirm_say
+        max_hold_seconds: 2
+        callback_enabled: true
+        say: say
+        callback_max_attempts: 5
+        ai_priority: neutral
+        conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+        say_voice: man
+        record_call: true
+        callback_max_pending: 2
+        name: name
+        twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+        callback_announce_say: callback_announce_say
         no_agent_available_say_voice: man
       properties:
         ai_priority:
@@ -133798,6 +133834,53 @@ components:
         automatic_coach_agent_uuid:
           description: AI Agent UUID to automatically engage to provide coaching
           type: string
+        callback_announce_audio_uuid:
+          description: Custom audio file UUID for the callback offer prompt
+          maxLength: 50
+          type: string
+        callback_announce_say:
+          description: Custom TTS text for the callback offer prompt
+          type: string
+        callback_confirm_audio_uuid:
+          description: Custom audio file UUID for the callback confirmation message
+          maxLength: 50
+          type: string
+        callback_confirm_say:
+          description: Custom TTS text for the callback confirmation message
+          type: string
+        callback_enabled:
+          description: "If true, the callback option is enabled for this queue"
+          type: boolean
+        callback_hours_only:
+          description: "When true, only offer callbacks during business hours"
+          type: boolean
+        callback_max_attempts:
+          description: Maximum number of times the system will attempt to call the
+            customer back
+          format: int32
+          type: integer
+        callback_max_offers:
+          description: Maximum number of times the callback option is offered to a
+            caller per call
+          format: int32
+          type: integer
+        callback_max_pending:
+          description: Maximum number of pending callbacks allowed per queue
+          format: int32
+          type: integer
+        callback_offer_after_seconds:
+          description: Seconds a caller must wait in queue before the callback option
+            is offered
+          format: int32
+          type: integer
+        callback_offer_interval_seconds:
+          description: Seconds between repeat callback offers to the same caller
+          format: int32
+          type: integer
+        callback_retry_delay_seconds:
+          description: Delay in seconds between callback retry attempts
+          format: int32
+          type: integer
         conversation_pbx_queue_uuid:
           description: Conversation Pbx Queue unique identifier
           type: string
@@ -133883,11 +133966,11 @@ components:
     ConversationPbxQueueMembers:
       example:
         groups:
-        - 5
-        - 5
+        - 4
+        - 4
         users:
-        - 2
-        - 2
+        - 7
+        - 7
       properties:
         groups:
           items:
@@ -133920,35 +134003,47 @@ components:
           error_code: error_code
           object_id: object_id
         queue:
-          wait_warning_seconds: 9
-          voicemail: true
-          max_hold_seconds: 5
-          say: say
+          wait_warning_seconds: 1
           merchant_id: merchant_id
           play_audio_uuid: play_audio_uuid
-          wrap_up_seconds: 3
-          wait_critical_seconds: 7
+          wrap_up_seconds: 1
+          wait_critical_seconds: 1
+          callback_offer_after_seconds: 7
+          callback_retry_delay_seconds: 3
           no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
-          ai_priority: neutral
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
-          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-          say_voice: man
-          record_call: true
           no_agent_available_say: no_agent_available_say
+          callback_offer_interval_seconds: 9
           members:
             groups:
-            - 5
-            - 5
+            - 4
+            - 4
             users:
-            - 2
-            - 2
-          name: name
+            - 7
+            - 7
           ai_timeout_seconds: 1
-          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_hours_only: true
+          callback_max_offers: 5
+          callback_announce_audio_uuid: callback_announce_audio_uuid
+          callback_confirm_audio_uuid: callback_confirm_audio_uuid
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+          voicemail: true
+          callback_confirm_say: callback_confirm_say
+          max_hold_seconds: 2
+          callback_enabled: true
+          say: say
+          callback_max_attempts: 5
+          ai_priority: neutral
+          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+          say_voice: man
+          record_call: true
+          callback_max_pending: 2
+          name: name
+          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_announce_say: callback_announce_say
           no_agent_available_say_voice: man
       properties:
         error:
@@ -133975,65 +134070,89 @@ components:
             limit: 9
             next_offset: 9
         queues:
-        - wait_warning_seconds: 9
-          voicemail: true
-          max_hold_seconds: 5
-          say: say
+        - wait_warning_seconds: 1
           merchant_id: merchant_id
           play_audio_uuid: play_audio_uuid
-          wrap_up_seconds: 3
-          wait_critical_seconds: 7
+          wrap_up_seconds: 1
+          wait_critical_seconds: 1
+          callback_offer_after_seconds: 7
+          callback_retry_delay_seconds: 3
           no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
-          ai_priority: neutral
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
-          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-          say_voice: man
-          record_call: true
           no_agent_available_say: no_agent_available_say
+          callback_offer_interval_seconds: 9
           members:
             groups:
-            - 5
-            - 5
+            - 4
+            - 4
             users:
-            - 2
-            - 2
-          name: name
+            - 7
+            - 7
           ai_timeout_seconds: 1
-          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_hours_only: true
+          callback_max_offers: 5
+          callback_announce_audio_uuid: callback_announce_audio_uuid
+          callback_confirm_audio_uuid: callback_confirm_audio_uuid
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+          voicemail: true
+          callback_confirm_say: callback_confirm_say
+          max_hold_seconds: 2
+          callback_enabled: true
+          say: say
+          callback_max_attempts: 5
+          ai_priority: neutral
+          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+          say_voice: man
+          record_call: true
+          callback_max_pending: 2
+          name: name
+          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_announce_say: callback_announce_say
           no_agent_available_say_voice: man
-        - wait_warning_seconds: 9
-          voicemail: true
-          max_hold_seconds: 5
-          say: say
+        - wait_warning_seconds: 1
           merchant_id: merchant_id
           play_audio_uuid: play_audio_uuid
-          wrap_up_seconds: 3
-          wait_critical_seconds: 7
+          wrap_up_seconds: 1
+          wait_critical_seconds: 1
+          callback_offer_after_seconds: 7
+          callback_retry_delay_seconds: 3
           no_agent_available_play_audio_uuid: no_agent_available_play_audio_uuid
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
-          ai_priority: neutral
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
-          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
-          say_voice: man
-          record_call: true
           no_agent_available_say: no_agent_available_say
+          callback_offer_interval_seconds: 9
           members:
             groups:
-            - 5
-            - 5
+            - 4
+            - 4
             users:
-            - 2
-            - 2
-          name: name
+            - 7
+            - 7
           ai_timeout_seconds: 1
-          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_hours_only: true
+          callback_max_offers: 5
+          callback_announce_audio_uuid: callback_announce_audio_uuid
+          callback_confirm_audio_uuid: callback_confirm_audio_uuid
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
+          voicemail: true
+          callback_confirm_say: callback_confirm_say
+          max_hold_seconds: 2
+          callback_enabled: true
+          say: say
+          callback_max_attempts: 5
+          ai_priority: neutral
+          conversation_voicemail_mailbox_uuid: conversation_voicemail_mailbox_uuid
+          say_voice: man
+          record_call: true
+          callback_max_pending: 2
+          name: name
+          twilio_taskrouter_workflow_sid: twilio_taskrouter_workflow_sid
+          callback_announce_say: callback_announce_say
           no_agent_available_say_voice: man
         success: true
         warning:
@@ -134475,7 +134594,7 @@ components:
         voicemail_mailbox_id: voicemail_mailbox_id
         voicemail_mailbox_type: agent
         voicemail_prompt_say: voicemail_prompt_say
-        user_id: 2
+        user_id: 6
         voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
         send_notices_to_email: send_notices_to_email
         voicemail_prompt_say_voice: man
@@ -134557,7 +134676,7 @@ components:
           voicemail_mailbox_id: voicemail_mailbox_id
           voicemail_mailbox_type: agent
           voicemail_prompt_say: voicemail_prompt_say
-          user_id: 2
+          user_id: 6
           voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
           send_notices_to_email: send_notices_to_email
           voicemail_prompt_say_voice: man
@@ -134569,7 +134688,7 @@ components:
           voicemail_mailbox_id: voicemail_mailbox_id
           voicemail_mailbox_type: agent
           voicemail_prompt_say: voicemail_prompt_say
-          user_id: 2
+          user_id: 6
           voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
           send_notices_to_email: send_notices_to_email
           voicemail_prompt_say_voice: man
@@ -134627,7 +134746,7 @@ components:
           voicemail_mailbox_id: voicemail_mailbox_id
           voicemail_mailbox_type: agent
           voicemail_prompt_say: voicemail_prompt_say
-          user_id: 2
+          user_id: 6
           voicemail_followup_play_audio_uuid: voicemail_followup_play_audio_uuid
           send_notices_to_email: send_notices_to_email
           voicemail_prompt_say_voice: man

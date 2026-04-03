@@ -11,6 +11,18 @@
 |**aiTimeoutSeconds** | **Integer** | AI timeout seconds |  [optional] |
 |**announceQueuePosition** | **Boolean** | If true, the customer is told their queue position upon entering the queue |  [optional] |
 |**automaticCoachAgentUuid** | **String** | AI Agent UUID to automatically engage to provide coaching |  [optional] |
+|**callbackAnnounceAudioUuid** | **String** | Custom audio file UUID for the callback offer prompt |  [optional] |
+|**callbackAnnounceSay** | **String** | Custom TTS text for the callback offer prompt |  [optional] |
+|**callbackConfirmAudioUuid** | **String** | Custom audio file UUID for the callback confirmation message |  [optional] |
+|**callbackConfirmSay** | **String** | Custom TTS text for the callback confirmation message |  [optional] |
+|**callbackEnabled** | **Boolean** | If true, the callback option is enabled for this queue |  [optional] |
+|**callbackHoursOnly** | **Boolean** | When true, only offer callbacks during business hours |  [optional] |
+|**callbackMaxAttempts** | **Integer** | Maximum number of times the system will attempt to call the customer back |  [optional] |
+|**callbackMaxOffers** | **Integer** | Maximum number of times the callback option is offered to a caller per call |  [optional] |
+|**callbackMaxPending** | **Integer** | Maximum number of pending callbacks allowed per queue |  [optional] |
+|**callbackOfferAfterSeconds** | **Integer** | Seconds a caller must wait in queue before the callback option is offered |  [optional] |
+|**callbackOfferIntervalSeconds** | **Integer** | Seconds between repeat callback offers to the same caller |  [optional] |
+|**callbackRetryDelaySeconds** | **Integer** | Delay in seconds between callback retry attempts |  [optional] |
 |**conversationPbxQueueUuid** | **String** | Conversation Pbx Queue unique identifier |  [optional] |
 |**conversationVoicemailMailboxUuid** | **String** | The voicemail mailbox associated with this queue |  [optional] |
 |**holdConversationPbxAudioUuid** | **String** | The audio to play while holding in a queue |  [optional] |

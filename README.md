@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-03-31T14:51:13.628-04:00[America/Indianapolis]
+- Build date: 2026-04-03T12:58:50.365-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.69</version>
+    <version>4.1.70</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.69"
+     implementation "com.ultracart:rest-sdk:4.1.70"
   }
 ```
 
@@ -1711,6 +1711,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
 | 4.1.69 | 03/31/2026 | conversations - user specific audio methods |
 | 4.1.68 | 03/31/2026 | oauth - device support |
 | 4.1.67 | 02/24/2026 | customer activity - sms and sms_stop fields added |

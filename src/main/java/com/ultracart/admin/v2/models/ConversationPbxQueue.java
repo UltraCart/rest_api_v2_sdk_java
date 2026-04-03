@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-31T14:51:13.628-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T12:58:50.365-04:00[America/Indianapolis]")
 public class ConversationPbxQueue {
   /**
    * AI Agent Priority compared to human agents
@@ -114,6 +114,54 @@ public class ConversationPbxQueue {
   public static final String SERIALIZED_NAME_AUTOMATIC_COACH_AGENT_UUID = "automatic_coach_agent_uuid";
   @SerializedName(SERIALIZED_NAME_AUTOMATIC_COACH_AGENT_UUID)
   private String automaticCoachAgentUuid;
+
+  public static final String SERIALIZED_NAME_CALLBACK_ANNOUNCE_AUDIO_UUID = "callback_announce_audio_uuid";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_ANNOUNCE_AUDIO_UUID)
+  private String callbackAnnounceAudioUuid;
+
+  public static final String SERIALIZED_NAME_CALLBACK_ANNOUNCE_SAY = "callback_announce_say";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_ANNOUNCE_SAY)
+  private String callbackAnnounceSay;
+
+  public static final String SERIALIZED_NAME_CALLBACK_CONFIRM_AUDIO_UUID = "callback_confirm_audio_uuid";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_CONFIRM_AUDIO_UUID)
+  private String callbackConfirmAudioUuid;
+
+  public static final String SERIALIZED_NAME_CALLBACK_CONFIRM_SAY = "callback_confirm_say";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_CONFIRM_SAY)
+  private String callbackConfirmSay;
+
+  public static final String SERIALIZED_NAME_CALLBACK_ENABLED = "callback_enabled";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_ENABLED)
+  private Boolean callbackEnabled;
+
+  public static final String SERIALIZED_NAME_CALLBACK_HOURS_ONLY = "callback_hours_only";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_HOURS_ONLY)
+  private Boolean callbackHoursOnly;
+
+  public static final String SERIALIZED_NAME_CALLBACK_MAX_ATTEMPTS = "callback_max_attempts";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_MAX_ATTEMPTS)
+  private Integer callbackMaxAttempts;
+
+  public static final String SERIALIZED_NAME_CALLBACK_MAX_OFFERS = "callback_max_offers";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_MAX_OFFERS)
+  private Integer callbackMaxOffers;
+
+  public static final String SERIALIZED_NAME_CALLBACK_MAX_PENDING = "callback_max_pending";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_MAX_PENDING)
+  private Integer callbackMaxPending;
+
+  public static final String SERIALIZED_NAME_CALLBACK_OFFER_AFTER_SECONDS = "callback_offer_after_seconds";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_OFFER_AFTER_SECONDS)
+  private Integer callbackOfferAfterSeconds;
+
+  public static final String SERIALIZED_NAME_CALLBACK_OFFER_INTERVAL_SECONDS = "callback_offer_interval_seconds";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_OFFER_INTERVAL_SECONDS)
+  private Integer callbackOfferIntervalSeconds;
+
+  public static final String SERIALIZED_NAME_CALLBACK_RETRY_DELAY_SECONDS = "callback_retry_delay_seconds";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_RETRY_DELAY_SECONDS)
+  private Integer callbackRetryDelaySeconds;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID = "conversation_pbx_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID)
@@ -381,6 +429,282 @@ public class ConversationPbxQueue {
 
   public void setAutomaticCoachAgentUuid(String automaticCoachAgentUuid) {
     this.automaticCoachAgentUuid = automaticCoachAgentUuid;
+  }
+
+
+  public ConversationPbxQueue callbackAnnounceAudioUuid(String callbackAnnounceAudioUuid) {
+    
+    this.callbackAnnounceAudioUuid = callbackAnnounceAudioUuid;
+    return this;
+  }
+
+   /**
+   * Custom audio file UUID for the callback offer prompt
+   * @return callbackAnnounceAudioUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom audio file UUID for the callback offer prompt")
+
+  public String getCallbackAnnounceAudioUuid() {
+    return callbackAnnounceAudioUuid;
+  }
+
+
+  public void setCallbackAnnounceAudioUuid(String callbackAnnounceAudioUuid) {
+    this.callbackAnnounceAudioUuid = callbackAnnounceAudioUuid;
+  }
+
+
+  public ConversationPbxQueue callbackAnnounceSay(String callbackAnnounceSay) {
+    
+    this.callbackAnnounceSay = callbackAnnounceSay;
+    return this;
+  }
+
+   /**
+   * Custom TTS text for the callback offer prompt
+   * @return callbackAnnounceSay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom TTS text for the callback offer prompt")
+
+  public String getCallbackAnnounceSay() {
+    return callbackAnnounceSay;
+  }
+
+
+  public void setCallbackAnnounceSay(String callbackAnnounceSay) {
+    this.callbackAnnounceSay = callbackAnnounceSay;
+  }
+
+
+  public ConversationPbxQueue callbackConfirmAudioUuid(String callbackConfirmAudioUuid) {
+    
+    this.callbackConfirmAudioUuid = callbackConfirmAudioUuid;
+    return this;
+  }
+
+   /**
+   * Custom audio file UUID for the callback confirmation message
+   * @return callbackConfirmAudioUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom audio file UUID for the callback confirmation message")
+
+  public String getCallbackConfirmAudioUuid() {
+    return callbackConfirmAudioUuid;
+  }
+
+
+  public void setCallbackConfirmAudioUuid(String callbackConfirmAudioUuid) {
+    this.callbackConfirmAudioUuid = callbackConfirmAudioUuid;
+  }
+
+
+  public ConversationPbxQueue callbackConfirmSay(String callbackConfirmSay) {
+    
+    this.callbackConfirmSay = callbackConfirmSay;
+    return this;
+  }
+
+   /**
+   * Custom TTS text for the callback confirmation message
+   * @return callbackConfirmSay
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom TTS text for the callback confirmation message")
+
+  public String getCallbackConfirmSay() {
+    return callbackConfirmSay;
+  }
+
+
+  public void setCallbackConfirmSay(String callbackConfirmSay) {
+    this.callbackConfirmSay = callbackConfirmSay;
+  }
+
+
+  public ConversationPbxQueue callbackEnabled(Boolean callbackEnabled) {
+    
+    this.callbackEnabled = callbackEnabled;
+    return this;
+  }
+
+   /**
+   * If true, the callback option is enabled for this queue
+   * @return callbackEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, the callback option is enabled for this queue")
+
+  public Boolean getCallbackEnabled() {
+    return callbackEnabled;
+  }
+
+
+  public void setCallbackEnabled(Boolean callbackEnabled) {
+    this.callbackEnabled = callbackEnabled;
+  }
+
+
+  public ConversationPbxQueue callbackHoursOnly(Boolean callbackHoursOnly) {
+    
+    this.callbackHoursOnly = callbackHoursOnly;
+    return this;
+  }
+
+   /**
+   * When true, only offer callbacks during business hours
+   * @return callbackHoursOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When true, only offer callbacks during business hours")
+
+  public Boolean getCallbackHoursOnly() {
+    return callbackHoursOnly;
+  }
+
+
+  public void setCallbackHoursOnly(Boolean callbackHoursOnly) {
+    this.callbackHoursOnly = callbackHoursOnly;
+  }
+
+
+  public ConversationPbxQueue callbackMaxAttempts(Integer callbackMaxAttempts) {
+    
+    this.callbackMaxAttempts = callbackMaxAttempts;
+    return this;
+  }
+
+   /**
+   * Maximum number of times the system will attempt to call the customer back
+   * @return callbackMaxAttempts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum number of times the system will attempt to call the customer back")
+
+  public Integer getCallbackMaxAttempts() {
+    return callbackMaxAttempts;
+  }
+
+
+  public void setCallbackMaxAttempts(Integer callbackMaxAttempts) {
+    this.callbackMaxAttempts = callbackMaxAttempts;
+  }
+
+
+  public ConversationPbxQueue callbackMaxOffers(Integer callbackMaxOffers) {
+    
+    this.callbackMaxOffers = callbackMaxOffers;
+    return this;
+  }
+
+   /**
+   * Maximum number of times the callback option is offered to a caller per call
+   * @return callbackMaxOffers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum number of times the callback option is offered to a caller per call")
+
+  public Integer getCallbackMaxOffers() {
+    return callbackMaxOffers;
+  }
+
+
+  public void setCallbackMaxOffers(Integer callbackMaxOffers) {
+    this.callbackMaxOffers = callbackMaxOffers;
+  }
+
+
+  public ConversationPbxQueue callbackMaxPending(Integer callbackMaxPending) {
+    
+    this.callbackMaxPending = callbackMaxPending;
+    return this;
+  }
+
+   /**
+   * Maximum number of pending callbacks allowed per queue
+   * @return callbackMaxPending
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Maximum number of pending callbacks allowed per queue")
+
+  public Integer getCallbackMaxPending() {
+    return callbackMaxPending;
+  }
+
+
+  public void setCallbackMaxPending(Integer callbackMaxPending) {
+    this.callbackMaxPending = callbackMaxPending;
+  }
+
+
+  public ConversationPbxQueue callbackOfferAfterSeconds(Integer callbackOfferAfterSeconds) {
+    
+    this.callbackOfferAfterSeconds = callbackOfferAfterSeconds;
+    return this;
+  }
+
+   /**
+   * Seconds a caller must wait in queue before the callback option is offered
+   * @return callbackOfferAfterSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Seconds a caller must wait in queue before the callback option is offered")
+
+  public Integer getCallbackOfferAfterSeconds() {
+    return callbackOfferAfterSeconds;
+  }
+
+
+  public void setCallbackOfferAfterSeconds(Integer callbackOfferAfterSeconds) {
+    this.callbackOfferAfterSeconds = callbackOfferAfterSeconds;
+  }
+
+
+  public ConversationPbxQueue callbackOfferIntervalSeconds(Integer callbackOfferIntervalSeconds) {
+    
+    this.callbackOfferIntervalSeconds = callbackOfferIntervalSeconds;
+    return this;
+  }
+
+   /**
+   * Seconds between repeat callback offers to the same caller
+   * @return callbackOfferIntervalSeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Seconds between repeat callback offers to the same caller")
+
+  public Integer getCallbackOfferIntervalSeconds() {
+    return callbackOfferIntervalSeconds;
+  }
+
+
+  public void setCallbackOfferIntervalSeconds(Integer callbackOfferIntervalSeconds) {
+    this.callbackOfferIntervalSeconds = callbackOfferIntervalSeconds;
+  }
+
+
+  public ConversationPbxQueue callbackRetryDelaySeconds(Integer callbackRetryDelaySeconds) {
+    
+    this.callbackRetryDelaySeconds = callbackRetryDelaySeconds;
+    return this;
+  }
+
+   /**
+   * Delay in seconds between callback retry attempts
+   * @return callbackRetryDelaySeconds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Delay in seconds between callback retry attempts")
+
+  public Integer getCallbackRetryDelaySeconds() {
+    return callbackRetryDelaySeconds;
+  }
+
+
+  public void setCallbackRetryDelaySeconds(Integer callbackRetryDelaySeconds) {
+    this.callbackRetryDelaySeconds = callbackRetryDelaySeconds;
   }
 
 
@@ -858,6 +1182,18 @@ public class ConversationPbxQueue {
         Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
         Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
         Objects.equals(this.automaticCoachAgentUuid, conversationPbxQueue.automaticCoachAgentUuid) &&
+        Objects.equals(this.callbackAnnounceAudioUuid, conversationPbxQueue.callbackAnnounceAudioUuid) &&
+        Objects.equals(this.callbackAnnounceSay, conversationPbxQueue.callbackAnnounceSay) &&
+        Objects.equals(this.callbackConfirmAudioUuid, conversationPbxQueue.callbackConfirmAudioUuid) &&
+        Objects.equals(this.callbackConfirmSay, conversationPbxQueue.callbackConfirmSay) &&
+        Objects.equals(this.callbackEnabled, conversationPbxQueue.callbackEnabled) &&
+        Objects.equals(this.callbackHoursOnly, conversationPbxQueue.callbackHoursOnly) &&
+        Objects.equals(this.callbackMaxAttempts, conversationPbxQueue.callbackMaxAttempts) &&
+        Objects.equals(this.callbackMaxOffers, conversationPbxQueue.callbackMaxOffers) &&
+        Objects.equals(this.callbackMaxPending, conversationPbxQueue.callbackMaxPending) &&
+        Objects.equals(this.callbackOfferAfterSeconds, conversationPbxQueue.callbackOfferAfterSeconds) &&
+        Objects.equals(this.callbackOfferIntervalSeconds, conversationPbxQueue.callbackOfferIntervalSeconds) &&
+        Objects.equals(this.callbackRetryDelaySeconds, conversationPbxQueue.callbackRetryDelaySeconds) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -882,7 +1218,7 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, callbackAnnounceAudioUuid, callbackAnnounceSay, callbackConfirmAudioUuid, callbackConfirmSay, callbackEnabled, callbackHoursOnly, callbackMaxAttempts, callbackMaxOffers, callbackMaxPending, callbackOfferAfterSeconds, callbackOfferIntervalSeconds, callbackRetryDelaySeconds, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
   }
 
   @Override
@@ -893,6 +1229,18 @@ public class ConversationPbxQueue {
     sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
     sb.append("    automaticCoachAgentUuid: ").append(toIndentedString(automaticCoachAgentUuid)).append("\n");
+    sb.append("    callbackAnnounceAudioUuid: ").append(toIndentedString(callbackAnnounceAudioUuid)).append("\n");
+    sb.append("    callbackAnnounceSay: ").append(toIndentedString(callbackAnnounceSay)).append("\n");
+    sb.append("    callbackConfirmAudioUuid: ").append(toIndentedString(callbackConfirmAudioUuid)).append("\n");
+    sb.append("    callbackConfirmSay: ").append(toIndentedString(callbackConfirmSay)).append("\n");
+    sb.append("    callbackEnabled: ").append(toIndentedString(callbackEnabled)).append("\n");
+    sb.append("    callbackHoursOnly: ").append(toIndentedString(callbackHoursOnly)).append("\n");
+    sb.append("    callbackMaxAttempts: ").append(toIndentedString(callbackMaxAttempts)).append("\n");
+    sb.append("    callbackMaxOffers: ").append(toIndentedString(callbackMaxOffers)).append("\n");
+    sb.append("    callbackMaxPending: ").append(toIndentedString(callbackMaxPending)).append("\n");
+    sb.append("    callbackOfferAfterSeconds: ").append(toIndentedString(callbackOfferAfterSeconds)).append("\n");
+    sb.append("    callbackOfferIntervalSeconds: ").append(toIndentedString(callbackOfferIntervalSeconds)).append("\n");
+    sb.append("    callbackRetryDelaySeconds: ").append(toIndentedString(callbackRetryDelaySeconds)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");
     sb.append("    holdConversationPbxAudioUuid: ").append(toIndentedString(holdConversationPbxAudioUuid)).append("\n");
@@ -939,6 +1287,18 @@ public class ConversationPbxQueue {
     openapiFields.add("ai_timeout_seconds");
     openapiFields.add("announce_queue_position");
     openapiFields.add("automatic_coach_agent_uuid");
+    openapiFields.add("callback_announce_audio_uuid");
+    openapiFields.add("callback_announce_say");
+    openapiFields.add("callback_confirm_audio_uuid");
+    openapiFields.add("callback_confirm_say");
+    openapiFields.add("callback_enabled");
+    openapiFields.add("callback_hours_only");
+    openapiFields.add("callback_max_attempts");
+    openapiFields.add("callback_max_offers");
+    openapiFields.add("callback_max_pending");
+    openapiFields.add("callback_offer_after_seconds");
+    openapiFields.add("callback_offer_interval_seconds");
+    openapiFields.add("callback_retry_delay_seconds");
     openapiFields.add("conversation_pbx_queue_uuid");
     openapiFields.add("conversation_voicemail_mailbox_uuid");
     openapiFields.add("hold_conversation_pbx_audio_uuid");
@@ -991,6 +1351,18 @@ public class ConversationPbxQueue {
       }
       if (jsonObj.get("automatic_coach_agent_uuid") != null && !jsonObj.get("automatic_coach_agent_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `automatic_coach_agent_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("automatic_coach_agent_uuid").toString()));
+      }
+      if (jsonObj.get("callback_announce_audio_uuid") != null && !jsonObj.get("callback_announce_audio_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `callback_announce_audio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_announce_audio_uuid").toString()));
+      }
+      if (jsonObj.get("callback_announce_say") != null && !jsonObj.get("callback_announce_say").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `callback_announce_say` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_announce_say").toString()));
+      }
+      if (jsonObj.get("callback_confirm_audio_uuid") != null && !jsonObj.get("callback_confirm_audio_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `callback_confirm_audio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_confirm_audio_uuid").toString()));
+      }
+      if (jsonObj.get("callback_confirm_say") != null && !jsonObj.get("callback_confirm_say").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `callback_confirm_say` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_confirm_say").toString()));
       }
       if (jsonObj.get("conversation_pbx_queue_uuid") != null && !jsonObj.get("conversation_pbx_queue_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_queue_uuid").toString()));
