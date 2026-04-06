@@ -54,6 +54,7 @@ import com.ultracart.admin.v2.models.CouponPercentOffItemWithItemsQuantityPurcha
 import com.ultracart.admin.v2.models.CouponPercentOffItems;
 import com.ultracart.admin.v2.models.CouponPercentOffItemsAndFreeShipping;
 import com.ultracart.admin.v2.models.CouponPercentOffItemsWithItemsPurchase;
+import com.ultracart.admin.v2.models.CouponPercentOffItemsWithMinimumItemAmount;
 import com.ultracart.admin.v2.models.CouponPercentOffMsrpItems;
 import com.ultracart.admin.v2.models.CouponPercentOffRetailPriceItems;
 import com.ultracart.admin.v2.models.CouponPercentOffShipping;
@@ -98,7 +99,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Coupon
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T12:58:50.365-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-06T12:23:01.302-04:00[America/Indianapolis]")
 public class Coupon {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -279,6 +280,10 @@ public class Coupon {
   public static final String SERIALIZED_NAME_PERCENT_OFF_ITEMS_WITH_ITEMS_PURCHASE = "percent_off_items_with_items_purchase";
   @SerializedName(SERIALIZED_NAME_PERCENT_OFF_ITEMS_WITH_ITEMS_PURCHASE)
   private CouponPercentOffItemsWithItemsPurchase percentOffItemsWithItemsPurchase;
+
+  public static final String SERIALIZED_NAME_PERCENT_OFF_ITEMS_WITH_MINIMUM_ITEM_AMOUNT = "percent_off_items_with_minimum_item_amount";
+  @SerializedName(SERIALIZED_NAME_PERCENT_OFF_ITEMS_WITH_MINIMUM_ITEM_AMOUNT)
+  private CouponPercentOffItemsWithMinimumItemAmount percentOffItemsWithMinimumItemAmount;
 
   public static final String SERIALIZED_NAME_PERCENT_OFF_MSRP_ITEMS = "percent_off_msrp_items";
   @SerializedName(SERIALIZED_NAME_PERCENT_OFF_MSRP_ITEMS)
@@ -1459,6 +1464,29 @@ public class Coupon {
   }
 
 
+  public Coupon percentOffItemsWithMinimumItemAmount(CouponPercentOffItemsWithMinimumItemAmount percentOffItemsWithMinimumItemAmount) {
+    
+    this.percentOffItemsWithMinimumItemAmount = percentOffItemsWithMinimumItemAmount;
+    return this;
+  }
+
+   /**
+   * Get percentOffItemsWithMinimumItemAmount
+   * @return percentOffItemsWithMinimumItemAmount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CouponPercentOffItemsWithMinimumItemAmount getPercentOffItemsWithMinimumItemAmount() {
+    return percentOffItemsWithMinimumItemAmount;
+  }
+
+
+  public void setPercentOffItemsWithMinimumItemAmount(CouponPercentOffItemsWithMinimumItemAmount percentOffItemsWithMinimumItemAmount) {
+    this.percentOffItemsWithMinimumItemAmount = percentOffItemsWithMinimumItemAmount;
+  }
+
+
   public Coupon percentOffMsrpItems(CouponPercentOffMsrpItems percentOffMsrpItems) {
     
     this.percentOffMsrpItems = percentOffMsrpItems;
@@ -2044,6 +2072,7 @@ public class Coupon {
         Objects.equals(this.percentOffItems, coupon.percentOffItems) &&
         Objects.equals(this.percentOffItemsAndFreeShipping, coupon.percentOffItemsAndFreeShipping) &&
         Objects.equals(this.percentOffItemsWithItemsPurchase, coupon.percentOffItemsWithItemsPurchase) &&
+        Objects.equals(this.percentOffItemsWithMinimumItemAmount, coupon.percentOffItemsWithMinimumItemAmount) &&
         Objects.equals(this.percentOffMsrpItems, coupon.percentOffMsrpItems) &&
         Objects.equals(this.percentOffRetailPriceItems, coupon.percentOffRetailPriceItems) &&
         Objects.equals(this.percentOffShipping, coupon.percentOffShipping) &&
@@ -2070,7 +2099,7 @@ public class Coupon {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithItemPurchaseAndFreeShipping, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, skipOnRebill, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
+    return Objects.hash(affiliateOid, allowMultipleOneTimeCodes, amountOffItems, amountOffShipping, amountOffShippingWithItemsPurchase, amountOffSubtotal, amountOffSubtotalAndFreeShipping, amountOffSubtotalAndShipping, amountOffSubtotalWithBlockPurchase, amountOffSubtotalWithItemsPurchase, amountOffSubtotalWithPurchase, amountShippingWithSubtotal, automaticallyApplyCouponCodes, buyOneGetOne, calculatedDescription, canBeUsedWithOtherCoupons, couponOid, couponType, description, discountItemWithItemPurchase, discountItems, expirationDts, freeItemAndShippingWithSubtotal, freeItemWithItemPurchase, freeItemWithItemPurchaseAndFreeShipping, freeItemWithSubtotal, freeItemsWithItemPurchase, freeItemsWithMixmatchPurchase, freeShipping, freeShippingSpecificItems, freeShippingWithItemsPurchase, freeShippingWithSubtotal, hideFromCustomer, merchantCode, merchantNotes, moreLoyaltyCashback, moreLoyaltyPoints, multipleAmountsOffItems, noDiscount, percentMoreLoyaltyCashback, percentMoreLoyaltyPoints, percentOffItemWithItemsQuantityPurchase, percentOffItems, percentOffItemsAndFreeShipping, percentOffItemsWithItemsPurchase, percentOffItemsWithMinimumItemAmount, percentOffMsrpItems, percentOffRetailPriceItems, percentOffShipping, percentOffSubtotal, percentOffSubtotalAndFreeShipping, percentOffSubtotalLimit, percentOffSubtotalWithItemsPurchase, percentOffSubtotalWithSubtotal, quickbooksCode, restrictByPostalCodes, restrictByScreenBrandingThemeCodes, restrictByStorefronts, skipOnRebill, startDts, superCoupon, tieredAmountOffItems, tieredAmountOffSubtotal, tieredPercentOffItems, tieredPercentOffShipping, tieredPercentOffSubtotal, tieredPercentOffSubtotalBasedOnMsrp, usableBy);
   }
 
   @Override
@@ -2122,6 +2151,7 @@ public class Coupon {
     sb.append("    percentOffItems: ").append(toIndentedString(percentOffItems)).append("\n");
     sb.append("    percentOffItemsAndFreeShipping: ").append(toIndentedString(percentOffItemsAndFreeShipping)).append("\n");
     sb.append("    percentOffItemsWithItemsPurchase: ").append(toIndentedString(percentOffItemsWithItemsPurchase)).append("\n");
+    sb.append("    percentOffItemsWithMinimumItemAmount: ").append(toIndentedString(percentOffItemsWithMinimumItemAmount)).append("\n");
     sb.append("    percentOffMsrpItems: ").append(toIndentedString(percentOffMsrpItems)).append("\n");
     sb.append("    percentOffRetailPriceItems: ").append(toIndentedString(percentOffRetailPriceItems)).append("\n");
     sb.append("    percentOffShipping: ").append(toIndentedString(percentOffShipping)).append("\n");
@@ -2211,6 +2241,7 @@ public class Coupon {
     openapiFields.add("percent_off_items");
     openapiFields.add("percent_off_items_and_free_shipping");
     openapiFields.add("percent_off_items_with_items_purchase");
+    openapiFields.add("percent_off_items_with_minimum_item_amount");
     openapiFields.add("percent_off_msrp_items");
     openapiFields.add("percent_off_retail_price_items");
     openapiFields.add("percent_off_shipping");
@@ -2413,6 +2444,10 @@ public class Coupon {
       // validate the optional field `percent_off_items_with_items_purchase`
       if (jsonObj.getAsJsonObject("percent_off_items_with_items_purchase") != null) {
         CouponPercentOffItemsWithItemsPurchase.validateJsonObject(jsonObj.getAsJsonObject("percent_off_items_with_items_purchase"));
+      }
+      // validate the optional field `percent_off_items_with_minimum_item_amount`
+      if (jsonObj.getAsJsonObject("percent_off_items_with_minimum_item_amount") != null) {
+        CouponPercentOffItemsWithMinimumItemAmount.validateJsonObject(jsonObj.getAsJsonObject("percent_off_items_with_minimum_item_amount"));
       }
       // validate the optional field `percent_off_msrp_items`
       if (jsonObj.getAsJsonObject("percent_off_msrp_items") != null) {

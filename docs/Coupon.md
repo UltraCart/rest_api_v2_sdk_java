@@ -52,6 +52,7 @@
 |**percentOffItems** | [**CouponPercentOffItems**](CouponPercentOffItems.md) |  |  [optional] |
 |**percentOffItemsAndFreeShipping** | [**CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  |  [optional] |
 |**percentOffItemsWithItemsPurchase** | [**CouponPercentOffItemsWithItemsPurchase**](CouponPercentOffItemsWithItemsPurchase.md) |  |  [optional] |
+|**percentOffItemsWithMinimumItemAmount** | [**CouponPercentOffItemsWithMinimumItemAmount**](CouponPercentOffItemsWithMinimumItemAmount.md) |  |  [optional] |
 |**percentOffMsrpItems** | [**CouponPercentOffMsrpItems**](CouponPercentOffMsrpItems.md) |  |  [optional] |
 |**percentOffRetailPriceItems** | [**CouponPercentOffRetailPriceItems**](CouponPercentOffRetailPriceItems.md) |  |  [optional] |
 |**percentOffShipping** | [**CouponPercentOffShipping**](CouponPercentOffShipping.md) |  |  [optional] |

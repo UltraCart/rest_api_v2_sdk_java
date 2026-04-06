@@ -337,6 +337,7 @@ docs/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/CouponPercentOffItems.md
 docs/CouponPercentOffItemsAndFreeShipping.md
 docs/CouponPercentOffItemsWithItemsPurchase.md
+docs/CouponPercentOffItemsWithMinimumItemAmount.md
 docs/CouponPercentOffMsrpItems.md
 docs/CouponPercentOffRetailPriceItems.md
 docs/CouponPercentOffShipping.md
@@ -1330,6 +1331,7 @@ src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemWithItemsQuantit
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItems.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemsAndFreeShipping.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemsWithItemsPurchase.java
+src/main/java/com/ultracart/admin/v2/models/CouponPercentOffItemsWithMinimumItemAmount.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffMsrpItems.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffRetailPriceItems.java
 src/main/java/com/ultracart/admin/v2/models/CouponPercentOffShipping.java
