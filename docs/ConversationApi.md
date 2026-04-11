@@ -77,6 +77,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getPbxTimeBaseds**](ConversationApi.md#getPbxTimeBaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds |
 | [**getPbxTimeRange**](ConversationApi.md#getPbxTimeRange) | **GET** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Get pbx timeRange |
 | [**getPbxTimeRanges**](ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges |
+| [**getPbxVoicemailCapabilities**](ConversationApi.md#getPbxVoicemailCapabilities) | **GET** /conversation/pbx/voicemail/capabilities | Get pbx voicemail capabilities |
 | [**getPbxVoicemailMailbox**](ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox |
 | [**getPbxVoicemailMailboxes**](ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes |
 | [**getUserPbxAudio**](ConversationApi.md#getUserPbxAudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio |
@@ -3243,6 +3244,46 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ConversationPbxTimeRangesResponse**](ConversationPbxTimeRangesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getPbxVoicemailCapabilities"></a>
+# **getPbxVoicemailCapabilities**
+> ConversationPbxVoicemailCapabilitiesResponse getPbxVoicemailCapabilities()
+
+Get pbx voicemail capabilities
+
+Retrieve voicemail notification capabilities including available channels 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ConversationPbxVoicemailCapabilitiesResponse**](ConversationPbxVoicemailCapabilitiesResponse.md)
 
 ### Authorization
 

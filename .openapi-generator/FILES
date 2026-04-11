@@ -260,6 +260,7 @@ docs/ConversationPbxTimeRange.md
 docs/ConversationPbxTimeRangeConfig.md
 docs/ConversationPbxTimeRangeResponse.md
 docs/ConversationPbxTimeRangesResponse.md
+docs/ConversationPbxVoicemailCapabilitiesResponse.md
 docs/ConversationPbxVoicemailMailbox.md
 docs/ConversationPbxVoicemailMailboxResponse.md
 docs/ConversationPbxVoicemailMailboxesResponse.md
@@ -1255,6 +1256,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationPbxTimeRange.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxTimeRangeConfig.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxTimeRangeResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxTimeRangesResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxVoicemailCapabilitiesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxVoicemailMailbox.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxVoicemailMailboxResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxVoicemailMailboxesResponse.java

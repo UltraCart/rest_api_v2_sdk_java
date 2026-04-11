@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-04-06T12:23:01.302-04:00[America/Indianapolis]
+- Build date: 2026-04-11T11:47:26.149-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.71</version>
+    <version>4.1.72</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.71"
+     implementation "com.ultracart:rest-sdk:4.1.72"
   }
 ```
 
@@ -224,6 +224,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getPbxTimeBaseds**](docs/ConversationApi.md#getPbxTimeBaseds) | **GET** /conversation/pbx/time_based | Get pbx timeBaseds
 *ConversationApi* | [**getPbxTimeRange**](docs/ConversationApi.md#getPbxTimeRange) | **GET** /conversation/pbx/time_range/{conversationPbxTimeRangeUuid} | Get pbx timeRange
 *ConversationApi* | [**getPbxTimeRanges**](docs/ConversationApi.md#getPbxTimeRanges) | **GET** /conversation/pbx/time_range | Get pbx timeRanges
+*ConversationApi* | [**getPbxVoicemailCapabilities**](docs/ConversationApi.md#getPbxVoicemailCapabilities) | **GET** /conversation/pbx/voicemail/capabilities | Get pbx voicemail capabilities
 *ConversationApi* | [**getPbxVoicemailMailbox**](docs/ConversationApi.md#getPbxVoicemailMailbox) | **GET** /conversation/pbx/voicemail_mailbox/{conversationPbxVoicemailMailboxUuid} | Get pbx voicemailMailbox
 *ConversationApi* | [**getPbxVoicemailMailboxes**](docs/ConversationApi.md#getPbxVoicemailMailboxes) | **GET** /conversation/pbx/voicemail_mailbox | Get pbx voicemailMailboxes
 *ConversationApi* | [**getUserPbxAudio**](docs/ConversationApi.md#getUserPbxAudio) | **GET** /conversation/pbx/audio/user/{conversationPbxAudioUuid} | Get user pbx audio
@@ -932,6 +933,7 @@ Class | Method | HTTP request | Description
  - [ConversationPbxTimeRangeConfig](docs/ConversationPbxTimeRangeConfig.md)
  - [ConversationPbxTimeRangeResponse](docs/ConversationPbxTimeRangeResponse.md)
  - [ConversationPbxTimeRangesResponse](docs/ConversationPbxTimeRangesResponse.md)
+ - [ConversationPbxVoicemailCapabilitiesResponse](docs/ConversationPbxVoicemailCapabilitiesResponse.md)
  - [ConversationPbxVoicemailMailbox](docs/ConversationPbxVoicemailMailbox.md)
  - [ConversationPbxVoicemailMailboxResponse](docs/ConversationPbxVoicemailMailboxResponse.md)
  - [ConversationPbxVoicemailMailboxesResponse](docs/ConversationPbxVoicemailMailboxesResponse.md)
@@ -1712,6 +1714,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
 | 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
 | 4.1.69 | 03/31/2026 | conversations - user specific audio methods |

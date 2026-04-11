@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxVoicemailMailbox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-06T12:23:01.302-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-11T11:47:26.149-04:00[America/Indianapolis]")
 public class ConversationPbxVoicemailMailbox {
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID = "conversation_pbx_voicemail_mailbox_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID)
@@ -57,9 +57,68 @@ public class ConversationPbxVoicemailMailbox {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
+  /**
+   * Send notices to channel
+   */
+  @JsonAdapter(SendNoticesToChannelEnum.Adapter.class)
+  public enum SendNoticesToChannelEnum {
+    NONE("none"),
+    
+    EMAIL("email"),
+    
+    ZOHO_DESK_TICKET("zoho_desk_ticket"),
+    
+    ULTRACART_TASK("ultracart_task");
+
+    private String value;
+
+    SendNoticesToChannelEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SendNoticesToChannelEnum fromValue(String value) {
+      for (SendNoticesToChannelEnum b : SendNoticesToChannelEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SendNoticesToChannelEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SendNoticesToChannelEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SendNoticesToChannelEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SendNoticesToChannelEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SEND_NOTICES_TO_CHANNEL = "send_notices_to_channel";
+  @SerializedName(SERIALIZED_NAME_SEND_NOTICES_TO_CHANNEL)
+  private SendNoticesToChannelEnum sendNoticesToChannel;
+
   public static final String SERIALIZED_NAME_SEND_NOTICES_TO_EMAIL = "send_notices_to_email";
   @SerializedName(SERIALIZED_NAME_SEND_NOTICES_TO_EMAIL)
   private String sendNoticesToEmail;
+
+  public static final String SERIALIZED_NAME_SEND_NOTICES_TO_ZOHO_DESK_DEPARTMENT_ID = "send_notices_to_zoho_desk_department_id";
+  @SerializedName(SERIALIZED_NAME_SEND_NOTICES_TO_ZOHO_DESK_DEPARTMENT_ID)
+  private String sendNoticesToZohoDeskDepartmentId;
 
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -287,6 +346,29 @@ public class ConversationPbxVoicemailMailbox {
   }
 
 
+  public ConversationPbxVoicemailMailbox sendNoticesToChannel(SendNoticesToChannelEnum sendNoticesToChannel) {
+    
+    this.sendNoticesToChannel = sendNoticesToChannel;
+    return this;
+  }
+
+   /**
+   * Send notices to channel
+   * @return sendNoticesToChannel
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send notices to channel")
+
+  public SendNoticesToChannelEnum getSendNoticesToChannel() {
+    return sendNoticesToChannel;
+  }
+
+
+  public void setSendNoticesToChannel(SendNoticesToChannelEnum sendNoticesToChannel) {
+    this.sendNoticesToChannel = sendNoticesToChannel;
+  }
+
+
   public ConversationPbxVoicemailMailbox sendNoticesToEmail(String sendNoticesToEmail) {
     
     this.sendNoticesToEmail = sendNoticesToEmail;
@@ -307,6 +389,29 @@ public class ConversationPbxVoicemailMailbox {
 
   public void setSendNoticesToEmail(String sendNoticesToEmail) {
     this.sendNoticesToEmail = sendNoticesToEmail;
+  }
+
+
+  public ConversationPbxVoicemailMailbox sendNoticesToZohoDeskDepartmentId(String sendNoticesToZohoDeskDepartmentId) {
+    
+    this.sendNoticesToZohoDeskDepartmentId = sendNoticesToZohoDeskDepartmentId;
+    return this;
+  }
+
+   /**
+   * Send notices to Zoho Desk department id
+   * @return sendNoticesToZohoDeskDepartmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send notices to Zoho Desk department id")
+
+  public String getSendNoticesToZohoDeskDepartmentId() {
+    return sendNoticesToZohoDeskDepartmentId;
+  }
+
+
+  public void setSendNoticesToZohoDeskDepartmentId(String sendNoticesToZohoDeskDepartmentId) {
+    this.sendNoticesToZohoDeskDepartmentId = sendNoticesToZohoDeskDepartmentId;
   }
 
 
@@ -529,7 +634,9 @@ public class ConversationPbxVoicemailMailbox {
     ConversationPbxVoicemailMailbox conversationPbxVoicemailMailbox = (ConversationPbxVoicemailMailbox) o;
     return Objects.equals(this.conversationPbxVoicemailMailboxUuid, conversationPbxVoicemailMailbox.conversationPbxVoicemailMailboxUuid) &&
         Objects.equals(this.merchantId, conversationPbxVoicemailMailbox.merchantId) &&
+        Objects.equals(this.sendNoticesToChannel, conversationPbxVoicemailMailbox.sendNoticesToChannel) &&
         Objects.equals(this.sendNoticesToEmail, conversationPbxVoicemailMailbox.sendNoticesToEmail) &&
+        Objects.equals(this.sendNoticesToZohoDeskDepartmentId, conversationPbxVoicemailMailbox.sendNoticesToZohoDeskDepartmentId) &&
         Objects.equals(this.userId, conversationPbxVoicemailMailbox.userId) &&
         Objects.equals(this.voicemailFollowupPlayAudioUuid, conversationPbxVoicemailMailbox.voicemailFollowupPlayAudioUuid) &&
         Objects.equals(this.voicemailFollowupSay, conversationPbxVoicemailMailbox.voicemailFollowupSay) &&
@@ -543,7 +650,7 @@ public class ConversationPbxVoicemailMailbox {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationPbxVoicemailMailboxUuid, merchantId, sendNoticesToEmail, userId, voicemailFollowupPlayAudioUuid, voicemailFollowupSay, voicemailFollowupSayVoice, voicemailMailboxId, voicemailMailboxType, voicemailPromptPlayAudioUuid, voicemailPromptSay, voicemailPromptSayVoice);
+    return Objects.hash(conversationPbxVoicemailMailboxUuid, merchantId, sendNoticesToChannel, sendNoticesToEmail, sendNoticesToZohoDeskDepartmentId, userId, voicemailFollowupPlayAudioUuid, voicemailFollowupSay, voicemailFollowupSayVoice, voicemailMailboxId, voicemailMailboxType, voicemailPromptPlayAudioUuid, voicemailPromptSay, voicemailPromptSayVoice);
   }
 
   @Override
@@ -552,7 +659,9 @@ public class ConversationPbxVoicemailMailbox {
     sb.append("class ConversationPbxVoicemailMailbox {\n");
     sb.append("    conversationPbxVoicemailMailboxUuid: ").append(toIndentedString(conversationPbxVoicemailMailboxUuid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    sendNoticesToChannel: ").append(toIndentedString(sendNoticesToChannel)).append("\n");
     sb.append("    sendNoticesToEmail: ").append(toIndentedString(sendNoticesToEmail)).append("\n");
+    sb.append("    sendNoticesToZohoDeskDepartmentId: ").append(toIndentedString(sendNoticesToZohoDeskDepartmentId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    voicemailFollowupPlayAudioUuid: ").append(toIndentedString(voicemailFollowupPlayAudioUuid)).append("\n");
     sb.append("    voicemailFollowupSay: ").append(toIndentedString(voicemailFollowupSay)).append("\n");
@@ -586,7 +695,9 @@ public class ConversationPbxVoicemailMailbox {
     openapiFields = new HashSet<String>();
     openapiFields.add("conversation_pbx_voicemail_mailbox_uuid");
     openapiFields.add("merchant_id");
+    openapiFields.add("send_notices_to_channel");
     openapiFields.add("send_notices_to_email");
+    openapiFields.add("send_notices_to_zoho_desk_department_id");
     openapiFields.add("user_id");
     openapiFields.add("voicemail_followup_play_audio_uuid");
     openapiFields.add("voicemail_followup_say");
@@ -629,8 +740,14 @@ public class ConversationPbxVoicemailMailbox {
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
+      if (jsonObj.get("send_notices_to_channel") != null && !jsonObj.get("send_notices_to_channel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `send_notices_to_channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_notices_to_channel").toString()));
+      }
       if (jsonObj.get("send_notices_to_email") != null && !jsonObj.get("send_notices_to_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `send_notices_to_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_notices_to_email").toString()));
+      }
+      if (jsonObj.get("send_notices_to_zoho_desk_department_id") != null && !jsonObj.get("send_notices_to_zoho_desk_department_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `send_notices_to_zoho_desk_department_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send_notices_to_zoho_desk_department_id").toString()));
       }
       if (jsonObj.get("voicemail_followup_play_audio_uuid") != null && !jsonObj.get("voicemail_followup_play_audio_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `voicemail_followup_play_audio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("voicemail_followup_play_audio_uuid").toString()));

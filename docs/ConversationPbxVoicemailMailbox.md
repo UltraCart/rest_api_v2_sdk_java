@@ -9,7 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**conversationPbxVoicemailMailboxUuid** | **String** | Conversation Pbx Voicemail Mailbox UUID |  [optional] |
 |**merchantId** | **String** | Merchant Id |  [optional] |
+|**sendNoticesToChannel** | [**SendNoticesToChannelEnum**](#SendNoticesToChannelEnum) | Send notices to channel |  [optional] |
 |**sendNoticesToEmail** | **String** | Send notices to email |  [optional] |
+|**sendNoticesToZohoDeskDepartmentId** | **String** | Send notices to Zoho Desk department id |  [optional] |
 |**userId** | **Integer** | User Id |  [optional] |
 |**voicemailFollowupPlayAudioUuid** | **String** | Voicemail follow play audio UUID |  [optional] |
 |**voicemailFollowupSay** | **String** | Voicemail followup say |  [optional] |
@@ -19,6 +21,17 @@
 |**voicemailPromptPlayAudioUuid** | **String** | Voicemail prompt play audio UUID |  [optional] |
 |**voicemailPromptSay** | **String** | Voicemail prompt say |  [optional] |
 |**voicemailPromptSayVoice** | [**VoicemailPromptSayVoiceEnum**](#VoicemailPromptSayVoiceEnum) | Voicemail prompt say voice |  [optional] |
+
+
+
+## Enum: SendNoticesToChannelEnum
+
+| Name | Value |
+|---- | -----|
+| NONE | &quot;none&quot; |
+| EMAIL | &quot;email&quot; |
+| ZOHO_DESK_TICKET | &quot;zoho_desk_ticket&quot; |
+| ULTRACART_TASK | &quot;ultracart_task&quot; |
 
 
 
