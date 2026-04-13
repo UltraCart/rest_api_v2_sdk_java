@@ -211,6 +211,7 @@ docs/ConversationPbxCall.md
 docs/ConversationPbxCallAgent.md
 docs/ConversationPbxCallAiCost.md
 docs/ConversationPbxCallAiEngagement.md
+docs/ConversationPbxCallAiSummary.md
 docs/ConversationPbxCallAiToolCall.md
 docs/ConversationPbxCallAiWhisper.md
 docs/ConversationPbxCallCaller.md
@@ -1207,6 +1208,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationPbxCall.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAgent.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAiCost.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAiEngagement.java
+src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAiSummary.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAiToolCall.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallAiWhisper.java
 src/main/java/com/ultracart/admin/v2/models/ConversationPbxCallCaller.java

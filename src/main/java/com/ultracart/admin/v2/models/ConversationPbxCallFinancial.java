@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallFinancial
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-11T11:47:26.149-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T09:11:15.026-04:00[America/Indianapolis]")
 public class ConversationPbxCallFinancial {
   public static final String SERIALIZED_NAME_AI_AGENT_BILLED_MINUTES = "ai_agent_billed_minutes";
   @SerializedName(SERIALIZED_NAME_AI_AGENT_BILLED_MINUTES)
@@ -61,6 +61,10 @@ public class ConversationPbxCallFinancial {
   public static final String SERIALIZED_NAME_AI_AGENT_COST_CURRENCY = "ai_agent_cost_currency";
   @SerializedName(SERIALIZED_NAME_AI_AGENT_COST_CURRENCY)
   private String aiAgentCostCurrency;
+
+  public static final String SERIALIZED_NAME_AI_SUMMARY_COST = "ai_summary_cost";
+  @SerializedName(SERIALIZED_NAME_AI_SUMMARY_COST)
+  private BigDecimal aiSummaryCost;
 
   public static final String SERIALIZED_NAME_CALL_CURRENCY = "call_currency";
   @SerializedName(SERIALIZED_NAME_CALL_CURRENCY)
@@ -147,6 +151,29 @@ public class ConversationPbxCallFinancial {
 
   public void setAiAgentCostCurrency(String aiAgentCostCurrency) {
     this.aiAgentCostCurrency = aiAgentCostCurrency;
+  }
+
+
+  public ConversationPbxCallFinancial aiSummaryCost(BigDecimal aiSummaryCost) {
+    
+    this.aiSummaryCost = aiSummaryCost;
+    return this;
+  }
+
+   /**
+   * AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends)
+   * @return aiSummaryCost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI summary generation cost (LLM call made by pbx-transcript-formatter after the call ends)")
+
+  public BigDecimal getAiSummaryCost() {
+    return aiSummaryCost;
+  }
+
+
+  public void setAiSummaryCost(BigDecimal aiSummaryCost) {
+    this.aiSummaryCost = aiSummaryCost;
   }
 
 
@@ -255,6 +282,7 @@ public class ConversationPbxCallFinancial {
     return Objects.equals(this.aiAgentBilledMinutes, conversationPbxCallFinancial.aiAgentBilledMinutes) &&
         Objects.equals(this.aiAgentCost, conversationPbxCallFinancial.aiAgentCost) &&
         Objects.equals(this.aiAgentCostCurrency, conversationPbxCallFinancial.aiAgentCostCurrency) &&
+        Objects.equals(this.aiSummaryCost, conversationPbxCallFinancial.aiSummaryCost) &&
         Objects.equals(this.callCurrency, conversationPbxCallFinancial.callCurrency) &&
         Objects.equals(this.callPrice, conversationPbxCallFinancial.callPrice) &&
         Objects.equals(this.callPriceEstimated, conversationPbxCallFinancial.callPriceEstimated) &&
@@ -263,7 +291,7 @@ public class ConversationPbxCallFinancial {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiAgentBilledMinutes, aiAgentCost, aiAgentCostCurrency, callCurrency, callPrice, callPriceEstimated, transcriptionCost);
+    return Objects.hash(aiAgentBilledMinutes, aiAgentCost, aiAgentCostCurrency, aiSummaryCost, callCurrency, callPrice, callPriceEstimated, transcriptionCost);
   }
 
   @Override
@@ -273,6 +301,7 @@ public class ConversationPbxCallFinancial {
     sb.append("    aiAgentBilledMinutes: ").append(toIndentedString(aiAgentBilledMinutes)).append("\n");
     sb.append("    aiAgentCost: ").append(toIndentedString(aiAgentCost)).append("\n");
     sb.append("    aiAgentCostCurrency: ").append(toIndentedString(aiAgentCostCurrency)).append("\n");
+    sb.append("    aiSummaryCost: ").append(toIndentedString(aiSummaryCost)).append("\n");
     sb.append("    callCurrency: ").append(toIndentedString(callCurrency)).append("\n");
     sb.append("    callPrice: ").append(toIndentedString(callPrice)).append("\n");
     sb.append("    callPriceEstimated: ").append(toIndentedString(callPriceEstimated)).append("\n");
@@ -302,6 +331,7 @@ public class ConversationPbxCallFinancial {
     openapiFields.add("ai_agent_billed_minutes");
     openapiFields.add("ai_agent_cost");
     openapiFields.add("ai_agent_cost_currency");
+    openapiFields.add("ai_summary_cost");
     openapiFields.add("call_currency");
     openapiFields.add("call_price");
     openapiFields.add("call_price_estimated");

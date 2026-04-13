@@ -10,6 +10,7 @@
 |**accountSid** | **String** | Twilio account SID |  [optional] |
 |**agents** | [**List&lt;ConversationPbxCallAgent&gt;**](ConversationPbxCallAgent.md) | List of agents who participated in this call |  [optional] |
 |**aiAgentEngagements** | [**List&lt;ConversationPbxCallAiEngagement&gt;**](ConversationPbxCallAiEngagement.md) | List of AI agent engagements during the call |  [optional] |
+|**aiSummary** | [**ConversationPbxCallAiSummary**](ConversationPbxCallAiSummary.md) |  |  [optional] |
 |**callSid** | **String** | Twilio call SID for the primary (customer) call leg |  [optional] |
 |**callUuid** | **String** | Unique identifier for this call record |  [optional] |
 |**caller** | [**ConversationPbxCallCaller**](ConversationPbxCallCaller.md) |  |  [optional] |
@@ -29,6 +30,8 @@
 |**timeline** | [**ConversationPbxCallTimeline**](ConversationPbxCallTimeline.md) |  |  [optional] |
 |**transfers** | [**List&lt;ConversationPbxCallTransfer&gt;**](ConversationPbxCallTransfer.md) | List of transfer events during the call |  [optional] |
 |**updatedAtDts** | **String** | Timestamp when the call record was last updated |  [optional] |
+|**zohoDeskTicketId** | **String** | Zoho Desk ticket ID if a ticket was created for this call |  [optional] |
+|**zohoDeskTicketUrl** | **String** | URL to the Zoho Desk ticket if a ticket was created for this call |  [optional] |
 
 
 

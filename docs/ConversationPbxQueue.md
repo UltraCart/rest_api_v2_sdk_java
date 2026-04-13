@@ -8,6 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**aiPriority** | [**AiPriorityEnum**](#AiPriorityEnum) | AI Agent Priority compared to human agents |  [optional] |
+|**aiSummaryEnabled** | **Boolean** | If true, AI summaries are generated for answered calls in this queue |  [optional] |
+|**aiSummaryInstructions** | **String** | Custom instructions injected into the AI summary system prompt for this queue |  [optional] |
 |**aiTimeoutSeconds** | **Integer** | AI timeout seconds |  [optional] |
 |**announceQueuePosition** | **Boolean** | If true, the customer is told their queue position upon entering the queue |  [optional] |
 |**automaticCoachAgentUuid** | **String** | AI Agent UUID to automatically engage to provide coaching |  [optional] |
@@ -43,6 +45,8 @@
 |**waitCriticalSeconds** | **Integer** | Wait time in seconds before critical |  [optional] |
 |**waitWarningSeconds** | **Integer** | Wait time in seconds before warning |  [optional] |
 |**wrapUpSeconds** | **Integer** | Wrap up time in seconds |  [optional] |
+|**zohoDeskDepartmentId** | **String** | Zoho Desk department ID to create tickets in |  [optional] |
+|**zohoDeskTicketEnabled** | **Boolean** | If true, a Zoho Desk ticket is automatically created for answered calls in this queue |  [optional] |
 
 
 

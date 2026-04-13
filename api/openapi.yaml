@@ -116125,7 +116125,9 @@ components:
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+          ai_summary_enabled: true
           no_agent_available_say: no_agent_available_say
+          zoho_desk_ticket_enabled: true
           callback_offer_interval_seconds: 9
           members:
             groups:
@@ -116142,8 +116144,10 @@ components:
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
           voicemail: true
+          zoho_desk_department_id: zoho_desk_department_id
           callback_confirm_say: callback_confirm_say
           max_hold_seconds: 2
+          ai_summary_instructions: ai_summary_instructions
           callback_enabled: true
           say: say
           callback_max_attempts: 5
@@ -116167,7 +116171,9 @@ components:
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+          ai_summary_enabled: true
           no_agent_available_say: no_agent_available_say
+          zoho_desk_ticket_enabled: true
           callback_offer_interval_seconds: 9
           members:
             groups:
@@ -116184,8 +116190,10 @@ components:
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
           voicemail: true
+          zoho_desk_department_id: zoho_desk_department_id
           callback_confirm_say: callback_confirm_say
           max_hold_seconds: 2
+          ai_summary_instructions: ai_summary_instructions
           callback_enabled: true
           say: say
           callback_max_attempts: 5
@@ -116412,39 +116420,20 @@ components:
       type: object
     ConversationPbxCall:
       example:
-        updated_at_dts: updated_at_dts
         financial:
-          ai_agent_billed_minutes: 5.637376656633329
+          ai_agent_billed_minutes: 9.301444243932576
           call_currency: call_currency
-          ai_agent_cost: 2.3021358869347655
+          ai_agent_cost: 3.616076749251911
           ai_agent_cost_currency: ai_agent_cost_currency
-          call_price: 7.061401241503109
-          transcription_cost: 9.301444243932576
+          call_price: 4.145608029883936
+          transcription_cost: 7.386281948385884
           call_price_estimated: true
+          ai_summary_cost: 2.027123023002322
         conference_sid: conference_sid
         merchant_id: merchant_id
         recording_sids:
         - recording_sids
         - recording_sids
-        agents:
-        - agent_extension: agent_extension
-          worker_sid: worker_sid
-          joined_at_dts: joined_at_dts
-          role: role
-          agent_id: agent_id
-          agent_name: agent_name
-          answered: true
-          call_sid: call_sid
-          left_at_dts: left_at_dts
-        - agent_extension: agent_extension
-          worker_sid: worker_sid
-          joined_at_dts: joined_at_dts
-          role: role
-          agent_id: agent_id
-          agent_name: agent_name
-          answered: true
-          call_sid: call_sid
-          left_at_dts: left_at_dts
         customer_profile_oid: customer_profile_oid
         routing:
           call_type: call_type
@@ -116454,75 +116443,10 @@ components:
             result: result
             queue_uuid: queue_uuid
             entered_at_dts: entered_at_dts
-            wait_seconds: 1
+            wait_seconds: 4
           direction: direction
-        caller:
-          country: country
-          city: city
-          caller_id: caller_id
-          phone_number: phone_number
-          state: state
-        disposition: disposition
+        zoho_desk_ticket_url: zoho_desk_ticket_url
         created_at_dts: created_at_dts
-        recordings:
-        - duration_seconds: 4
-          recording_url: recording_url
-          recording_sid: recording_sid
-          transcript:
-            language_code: language_code
-            job_name: job_name
-            provider: provider
-            full_transcript_s3_key: full_transcript_s3_key
-            transcript_json_s3_key: transcript_json_s3_key
-            segments:
-            - start_time: 1.0246457001441578
-              agent_id: agent_id
-              confidence: 7.386281948385884
-              speaker: customer
-              channel: channel
-              end_time: 1.2315135367772556
-              text: text
-            - start_time: 1.0246457001441578
-              agent_id: agent_id
-              confidence: 7.386281948385884
-              speaker: customer
-              channel: channel
-              end_time: 1.2315135367772556
-              text: text
-            status: status
-          channels: 2
-          is_primary: true
-          recording_s3_key: recording_s3_key
-          status: status
-        - duration_seconds: 4
-          recording_url: recording_url
-          recording_sid: recording_sid
-          transcript:
-            language_code: language_code
-            job_name: job_name
-            provider: provider
-            full_transcript_s3_key: full_transcript_s3_key
-            transcript_json_s3_key: transcript_json_s3_key
-            segments:
-            - start_time: 1.0246457001441578
-              agent_id: agent_id
-              confidence: 7.386281948385884
-              speaker: customer
-              channel: channel
-              end_time: 1.2315135367772556
-              text: text
-            - start_time: 1.0246457001441578
-              agent_id: agent_id
-              confidence: 7.386281948385884
-              speaker: customer
-              channel: channel
-              end_time: 1.2315135367772556
-              text: text
-            status: status
-          channels: 2
-          is_primary: true
-          recording_s3_key: recording_s3_key
-          status: status
         call_sid: call_sid
         transfers:
         - transferred_to: transferred_to
@@ -116536,24 +116460,7 @@ components:
           transfer_reason: transfer_reason
           transferred_at_dts: transferred_at_dts
         account_sid: account_sid
-        holds:
-        - hold_start_dts: hold_start_dts
-          held_by_agent_id: held_by_agent_id
-          hold_end_dts: hold_end_dts
-          hold_duration_seconds: 3
-        - hold_start_dts: hold_start_dts
-          held_by_agent_id: held_by_agent_id
-          hold_end_dts: hold_end_dts
-          hold_duration_seconds: 3
-        timeline:
-          answer_dts: answer_dts
-          queue_wait_seconds: 6
-          end_dts: end_dts
-          total_duration_seconds: 1
-          created_dts: created_dts
-          talk_time_seconds: 7
         call_uuid: call_uuid
-        customer_name: customer_name
         email: email
         ai_agent_engagements:
         - agent_uuid: agent_uuid
@@ -116636,6 +116543,126 @@ components:
           started_at_dts: started_at_dts
           session_uuid: session_uuid
           status: status
+        updated_at_dts: updated_at_dts
+        agents:
+        - agent_extension: agent_extension
+          worker_sid: worker_sid
+          joined_at_dts: joined_at_dts
+          role: role
+          agent_id: agent_id
+          agent_name: agent_name
+          answered: true
+          call_sid: call_sid
+          left_at_dts: left_at_dts
+        - agent_extension: agent_extension
+          worker_sid: worker_sid
+          joined_at_dts: joined_at_dts
+          role: role
+          agent_id: agent_id
+          agent_name: agent_name
+          answered: true
+          call_sid: call_sid
+          left_at_dts: left_at_dts
+        caller:
+          country: country
+          city: city
+          caller_id: caller_id
+          phone_number: phone_number
+          state: state
+        disposition: disposition
+        ai_summary:
+          summary: summary
+          sentiment: positive
+          completion_tokens: 5
+          cost: 2.3021358869347655
+          generated_at_dts: generated_at_dts
+          prompt_tokens: 7
+          action_items:
+          - action_items
+          - action_items
+          call_category: call_category
+          cost_currency: cost_currency
+          key_topics:
+          - key_topics
+          - key_topics
+          model: model
+        recordings:
+        - duration_seconds: 1
+          recording_url: recording_url
+          recording_sid: recording_sid
+          transcript:
+            language_code: language_code
+            job_name: job_name
+            provider: provider
+            full_transcript_s3_key: full_transcript_s3_key
+            transcript_json_s3_key: transcript_json_s3_key
+            segments:
+            - start_time: 1.1730742509559433
+              agent_id: agent_id
+              confidence: 6.84685269835264
+              speaker: customer
+              channel: channel
+              end_time: 7.457744773683766
+              text: text
+            - start_time: 1.1730742509559433
+              agent_id: agent_id
+              confidence: 6.84685269835264
+              speaker: customer
+              channel: channel
+              end_time: 7.457744773683766
+              text: text
+            status: status
+          channels: 1
+          is_primary: true
+          recording_s3_key: recording_s3_key
+          status: status
+        - duration_seconds: 1
+          recording_url: recording_url
+          recording_sid: recording_sid
+          transcript:
+            language_code: language_code
+            job_name: job_name
+            provider: provider
+            full_transcript_s3_key: full_transcript_s3_key
+            transcript_json_s3_key: transcript_json_s3_key
+            segments:
+            - start_time: 1.1730742509559433
+              agent_id: agent_id
+              confidence: 6.84685269835264
+              speaker: customer
+              channel: channel
+              end_time: 7.457744773683766
+              text: text
+            - start_time: 1.1730742509559433
+              agent_id: agent_id
+              confidence: 6.84685269835264
+              speaker: customer
+              channel: channel
+              end_time: 7.457744773683766
+              text: text
+            status: status
+          channels: 1
+          is_primary: true
+          recording_s3_key: recording_s3_key
+          status: status
+        zoho_desk_ticket_id: zoho_desk_ticket_id
+        holds:
+        - hold_start_dts: hold_start_dts
+          held_by_agent_id: held_by_agent_id
+          hold_end_dts: hold_end_dts
+          hold_duration_seconds: 1
+        - hold_start_dts: hold_start_dts
+          held_by_agent_id: held_by_agent_id
+          hold_end_dts: hold_end_dts
+          hold_duration_seconds: 1
+        timeline:
+          answer_dts: answer_dts
+          queue_wait_seconds: 5
+          end_dts: end_dts
+          total_duration_seconds: 9
+          created_dts: created_dts
+          talk_time_seconds: 9
+        customer_name: customer_name
         status: status
       properties:
         account_sid:
@@ -116651,6 +116678,8 @@ components:
           items:
             $ref: '#/components/schemas/ConversationPbxCallAiEngagement'
           type: array
+        ai_summary:
+          $ref: '#/components/schemas/ConversationPbxCallAiSummary'
         call_sid:
           description: Twilio call SID for the primary (customer) call leg
           type: string
@@ -116714,6 +116743,13 @@ components:
         updated_at_dts:
           description: Timestamp when the call record was last updated
           format: dateTime
+          type: string
+        zoho_desk_ticket_id:
+          description: Zoho Desk ticket ID if a ticket was created for this call
+          type: string
+        zoho_desk_ticket_url:
+          description: URL to the Zoho Desk ticket if a ticket was created for this
+            call
           type: string
       type: object
     ConversationPbxCallAgent:
@@ -116860,6 +116896,69 @@ components:
             $ref: '#/components/schemas/ConversationPbxCallAiWhisper'
           type: array
       type: object
+    ConversationPbxCallAiSummary:
+      example:
+        summary: summary
+        sentiment: positive
+        completion_tokens: 5
+        cost: 2.3021358869347655
+        generated_at_dts: generated_at_dts
+        prompt_tokens: 7
+        action_items:
+        - action_items
+        - action_items
+        call_category: call_category
+        cost_currency: cost_currency
+        key_topics:
+        - key_topics
+        - key_topics
+        model: model
+      properties:
+        action_items:
+          description: Action items identified during the call
+          items:
+            type: string
+          type: array
+        call_category:
+          description: "Category of the call (e.g. support, sales, billing)"
+          type: string
+        completion_tokens:
+          description: Number of output tokens used to generate the summary
+          format: int32
+          type: integer
+        cost:
+          description: Cost of generating the summary in the specified currency
+          type: number
+        cost_currency:
+          description: Currency code for the summary cost (always USD)
+          type: string
+        generated_at_dts:
+          description: Timestamp when the summary was generated
+          format: dateTime
+          type: string
+        key_topics:
+          description: Key topics discussed during the call
+          items:
+            type: string
+          type: array
+        model:
+          description: AI model used to generate the summary (e.g. grok-4.1-fast)
+          type: string
+        prompt_tokens:
+          description: Number of input tokens used to generate the summary
+          format: int32
+          type: integer
+        sentiment:
+          description: Overall sentiment of the call
+          enum:
+          - positive
+          - neutral
+          - negative
+          type: string
+        summary:
+          description: 2-3 sentence synopsis of the call
+          type: string
+      type: object
     ConversationPbxCallAiToolCall:
       example:
         completed_at_dts: completed_at_dts
@@ -116950,13 +117049,14 @@ components:
       type: object
     ConversationPbxCallFinancial:
       example:
-        ai_agent_billed_minutes: 5.637376656633329
+        ai_agent_billed_minutes: 9.301444243932576
         call_currency: call_currency
-        ai_agent_cost: 2.3021358869347655
+        ai_agent_cost: 3.616076749251911
         ai_agent_cost_currency: ai_agent_cost_currency
-        call_price: 7.061401241503109
-        transcription_cost: 9.301444243932576
+        call_price: 4.145608029883936
+        transcription_cost: 7.386281948385884
         call_price_estimated: true
+        ai_summary_cost: 2.027123023002322
       properties:
         ai_agent_billed_minutes:
           description: Total AI agent billed minutes for this call
@@ -116967,6 +117067,10 @@ components:
         ai_agent_cost_currency:
           description: Currency for AI agent cost
           type: string
+        ai_summary_cost:
+          description: AI summary generation cost (LLM call made by pbx-transcript-formatter
+            after the call ends)
+          type: number
         call_currency:
           description: Currency for call price (default USD)
           type: string
@@ -116985,7 +117089,7 @@ components:
         hold_start_dts: hold_start_dts
         held_by_agent_id: held_by_agent_id
         hold_end_dts: hold_end_dts
-        hold_duration_seconds: 3
+        hold_duration_seconds: 1
       properties:
         held_by_agent_id:
           description: ID of the agent who placed the caller on hold
@@ -117010,7 +117114,7 @@ components:
         result: result
         queue_uuid: queue_uuid
         entered_at_dts: entered_at_dts
-        wait_seconds: 1
+        wait_seconds: 4
       properties:
         answered_at_dts:
           description: Timestamp when the call was answered from the queue
@@ -117036,7 +117140,7 @@ components:
       type: object
     ConversationPbxCallRecording:
       example:
-        duration_seconds: 4
+        duration_seconds: 1
         recording_url: recording_url
         recording_sid: recording_sid
         transcript:
@@ -117046,22 +117150,22 @@ components:
           full_transcript_s3_key: full_transcript_s3_key
           transcript_json_s3_key: transcript_json_s3_key
           segments:
-          - start_time: 1.0246457001441578
+          - start_time: 1.1730742509559433
             agent_id: agent_id
-            confidence: 7.386281948385884
+            confidence: 6.84685269835264
             speaker: customer
             channel: channel
-            end_time: 1.2315135367772556
+            end_time: 7.457744773683766
             text: text
-          - start_time: 1.0246457001441578
+          - start_time: 1.1730742509559433
             agent_id: agent_id
-            confidence: 7.386281948385884
+            confidence: 6.84685269835264
             speaker: customer
             channel: channel
-            end_time: 1.2315135367772556
+            end_time: 7.457744773683766
             text: text
           status: status
-        channels: 2
+        channels: 1
         is_primary: true
         recording_s3_key: recording_s3_key
         status: status
@@ -117096,39 +117200,20 @@ components:
     ConversationPbxCallResponse:
       example:
         call:
-          updated_at_dts: updated_at_dts
           financial:
-            ai_agent_billed_minutes: 5.637376656633329
+            ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
-            ai_agent_cost: 2.3021358869347655
+            ai_agent_cost: 3.616076749251911
             ai_agent_cost_currency: ai_agent_cost_currency
-            call_price: 7.061401241503109
-            transcription_cost: 9.301444243932576
+            call_price: 4.145608029883936
+            transcription_cost: 7.386281948385884
             call_price_estimated: true
+            ai_summary_cost: 2.027123023002322
           conference_sid: conference_sid
           merchant_id: merchant_id
           recording_sids:
           - recording_sids
           - recording_sids
-          agents:
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
           customer_profile_oid: customer_profile_oid
           routing:
             call_type: call_type
@@ -117138,75 +117223,10 @@ components:
               result: result
               queue_uuid: queue_uuid
               entered_at_dts: entered_at_dts
-              wait_seconds: 1
+              wait_seconds: 4
             direction: direction
-          caller:
-            country: country
-            city: city
-            caller_id: caller_id
-            phone_number: phone_number
-            state: state
-          disposition: disposition
+          zoho_desk_ticket_url: zoho_desk_ticket_url
           created_at_dts: created_at_dts
-          recordings:
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
           call_sid: call_sid
           transfers:
           - transferred_to: transferred_to
@@ -117220,24 +117240,7 @@ components:
             transfer_reason: transfer_reason
             transferred_at_dts: transferred_at_dts
           account_sid: account_sid
-          holds:
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          timeline:
-            answer_dts: answer_dts
-            queue_wait_seconds: 6
-            end_dts: end_dts
-            total_duration_seconds: 1
-            created_dts: created_dts
-            talk_time_seconds: 7
           call_uuid: call_uuid
-          customer_name: customer_name
           email: email
           ai_agent_engagements:
           - agent_uuid: agent_uuid
@@ -117320,6 +117323,126 @@ components:
             started_at_dts: started_at_dts
             session_uuid: session_uuid
             status: status
+          updated_at_dts: updated_at_dts
+          agents:
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          caller:
+            country: country
+            city: city
+            caller_id: caller_id
+            phone_number: phone_number
+            state: state
+          disposition: disposition
+          ai_summary:
+            summary: summary
+            sentiment: positive
+            completion_tokens: 5
+            cost: 2.3021358869347655
+            generated_at_dts: generated_at_dts
+            prompt_tokens: 7
+            action_items:
+            - action_items
+            - action_items
+            call_category: call_category
+            cost_currency: cost_currency
+            key_topics:
+            - key_topics
+            - key_topics
+            model: model
+          recordings:
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          zoho_desk_ticket_id: zoho_desk_ticket_id
+          holds:
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          timeline:
+            answer_dts: answer_dts
+            queue_wait_seconds: 5
+            end_dts: end_dts
+            total_duration_seconds: 9
+            created_dts: created_dts
+            talk_time_seconds: 9
+          customer_name: customer_name
           status: status
         metadata:
           payload_name: payload_name
@@ -117362,7 +117485,7 @@ components:
           result: result
           queue_uuid: queue_uuid
           entered_at_dts: entered_at_dts
-          wait_seconds: 1
+          wait_seconds: 4
         direction: direction
       properties:
         call_type:
@@ -117469,39 +117592,20 @@ components:
             limit: 9
             next_offset: 9
         calls:
-        - updated_at_dts: updated_at_dts
-          financial:
-            ai_agent_billed_minutes: 5.637376656633329
+        - financial:
+            ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
-            ai_agent_cost: 2.3021358869347655
+            ai_agent_cost: 3.616076749251911
             ai_agent_cost_currency: ai_agent_cost_currency
-            call_price: 7.061401241503109
-            transcription_cost: 9.301444243932576
+            call_price: 4.145608029883936
+            transcription_cost: 7.386281948385884
             call_price_estimated: true
+            ai_summary_cost: 2.027123023002322
           conference_sid: conference_sid
           merchant_id: merchant_id
           recording_sids:
           - recording_sids
           - recording_sids
-          agents:
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
           customer_profile_oid: customer_profile_oid
           routing:
             call_type: call_type
@@ -117511,75 +117615,10 @@ components:
               result: result
               queue_uuid: queue_uuid
               entered_at_dts: entered_at_dts
-              wait_seconds: 1
+              wait_seconds: 4
             direction: direction
-          caller:
-            country: country
-            city: city
-            caller_id: caller_id
-            phone_number: phone_number
-            state: state
-          disposition: disposition
+          zoho_desk_ticket_url: zoho_desk_ticket_url
           created_at_dts: created_at_dts
-          recordings:
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
           call_sid: call_sid
           transfers:
           - transferred_to: transferred_to
@@ -117593,24 +117632,7 @@ components:
             transfer_reason: transfer_reason
             transferred_at_dts: transferred_at_dts
           account_sid: account_sid
-          holds:
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          timeline:
-            answer_dts: answer_dts
-            queue_wait_seconds: 6
-            end_dts: end_dts
-            total_duration_seconds: 1
-            created_dts: created_dts
-            talk_time_seconds: 7
           call_uuid: call_uuid
-          customer_name: customer_name
           email: email
           ai_agent_engagements:
           - agent_uuid: agent_uuid
@@ -117693,40 +117715,141 @@ components:
             started_at_dts: started_at_dts
             session_uuid: session_uuid
             status: status
+          updated_at_dts: updated_at_dts
+          agents:
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          caller:
+            country: country
+            city: city
+            caller_id: caller_id
+            phone_number: phone_number
+            state: state
+          disposition: disposition
+          ai_summary:
+            summary: summary
+            sentiment: positive
+            completion_tokens: 5
+            cost: 2.3021358869347655
+            generated_at_dts: generated_at_dts
+            prompt_tokens: 7
+            action_items:
+            - action_items
+            - action_items
+            call_category: call_category
+            cost_currency: cost_currency
+            key_topics:
+            - key_topics
+            - key_topics
+            model: model
+          recordings:
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          zoho_desk_ticket_id: zoho_desk_ticket_id
+          holds:
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          timeline:
+            answer_dts: answer_dts
+            queue_wait_seconds: 5
+            end_dts: end_dts
+            total_duration_seconds: 9
+            created_dts: created_dts
+            talk_time_seconds: 9
+          customer_name: customer_name
           status: status
-        - updated_at_dts: updated_at_dts
-          financial:
-            ai_agent_billed_minutes: 5.637376656633329
+        - financial:
+            ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
-            ai_agent_cost: 2.3021358869347655
+            ai_agent_cost: 3.616076749251911
             ai_agent_cost_currency: ai_agent_cost_currency
-            call_price: 7.061401241503109
-            transcription_cost: 9.301444243932576
+            call_price: 4.145608029883936
+            transcription_cost: 7.386281948385884
             call_price_estimated: true
+            ai_summary_cost: 2.027123023002322
           conference_sid: conference_sid
           merchant_id: merchant_id
           recording_sids:
           - recording_sids
           - recording_sids
-          agents:
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
-          - agent_extension: agent_extension
-            worker_sid: worker_sid
-            joined_at_dts: joined_at_dts
-            role: role
-            agent_id: agent_id
-            agent_name: agent_name
-            answered: true
-            call_sid: call_sid
-            left_at_dts: left_at_dts
           customer_profile_oid: customer_profile_oid
           routing:
             call_type: call_type
@@ -117736,75 +117859,10 @@ components:
               result: result
               queue_uuid: queue_uuid
               entered_at_dts: entered_at_dts
-              wait_seconds: 1
+              wait_seconds: 4
             direction: direction
-          caller:
-            country: country
-            city: city
-            caller_id: caller_id
-            phone_number: phone_number
-            state: state
-          disposition: disposition
+          zoho_desk_ticket_url: zoho_desk_ticket_url
           created_at_dts: created_at_dts
-          recordings:
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
-          - duration_seconds: 4
-            recording_url: recording_url
-            recording_sid: recording_sid
-            transcript:
-              language_code: language_code
-              job_name: job_name
-              provider: provider
-              full_transcript_s3_key: full_transcript_s3_key
-              transcript_json_s3_key: transcript_json_s3_key
-              segments:
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              - start_time: 1.0246457001441578
-                agent_id: agent_id
-                confidence: 7.386281948385884
-                speaker: customer
-                channel: channel
-                end_time: 1.2315135367772556
-                text: text
-              status: status
-            channels: 2
-            is_primary: true
-            recording_s3_key: recording_s3_key
-            status: status
           call_sid: call_sid
           transfers:
           - transferred_to: transferred_to
@@ -117818,24 +117876,7 @@ components:
             transfer_reason: transfer_reason
             transferred_at_dts: transferred_at_dts
           account_sid: account_sid
-          holds:
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          - hold_start_dts: hold_start_dts
-            held_by_agent_id: held_by_agent_id
-            hold_end_dts: hold_end_dts
-            hold_duration_seconds: 3
-          timeline:
-            answer_dts: answer_dts
-            queue_wait_seconds: 6
-            end_dts: end_dts
-            total_duration_seconds: 1
-            created_dts: created_dts
-            talk_time_seconds: 7
           call_uuid: call_uuid
-          customer_name: customer_name
           email: email
           ai_agent_engagements:
           - agent_uuid: agent_uuid
@@ -117918,6 +117959,126 @@ components:
             started_at_dts: started_at_dts
             session_uuid: session_uuid
             status: status
+          updated_at_dts: updated_at_dts
+          agents:
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          - agent_extension: agent_extension
+            worker_sid: worker_sid
+            joined_at_dts: joined_at_dts
+            role: role
+            agent_id: agent_id
+            agent_name: agent_name
+            answered: true
+            call_sid: call_sid
+            left_at_dts: left_at_dts
+          caller:
+            country: country
+            city: city
+            caller_id: caller_id
+            phone_number: phone_number
+            state: state
+          disposition: disposition
+          ai_summary:
+            summary: summary
+            sentiment: positive
+            completion_tokens: 5
+            cost: 2.3021358869347655
+            generated_at_dts: generated_at_dts
+            prompt_tokens: 7
+            action_items:
+            - action_items
+            - action_items
+            call_category: call_category
+            cost_currency: cost_currency
+            key_topics:
+            - key_topics
+            - key_topics
+            model: model
+          recordings:
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          - duration_seconds: 1
+            recording_url: recording_url
+            recording_sid: recording_sid
+            transcript:
+              language_code: language_code
+              job_name: job_name
+              provider: provider
+              full_transcript_s3_key: full_transcript_s3_key
+              transcript_json_s3_key: transcript_json_s3_key
+              segments:
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              - start_time: 1.1730742509559433
+                agent_id: agent_id
+                confidence: 6.84685269835264
+                speaker: customer
+                channel: channel
+                end_time: 7.457744773683766
+                text: text
+              status: status
+            channels: 1
+            is_primary: true
+            recording_s3_key: recording_s3_key
+            status: status
+          zoho_desk_ticket_id: zoho_desk_ticket_id
+          holds:
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          - hold_start_dts: hold_start_dts
+            held_by_agent_id: held_by_agent_id
+            hold_end_dts: hold_end_dts
+            hold_duration_seconds: 1
+          timeline:
+            answer_dts: answer_dts
+            queue_wait_seconds: 5
+            end_dts: end_dts
+            total_duration_seconds: 9
+            created_dts: created_dts
+            talk_time_seconds: 9
+          customer_name: customer_name
           status: status
         success: true
         warning:
@@ -117948,11 +118109,11 @@ components:
     ConversationPbxCallTimeline:
       example:
         answer_dts: answer_dts
-        queue_wait_seconds: 6
+        queue_wait_seconds: 5
         end_dts: end_dts
-        total_duration_seconds: 1
+        total_duration_seconds: 9
         created_dts: created_dts
-        talk_time_seconds: 7
+        talk_time_seconds: 9
       properties:
         answer_dts:
           description: Timestamp when the call was answered
@@ -117988,19 +118149,19 @@ components:
         full_transcript_s3_key: full_transcript_s3_key
         transcript_json_s3_key: transcript_json_s3_key
         segments:
-        - start_time: 1.0246457001441578
+        - start_time: 1.1730742509559433
           agent_id: agent_id
-          confidence: 7.386281948385884
+          confidence: 6.84685269835264
           speaker: customer
           channel: channel
-          end_time: 1.2315135367772556
+          end_time: 7.457744773683766
           text: text
-        - start_time: 1.0246457001441578
+        - start_time: 1.1730742509559433
           agent_id: agent_id
-          confidence: 7.386281948385884
+          confidence: 6.84685269835264
           speaker: customer
           channel: channel
-          end_time: 1.2315135367772556
+          end_time: 7.457744773683766
           text: text
         status: status
       properties:
@@ -118030,12 +118191,12 @@ components:
       type: object
     ConversationPbxCallTranscriptSegment:
       example:
-        start_time: 1.0246457001441578
+        start_time: 1.1730742509559433
         agent_id: agent_id
-        confidence: 7.386281948385884
+        confidence: 6.84685269835264
         speaker: customer
         channel: channel
-        end_time: 1.2315135367772556
+        end_time: 7.457744773683766
         text: text
       properties:
         agent_id:
@@ -133866,7 +134027,9 @@ components:
         twilio_workspace_queue_sid: twilio_workspace_queue_sid
         automatic_coach_agent_uuid: automatic_coach_agent_uuid
         hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+        ai_summary_enabled: true
         no_agent_available_say: no_agent_available_say
+        zoho_desk_ticket_enabled: true
         callback_offer_interval_seconds: 9
         members:
           groups:
@@ -133883,8 +134046,10 @@ components:
         announce_queue_position: true
         conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
         voicemail: true
+        zoho_desk_department_id: zoho_desk_department_id
         callback_confirm_say: callback_confirm_say
         max_hold_seconds: 2
+        ai_summary_instructions: ai_summary_instructions
         callback_enabled: true
         say: say
         callback_max_attempts: 5
@@ -133904,6 +134069,15 @@ components:
           - neutral
           - first
           - backup
+          type: string
+        ai_summary_enabled:
+          description: "If true, AI summaries are generated for answered calls in\
+            \ this queue"
+          type: boolean
+        ai_summary_instructions:
+          description: Custom instructions injected into the AI summary system prompt
+            for this queue
+          maxLength: 100000
           type: string
         ai_timeout_seconds:
           description: AI timeout seconds
@@ -134044,6 +134218,14 @@ components:
           description: Wrap up time in seconds
           format: int32
           type: integer
+        zoho_desk_department_id:
+          description: Zoho Desk department ID to create tickets in
+          maxLength: 50
+          type: string
+        zoho_desk_ticket_enabled:
+          description: "If true, a Zoho Desk ticket is automatically created for answered\
+            \ calls in this queue"
+          type: boolean
       type: object
     ConversationPbxQueueMembers:
       example:
@@ -134096,7 +134278,9 @@ components:
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+          ai_summary_enabled: true
           no_agent_available_say: no_agent_available_say
+          zoho_desk_ticket_enabled: true
           callback_offer_interval_seconds: 9
           members:
             groups:
@@ -134113,8 +134297,10 @@ components:
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
           voicemail: true
+          zoho_desk_department_id: zoho_desk_department_id
           callback_confirm_say: callback_confirm_say
           max_hold_seconds: 2
+          ai_summary_instructions: ai_summary_instructions
           callback_enabled: true
           say: say
           callback_max_attempts: 5
@@ -134163,7 +134349,9 @@ components:
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+          ai_summary_enabled: true
           no_agent_available_say: no_agent_available_say
+          zoho_desk_ticket_enabled: true
           callback_offer_interval_seconds: 9
           members:
             groups:
@@ -134180,8 +134368,10 @@ components:
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
           voicemail: true
+          zoho_desk_department_id: zoho_desk_department_id
           callback_confirm_say: callback_confirm_say
           max_hold_seconds: 2
+          ai_summary_instructions: ai_summary_instructions
           callback_enabled: true
           say: say
           callback_max_attempts: 5
@@ -134205,7 +134395,9 @@ components:
           twilio_workspace_queue_sid: twilio_workspace_queue_sid
           automatic_coach_agent_uuid: automatic_coach_agent_uuid
           hold_conversation_pbx_audio_uuid: hold_conversation_pbx_audio_uuid
+          ai_summary_enabled: true
           no_agent_available_say: no_agent_available_say
+          zoho_desk_ticket_enabled: true
           callback_offer_interval_seconds: 9
           members:
             groups:
@@ -134222,8 +134414,10 @@ components:
           announce_queue_position: true
           conversation_pbx_queue_uuid: conversation_pbx_queue_uuid
           voicemail: true
+          zoho_desk_department_id: zoho_desk_department_id
           callback_confirm_say: callback_confirm_say
           max_hold_seconds: 2
+          ai_summary_instructions: ai_summary_instructions
           callback_enabled: true
           say: say
           callback_max_attempts: 5

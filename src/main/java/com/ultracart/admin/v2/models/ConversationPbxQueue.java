@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-11T11:47:26.149-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T09:11:15.026-04:00[America/Indianapolis]")
 public class ConversationPbxQueue {
   /**
    * AI Agent Priority compared to human agents
@@ -102,6 +102,14 @@ public class ConversationPbxQueue {
   public static final String SERIALIZED_NAME_AI_PRIORITY = "ai_priority";
   @SerializedName(SERIALIZED_NAME_AI_PRIORITY)
   private AiPriorityEnum aiPriority;
+
+  public static final String SERIALIZED_NAME_AI_SUMMARY_ENABLED = "ai_summary_enabled";
+  @SerializedName(SERIALIZED_NAME_AI_SUMMARY_ENABLED)
+  private Boolean aiSummaryEnabled;
+
+  public static final String SERIALIZED_NAME_AI_SUMMARY_INSTRUCTIONS = "ai_summary_instructions";
+  @SerializedName(SERIALIZED_NAME_AI_SUMMARY_INSTRUCTIONS)
+  private String aiSummaryInstructions;
 
   public static final String SERIALIZED_NAME_AI_TIMEOUT_SECONDS = "ai_timeout_seconds";
   @SerializedName(SERIALIZED_NAME_AI_TIMEOUT_SECONDS)
@@ -337,6 +345,14 @@ public class ConversationPbxQueue {
   @SerializedName(SERIALIZED_NAME_WRAP_UP_SECONDS)
   private Integer wrapUpSeconds;
 
+  public static final String SERIALIZED_NAME_ZOHO_DESK_DEPARTMENT_ID = "zoho_desk_department_id";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_DEPARTMENT_ID)
+  private String zohoDeskDepartmentId;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKET_ENABLED = "zoho_desk_ticket_enabled";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKET_ENABLED)
+  private Boolean zohoDeskTicketEnabled;
+
   public ConversationPbxQueue() { 
   }
 
@@ -360,6 +376,52 @@ public class ConversationPbxQueue {
 
   public void setAiPriority(AiPriorityEnum aiPriority) {
     this.aiPriority = aiPriority;
+  }
+
+
+  public ConversationPbxQueue aiSummaryEnabled(Boolean aiSummaryEnabled) {
+    
+    this.aiSummaryEnabled = aiSummaryEnabled;
+    return this;
+  }
+
+   /**
+   * If true, AI summaries are generated for answered calls in this queue
+   * @return aiSummaryEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, AI summaries are generated for answered calls in this queue")
+
+  public Boolean getAiSummaryEnabled() {
+    return aiSummaryEnabled;
+  }
+
+
+  public void setAiSummaryEnabled(Boolean aiSummaryEnabled) {
+    this.aiSummaryEnabled = aiSummaryEnabled;
+  }
+
+
+  public ConversationPbxQueue aiSummaryInstructions(String aiSummaryInstructions) {
+    
+    this.aiSummaryInstructions = aiSummaryInstructions;
+    return this;
+  }
+
+   /**
+   * Custom instructions injected into the AI summary system prompt for this queue
+   * @return aiSummaryInstructions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Custom instructions injected into the AI summary system prompt for this queue")
+
+  public String getAiSummaryInstructions() {
+    return aiSummaryInstructions;
+  }
+
+
+  public void setAiSummaryInstructions(String aiSummaryInstructions) {
+    this.aiSummaryInstructions = aiSummaryInstructions;
   }
 
 
@@ -1168,6 +1230,52 @@ public class ConversationPbxQueue {
   }
 
 
+  public ConversationPbxQueue zohoDeskDepartmentId(String zohoDeskDepartmentId) {
+    
+    this.zohoDeskDepartmentId = zohoDeskDepartmentId;
+    return this;
+  }
+
+   /**
+   * Zoho Desk department ID to create tickets in
+   * @return zohoDeskDepartmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Zoho Desk department ID to create tickets in")
+
+  public String getZohoDeskDepartmentId() {
+    return zohoDeskDepartmentId;
+  }
+
+
+  public void setZohoDeskDepartmentId(String zohoDeskDepartmentId) {
+    this.zohoDeskDepartmentId = zohoDeskDepartmentId;
+  }
+
+
+  public ConversationPbxQueue zohoDeskTicketEnabled(Boolean zohoDeskTicketEnabled) {
+    
+    this.zohoDeskTicketEnabled = zohoDeskTicketEnabled;
+    return this;
+  }
+
+   /**
+   * If true, a Zoho Desk ticket is automatically created for answered calls in this queue
+   * @return zohoDeskTicketEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, a Zoho Desk ticket is automatically created for answered calls in this queue")
+
+  public Boolean getZohoDeskTicketEnabled() {
+    return zohoDeskTicketEnabled;
+  }
+
+
+  public void setZohoDeskTicketEnabled(Boolean zohoDeskTicketEnabled) {
+    this.zohoDeskTicketEnabled = zohoDeskTicketEnabled;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1179,6 +1287,8 @@ public class ConversationPbxQueue {
     }
     ConversationPbxQueue conversationPbxQueue = (ConversationPbxQueue) o;
     return Objects.equals(this.aiPriority, conversationPbxQueue.aiPriority) &&
+        Objects.equals(this.aiSummaryEnabled, conversationPbxQueue.aiSummaryEnabled) &&
+        Objects.equals(this.aiSummaryInstructions, conversationPbxQueue.aiSummaryInstructions) &&
         Objects.equals(this.aiTimeoutSeconds, conversationPbxQueue.aiTimeoutSeconds) &&
         Objects.equals(this.announceQueuePosition, conversationPbxQueue.announceQueuePosition) &&
         Objects.equals(this.automaticCoachAgentUuid, conversationPbxQueue.automaticCoachAgentUuid) &&
@@ -1213,12 +1323,14 @@ public class ConversationPbxQueue {
         Objects.equals(this.voicemail, conversationPbxQueue.voicemail) &&
         Objects.equals(this.waitCriticalSeconds, conversationPbxQueue.waitCriticalSeconds) &&
         Objects.equals(this.waitWarningSeconds, conversationPbxQueue.waitWarningSeconds) &&
-        Objects.equals(this.wrapUpSeconds, conversationPbxQueue.wrapUpSeconds);
+        Objects.equals(this.wrapUpSeconds, conversationPbxQueue.wrapUpSeconds) &&
+        Objects.equals(this.zohoDeskDepartmentId, conversationPbxQueue.zohoDeskDepartmentId) &&
+        Objects.equals(this.zohoDeskTicketEnabled, conversationPbxQueue.zohoDeskTicketEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiPriority, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, callbackAnnounceAudioUuid, callbackAnnounceSay, callbackConfirmAudioUuid, callbackConfirmSay, callbackEnabled, callbackHoursOnly, callbackMaxAttempts, callbackMaxOffers, callbackMaxPending, callbackOfferAfterSeconds, callbackOfferIntervalSeconds, callbackRetryDelaySeconds, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds);
+    return Objects.hash(aiPriority, aiSummaryEnabled, aiSummaryInstructions, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, callbackAnnounceAudioUuid, callbackAnnounceSay, callbackConfirmAudioUuid, callbackConfirmSay, callbackEnabled, callbackHoursOnly, callbackMaxAttempts, callbackMaxOffers, callbackMaxPending, callbackOfferAfterSeconds, callbackOfferIntervalSeconds, callbackRetryDelaySeconds, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds, zohoDeskDepartmentId, zohoDeskTicketEnabled);
   }
 
   @Override
@@ -1226,6 +1338,8 @@ public class ConversationPbxQueue {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxQueue {\n");
     sb.append("    aiPriority: ").append(toIndentedString(aiPriority)).append("\n");
+    sb.append("    aiSummaryEnabled: ").append(toIndentedString(aiSummaryEnabled)).append("\n");
+    sb.append("    aiSummaryInstructions: ").append(toIndentedString(aiSummaryInstructions)).append("\n");
     sb.append("    aiTimeoutSeconds: ").append(toIndentedString(aiTimeoutSeconds)).append("\n");
     sb.append("    announceQueuePosition: ").append(toIndentedString(announceQueuePosition)).append("\n");
     sb.append("    automaticCoachAgentUuid: ").append(toIndentedString(automaticCoachAgentUuid)).append("\n");
@@ -1261,6 +1375,8 @@ public class ConversationPbxQueue {
     sb.append("    waitCriticalSeconds: ").append(toIndentedString(waitCriticalSeconds)).append("\n");
     sb.append("    waitWarningSeconds: ").append(toIndentedString(waitWarningSeconds)).append("\n");
     sb.append("    wrapUpSeconds: ").append(toIndentedString(wrapUpSeconds)).append("\n");
+    sb.append("    zohoDeskDepartmentId: ").append(toIndentedString(zohoDeskDepartmentId)).append("\n");
+    sb.append("    zohoDeskTicketEnabled: ").append(toIndentedString(zohoDeskTicketEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1284,6 +1400,8 @@ public class ConversationPbxQueue {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("ai_priority");
+    openapiFields.add("ai_summary_enabled");
+    openapiFields.add("ai_summary_instructions");
     openapiFields.add("ai_timeout_seconds");
     openapiFields.add("announce_queue_position");
     openapiFields.add("automatic_coach_agent_uuid");
@@ -1319,6 +1437,8 @@ public class ConversationPbxQueue {
     openapiFields.add("wait_critical_seconds");
     openapiFields.add("wait_warning_seconds");
     openapiFields.add("wrap_up_seconds");
+    openapiFields.add("zoho_desk_department_id");
+    openapiFields.add("zoho_desk_ticket_enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1348,6 +1468,9 @@ public class ConversationPbxQueue {
       }
       if (jsonObj.get("ai_priority") != null && !jsonObj.get("ai_priority").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ai_priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_priority").toString()));
+      }
+      if (jsonObj.get("ai_summary_instructions") != null && !jsonObj.get("ai_summary_instructions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_summary_instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary_instructions").toString()));
       }
       if (jsonObj.get("automatic_coach_agent_uuid") != null && !jsonObj.get("automatic_coach_agent_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `automatic_coach_agent_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("automatic_coach_agent_uuid").toString()));
@@ -1406,6 +1529,9 @@ public class ConversationPbxQueue {
       }
       if (jsonObj.get("twilio_workspace_queue_sid") != null && !jsonObj.get("twilio_workspace_queue_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `twilio_workspace_queue_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("twilio_workspace_queue_sid").toString()));
+      }
+      if (jsonObj.get("zoho_desk_department_id") != null && !jsonObj.get("zoho_desk_department_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_department_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_department_id").toString()));
       }
   }
 

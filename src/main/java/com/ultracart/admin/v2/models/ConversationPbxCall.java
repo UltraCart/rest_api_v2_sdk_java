@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.ConversationPbxCallAgent;
 import com.ultracart.admin.v2.models.ConversationPbxCallAiEngagement;
+import com.ultracart.admin.v2.models.ConversationPbxCallAiSummary;
 import com.ultracart.admin.v2.models.ConversationPbxCallCaller;
 import com.ultracart.admin.v2.models.ConversationPbxCallFinancial;
 import com.ultracart.admin.v2.models.ConversationPbxCallHold;
@@ -58,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCall
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-11T11:47:26.149-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T09:11:15.026-04:00[America/Indianapolis]")
 public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_ACCOUNT_SID = "account_sid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SID)
@@ -71,6 +72,10 @@ public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_AI_AGENT_ENGAGEMENTS = "ai_agent_engagements";
   @SerializedName(SERIALIZED_NAME_AI_AGENT_ENGAGEMENTS)
   private List<ConversationPbxCallAiEngagement> aiAgentEngagements = null;
+
+  public static final String SERIALIZED_NAME_AI_SUMMARY = "ai_summary";
+  @SerializedName(SERIALIZED_NAME_AI_SUMMARY)
+  private ConversationPbxCallAiSummary aiSummary;
 
   public static final String SERIALIZED_NAME_CALL_SID = "call_sid";
   @SerializedName(SERIALIZED_NAME_CALL_SID)
@@ -147,6 +152,14 @@ public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_UPDATED_AT_DTS = "updated_at_dts";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT_DTS)
   private String updatedAtDts;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKET_ID = "zoho_desk_ticket_id";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKET_ID)
+  private String zohoDeskTicketId;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKET_URL = "zoho_desk_ticket_url";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKET_URL)
+  private String zohoDeskTicketUrl;
 
   public ConversationPbxCall() { 
   }
@@ -233,6 +246,29 @@ public class ConversationPbxCall {
 
   public void setAiAgentEngagements(List<ConversationPbxCallAiEngagement> aiAgentEngagements) {
     this.aiAgentEngagements = aiAgentEngagements;
+  }
+
+
+  public ConversationPbxCall aiSummary(ConversationPbxCallAiSummary aiSummary) {
+    
+    this.aiSummary = aiSummary;
+    return this;
+  }
+
+   /**
+   * Get aiSummary
+   * @return aiSummary
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ConversationPbxCallAiSummary getAiSummary() {
+    return aiSummary;
+  }
+
+
+  public void setAiSummary(ConversationPbxCallAiSummary aiSummary) {
+    this.aiSummary = aiSummary;
   }
 
 
@@ -705,6 +741,52 @@ public class ConversationPbxCall {
   }
 
 
+  public ConversationPbxCall zohoDeskTicketId(String zohoDeskTicketId) {
+    
+    this.zohoDeskTicketId = zohoDeskTicketId;
+    return this;
+  }
+
+   /**
+   * Zoho Desk ticket ID if a ticket was created for this call
+   * @return zohoDeskTicketId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Zoho Desk ticket ID if a ticket was created for this call")
+
+  public String getZohoDeskTicketId() {
+    return zohoDeskTicketId;
+  }
+
+
+  public void setZohoDeskTicketId(String zohoDeskTicketId) {
+    this.zohoDeskTicketId = zohoDeskTicketId;
+  }
+
+
+  public ConversationPbxCall zohoDeskTicketUrl(String zohoDeskTicketUrl) {
+    
+    this.zohoDeskTicketUrl = zohoDeskTicketUrl;
+    return this;
+  }
+
+   /**
+   * URL to the Zoho Desk ticket if a ticket was created for this call
+   * @return zohoDeskTicketUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "URL to the Zoho Desk ticket if a ticket was created for this call")
+
+  public String getZohoDeskTicketUrl() {
+    return zohoDeskTicketUrl;
+  }
+
+
+  public void setZohoDeskTicketUrl(String zohoDeskTicketUrl) {
+    this.zohoDeskTicketUrl = zohoDeskTicketUrl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -718,6 +800,7 @@ public class ConversationPbxCall {
     return Objects.equals(this.accountSid, conversationPbxCall.accountSid) &&
         Objects.equals(this.agents, conversationPbxCall.agents) &&
         Objects.equals(this.aiAgentEngagements, conversationPbxCall.aiAgentEngagements) &&
+        Objects.equals(this.aiSummary, conversationPbxCall.aiSummary) &&
         Objects.equals(this.callSid, conversationPbxCall.callSid) &&
         Objects.equals(this.callUuid, conversationPbxCall.callUuid) &&
         Objects.equals(this.caller, conversationPbxCall.caller) &&
@@ -736,12 +819,14 @@ public class ConversationPbxCall {
         Objects.equals(this.status, conversationPbxCall.status) &&
         Objects.equals(this.timeline, conversationPbxCall.timeline) &&
         Objects.equals(this.transfers, conversationPbxCall.transfers) &&
-        Objects.equals(this.updatedAtDts, conversationPbxCall.updatedAtDts);
+        Objects.equals(this.updatedAtDts, conversationPbxCall.updatedAtDts) &&
+        Objects.equals(this.zohoDeskTicketId, conversationPbxCall.zohoDeskTicketId) &&
+        Objects.equals(this.zohoDeskTicketUrl, conversationPbxCall.zohoDeskTicketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, agents, aiAgentEngagements, callSid, callUuid, caller, conferenceSid, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts);
+    return Objects.hash(accountSid, agents, aiAgentEngagements, aiSummary, callSid, callUuid, caller, conferenceSid, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts, zohoDeskTicketId, zohoDeskTicketUrl);
   }
 
   @Override
@@ -751,6 +836,7 @@ public class ConversationPbxCall {
     sb.append("    accountSid: ").append(toIndentedString(accountSid)).append("\n");
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
     sb.append("    aiAgentEngagements: ").append(toIndentedString(aiAgentEngagements)).append("\n");
+    sb.append("    aiSummary: ").append(toIndentedString(aiSummary)).append("\n");
     sb.append("    callSid: ").append(toIndentedString(callSid)).append("\n");
     sb.append("    callUuid: ").append(toIndentedString(callUuid)).append("\n");
     sb.append("    caller: ").append(toIndentedString(caller)).append("\n");
@@ -770,6 +856,8 @@ public class ConversationPbxCall {
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
     sb.append("    transfers: ").append(toIndentedString(transfers)).append("\n");
     sb.append("    updatedAtDts: ").append(toIndentedString(updatedAtDts)).append("\n");
+    sb.append("    zohoDeskTicketId: ").append(toIndentedString(zohoDeskTicketId)).append("\n");
+    sb.append("    zohoDeskTicketUrl: ").append(toIndentedString(zohoDeskTicketUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -795,6 +883,7 @@ public class ConversationPbxCall {
     openapiFields.add("account_sid");
     openapiFields.add("agents");
     openapiFields.add("ai_agent_engagements");
+    openapiFields.add("ai_summary");
     openapiFields.add("call_sid");
     openapiFields.add("call_uuid");
     openapiFields.add("caller");
@@ -814,6 +903,8 @@ public class ConversationPbxCall {
     openapiFields.add("timeline");
     openapiFields.add("transfers");
     openapiFields.add("updated_at_dts");
+    openapiFields.add("zoho_desk_ticket_id");
+    openapiFields.add("zoho_desk_ticket_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -867,6 +958,10 @@ public class ConversationPbxCall {
         for (int i = 0; i < jsonArrayaiAgentEngagements.size(); i++) {
           ConversationPbxCallAiEngagement.validateJsonObject(jsonArrayaiAgentEngagements.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `ai_summary`
+      if (jsonObj.getAsJsonObject("ai_summary") != null) {
+        ConversationPbxCallAiSummary.validateJsonObject(jsonObj.getAsJsonObject("ai_summary"));
       }
       if (jsonObj.get("call_sid") != null && !jsonObj.get("call_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `call_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("call_sid").toString()));
@@ -956,6 +1051,12 @@ public class ConversationPbxCall {
       }
       if (jsonObj.get("updated_at_dts") != null && !jsonObj.get("updated_at_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `updated_at_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at_dts").toString()));
+      }
+      if (jsonObj.get("zoho_desk_ticket_id") != null && !jsonObj.get("zoho_desk_ticket_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_ticket_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_ticket_id").toString()));
+      }
+      if (jsonObj.get("zoho_desk_ticket_url") != null && !jsonObj.get("zoho_desk_ticket_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_ticket_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_ticket_url").toString()));
       }
   }
 

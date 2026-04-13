@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-04-11T11:47:26.149-04:00[America/Indianapolis]
+- Build date: 2026-04-13T09:11:15.026-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.72</version>
+    <version>4.1.73</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.72"
+     implementation "com.ultracart:rest-sdk:4.1.73"
   }
 ```
 
@@ -884,6 +884,7 @@ Class | Method | HTTP request | Description
  - [ConversationPbxCallAgent](docs/ConversationPbxCallAgent.md)
  - [ConversationPbxCallAiCost](docs/ConversationPbxCallAiCost.md)
  - [ConversationPbxCallAiEngagement](docs/ConversationPbxCallAiEngagement.md)
+ - [ConversationPbxCallAiSummary](docs/ConversationPbxCallAiSummary.md)
  - [ConversationPbxCallAiToolCall](docs/ConversationPbxCallAiToolCall.md)
  - [ConversationPbxCallAiWhisper](docs/ConversationPbxCallAiWhisper.md)
  - [ConversationPbxCallCaller](docs/ConversationPbxCallCaller.md)
@@ -1714,6 +1715,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.73 | 04/13/2026 | conversation pbx - queue configuration for ai summary and call record zoho desk |
 | 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
 | 4.1.70 | 04/03/2026 | conversation pbx - queue callback settings |
