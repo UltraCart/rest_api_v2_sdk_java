@@ -841,6 +841,116 @@ paths:
       tags:
       - auto_order
       x-accepts: application/json
+  /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel:
+    post:
+      description: "Cancels a single item on an auto order identified by the original\
+        \ order id and the item's original_item_id.  The request body may specify\
+        \ mode=end (soft cancel by setting no_order_after_dts to the current time,\
+        \ preserving the row for reporting; this is the default when the body is omitted)\
+        \ or mode=remove (hard delete).  Returns the updated auto order based upon\
+        \ expansion.\n"
+      operationId: cancelAutoOrderItemByReferenceOrderId
+      parameters:
+      - description: The reference order id (original_order_id) of the auto order.
+        in: path
+        name: reference_order_id
+        required: true
+        schema:
+          type: string
+      - description: The original_item_id (SKU) of the item to cancel.
+        in: path
+        name: original_item_id
+        required: true
+        schema:
+          type: string
+      - description: The object expansion to perform on the result.  See documentation
+          for examples
+        in: query
+        name: _expand
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/AutoOrderItemCancelRequest'
+        description: Cancel request.  Body is optional; omit for default mode=end.
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoOrderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - auto_order_write
+      - ultraCartSimpleApiKey: []
+      summary: Cancel a single item on an auto order
+      tags:
+      - auto_order
+      x-codegen-request-body-name: auto_order_item_cancel_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /auto_order/auto_orders/{auto_order_oid}:
     get:
       description: |
@@ -64246,6 +64356,28 @@ components:
           type: integer
         simple_schedule:
           $ref: '#/components/schemas/AutoOrderItemSimpleSchedule'
+      type: object
+    AutoOrderItemCancelRequest:
+      example:
+        mode: end
+        auto_order_item_oid: 0
+      properties:
+        auto_order_item_oid:
+          description: "Optional tiebreaker when more than one item on the auto order\
+            \ shares the same original_item_id.  When present, the item with this\
+            \ oid is targeted and its original_item_id must match the URL path parameter\
+            \ (safety check).  Leave unset for the common case of a unique original_item_id."
+          format: int32
+          type: integer
+        mode:
+          description: "Cancellation mode.  'end' soft-cancels the item by setting\
+            \ no_order_after_dts to the current time, preserving the row for reporting.\
+            \  'remove' hard-deletes the item from the auto order.  Defaults to 'end'\
+            \ (the less destructive option) when omitted."
+          enum:
+          - end
+          - remove
+          type: string
       type: object
     AutoOrderItemFutureSchedule:
       example:
@@ -188794,6 +188926,7 @@ components:
         show_internal_information: true
         show_non_sensitive_payment_info: true
         format: text
+        use_phone_number_web_component: true
         dont_link_email_to_search: true
         show_in_merchant_currency: true
         translate: true
@@ -188862,6 +188995,11 @@ components:
         translate:
           description: True to translate the order into the native language of the
             customer
+          type: boolean
+        use_phone_number_web_component:
+          description: True to render phone numbers as <phone-number-format> web components
+            in the HTML output. Only honored by the div format. Default false preserves
+            legacy scalar rendering for receipts and unauthenticated consumers.
           type: boolean
       type: object
     OrderFormatResponse:

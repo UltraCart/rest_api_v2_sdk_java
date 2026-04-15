@@ -34,6 +34,7 @@ docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
 docs/AutoOrderConsolidate.md
 docs/AutoOrderItem.md
+docs/AutoOrderItemCancelRequest.md
 docs/AutoOrderItemFutureSchedule.md
 docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
@@ -1034,6 +1035,7 @@ src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemsUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderConsolidate.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItem.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderItemCancelRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemFutureSchedule.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemSimpleSchedule.java

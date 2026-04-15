@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.ultracart.admin.v2.models.AutoOrder;
 import com.ultracart.admin.v2.models.AutoOrderAddonItemsUpdateRequest;
 import com.ultracart.admin.v2.models.AutoOrderConsolidate;
+import com.ultracart.admin.v2.models.AutoOrderItemCancelRequest;
 import com.ultracart.admin.v2.models.AutoOrderPropertiesUpdateRequest;
 import com.ultracart.admin.v2.models.AutoOrderQuery;
 import com.ultracart.admin.v2.models.AutoOrderQueryBatch;
@@ -108,6 +109,175 @@ public class AutoOrderApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for cancelAutoOrderItemByReferenceOrderId
+     * @param referenceOrderId The reference order id (original_order_id) of the auto order. (required)
+     * @param originalItemId The original_item_id (SKU) of the item to cancel. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param autoOrderItemCancelRequest Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelAutoOrderItemByReferenceOrderIdCall(String referenceOrderId, String originalItemId, String expand, AutoOrderItemCancelRequest autoOrderItemCancelRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = autoOrderItemCancelRequest;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel"
+            .replaceAll("\\{" + "reference_order_id" + "\\}", localVarApiClient.escapeString(referenceOrderId.toString()))
+            .replaceAll("\\{" + "original_item_id" + "\\}", localVarApiClient.escapeString(originalItemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelAutoOrderItemByReferenceOrderIdValidateBeforeCall(String referenceOrderId, String originalItemId, String expand, AutoOrderItemCancelRequest autoOrderItemCancelRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'referenceOrderId' is set
+        if (referenceOrderId == null) {
+            throw new ApiException("Missing the required parameter 'referenceOrderId' when calling cancelAutoOrderItemByReferenceOrderId(Async)");
+        }
+        
+        // verify the required parameter 'originalItemId' is set
+        if (originalItemId == null) {
+            throw new ApiException("Missing the required parameter 'originalItemId' when calling cancelAutoOrderItemByReferenceOrderId(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = cancelAutoOrderItemByReferenceOrderIdCall(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Cancel a single item on an auto order
+     * Cancels a single item on an auto order identified by the original order id and the item&#39;s original_item_id.  The request body may specify mode&#x3D;end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode&#x3D;remove (hard delete).  Returns the updated auto order based upon expansion. 
+     * @param referenceOrderId The reference order id (original_order_id) of the auto order. (required)
+     * @param originalItemId The original_item_id (SKU) of the item to cancel. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param autoOrderItemCancelRequest Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)
+     * @return AutoOrderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AutoOrderResponse cancelAutoOrderItemByReferenceOrderId(String referenceOrderId, String originalItemId, String expand, AutoOrderItemCancelRequest autoOrderItemCancelRequest) throws ApiException {
+        ApiResponse<AutoOrderResponse> localVarResp = cancelAutoOrderItemByReferenceOrderIdWithHttpInfo(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel a single item on an auto order
+     * Cancels a single item on an auto order identified by the original order id and the item&#39;s original_item_id.  The request body may specify mode&#x3D;end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode&#x3D;remove (hard delete).  Returns the updated auto order based upon expansion. 
+     * @param referenceOrderId The reference order id (original_order_id) of the auto order. (required)
+     * @param originalItemId The original_item_id (SKU) of the item to cancel. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param autoOrderItemCancelRequest Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)
+     * @return ApiResponse&lt;AutoOrderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoOrderResponse> cancelAutoOrderItemByReferenceOrderIdWithHttpInfo(String referenceOrderId, String originalItemId, String expand, AutoOrderItemCancelRequest autoOrderItemCancelRequest) throws ApiException {
+        okhttp3.Call localVarCall = cancelAutoOrderItemByReferenceOrderIdValidateBeforeCall(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest, null);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel a single item on an auto order (asynchronously)
+     * Cancels a single item on an auto order identified by the original order id and the item&#39;s original_item_id.  The request body may specify mode&#x3D;end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode&#x3D;remove (hard delete).  Returns the updated auto order based upon expansion. 
+     * @param referenceOrderId The reference order id (original_order_id) of the auto order. (required)
+     * @param originalItemId The original_item_id (SKU) of the item to cancel. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param autoOrderItemCancelRequest Cancel request.  Body is optional; omit for default mode&#x3D;end. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call cancelAutoOrderItemByReferenceOrderIdAsync(String referenceOrderId, String originalItemId, String expand, AutoOrderItemCancelRequest autoOrderItemCancelRequest, final ApiCallback<AutoOrderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = cancelAutoOrderItemByReferenceOrderIdValidateBeforeCall(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest, _callback);
+        Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for consolidateAutoOrders
      * @param autoOrderOid The auto order oid to consolidate into. (required)

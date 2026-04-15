@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderFormat
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T09:11:15.026-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T14:37:45.495-04:00[America/Indianapolis]")
 public class OrderFormat {
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
@@ -163,6 +163,10 @@ public class OrderFormat {
   public static final String SERIALIZED_NAME_TRANSLATE = "translate";
   @SerializedName(SERIALIZED_NAME_TRANSLATE)
   private Boolean translate;
+
+  public static final String SERIALIZED_NAME_USE_PHONE_NUMBER_WEB_COMPONENT = "use_phone_number_web_component";
+  @SerializedName(SERIALIZED_NAME_USE_PHONE_NUMBER_WEB_COMPONENT)
+  private Boolean usePhoneNumberWebComponent;
 
   public OrderFormat() { 
   }
@@ -535,6 +539,29 @@ public class OrderFormat {
   }
 
 
+  public OrderFormat usePhoneNumberWebComponent(Boolean usePhoneNumberWebComponent) {
+    
+    this.usePhoneNumberWebComponent = usePhoneNumberWebComponent;
+    return this;
+  }
+
+   /**
+   * True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers.
+   * @return usePhoneNumberWebComponent
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True to render phone numbers as <phone-number-format> web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers.")
+
+  public Boolean getUsePhoneNumberWebComponent() {
+    return usePhoneNumberWebComponent;
+  }
+
+
+  public void setUsePhoneNumberWebComponent(Boolean usePhoneNumberWebComponent) {
+    this.usePhoneNumberWebComponent = usePhoneNumberWebComponent;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -560,12 +587,13 @@ public class OrderFormat {
         Objects.equals(this.showMerchantNotes, orderFormat.showMerchantNotes) &&
         Objects.equals(this.showNonSensitivePaymentInfo, orderFormat.showNonSensitivePaymentInfo) &&
         Objects.equals(this.showPaymentInfo, orderFormat.showPaymentInfo) &&
-        Objects.equals(this.translate, orderFormat.translate);
+        Objects.equals(this.translate, orderFormat.translate) &&
+        Objects.equals(this.usePhoneNumberWebComponent, orderFormat.usePhoneNumberWebComponent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(context, dontLinkEmailToSearch, emailAsLink, filterDistributionCenterOid, filterToItemsInContainerOid, format, hideBillToAddress, hidePriceInformation, linkFileAttachments, showContactInfo, showInMerchantCurrency, showInternalInformation, showMerchantNotes, showNonSensitivePaymentInfo, showPaymentInfo, translate);
+    return Objects.hash(context, dontLinkEmailToSearch, emailAsLink, filterDistributionCenterOid, filterToItemsInContainerOid, format, hideBillToAddress, hidePriceInformation, linkFileAttachments, showContactInfo, showInMerchantCurrency, showInternalInformation, showMerchantNotes, showNonSensitivePaymentInfo, showPaymentInfo, translate, usePhoneNumberWebComponent);
   }
 
   @Override
@@ -588,6 +616,7 @@ public class OrderFormat {
     sb.append("    showNonSensitivePaymentInfo: ").append(toIndentedString(showNonSensitivePaymentInfo)).append("\n");
     sb.append("    showPaymentInfo: ").append(toIndentedString(showPaymentInfo)).append("\n");
     sb.append("    translate: ").append(toIndentedString(translate)).append("\n");
+    sb.append("    usePhoneNumberWebComponent: ").append(toIndentedString(usePhoneNumberWebComponent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -626,6 +655,7 @@ public class OrderFormat {
     openapiFields.add("show_non_sensitive_payment_info");
     openapiFields.add("show_payment_info");
     openapiFields.add("translate");
+    openapiFields.add("use_phone_number_web_component");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

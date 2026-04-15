@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**cancelAutoOrderItemByReferenceOrderId**](AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order |
 | [**consolidateAutoOrders**](AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders |
 | [**establishAutoOrderByReferenceOrderId**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id |
 | [**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid |
@@ -19,6 +20,52 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateAutoOrderProperties**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties |
 | [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders |
 
+
+<a name="cancelAutoOrderItemByReferenceOrderId"></a>
+# **cancelAutoOrderItemByReferenceOrderId**
+> AutoOrderResponse cancelAutoOrderItemByReferenceOrderId(referenceOrderId, originalItemId, expand, autoOrderItemCancelRequest)
+
+Cancel a single item on an auto order
+
+Cancels a single item on an auto order identified by the original order id and the item&#39;s original_item_id.  The request body may specify mode&#x3D;end (soft cancel by setting no_order_after_dts to the current time, preserving the row for reporting; this is the default when the body is omitted) or mode&#x3D;remove (hard delete).  Returns the updated auto order based upon expansion. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **referenceOrderId** | **String**| The reference order id (original_order_id) of the auto order. | |
+| **originalItemId** | **String**| The original_item_id (SKU) of the item to cancel. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+| **autoOrderItemCancelRequest** | [**AutoOrderItemCancelRequest**](AutoOrderItemCancelRequest.md)| Cancel request.  Body is optional; omit for default mode&#x3D;end. | [optional] |
+
+### Return type
+
+[**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="consolidateAutoOrders"></a>
 # **consolidateAutoOrders**

@@ -23,6 +23,7 @@
 |**showNonSensitivePaymentInfo** | **Boolean** | True to show non-sensitive payment information |  [optional] |
 |**showPaymentInfo** | **Boolean** | True to show payment information |  [optional] |
 |**translate** | **Boolean** | True to translate the order into the native language of the customer |  [optional] |
+|**usePhoneNumberWebComponent** | **Boolean** | True to render phone numbers as &lt;phone-number-format&gt; web components in the HTML output. Only honored by the div format. Default false preserves legacy scalar rendering for receipts and unauthenticated consumers. |  [optional] |
 
 
 

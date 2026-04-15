@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-04-13T09:11:15.026-04:00[America/Indianapolis]
+- Build date: 2026-04-15T14:37:45.495-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.73</version>
+    <version>4.1.74</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.73"
+     implementation "com.ultracart:rest-sdk:4.1.74"
   }
 ```
 
@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
@@ -710,6 +711,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderAddonItemsUpdateRequest](docs/AutoOrderAddonItemsUpdateRequest.md)
  - [AutoOrderConsolidate](docs/AutoOrderConsolidate.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
+ - [AutoOrderItemCancelRequest](docs/AutoOrderItemCancelRequest.md)
  - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/AutoOrderItemOption.md)
  - [AutoOrderItemSimpleSchedule](docs/AutoOrderItemSimpleSchedule.md)
@@ -1715,6 +1717,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.74 | 04/15/2026 | auto order - new method cancelAutoOrderItemByReferenceOrderId |
 | 4.1.73 | 04/13/2026 | conversation pbx - queue configuration for ai summary and call record zoho desk |
 | 4.1.72 | 04/11/2026 | conversation pbx - voicemail notification channels |
 | 4.1.71 | 04/06/2026 | coupons - new percent_off_items_with_minimum_item_amount |
