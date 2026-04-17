@@ -160,6 +160,8 @@ docs/ConversationDepartmentMember.md
 docs/ConversationDepartmentMembersResponse.md
 docs/ConversationDepartmentResponse.md
 docs/ConversationDepartmentsResponse.md
+docs/ConversationEmbedApi.md
+docs/ConversationEmbedPbxAuthResponse.md
 docs/ConversationEngagement.md
 docs/ConversationEngagementEquation.md
 docs/ConversationEngagementEquationFunction.md
@@ -991,6 +993,7 @@ src/main/java/com/ultracart/admin/v2/AutoOrderApi.java
 src/main/java/com/ultracart/admin/v2/ChannelPartnerApi.java
 src/main/java/com/ultracart/admin/v2/CheckoutApi.java
 src/main/java/com/ultracart/admin/v2/ConversationApi.java
+src/main/java/com/ultracart/admin/v2/ConversationEmbedApi.java
 src/main/java/com/ultracart/admin/v2/CouponApi.java
 src/main/java/com/ultracart/admin/v2/CustomerApi.java
 src/main/java/com/ultracart/admin/v2/DatawarehouseApi.java
@@ -1158,6 +1161,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMember.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMembersResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentsResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationEmbedPbxAuthResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagement.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagementEquation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationEngagementEquationFunction.java

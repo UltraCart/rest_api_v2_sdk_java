@@ -45614,6 +45614,211 @@ paths:
       tags:
       - checkout
       x-accepts: application/json
+  /conversation_embed/oauth/device/authorize:
+    post:
+      description: |
+        RFC 8628 device authorization. Only the embed widget's client_id and the crm_embed scope are accepted.
+      operationId: embedOauthDeviceAuthorize
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/embedOauthDeviceAuthorize_request'
+        required: true
+      responses:
+        "200":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      summary: Initiate a device authorization flow for an embed widget.
+      tags:
+      - conversation_embed
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /conversation_embed/oauth/device/revoke:
+    post:
+      description: |
+        RFC 7009 style â€” the token itself is proof of possession. Accepts either an access token or a refresh token in the 'token' parameter.
+      operationId: embedOauthRevoke
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/embedOauthRevoke_request'
+        required: true
+      responses:
+        "200":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      summary: Revoke an embed widget access or refresh token.
+      tags:
+      - conversation_embed
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /conversation_embed/oauth/device/token:
+    post:
+      description: |
+        Accepts grant_type=urn:ietf:params:oauth:grant-type:device_code or grant_type=refresh_token. Other grant types are rejected. Access tokens issued here expire in 60 minutes.
+      operationId: embedOauthToken
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/embedOauthToken_request'
+        required: true
+      responses:
+        "200":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      summary: Exchange a device_code or refresh_token for an access token (embed
+        widget).
+      tags:
+      - conversation_embed
+      x-content-type: application/x-www-form-urlencoded
+      x-accepts: application/json
+  /conversation_embed/pbx-auth:
+    put:
+      description: "Returns a narrow subset of agent auth fields â€” only what the\
+        \ softphone widget needs to connect to the PBX relay. Twilio tokens, conversation\
+        \ JWTs, and chat/customer permissions are intentionally excluded.\n"
+      operationId: getEmbedPbxAuth
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationEmbedPbxAuthResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      summary: Get PBX authorization for the embedded softphone widget.
+      tags:
+      - conversation_embed
+      x-accepts: application/json
   /datawarehouse/custom_dashboards:
     get:
       description: |
@@ -114214,6 +114419,36 @@ components:
           type: boolean
         warning:
           $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationEmbedPbxAuthResponse:
+      example:
+        pbx_jwt: pbx_jwt
+        pbx_voice_identity: pbx_voice_identity
+        pbx_admin: true
+        pbx_user: true
+        merchant_id: merchant_id
+        pbx_supervisor: true
+      properties:
+        merchant_id:
+          description: Merchant identifier the agent belongs to.
+          type: string
+        pbx_admin:
+          description: True if this agent has PBX admin privileges.
+          type: boolean
+        pbx_jwt:
+          description: JWT used by the softphone widget to authenticate to the PBX
+            WebSocket relay.
+          type: string
+        pbx_supervisor:
+          description: True if this agent has PBX supervisor privileges.
+          type: boolean
+        pbx_user:
+          description: True if this agent has baseline PBX access.
+          type: boolean
+        pbx_voice_identity:
+          description: "Voice identity string identifying this agent to the PBX (e.g.,\
+            \ client:user_123)."
+          type: string
       type: object
     ConversationEngagement:
       example:
@@ -214896,6 +215131,46 @@ components:
           type: string
       required:
       - file
+    embedOauthDeviceAuthorize_request:
+      properties:
+        client_id:
+          description: The embed widget OAuth client_id.
+          type: string
+        scope:
+          description: The application-level scope (must be 'crm_embed').
+          type: string
+      required:
+      - client_id
+      - scope
+    embedOauthRevoke_request:
+      properties:
+        client_id:
+          description: The embed widget OAuth client_id.
+          type: string
+        token:
+          description: The token to revoke (access token or refresh token).
+          type: string
+      required:
+      - client_id
+      - token
+    embedOauthToken_request:
+      properties:
+        client_id:
+          description: The embed widget OAuth client_id.
+          type: string
+        grant_type:
+          description: Grant type.
+          type: string
+        device_code:
+          description: The device code received from /oauth/device/authorize (required
+            for device_code grant).
+          type: string
+        refresh_token:
+          description: The refresh token (required for refresh_token grant).
+          type: string
+      required:
+      - client_id
+      - grant_type
   securitySchemes:
     ultraCartOauth:
       flows:
