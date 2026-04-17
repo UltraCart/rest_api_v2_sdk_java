@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerLoyalty
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T12:21:52.905-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
 public class CustomerLoyalty {
   public static final String SERIALIZED_NAME_CURRENT_POINTS = "current_points";
   @SerializedName(SERIALIZED_NAME_CURRENT_POINTS)
