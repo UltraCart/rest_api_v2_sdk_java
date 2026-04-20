@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxPhoneNumber
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxPhoneNumber {
   /**
    * Action
@@ -113,6 +113,10 @@ public class ConversationPbxPhoneNumber {
   public static final String SERIALIZED_NAME_ADDRESS_SID = "address_sid";
   @SerializedName(SERIALIZED_NAME_ADDRESS_SID)
   private String addressSid;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID = "conversation_pbx_phone_number_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_PHONE_NUMBER_UUID)
@@ -203,6 +207,29 @@ public class ConversationPbxPhoneNumber {
 
   public void setAddressSid(String addressSid) {
     this.addressSid = addressSid;
+  }
+
+
+  public ConversationPbxPhoneNumber contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -334,6 +361,7 @@ public class ConversationPbxPhoneNumber {
     return Objects.equals(this.action, conversationPbxPhoneNumber.action) &&
         Objects.equals(this.actionTarget, conversationPbxPhoneNumber.actionTarget) &&
         Objects.equals(this.addressSid, conversationPbxPhoneNumber.addressSid) &&
+        Objects.equals(this.contextMerchantId, conversationPbxPhoneNumber.contextMerchantId) &&
         Objects.equals(this.conversationPbxPhoneNumberUuid, conversationPbxPhoneNumber.conversationPbxPhoneNumberUuid) &&
         Objects.equals(this.defaultPhoneNumber, conversationPbxPhoneNumber.defaultPhoneNumber) &&
         Objects.equals(this.deletionProtected, conversationPbxPhoneNumber.deletionProtected) &&
@@ -343,7 +371,7 @@ public class ConversationPbxPhoneNumber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, addressSid, conversationPbxPhoneNumberUuid, defaultPhoneNumber, deletionProtected, merchantId, phoneNumber);
+    return Objects.hash(action, actionTarget, addressSid, contextMerchantId, conversationPbxPhoneNumberUuid, defaultPhoneNumber, deletionProtected, merchantId, phoneNumber);
   }
 
   @Override
@@ -353,6 +381,7 @@ public class ConversationPbxPhoneNumber {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
     sb.append("    addressSid: ").append(toIndentedString(addressSid)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxPhoneNumberUuid: ").append(toIndentedString(conversationPbxPhoneNumberUuid)).append("\n");
     sb.append("    defaultPhoneNumber: ").append(toIndentedString(defaultPhoneNumber)).append("\n");
     sb.append("    deletionProtected: ").append(toIndentedString(deletionProtected)).append("\n");
@@ -383,6 +412,7 @@ public class ConversationPbxPhoneNumber {
     openapiFields.add("action");
     openapiFields.add("action_target");
     openapiFields.add("address_sid");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_phone_number_uuid");
     openapiFields.add("default_phone_number");
     openapiFields.add("deletion_protected");
@@ -423,6 +453,9 @@ public class ConversationPbxPhoneNumber {
       }
       if (jsonObj.get("address_sid") != null && !jsonObj.get("address_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address_sid").toString()));
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_phone_number_uuid") != null && !jsonObj.get("conversation_pbx_phone_number_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_phone_number_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_phone_number_uuid").toString()));

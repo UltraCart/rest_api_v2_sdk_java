@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxVoicemailMailbox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxVoicemailMailbox {
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
+
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID = "conversation_pbx_voicemail_mailbox_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID)
   private String conversationPbxVoicemailMailboxUuid;
@@ -299,6 +303,29 @@ public class ConversationPbxVoicemailMailbox {
 
   public ConversationPbxVoicemailMailbox() { 
   }
+
+  public ConversationPbxVoicemailMailbox contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
+  }
+
 
   public ConversationPbxVoicemailMailbox conversationPbxVoicemailMailboxUuid(String conversationPbxVoicemailMailboxUuid) {
     
@@ -632,7 +659,8 @@ public class ConversationPbxVoicemailMailbox {
       return false;
     }
     ConversationPbxVoicemailMailbox conversationPbxVoicemailMailbox = (ConversationPbxVoicemailMailbox) o;
-    return Objects.equals(this.conversationPbxVoicemailMailboxUuid, conversationPbxVoicemailMailbox.conversationPbxVoicemailMailboxUuid) &&
+    return Objects.equals(this.contextMerchantId, conversationPbxVoicemailMailbox.contextMerchantId) &&
+        Objects.equals(this.conversationPbxVoicemailMailboxUuid, conversationPbxVoicemailMailbox.conversationPbxVoicemailMailboxUuid) &&
         Objects.equals(this.merchantId, conversationPbxVoicemailMailbox.merchantId) &&
         Objects.equals(this.sendNoticesToChannel, conversationPbxVoicemailMailbox.sendNoticesToChannel) &&
         Objects.equals(this.sendNoticesToEmail, conversationPbxVoicemailMailbox.sendNoticesToEmail) &&
@@ -650,13 +678,14 @@ public class ConversationPbxVoicemailMailbox {
 
   @Override
   public int hashCode() {
-    return Objects.hash(conversationPbxVoicemailMailboxUuid, merchantId, sendNoticesToChannel, sendNoticesToEmail, sendNoticesToZohoDeskDepartmentId, userId, voicemailFollowupPlayAudioUuid, voicemailFollowupSay, voicemailFollowupSayVoice, voicemailMailboxId, voicemailMailboxType, voicemailPromptPlayAudioUuid, voicemailPromptSay, voicemailPromptSayVoice);
+    return Objects.hash(contextMerchantId, conversationPbxVoicemailMailboxUuid, merchantId, sendNoticesToChannel, sendNoticesToEmail, sendNoticesToZohoDeskDepartmentId, userId, voicemailFollowupPlayAudioUuid, voicemailFollowupSay, voicemailFollowupSayVoice, voicemailMailboxId, voicemailMailboxType, voicemailPromptPlayAudioUuid, voicemailPromptSay, voicemailPromptSayVoice);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxVoicemailMailbox {\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxVoicemailMailboxUuid: ").append(toIndentedString(conversationPbxVoicemailMailboxUuid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    sendNoticesToChannel: ").append(toIndentedString(sendNoticesToChannel)).append("\n");
@@ -693,6 +722,7 @@ public class ConversationPbxVoicemailMailbox {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_voicemail_mailbox_uuid");
     openapiFields.add("merchant_id");
     openapiFields.add("send_notices_to_channel");
@@ -733,6 +763,9 @@ public class ConversationPbxVoicemailMailbox {
         if (!ConversationPbxVoicemailMailbox.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxVoicemailMailbox` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_voicemail_mailbox_uuid") != null && !jsonObj.get("conversation_pbx_voicemail_mailbox_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_voicemail_mailbox_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_voicemail_mailbox_uuid").toString()));

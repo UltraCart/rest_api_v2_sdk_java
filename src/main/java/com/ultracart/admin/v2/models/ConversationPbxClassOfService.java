@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxClassOfService
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxClassOfService {
   public static final String SERIALIZED_NAME_ALLOWED_COUNTRIES = "allowed_countries";
   @SerializedName(SERIALIZED_NAME_ALLOWED_COUNTRIES)
@@ -58,6 +58,10 @@ public class ConversationPbxClassOfService {
   public static final String SERIALIZED_NAME_BLOCK_PREMIUM_NUMBERS = "block_premium_numbers";
   @SerializedName(SERIALIZED_NAME_BLOCK_PREMIUM_NUMBERS)
   private Boolean blockPremiumNumbers;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_CLASS_OF_SERVICE_UUID = "conversation_pbx_class_of_service_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_CLASS_OF_SERVICE_UUID)
@@ -141,6 +145,29 @@ public class ConversationPbxClassOfService {
 
   public void setBlockPremiumNumbers(Boolean blockPremiumNumbers) {
     this.blockPremiumNumbers = blockPremiumNumbers;
+  }
+
+
+  public ConversationPbxClassOfService contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -317,6 +344,7 @@ public class ConversationPbxClassOfService {
     ConversationPbxClassOfService conversationPbxClassOfService = (ConversationPbxClassOfService) o;
     return Objects.equals(this.allowedCountries, conversationPbxClassOfService.allowedCountries) &&
         Objects.equals(this.blockPremiumNumbers, conversationPbxClassOfService.blockPremiumNumbers) &&
+        Objects.equals(this.contextMerchantId, conversationPbxClassOfService.contextMerchantId) &&
         Objects.equals(this.conversationPbxClassOfServiceUuid, conversationPbxClassOfService.conversationPbxClassOfServiceUuid) &&
         Objects.equals(this.defaultFlag, conversationPbxClassOfService.defaultFlag) &&
         Objects.equals(this.description, conversationPbxClassOfService.description) &&
@@ -328,7 +356,7 @@ public class ConversationPbxClassOfService {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCountries, blockPremiumNumbers, conversationPbxClassOfServiceUuid, defaultFlag, description, merchantId, name, outboundEnabled, timeRangeUuid);
+    return Objects.hash(allowedCountries, blockPremiumNumbers, contextMerchantId, conversationPbxClassOfServiceUuid, defaultFlag, description, merchantId, name, outboundEnabled, timeRangeUuid);
   }
 
   @Override
@@ -337,6 +365,7 @@ public class ConversationPbxClassOfService {
     sb.append("class ConversationPbxClassOfService {\n");
     sb.append("    allowedCountries: ").append(toIndentedString(allowedCountries)).append("\n");
     sb.append("    blockPremiumNumbers: ").append(toIndentedString(blockPremiumNumbers)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxClassOfServiceUuid: ").append(toIndentedString(conversationPbxClassOfServiceUuid)).append("\n");
     sb.append("    defaultFlag: ").append(toIndentedString(defaultFlag)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -368,6 +397,7 @@ public class ConversationPbxClassOfService {
     openapiFields = new HashSet<String>();
     openapiFields.add("allowed_countries");
     openapiFields.add("block_premium_numbers");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_class_of_service_uuid");
     openapiFields.add("default_flag");
     openapiFields.add("description");
@@ -405,6 +435,9 @@ public class ConversationPbxClassOfService {
       // ensure the json data is an array
       if (jsonObj.get("allowed_countries") != null && !jsonObj.get("allowed_countries").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed_countries` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_countries").toString()));
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_class_of_service_uuid") != null && !jsonObj.get("conversation_pbx_class_of_service_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_class_of_service_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_class_of_service_uuid").toString()));

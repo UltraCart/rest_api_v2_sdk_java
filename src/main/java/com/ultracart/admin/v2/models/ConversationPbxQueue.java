@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxQueue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxQueue {
   /**
    * AI Agent Priority compared to human agents
@@ -170,6 +170,10 @@ public class ConversationPbxQueue {
   public static final String SERIALIZED_NAME_CALLBACK_RETRY_DELAY_SECONDS = "callback_retry_delay_seconds";
   @SerializedName(SERIALIZED_NAME_CALLBACK_RETRY_DELAY_SECONDS)
   private Integer callbackRetryDelaySeconds;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID = "conversation_pbx_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_QUEUE_UUID)
@@ -770,6 +774,29 @@ public class ConversationPbxQueue {
   }
 
 
+  public ConversationPbxQueue contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
+  }
+
+
   public ConversationPbxQueue conversationPbxQueueUuid(String conversationPbxQueueUuid) {
     
     this.conversationPbxQueueUuid = conversationPbxQueueUuid;
@@ -1304,6 +1331,7 @@ public class ConversationPbxQueue {
         Objects.equals(this.callbackOfferAfterSeconds, conversationPbxQueue.callbackOfferAfterSeconds) &&
         Objects.equals(this.callbackOfferIntervalSeconds, conversationPbxQueue.callbackOfferIntervalSeconds) &&
         Objects.equals(this.callbackRetryDelaySeconds, conversationPbxQueue.callbackRetryDelaySeconds) &&
+        Objects.equals(this.contextMerchantId, conversationPbxQueue.contextMerchantId) &&
         Objects.equals(this.conversationPbxQueueUuid, conversationPbxQueue.conversationPbxQueueUuid) &&
         Objects.equals(this.conversationVoicemailMailboxUuid, conversationPbxQueue.conversationVoicemailMailboxUuid) &&
         Objects.equals(this.holdConversationPbxAudioUuid, conversationPbxQueue.holdConversationPbxAudioUuid) &&
@@ -1330,7 +1358,7 @@ public class ConversationPbxQueue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aiPriority, aiSummaryEnabled, aiSummaryInstructions, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, callbackAnnounceAudioUuid, callbackAnnounceSay, callbackConfirmAudioUuid, callbackConfirmSay, callbackEnabled, callbackHoursOnly, callbackMaxAttempts, callbackMaxOffers, callbackMaxPending, callbackOfferAfterSeconds, callbackOfferIntervalSeconds, callbackRetryDelaySeconds, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds, zohoDeskDepartmentId, zohoDeskTicketEnabled);
+    return Objects.hash(aiPriority, aiSummaryEnabled, aiSummaryInstructions, aiTimeoutSeconds, announceQueuePosition, automaticCoachAgentUuid, callbackAnnounceAudioUuid, callbackAnnounceSay, callbackConfirmAudioUuid, callbackConfirmSay, callbackEnabled, callbackHoursOnly, callbackMaxAttempts, callbackMaxOffers, callbackMaxPending, callbackOfferAfterSeconds, callbackOfferIntervalSeconds, callbackRetryDelaySeconds, contextMerchantId, conversationPbxQueueUuid, conversationVoicemailMailboxUuid, holdConversationPbxAudioUuid, maxHoldSeconds, members, merchantId, name, noAgentAvailablePlayAudioUuid, noAgentAvailableSay, noAgentAvailableSayVoice, playAudioUuid, recordCall, say, sayVoice, twilioTaskrouterWorkflowSid, twilioWorkspaceQueueSid, voicemail, waitCriticalSeconds, waitWarningSeconds, wrapUpSeconds, zohoDeskDepartmentId, zohoDeskTicketEnabled);
   }
 
   @Override
@@ -1355,6 +1383,7 @@ public class ConversationPbxQueue {
     sb.append("    callbackOfferAfterSeconds: ").append(toIndentedString(callbackOfferAfterSeconds)).append("\n");
     sb.append("    callbackOfferIntervalSeconds: ").append(toIndentedString(callbackOfferIntervalSeconds)).append("\n");
     sb.append("    callbackRetryDelaySeconds: ").append(toIndentedString(callbackRetryDelaySeconds)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxQueueUuid: ").append(toIndentedString(conversationPbxQueueUuid)).append("\n");
     sb.append("    conversationVoicemailMailboxUuid: ").append(toIndentedString(conversationVoicemailMailboxUuid)).append("\n");
     sb.append("    holdConversationPbxAudioUuid: ").append(toIndentedString(holdConversationPbxAudioUuid)).append("\n");
@@ -1417,6 +1446,7 @@ public class ConversationPbxQueue {
     openapiFields.add("callback_offer_after_seconds");
     openapiFields.add("callback_offer_interval_seconds");
     openapiFields.add("callback_retry_delay_seconds");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_queue_uuid");
     openapiFields.add("conversation_voicemail_mailbox_uuid");
     openapiFields.add("hold_conversation_pbx_audio_uuid");
@@ -1486,6 +1516,9 @@ public class ConversationPbxQueue {
       }
       if (jsonObj.get("callback_confirm_say") != null && !jsonObj.get("callback_confirm_say").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `callback_confirm_say` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_confirm_say").toString()));
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_queue_uuid") != null && !jsonObj.get("conversation_pbx_queue_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_queue_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_queue_uuid").toString()));

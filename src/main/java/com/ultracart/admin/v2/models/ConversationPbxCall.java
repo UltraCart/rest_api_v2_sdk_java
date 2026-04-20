@@ -59,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCall
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_ACCOUNT_SID = "account_sid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SID)
@@ -92,6 +92,10 @@ public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_CONFERENCE_SID = "conference_sid";
   @SerializedName(SERIALIZED_NAME_CONFERENCE_SID)
   private String conferenceSid;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CREATED_AT_DTS = "created_at_dts";
   @SerializedName(SERIALIZED_NAME_CREATED_AT_DTS)
@@ -361,6 +365,29 @@ public class ConversationPbxCall {
 
   public void setConferenceSid(String conferenceSid) {
     this.conferenceSid = conferenceSid;
+  }
+
+
+  public ConversationPbxCall contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this call is attributed to. Null &#x3D; no child attribution (parent-level call).
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this call is attributed to. Null = no child attribution (parent-level call).")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -805,6 +832,7 @@ public class ConversationPbxCall {
         Objects.equals(this.callUuid, conversationPbxCall.callUuid) &&
         Objects.equals(this.caller, conversationPbxCall.caller) &&
         Objects.equals(this.conferenceSid, conversationPbxCall.conferenceSid) &&
+        Objects.equals(this.contextMerchantId, conversationPbxCall.contextMerchantId) &&
         Objects.equals(this.createdAtDts, conversationPbxCall.createdAtDts) &&
         Objects.equals(this.customerName, conversationPbxCall.customerName) &&
         Objects.equals(this.customerProfileOid, conversationPbxCall.customerProfileOid) &&
@@ -826,7 +854,7 @@ public class ConversationPbxCall {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, agents, aiAgentEngagements, aiSummary, callSid, callUuid, caller, conferenceSid, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts, zohoDeskTicketId, zohoDeskTicketUrl);
+    return Objects.hash(accountSid, agents, aiAgentEngagements, aiSummary, callSid, callUuid, caller, conferenceSid, contextMerchantId, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts, zohoDeskTicketId, zohoDeskTicketUrl);
   }
 
   @Override
@@ -841,6 +869,7 @@ public class ConversationPbxCall {
     sb.append("    callUuid: ").append(toIndentedString(callUuid)).append("\n");
     sb.append("    caller: ").append(toIndentedString(caller)).append("\n");
     sb.append("    conferenceSid: ").append(toIndentedString(conferenceSid)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    createdAtDts: ").append(toIndentedString(createdAtDts)).append("\n");
     sb.append("    customerName: ").append(toIndentedString(customerName)).append("\n");
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
@@ -888,6 +917,7 @@ public class ConversationPbxCall {
     openapiFields.add("call_uuid");
     openapiFields.add("caller");
     openapiFields.add("conference_sid");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("created_at_dts");
     openapiFields.add("customer_name");
     openapiFields.add("customer_profile_oid");
@@ -975,6 +1005,9 @@ public class ConversationPbxCall {
       }
       if (jsonObj.get("conference_sid") != null && !jsonObj.get("conference_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conference_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conference_sid").toString()));
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("created_at_dts") != null && !jsonObj.get("created_at_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_at_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at_dts").toString()));

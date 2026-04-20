@@ -142,6 +142,7 @@ docs/CheckoutStateProvinceResponse.md
 docs/CityStateZip.md
 docs/Conversation.md
 docs/ConversationAgentAuth.md
+docs/ConversationAgentAuthMerchant.md
 docs/ConversationAgentAuthResponse.md
 docs/ConversationAgentProfile.md
 docs/ConversationAgentProfileResponse.md
@@ -1144,6 +1145,7 @@ src/main/java/com/ultracart/admin/v2/models/CheckoutStateProvinceResponse.java
 src/main/java/com/ultracart/admin/v2/models/CityStateZip.java
 src/main/java/com/ultracart/admin/v2/models/Conversation.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuth.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthMerchant.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentAuthResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentProfile.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentProfileResponse.java

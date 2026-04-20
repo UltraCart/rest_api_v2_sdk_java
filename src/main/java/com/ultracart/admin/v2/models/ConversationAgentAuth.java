@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationAgentAuthMerchant;
 import com.ultracart.admin.v2.models.ConversationTwilioAccount;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuth
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_CHAT_ADMIN = "chat_admin";
   @SerializedName(SERIALIZED_NAME_CHAT_ADMIN)
@@ -87,6 +88,14 @@ public class ConversationAgentAuth {
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_MERCHANTS = "merchants";
+  @SerializedName(SERIALIZED_NAME_MERCHANTS)
+  private List<ConversationAgentAuthMerchant> merchants = null;
+
+  public static final String SERIALIZED_NAME_PARENT_MERCHANT_ID = "parent_merchant_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_MERCHANT_ID)
+  private String parentMerchantId;
 
   public static final String SERIALIZED_NAME_PBX_ADMIN = "pbx_admin";
   @SerializedName(SERIALIZED_NAME_PBX_ADMIN)
@@ -347,6 +356,60 @@ public class ConversationAgentAuth {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public ConversationAgentAuth merchants(List<ConversationAgentAuthMerchant> merchants) {
+    
+    this.merchants = merchants;
+    return this;
+  }
+
+  public ConversationAgentAuth addMerchantsItem(ConversationAgentAuthMerchant merchantsItem) {
+    if (this.merchants == null) {
+      this.merchants = new ArrayList<>();
+    }
+    this.merchants.add(merchantsItem);
+    return this;
+  }
+
+   /**
+   * List of merchants in this linked merchant group
+   * @return merchants
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of merchants in this linked merchant group")
+
+  public List<ConversationAgentAuthMerchant> getMerchants() {
+    return merchants;
+  }
+
+
+  public void setMerchants(List<ConversationAgentAuthMerchant> merchants) {
+    this.merchants = merchants;
+  }
+
+
+  public ConversationAgentAuth parentMerchantId(String parentMerchantId) {
+    
+    this.parentMerchantId = parentMerchantId;
+    return this;
+  }
+
+   /**
+   * The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.
+   * @return parentMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The parent merchant ID for PBX. For non-linked merchants, equals merchant_id.")
+
+  public String getParentMerchantId() {
+    return parentMerchantId;
+  }
+
+
+  public void setParentMerchantId(String parentMerchantId) {
+    this.parentMerchantId = parentMerchantId;
   }
 
 
@@ -630,6 +693,8 @@ public class ConversationAgentAuth {
         Objects.equals(this.groupIds, conversationAgentAuth.groupIds) &&
         Objects.equals(this.jwt, conversationAgentAuth.jwt) &&
         Objects.equals(this.merchantId, conversationAgentAuth.merchantId) &&
+        Objects.equals(this.merchants, conversationAgentAuth.merchants) &&
+        Objects.equals(this.parentMerchantId, conversationAgentAuth.parentMerchantId) &&
         Objects.equals(this.pbxAdmin, conversationAgentAuth.pbxAdmin) &&
         Objects.equals(this.pbxJwt, conversationAgentAuth.pbxJwt) &&
         Objects.equals(this.pbxSupervisor, conversationAgentAuth.pbxSupervisor) &&
@@ -645,7 +710,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, merchants, parentMerchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
@@ -661,6 +726,8 @@ public class ConversationAgentAuth {
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    merchants: ").append(toIndentedString(merchants)).append("\n");
+    sb.append("    parentMerchantId: ").append(toIndentedString(parentMerchantId)).append("\n");
     sb.append("    pbxAdmin: ").append(toIndentedString(pbxAdmin)).append("\n");
     sb.append("    pbxJwt: ").append(toIndentedString(pbxJwt)).append("\n");
     sb.append("    pbxSupervisor: ").append(toIndentedString(pbxSupervisor)).append("\n");
@@ -703,6 +770,8 @@ public class ConversationAgentAuth {
     openapiFields.add("group_ids");
     openapiFields.add("jwt");
     openapiFields.add("merchant_id");
+    openapiFields.add("merchants");
+    openapiFields.add("parent_merchant_id");
     openapiFields.add("pbx_admin");
     openapiFields.add("pbx_jwt");
     openapiFields.add("pbx_supervisor");
@@ -759,6 +828,21 @@ public class ConversationAgentAuth {
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      JsonArray jsonArraymerchants = jsonObj.getAsJsonArray("merchants");
+      if (jsonArraymerchants != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("merchants").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `merchants` to be an array in the JSON string but got `%s`", jsonObj.get("merchants").toString()));
+        }
+
+        // validate the optional field `merchants` (array)
+        for (int i = 0; i < jsonArraymerchants.size(); i++) {
+          ConversationAgentAuthMerchant.validateJsonObject(jsonArraymerchants.get(i).getAsJsonObject());
+        };
+      }
+      if (jsonObj.get("parent_merchant_id") != null && !jsonObj.get("parent_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parent_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_merchant_id").toString()));
       }
       if (jsonObj.get("pbx_jwt") != null && !jsonObj.get("pbx_jwt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pbx_jwt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_jwt").toString()));

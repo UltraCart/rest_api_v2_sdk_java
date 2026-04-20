@@ -50,11 +50,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxMenu
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxMenu {
   public static final String SERIALIZED_NAME_ALLOW_DIRECT_EXTENSIONS = "allow_direct_extensions";
   @SerializedName(SERIALIZED_NAME_ALLOW_DIRECT_EXTENSIONS)
   private Boolean allowDirectExtensions;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_MENU_UUID = "conversation_pbx_menu_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_MENU_UUID)
@@ -166,6 +170,29 @@ public class ConversationPbxMenu {
 
   public void setAllowDirectExtensions(Boolean allowDirectExtensions) {
     this.allowDirectExtensions = allowDirectExtensions;
+  }
+
+
+  public ConversationPbxMenu contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -418,6 +445,7 @@ public class ConversationPbxMenu {
     }
     ConversationPbxMenu conversationPbxMenu = (ConversationPbxMenu) o;
     return Objects.equals(this.allowDirectExtensions, conversationPbxMenu.allowDirectExtensions) &&
+        Objects.equals(this.contextMerchantId, conversationPbxMenu.contextMerchantId) &&
         Objects.equals(this.conversationPbxMenuUuid, conversationPbxMenu.conversationPbxMenuUuid) &&
         Objects.equals(this.defaultAction, conversationPbxMenu.defaultAction) &&
         Objects.equals(this.defaultActionTarget, conversationPbxMenu.defaultActionTarget) &&
@@ -432,7 +460,7 @@ public class ConversationPbxMenu {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowDirectExtensions, conversationPbxMenuUuid, defaultAction, defaultActionTarget, mappings, merchantId, name, playAudioUuid, say, sayVoice, timeout);
+    return Objects.hash(allowDirectExtensions, contextMerchantId, conversationPbxMenuUuid, defaultAction, defaultActionTarget, mappings, merchantId, name, playAudioUuid, say, sayVoice, timeout);
   }
 
   @Override
@@ -440,6 +468,7 @@ public class ConversationPbxMenu {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxMenu {\n");
     sb.append("    allowDirectExtensions: ").append(toIndentedString(allowDirectExtensions)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxMenuUuid: ").append(toIndentedString(conversationPbxMenuUuid)).append("\n");
     sb.append("    defaultAction: ").append(toIndentedString(defaultAction)).append("\n");
     sb.append("    defaultActionTarget: ").append(toIndentedString(defaultActionTarget)).append("\n");
@@ -473,6 +502,7 @@ public class ConversationPbxMenu {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allow_direct_extensions");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_menu_uuid");
     openapiFields.add("default_action");
     openapiFields.add("default_action_target");
@@ -509,6 +539,9 @@ public class ConversationPbxMenu {
         if (!ConversationPbxMenu.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationPbxMenu` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_menu_uuid") != null && !jsonObj.get("conversation_pbx_menu_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_menu_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_menu_uuid").toString()));

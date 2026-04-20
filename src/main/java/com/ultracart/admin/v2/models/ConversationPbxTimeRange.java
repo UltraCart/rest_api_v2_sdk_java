@@ -50,11 +50,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxTimeRange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxTimeRange {
   public static final String SERIALIZED_NAME_CONFIGS = "configs";
   @SerializedName(SERIALIZED_NAME_CONFIGS)
   private List<ConversationPbxTimeRangeConfig> configs = null;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_TIME_RANGE_UUID = "conversation_pbx_time_range_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_TIME_RANGE_UUID)
@@ -103,6 +107,29 @@ public class ConversationPbxTimeRange {
 
   public void setConfigs(List<ConversationPbxTimeRangeConfig> configs) {
     this.configs = configs;
+  }
+
+
+  public ConversationPbxTimeRange contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -209,6 +236,7 @@ public class ConversationPbxTimeRange {
     }
     ConversationPbxTimeRange conversationPbxTimeRange = (ConversationPbxTimeRange) o;
     return Objects.equals(this.configs, conversationPbxTimeRange.configs) &&
+        Objects.equals(this.contextMerchantId, conversationPbxTimeRange.contextMerchantId) &&
         Objects.equals(this.conversationPbxTimeRangeUuid, conversationPbxTimeRange.conversationPbxTimeRangeUuid) &&
         Objects.equals(this.merchantId, conversationPbxTimeRange.merchantId) &&
         Objects.equals(this.timeRangeName, conversationPbxTimeRange.timeRangeName) &&
@@ -217,7 +245,7 @@ public class ConversationPbxTimeRange {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configs, conversationPbxTimeRangeUuid, merchantId, timeRangeName, timezone);
+    return Objects.hash(configs, contextMerchantId, conversationPbxTimeRangeUuid, merchantId, timeRangeName, timezone);
   }
 
   @Override
@@ -225,6 +253,7 @@ public class ConversationPbxTimeRange {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxTimeRange {\n");
     sb.append("    configs: ").append(toIndentedString(configs)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxTimeRangeUuid: ").append(toIndentedString(conversationPbxTimeRangeUuid)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    timeRangeName: ").append(toIndentedString(timeRangeName)).append("\n");
@@ -252,6 +281,7 @@ public class ConversationPbxTimeRange {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("configs");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_time_range_uuid");
     openapiFields.add("merchant_id");
     openapiFields.add("time_range_name");
@@ -294,6 +324,9 @@ public class ConversationPbxTimeRange {
         for (int i = 0; i < jsonArrayconfigs.size(); i++) {
           ConversationPbxTimeRangeConfig.validateJsonObject(jsonArrayconfigs.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_time_range_uuid") != null && !jsonObj.get("conversation_pbx_time_range_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_time_range_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_time_range_uuid").toString()));

@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCustomerSnapshotRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxCustomerSnapshotRequest {
   public static final String SERIALIZED_NAME_AUTO_ORDER_EXPAND = "auto_order_expand";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_EXPAND)
@@ -75,6 +75,10 @@ public class ConversationPbxCustomerSnapshotRequest {
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phone_number";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private String phoneNumber;
+
+  public static final String SERIALIZED_NAME_SEARCH_LINKED_ACCOUNTS = "search_linked_accounts";
+  @SerializedName(SERIALIZED_NAME_SEARCH_LINKED_ACCOUNTS)
+  private Boolean searchLinkedAccounts;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -225,6 +229,29 @@ public class ConversationPbxCustomerSnapshotRequest {
   }
 
 
+  public ConversationPbxCustomerSnapshotRequest searchLinkedAccounts(Boolean searchLinkedAccounts) {
+    
+    this.searchLinkedAccounts = searchLinkedAccounts;
+    return this;
+  }
+
+   /**
+   * Get searchLinkedAccounts
+   * @return searchLinkedAccounts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSearchLinkedAccounts() {
+    return searchLinkedAccounts;
+  }
+
+
+  public void setSearchLinkedAccounts(Boolean searchLinkedAccounts) {
+    this.searchLinkedAccounts = searchLinkedAccounts;
+  }
+
+
   public ConversationPbxCustomerSnapshotRequest success(Boolean success) {
     
     this.success = success;
@@ -287,13 +314,14 @@ public class ConversationPbxCustomerSnapshotRequest {
         Objects.equals(this.metadata, conversationPbxCustomerSnapshotRequest.metadata) &&
         Objects.equals(this.orderExpand, conversationPbxCustomerSnapshotRequest.orderExpand) &&
         Objects.equals(this.phoneNumber, conversationPbxCustomerSnapshotRequest.phoneNumber) &&
+        Objects.equals(this.searchLinkedAccounts, conversationPbxCustomerSnapshotRequest.searchLinkedAccounts) &&
         Objects.equals(this.success, conversationPbxCustomerSnapshotRequest.success) &&
         Objects.equals(this.warning, conversationPbxCustomerSnapshotRequest.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderExpand, customerExpand, error, metadata, orderExpand, phoneNumber, success, warning);
+    return Objects.hash(autoOrderExpand, customerExpand, error, metadata, orderExpand, phoneNumber, searchLinkedAccounts, success, warning);
   }
 
   @Override
@@ -306,6 +334,7 @@ public class ConversationPbxCustomerSnapshotRequest {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    orderExpand: ").append(toIndentedString(orderExpand)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    searchLinkedAccounts: ").append(toIndentedString(searchLinkedAccounts)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
@@ -336,6 +365,7 @@ public class ConversationPbxCustomerSnapshotRequest {
     openapiFields.add("metadata");
     openapiFields.add("order_expand");
     openapiFields.add("phone_number");
+    openapiFields.add("search_linked_accounts");
     openapiFields.add("success");
     openapiFields.add("warning");
 

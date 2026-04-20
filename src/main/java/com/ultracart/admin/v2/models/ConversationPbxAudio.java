@@ -47,11 +47,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAudio
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-17T13:04:04.745-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
 public class ConversationPbxAudio {
   public static final String SERIALIZED_NAME_AUDIO_S3_LISTING_KEY = "audio_s3_listing_key";
   @SerializedName(SERIALIZED_NAME_AUDIO_S3_LISTING_KEY)
   private String audioS3ListingKey;
+
+  public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
+  @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)
+  private String contextMerchantId;
 
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UUID = "conversation_pbx_audio_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UUID)
@@ -112,6 +116,29 @@ public class ConversationPbxAudio {
 
   public void setAudioS3ListingKey(String audioS3ListingKey) {
     this.audioS3ListingKey = audioS3ListingKey;
+  }
+
+
+  public ConversationPbxAudio contextMerchantId(String contextMerchantId) {
+    
+    this.contextMerchantId = contextMerchantId;
+    return this;
+  }
+
+   /**
+   * Optional child merchant ID this resource is assigned to. Null &#x3D; shared across the linked merchant group.
+   * @return contextMerchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional child merchant ID this resource is assigned to. Null = shared across the linked merchant group.")
+
+  public String getContextMerchantId() {
+    return contextMerchantId;
+  }
+
+
+  public void setContextMerchantId(String contextMerchantId) {
+    this.contextMerchantId = contextMerchantId;
   }
 
 
@@ -333,6 +360,7 @@ public class ConversationPbxAudio {
     }
     ConversationPbxAudio conversationPbxAudio = (ConversationPbxAudio) o;
     return Objects.equals(this.audioS3ListingKey, conversationPbxAudio.audioS3ListingKey) &&
+        Objects.equals(this.contextMerchantId, conversationPbxAudio.contextMerchantId) &&
         Objects.equals(this.conversationPbxAudioUuid, conversationPbxAudio.conversationPbxAudioUuid) &&
         Objects.equals(this.defaultHoldMusic, conversationPbxAudio.defaultHoldMusic) &&
         Objects.equals(this.description, conversationPbxAudio.description) &&
@@ -346,7 +374,7 @@ public class ConversationPbxAudio {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audioS3ListingKey, conversationPbxAudioUuid, defaultHoldMusic, description, filename, merchantId, mimeType, url, userId, version);
+    return Objects.hash(audioS3ListingKey, contextMerchantId, conversationPbxAudioUuid, defaultHoldMusic, description, filename, merchantId, mimeType, url, userId, version);
   }
 
   @Override
@@ -354,6 +382,7 @@ public class ConversationPbxAudio {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationPbxAudio {\n");
     sb.append("    audioS3ListingKey: ").append(toIndentedString(audioS3ListingKey)).append("\n");
+    sb.append("    contextMerchantId: ").append(toIndentedString(contextMerchantId)).append("\n");
     sb.append("    conversationPbxAudioUuid: ").append(toIndentedString(conversationPbxAudioUuid)).append("\n");
     sb.append("    defaultHoldMusic: ").append(toIndentedString(defaultHoldMusic)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -386,6 +415,7 @@ public class ConversationPbxAudio {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("audio_s3_listing_key");
+    openapiFields.add("context_merchant_id");
     openapiFields.add("conversation_pbx_audio_uuid");
     openapiFields.add("default_hold_music");
     openapiFields.add("description");
@@ -424,6 +454,9 @@ public class ConversationPbxAudio {
       }
       if (jsonObj.get("audio_s3_listing_key") != null && !jsonObj.get("audio_s3_listing_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `audio_s3_listing_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audio_s3_listing_key").toString()));
+      }
+      if (jsonObj.get("context_merchant_id") != null && !jsonObj.get("context_merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_merchant_id").toString()));
       }
       if (jsonObj.get("conversation_pbx_audio_uuid") != null && !jsonObj.get("conversation_pbx_audio_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversation_pbx_audio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_pbx_audio_uuid").toString()));

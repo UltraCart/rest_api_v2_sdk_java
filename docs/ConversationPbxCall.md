@@ -15,6 +15,7 @@
 |**callUuid** | **String** | Unique identifier for this call record |  [optional] |
 |**caller** | [**ConversationPbxCallCaller**](ConversationPbxCallCaller.md) |  |  [optional] |
 |**conferenceSid** | **String** | Twilio conference SID if this call used conferencing |  [optional] |
+|**contextMerchantId** | **String** | Optional child merchant ID this call is attributed to. Null &#x3D; no child attribution (parent-level call). |  [optional] |
 |**createdAtDts** | **String** | Timestamp when the call record was created |  [optional] |
 |**customerName** | **String** | Customer name associated with this call |  [optional] |
 |**customerProfileOid** | **String** | UltraCart customer profile OID if the caller was matched to a customer |  [optional] |
