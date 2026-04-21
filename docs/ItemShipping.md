@@ -37,6 +37,7 @@
 |**maxDaysTimeInTransit** | **Integer** | Maximum days allowed in transit |  [optional] |
 |**methods** | [**List&lt;ItemShippingMethod&gt;**](ItemShippingMethod.md) | Methods |  [optional] |
 |**noShippingDiscount** | **Boolean** | No shipping discounts |  [optional] |
+|**oneLinePerUnit** | **Boolean** | Split cart line items with quantity greater than one into individual lines of quantity one on the order |  [optional] |
 |**packageRequirements** | [**List&lt;ItemShippingPackageRequirement&gt;**](ItemShippingPackageRequirement.md) | Package requirements |  [optional] |
 |**perishableClassName** | **String** | Perishable class name |  [optional] |
 |**perishableClassOid** | **Integer** | Perishable class object identifier |  [optional] |

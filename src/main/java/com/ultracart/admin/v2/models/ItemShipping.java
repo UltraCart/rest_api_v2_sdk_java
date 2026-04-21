@@ -58,7 +58,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-20T16:29:16.028-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T12:25:15.649-04:00[America/Indianapolis]")
 public class ItemShipping {
   public static final String SERIALIZED_NAME_ALLOW_BACK_ORDER = "allow_back_order";
   @SerializedName(SERIALIZED_NAME_ALLOW_BACK_ORDER)
@@ -179,6 +179,10 @@ public class ItemShipping {
   public static final String SERIALIZED_NAME_NO_SHIPPING_DISCOUNT = "no_shipping_discount";
   @SerializedName(SERIALIZED_NAME_NO_SHIPPING_DISCOUNT)
   private Boolean noShippingDiscount;
+
+  public static final String SERIALIZED_NAME_ONE_LINE_PER_UNIT = "one_line_per_unit";
+  @SerializedName(SERIALIZED_NAME_ONE_LINE_PER_UNIT)
+  private Boolean oneLinePerUnit;
 
   public static final String SERIALIZED_NAME_PACKAGE_REQUIREMENTS = "package_requirements";
   @SerializedName(SERIALIZED_NAME_PACKAGE_REQUIREMENTS)
@@ -997,6 +1001,29 @@ public class ItemShipping {
   }
 
 
+  public ItemShipping oneLinePerUnit(Boolean oneLinePerUnit) {
+    
+    this.oneLinePerUnit = oneLinePerUnit;
+    return this;
+  }
+
+   /**
+   * Split cart line items with quantity greater than one into individual lines of quantity one on the order
+   * @return oneLinePerUnit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Split cart line items with quantity greater than one into individual lines of quantity one on the order")
+
+  public Boolean getOneLinePerUnit() {
+    return oneLinePerUnit;
+  }
+
+
+  public void setOneLinePerUnit(Boolean oneLinePerUnit) {
+    this.oneLinePerUnit = oneLinePerUnit;
+  }
+
+
   public ItemShipping packageRequirements(List<ItemShippingPackageRequirement> packageRequirements) {
     
     this.packageRequirements = packageRequirements;
@@ -1528,6 +1555,7 @@ public class ItemShipping {
         Objects.equals(this.maxDaysTimeInTransit, itemShipping.maxDaysTimeInTransit) &&
         Objects.equals(this.methods, itemShipping.methods) &&
         Objects.equals(this.noShippingDiscount, itemShipping.noShippingDiscount) &&
+        Objects.equals(this.oneLinePerUnit, itemShipping.oneLinePerUnit) &&
         Objects.equals(this.packageRequirements, itemShipping.packageRequirements) &&
         Objects.equals(this.perishableClassName, itemShipping.perishableClassName) &&
         Objects.equals(this.perishableClassOid, itemShipping.perishableClassOid) &&
@@ -1553,7 +1581,7 @@ public class ItemShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, sendToHoldBeforeFulfillment, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
+    return Objects.hash(allowBackOrder, amazonFba, caseInnerPacks, caseUnits, cases, collectSerialNumbers, countryCodeOfOrigin, customsDescription, customsValue, deliveryOnFriday, deliveryOnMonday, deliveryOnSaturday, deliveryOnSunday, deliveryOnThursday, deliveryOnTuesday, deliveryOnWednesday, destinationMarkups, destinationRestrictions, distributionCenters, eta, freeShipping, freightClass, hazmat, holdForTransmission, includeOnPackingSlip, madeToOrder, madeToOrderLeadTime, maxDaysTimeInTransit, methods, noShippingDiscount, oneLinePerUnit, packageRequirements, perishableClassName, perishableClassOid, preorder, requireDeliveryDate, restrictShipmentOnFriday, restrictShipmentOnMonday, restrictShipmentOnSaturday, restrictShipmentOnSunday, restrictShipmentOnThursday, restrictShipmentOnTuesday, restrictShipmentOnWednesday, sendToHoldBeforeFulfillment, shipSeparately, shipSeparatelyAdditionalWeight, shipSeparatelyHeight, shipSeparatelyLength, shipSeparatelyPackageSpecialType, shipSeparatelyWidth, specialProductType, trackInventory);
   }
 
   @Override
@@ -1590,6 +1618,7 @@ public class ItemShipping {
     sb.append("    maxDaysTimeInTransit: ").append(toIndentedString(maxDaysTimeInTransit)).append("\n");
     sb.append("    methods: ").append(toIndentedString(methods)).append("\n");
     sb.append("    noShippingDiscount: ").append(toIndentedString(noShippingDiscount)).append("\n");
+    sb.append("    oneLinePerUnit: ").append(toIndentedString(oneLinePerUnit)).append("\n");
     sb.append("    packageRequirements: ").append(toIndentedString(packageRequirements)).append("\n");
     sb.append("    perishableClassName: ").append(toIndentedString(perishableClassName)).append("\n");
     sb.append("    perishableClassOid: ").append(toIndentedString(perishableClassOid)).append("\n");
@@ -1663,6 +1692,7 @@ public class ItemShipping {
     openapiFields.add("max_days_time_in_transit");
     openapiFields.add("methods");
     openapiFields.add("no_shipping_discount");
+    openapiFields.add("one_line_per_unit");
     openapiFields.add("package_requirements");
     openapiFields.add("perishable_class_name");
     openapiFields.add("perishable_class_oid");
