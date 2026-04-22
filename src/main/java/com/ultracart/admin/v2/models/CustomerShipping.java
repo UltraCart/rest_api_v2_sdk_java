@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T12:25:15.649-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T13:50:59.636-04:00[America/Indianapolis]")
 public class CustomerShipping {
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -81,6 +81,10 @@ public class CustomerShipping {
   @SerializedName(SERIALIZED_NAME_DAY_PHONE)
   private String dayPhone;
 
+  public static final String SERIALIZED_NAME_DAY_PHONE_E164 = "day_phone_e164";
+  @SerializedName(SERIALIZED_NAME_DAY_PHONE_E164)
+  private String dayPhoneE164;
+
   public static final String SERIALIZED_NAME_DEFAULT_SHIPPING = "default_shipping";
   @SerializedName(SERIALIZED_NAME_DEFAULT_SHIPPING)
   private Boolean defaultShipping;
@@ -88,6 +92,10 @@ public class CustomerShipping {
   public static final String SERIALIZED_NAME_EVENING_PHONE = "evening_phone";
   @SerializedName(SERIALIZED_NAME_EVENING_PHONE)
   private String eveningPhone;
+
+  public static final String SERIALIZED_NAME_EVENING_PHONE_E164 = "evening_phone_e164";
+  @SerializedName(SERIALIZED_NAME_EVENING_PHONE_E164)
+  private String eveningPhoneE164;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -304,6 +312,29 @@ public class CustomerShipping {
   }
 
 
+  public CustomerShipping dayPhoneE164(String dayPhoneE164) {
+    
+    this.dayPhoneE164 = dayPhoneE164;
+    return this;
+  }
+
+   /**
+   * Day phone in E.164 format (derived â€” read only)
+   * @return dayPhoneE164
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Day phone in E.164 format (derived â€” read only)")
+
+  public String getDayPhoneE164() {
+    return dayPhoneE164;
+  }
+
+
+  public void setDayPhoneE164(String dayPhoneE164) {
+    this.dayPhoneE164 = dayPhoneE164;
+  }
+
+
   public CustomerShipping defaultShipping(Boolean defaultShipping) {
     
     this.defaultShipping = defaultShipping;
@@ -347,6 +378,29 @@ public class CustomerShipping {
 
   public void setEveningPhone(String eveningPhone) {
     this.eveningPhone = eveningPhone;
+  }
+
+
+  public CustomerShipping eveningPhoneE164(String eveningPhoneE164) {
+    
+    this.eveningPhoneE164 = eveningPhoneE164;
+    return this;
+  }
+
+   /**
+   * Evening phone in E.164 format (derived â€” read only)
+   * @return eveningPhoneE164
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Evening phone in E.164 format (derived â€” read only)")
+
+  public String getEveningPhoneE164() {
+    return eveningPhoneE164;
+  }
+
+
+  public void setEveningPhoneE164(String eveningPhoneE164) {
+    this.eveningPhoneE164 = eveningPhoneE164;
   }
 
 
@@ -529,8 +583,10 @@ public class CustomerShipping {
         Objects.equals(this.customerProfileOid, customerShipping.customerProfileOid) &&
         Objects.equals(this.customerShippingOid, customerShipping.customerShippingOid) &&
         Objects.equals(this.dayPhone, customerShipping.dayPhone) &&
+        Objects.equals(this.dayPhoneE164, customerShipping.dayPhoneE164) &&
         Objects.equals(this.defaultShipping, customerShipping.defaultShipping) &&
         Objects.equals(this.eveningPhone, customerShipping.eveningPhone) &&
+        Objects.equals(this.eveningPhoneE164, customerShipping.eveningPhoneE164) &&
         Objects.equals(this.firstName, customerShipping.firstName) &&
         Objects.equals(this.lastName, customerShipping.lastName) &&
         Objects.equals(this.lastUsedDts, customerShipping.lastUsedDts) &&
@@ -542,7 +598,7 @@ public class CustomerShipping {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address1, address2, city, company, countryCode, customerProfileOid, customerShippingOid, dayPhone, defaultShipping, eveningPhone, firstName, lastName, lastUsedDts, postalCode, stateRegion, taxCounty, title);
+    return Objects.hash(address1, address2, city, company, countryCode, customerProfileOid, customerShippingOid, dayPhone, dayPhoneE164, defaultShipping, eveningPhone, eveningPhoneE164, firstName, lastName, lastUsedDts, postalCode, stateRegion, taxCounty, title);
   }
 
   @Override
@@ -557,8 +613,10 @@ public class CustomerShipping {
     sb.append("    customerProfileOid: ").append(toIndentedString(customerProfileOid)).append("\n");
     sb.append("    customerShippingOid: ").append(toIndentedString(customerShippingOid)).append("\n");
     sb.append("    dayPhone: ").append(toIndentedString(dayPhone)).append("\n");
+    sb.append("    dayPhoneE164: ").append(toIndentedString(dayPhoneE164)).append("\n");
     sb.append("    defaultShipping: ").append(toIndentedString(defaultShipping)).append("\n");
     sb.append("    eveningPhone: ").append(toIndentedString(eveningPhone)).append("\n");
+    sb.append("    eveningPhoneE164: ").append(toIndentedString(eveningPhoneE164)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    lastUsedDts: ").append(toIndentedString(lastUsedDts)).append("\n");
@@ -596,8 +654,10 @@ public class CustomerShipping {
     openapiFields.add("customer_profile_oid");
     openapiFields.add("customer_shipping_oid");
     openapiFields.add("day_phone");
+    openapiFields.add("day_phone_e164");
     openapiFields.add("default_shipping");
     openapiFields.add("evening_phone");
+    openapiFields.add("evening_phone_e164");
     openapiFields.add("first_name");
     openapiFields.add("last_name");
     openapiFields.add("last_used_dts");
@@ -650,8 +710,14 @@ public class CustomerShipping {
       if (jsonObj.get("day_phone") != null && !jsonObj.get("day_phone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `day_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("day_phone").toString()));
       }
+      if (jsonObj.get("day_phone_e164") != null && !jsonObj.get("day_phone_e164").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `day_phone_e164` to be a primitive type in the JSON string but got `%s`", jsonObj.get("day_phone_e164").toString()));
+      }
       if (jsonObj.get("evening_phone") != null && !jsonObj.get("evening_phone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `evening_phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evening_phone").toString()));
+      }
+      if (jsonObj.get("evening_phone_e164") != null && !jsonObj.get("evening_phone_e164").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `evening_phone_e164` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evening_phone_e164").toString()));
       }
       if (jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));

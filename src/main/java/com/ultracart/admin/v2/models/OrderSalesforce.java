@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderSalesforce
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-21T12:25:15.649-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T13:50:59.636-04:00[America/Indianapolis]")
 public class OrderSalesforce {
   public static final String SERIALIZED_NAME_SALESFORCE_OPPORTUNITY_ID = "salesforce_opportunity_id";
   @SerializedName(SERIALIZED_NAME_SALESFORCE_OPPORTUNITY_ID)

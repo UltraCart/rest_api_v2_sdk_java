@@ -53898,7 +53898,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -53915,7 +53916,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -53932,6 +53935,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -53957,7 +53961,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -53974,7 +53979,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -53991,6 +53998,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -55771,7 +55779,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -55788,7 +55797,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -55805,6 +55816,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -55830,7 +55842,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -55847,7 +55860,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -55864,6 +55879,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -57529,7 +57545,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -57546,7 +57563,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -57563,6 +57582,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -57588,7 +57608,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -57605,7 +57626,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -57622,6 +57645,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -59459,7 +59483,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -59476,7 +59501,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -59493,6 +59520,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -59518,7 +59546,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -59535,7 +59564,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -59552,6 +59583,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -61157,7 +61189,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -61174,7 +61207,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -61191,6 +61226,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -61216,7 +61252,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -61233,7 +61270,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -61250,6 +61289,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -62899,7 +62939,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -62916,7 +62957,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -62933,6 +62976,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -62958,7 +63002,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -62975,7 +63020,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -62992,6 +63039,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -65428,7 +65476,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -65445,7 +65494,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -65462,6 +65513,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -65487,7 +65539,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -65504,7 +65557,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -65521,6 +65576,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -67126,7 +67182,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -67143,7 +67200,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -67160,6 +67219,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -67185,7 +67245,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -67202,7 +67263,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -67219,6 +67282,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -68868,7 +68932,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -68885,7 +68950,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -68902,6 +68969,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -68927,7 +68995,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -68944,7 +69013,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -68961,6 +69032,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -70739,7 +70811,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -70756,7 +70829,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -70773,6 +70848,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -70798,7 +70874,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -70815,7 +70892,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -70832,6 +70911,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -72437,7 +72517,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -72454,7 +72535,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -72471,6 +72554,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -72496,7 +72580,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -72513,7 +72598,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -72530,6 +72617,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -74179,7 +74267,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -74196,7 +74285,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -74213,6 +74304,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -74238,7 +74330,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -74255,7 +74348,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -74272,6 +74367,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -76028,7 +76124,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -76045,7 +76142,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -76062,6 +76161,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -76087,7 +76187,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -76104,7 +76205,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -76121,6 +76224,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -77726,7 +77830,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -77743,7 +77848,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -77760,6 +77867,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -77785,7 +77893,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -77802,7 +77911,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -77819,6 +77930,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -79468,7 +79580,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -79485,7 +79598,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -79502,6 +79617,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -79527,7 +79643,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -79544,7 +79661,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -79561,6 +79680,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -81337,7 +81457,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -81354,7 +81475,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -81371,6 +81494,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -81396,7 +81520,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -81413,7 +81538,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -81430,6 +81557,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -83035,7 +83163,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -83052,7 +83181,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -83069,6 +83200,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -83094,7 +83226,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -83111,7 +83244,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -83128,6 +83263,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -84777,7 +84913,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -84794,7 +84931,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -84811,6 +84950,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -84836,7 +84976,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -84853,7 +84994,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -84870,6 +85013,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -86626,7 +86770,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -86643,7 +86788,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -86660,6 +86807,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -86685,7 +86833,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -86702,7 +86851,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -86719,6 +86870,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -88324,7 +88476,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -88341,7 +88494,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -88358,6 +88513,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -88383,7 +88539,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -88400,7 +88557,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -88417,6 +88576,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -90066,7 +90226,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -90083,7 +90244,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -90100,6 +90263,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -90125,7 +90289,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -90142,7 +90307,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -90159,6 +90326,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -96789,7 +96957,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -96806,7 +96975,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -96823,6 +96994,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -96848,7 +97020,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -96865,7 +97038,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -96882,6 +97057,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -119621,7 +119797,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -119638,7 +119815,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -119655,6 +119834,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -119680,7 +119860,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -119697,7 +119878,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -119714,6 +119897,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -121319,7 +121503,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -121336,7 +121521,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -121353,6 +121540,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -121378,7 +121566,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -121395,7 +121584,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -121412,6 +121603,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -123061,7 +123253,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -123078,7 +123271,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -123095,6 +123290,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -123120,7 +123316,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -123137,7 +123334,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -123154,6 +123353,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -124910,7 +125110,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -124927,7 +125128,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -124944,6 +125147,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -124969,7 +125173,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -124986,7 +125191,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -125003,6 +125210,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -126608,7 +126816,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -126625,7 +126834,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -126642,6 +126853,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -126667,7 +126879,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -126684,7 +126897,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -126701,6 +126916,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -128350,7 +128566,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -128367,7 +128584,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -128384,6 +128603,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -128409,7 +128629,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -128426,7 +128647,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -128443,6 +128666,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -130202,7 +130426,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -130219,7 +130444,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -130236,6 +130463,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -130261,7 +130489,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -130278,7 +130507,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -130295,6 +130526,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -131900,7 +132132,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -131917,7 +132150,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -131934,6 +132169,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -131959,7 +132195,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -131976,7 +132213,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -131993,6 +132232,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -133009,7 +133249,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -133026,7 +133267,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -133043,6 +133286,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -133068,7 +133312,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -133085,7 +133330,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -133102,6 +133349,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -133388,7 +133636,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -133405,7 +133654,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -133422,6 +133673,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -133447,7 +133699,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -133464,7 +133717,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -133481,6 +133736,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -137389,7 +137645,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -137406,7 +137663,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -137423,6 +137682,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -137448,7 +137708,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -137465,7 +137726,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -137482,6 +137745,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -139087,7 +139351,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -139104,7 +139369,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -139121,6 +139388,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -139146,7 +139414,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -139163,7 +139432,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -139180,6 +139451,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -140829,7 +141101,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -140846,7 +141119,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -140863,6 +141138,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -140888,7 +141164,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -140905,7 +141182,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -140922,6 +141201,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -142678,7 +142958,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -142695,7 +142976,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -142712,6 +142995,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -142737,7 +143021,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -142754,7 +143039,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -142771,6 +143058,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -144376,7 +144664,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -144393,7 +144682,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -144410,6 +144701,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -144435,7 +144727,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -144452,7 +144745,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -144469,6 +144764,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -146118,7 +146414,8 @@ components:
               allow_drop_shipping: true
               maximum_item_count: 8
               billing:
-              - address2: address2
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -146135,7 +146432,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - address2: address2
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                address2: address2
                 city: city
                 address1: address1
                 customer_billing_oid: 4
@@ -146152,6 +146451,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               quotes:
               - null
               - null
@@ -146177,7 +146477,8 @@ components:
                 customer_profile_email_oid: 5
                 email: email
               shipping:
-              - customer_shipping_oid: 7
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -146194,7 +146495,9 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
-              - customer_shipping_oid: 7
+                evening_phone_e164: evening_phone_e164
+              - day_phone_e164: day_phone_e164
+                customer_shipping_oid: 7
                 address2: address2
                 city: city
                 address1: address1
@@ -146211,6 +146514,7 @@ components:
                 day_phone: day_phone
                 first_name: first_name
                 evening_phone: evening_phone
+                evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
               fax: fax
@@ -147967,7 +148271,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -147984,7 +148289,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -148001,6 +148308,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -148026,7 +148334,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -148043,7 +148352,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -148060,6 +148371,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -149665,7 +149977,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -149682,7 +149995,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -149699,6 +150014,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -149724,7 +150040,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -149741,7 +150058,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -149758,6 +150077,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -157775,7 +158095,8 @@ components:
         allow_drop_shipping: true
         maximum_item_count: 8
         billing:
-        - address2: address2
+        - day_phone_e164: day_phone_e164
+          address2: address2
           city: city
           address1: address1
           customer_billing_oid: 4
@@ -157792,7 +158113,9 @@ components:
           day_phone: day_phone
           first_name: first_name
           evening_phone: evening_phone
-        - address2: address2
+          evening_phone_e164: evening_phone_e164
+        - day_phone_e164: day_phone_e164
+          address2: address2
           city: city
           address1: address1
           customer_billing_oid: 4
@@ -157809,6 +158132,7 @@ components:
           day_phone: day_phone
           first_name: first_name
           evening_phone: evening_phone
+          evening_phone_e164: evening_phone_e164
         quotes:
         - null
         - null
@@ -157834,7 +158158,8 @@ components:
           customer_profile_email_oid: 5
           email: email
         shipping:
-        - customer_shipping_oid: 7
+        - day_phone_e164: day_phone_e164
+          customer_shipping_oid: 7
           address2: address2
           city: city
           address1: address1
@@ -157851,7 +158176,9 @@ components:
           day_phone: day_phone
           first_name: first_name
           evening_phone: evening_phone
-        - customer_shipping_oid: 7
+          evening_phone_e164: evening_phone_e164
+        - day_phone_e164: day_phone_e164
+          customer_shipping_oid: 7
           address2: address2
           city: city
           address1: address1
@@ -157868,6 +158195,7 @@ components:
           day_phone: day_phone
           first_name: first_name
           evening_phone: evening_phone
+          evening_phone_e164: evening_phone_e164
         terms: terms
         free_shipping_minimum: 0.2025324113236393
         fax: fax
@@ -158511,6 +158839,7 @@ components:
       type: object
     CustomerBilling:
       example:
+        day_phone_e164: day_phone_e164
         address2: address2
         city: city
         address1: address1
@@ -158528,6 +158857,7 @@ components:
         day_phone: day_phone
         first_name: first_name
         evening_phone: evening_phone
+        evening_phone_e164: evening_phone_e164
       properties:
         address1:
           description: Address line 1
@@ -158561,12 +158891,18 @@ components:
           description: Day phone
           maxLength: 25
           type: string
+        day_phone_e164:
+          description: Day phone in E.164 format (derived â€” read only)
+          type: string
         default_billing:
           description: Default billing
           type: boolean
         evening_phone:
           description: Evening phone
           maxLength: 25
+          type: string
+        evening_phone_e164:
+          description: Evening phone in E.164 format (derived â€” read only)
           type: string
         first_name:
           description: First name
@@ -159453,7 +159789,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -159470,7 +159807,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -159487,6 +159826,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -159512,7 +159852,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -159529,7 +159870,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -159546,6 +159889,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -159889,6 +160233,7 @@ components:
       type: object
     CustomerShipping:
       example:
+        day_phone_e164: day_phone_e164
         customer_shipping_oid: 7
         address2: address2
         city: city
@@ -159906,6 +160251,7 @@ components:
         day_phone: day_phone
         first_name: first_name
         evening_phone: evening_phone
+        evening_phone_e164: evening_phone_e164
       properties:
         address1:
           description: Address line 1
@@ -159939,12 +160285,18 @@ components:
           description: Day phone
           maxLength: 25
           type: string
+        day_phone_e164:
+          description: Day phone in E.164 format (derived â€” read only)
+          type: string
         default_shipping:
           description: Default shipping
           type: boolean
         evening_phone:
           description: Evening phone
           maxLength: 25
+          type: string
+        evening_phone_e164:
+          description: Evening phone in E.164 format (derived â€” read only)
           type: string
         first_name:
           description: First name
@@ -160044,7 +160396,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -160061,7 +160414,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -160078,6 +160433,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -160103,7 +160459,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -160120,7 +160477,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -160137,6 +160496,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -160423,7 +160783,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -160440,7 +160801,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -160457,6 +160820,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -160482,7 +160846,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -160499,7 +160864,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -160516,6 +160883,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -161996,7 +162364,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -162013,7 +162382,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -162030,6 +162401,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -162055,7 +162427,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -162072,7 +162445,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -162089,6 +162464,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -162375,7 +162751,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -162392,7 +162769,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -162409,6 +162788,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -162434,7 +162814,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -162451,7 +162832,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -162468,6 +162851,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -186696,7 +187080,8 @@ components:
           allow_drop_shipping: true
           maximum_item_count: 8
           billing:
-          - address2: address2
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -186713,7 +187098,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - address2: address2
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            address2: address2
             city: city
             address1: address1
             customer_billing_oid: 4
@@ -186730,6 +187117,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           quotes:
           - null
           - null
@@ -186755,7 +187143,8 @@ components:
             customer_profile_email_oid: 5
             email: email
           shipping:
-          - customer_shipping_oid: 7
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -186772,7 +187161,9 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
-          - customer_shipping_oid: 7
+            evening_phone_e164: evening_phone_e164
+          - day_phone_e164: day_phone_e164
+            customer_shipping_oid: 7
             address2: address2
             city: city
             address1: address1
@@ -186789,6 +187180,7 @@ components:
             day_phone: day_phone
             first_name: first_name
             evening_phone: evening_phone
+            evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
           fax: fax
@@ -192092,7 +192484,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -192109,7 +192502,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -192126,6 +192521,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -192151,7 +192547,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -192168,7 +192565,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -192185,6 +192584,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -194078,7 +194478,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -194095,7 +194496,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -194112,6 +194515,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -194137,7 +194541,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -194154,7 +194559,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -194171,6 +194578,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -195776,7 +196184,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -195793,7 +196202,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -195810,6 +196221,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -195835,7 +196247,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -195852,7 +196265,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -195869,6 +196284,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax
@@ -198790,7 +199206,8 @@ components:
             allow_drop_shipping: true
             maximum_item_count: 8
             billing:
-            - address2: address2
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -198807,7 +199224,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - address2: address2
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              address2: address2
               city: city
               address1: address1
               customer_billing_oid: 4
@@ -198824,6 +199243,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             quotes:
             - null
             - null
@@ -198849,7 +199269,8 @@ components:
               customer_profile_email_oid: 5
               email: email
             shipping:
-            - customer_shipping_oid: 7
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -198866,7 +199287,9 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
-            - customer_shipping_oid: 7
+              evening_phone_e164: evening_phone_e164
+            - day_phone_e164: day_phone_e164
+              customer_shipping_oid: 7
               address2: address2
               city: city
               address1: address1
@@ -198883,6 +199306,7 @@ components:
               day_phone: day_phone
               first_name: first_name
               evening_phone: evening_phone
+              evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
             fax: fax

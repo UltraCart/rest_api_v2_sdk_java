@@ -15,8 +15,10 @@
 |**customerBillingOid** | **Integer** | Customer profile billing object identifier |  [optional] |
 |**customerProfileOid** | **Integer** | Customer profile object identifier |  [optional] |
 |**dayPhone** | **String** | Day phone |  [optional] |
+|**dayPhoneE164** | **String** | Day phone in E.164 format (derived â€” read only) |  [optional] |
 |**defaultBilling** | **Boolean** | Default billing |  [optional] |
 |**eveningPhone** | **String** | Evening phone |  [optional] |
+|**eveningPhoneE164** | **String** | Evening phone in E.164 format (derived â€” read only) |  [optional] |
 |**firstName** | **String** | First name |  [optional] |
 |**lastName** | **String** | Last name |  [optional] |
 |**lastUsedDts** | **String** | Last used date |  [optional] |
