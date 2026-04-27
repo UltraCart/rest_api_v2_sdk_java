@@ -27058,6 +27058,505 @@ paths:
       tags:
       - conversation
       x-accepts: application/json
+  /conversation/agent/status/config:
+    get:
+      description: |
+        Returns all custom statuses (active and soft-deactivated) for the merchant.
+      operationId: getAgentStatusConfigs
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusConfigsResponse'
+          description: Successful response
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: List custom agent statuses
+      tags:
+      - conversation
+      x-accepts: application/json
+    post:
+      description: |
+        Create a custom status. Enforces a 20-active-status-per-merchant cap and the 50-Twilio-Activity-per-workspace cap.
+      operationId: insertAgentStatusConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationAgentStatusConfig'
+        description: Status config
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusConfigResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a custom agent status
+      tags:
+      - conversation
+      x-codegen-request-body-name: status_config
+      x-content-type: application/json
+      x-accepts: application/json
+  /conversation/agent/status/config/{conversation_status_uuid}:
+    delete:
+      description: |
+        Sets active=false on the row and the DDB sync record. The Twilio Activity is preserved (Round 2 decision) so historic worker reporting still resolves the SID.
+      operationId: deleteAgentStatusConfig
+      parameters:
+      - in: path
+        name: conversation_status_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      - ultraCartSimpleApiKey: []
+      summary: Soft-deactivate a custom agent status
+      tags:
+      - conversation
+      x-accepts: application/json
+    put:
+      description: |
+        Update a custom status. Renaming flows through to the Twilio Activity.
+      operationId: updateAgentStatusConfig
+      parameters:
+      - in: path
+        name: conversation_status_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationAgentStatusConfig'
+        description: Status config
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusConfigResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      - ultraCartSimpleApiKey: []
+      summary: Update a custom agent status
+      tags:
+      - conversation
+      x-codegen-request-body-name: status_config
+      x-content-type: application/json
+      x-accepts: application/json
+  /conversation/agent/status/heatmap:
+    post:
+      description: "Returns ECharts-shaped agent x hour grid for the requested metric\
+        \ (availability, call_volume, chat_volume). Multi-day requests average the\
+        \ cell values across the date range.\n"
+      operationId: getAgentStatusHeatmap
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationAgentStatusHeatmapRequest'
+        description: Heatmap request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusHeatmapResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: Agent x hour-of-day heatmap
+      tags:
+      - conversation
+      x-codegen-request-body-name: heatmap_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /conversation/agent/status/history/search:
+    post:
+      description: "Paginated search over conversation_agent_status_events_all. Filters:\
+        \ agent_user_id, channel, status, trigger, date range.\n"
+      operationId: searchAgentStatusHistory
+      parameters:
+      - description: Maximum records per call (max 200)
+        in: query
+        name: _limit
+        schema:
+          default: 100
+          type: integer
+      - description: Pagination offset (zero-based)
+        in: query
+        name: _offset
+        schema:
+          default: 0
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationAgentStatusHistorySearchRequest'
+        description: Search request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusHistorySearchResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: Search agent status history
+      tags:
+      - conversation
+      x-codegen-request-body-name: search_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /conversation/agent/status/history/{agent_user_id}/timeline:
+    get:
+      description: |
+        Returns merged status events + PBX calls + chat conversations for the agent on the given date. Omitting the channel parameter returns both channels merged.
+      operationId: getAgentStatusTimeline
+      parameters:
+      - in: path
+        name: agent_user_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: date
+        schema:
+          type: string
+      - in: query
+        name: channel
+        schema:
+          type: string
+      - description: Day to retrieve (YYYY-MM-DD)
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+      - description: Restrict to one channel (omit for both)
+        in: query
+        name: channel
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusTimelineResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: Day timeline for a single agent
+      tags:
+      - conversation
+      x-accepts: application/json
+  /conversation/agent/status/rollup/search:
+    post:
+      description: "Aggregated over conversation_agent_status_events_all via date_histogram\
+        \ + terms. Returns one row per (agent, day, channel).\n"
+      operationId: searchAgentStatusRollups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationAgentStatusRollupSearchRequest'
+        description: Search request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusRollupSearchResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: "Search per-(agent, day) rollups"
+      tags:
+      - conversation
+      x-codegen-request-body-name: search_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /conversation/agent/status/rollup/summary:
+    get:
+      description: "Top-line summary: total_agents, avg_available_pct, status_breakdown,\
+        \ per-agent rollups.\n"
+      operationId: getAgentStatusSummary
+      parameters:
+      - in: query
+        name: date_start
+        schema:
+          type: string
+      - in: query
+        name: date_end
+        schema:
+          type: string
+      - description: Range start (YYYY-MM-DD)
+        in: query
+        name: date_start
+        required: true
+        schema:
+          type: string
+      - description: Range end (YYYY-MM-DD)
+        in: query
+        name: date_end
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationAgentStatusSummaryResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: Dashboard summary for a date range
+      tags:
+      - conversation
+      x-accepts: application/json
   /conversation/canned_messages:
     get:
       description: |
@@ -32311,6 +32810,54 @@ paths:
       - conversation
       x-codegen-request-body-name: class_of_service
       x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /conversation/pbx/config/default-timezone:
+    get:
+      description: |
+        Returns the merchant's stored default timezone (IANA name). Falls back to America/New_York when unset.
+      operationId: getPbxDefaultTimezone
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPbxDefaultTimezoneResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_read
+      - ultraCartSimpleApiKey: []
+      summary: Get the merchant default timezone
+      tags:
+      - conversation
+      x-accepts: application/json
+    put:
+      description: |
+        Persists the IANA timezone on the Config#<merchant_id>/default DDB record (creates on first PUT).
+      operationId: updatePbxDefaultTimezone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationPbxDefaultTimezoneUpdateRequest'
+        description: Timezone update
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPbxDefaultTimezoneResponse'
+          description: Successful response
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      - ultraCartSimpleApiKey: []
+      summary: Set the merchant default timezone
+      tags:
+      - conversation
+      x-codegen-request-body-name: timezone_update
+      x-content-type: application/json
       x-accepts: application/json
   /conversation/pbx/customer_snapshot:
     post:
@@ -58757,6 +59304,41 @@ components:
           - invisible
           - direct
           type: string
+      type: object
+    AgentSummary:
+      example:
+        agent_user_id: agent_user_id
+        availability_pct: "{}"
+        calls_taken: 6
+        agent_name: agent_name
+        available_seconds: 0
+        chats_handled: 1
+        total_tracked_seconds: 5
+      properties:
+        agent_name:
+          description: Agent display name
+          type: string
+        agent_user_id:
+          description: Agent user id
+          type: string
+        availability_pct:
+          type: object
+        available_seconds:
+          description: Total Available seconds in the range (incl. Busy)
+          format: int64
+          type: integer
+        calls_taken:
+          description: Calls taken in the range (PBX)
+          format: int32
+          type: integer
+        chats_handled:
+          description: Chats handled in the range (chat)
+          format: int32
+          type: integer
+        total_tracked_seconds:
+          description: Total tracked seconds in the range
+          format: int64
+          type: integer
       type: object
     ApiUserApplicationProfile:
       example:
@@ -113889,6 +114471,71 @@ components:
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
+    ConversationAgentCallEvent:
+      example:
+        duration_seconds: 0
+        disposition: disposition
+        end_dts: end_dts
+        call_uuid: call_uuid
+        phone_number: phone_number
+        start_dts: start_dts
+        direction: inbound
+      properties:
+        call_uuid:
+          description: Call UUID
+          type: string
+        direction:
+          description: Direction
+          enum:
+          - inbound
+          - outbound
+          type: string
+        disposition:
+          description: "Call disposition (e.g. 'answered', 'missed')"
+          type: string
+        duration_seconds:
+          description: Total call duration in seconds
+          format: int32
+          type: integer
+        end_dts:
+          description: Call ended
+          format: dateTime
+          type: string
+        phone_number:
+          description: Counterparty phone number
+          type: string
+        start_dts:
+          description: Call started
+          format: dateTime
+          type: string
+      type: object
+    ConversationAgentChatEvent:
+      example:
+        end_dts: end_dts
+        customer_name: customer_name
+        start_dts: start_dts
+        message_count: 6
+        conversation_uuid: conversation_uuid
+      properties:
+        conversation_uuid:
+          description: Conversation UUID
+          type: string
+        customer_name:
+          description: Customer display name (when known)
+          type: string
+        end_dts:
+          description: Chat ended
+          format: dateTime
+          type: string
+        message_count:
+          description: Total messages in the conversation
+          format: int32
+          type: integer
+        start_dts:
+          description: Chat started
+          format: dateTime
+          type: string
+      type: object
     ConversationAgentProfile:
       example:
         ai_voice_instructions: ai_voice_instructions
@@ -114206,6 +114853,797 @@ components:
         success:
           description: Indicates if API call was successful
           type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusConfig:
+      example:
+        conversation_status_uuid: conversation_status_uuid
+        color: color
+        parent_status: parent_status
+        channel: pbx
+        icon: icon
+        active: true
+        created_at: created_at
+        merchant_id: merchant_id
+        twilio_activity_sid: twilio_activity_sid
+        updated_at: updated_at
+        routing_effect: available
+        name: name
+        sort_order: 0
+      properties:
+        active:
+          description: Whether the status is active and selectable. DELETE soft-deactivates
+            by setting this to false.
+          type: boolean
+        channel:
+          description: Channel this status applies to
+          enum:
+          - pbx
+          - chat
+          - both
+          type: string
+        color:
+          description: Hex color for UI (e.g. '#FF5733')
+          maxLength: 7
+          type: string
+        conversation_status_uuid:
+          description: Conversation agent status unique identifier
+          type: string
+        created_at:
+          description: Created at
+          format: dateTime
+          type: string
+        icon:
+          description: Icon name
+          maxLength: 40
+          type: string
+        merchant_id:
+          description: Merchant Id
+          maxLength: 5
+          type: string
+        name:
+          description: Display name shown to agents
+          maxLength: 100
+          type: string
+        parent_status:
+          description: Channel-native parent status
+          type: string
+        routing_effect:
+          description: "Canonical routing semantic. Derived server-side from (channel,\
+            \ parent_status)."
+          enum:
+          - available
+          - busy
+          - unavailable
+          type: string
+        sort_order:
+          description: Sort order in lists; lower = first
+          format: int32
+          type: integer
+        twilio_activity_sid:
+          description: Twilio TaskRouter Activity SID (PBX-only; null for chat-only
+            statuses)
+          maxLength: 40
+          type: string
+        updated_at:
+          description: Updated at
+          format: dateTime
+          type: string
+      type: object
+    ConversationAgentStatusConfigResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        status_config:
+          conversation_status_uuid: conversation_status_uuid
+          color: color
+          parent_status: parent_status
+          channel: pbx
+          icon: icon
+          active: true
+          created_at: created_at
+          merchant_id: merchant_id
+          twilio_activity_sid: twilio_activity_sid
+          updated_at: updated_at
+          routing_effect: available
+          name: name
+          sort_order: 0
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        status_config:
+          $ref: '#/components/schemas/ConversationAgentStatusConfig'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusConfigsResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        status_configs:
+        - conversation_status_uuid: conversation_status_uuid
+          color: color
+          parent_status: parent_status
+          channel: pbx
+          icon: icon
+          active: true
+          created_at: created_at
+          merchant_id: merchant_id
+          twilio_activity_sid: twilio_activity_sid
+          updated_at: updated_at
+          routing_effect: available
+          name: name
+          sort_order: 0
+        - conversation_status_uuid: conversation_status_uuid
+          color: color
+          parent_status: parent_status
+          channel: pbx
+          icon: icon
+          active: true
+          created_at: created_at
+          merchant_id: merchant_id
+          twilio_activity_sid: twilio_activity_sid
+          updated_at: updated_at
+          routing_effect: available
+          name: name
+          sort_order: 0
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        status_configs:
+          description: Agent status configurations
+          items:
+            $ref: '#/components/schemas/ConversationAgentStatusConfig'
+          type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusEvent:
+      example:
+        agent_user_id: agent_user_id
+        new_routing_effect: available
+        agent_name: agent_name
+        channel: pbx
+        new_status: new_status
+        merchant_id: merchant_id
+        trigger: manual
+        event_uuid: event_uuid
+        agent_type: human
+        custom_status_name: custom_status_name
+        previous_routing_effect: available
+        duration_in_previous_seconds: 0
+        custom_status_uuid: custom_status_uuid
+        event_dts: event_dts
+        parent_merchant_id: parent_merchant_id
+        previous_status: previous_status
+      properties:
+        agent_name:
+          description: Agent display name at the time of the event
+          type: string
+        agent_type:
+          description: Agent type
+          enum:
+          - human
+          - ai
+          type: string
+        agent_user_id:
+          description: Agent user id (links across channels)
+          type: string
+        channel:
+          description: Channel
+          enum:
+          - pbx
+          - chat
+          type: string
+        custom_status_name:
+          description: Custom status name (when applicable)
+          type: string
+        custom_status_uuid:
+          description: Custom status uuid (when applicable)
+          maxLength: 50
+          type: string
+        duration_in_previous_seconds:
+          description: "Time spent in the previous status, in seconds"
+          format: int64
+          type: integer
+        event_dts:
+          description: Event timestamp (ISO 8601)
+          format: dateTime
+          type: string
+        event_uuid:
+          description: Event UUID (natural key for ES + BQ)
+          maxLength: 36
+          type: string
+        merchant_id:
+          description: Merchant Id
+          maxLength: 5
+          type: string
+        new_routing_effect:
+          description: Canonical new routing semantic
+          enum:
+          - available
+          - busy
+          - unavailable
+          type: string
+        new_status:
+          description: Channel-native new status name
+          type: string
+        parent_merchant_id:
+          description: Parent merchant id (denormalized for ES routing parity)
+          maxLength: 5
+          type: string
+        previous_routing_effect:
+          description: Canonical previous routing semantic
+          enum:
+          - available
+          - busy
+          - unavailable
+          type: string
+        previous_status:
+          description: Channel-native previous status name
+          type: string
+        trigger:
+          description: What triggered the transition
+          enum:
+          - manual
+          - system
+          - auto_disconnect
+          type: string
+      type: object
+    ConversationAgentStatusHeatmapRequest:
+      example:
+        date_start: date_start
+        metric: availability
+        channel: pbx
+        date_end: date_end
+      properties:
+        channel:
+          description: Optional channel filter
+          enum:
+          - pbx
+          - chat
+          type: string
+        date_end:
+          description: Range end (YYYY-MM-DD)
+          type: string
+        date_start:
+          description: Range start (YYYY-MM-DD)
+          type: string
+        metric:
+          description: Cell metric
+          enum:
+          - availability
+          - call_volume
+          - chat_volume
+          type: string
+      type: object
+    ConversationAgentStatusHeatmapResponse:
+      example:
+        hours:
+        - 0
+        - 0
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        data:
+        - null
+        - null
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        agents:
+        - agents
+        - agents
+      properties:
+        agents:
+          description: Y-axis labels (one per agent)
+          items:
+            type: string
+          type: array
+        data:
+          description: "Sparse cells. Each row is [agent_index, hour, value]; empty\
+            \ cells are omitted."
+          items:
+            $ref: "#/components/schemas/double[]"
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        hours:
+          description: "X-axis values (hours of day, 0-23)"
+          items:
+            type: integer
+          type: array
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusHistorySearchRequest:
+      example:
+        agent_user_id: agent_user_id
+        date_start: date_start
+        channel: pbx
+        date_end: date_end
+        trigger: manual
+        status: status
+      properties:
+        agent_user_id:
+          description: Optional agent_user_id filter
+          type: string
+        channel:
+          description: Optional channel filter
+          enum:
+          - pbx
+          - chat
+          type: string
+        date_end:
+          description: Date range end (ISO 8601 or YYYY-MM-DD)
+          type: string
+        date_start:
+          description: Date range start (ISO 8601 or YYYY-MM-DD)
+          type: string
+        status:
+          description: Optional new_status filter
+          type: string
+        trigger:
+          description: Optional trigger filter
+          enum:
+          - manual
+          - system
+          - auto_disconnect
+          type: string
+      type: object
+    ConversationAgentStatusHistorySearchResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        total: 6
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        events:
+        - agent_user_id: agent_user_id
+          new_routing_effect: available
+          agent_name: agent_name
+          channel: pbx
+          new_status: new_status
+          merchant_id: merchant_id
+          trigger: manual
+          event_uuid: event_uuid
+          agent_type: human
+          custom_status_name: custom_status_name
+          previous_routing_effect: available
+          duration_in_previous_seconds: 0
+          custom_status_uuid: custom_status_uuid
+          event_dts: event_dts
+          parent_merchant_id: parent_merchant_id
+          previous_status: previous_status
+        - agent_user_id: agent_user_id
+          new_routing_effect: available
+          agent_name: agent_name
+          channel: pbx
+          new_status: new_status
+          merchant_id: merchant_id
+          trigger: manual
+          event_uuid: event_uuid
+          agent_type: human
+          custom_status_name: custom_status_name
+          previous_routing_effect: available
+          duration_in_previous_seconds: 0
+          custom_status_uuid: custom_status_uuid
+          event_dts: event_dts
+          parent_merchant_id: parent_merchant_id
+          previous_status: previous_status
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        events:
+          description: Status transition events
+          items:
+            $ref: '#/components/schemas/ConversationAgentStatusEvent'
+          type: array
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        total:
+          description: Total matching events (pre-pagination)
+          format: int32
+          type: integer
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusRollup:
+      example:
+        agent_user_id: agent_user_id
+        availability_pct: "{}"
+        calls_taken: 6
+        agent_name: agent_name
+        available_seconds: 0
+        chats_handled: 1
+        channel: pbx
+        rollup_date: rollup_date
+        status_breakdown: "{}"
+        total_tracked_seconds: 5
+        unavailable_seconds: 5
+      properties:
+        agent_name:
+          description: Agent display name
+          type: string
+        agent_user_id:
+          description: Agent user id
+          type: string
+        availability_pct:
+          type: object
+        available_seconds:
+          description: Seconds spent Available (incl. Busy per OVERVIEW reporting
+            convention)
+          format: int64
+          type: integer
+        calls_taken:
+          description: Calls handled by the agent on this day (PBX channel only)
+          format: int32
+          type: integer
+        channel:
+          description: Channel
+          enum:
+          - pbx
+          - chat
+          type: string
+        chats_handled:
+          description: Chats handled by the agent on this day (chat channel only)
+          format: int32
+          type: integer
+        rollup_date:
+          description: Day this rollup covers (YYYY-MM-DD)
+          type: string
+        status_breakdown:
+          description: Per-status duration breakdown in seconds (status name -> seconds)
+          type: object
+        total_tracked_seconds:
+          description: Total seconds tracked across all statuses for the day
+          format: int64
+          type: integer
+        unavailable_seconds:
+          description: Seconds spent Unavailable
+          format: int64
+          type: integer
+      type: object
+    ConversationAgentStatusRollupSearchRequest:
+      example:
+        agent_user_id: agent_user_id
+        date_start: date_start
+        channel: pbx
+        date_end: date_end
+      properties:
+        agent_user_id:
+          description: Optional agent_user_id filter
+          type: string
+        channel:
+          description: Optional channel filter
+          enum:
+          - pbx
+          - chat
+          type: string
+        date_end:
+          description: Date range end (YYYY-MM-DD)
+          type: string
+        date_start:
+          description: Date range start (YYYY-MM-DD)
+          type: string
+      type: object
+    ConversationAgentStatusRollupSearchResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        rollups:
+        - agent_user_id: agent_user_id
+          availability_pct: "{}"
+          calls_taken: 6
+          agent_name: agent_name
+          available_seconds: 0
+          chats_handled: 1
+          channel: pbx
+          rollup_date: rollup_date
+          status_breakdown: "{}"
+          total_tracked_seconds: 5
+          unavailable_seconds: 5
+        - agent_user_id: agent_user_id
+          availability_pct: "{}"
+          calls_taken: 6
+          agent_name: agent_name
+          available_seconds: 0
+          chats_handled: 1
+          channel: pbx
+          rollup_date: rollup_date
+          status_breakdown: "{}"
+          total_tracked_seconds: 5
+          unavailable_seconds: 5
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        rollups:
+          description: "Per-(agent, day, channel) rollups"
+          items:
+            $ref: '#/components/schemas/ConversationAgentStatusRollup'
+          type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusSummaryResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        total_agents: 5
+        avg_available_pct: "{}"
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        status_breakdown: "{}"
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        agents:
+        - agent_user_id: agent_user_id
+          availability_pct: "{}"
+          calls_taken: 6
+          agent_name: agent_name
+          available_seconds: 0
+          chats_handled: 1
+          total_tracked_seconds: 5
+        - agent_user_id: agent_user_id
+          availability_pct: "{}"
+          calls_taken: 6
+          agent_name: agent_name
+          available_seconds: 0
+          chats_handled: 1
+          total_tracked_seconds: 5
+      properties:
+        agents:
+          description: Per-agent enriched summary (status totals + activity metrics)
+          items:
+            $ref: '#/components/schemas/AgentSummary'
+          type: array
+        avg_available_pct:
+          type: object
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        status_breakdown:
+          description: "Total seconds-in-status across all agents, keyed by status\
+            \ name"
+          type: object
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        total_agents:
+          description: Distinct agents with at least one transition in the range
+          format: int32
+          type: integer
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationAgentStatusTimelineResponse:
+      example:
+        call_events:
+        - duration_seconds: 0
+          disposition: disposition
+          end_dts: end_dts
+          call_uuid: call_uuid
+          phone_number: phone_number
+          start_dts: start_dts
+          direction: inbound
+        - duration_seconds: 0
+          disposition: disposition
+          end_dts: end_dts
+          call_uuid: call_uuid
+          phone_number: phone_number
+          start_dts: start_dts
+          direction: inbound
+        summary:
+          calls_taken: 2
+          available_seconds: 1
+          chats_handled: 7
+          avg_handle_time_seconds: 5
+          calls_missed: 5
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        chat_events:
+        - end_dts: end_dts
+          customer_name: customer_name
+          start_dts: start_dts
+          message_count: 6
+          conversation_uuid: conversation_uuid
+        - end_dts: end_dts
+          customer_name: customer_name
+          start_dts: start_dts
+          message_count: 6
+          conversation_uuid: conversation_uuid
+        success: true
+        status_events:
+        - agent_user_id: agent_user_id
+          new_routing_effect: available
+          agent_name: agent_name
+          channel: pbx
+          new_status: new_status
+          merchant_id: merchant_id
+          trigger: manual
+          event_uuid: event_uuid
+          agent_type: human
+          custom_status_name: custom_status_name
+          previous_routing_effect: available
+          duration_in_previous_seconds: 0
+          custom_status_uuid: custom_status_uuid
+          event_dts: event_dts
+          parent_merchant_id: parent_merchant_id
+          previous_status: previous_status
+        - agent_user_id: agent_user_id
+          new_routing_effect: available
+          agent_name: agent_name
+          channel: pbx
+          new_status: new_status
+          merchant_id: merchant_id
+          trigger: manual
+          event_uuid: event_uuid
+          agent_type: human
+          custom_status_name: custom_status_name
+          previous_routing_effect: available
+          duration_in_previous_seconds: 0
+          custom_status_uuid: custom_status_uuid
+          event_dts: event_dts
+          parent_merchant_id: parent_merchant_id
+          previous_status: previous_status
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        call_events:
+          description: PBX call records for the agent on the requested day
+          items:
+            $ref: '#/components/schemas/ConversationAgentCallEvent'
+          type: array
+        chat_events:
+          description: Chat conversations for the agent on the requested day
+          items:
+            $ref: '#/components/schemas/ConversationAgentChatEvent'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        status_events:
+          description: Status transitions for the agent on the requested day
+          items:
+            $ref: '#/components/schemas/ConversationAgentStatusEvent'
+          type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        summary:
+          $ref: '#/components/schemas/TimelineSummary'
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
@@ -134044,6 +135482,53 @@ components:
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
+    ConversationPbxDefaultTimezoneResponse:
+      example:
+        default_timezone: default_timezone
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        default_timezone:
+          description: Merchant default timezone (IANA name). Falls back to America/New_York
+            when unset.
+          maxLength: 60
+          type: string
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationPbxDefaultTimezoneUpdateRequest:
+      example:
+        default_timezone: default_timezone
+      properties:
+        default_timezone:
+          description: "Merchant default timezone (IANA name, e.g. 'America/New_York')"
+          maxLength: 60
+          type: string
+      type: object
     ConversationPbxHardwarePhone:
       example:
         admin_username: admin_username
@@ -152518,16 +154003,22 @@ components:
         customer_average_abandon_time_seconds: 7
         customer_waiting_join_dts: customer_waiting_join_dts
         agents:
-        - next_round_robin: true
+        - agent_user_id: agent_user_id
+          next_round_robin: true
+          custom_status_name: custom_status_name
           last_chat_dts: last_chat_dts
           agent_status: available
           conversation_participant_arn: conversation_participant_arn
+          custom_status_uuid: custom_status_uuid
           conversation_participant_name: conversation_participant_name
           profile_image_url: profile_image_url
-        - next_round_robin: true
+        - agent_user_id: agent_user_id
+          next_round_robin: true
+          custom_status_name: custom_status_name
           last_chat_dts: last_chat_dts
           agent_status: available
           conversation_participant_arn: conversation_participant_arn
+          custom_status_uuid: custom_status_uuid
           conversation_participant_name: conversation_participant_name
           profile_image_url: profile_image_url
         queue_name: queue_name
@@ -152590,10 +154081,13 @@ components:
       type: object
     ConversationWebchatQueueStatusAgent:
       example:
+        agent_user_id: agent_user_id
         next_round_robin: true
+        custom_status_name: custom_status_name
         last_chat_dts: last_chat_dts
         agent_status: available
         conversation_participant_arn: conversation_participant_arn
+        custom_status_uuid: custom_status_uuid
         conversation_participant_name: conversation_participant_name
         profile_image_url: profile_image_url
       properties:
@@ -152604,9 +154098,20 @@ components:
           - busy
           - unavailable
           type: string
+        agent_user_id:
+          description: Agent user id (populated by Java so the dispatch-scheduler
+            Lambda can read it directly without parsing conversation_participant_arn)
+          type: string
         conversation_participant_arn:
           type: string
         conversation_participant_name:
+          type: string
+        custom_status_name:
+          description: Active custom status display name for this agent (denormalized)
+          type: string
+        custom_status_uuid:
+          description: Active custom status uuid for this agent (null when on a system
+            status)
           type: string
         last_chat_dts:
           description: Date/time that this agent took their last chat
@@ -152652,16 +154157,22 @@ components:
           customer_average_abandon_time_seconds: 7
           customer_waiting_join_dts: customer_waiting_join_dts
           agents:
-          - next_round_robin: true
+          - agent_user_id: agent_user_id
+            next_round_robin: true
+            custom_status_name: custom_status_name
             last_chat_dts: last_chat_dts
             agent_status: available
             conversation_participant_arn: conversation_participant_arn
+            custom_status_uuid: custom_status_uuid
             conversation_participant_name: conversation_participant_name
             profile_image_url: profile_image_url
-          - next_round_robin: true
+          - agent_user_id: agent_user_id
+            next_round_robin: true
+            custom_status_name: custom_status_name
             last_chat_dts: last_chat_dts
             agent_status: available
             conversation_participant_arn: conversation_participant_arn
+            custom_status_uuid: custom_status_uuid
             conversation_participant_name: conversation_participant_name
             profile_image_url: profile_image_url
           queue_name: queue_name
@@ -152695,16 +154206,22 @@ components:
           customer_average_abandon_time_seconds: 7
           customer_waiting_join_dts: customer_waiting_join_dts
           agents:
-          - next_round_robin: true
+          - agent_user_id: agent_user_id
+            next_round_robin: true
+            custom_status_name: custom_status_name
             last_chat_dts: last_chat_dts
             agent_status: available
             conversation_participant_arn: conversation_participant_arn
+            custom_status_uuid: custom_status_uuid
             conversation_participant_name: conversation_participant_name
             profile_image_url: profile_image_url
-          - next_round_robin: true
+          - agent_user_id: agent_user_id
+            next_round_robin: true
+            custom_status_name: custom_status_name
             last_chat_dts: last_chat_dts
             agent_status: available
             conversation_participant_arn: conversation_participant_arn
+            custom_status_uuid: custom_status_uuid
             conversation_participant_name: conversation_participant_name
             profile_image_url: profile_image_url
           queue_name: queue_name
@@ -152773,7 +154290,9 @@ components:
       type: object
     ConversationWebchatQueueStatusUpdateRequest:
       example:
+        custom_status_name: custom_status_name
         agent_status: available
+        custom_status_uuid: custom_status_uuid
       properties:
         agent_status:
           description: Status of the agent
@@ -152781,6 +154300,14 @@ components:
           - available
           - busy
           - unavailable
+          type: string
+        custom_status_name:
+          description: Custom status display name (denormalized so the queue panel
+            can render without a config lookup)
+          type: string
+        custom_status_uuid:
+          description: Custom status uuid (when picking a custom status). Pair with
+            custom_status_name.
           type: string
       type: object
     ConversationWebsocketMessage:
@@ -163524,6 +165051,10 @@ components:
           type: boolean
         warning:
           $ref: '#/components/schemas/Warning'
+      type: object
+    double:
+      type: object
+    double[]:
       type: object
     EmailBaseTemplateListResponse:
       example:
@@ -212597,6 +214128,35 @@ components:
           type: string
         warning:
           $ref: '#/components/schemas/Warning'
+      type: object
+    TimelineSummary:
+      example:
+        calls_taken: 2
+        available_seconds: 1
+        chats_handled: 7
+        avg_handle_time_seconds: 5
+        calls_missed: 5
+      properties:
+        available_seconds:
+          description: Seconds the agent was Available (incl. Busy)
+          format: int64
+          type: integer
+        avg_handle_time_seconds:
+          description: "Average handle time across calls and chats, in seconds"
+          format: int64
+          type: integer
+        calls_missed:
+          description: "Calls the agent missed (inbound, disposition=missed)"
+          format: int32
+          type: integer
+        calls_taken:
+          description: Calls the agent took
+          format: int32
+          type: integer
+        chats_handled:
+          description: Chats the agent handled
+          format: int32
+          type: integer
       type: object
     TransactionEmail:
       example:
