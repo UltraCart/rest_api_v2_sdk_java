@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCampaign
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class EmailCampaign {
   public static final String SERIALIZED_NAME_CLICK_RATE_FORMATTED = "click_rate_formatted";
   @SerializedName(SERIALIZED_NAME_CLICK_RATE_FORMATTED)

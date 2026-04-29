@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentStatusEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class ConversationAgentStatusEvent {
+  public static final String SERIALIZED_NAME_AGENT_IDENTIFIER = "agent_identifier";
+  @SerializedName(SERIALIZED_NAME_AGENT_IDENTIFIER)
+  private String agentIdentifier;
+
   public static final String SERIALIZED_NAME_AGENT_NAME = "agent_name";
   @SerializedName(SERIALIZED_NAME_AGENT_NAME)
   private String agentName;
@@ -356,6 +360,29 @@ public class ConversationAgentStatusEvent {
 
   public ConversationAgentStatusEvent() { 
   }
+
+  public ConversationAgentStatusEvent agentIdentifier(String agentIdentifier) {
+    
+    this.agentIdentifier = agentIdentifier;
+    return this;
+  }
+
+   /**
+   * Agent identifier â€” voice_identity for PBX (e.g. &#39;client:login&#39;), participant_arn for chat, synthetic &#39;ai:&lt;user_id&gt;&#39; for AI flag events. Stable across an agent&#39;s events; participates in DDB pk and GSI1 sk.
+   * @return agentIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Agent identifier â€” voice_identity for PBX (e.g. 'client:login'), participant_arn for chat, synthetic 'ai:<user_id>' for AI flag events. Stable across an agent's events; participates in DDB pk and GSI1 sk.")
+
+  public String getAgentIdentifier() {
+    return agentIdentifier;
+  }
+
+
+  public void setAgentIdentifier(String agentIdentifier) {
+    this.agentIdentifier = agentIdentifier;
+  }
+
 
   public ConversationAgentStatusEvent agentName(String agentName) {
     
@@ -735,7 +762,8 @@ public class ConversationAgentStatusEvent {
       return false;
     }
     ConversationAgentStatusEvent conversationAgentStatusEvent = (ConversationAgentStatusEvent) o;
-    return Objects.equals(this.agentName, conversationAgentStatusEvent.agentName) &&
+    return Objects.equals(this.agentIdentifier, conversationAgentStatusEvent.agentIdentifier) &&
+        Objects.equals(this.agentName, conversationAgentStatusEvent.agentName) &&
         Objects.equals(this.agentType, conversationAgentStatusEvent.agentType) &&
         Objects.equals(this.agentUserId, conversationAgentStatusEvent.agentUserId) &&
         Objects.equals(this.channel, conversationAgentStatusEvent.channel) &&
@@ -755,13 +783,14 @@ public class ConversationAgentStatusEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentName, agentType, agentUserId, channel, customStatusName, customStatusUuid, durationInPreviousSeconds, eventDts, eventUuid, merchantId, newRoutingEffect, newStatus, parentMerchantId, previousRoutingEffect, previousStatus, trigger);
+    return Objects.hash(agentIdentifier, agentName, agentType, agentUserId, channel, customStatusName, customStatusUuid, durationInPreviousSeconds, eventDts, eventUuid, merchantId, newRoutingEffect, newStatus, parentMerchantId, previousRoutingEffect, previousStatus, trigger);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationAgentStatusEvent {\n");
+    sb.append("    agentIdentifier: ").append(toIndentedString(agentIdentifier)).append("\n");
     sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
     sb.append("    agentType: ").append(toIndentedString(agentType)).append("\n");
     sb.append("    agentUserId: ").append(toIndentedString(agentUserId)).append("\n");
@@ -800,6 +829,7 @@ public class ConversationAgentStatusEvent {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("agent_identifier");
     openapiFields.add("agent_name");
     openapiFields.add("agent_type");
     openapiFields.add("agent_user_id");
@@ -842,6 +872,9 @@ public class ConversationAgentStatusEvent {
         if (!ConversationAgentStatusEvent.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationAgentStatusEvent` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("agent_identifier") != null && !jsonObj.get("agent_identifier").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_identifier").toString()));
       }
       if (jsonObj.get("agent_name") != null && !jsonObj.get("agent_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `agent_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_name").toString()));

@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-04-27T11:32:16.527-04:00[America/Indianapolis]
+- Build date: 2026-04-29T11:29:56.706-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.82</version>
+    <version>4.1.83</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.82"
+     implementation "com.ultracart:rest-sdk:4.1.83"
   }
 ```
 
@@ -1753,6 +1753,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.83 | 04/29/2026 | AO support for item appending on cancel request, order payment method test routing on hold release |
 | 4.1.82 | 04/27/2026 | converation - agent status and availability |
 | 4.1.81 | 04/27/2026 | conversations - agent status and availability |
 | 4.1.80 | 04/22/2026 | customer - e.164 read only fields on billing/shipping child objects |

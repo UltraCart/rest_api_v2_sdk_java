@@ -65195,13 +65195,164 @@ components:
     AutoOrderItemCancelRequest:
       example:
         mode: end
+        append_items:
+        - next_preshipment_notice_dts: next_preshipment_notice_dts
+          rebill_value: 1.1730742509559433
+          paused: true
+          next_shipment_dts: next_shipment_dts
+          future_schedules:
+          - shipment_dts: shipment_dts
+            rebill_count: 1
+            item_id: item_id
+            unit_cost: 1.0246457001441578
+          - shipment_dts: shipment_dts
+            rebill_count: 1
+            item_id: item_id
+            unit_cost: 1.0246457001441578
+          next_item_id: next_item_id
+          frequency: Weekly
+          number_of_rebills: 6
+          simple_schedule:
+            item_id: item_id
+            repeat_count: 5
+            frequency: Weekly
+          no_order_after_dts: no_order_after_dts
+          arbitrary_percentage_discount: 7.061401241503109
+          arbitrary_item_id: arbitrary_item_id
+          remaining_repeat_count: 4
+          options:
+          - label: label
+            value: value
+          - label: label
+            value: value
+          add_ons:
+          - quantity: 1
+            free_shipping: true
+            item_id: item_id
+            arbitrary_unit_cost: 0.8008281904610115
+            next_x_orders: 6
+            options:
+            - label: label
+              value: value
+            - label: label
+              value: value
+          - quantity: 1
+            free_shipping: true
+            item_id: item_id
+            arbitrary_unit_cost: 0.8008281904610115
+            next_x_orders: 6
+            options:
+            - label: label
+              value: value
+            - label: label
+              value: value
+          last_order_dts: last_order_dts
+          calculated_next_shipment_dts: calculated_next_shipment_dts
+          preshipment_notice_sent: true
+          original_quantity: 7.457744773683766
+          paypal_payer_id: paypal_payer_id
+          arbitrary_unit_cost: 2.027123023002322
+          life_time_value: 1.4894159098541704
+          auto_order_item_oid: 7
+          arbitrary_schedule_days: 3
+          original_item_id: original_item_id
+          arbitrary_unit_cost_remaining_orders: 4
+          first_order_dts: first_order_dts
+          arbitrary_quantity: 9.301444243932576
+          paypal_recurring_payment_profile_id: paypal_recurring_payment_profile_id
+          properties:
+          - name: name
+            value: value
+          - name: name
+            value: value
+        - next_preshipment_notice_dts: next_preshipment_notice_dts
+          rebill_value: 1.1730742509559433
+          paused: true
+          next_shipment_dts: next_shipment_dts
+          future_schedules:
+          - shipment_dts: shipment_dts
+            rebill_count: 1
+            item_id: item_id
+            unit_cost: 1.0246457001441578
+          - shipment_dts: shipment_dts
+            rebill_count: 1
+            item_id: item_id
+            unit_cost: 1.0246457001441578
+          next_item_id: next_item_id
+          frequency: Weekly
+          number_of_rebills: 6
+          simple_schedule:
+            item_id: item_id
+            repeat_count: 5
+            frequency: Weekly
+          no_order_after_dts: no_order_after_dts
+          arbitrary_percentage_discount: 7.061401241503109
+          arbitrary_item_id: arbitrary_item_id
+          remaining_repeat_count: 4
+          options:
+          - label: label
+            value: value
+          - label: label
+            value: value
+          add_ons:
+          - quantity: 1
+            free_shipping: true
+            item_id: item_id
+            arbitrary_unit_cost: 0.8008281904610115
+            next_x_orders: 6
+            options:
+            - label: label
+              value: value
+            - label: label
+              value: value
+          - quantity: 1
+            free_shipping: true
+            item_id: item_id
+            arbitrary_unit_cost: 0.8008281904610115
+            next_x_orders: 6
+            options:
+            - label: label
+              value: value
+            - label: label
+              value: value
+          last_order_dts: last_order_dts
+          calculated_next_shipment_dts: calculated_next_shipment_dts
+          preshipment_notice_sent: true
+          original_quantity: 7.457744773683766
+          paypal_payer_id: paypal_payer_id
+          arbitrary_unit_cost: 2.027123023002322
+          life_time_value: 1.4894159098541704
+          auto_order_item_oid: 7
+          arbitrary_schedule_days: 3
+          original_item_id: original_item_id
+          arbitrary_unit_cost_remaining_orders: 4
+          first_order_dts: first_order_dts
+          arbitrary_quantity: 9.301444243932576
+          paypal_recurring_payment_profile_id: paypal_recurring_payment_profile_id
+          properties:
+          - name: name
+            value: value
+          - name: name
+            value: value
         auto_order_item_oid: 0
       properties:
+        append_items:
+          description: "Specifying these items allows for an easier immutable item\
+            \ contact.  Validation will occur before any operations take place.  After\
+            \ the end/remove operation is successful, append these additional item(s)\
+            \ to the auto order.  The changes will be available in the response if\
+            \ the expansion includes items."
+          items:
+            $ref: '#/components/schemas/AutoOrderItem'
+          type: array
         auto_order_item_oid:
           description: "Optional tiebreaker when more than one item on the auto order\
             \ shares the same original_item_id.  When present, the item with this\
             \ oid is targeted and its original_item_id must match the URL path parameter\
-            \ (safety check).  Leave unset for the common case of a unique original_item_id."
+            \ (safety check).  Leave unset for the common case of a unique original_item_id.\
+            \  For reference the order_item.item_reference_oid is the same value as\
+            \ auto_order_item.auto_order_item_oid UNLESS the a manual edit took place\
+            \ AFTER the original order was placed."
           format: int32
           type: integer
         mode:
@@ -115046,6 +115197,7 @@ components:
     ConversationAgentStatusEvent:
       example:
         agent_user_id: agent_user_id
+        agent_identifier: agent_identifier
         new_routing_effect: available
         agent_name: agent_name
         channel: pbx
@@ -115062,6 +115214,11 @@ components:
         parent_merchant_id: parent_merchant_id
         previous_status: previous_status
       properties:
+        agent_identifier:
+          description: "Agent identifier â€” voice_identity for PBX (e.g. 'client:login'),\
+            \ participant_arn for chat, synthetic 'ai:<user_id>' for AI flag events.\
+            \ Stable across an agent's events; participates in DDB pk and GSI1 sk."
+          type: string
         agent_name:
           description: Agent display name at the time of the event
           type: string
@@ -115278,6 +115435,7 @@ components:
           object_id: object_id
         events:
         - agent_user_id: agent_user_id
+          agent_identifier: agent_identifier
           new_routing_effect: available
           agent_name: agent_name
           channel: pbx
@@ -115294,6 +115452,7 @@ components:
           parent_merchant_id: parent_merchant_id
           previous_status: previous_status
         - agent_user_id: agent_user_id
+          agent_identifier: agent_identifier
           new_routing_effect: available
           agent_name: agent_name
           channel: pbx
@@ -115579,6 +115738,7 @@ components:
         success: true
         status_events:
         - agent_user_id: agent_user_id
+          agent_identifier: agent_identifier
           new_routing_effect: available
           agent_name: agent_name
           channel: pbx
@@ -115595,6 +115755,7 @@ components:
           parent_merchant_id: parent_merchant_id
           previous_status: previous_status
         - agent_user_id: agent_user_id
+          agent_identifier: agent_identifier
           new_routing_effect: available
           agent_name: agent_name
           channel: pbx
@@ -118585,6 +118746,7 @@ components:
         updated_at_dts: updated_at_dts
         agents:
         - agent_extension: agent_extension
+          agent_user_id: agent_user_id
           worker_sid: worker_sid
           joined_at_dts: joined_at_dts
           role: role
@@ -118594,6 +118756,7 @@ components:
           call_sid: call_sid
           left_at_dts: left_at_dts
         - agent_extension: agent_extension
+          agent_user_id: agent_user_id
           worker_sid: worker_sid
           joined_at_dts: joined_at_dts
           role: role
@@ -118798,6 +118961,7 @@ components:
     ConversationPbxCallAgent:
       example:
         agent_extension: agent_extension
+        agent_user_id: agent_user_id
         worker_sid: worker_sid
         joined_at_dts: joined_at_dts
         role: role
@@ -118815,6 +118979,11 @@ components:
           type: string
         agent_name:
           description: Display name of the agent
+          type: string
+        agent_user_id:
+          description: UltraCart user id for the agent (denormalized at index time
+            so reporting endpoints can join on agent_user_id without translating from
+            the agent_id login).
           type: string
         answered:
           description: Whether the agent answered the call
@@ -119370,6 +119539,7 @@ components:
           updated_at_dts: updated_at_dts
           agents:
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role
@@ -119379,6 +119549,7 @@ components:
             call_sid: call_sid
             left_at_dts: left_at_dts
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role
@@ -119763,6 +119934,7 @@ components:
           updated_at_dts: updated_at_dts
           agents:
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role
@@ -119772,6 +119944,7 @@ components:
             call_sid: call_sid
             left_at_dts: left_at_dts
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role
@@ -120008,6 +120181,7 @@ components:
           updated_at_dts: updated_at_dts
           agents:
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role
@@ -120017,6 +120191,7 @@ components:
             call_sid: call_sid
             left_at_dts: left_at_dts
           - agent_extension: agent_extension
+            agent_user_id: agent_user_id
             worker_sid: worker_sid
             joined_at_dts: joined_at_dts
             role: role

@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxPhoneManufacturer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class ConversationPbxPhoneManufacturer {
   public static final String SERIALIZED_NAME_MANUFACTURER_ID = "manufacturer_id";
   @SerializedName(SERIALIZED_NAME_MANUFACTURER_ID)

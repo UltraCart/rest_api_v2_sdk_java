@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.AutoOrderItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,8 +50,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItemCancelRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class AutoOrderItemCancelRequest {
+  public static final String SERIALIZED_NAME_APPEND_ITEMS = "append_items";
+  @SerializedName(SERIALIZED_NAME_APPEND_ITEMS)
+  private List<AutoOrderItem> appendItems = null;
+
   public static final String SERIALIZED_NAME_AUTO_ORDER_ITEM_OID = "auto_order_item_oid";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_ITEM_OID)
   private Integer autoOrderItemOid;
@@ -107,6 +114,37 @@ public class AutoOrderItemCancelRequest {
   public AutoOrderItemCancelRequest() { 
   }
 
+  public AutoOrderItemCancelRequest appendItems(List<AutoOrderItem> appendItems) {
+    
+    this.appendItems = appendItems;
+    return this;
+  }
+
+  public AutoOrderItemCancelRequest addAppendItemsItem(AutoOrderItem appendItemsItem) {
+    if (this.appendItems == null) {
+      this.appendItems = new ArrayList<>();
+    }
+    this.appendItems.add(appendItemsItem);
+    return this;
+  }
+
+   /**
+   * Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items.
+   * @return appendItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifying these items allows for an easier immutable item contact.  Validation will occur before any operations take place.  After the end/remove operation is successful, append these additional item(s) to the auto order.  The changes will be available in the response if the expansion includes items.")
+
+  public List<AutoOrderItem> getAppendItems() {
+    return appendItems;
+  }
+
+
+  public void setAppendItems(List<AutoOrderItem> appendItems) {
+    this.appendItems = appendItems;
+  }
+
+
   public AutoOrderItemCancelRequest autoOrderItemOid(Integer autoOrderItemOid) {
     
     this.autoOrderItemOid = autoOrderItemOid;
@@ -114,11 +152,11 @@ public class AutoOrderItemCancelRequest {
   }
 
    /**
-   * Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.
+   * Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed.
    * @return autoOrderItemOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.")
+  @ApiModelProperty(value = "Optional tiebreaker when more than one item on the auto order shares the same original_item_id.  When present, the item with this oid is targeted and its original_item_id must match the URL path parameter (safety check).  Leave unset for the common case of a unique original_item_id.  For reference the order_item.item_reference_oid is the same value as auto_order_item.auto_order_item_oid UNLESS the a manual edit took place AFTER the original order was placed.")
 
   public Integer getAutoOrderItemOid() {
     return autoOrderItemOid;
@@ -163,19 +201,21 @@ public class AutoOrderItemCancelRequest {
       return false;
     }
     AutoOrderItemCancelRequest autoOrderItemCancelRequest = (AutoOrderItemCancelRequest) o;
-    return Objects.equals(this.autoOrderItemOid, autoOrderItemCancelRequest.autoOrderItemOid) &&
+    return Objects.equals(this.appendItems, autoOrderItemCancelRequest.appendItems) &&
+        Objects.equals(this.autoOrderItemOid, autoOrderItemCancelRequest.autoOrderItemOid) &&
         Objects.equals(this.mode, autoOrderItemCancelRequest.mode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderItemOid, mode);
+    return Objects.hash(appendItems, autoOrderItemOid, mode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoOrderItemCancelRequest {\n");
+    sb.append("    appendItems: ").append(toIndentedString(appendItems)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("}");
@@ -200,6 +240,7 @@ public class AutoOrderItemCancelRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("append_items");
     openapiFields.add("auto_order_item_oid");
     openapiFields.add("mode");
 
@@ -228,6 +269,18 @@ public class AutoOrderItemCancelRequest {
         if (!AutoOrderItemCancelRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AutoOrderItemCancelRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayappendItems = jsonObj.getAsJsonArray("append_items");
+      if (jsonArrayappendItems != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("append_items").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `append_items` to be an array in the JSON string but got `%s`", jsonObj.get("append_items").toString()));
+        }
+
+        // validate the optional field `append_items` (array)
+        for (int i = 0; i < jsonArrayappendItems.size(); i++) {
+          AutoOrderItem.validateJsonObject(jsonArrayappendItems.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentHealthBenefitCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class OrderPaymentHealthBenefitCard {
   public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_EXPIRATION_MONTH = "health_benefit_card_expiration_month";
   @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_EXPIRATION_MONTH)

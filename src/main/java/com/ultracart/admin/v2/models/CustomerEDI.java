@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerEDI
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class CustomerEDI {
   public static final String SERIALIZED_NAME_CHANNEL_PARTNER_OID = "channel_partner_oid";
   @SerializedName(SERIALIZED_NAME_CHANNEL_PARTNER_OID)

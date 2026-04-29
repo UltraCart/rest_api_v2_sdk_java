@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-27T11:32:16.527-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
 public class ConversationPbxCallAgent {
   public static final String SERIALIZED_NAME_AGENT_EXTENSION = "agent_extension";
   @SerializedName(SERIALIZED_NAME_AGENT_EXTENSION)
@@ -60,6 +60,10 @@ public class ConversationPbxCallAgent {
   public static final String SERIALIZED_NAME_AGENT_NAME = "agent_name";
   @SerializedName(SERIALIZED_NAME_AGENT_NAME)
   private String agentName;
+
+  public static final String SERIALIZED_NAME_AGENT_USER_ID = "agent_user_id";
+  @SerializedName(SERIALIZED_NAME_AGENT_USER_ID)
+  private String agentUserId;
 
   public static final String SERIALIZED_NAME_ANSWERED = "answered";
   @SerializedName(SERIALIZED_NAME_ANSWERED)
@@ -154,6 +158,29 @@ public class ConversationPbxCallAgent {
 
   public void setAgentName(String agentName) {
     this.agentName = agentName;
+  }
+
+
+  public ConversationPbxCallAgent agentUserId(String agentUserId) {
+    
+    this.agentUserId = agentUserId;
+    return this;
+  }
+
+   /**
+   * UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).
+   * @return agentUserId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UltraCart user id for the agent (denormalized at index time so reporting endpoints can join on agent_user_id without translating from the agent_id login).")
+
+  public String getAgentUserId() {
+    return agentUserId;
+  }
+
+
+  public void setAgentUserId(String agentUserId) {
+    this.agentUserId = agentUserId;
   }
 
 
@@ -308,6 +335,7 @@ public class ConversationPbxCallAgent {
     return Objects.equals(this.agentExtension, conversationPbxCallAgent.agentExtension) &&
         Objects.equals(this.agentId, conversationPbxCallAgent.agentId) &&
         Objects.equals(this.agentName, conversationPbxCallAgent.agentName) &&
+        Objects.equals(this.agentUserId, conversationPbxCallAgent.agentUserId) &&
         Objects.equals(this.answered, conversationPbxCallAgent.answered) &&
         Objects.equals(this.callSid, conversationPbxCallAgent.callSid) &&
         Objects.equals(this.joinedAtDts, conversationPbxCallAgent.joinedAtDts) &&
@@ -318,7 +346,7 @@ public class ConversationPbxCallAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentExtension, agentId, agentName, answered, callSid, joinedAtDts, leftAtDts, role, workerSid);
+    return Objects.hash(agentExtension, agentId, agentName, agentUserId, answered, callSid, joinedAtDts, leftAtDts, role, workerSid);
   }
 
   @Override
@@ -328,6 +356,7 @@ public class ConversationPbxCallAgent {
     sb.append("    agentExtension: ").append(toIndentedString(agentExtension)).append("\n");
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    agentName: ").append(toIndentedString(agentName)).append("\n");
+    sb.append("    agentUserId: ").append(toIndentedString(agentUserId)).append("\n");
     sb.append("    answered: ").append(toIndentedString(answered)).append("\n");
     sb.append("    callSid: ").append(toIndentedString(callSid)).append("\n");
     sb.append("    joinedAtDts: ").append(toIndentedString(joinedAtDts)).append("\n");
@@ -359,6 +388,7 @@ public class ConversationPbxCallAgent {
     openapiFields.add("agent_extension");
     openapiFields.add("agent_id");
     openapiFields.add("agent_name");
+    openapiFields.add("agent_user_id");
     openapiFields.add("answered");
     openapiFields.add("call_sid");
     openapiFields.add("joined_at_dts");
@@ -400,6 +430,9 @@ public class ConversationPbxCallAgent {
       }
       if (jsonObj.get("agent_name") != null && !jsonObj.get("agent_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `agent_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_name").toString()));
+      }
+      if (jsonObj.get("agent_user_id") != null && !jsonObj.get("agent_user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `agent_user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_user_id").toString()));
       }
       if (jsonObj.get("call_sid") != null && !jsonObj.get("call_sid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `call_sid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("call_sid").toString()));
