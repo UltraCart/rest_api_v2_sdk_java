@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
-import com.ultracart.admin.v2.models.ItemShippingDistributionCenter;
+import com.ultracart.admin.v2.models.ItemGatedCode;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
 import io.swagger.annotations.ApiModel;
@@ -49,17 +49,17 @@ import java.util.Set;
 import com.ultracart.admin.v2.util.JSON;
 
 /**
- * ItemShippingDistributionCenterResponse
+ * ItemGatedCodeResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
-public class ItemShippingDistributionCenterResponse {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T10:30:04.409-04:00[America/Indianapolis]")
+public class ItemGatedCodeResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   private Error error;
 
-  public static final String SERIALIZED_NAME_ITEM_SHIPPING_DISTRIBUTION_CENTER = "itemShippingDistributionCenter";
-  @SerializedName(SERIALIZED_NAME_ITEM_SHIPPING_DISTRIBUTION_CENTER)
-  private ItemShippingDistributionCenter itemShippingDistributionCenter;
+  public static final String SERIALIZED_NAME_GATED_CODE = "gatedCode";
+  @SerializedName(SERIALIZED_NAME_GATED_CODE)
+  private ItemGatedCode gatedCode;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -73,10 +73,10 @@ public class ItemShippingDistributionCenterResponse {
   @SerializedName(SERIALIZED_NAME_WARNING)
   private Warning warning;
 
-  public ItemShippingDistributionCenterResponse() { 
+  public ItemGatedCodeResponse() { 
   }
 
-  public ItemShippingDistributionCenterResponse error(Error error) {
+  public ItemGatedCodeResponse error(Error error) {
     
     this.error = error;
     return this;
@@ -99,30 +99,30 @@ public class ItemShippingDistributionCenterResponse {
   }
 
 
-  public ItemShippingDistributionCenterResponse itemShippingDistributionCenter(ItemShippingDistributionCenter itemShippingDistributionCenter) {
+  public ItemGatedCodeResponse gatedCode(ItemGatedCode gatedCode) {
     
-    this.itemShippingDistributionCenter = itemShippingDistributionCenter;
+    this.gatedCode = gatedCode;
     return this;
   }
 
    /**
-   * Get itemShippingDistributionCenter
-   * @return itemShippingDistributionCenter
+   * Get gatedCode
+   * @return gatedCode
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ItemShippingDistributionCenter getItemShippingDistributionCenter() {
-    return itemShippingDistributionCenter;
+  public ItemGatedCode getGatedCode() {
+    return gatedCode;
   }
 
 
-  public void setItemShippingDistributionCenter(ItemShippingDistributionCenter itemShippingDistributionCenter) {
-    this.itemShippingDistributionCenter = itemShippingDistributionCenter;
+  public void setGatedCode(ItemGatedCode gatedCode) {
+    this.gatedCode = gatedCode;
   }
 
 
-  public ItemShippingDistributionCenterResponse metadata(ResponseMetadata metadata) {
+  public ItemGatedCodeResponse metadata(ResponseMetadata metadata) {
     
     this.metadata = metadata;
     return this;
@@ -145,7 +145,7 @@ public class ItemShippingDistributionCenterResponse {
   }
 
 
-  public ItemShippingDistributionCenterResponse success(Boolean success) {
+  public ItemGatedCodeResponse success(Boolean success) {
     
     this.success = success;
     return this;
@@ -168,7 +168,7 @@ public class ItemShippingDistributionCenterResponse {
   }
 
 
-  public ItemShippingDistributionCenterResponse warning(Warning warning) {
+  public ItemGatedCodeResponse warning(Warning warning) {
     
     this.warning = warning;
     return this;
@@ -200,25 +200,25 @@ public class ItemShippingDistributionCenterResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ItemShippingDistributionCenterResponse itemShippingDistributionCenterResponse = (ItemShippingDistributionCenterResponse) o;
-    return Objects.equals(this.error, itemShippingDistributionCenterResponse.error) &&
-        Objects.equals(this.itemShippingDistributionCenter, itemShippingDistributionCenterResponse.itemShippingDistributionCenter) &&
-        Objects.equals(this.metadata, itemShippingDistributionCenterResponse.metadata) &&
-        Objects.equals(this.success, itemShippingDistributionCenterResponse.success) &&
-        Objects.equals(this.warning, itemShippingDistributionCenterResponse.warning);
+    ItemGatedCodeResponse itemGatedCodeResponse = (ItemGatedCodeResponse) o;
+    return Objects.equals(this.error, itemGatedCodeResponse.error) &&
+        Objects.equals(this.gatedCode, itemGatedCodeResponse.gatedCode) &&
+        Objects.equals(this.metadata, itemGatedCodeResponse.metadata) &&
+        Objects.equals(this.success, itemGatedCodeResponse.success) &&
+        Objects.equals(this.warning, itemGatedCodeResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, itemShippingDistributionCenter, metadata, success, warning);
+    return Objects.hash(error, gatedCode, metadata, success, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ItemShippingDistributionCenterResponse {\n");
+    sb.append("class ItemGatedCodeResponse {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    itemShippingDistributionCenter: ").append(toIndentedString(itemShippingDistributionCenter)).append("\n");
+    sb.append("    gatedCode: ").append(toIndentedString(gatedCode)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
@@ -245,7 +245,7 @@ public class ItemShippingDistributionCenterResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("error");
-    openapiFields.add("itemShippingDistributionCenter");
+    openapiFields.add("gatedCode");
     openapiFields.add("metadata");
     openapiFields.add("success");
     openapiFields.add("warning");
@@ -258,31 +258,31 @@ public class ItemShippingDistributionCenterResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ItemShippingDistributionCenterResponse
+  * @throws IOException if the JSON Object is invalid with respect to ItemGatedCodeResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ItemShippingDistributionCenterResponse.openapiRequiredFields.isEmpty()) {
+        if (ItemGatedCodeResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ItemShippingDistributionCenterResponse is not found in the empty JSON string", ItemShippingDistributionCenterResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ItemGatedCodeResponse is not found in the empty JSON string", ItemGatedCodeResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!ItemShippingDistributionCenterResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemShippingDistributionCenterResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ItemGatedCodeResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemGatedCodeResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       // validate the optional field `error`
       if (jsonObj.getAsJsonObject("error") != null) {
         Error.validateJsonObject(jsonObj.getAsJsonObject("error"));
       }
-      // validate the optional field `itemShippingDistributionCenter`
-      if (jsonObj.getAsJsonObject("itemShippingDistributionCenter") != null) {
-        ItemShippingDistributionCenter.validateJsonObject(jsonObj.getAsJsonObject("itemShippingDistributionCenter"));
+      // validate the optional field `gatedCode`
+      if (jsonObj.getAsJsonObject("gatedCode") != null) {
+        ItemGatedCode.validateJsonObject(jsonObj.getAsJsonObject("gatedCode"));
       }
       // validate the optional field `metadata`
       if (jsonObj.getAsJsonObject("metadata") != null) {
@@ -298,22 +298,22 @@ public class ItemShippingDistributionCenterResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ItemShippingDistributionCenterResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ItemShippingDistributionCenterResponse' and its subtypes
+       if (!ItemGatedCodeResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ItemGatedCodeResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ItemShippingDistributionCenterResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ItemShippingDistributionCenterResponse.class));
+       final TypeAdapter<ItemGatedCodeResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ItemGatedCodeResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ItemShippingDistributionCenterResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<ItemGatedCodeResponse>() {
            @Override
-           public void write(JsonWriter out, ItemShippingDistributionCenterResponse value) throws IOException {
+           public void write(JsonWriter out, ItemGatedCodeResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ItemShippingDistributionCenterResponse read(JsonReader in) throws IOException {
+           public ItemGatedCodeResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -324,18 +324,18 @@ public class ItemShippingDistributionCenterResponse {
   }
 
  /**
-  * Create an instance of ItemShippingDistributionCenterResponse given an JSON string
+  * Create an instance of ItemGatedCodeResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ItemShippingDistributionCenterResponse
-  * @throws IOException if the JSON string is invalid with respect to ItemShippingDistributionCenterResponse
+  * @return An instance of ItemGatedCodeResponse
+  * @throws IOException if the JSON string is invalid with respect to ItemGatedCodeResponse
   */
-  public static ItemShippingDistributionCenterResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ItemShippingDistributionCenterResponse.class);
+  public static ItemGatedCodeResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ItemGatedCodeResponse.class);
   }
 
  /**
-  * Convert an instance of ItemShippingDistributionCenterResponse to an JSON string
+  * Convert an instance of ItemGatedCodeResponse to an JSON string
   *
   * @return JSON string
   */

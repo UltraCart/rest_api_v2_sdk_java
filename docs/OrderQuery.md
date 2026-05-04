@@ -67,6 +67,7 @@
 | QUOTE_SENT | &quot;Quote Sent&quot; |
 | LEAST_COST_ROUTING | &quot;Least Cost Routing&quot; |
 | UNKNOWN | &quot;Unknown&quot; |
+| HOLD | &quot;Hold&quot; |
 
 
 

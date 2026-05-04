@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.ErrorResponse;
 import java.io.File;
 import com.ultracart.admin.v2.models.Item;
@@ -34,14 +35,16 @@ import com.ultracart.admin.v2.models.ItemContentAttribute;
 import com.ultracart.admin.v2.models.ItemDigitalItem;
 import com.ultracart.admin.v2.models.ItemDigitalItemResponse;
 import com.ultracart.admin.v2.models.ItemDigitalItemsResponse;
+import com.ultracart.admin.v2.models.ItemGatedCode;
+import com.ultracart.admin.v2.models.ItemGatedCodeResponse;
+import com.ultracart.admin.v2.models.ItemGatedCodesRequest;
+import com.ultracart.admin.v2.models.ItemGatedCodesResponse;
+import com.ultracart.admin.v2.models.ItemGenerateGatedCodesRequest;
 import com.ultracart.admin.v2.models.ItemInventorySnapshotResponse;
-import com.ultracart.admin.v2.models.ItemInventoryUpdateRequest;
 import com.ultracart.admin.v2.models.ItemResponse;
 import com.ultracart.admin.v2.models.ItemReview;
 import com.ultracart.admin.v2.models.ItemReviewResponse;
 import com.ultracart.admin.v2.models.ItemReviewsResponse;
-import com.ultracart.admin.v2.models.ItemShippingDistributionCenter;
-import com.ultracart.admin.v2.models.ItemShippingDistributionCenterResponse;
 import com.ultracart.admin.v2.models.ItemsRequest;
 import com.ultracart.admin.v2.models.ItemsResponse;
 import com.ultracart.admin.v2.models.PricingTiersResponse;
@@ -117,6 +120,153 @@ public class ItemApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for deleteAllGatedCodes
+     * @param merchantItemOid The item oid. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAllGatedCodesCall(Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteAllGatedCodesValidateBeforeCall(Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling deleteAllGatedCodes(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteAllGatedCodesCall(merchantItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete all gated access codes for an item
+     * Removes every gated access code currently configured for the item. 
+     * @param merchantItemOid The item oid. (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public BaseResponse deleteAllGatedCodes(Integer merchantItemOid) throws ApiException {
+        ApiResponse<BaseResponse> localVarResp = deleteAllGatedCodesWithHttpInfo(merchantItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete all gated access codes for an item
+     * Removes every gated access code currently configured for the item. 
+     * @param merchantItemOid The item oid. (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponse> deleteAllGatedCodesWithHttpInfo(Integer merchantItemOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteAllGatedCodesValidateBeforeCall(merchantItemOid, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete all gated access codes for an item (asynchronously)
+     * Removes every gated access code currently configured for the item. 
+     * @param merchantItemOid The item oid. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAllGatedCodesAsync(Integer merchantItemOid, final ApiCallback<BaseResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteAllGatedCodesValidateBeforeCall(merchantItemOid, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for deleteDigitalItem
      * @param digitalItemOid The digital item oid to delete. (required)
@@ -258,6 +408,163 @@ public class ItemApi {
 
         okhttp3.Call localVarCall = deleteDigitalItemValidateBeforeCall(digitalItemOid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteGatedCode
+     * @param merchantItemOid The item oid. (required)
+     * @param merchantItemGatedCodeOid The gated code oid. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteGatedCodeCall(Integer merchantItemOid, Integer merchantItemGatedCodeOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes/{merchant_item_gated_code_oid}"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()))
+            .replaceAll("\\{" + "merchant_item_gated_code_oid" + "\\}", localVarApiClient.escapeString(merchantItemGatedCodeOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteGatedCodeValidateBeforeCall(Integer merchantItemOid, Integer merchantItemGatedCodeOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling deleteGatedCode(Async)");
+        }
+        
+        // verify the required parameter 'merchantItemGatedCodeOid' is set
+        if (merchantItemGatedCodeOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemGatedCodeOid' when calling deleteGatedCode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteGatedCodeCall(merchantItemOid, merchantItemGatedCodeOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete a gated access code by OID
+     * Delete a specific gated access code by its OID. 
+     * @param merchantItemOid The item oid. (required)
+     * @param merchantItemGatedCodeOid The gated code oid. (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public BaseResponse deleteGatedCode(Integer merchantItemOid, Integer merchantItemGatedCodeOid) throws ApiException {
+        ApiResponse<BaseResponse> localVarResp = deleteGatedCodeWithHttpInfo(merchantItemOid, merchantItemGatedCodeOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a gated access code by OID
+     * Delete a specific gated access code by its OID. 
+     * @param merchantItemOid The item oid. (required)
+     * @param merchantItemGatedCodeOid The gated code oid. (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponse> deleteGatedCodeWithHttpInfo(Integer merchantItemOid, Integer merchantItemGatedCodeOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteGatedCodeValidateBeforeCall(merchantItemOid, merchantItemGatedCodeOid, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a gated access code by OID (asynchronously)
+     * Delete a specific gated access code by its OID. 
+     * @param merchantItemOid The item oid. (required)
+     * @param merchantItemGatedCodeOid The gated code oid. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteGatedCodeAsync(Integer merchantItemOid, Integer merchantItemGatedCodeOid, final ApiCallback<BaseResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteGatedCodeValidateBeforeCall(merchantItemOid, merchantItemGatedCodeOid, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -550,6 +857,162 @@ public class ItemApi {
 
         okhttp3.Call localVarCall = deleteReviewValidateBeforeCall(reviewOid, merchantItemOid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for generateGatedCodes
+     * @param merchantItemOid The item oid. (required)
+     * @param generateRequest Generate request. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call generateGatedCodesCall(Integer merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = generateRequest;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes/generate"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call generateGatedCodesValidateBeforeCall(Integer merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling generateGatedCodes(Async)");
+        }
+        
+        // verify the required parameter 'generateRequest' is set
+        if (generateRequest == null) {
+            throw new ApiException("Missing the required parameter 'generateRequest' when calling generateGatedCodes(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = generateGatedCodesCall(merchantItemOid, generateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Generate a batch of gated access codes
+     * Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+     * @param merchantItemOid The item oid. (required)
+     * @param generateRequest Generate request. (required)
+     * @return ItemGatedCodesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ItemGatedCodesResponse generateGatedCodes(Integer merchantItemOid, ItemGenerateGatedCodesRequest generateRequest) throws ApiException {
+        ApiResponse<ItemGatedCodesResponse> localVarResp = generateGatedCodesWithHttpInfo(merchantItemOid, generateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generate a batch of gated access codes
+     * Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+     * @param merchantItemOid The item oid. (required)
+     * @param generateRequest Generate request. (required)
+     * @return ApiResponse&lt;ItemGatedCodesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ItemGatedCodesResponse> generateGatedCodesWithHttpInfo(Integer merchantItemOid, ItemGenerateGatedCodesRequest generateRequest) throws ApiException {
+        okhttp3.Call localVarCall = generateGatedCodesValidateBeforeCall(merchantItemOid, generateRequest, null);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generate a batch of gated access codes (asynchronously)
+     * Returns randomly generated codes using a profanity-safe charset (vowel-free, 0/1 removed). Codes are NOT persisted; submit them via PUT or POST to commit. 
+     * @param merchantItemOid The item oid. (required)
+     * @param generateRequest Generate request. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call generateGatedCodesAsync(Integer merchantItemOid, ItemGenerateGatedCodesRequest generateRequest, final ApiCallback<ItemGatedCodesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = generateGatedCodesValidateBeforeCall(merchantItemOid, generateRequest, _callback);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1032,6 +1495,153 @@ public class ItemApi {
         return localVarCall;
     }
     /**
+     * Build call for getGatedCodes
+     * @param merchantItemOid The item oid. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getGatedCodesCall(Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getGatedCodesValidateBeforeCall(Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getGatedCodes(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getGatedCodesCall(merchantItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get gated access codes for an item
+     * Retrieve all unredeemed gated access codes configured for an item. 
+     * @param merchantItemOid The item oid. (required)
+     * @return ItemGatedCodesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ItemGatedCodesResponse getGatedCodes(Integer merchantItemOid) throws ApiException {
+        ApiResponse<ItemGatedCodesResponse> localVarResp = getGatedCodesWithHttpInfo(merchantItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get gated access codes for an item
+     * Retrieve all unredeemed gated access codes configured for an item. 
+     * @param merchantItemOid The item oid. (required)
+     * @return ApiResponse&lt;ItemGatedCodesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ItemGatedCodesResponse> getGatedCodesWithHttpInfo(Integer merchantItemOid) throws ApiException {
+        okhttp3.Call localVarCall = getGatedCodesValidateBeforeCall(merchantItemOid, null);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get gated access codes for an item (asynchronously)
+     * Retrieve all unredeemed gated access codes configured for an item. 
+     * @param merchantItemOid The item oid. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getGatedCodesAsync(Integer merchantItemOid, final ApiCallback<ItemGatedCodesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getGatedCodesValidateBeforeCall(merchantItemOid, _callback);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getInventorySnapshot
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1491,179 +2101,6 @@ public class ItemApi {
 
         okhttp3.Call localVarCall = getItemByMerchantItemIdValidateBeforeCall(merchantItemId, expand, placeholders, _callback);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getItemShippingDistributionCenterByCode
-     * @param merchantItemOid The item oid to retrieve. (required)
-     * @param distributionCenterCode  (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getItemShippingDistributionCenterByCodeCall(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}"
-            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()))
-            .replaceAll("\\{" + "distribution_center_code" + "\\}", localVarApiClient.escapeString(distributionCenterCode.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (expand != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
-        }
-
-        if (placeholders != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_placeholders", placeholders));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getItemShippingDistributionCenterByCodeValidateBeforeCall(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'merchantItemOid' is set
-        if (merchantItemOid == null) {
-            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling getItemShippingDistributionCenterByCode(Async)");
-        }
-        
-        // verify the required parameter 'distributionCenterCode' is set
-        if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling getItemShippingDistributionCenterByCode(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = getItemShippingDistributionCenterByCodeCall(merchantItemOid, distributionCenterCode, expand, placeholders, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Retrieve an item shipping distribution center
-     * Retrieve an item shipping distribution center. 
-     * @param merchantItemOid The item oid to retrieve. (required)
-     * @param distributionCenterCode  (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return ItemShippingDistributionCenterResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public ItemShippingDistributionCenterResponse getItemShippingDistributionCenterByCode(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders) throws ApiException {
-        ApiResponse<ItemShippingDistributionCenterResponse> localVarResp = getItemShippingDistributionCenterByCodeWithHttpInfo(merchantItemOid, distributionCenterCode, expand, placeholders);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an item shipping distribution center
-     * Retrieve an item shipping distribution center. 
-     * @param merchantItemOid The item oid to retrieve. (required)
-     * @param distributionCenterCode  (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return ApiResponse&lt;ItemShippingDistributionCenterResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public ApiResponse<ItemShippingDistributionCenterResponse> getItemShippingDistributionCenterByCodeWithHttpInfo(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders) throws ApiException {
-        okhttp3.Call localVarCall = getItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, expand, placeholders, null);
-        Type localVarReturnType = new TypeToken<ItemShippingDistributionCenterResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Retrieve an item shipping distribution center (asynchronously)
-     * Retrieve an item shipping distribution center. 
-     * @param merchantItemOid The item oid to retrieve. (required)
-     * @param distributionCenterCode  (required)
-     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getItemShippingDistributionCenterByCodeAsync(Integer merchantItemOid, String distributionCenterCode, String expand, Boolean placeholders, final ApiCallback<ItemShippingDistributionCenterResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, expand, placeholders, _callback);
-        Type localVarReturnType = new TypeToken<ItemShippingDistributionCenterResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2649,6 +3086,162 @@ public class ItemApi {
         return localVarCall;
     }
     /**
+     * Build call for insertGatedCode
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCode Gated code to insert. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertGatedCodeCall(Integer merchantItemOid, ItemGatedCode gatedCode, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = gatedCode;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertGatedCodeValidateBeforeCall(Integer merchantItemOid, ItemGatedCode gatedCode, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling insertGatedCode(Async)");
+        }
+        
+        // verify the required parameter 'gatedCode' is set
+        if (gatedCode == null) {
+            throw new ApiException("Missing the required parameter 'gatedCode' when calling insertGatedCode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertGatedCodeCall(merchantItemOid, gatedCode, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add a single gated access code to an item
+     * Insert a single gated access code; the server assigns the OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCode Gated code to insert. (required)
+     * @return ItemGatedCodeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ItemGatedCodeResponse insertGatedCode(Integer merchantItemOid, ItemGatedCode gatedCode) throws ApiException {
+        ApiResponse<ItemGatedCodeResponse> localVarResp = insertGatedCodeWithHttpInfo(merchantItemOid, gatedCode);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add a single gated access code to an item
+     * Insert a single gated access code; the server assigns the OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCode Gated code to insert. (required)
+     * @return ApiResponse&lt;ItemGatedCodeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ItemGatedCodeResponse> insertGatedCodeWithHttpInfo(Integer merchantItemOid, ItemGatedCode gatedCode) throws ApiException {
+        okhttp3.Call localVarCall = insertGatedCodeValidateBeforeCall(merchantItemOid, gatedCode, null);
+        Type localVarReturnType = new TypeToken<ItemGatedCodeResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add a single gated access code to an item (asynchronously)
+     * Insert a single gated access code; the server assigns the OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCode Gated code to insert. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertGatedCodeAsync(Integer merchantItemOid, ItemGatedCode gatedCode, final ApiCallback<ItemGatedCodeResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertGatedCodeValidateBeforeCall(merchantItemOid, gatedCode, _callback);
+        Type localVarReturnType = new TypeToken<ItemGatedCodeResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for insertItem
      * @param item Item to create (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -3115,6 +3708,162 @@ public class ItemApi {
         return localVarCall;
     }
     /**
+     * Build call for replaceGatedCodes
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCodesRequest Codes to replace the existing list with. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call replaceGatedCodesCall(Integer merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = gatedCodesRequest;
+
+        // create path and map variables
+        String localVarPath = "/item/items/{merchant_item_oid}/gated_codes"
+            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call replaceGatedCodesValidateBeforeCall(Integer merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantItemOid' is set
+        if (merchantItemOid == null) {
+            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling replaceGatedCodes(Async)");
+        }
+        
+        // verify the required parameter 'gatedCodesRequest' is set
+        if (gatedCodesRequest == null) {
+            throw new ApiException("Missing the required parameter 'gatedCodesRequest' when calling replaceGatedCodes(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = replaceGatedCodesCall(merchantItemOid, gatedCodesRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Replace the full list of gated access codes for an item
+     * Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCodesRequest Codes to replace the existing list with. (required)
+     * @return ItemGatedCodesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ItemGatedCodesResponse replaceGatedCodes(Integer merchantItemOid, ItemGatedCodesRequest gatedCodesRequest) throws ApiException {
+        ApiResponse<ItemGatedCodesResponse> localVarResp = replaceGatedCodesWithHttpInfo(merchantItemOid, gatedCodesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replace the full list of gated access codes for an item
+     * Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCodesRequest Codes to replace the existing list with. (required)
+     * @return ApiResponse&lt;ItemGatedCodesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ItemGatedCodesResponse> replaceGatedCodesWithHttpInfo(Integer merchantItemOid, ItemGatedCodesRequest gatedCodesRequest) throws ApiException {
+        okhttp3.Call localVarCall = replaceGatedCodesValidateBeforeCall(merchantItemOid, gatedCodesRequest, null);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replace the full list of gated access codes for an item (asynchronously)
+     * Existing codes not present in the request body are deleted. New codes are inserted. Unchanged codes preserve their OID and created_dts. 
+     * @param merchantItemOid The item oid. (required)
+     * @param gatedCodesRequest Codes to replace the existing list with. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call replaceGatedCodesAsync(Integer merchantItemOid, ItemGatedCodesRequest gatedCodesRequest, final ApiCallback<ItemGatedCodesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = replaceGatedCodesValidateBeforeCall(merchantItemOid, gatedCodesRequest, _callback);
+        Type localVarReturnType = new TypeToken<ItemGatedCodesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateDigitalItem
      * @param digitalItemOid The digital item oid to update. (required)
      * @param digitalItem Digital item to update (required)
@@ -3440,302 +4189,6 @@ public class ItemApi {
         okhttp3.Call localVarCall = updateItemValidateBeforeCall(merchantItemOid, item, expand, placeholders, _callback);
         Type localVarReturnType = new TypeToken<ItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateItemInventories
-     * @param itemInventoryUpdateRequest Item inventory updates (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateItemInventoriesCall(ItemInventoryUpdateRequest itemInventoryUpdateRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = itemInventoryUpdateRequest;
-
-        // create path and map variables
-        String localVarPath = "/item/items/update_item_inventories";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateItemInventoriesValidateBeforeCall(ItemInventoryUpdateRequest itemInventoryUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'itemInventoryUpdateRequest' is set
-        if (itemInventoryUpdateRequest == null) {
-            throw new ApiException("Missing the required parameter 'itemInventoryUpdateRequest' when calling updateItemInventories(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = updateItemInventoriesCall(itemInventoryUpdateRequest, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Update item inventories for a distribution center
-     * Update item inventories for a distribution center 
-     * @param itemInventoryUpdateRequest Item inventory updates (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public void updateItemInventories(ItemInventoryUpdateRequest itemInventoryUpdateRequest) throws ApiException {
-        updateItemInventoriesWithHttpInfo(itemInventoryUpdateRequest);
-    }
-
-    /**
-     * Update item inventories for a distribution center
-     * Update item inventories for a distribution center 
-     * @param itemInventoryUpdateRequest Item inventory updates (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> updateItemInventoriesWithHttpInfo(ItemInventoryUpdateRequest itemInventoryUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateItemInventoriesValidateBeforeCall(itemInventoryUpdateRequest, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Update item inventories for a distribution center (asynchronously)
-     * Update item inventories for a distribution center 
-     * @param itemInventoryUpdateRequest Item inventory updates (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateItemInventoriesAsync(ItemInventoryUpdateRequest itemInventoryUpdateRequest, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateItemInventoriesValidateBeforeCall(itemInventoryUpdateRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateItemShippingDistributionCenterByCode
-     * @param merchantItemOid The item oid to update. (required)
-     * @param distributionCenterCode  (required)
-     * @param itemShippingDistributionCenter Item shipping distribution center (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateItemShippingDistributionCenterByCodeCall(Integer merchantItemOid, String distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = itemShippingDistributionCenter;
-
-        // create path and map variables
-        String localVarPath = "/item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code}"
-            .replaceAll("\\{" + "merchant_item_oid" + "\\}", localVarApiClient.escapeString(merchantItemOid.toString()))
-            .replaceAll("\\{" + "distribution_center_code" + "\\}", localVarApiClient.escapeString(distributionCenterCode.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json; charset=UTF-8"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateItemShippingDistributionCenterByCodeValidateBeforeCall(Integer merchantItemOid, String distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'merchantItemOid' is set
-        if (merchantItemOid == null) {
-            throw new ApiException("Missing the required parameter 'merchantItemOid' when calling updateItemShippingDistributionCenterByCode(Async)");
-        }
-        
-        // verify the required parameter 'distributionCenterCode' is set
-        if (distributionCenterCode == null) {
-            throw new ApiException("Missing the required parameter 'distributionCenterCode' when calling updateItemShippingDistributionCenterByCode(Async)");
-        }
-        
-        // verify the required parameter 'itemShippingDistributionCenter' is set
-        if (itemShippingDistributionCenter == null) {
-            throw new ApiException("Missing the required parameter 'itemShippingDistributionCenter' when calling updateItemShippingDistributionCenterByCode(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = updateItemShippingDistributionCenterByCodeCall(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * Update an item shipping distribution center
-     * Update an item shipping distribution center 
-     * @param merchantItemOid The item oid to update. (required)
-     * @param distributionCenterCode  (required)
-     * @param itemShippingDistributionCenter Item shipping distribution center (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public void updateItemShippingDistributionCenterByCode(Integer merchantItemOid, String distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter) throws ApiException {
-        updateItemShippingDistributionCenterByCodeWithHttpInfo(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter);
-    }
-
-    /**
-     * Update an item shipping distribution center
-     * Update an item shipping distribution center 
-     * @param merchantItemOid The item oid to update. (required)
-     * @param distributionCenterCode  (required)
-     * @param itemShippingDistributionCenter Item shipping distribution center (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> updateItemShippingDistributionCenterByCodeWithHttpInfo(Integer merchantItemOid, String distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter) throws ApiException {
-        okhttp3.Call localVarCall = updateItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Update an item shipping distribution center (asynchronously)
-     * Update an item shipping distribution center 
-     * @param merchantItemOid The item oid to update. (required)
-     * @param distributionCenterCode  (required)
-     * @param itemShippingDistributionCenter Item shipping distribution center (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateItemShippingDistributionCenterByCodeAsync(Integer merchantItemOid, String distributionCenterCode, ItemShippingDistributionCenter itemShippingDistributionCenter, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateItemShippingDistributionCenterByCodeValidateBeforeCall(merchantItemOid, distributionCenterCode, itemShippingDistributionCenter, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

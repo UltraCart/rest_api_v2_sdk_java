@@ -33,6 +33,7 @@ import com.ultracart.admin.v2.models.ItemEbay;
 import com.ultracart.admin.v2.models.ItemEmailNotifications;
 import com.ultracart.admin.v2.models.ItemEnrollment123;
 import com.ultracart.admin.v2.models.ItemFulfillmentAddon;
+import com.ultracart.admin.v2.models.ItemGatedCode;
 import com.ultracart.admin.v2.models.ItemGiftCertificate;
 import com.ultracart.admin.v2.models.ItemGoogleProductSearch;
 import com.ultracart.admin.v2.models.ItemIdentifiers;
@@ -87,7 +88,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Item
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-29T11:29:56.706-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T10:30:04.409-04:00[America/Indianapolis]")
 public class Item {
   public static final String SERIALIZED_NAME_ACCOUNTING = "accounting";
   @SerializedName(SERIALIZED_NAME_ACCOUNTING)
@@ -152,6 +153,10 @@ public class Item {
   public static final String SERIALIZED_NAME_FULFILLMENT_ADDONS = "fulfillment_addons";
   @SerializedName(SERIALIZED_NAME_FULFILLMENT_ADDONS)
   private List<ItemFulfillmentAddon> fulfillmentAddons = null;
+
+  public static final String SERIALIZED_NAME_GATED_CODES = "gated_codes";
+  @SerializedName(SERIALIZED_NAME_GATED_CODES)
+  private List<ItemGatedCode> gatedCodes = null;
 
   public static final String SERIALIZED_NAME_GIFT_CERTIFICATE = "gift_certificate";
   @SerializedName(SERIALIZED_NAME_GIFT_CERTIFICATE)
@@ -677,6 +682,37 @@ public class Item {
 
   public void setFulfillmentAddons(List<ItemFulfillmentAddon> fulfillmentAddons) {
     this.fulfillmentAddons = fulfillmentAddons;
+  }
+
+
+  public Item gatedCodes(List<ItemGatedCode> gatedCodes) {
+    
+    this.gatedCodes = gatedCodes;
+    return this;
+  }
+
+  public Item addGatedCodesItem(ItemGatedCode gatedCodesItem) {
+    if (this.gatedCodes == null) {
+      this.gatedCodes = new ArrayList<>();
+    }
+    this.gatedCodes.add(gatedCodesItem);
+    return this;
+  }
+
+   /**
+   * Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.
+   * @return gatedCodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Gated access codes for this item. Read-only on this object. Use the /items/{merchant_item_oid}/gated_codes endpoints to manage.")
+
+  public List<ItemGatedCode> getGatedCodes() {
+    return gatedCodes;
+  }
+
+
+  public void setGatedCodes(List<ItemGatedCode> gatedCodes) {
+    this.gatedCodes = gatedCodes;
   }
 
 
@@ -1551,6 +1587,7 @@ public class Item {
         Objects.equals(this.emailNotifications, item.emailNotifications) &&
         Objects.equals(this.enrollment123, item.enrollment123) &&
         Objects.equals(this.fulfillmentAddons, item.fulfillmentAddons) &&
+        Objects.equals(this.gatedCodes, item.gatedCodes) &&
         Objects.equals(this.giftCertificate, item.giftCertificate) &&
         Objects.equals(this.googleProductSearch, item.googleProductSearch) &&
         Objects.equals(this.identifiers, item.identifiers) &&
@@ -1590,7 +1627,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerItemMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, fulfillmentAddons, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
+    return Objects.hash(accounting, amember, autoOrder, ccbill, channelPartnerItemMappings, chargeback, checkout, content, creationDts, description, descriptionTranslatedTextInstanceOid, digitalDelivery, ebay, emailNotifications, enrollment123, fulfillmentAddons, gatedCodes, giftCertificate, googleProductSearch, identifiers, inactive, instantPaymentNotifications, internal, kit, kitComponentOnly, kitDefinition, lastModifiedDts, merchantId, merchantItemId, merchantItemOid, options, parentCategoryId, parentCategoryPath, paymentProcessing, physical, pricing, properties, realtimePricing, recommendReplenishmentDays, related, reporting, restriction, revguard, reviews, salesforce, shipping, tags, tax, thirdPartyEmailMarketing, variantItems, variations, wishlistMember);
   }
 
   @Override
@@ -1613,6 +1650,7 @@ public class Item {
     sb.append("    emailNotifications: ").append(toIndentedString(emailNotifications)).append("\n");
     sb.append("    enrollment123: ").append(toIndentedString(enrollment123)).append("\n");
     sb.append("    fulfillmentAddons: ").append(toIndentedString(fulfillmentAddons)).append("\n");
+    sb.append("    gatedCodes: ").append(toIndentedString(gatedCodes)).append("\n");
     sb.append("    giftCertificate: ").append(toIndentedString(giftCertificate)).append("\n");
     sb.append("    googleProductSearch: ").append(toIndentedString(googleProductSearch)).append("\n");
     sb.append("    identifiers: ").append(toIndentedString(identifiers)).append("\n");
@@ -1686,6 +1724,7 @@ public class Item {
     openapiFields.add("email_notifications");
     openapiFields.add("enrollment123");
     openapiFields.add("fulfillment_addons");
+    openapiFields.add("gated_codes");
     openapiFields.add("gift_certificate");
     openapiFields.add("google_product_search");
     openapiFields.add("identifiers");
@@ -1820,6 +1859,18 @@ public class Item {
         // validate the optional field `fulfillment_addons` (array)
         for (int i = 0; i < jsonArrayfulfillmentAddons.size(); i++) {
           ItemFulfillmentAddon.validateJsonObject(jsonArrayfulfillmentAddons.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArraygatedCodes = jsonObj.getAsJsonArray("gated_codes");
+      if (jsonArraygatedCodes != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("gated_codes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `gated_codes` to be an array in the JSON string but got `%s`", jsonObj.get("gated_codes").toString()));
+        }
+
+        // validate the optional field `gated_codes` (array)
+        for (int i = 0; i < jsonArraygatedCodes.size(); i++) {
+          ItemGatedCode.validateJsonObject(jsonArraygatedCodes.get(i).getAsJsonObject());
         };
       }
       // validate the optional field `gift_certificate`

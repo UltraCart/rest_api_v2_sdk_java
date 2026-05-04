@@ -657,6 +657,11 @@ docs/ItemEbayMarketPlaceAnalysis.md
 docs/ItemEmailNotifications.md
 docs/ItemEnrollment123.md
 docs/ItemFulfillmentAddon.md
+docs/ItemGatedCode.md
+docs/ItemGatedCodeResponse.md
+docs/ItemGatedCodesRequest.md
+docs/ItemGatedCodesResponse.md
+docs/ItemGenerateGatedCodesRequest.md
 docs/ItemGiftCertificate.md
 docs/ItemGoogleProductSearch.md
 docs/ItemIdentifiers.md
@@ -666,8 +671,6 @@ docs/ItemInternal.md
 docs/ItemInventorySnapshot.md
 docs/ItemInventorySnapshotDistributionCenter.md
 docs/ItemInventorySnapshotResponse.md
-docs/ItemInventoryUpdate.md
-docs/ItemInventoryUpdateRequest.md
 docs/ItemKitComponent.md
 docs/ItemKitDefinition.md
 docs/ItemOption.md
@@ -699,7 +702,6 @@ docs/ItemShippingCase.md
 docs/ItemShippingDestinationMarkup.md
 docs/ItemShippingDestinationRestriction.md
 docs/ItemShippingDistributionCenter.md
-docs/ItemShippingDistributionCenterResponse.md
 docs/ItemShippingMethod.md
 docs/ItemShippingPackageRequirement.md
 docs/ItemTag.md
@@ -1670,6 +1672,11 @@ src/main/java/com/ultracart/admin/v2/models/ItemEbayMarketPlaceAnalysis.java
 src/main/java/com/ultracart/admin/v2/models/ItemEmailNotifications.java
 src/main/java/com/ultracart/admin/v2/models/ItemEnrollment123.java
 src/main/java/com/ultracart/admin/v2/models/ItemFulfillmentAddon.java
+src/main/java/com/ultracart/admin/v2/models/ItemGatedCode.java
+src/main/java/com/ultracart/admin/v2/models/ItemGatedCodeResponse.java
+src/main/java/com/ultracart/admin/v2/models/ItemGatedCodesRequest.java
+src/main/java/com/ultracart/admin/v2/models/ItemGatedCodesResponse.java
+src/main/java/com/ultracart/admin/v2/models/ItemGenerateGatedCodesRequest.java
 src/main/java/com/ultracart/admin/v2/models/ItemGiftCertificate.java
 src/main/java/com/ultracart/admin/v2/models/ItemGoogleProductSearch.java
 src/main/java/com/ultracart/admin/v2/models/ItemIdentifiers.java
@@ -1679,8 +1686,6 @@ src/main/java/com/ultracart/admin/v2/models/ItemInternal.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshot.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotDistributionCenter.java
 src/main/java/com/ultracart/admin/v2/models/ItemInventorySnapshotResponse.java
-src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdate.java
-src/main/java/com/ultracart/admin/v2/models/ItemInventoryUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitComponent.java
 src/main/java/com/ultracart/admin/v2/models/ItemKitDefinition.java
 src/main/java/com/ultracart/admin/v2/models/ItemOption.java
@@ -1712,7 +1717,6 @@ src/main/java/com/ultracart/admin/v2/models/ItemShippingCase.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationMarkup.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDestinationRestriction.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenter.java
-src/main/java/com/ultracart/admin/v2/models/ItemShippingDistributionCenterResponse.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingMethod.java
 src/main/java/com/ultracart/admin/v2/models/ItemShippingPackageRequirement.java
 src/main/java/com/ultracart/admin/v2/models/ItemTag.java

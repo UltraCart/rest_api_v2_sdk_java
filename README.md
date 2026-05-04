@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-04-29T11:29:56.706-04:00[America/Indianapolis]
+- Build date: 2026-05-04T10:30:04.409-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.83</version>
+    <version>4.1.84</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.83"
+     implementation "com.ultracart:rest-sdk:4.1.84"
   }
 ```
 
@@ -389,29 +389,32 @@ Class | Method | HTTP request | Description
 *IntegrationLogApi* | [**getIntegrationLogFilePdf**](docs/IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
+*ItemApi* | [**deleteAllGatedCodes**](docs/ItemApi.md#deleteAllGatedCodes) | **DELETE** /item/items/{merchant_item_oid}/gated_codes | Delete all gated access codes for an item
 *ItemApi* | [**deleteDigitalItem**](docs/ItemApi.md#deleteDigitalItem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
+*ItemApi* | [**deleteGatedCode**](docs/ItemApi.md#deleteGatedCode) | **DELETE** /item/items/{merchant_item_oid}/gated_codes/{merchant_item_gated_code_oid} | Delete a gated access code by OID
 *ItemApi* | [**deleteItem**](docs/ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**deleteReview**](docs/ItemApi.md#deleteReview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
+*ItemApi* | [**generateGatedCodes**](docs/ItemApi.md#generateGatedCodes) | **POST** /item/items/{merchant_item_oid}/gated_codes/generate | Generate a batch of gated access codes
 *ItemApi* | [**getDigitalItem**](docs/ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItemsByExternalId**](docs/ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+*ItemApi* | [**getGatedCodes**](docs/ItemApi.md#getGatedCodes) | **GET** /item/items/{merchant_item_oid}/gated_codes | Get gated access codes for an item
 *ItemApi* | [**getInventorySnapshot**](docs/ItemApi.md#getInventorySnapshot) | **GET** /item/items/inventory_snapshot | Retrieve a list of item inventories.  This method may be called once every 15 minutes.  More than that will result in a 429 response.
 *ItemApi* | [**getItem**](docs/ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
-*ItemApi* | [**getItemShippingDistributionCenterByCode**](docs/ItemApi.md#getItemShippingDistributionCenterByCode) | **GET** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Retrieve an item shipping distribution center
 *ItemApi* | [**getItems**](docs/ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 *ItemApi* | [**getReview**](docs/ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
 *ItemApi* | [**getReviews**](docs/ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | Get reviews for an item
 *ItemApi* | [**getUnassociatedDigitalItems**](docs/ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
+*ItemApi* | [**insertGatedCode**](docs/ItemApi.md#insertGatedCode) | **POST** /item/items/{merchant_item_oid}/gated_codes | Add a single gated access code to an item
 *ItemApi* | [**insertItem**](docs/ItemApi.md#insertItem) | **POST** /item/items | Create an item
 *ItemApi* | [**insertReview**](docs/ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 *ItemApi* | [**insertUpdateItemContentAttribute**](docs/ItemApi.md#insertUpdateItemContentAttribute) | **POST** /item/items/{merchant_item_oid}/content/attributes | Upsert an item content attribute
+*ItemApi* | [**replaceGatedCodes**](docs/ItemApi.md#replaceGatedCodes) | **PUT** /item/items/{merchant_item_oid}/gated_codes | Replace the full list of gated access codes for an item
 *ItemApi* | [**updateDigitalItem**](docs/ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
-*ItemApi* | [**updateItemInventories**](docs/ItemApi.md#updateItemInventories) | **PUT** /item/items/update_item_inventories | Update item inventories for a distribution center
-*ItemApi* | [**updateItemShippingDistributionCenterByCode**](docs/ItemApi.md#updateItemShippingDistributionCenterByCode) | **PUT** /item/items/{merchant_item_oid}/shipping/distribution_centers/by_code/{distribution_center_code} | Update an item shipping distribution center
 *ItemApi* | [**updateItems**](docs/ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**updateReview**](docs/ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -1338,6 +1341,11 @@ Class | Method | HTTP request | Description
  - [ItemEmailNotifications](docs/ItemEmailNotifications.md)
  - [ItemEnrollment123](docs/ItemEnrollment123.md)
  - [ItemFulfillmentAddon](docs/ItemFulfillmentAddon.md)
+ - [ItemGatedCode](docs/ItemGatedCode.md)
+ - [ItemGatedCodeResponse](docs/ItemGatedCodeResponse.md)
+ - [ItemGatedCodesRequest](docs/ItemGatedCodesRequest.md)
+ - [ItemGatedCodesResponse](docs/ItemGatedCodesResponse.md)
+ - [ItemGenerateGatedCodesRequest](docs/ItemGenerateGatedCodesRequest.md)
  - [ItemGiftCertificate](docs/ItemGiftCertificate.md)
  - [ItemGoogleProductSearch](docs/ItemGoogleProductSearch.md)
  - [ItemIdentifiers](docs/ItemIdentifiers.md)
@@ -1347,8 +1355,6 @@ Class | Method | HTTP request | Description
  - [ItemInventorySnapshot](docs/ItemInventorySnapshot.md)
  - [ItemInventorySnapshotDistributionCenter](docs/ItemInventorySnapshotDistributionCenter.md)
  - [ItemInventorySnapshotResponse](docs/ItemInventorySnapshotResponse.md)
- - [ItemInventoryUpdate](docs/ItemInventoryUpdate.md)
- - [ItemInventoryUpdateRequest](docs/ItemInventoryUpdateRequest.md)
  - [ItemKitComponent](docs/ItemKitComponent.md)
  - [ItemKitDefinition](docs/ItemKitDefinition.md)
  - [ItemOption](docs/ItemOption.md)
@@ -1380,7 +1386,6 @@ Class | Method | HTTP request | Description
  - [ItemShippingDestinationMarkup](docs/ItemShippingDestinationMarkup.md)
  - [ItemShippingDestinationRestriction](docs/ItemShippingDestinationRestriction.md)
  - [ItemShippingDistributionCenter](docs/ItemShippingDistributionCenter.md)
- - [ItemShippingDistributionCenterResponse](docs/ItemShippingDistributionCenterResponse.md)
  - [ItemShippingMethod](docs/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/ItemShippingPackageRequirement.md)
  - [ItemTag](docs/ItemTag.md)
@@ -1753,6 +1758,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.84 | 05/04/2026 | Order API - add hold stage to allowed values on order query request |
 | 4.1.83 | 04/29/2026 | AO support for item appending on cancel request, order payment method test routing on hold release |
 | 4.1.82 | 04/27/2026 | converation - agent status and availability |
 | 4.1.81 | 04/27/2026 | conversations - agent status and availability |
