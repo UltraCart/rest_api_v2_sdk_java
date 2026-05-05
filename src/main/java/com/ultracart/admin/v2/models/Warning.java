@@ -47,11 +47,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Warning
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T10:30:04.409-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
 public class Warning {
   public static final String SERIALIZED_NAME_MORE_INFO = "more_info";
   @SerializedName(SERIALIZED_NAME_MORE_INFO)
   private String moreInfo;
+
+  public static final String SERIALIZED_NAME_WARNING_CODE = "warning_code";
+  @SerializedName(SERIALIZED_NAME_WARNING_CODE)
+  private String warningCode;
 
   public static final String SERIALIZED_NAME_WARNING_MESSAGE = "warning_message";
   @SerializedName(SERIALIZED_NAME_WARNING_MESSAGE)
@@ -80,6 +84,29 @@ public class Warning {
 
   public void setMoreInfo(String moreInfo) {
     this.moreInfo = moreInfo;
+  }
+
+
+  public Warning warningCode(String warningCode) {
+    
+    this.warningCode = warningCode;
+    return this;
+  }
+
+   /**
+   * A stable machine-readable code identifying the warning. See API docs for known values.
+   * @return warningCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A stable machine-readable code identifying the warning. See API docs for known values.")
+
+  public String getWarningCode() {
+    return warningCode;
+  }
+
+
+  public void setWarningCode(String warningCode) {
+    this.warningCode = warningCode;
   }
 
 
@@ -117,12 +144,13 @@ public class Warning {
     }
     Warning warning = (Warning) o;
     return Objects.equals(this.moreInfo, warning.moreInfo) &&
+        Objects.equals(this.warningCode, warning.warningCode) &&
         Objects.equals(this.warningMessage, warning.warningMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(moreInfo, warningMessage);
+    return Objects.hash(moreInfo, warningCode, warningMessage);
   }
 
   @Override
@@ -130,6 +158,7 @@ public class Warning {
     StringBuilder sb = new StringBuilder();
     sb.append("class Warning {\n");
     sb.append("    moreInfo: ").append(toIndentedString(moreInfo)).append("\n");
+    sb.append("    warningCode: ").append(toIndentedString(warningCode)).append("\n");
     sb.append("    warningMessage: ").append(toIndentedString(warningMessage)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -154,6 +183,7 @@ public class Warning {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("more_info");
+    openapiFields.add("warning_code");
     openapiFields.add("warning_message");
 
     // a set of required properties/fields (JSON key names)
@@ -184,6 +214,9 @@ public class Warning {
       }
       if (jsonObj.get("more_info") != null && !jsonObj.get("more_info").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `more_info` to be a primitive type in the JSON string but got `%s`", jsonObj.get("more_info").toString()));
+      }
+      if (jsonObj.get("warning_code") != null && !jsonObj.get("warning_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `warning_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("warning_code").toString()));
       }
       if (jsonObj.get("warning_message") != null && !jsonObj.get("warning_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `warning_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("warning_message").toString()));

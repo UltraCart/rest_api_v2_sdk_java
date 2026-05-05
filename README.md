@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-04T10:30:04.409-04:00[America/Indianapolis]
+- Build date: 2026-05-05T16:35:25.661-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.84</version>
+    <version>4.1.85</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.84"
+     implementation "com.ultracart:rest-sdk:4.1.85"
   }
 ```
 
@@ -432,6 +432,8 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**generateOrderToken**](docs/OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 *OrderApi* | [**generatePackingSlipAllDC**](docs/OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 *OrderApi* | [**generatePackingSlipSpecificDC**](docs/OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
+*OrderApi* | [**getAccountsReceivableDetailValueHistogram**](docs/OrderApi.md#getAccountsReceivableDetailValueHistogram) | **GET** /order/accounts_receivable/detail_value_histogram | Retrieve a value histogram for a given AR transaction-detail name
+*OrderApi* | [**getAccountsReceivableGatewayDetailNames**](docs/OrderApi.md#getAccountsReceivableGatewayDetailNames) | **GET** /order/accounts_receivable/gateway_detail_names | Retrieve gateway / detail-name picker data for the AR filter modal
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
@@ -1758,6 +1760,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |
 | 4.1.84 | 05/04/2026 | Order API - add hold stage to allowed values on order query request |
 | 4.1.83 | 04/29/2026 | AO support for item appending on cancel request, order payment method test routing on hold release |
 | 4.1.82 | 04/27/2026 | converation - agent status and availability |

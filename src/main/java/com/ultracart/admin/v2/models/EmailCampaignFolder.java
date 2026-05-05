@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailCampaignFolder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-04T10:30:04.409-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
 public class EmailCampaignFolder {
   public static final String SERIALIZED_NAME_ESP_CAMPAIGN_FOLDER_UUID = "esp_campaign_folder_uuid";
   @SerializedName(SERIALIZED_NAME_ESP_CAMPAIGN_FOLDER_UUID)
