@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItemCancelRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
 public class AutoOrderItemCancelRequest {
   public static final String SERIALIZED_NAME_APPEND_ITEMS = "append_items";
   @SerializedName(SERIALIZED_NAME_APPEND_ITEMS)
@@ -110,6 +110,10 @@ public class AutoOrderItemCancelRequest {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   private ModeEnum mode;
+
+  public static final String SERIALIZED_NAME_NO_ORDERS_AFTER_DTS = "no_orders_after_dts";
+  @SerializedName(SERIALIZED_NAME_NO_ORDERS_AFTER_DTS)
+  private String noOrdersAfterDts;
 
   public AutoOrderItemCancelRequest() { 
   }
@@ -191,6 +195,29 @@ public class AutoOrderItemCancelRequest {
   }
 
 
+  public AutoOrderItemCancelRequest noOrdersAfterDts(String noOrdersAfterDts) {
+    
+    this.noOrdersAfterDts = noOrdersAfterDts;
+    return this;
+  }
+
+   /**
+   * Date/time that will be used in an END mode (optional)
+   * @return noOrdersAfterDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time that will be used in an END mode (optional)")
+
+  public String getNoOrdersAfterDts() {
+    return noOrdersAfterDts;
+  }
+
+
+  public void setNoOrdersAfterDts(String noOrdersAfterDts) {
+    this.noOrdersAfterDts = noOrdersAfterDts;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -203,12 +230,13 @@ public class AutoOrderItemCancelRequest {
     AutoOrderItemCancelRequest autoOrderItemCancelRequest = (AutoOrderItemCancelRequest) o;
     return Objects.equals(this.appendItems, autoOrderItemCancelRequest.appendItems) &&
         Objects.equals(this.autoOrderItemOid, autoOrderItemCancelRequest.autoOrderItemOid) &&
-        Objects.equals(this.mode, autoOrderItemCancelRequest.mode);
+        Objects.equals(this.mode, autoOrderItemCancelRequest.mode) &&
+        Objects.equals(this.noOrdersAfterDts, autoOrderItemCancelRequest.noOrdersAfterDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appendItems, autoOrderItemOid, mode);
+    return Objects.hash(appendItems, autoOrderItemOid, mode, noOrdersAfterDts);
   }
 
   @Override
@@ -218,6 +246,7 @@ public class AutoOrderItemCancelRequest {
     sb.append("    appendItems: ").append(toIndentedString(appendItems)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    noOrdersAfterDts: ").append(toIndentedString(noOrdersAfterDts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -243,6 +272,7 @@ public class AutoOrderItemCancelRequest {
     openapiFields.add("append_items");
     openapiFields.add("auto_order_item_oid");
     openapiFields.add("mode");
+    openapiFields.add("no_orders_after_dts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -284,6 +314,9 @@ public class AutoOrderItemCancelRequest {
       }
       if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
+      }
+      if (jsonObj.get("no_orders_after_dts") != null && !jsonObj.get("no_orders_after_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `no_orders_after_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("no_orders_after_dts").toString()));
       }
   }
 

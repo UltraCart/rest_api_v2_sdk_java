@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxClassOfService
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
 public class ConversationPbxClassOfService {
   public static final String SERIALIZED_NAME_ALLOWED_COUNTRIES = "allowed_countries";
   @SerializedName(SERIALIZED_NAME_ALLOWED_COUNTRIES)

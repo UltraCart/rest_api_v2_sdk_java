@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationCannedMessageResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
 public class ConversationCannedMessageResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_CANNED_MESSAGE = "conversation_canned_message";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_CANNED_MESSAGE)

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentAuthResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-05T16:35:25.661-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
 public class ConversationAgentAuthResponse {
   public static final String SERIALIZED_NAME_AGENT_AUTH = "agent_auth";
   @SerializedName(SERIALIZED_NAME_AGENT_AUTH)

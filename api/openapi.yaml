@@ -65760,6 +65760,7 @@ components:
             value: value
           - name: name
             value: value
+        no_orders_after_dts: no_orders_after_dts
         auto_order_item_oid: 0
       properties:
         append_items:
@@ -65789,6 +65790,10 @@ components:
           enum:
           - end
           - remove
+          type: string
+        no_orders_after_dts:
+          description: Date/time that will be used in an END mode (optional)
+          format: dateTime
           type: string
       type: object
     AutoOrderItemFutureSchedule:
