@@ -31,6 +31,7 @@ import com.ultracart.admin.v2.models.OrderCoupon;
 import com.ultracart.admin.v2.models.OrderCurrentStageHistory;
 import com.ultracart.admin.v2.models.OrderDigitalOrder;
 import com.ultracart.admin.v2.models.OrderEdi;
+import com.ultracart.admin.v2.models.OrderEmail;
 import com.ultracart.admin.v2.models.OrderFraudScore;
 import com.ultracart.admin.v2.models.OrderGift;
 import com.ultracart.admin.v2.models.OrderGiftCertificate;
@@ -78,7 +79,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-08T11:01:40.309-04:00[America/Indianapolis]")
 public class Order {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -204,6 +205,10 @@ public class Order {
   public static final String SERIALIZED_NAME_EDI = "edi";
   @SerializedName(SERIALIZED_NAME_EDI)
   private OrderEdi edi;
+
+  public static final String SERIALIZED_NAME_EMAILS = "emails";
+  @SerializedName(SERIALIZED_NAME_EMAILS)
+  private List<OrderEmail> emails = null;
 
   public static final String SERIALIZED_NAME_EXCHANGE_RATE = "exchange_rate";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_RATE)
@@ -651,6 +656,37 @@ public class Order {
 
   public void setEdi(OrderEdi edi) {
     this.edi = edi;
+  }
+
+
+  public Order emails(List<OrderEmail> emails) {
+    
+    this.emails = emails;
+    return this;
+  }
+
+  public Order addEmailsItem(OrderEmail emailsItem) {
+    if (this.emails == null) {
+      this.emails = new ArrayList<>();
+    }
+    this.emails.add(emailsItem);
+    return this;
+  }
+
+   /**
+   * Email delivery records associated with this order.
+   * @return emails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Email delivery records associated with this order.")
+
+  public List<OrderEmail> getEmails() {
+    return emails;
+  }
+
+
+  public void setEmails(List<OrderEmail> emails) {
+    this.emails = emails;
   }
 
 
@@ -1285,6 +1321,7 @@ public class Order {
         Objects.equals(this.customerProfile, order.customerProfile) &&
         Objects.equals(this.digitalOrder, order.digitalOrder) &&
         Objects.equals(this.edi, order.edi) &&
+        Objects.equals(this.emails, order.emails) &&
         Objects.equals(this.exchangeRate, order.exchangeRate) &&
         Objects.equals(this.fraudScore, order.fraudScore) &&
         Objects.equals(this.gift, order.gift) &&
@@ -1314,7 +1351,7 @@ public class Order {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, currentStageHistories, customerProfile, digitalOrder, edi, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
+    return Objects.hash(affiliates, autoOrder, billing, buysafe, channelPartner, checkout, coupons, creationDts, currencyCode, currentStage, currentStageHistories, customerProfile, digitalOrder, edi, emails, exchangeRate, fraudScore, gift, giftCertificate, internal, items, languageIsoCode, linkedShipment, marketing, merchantId, orderId, payment, pointOfSale, properties, quote, refundDts, refundReason, rejectDts, rejectReason, salesforce, shipping, summary, tags, taxes, utms);
   }
 
   @Override
@@ -1335,6 +1372,7 @@ public class Order {
     sb.append("    customerProfile: ").append(toIndentedString(customerProfile)).append("\n");
     sb.append("    digitalOrder: ").append(toIndentedString(digitalOrder)).append("\n");
     sb.append("    edi: ").append(toIndentedString(edi)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
     sb.append("    fraudScore: ").append(toIndentedString(fraudScore)).append("\n");
     sb.append("    gift: ").append(toIndentedString(gift)).append("\n");
@@ -1396,6 +1434,7 @@ public class Order {
     openapiFields.add("customer_profile");
     openapiFields.add("digital_order");
     openapiFields.add("edi");
+    openapiFields.add("emails");
     openapiFields.add("exchange_rate");
     openapiFields.add("fraud_score");
     openapiFields.add("gift");
@@ -1524,6 +1563,18 @@ public class Order {
       // validate the optional field `edi`
       if (jsonObj.getAsJsonObject("edi") != null) {
         OrderEdi.validateJsonObject(jsonObj.getAsJsonObject("edi"));
+      }
+      JsonArray jsonArrayemails = jsonObj.getAsJsonArray("emails");
+      if (jsonArrayemails != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("emails").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `emails` to be an array in the JSON string but got `%s`", jsonObj.get("emails").toString()));
+        }
+
+        // validate the optional field `emails` (array)
+        for (int i = 0; i < jsonArrayemails.size(); i++) {
+          OrderEmail.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
+        };
       }
       // validate the optional field `fraud_score`
       if (jsonObj.getAsJsonObject("fraud_score") != null) {

@@ -38,6 +38,7 @@ import com.ultracart.admin.v2.models.OrderAddItemsAndReleaseRequest;
 import com.ultracart.admin.v2.models.OrderAssignToAffiliateRequest;
 import com.ultracart.admin.v2.models.OrderByTokenQuery;
 import com.ultracart.admin.v2.models.OrderEdiDocumentsResponse;
+import com.ultracart.admin.v2.models.OrderEmailsResponse;
 import com.ultracart.admin.v2.models.OrderFormat;
 import com.ultracart.admin.v2.models.OrderFormatResponse;
 import com.ultracart.admin.v2.models.OrderInvoiceResponse;
@@ -2828,6 +2829,153 @@ public class OrderApi {
 
         okhttp3.Call localVarCall = getOrderEdiDocumentsValidateBeforeCall(orderId, _callback);
         Type localVarReturnType = new TypeToken<OrderEdiDocumentsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getOrderEmails
+     * @param orderId The order id to retrieve email delivery information for. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getOrderEmailsCall(String orderId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/order/orders/{order_id}/emails"
+            .replaceAll("\\{" + "order_id" + "\\}", localVarApiClient.escapeString(orderId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getOrderEmailsValidateBeforeCall(String orderId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'orderId' is set
+        if (orderId == null) {
+            throw new ApiException("Missing the required parameter 'orderId' when calling getOrderEmails(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getOrderEmailsCall(orderId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve email delivery information for this order.
+     * Retrieves email delivery records associated with the specified order id. 
+     * @param orderId The order id to retrieve email delivery information for. (required)
+     * @return OrderEmailsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public OrderEmailsResponse getOrderEmails(String orderId) throws ApiException {
+        ApiResponse<OrderEmailsResponse> localVarResp = getOrderEmailsWithHttpInfo(orderId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve email delivery information for this order.
+     * Retrieves email delivery records associated with the specified order id. 
+     * @param orderId The order id to retrieve email delivery information for. (required)
+     * @return ApiResponse&lt;OrderEmailsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<OrderEmailsResponse> getOrderEmailsWithHttpInfo(String orderId) throws ApiException {
+        okhttp3.Call localVarCall = getOrderEmailsValidateBeforeCall(orderId, null);
+        Type localVarReturnType = new TypeToken<OrderEmailsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve email delivery information for this order. (asynchronously)
+     * Retrieves email delivery records associated with the specified order id. 
+     * @param orderId The order id to retrieve email delivery information for. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getOrderEmailsAsync(String orderId, final ApiCallback<OrderEmailsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getOrderEmailsValidateBeforeCall(orderId, _callback);
+        Type localVarReturnType = new TypeToken<OrderEmailsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

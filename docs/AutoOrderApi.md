@@ -10,6 +10,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid |
 | [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code |
 | [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id |
+| [**getAutoOrderEmails**](AutoOrderApi.md#getAutoOrderEmails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order. |
 | [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders |
 | [**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch |
 | [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query |
@@ -577,6 +578,49 @@ public class GetAutoOrderByReferenceOrderId {
 ### Return type
 
 [**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getAutoOrderEmails"></a>
+# **getAutoOrderEmails**
+> AutoOrderEmailsResponse getAutoOrderEmails(autoOrderOid)
+
+Retrieve email delivery information for this auto order.
+
+Retrieves email delivery records associated with the specified auto order. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to retrieve email delivery information for. | |
+
+### Return type
+
+[**AutoOrderEmailsResponse**](AutoOrderEmailsResponse.md)
 
 ### Authorization
 

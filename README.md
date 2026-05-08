@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-07T10:56:03.012-04:00[America/Indianapolis]
+- Build date: 2026-05-08T11:01:40.309-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.86</version>
+    <version>4.1.87</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.86"
+     implementation "com.ultracart:rest-sdk:4.1.87"
   }
 ```
 
@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrder**](docs/AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
+*AutoOrderApi* | [**getAutoOrderEmails**](docs/AutoOrderApi.md#getAutoOrderEmails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
 *AutoOrderApi* | [**getAutoOrders**](docs/AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
@@ -439,6 +440,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrderEdiDocuments**](docs/OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
+*OrderApi* | [**getOrderEmails**](docs/OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 *OrderApi* | [**getOrderUpsellCart**](docs/OrderApi.md#getOrderUpsellCart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 *OrderApi* | [**getOrders**](docs/OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
@@ -731,6 +733,8 @@ Class | Method | HTTP request | Description
  - [AutoOrderAddonItemOption](docs/AutoOrderAddonItemOption.md)
  - [AutoOrderAddonItemsUpdateRequest](docs/AutoOrderAddonItemsUpdateRequest.md)
  - [AutoOrderConsolidate](docs/AutoOrderConsolidate.md)
+ - [AutoOrderEmail](docs/AutoOrderEmail.md)
+ - [AutoOrderEmailsResponse](docs/AutoOrderEmailsResponse.md)
  - [AutoOrderItem](docs/AutoOrderItem.md)
  - [AutoOrderItemCancelRequest](docs/AutoOrderItemCancelRequest.md)
  - [AutoOrderItemFutureSchedule](docs/AutoOrderItemFutureSchedule.md)
@@ -1443,6 +1447,8 @@ Class | Method | HTTP request | Description
  - [OrderEdi](docs/OrderEdi.md)
  - [OrderEdiDocument](docs/OrderEdiDocument.md)
  - [OrderEdiDocumentsResponse](docs/OrderEdiDocumentsResponse.md)
+ - [OrderEmail](docs/OrderEmail.md)
+ - [OrderEmailsResponse](docs/OrderEmailsResponse.md)
  - [OrderFormat](docs/OrderFormat.md)
  - [OrderFormatResponse](docs/OrderFormatResponse.md)
  - [OrderFraudScore](docs/OrderFraudScore.md)
@@ -1760,6 +1766,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.87 | 05/08/2026 | order and auto order emails |
 | 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
 | 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |
 | 4.1.84 | 05/04/2026 | Order API - add hold stage to allowed values on order query request |

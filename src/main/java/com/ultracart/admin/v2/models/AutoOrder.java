@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.AutoOrderAddonItem;
+import com.ultracart.admin.v2.models.AutoOrderEmail;
 import com.ultracart.admin.v2.models.AutoOrderItem;
 import com.ultracart.admin.v2.models.AutoOrderLog;
 import com.ultracart.admin.v2.models.AutoOrderManagement;
@@ -55,7 +56,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-07T10:56:03.012-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-08T11:01:40.309-04:00[America/Indianapolis]")
 public class AutoOrder {
   public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
   @SerializedName(SERIALIZED_NAME_ADD_ONS)
@@ -104,6 +105,10 @@ public class AutoOrder {
   public static final String SERIALIZED_NAME_DISABLED_DTS = "disabled_dts";
   @SerializedName(SERIALIZED_NAME_DISABLED_DTS)
   private String disabledDts;
+
+  public static final String SERIALIZED_NAME_EMAILS = "emails";
+  @SerializedName(SERIALIZED_NAME_EMAILS)
+  private List<AutoOrderEmail> emails = null;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -504,6 +509,37 @@ public class AutoOrder {
 
   public void setDisabledDts(String disabledDts) {
     this.disabledDts = disabledDts;
+  }
+
+
+  public AutoOrder emails(List<AutoOrderEmail> emails) {
+    
+    this.emails = emails;
+    return this;
+  }
+
+  public AutoOrder addEmailsItem(AutoOrderEmail emailsItem) {
+    if (this.emails == null) {
+      this.emails = new ArrayList<>();
+    }
+    this.emails.add(emailsItem);
+    return this;
+  }
+
+   /**
+   * Email delivery records associated with this auto order.
+   * @return emails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Email delivery records associated with this auto order.")
+
+  public List<AutoOrderEmail> getEmails() {
+    return emails;
+  }
+
+
+  public void setEmails(List<AutoOrderEmail> emails) {
+    this.emails = emails;
   }
 
 
@@ -929,6 +965,7 @@ public class AutoOrder {
         Objects.equals(this.completed, autoOrder.completed) &&
         Objects.equals(this.creditCardAttempt, autoOrder.creditCardAttempt) &&
         Objects.equals(this.disabledDts, autoOrder.disabledDts) &&
+        Objects.equals(this.emails, autoOrder.emails) &&
         Objects.equals(this.enabled, autoOrder.enabled) &&
         Objects.equals(this.failureReason, autoOrder.failureReason) &&
         Objects.equals(this.items, autoOrder.items) &&
@@ -949,7 +986,7 @@ public class AutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, properties, rebillOrders, rotatingTransactionGatewayCode, status);
+    return Objects.hash(addOns, autoOrderCode, autoOrderOid, cancelAfterNextXOrders, cancelDowngrade, cancelReason, cancelUpgrade, canceledByUser, canceledDts, completed, creditCardAttempt, disabledDts, emails, enabled, failureReason, items, logs, management, merchantId, mergedDts, mergedIntoAutoOrderOid, nextAttempt, originalOrder, originalOrderId, overrideAffiliateId, properties, rebillOrders, rotatingTransactionGatewayCode, status);
   }
 
   @Override
@@ -968,6 +1005,7 @@ public class AutoOrder {
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
     sb.append("    creditCardAttempt: ").append(toIndentedString(creditCardAttempt)).append("\n");
     sb.append("    disabledDts: ").append(toIndentedString(disabledDts)).append("\n");
+    sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
@@ -1018,6 +1056,7 @@ public class AutoOrder {
     openapiFields.add("completed");
     openapiFields.add("credit_card_attempt");
     openapiFields.add("disabled_dts");
+    openapiFields.add("emails");
     openapiFields.add("enabled");
     openapiFields.add("failure_reason");
     openapiFields.add("items");
@@ -1087,6 +1126,18 @@ public class AutoOrder {
       }
       if (jsonObj.get("disabled_dts") != null && !jsonObj.get("disabled_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `disabled_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("disabled_dts").toString()));
+      }
+      JsonArray jsonArrayemails = jsonObj.getAsJsonArray("emails");
+      if (jsonArrayemails != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("emails").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `emails` to be an array in the JSON string but got `%s`", jsonObj.get("emails").toString()));
+        }
+
+        // validate the optional field `emails` (array)
+        for (int i = 0; i < jsonArrayemails.size(); i++) {
+          AutoOrderEmail.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("failure_reason") != null && !jsonObj.get("failure_reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `failure_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_reason").toString()));

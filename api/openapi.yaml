@@ -1249,6 +1249,92 @@ paths:
       x-codegen-request-body-name: auto_order_consolidate
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /auto_order/auto_orders/{auto_order_oid}/emails:
+    get:
+      description: |
+        Retrieves email delivery records associated with the specified auto order.
+      operationId: getAutoOrderEmails
+      parameters:
+      - description: The auto order oid to retrieve email delivery information for.
+        in: path
+        name: auto_order_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoOrderEmailsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - auto_order_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve email delivery information for this auto order.
+      tags:
+      - auto_order
+      x-accepts: application/json
   /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons:
     put:
       description: |
@@ -43246,6 +43332,91 @@ paths:
       tags:
       - order
       x-accepts: application/json
+  /order/orders/{order_id}/emails:
+    get:
+      description: |
+        Retrieves email delivery records associated with the specified order id.
+      operationId: getOrderEmails
+      parameters:
+      - description: The order id to retrieve email delivery information for.
+        in: path
+        name: order_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderEmailsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - order_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve email delivery information for this order.
+      tags:
+      - order
+      x-accepts: application/json
   /order/orders/{order_id}/format:
     post:
       description: |
@@ -54382,6 +54553,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -56263,6 +56473,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -58029,6 +58278,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -60004,6 +60292,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -61710,6 +62037,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -63310,6 +63676,45 @@ components:
         merchant_id: merchant_id
         enabled: true
         next_attempt: next_attempt
+        emails:
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
         cancel_after_next_x_orders: 5
         override_affiliate_id: 0
         add_ons:
@@ -63460,6 +63865,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -65253,6 +65697,11 @@ components:
           description: The date/time the auto order was disabled due to failed rebills
           format: dateTime
           type: string
+        emails:
+          description: Email delivery records associated with this auto order.
+          items:
+            $ref: '#/components/schemas/AutoOrderEmail'
+          type: array
         enabled:
           description: True if this auto order is enabled
           type: boolean
@@ -65403,6 +65852,156 @@ components:
           items:
             type: integer
           type: array
+      type: object
+    AutoOrderEmail:
+      example:
+        bounce_dts: bounce_dts
+        internal: true
+        subject: subject
+        delivered: true
+        message_id: message_id
+        opened: true
+        bounce_sub_type: bounce_sub_type
+        clicked: true
+        skipped: true
+        bounce_type: bounce_type
+        delivery_dts: delivery_dts
+        send_dts: send_dts
+        smtp_response: smtp_response
+        bounce_diagnostic_code: bounce_diagnostic_code
+        opened_dts: opened_dts
+        reporting_mta: reporting_mta
+        skip_reason: skip_reason
+        email: email
+        clicked_dts: clicked_dts
+      properties:
+        bounce_diagnostic_code:
+          type: string
+        bounce_dts:
+          description: Date/time that the email was bounced
+          format: dateTime
+          type: string
+        bounce_sub_type:
+          type: string
+        bounce_type:
+          type: string
+        clicked:
+          type: boolean
+        clicked_dts:
+          description: Date/time that the email was clicked
+          format: dateTime
+          type: string
+        delivered:
+          type: boolean
+        delivery_dts:
+          description: Date/time that the email was delivered
+          format: dateTime
+          type: string
+        email:
+          description: Email
+          maxLength: 100
+          type: string
+        internal:
+          type: boolean
+        message_id:
+          type: string
+        opened:
+          type: boolean
+        opened_dts:
+          description: Date/time that the email was opened
+          format: dateTime
+          type: string
+        reporting_mta:
+          type: string
+        send_dts:
+          description: Date/time that the email was sent
+          format: dateTime
+          type: string
+        skip_reason:
+          type: string
+        skipped:
+          type: boolean
+        smtp_response:
+          type: string
+        subject:
+          type: string
+      type: object
+    AutoOrderEmailsResponse:
+      example:
+        emails:
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        emails:
+          description: emails
+          items:
+            $ref: '#/components/schemas/AutoOrderEmail'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
       type: object
     AutoOrderItem:
       example:
@@ -66154,6 +66753,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -67860,6 +68498,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -69460,6 +70137,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -69610,6 +70326,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -71489,6 +72244,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -73195,6 +73989,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -74795,6 +75628,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -74945,6 +75817,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -76802,6 +77713,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -78508,6 +79458,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -80108,6 +81097,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -80258,6 +81286,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -82135,6 +83202,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -83841,6 +84947,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -85441,6 +86586,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -85591,6 +86775,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -87448,6 +88671,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -89154,6 +90416,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -90754,6 +92055,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -90904,6 +92244,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -97637,6 +99016,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -121407,6 +122825,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -123113,6 +124570,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -124713,6 +126209,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -124863,6 +126398,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -126720,6 +128294,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -128426,6 +130039,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -130026,6 +131678,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -130176,6 +131867,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -132037,6 +133767,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -133743,6 +135512,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -139326,6 +141134,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -141032,6 +142879,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -142632,6 +144518,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -142782,6 +144707,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -144639,6 +146603,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -146345,6 +148348,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -147945,6 +149987,45 @@ components:
           merchant_id: merchant_id
           enabled: true
           next_attempt: next_attempt
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           cancel_after_next_x_orders: 5
           override_affiliate_id: 0
           add_ons:
@@ -148095,6 +150176,45 @@ components:
               email: email
               evening_phone: evening_phone
               evening_phone_e164: evening_phone_e164
+            emails:
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
+            - bounce_dts: bounce_dts
+              internal: true
+              subject: subject
+              delivered: true
+              message_id: message_id
+              opened: true
+              bounce_sub_type: bounce_sub_type
+              clicked: true
+              skipped: true
+              bounce_type: bounce_type
+              delivery_dts: delivery_dts
+              send_dts: send_dts
+              smtp_response: smtp_response
+              bounce_diagnostic_code: bounce_diagnostic_code
+              opened_dts: opened_dts
+              reporting_mta: reporting_mta
+              skip_reason: skip_reason
+              email: email
+              clicked_dts: clicked_dts
             salesforce:
               salesforce_opportunity_id: salesforce_opportunity_id
             quote:
@@ -149952,6 +152072,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -151658,6 +153817,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -189044,6 +191242,45 @@ components:
           email: email
           evening_phone: evening_phone
           evening_phone_e164: evening_phone_e164
+        emails:
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
         salesforce:
           salesforce_opportunity_id: salesforce_opportunity_id
         quote:
@@ -190699,6 +192936,11 @@ components:
           $ref: '#/components/schemas/OrderDigitalOrder'
         edi:
           $ref: '#/components/schemas/OrderEdi'
+        emails:
+          description: Email delivery records associated with this order.
+          items:
+            $ref: '#/components/schemas/OrderEmail'
+          type: array
         exchange_rate:
           description: Exchange rate at the time the order was placed if currency
             code is different than the base currency
@@ -192126,6 +194368,156 @@ components:
           description: edi_documents
           items:
             $ref: '#/components/schemas/OrderEdiDocument'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    OrderEmail:
+      example:
+        bounce_dts: bounce_dts
+        internal: true
+        subject: subject
+        delivered: true
+        message_id: message_id
+        opened: true
+        bounce_sub_type: bounce_sub_type
+        clicked: true
+        skipped: true
+        bounce_type: bounce_type
+        delivery_dts: delivery_dts
+        send_dts: send_dts
+        smtp_response: smtp_response
+        bounce_diagnostic_code: bounce_diagnostic_code
+        opened_dts: opened_dts
+        reporting_mta: reporting_mta
+        skip_reason: skip_reason
+        email: email
+        clicked_dts: clicked_dts
+      properties:
+        bounce_diagnostic_code:
+          type: string
+        bounce_dts:
+          description: Date/time that the email was bounced
+          format: dateTime
+          type: string
+        bounce_sub_type:
+          type: string
+        bounce_type:
+          type: string
+        clicked:
+          type: boolean
+        clicked_dts:
+          description: Date/time that the email was clicked
+          format: dateTime
+          type: string
+        delivered:
+          type: boolean
+        delivery_dts:
+          description: Date/time that the email was delivered
+          format: dateTime
+          type: string
+        email:
+          description: Email
+          maxLength: 100
+          type: string
+        internal:
+          type: boolean
+        message_id:
+          type: string
+        opened:
+          type: boolean
+        opened_dts:
+          description: Date/time that the email was opened
+          format: dateTime
+          type: string
+        reporting_mta:
+          type: string
+        send_dts:
+          description: Date/time that the email was sent
+          format: dateTime
+          type: string
+        skip_reason:
+          type: string
+        skipped:
+          type: boolean
+        smtp_response:
+          type: string
+        subject:
+          type: string
+      type: object
+    OrderEmailsResponse:
+      example:
+        emails:
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        - bounce_dts: bounce_dts
+          internal: true
+          subject: subject
+          delivered: true
+          message_id: message_id
+          opened: true
+          bounce_sub_type: bounce_sub_type
+          clicked: true
+          skipped: true
+          bounce_type: bounce_type
+          delivery_dts: delivery_dts
+          send_dts: send_dts
+          smtp_response: smtp_response
+          bounce_diagnostic_code: bounce_diagnostic_code
+          opened_dts: opened_dts
+          reporting_mta: reporting_mta
+          skip_reason: skip_reason
+          email: email
+          clicked_dts: clicked_dts
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        emails:
+          description: emails
+          items:
+            $ref: '#/components/schemas/OrderEmail'
           type: array
         error:
           $ref: '#/components/schemas/Error'
@@ -194455,6 +196847,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -196450,6 +198881,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -198156,6 +200626,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:
@@ -201179,6 +203688,45 @@ components:
             email: email
             evening_phone: evening_phone
             evening_phone_e164: evening_phone_e164
+          emails:
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
+          - bounce_dts: bounce_dts
+            internal: true
+            subject: subject
+            delivered: true
+            message_id: message_id
+            opened: true
+            bounce_sub_type: bounce_sub_type
+            clicked: true
+            skipped: true
+            bounce_type: bounce_type
+            delivery_dts: delivery_dts
+            send_dts: send_dts
+            smtp_response: smtp_response
+            bounce_diagnostic_code: bounce_diagnostic_code
+            opened_dts: opened_dts
+            reporting_mta: reporting_mta
+            skip_reason: skip_reason
+            email: email
+            clicked_dts: clicked_dts
           salesforce:
             salesforce_opportunity_id: salesforce_opportunity_id
           quote:

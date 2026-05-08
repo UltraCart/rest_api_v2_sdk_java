@@ -19,6 +19,7 @@
 |**completed** | **Boolean** | True if the auto order ran successfully to completion |  [optional] |
 |**creditCardAttempt** | **Integer** | The number of credit card attempts that have taken place |  [optional] |
 |**disabledDts** | **String** | The date/time the auto order was disabled due to failed rebills |  [optional] |
+|**emails** | [**List&lt;AutoOrderEmail&gt;**](AutoOrderEmail.md) | Email delivery records associated with this auto order. |  [optional] |
 |**enabled** | **Boolean** | True if this auto order is enabled |  [optional] |
 |**failureReason** | **String** | The reason this auto order failed during the last rebill attempt |  [optional] |
 |**items** | [**List&lt;AutoOrderItem&gt;**](AutoOrderItem.md) | The items that are setup to rebill |  [optional] |
