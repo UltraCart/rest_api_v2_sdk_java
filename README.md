@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-08T11:01:40.309-04:00[America/Indianapolis]
+- Build date: 2026-05-08T11:35:03.388-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.87</version>
+    <version>4.1.88</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.87"
+     implementation "com.ultracart:rest-sdk:4.1.88"
   }
 ```
 
@@ -441,6 +441,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrderByToken**](docs/OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrderEdiDocuments**](docs/OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrderEmails**](docs/OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
+*OrderApi* | [**getOrderPageViewHistory**](docs/OrderApi.md#getOrderPageViewHistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
 *OrderApi* | [**getOrderUpsellCart**](docs/OrderApi.md#getOrderUpsellCart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart
 *OrderApi* | [**getOrders**](docs/OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
@@ -1467,6 +1468,10 @@ Class | Method | HTTP request | Description
  - [OrderLinkedShipment](docs/OrderLinkedShipment.md)
  - [OrderMarketing](docs/OrderMarketing.md)
  - [OrderPackingSlipResponse](docs/OrderPackingSlipResponse.md)
+ - [OrderPageView](docs/OrderPageView.md)
+ - [OrderPageViewHistoryResponse](docs/OrderPageViewHistoryResponse.md)
+ - [OrderPageViewMetaData](docs/OrderPageViewMetaData.md)
+ - [OrderPageViewParam](docs/OrderPageViewParam.md)
  - [OrderPayment](docs/OrderPayment.md)
  - [OrderPaymentCheck](docs/OrderPaymentCheck.md)
  - [OrderPaymentCreditCard](docs/OrderPaymentCreditCard.md)
@@ -1766,6 +1771,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.88 | 05/08/2026 | order page view history |
 | 4.1.87 | 05/08/2026 | order and auto order emails |
 | 4.1.86 | 05/07/2026 | rest auto order api - additional item cancel request parameter for no orders after dts |
 | 4.1.85 | 05/05/2026 | improved warning object for customer insertCustomer and updateCustomer |

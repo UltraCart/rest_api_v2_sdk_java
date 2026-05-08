@@ -23,6 +23,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getOrderByToken**](OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token |
 | [**getOrderEdiDocuments**](OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order. |
 | [**getOrderEmails**](OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order. |
+| [**getOrderPageViewHistory**](OrderApi.md#getOrderPageViewHistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order. |
 | [**getOrderUpsellCart**](OrderApi.md#getOrderUpsellCart) | **PUT** /order/orders/{order_id}/upsell_with_cart | Get Order Upsell Cart |
 | [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders |
 | [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch |
@@ -1395,6 +1396,49 @@ Retrieves email delivery records associated with the specified order id.
 ### Return type
 
 [**OrderEmailsResponse**](OrderEmailsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getOrderPageViewHistory"></a>
+# **getOrderPageViewHistory**
+> OrderPageViewHistoryResponse getOrderPageViewHistory(orderId)
+
+Retrieve page view history for this order.
+
+Retrieves the page views captured during the session that placed this order. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orderId** | **String**| The order id to retrieve page view history for. | |
+
+### Return type
+
+[**OrderPageViewHistoryResponse**](OrderPageViewHistoryResponse.md)
 
 ### Authorization
 
