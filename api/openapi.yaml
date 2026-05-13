@@ -51591,6 +51591,86 @@ paths:
       tags:
       - user
       x-accepts: application/json
+  /webhook/webhook_event_categories:
+    get:
+      description: "Retrieves the available webhook event categories and events with\
+        \ backend-owned metadata (OIDs, names, descriptions, available expansions,\
+        \ flags) independent of whether any webhooks are saved.  Used by the New Webhook\
+        \ editor so a merchant with zero webhooks can still see the catalog.\n"
+      operationId: getWebhookEventCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookEventCategoriesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - webhook_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve webhook event categories
+      tags:
+      - webhook
+      x-accepts: application/json
   /webhook/webhooks:
     delete:
       description: |
@@ -218942,7 +219022,7 @@ components:
           - available_expansions
           event_category: event_category
           events:
-          - webhook_event_oid: 1
+          - webhook_event_oid: 0
             subscribed: true
             comments: comments
             discontinued_flag: true
@@ -218952,7 +219032,7 @@ components:
             event_description: event_description
             event_name: event_name
             expansion: expansion
-          - webhook_event_oid: 1
+          - webhook_event_oid: 0
             subscribed: true
             comments: comments
             discontinued_flag: true
@@ -218969,7 +219049,7 @@ components:
           - available_expansions
           event_category: event_category
           events:
-          - webhook_event_oid: 1
+          - webhook_event_oid: 0
             subscribed: true
             comments: comments
             discontinued_flag: true
@@ -218979,7 +219059,7 @@ components:
             event_description: event_description
             event_name: event_name
             expansion: expansion
-          - webhook_event_oid: 1
+          - webhook_event_oid: 0
             subscribed: true
             comments: comments
             discontinued_flag: true
@@ -218989,15 +219069,15 @@ components:
             event_description: event_description
             event_name: event_name
             expansion: expansion
-        webhook_oid: 7
+        webhook_oid: 2
         compress_events: true
         webhook_url: webhook_url
-        pending: 2
+        pending: 5
         merchant_id: merchant_id
         api_version: 2017-03-01
         authentication_type: none
         basic_password: basic_password
-        maximum_events: 5
+        maximum_events: 1
         maximum_size: 5
         application_profile:
           api_application_logo_url: api_application_logo_url
@@ -219093,6 +219173,98 @@ components:
             information.
           type: string
       type: object
+    WebhookEventCategoriesResponse:
+      example:
+        event_categories:
+        - subscribed: true
+          any_subscribed: true
+          available_expansions:
+          - available_expansions
+          - available_expansions
+          event_category: event_category
+          events:
+          - webhook_event_oid: 0
+            subscribed: true
+            comments: comments
+            discontinued_flag: true
+            event_ruler: event_ruler
+            supports_reflow: true
+            deprecated_flag: true
+            event_description: event_description
+            event_name: event_name
+            expansion: expansion
+          - webhook_event_oid: 0
+            subscribed: true
+            comments: comments
+            discontinued_flag: true
+            event_ruler: event_ruler
+            supports_reflow: true
+            deprecated_flag: true
+            event_description: event_description
+            event_name: event_name
+            expansion: expansion
+        - subscribed: true
+          any_subscribed: true
+          available_expansions:
+          - available_expansions
+          - available_expansions
+          event_category: event_category
+          events:
+          - webhook_event_oid: 0
+            subscribed: true
+            comments: comments
+            discontinued_flag: true
+            event_ruler: event_ruler
+            supports_reflow: true
+            deprecated_flag: true
+            event_description: event_description
+            event_name: event_name
+            expansion: expansion
+          - webhook_event_oid: 0
+            subscribed: true
+            comments: comments
+            discontinued_flag: true
+            event_ruler: event_ruler
+            supports_reflow: true
+            deprecated_flag: true
+            event_description: event_description
+            event_name: event_name
+            expansion: expansion
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        event_categories:
+          items:
+            $ref: '#/components/schemas/WebhookEventCategory'
+          type: array
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
     WebhookEventCategory:
       example:
         subscribed: true
@@ -219102,7 +219274,7 @@ components:
         - available_expansions
         event_category: event_category
         events:
-        - webhook_event_oid: 1
+        - webhook_event_oid: 0
           subscribed: true
           comments: comments
           discontinued_flag: true
@@ -219112,7 +219284,7 @@ components:
           event_description: event_description
           event_name: event_name
           expansion: expansion
-        - webhook_event_oid: 1
+        - webhook_event_oid: 0
           subscribed: true
           comments: comments
           discontinued_flag: true
@@ -219147,7 +219319,7 @@ components:
       type: object
     WebhookEventSubscription:
       example:
-        webhook_event_oid: 1
+        webhook_event_oid: 0
         subscribed: true
         comments: comments
         discontinued_flag: true
@@ -219450,7 +219622,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219460,7 +219632,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219477,7 +219649,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219487,7 +219659,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219497,15 +219669,15 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-          webhook_oid: 7
+          webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
-          pending: 2
+          pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
           authentication_type: none
           basic_password: basic_password
-          maximum_events: 5
+          maximum_events: 1
           maximum_size: 5
           application_profile:
             api_application_logo_url: api_application_logo_url
@@ -219564,7 +219736,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219574,7 +219746,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219591,7 +219763,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219601,7 +219773,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219611,15 +219783,15 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-          webhook_oid: 7
+          webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
-          pending: 2
+          pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
           authentication_type: none
           basic_password: basic_password
-          maximum_events: 5
+          maximum_events: 1
           maximum_size: 5
           application_profile:
             api_application_logo_url: api_application_logo_url
@@ -219642,7 +219814,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219652,7 +219824,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219669,7 +219841,7 @@ components:
             - available_expansions
             event_category: event_category
             events:
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219679,7 +219851,7 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-            - webhook_event_oid: 1
+            - webhook_event_oid: 0
               subscribed: true
               comments: comments
               discontinued_flag: true
@@ -219689,15 +219861,15 @@ components:
               event_description: event_description
               event_name: event_name
               expansion: expansion
-          webhook_oid: 7
+          webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
-          pending: 2
+          pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
           authentication_type: none
           basic_password: basic_password
-          maximum_events: 5
+          maximum_events: 1
           maximum_size: 5
           application_profile:
             api_application_logo_url: api_application_logo_url

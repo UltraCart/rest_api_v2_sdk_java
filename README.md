@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-11T11:24:05.273-04:00[America/Indianapolis]
+- Build date: 2026-05-13T15:27:15.963-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.89</version>
+    <version>4.1.90</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.89"
+     implementation "com.ultracart:rest-sdk:4.1.90"
   }
 ```
 
@@ -684,6 +684,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PUT** /user/users/{user_id} | Update a user
 *WebhookApi* | [**deleteWebhook**](docs/WebhookApi.md#deleteWebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 *WebhookApi* | [**deleteWebhookByUrl**](docs/WebhookApi.md#deleteWebhookByUrl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
+*WebhookApi* | [**getWebhookEventCategories**](docs/WebhookApi.md#getWebhookEventCategories) | **GET** /webhook/webhook_event_categories | Retrieve webhook event categories
 *WebhookApi* | [**getWebhookLog**](docs/WebhookApi.md#getWebhookLog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 *WebhookApi* | [**getWebhookLogSummaries**](docs/WebhookApi.md#getWebhookLogSummaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 *WebhookApi* | [**getWebhooks**](docs/WebhookApi.md#getWebhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -1661,6 +1662,7 @@ Class | Method | HTTP request | Description
  - [VerificationRecord](docs/VerificationRecord.md)
  - [Warning](docs/Warning.md)
  - [Webhook](docs/Webhook.md)
+ - [WebhookEventCategoriesResponse](docs/WebhookEventCategoriesResponse.md)
  - [WebhookEventCategory](docs/WebhookEventCategory.md)
  - [WebhookEventSubscription](docs/WebhookEventSubscription.md)
  - [WebhookLog](docs/WebhookLog.md)
@@ -1771,6 +1773,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
 | 4.1.88 | 05/08/2026 | order page view history |
 | 4.1.87 | 05/08/2026 | order and auto order emails |
