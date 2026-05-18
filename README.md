@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-13T15:27:15.963-04:00[America/Indianapolis]
+- Build date: 2026-05-18T11:52:08.944-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.90</version>
+    <version>4.1.91</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.90"
+     implementation "com.ultracart:rest-sdk:4.1.91"
   }
 ```
 
@@ -1773,6 +1773,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.91 | 05/18/2026 | ChannelPartner - support creation_dts on import of a store_completed (historical) order |
 | 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |
 | 4.1.88 | 05/08/2026 | order page view history |

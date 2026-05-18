@@ -32,6 +32,7 @@
 |**channelPartnerOrderId** | **String** | The id for this order within the channel partner system. |  [optional] |
 |**considerRecurring** | **Boolean** | If true this order is marked as an auto order (recurring) |  [optional] |
 |**coupons** | **List&lt;String&gt;** | Array of coupon codes |  [optional] |
+|**creationDts** | **String** | Date/time the original order was placed on the channel partner&#39;s system, in ISO8601 format. Only honored when store_completed is true (historical order imports). Rejected on live orders. |  [optional] |
 |**creditCardAuthorizationAmount** | **BigDecimal** | The amount authorized externally |  [optional] |
 |**creditCardAuthorizationDts** | **String** | Date/Time of credit card authorization in ISO8601 format |  [optional] |
 |**creditCardAuthorizationNumber** | **String** | The reference number provided by an externally processed transaction |  [optional] |

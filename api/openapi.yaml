@@ -112662,6 +112662,7 @@ components:
         cc_email: cc_email
         shipto_evening_phone: shipto_evening_phone
         arbitrary_tax: 6.027456183070403
+        creation_dts: creation_dts
         echeck_customer_tax_id: echeck_customer_tax_id
         echeck_bank_account_number: echeck_bank_account_number
         hosted_fields_card_token: hosted_fields_card_token
@@ -112886,6 +112887,12 @@ components:
           items:
             type: string
           type: array
+        creation_dts:
+          description: "Date/time the original order was placed on the channel partner's\
+            \ system, in ISO8601 format. Only honored when store_completed is true\
+            \ (historical order imports). Rejected on live orders."
+          format: dateTime
+          type: string
         credit_card_authorization_amount:
           description: The amount authorized externally
           type: number
