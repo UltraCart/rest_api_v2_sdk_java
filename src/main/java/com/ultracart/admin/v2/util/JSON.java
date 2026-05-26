@@ -120,6 +120,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderAddonItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderAddonItemOption.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderAddonItemsUpdateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderCancelReason.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderCancelReasonsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderConsolidate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderEmail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.AutoOrderEmailsResponse.CustomTypeAdapterFactory());

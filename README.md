@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-05-18T11:52:08.944-04:00[America/Indianapolis]
+- Build date: 2026-05-26T09:34:33.401-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.91</version>
+    <version>4.1.92</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.91"
+     implementation "com.ultracart:rest-sdk:4.1.92"
   }
 ```
 
@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrder**](docs/AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
+*AutoOrderApi* | [**getAutoOrderCancelReasons**](docs/AutoOrderApi.md#getAutoOrderCancelReasons) | **GET** /auto_order/auto_orders/cancel_reasons | Retrieve auto order cancel reasons.
 *AutoOrderApi* | [**getAutoOrderEmails**](docs/AutoOrderApi.md#getAutoOrderEmails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
 *AutoOrderApi* | [**getAutoOrders**](docs/AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
@@ -734,6 +735,8 @@ Class | Method | HTTP request | Description
  - [AutoOrderAddonItem](docs/AutoOrderAddonItem.md)
  - [AutoOrderAddonItemOption](docs/AutoOrderAddonItemOption.md)
  - [AutoOrderAddonItemsUpdateRequest](docs/AutoOrderAddonItemsUpdateRequest.md)
+ - [AutoOrderCancelReason](docs/AutoOrderCancelReason.md)
+ - [AutoOrderCancelReasonsResponse](docs/AutoOrderCancelReasonsResponse.md)
  - [AutoOrderConsolidate](docs/AutoOrderConsolidate.md)
  - [AutoOrderEmail](docs/AutoOrderEmail.md)
  - [AutoOrderEmailsResponse](docs/AutoOrderEmailsResponse.md)
@@ -1773,6 +1776,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.92 | 05/26/2026 | AutoOrderApi.getAutoOrderCancelReasons |
 | 4.1.91 | 05/18/2026 | ChannelPartner - support creation_dts on import of a store_completed (historical) order |
 | 4.1.90 | 05/13/2026 | webhook rest api - new method getWebhookEventCategories |
 | 4.1.89 | 05/11/2026 | auto order item level webhooks - cancel scheduled, cancel, pause, reactive, and unpause |

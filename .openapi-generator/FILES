@@ -33,6 +33,8 @@ docs/AutoOrderAddonItem.md
 docs/AutoOrderAddonItemOption.md
 docs/AutoOrderAddonItemsUpdateRequest.md
 docs/AutoOrderApi.md
+docs/AutoOrderCancelReason.md
+docs/AutoOrderCancelReasonsResponse.md
 docs/AutoOrderConsolidate.md
 docs/AutoOrderEmail.md
 docs/AutoOrderEmailsResponse.md
@@ -1068,6 +1070,8 @@ src/main/java/com/ultracart/admin/v2/models/AutoOrder.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItem.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderAddonItemsUpdateRequest.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderCancelReason.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderCancelReasonsResponse.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderConsolidate.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderEmail.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderEmailsResponse.java

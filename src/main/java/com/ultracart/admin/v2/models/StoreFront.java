@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * StoreFront
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T11:52:08.944-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-26T09:34:33.401-04:00[America/Indianapolis]")
 public class StoreFront {
   public static final String SERIALIZED_NAME_HOST_ALIAS1 = "host_alias1";
   @SerializedName(SERIALIZED_NAME_HOST_ALIAS1)

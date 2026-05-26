@@ -57,7 +57,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T11:52:08.944-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-26T09:34:33.401-04:00[America/Indianapolis]")
 public class LibraryItem {
   public static final String SERIALIZED_NAME_ASSETS = "assets";
   @SerializedName(SERIALIZED_NAME_ASSETS)

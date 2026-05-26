@@ -457,6 +457,84 @@ paths:
       x-codegen-request-body-name: auto_orders_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /auto_order/auto_orders/cancel_reasons:
+    get:
+      description: |
+        Retrieves auto order cancel reasons.
+      operationId: getAutoOrderCancelReasons
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoOrderCancelReasonsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - auto_order_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve auto order cancel reasons.
+      tags:
+      - auto_order
+      x-accepts: application/json
   /auto_order/auto_orders/code/{auto_order_code}:
     get:
       description: |
@@ -66006,6 +66084,67 @@ components:
           items:
             $ref: '#/components/schemas/AutoOrderAddonItem'
           type: array
+      type: object
+    AutoOrderCancelReason:
+      example:
+        myaccount_alternate_description: myaccount_alternate_description
+        reason: reason
+        visible_in_myaccount: true
+      properties:
+        myaccount_alternate_description:
+          description: MyAccount alternate description
+          type: string
+        reason:
+          description: Auto order cancel reason
+          type: string
+        visible_in_myaccount:
+          description: Visible in MyAccount
+          type: boolean
+      type: object
+    AutoOrderCancelReasonsResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        cancelReasons:
+        - myaccount_alternate_description: myaccount_alternate_description
+          reason: reason
+          visible_in_myaccount: true
+        - myaccount_alternate_description: myaccount_alternate_description
+          reason: reason
+          visible_in_myaccount: true
+      properties:
+        cancelReasons:
+          description: cancel_reasons
+          items:
+            $ref: '#/components/schemas/AutoOrderCancelReason'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
       type: object
     AutoOrderConsolidate:
       example:
