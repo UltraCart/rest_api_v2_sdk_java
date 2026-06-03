@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderAddonItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T16:19:18.981-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T21:34:02.997-04:00[America/Indianapolis]")
 public class AutoOrderAddonItem {
   public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)

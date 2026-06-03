@@ -71,7 +71,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OauthDeviceAuthorizationResponse'
+          description: Successful response
         "400":
           content:
             application/json:
@@ -192764,6 +192768,13 @@ components:
           type: boolean
       type: object
     OauthDeviceAuthorizationResponse:
+      example:
+        user_code: user_code
+        device_code: device_code
+        interval: 6
+        verification_uri_complete: verification_uri_complete
+        verification_uri: verification_uri
+        expires_in: 0
       properties:
         device_code:
           description: The device verification code

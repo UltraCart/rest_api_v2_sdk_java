@@ -56,7 +56,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentStatusTimelineResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T16:19:18.981-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T21:34:02.997-04:00[America/Indianapolis]")
 public class ConversationAgentStatusTimelineResponse {
   public static final String SERIALIZED_NAME_CALL_EVENTS = "call_events";
   @SerializedName(SERIALIZED_NAME_CALL_EVENTS)

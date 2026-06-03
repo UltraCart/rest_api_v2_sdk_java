@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.ultracart.admin.v2.models.ErrorResponse;
+import com.ultracart.admin.v2.models.OauthDeviceAuthorizationResponse;
 import com.ultracart.admin.v2.models.OauthRevokeSuccessResponse;
 import com.ultracart.admin.v2.models.OauthTokenResponse;
 
@@ -294,7 +295,7 @@ public class OauthApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -376,17 +377,19 @@ public class OauthApi {
      * Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
      * @param clientId The OAuth application client_id. (required)
      * @param scope The application-level scope (e.g., crm, ultraship). (required)
+     * @return OauthDeviceAuthorizationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public void oauthDeviceAuthorize(String clientId, String scope) throws ApiException {
-        oauthDeviceAuthorizeWithHttpInfo(clientId, scope);
+    public OauthDeviceAuthorizationResponse oauthDeviceAuthorize(String clientId, String scope) throws ApiException {
+        ApiResponse<OauthDeviceAuthorizationResponse> localVarResp = oauthDeviceAuthorizeWithHttpInfo(clientId, scope);
+        return localVarResp.getData();
     }
 
     /**
@@ -394,19 +397,20 @@ public class OauthApi {
      * Initiates the device authorization flow by returning a device code and user code. The device displays the user code to the merchant, who visits the verification URI to approve the request. RFC 8628. 
      * @param clientId The OAuth application client_id. (required)
      * @param scope The application-level scope (e.g., crm, ultraship). (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;OauthDeviceAuthorizationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Void> oauthDeviceAuthorizeWithHttpInfo(String clientId, String scope) throws ApiException {
+    public ApiResponse<OauthDeviceAuthorizationResponse> oauthDeviceAuthorizeWithHttpInfo(String clientId, String scope) throws ApiException {
         okhttp3.Call localVarCall = oauthDeviceAuthorizeValidateBeforeCall(clientId, scope, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<OauthDeviceAuthorizationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -420,15 +424,16 @@ public class OauthApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call oauthDeviceAuthorizeAsync(String clientId, String scope, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call oauthDeviceAuthorizeAsync(String clientId, String scope, final ApiCallback<OauthDeviceAuthorizationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = oauthDeviceAuthorizeValidateBeforeCall(clientId, scope, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<OauthDeviceAuthorizationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

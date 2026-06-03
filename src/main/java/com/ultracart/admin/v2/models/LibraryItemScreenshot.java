@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryItemScreenshot
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T16:19:18.981-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T21:34:02.997-04:00[America/Indianapolis]")
 public class LibraryItemScreenshot {
   public static final String SERIALIZED_NAME_DEFAULT_URL = "default_url";
   @SerializedName(SERIALIZED_NAME_DEFAULT_URL)
