@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomDashboardSchedule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T21:34:02.997-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
 public class CustomDashboardSchedule {
   public static final String SERIALIZED_NAME_CRON_TRIGGER_EXPRESSION = "cron_trigger_expression";
   @SerializedName(SERIALIZED_NAME_CRON_TRIGGER_EXPRESSION)

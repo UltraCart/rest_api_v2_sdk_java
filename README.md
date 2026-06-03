@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-02T21:34:02.997-04:00[America/Indianapolis]
+- Build date: 2026-06-03T05:09:10.655-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.95</version>
+    <version>4.1.96</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.95"
+     implementation "com.ultracart:rest-sdk:4.1.96"
   }
 ```
 
@@ -1794,6 +1794,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.96 | 06/03/2026 | fraud api alpha build |
 | 4.1.95 | 06/02/2026 | fraud api alpha version |
 | 4.1.94 | 06/02/2026 | fraud api alpha version |
 | 4.1.93 | 06/02/2026 | fraud api alpha version for testing |

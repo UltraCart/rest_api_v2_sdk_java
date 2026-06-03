@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRulePublic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-02T21:34:02.997-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
 public class FraudRulePublic {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -336,68 +336,9 @@ public class FraudRulePublic {
   @SerializedName(SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAY_FILTERS)
   private List<FraudRuleRotatingTransactionGatewayFilter> rotatingTransactionGatewayFilters = null;
 
-  /**
-   * Group containing this rule type (eg &#39;creditCardRules&#39;)
-   */
-  @JsonAdapter(RuleGroupEnum.Adapter.class)
-  public enum RuleGroupEnum {
-    EXEMPTRULES("exemptRules"),
-    
-    CREDITCARDRULES("creditCardRules"),
-    
-    IPRULES("ipRules"),
-    
-    ADDRESSRULES("addressRules"),
-    
-    AFFILIATERULES("affiliateRules"),
-    
-    ITEMRULES("itemRules"),
-    
-    ORDERRULES("orderRules"),
-    
-    BROWSERRULES("browserRules");
-
-    private String value;
-
-    RuleGroupEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static RuleGroupEnum fromValue(String value) {
-      for (RuleGroupEnum b : RuleGroupEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<RuleGroupEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RuleGroupEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public RuleGroupEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return RuleGroupEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_RULE_GROUP = "rule_group";
   @SerializedName(SERIALIZED_NAME_RULE_GROUP)
-  private RuleGroupEnum ruleGroup;
+  private String ruleGroup;
 
   /**
    * Rule type.
@@ -1367,25 +1308,25 @@ public class FraudRulePublic {
   }
 
 
-  public FraudRulePublic ruleGroup(RuleGroupEnum ruleGroup) {
+  public FraudRulePublic ruleGroup(String ruleGroup) {
     
     this.ruleGroup = ruleGroup;
     return this;
   }
 
    /**
-   * Group containing this rule type (eg &#39;creditCardRules&#39;)
+   * Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.
    * @return ruleGroup
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group containing this rule type (eg 'creditCardRules')")
+  @ApiModelProperty(value = "Group containing this rule type (eg 'creditCardRules'). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set.")
 
-  public RuleGroupEnum getRuleGroup() {
+  public String getRuleGroup() {
     return ruleGroup;
   }
 
 
-  public void setRuleGroup(RuleGroupEnum ruleGroup) {
+  public void setRuleGroup(String ruleGroup) {
     this.ruleGroup = ruleGroup;
   }
 

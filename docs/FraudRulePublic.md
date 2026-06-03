@@ -40,7 +40,7 @@
 |**modifySkipAffiliate** | **Boolean** |  |  [optional] |
 |**modifySkipAffiliateNetworkPixel** | **Boolean** |  |  [optional] |
 |**rotatingTransactionGatewayFilters** | [**List&lt;FraudRuleRotatingTransactionGatewayFilter&gt;**](FraudRuleRotatingTransactionGatewayFilter.md) |  |  [optional] |
-|**ruleGroup** | [**RuleGroupEnum**](#RuleGroupEnum) | Group containing this rule type (eg &#39;creditCardRules&#39;) |  [optional] |
+|**ruleGroup** | **String** | Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set. |  [optional] |
 |**ruleType** | [**RuleTypeEnum**](#RuleTypeEnum) | Rule type. |  [optional] |
 |**storefrontFilters** | [**List&lt;FraudRuleStorefrontFilter&gt;**](FraudRuleStorefrontFilter.md) |  |  [optional] |
 |**userAction** | [**UserActionEnum**](#UserActionEnum) |  |  [optional] |
@@ -75,21 +75,6 @@
 |---- | -----|
 | ADDRESS | &quot;address&quot; |
 | SUBNET | &quot;subnet&quot; |
-
-
-
-## Enum: RuleGroupEnum
-
-| Name | Value |
-|---- | -----|
-| EXEMPTRULES | &quot;exemptRules&quot; |
-| CREDITCARDRULES | &quot;creditCardRules&quot; |
-| IPRULES | &quot;ipRules&quot; |
-| ADDRESSRULES | &quot;addressRules&quot; |
-| AFFILIATERULES | &quot;affiliateRules&quot; |
-| ITEMRULES | &quot;itemRules&quot; |
-| ORDERRULES | &quot;orderRules&quot; |
-| BROWSERRULES | &quot;browserRules&quot; |
 
 
 

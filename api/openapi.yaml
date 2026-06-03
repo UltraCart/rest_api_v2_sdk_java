@@ -177087,7 +177087,7 @@ components:
         gateway_response_codes: gateway_response_codes
         ip_range_type: address
         modify_custom_field4: modify_custom_field4
-        rule_group: exemptRules
+        rule_group: rule_group
         country_code: country_code
         modify_custom_field3: modify_custom_field3
         avs_match_type: match
@@ -177202,16 +177202,11 @@ components:
             $ref: '#/components/schemas/FraudRuleRotatingTransactionGatewayFilter'
           type: array
         rule_group:
-          description: Group containing this rule type (eg 'creditCardRules')
-          enum:
-          - exemptRules
-          - creditCardRules
-          - ipRules
-          - addressRules
-          - affiliateRules
-          - itemRules
-          - orderRules
-          - browserRules
+          description: Group containing this rule type (eg 'creditCardRules'). Deliberately
+            not constrained by allowableValues on the response so SDK consumers do
+            not hard-fail on an unexpected value if a future rule_type slips through
+            the server-side mapping. Search REQUESTS still restrict rule_group to
+            the known set.
           type: string
         rule_type:
           description: Rule type.
@@ -177319,7 +177314,7 @@ components:
           gateway_response_codes: gateway_response_codes
           ip_range_type: address
           modify_custom_field4: modify_custom_field4
-          rule_group: exemptRules
+          rule_group: rule_group
           country_code: country_code
           modify_custom_field3: modify_custom_field3
           avs_match_type: match
@@ -177610,7 +177605,7 @@ components:
           gateway_response_codes: gateway_response_codes
           ip_range_type: address
           modify_custom_field4: modify_custom_field4
-          rule_group: exemptRules
+          rule_group: rule_group
           country_code: country_code
           modify_custom_field3: modify_custom_field3
           avs_match_type: match
@@ -177659,7 +177654,7 @@ components:
           gateway_response_codes: gateway_response_codes
           ip_range_type: address
           modify_custom_field4: modify_custom_field4
-          rule_group: exemptRules
+          rule_group: rule_group
           country_code: country_code
           modify_custom_field3: modify_custom_field3
           avs_match_type: match
