@@ -7,42 +7,42 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**affiliateOid** | **Integer** |  |  [optional] |
-|**amountThreshold** | **BigDecimal** |  |  [optional] |
-|**autoNote** | **String** |  |  [optional] |
+|**affiliateOid** | **Integer** | Affiliate oid for the &#39;affiliate matches&#39; rule type. |  [optional] |
+|**amountThreshold** | **BigDecimal** | Monetary or score threshold for amount/score/percentage rule types. |  [optional] |
+|**autoNote** | **String** | Note automatically appended to the order&#39;s merchant note when this rule fires. |  [optional] |
 |**avsMatchType** | [**AvsMatchTypeEnum**](#AvsMatchTypeEnum) |  |  [optional] |
-|**avsResponseCodes** | **String** |  |  [optional] |
+|**avsResponseCodes** | **String** | AVS response codes for the &#39;address street and zip avs&#39; rule type. |  [optional] |
 |**cardNumber** | **String** | Masked credit card number for rules tied to a specific card |  [optional] |
-|**countThreshold** | **Integer** |  |  [optional] |
-|**countryCode** | **String** |  |  [optional] |
+|**countThreshold** | **Integer** | Integer count threshold for count/quantity/hours rule types. |  [optional] |
+|**countryCode** | **String** | ISO country code for the &#39;address not in country&#39; rule type. |  [optional] |
 |**createdBy** | **String** |  |  [optional] |
 |**createdDts** | **String** | Created date |  [optional] |
-|**creditCardBins** | **Object** | Credit card BINs blocked by the &#39;credit card block bin&#39; rule type. |  [optional] |
-|**declineMessage** | **String** |  |  [optional] |
+|**creditCardBins** | **List&lt;String&gt;** | Credit card BINs blocked by the &#39;credit card block bin&#39; rule type. |  [optional] |
+|**declineMessage** | **String** | Message shown in the A/R review screen when this rule fires. |  [optional] |
 |**description** | **String** | Human-readable description of the rule |  [optional] |
 |**descriptionHtml** | **String** | HTML version of the rule description |  [optional] |
-|**email** | **String** |  |  [optional] |
+|**email** | **String** | Email address for the &#39;address email&#39; rule type. |  [optional] |
 |**failureAction** | [**FailureActionEnum**](#FailureActionEnum) | Action taken when this rule fires. |  [optional] |
 |**fraudRuleOid** | **Integer** | UltraCart unique identifier for this fraud rule |  [optional] |
-|**gatewayResponseCodes** | **String** |  |  [optional] |
-|**gatewayResponseValue** | **String** |  |  [optional] |
-|**ipAddress** | **String** |  |  [optional] |
+|**gatewayResponseCodes** | **String** | Gateway response code key for the &#39;gateway response&#39; rule type. |  [optional] |
+|**gatewayResponseValue** | **String** | Gateway response code value for the &#39;gateway response&#39; rule type. |  [optional] |
+|**ipAddress** | **String** | IP address or subnet for &#39;exempt ip&#39; and &#39;ip matches&#39; rule types. |  [optional] |
 |**ipRangeType** | [**IpRangeTypeEnum**](#IpRangeTypeEnum) |  |  [optional] |
-|**itemFilters** | [**List&lt;FraudRuleItemFilter&gt;**](FraudRuleItemFilter.md) |  |  [optional] |
-|**merchantItemId** | **String** |  |  [optional] |
-|**modifyCustomField1** | **String** |  |  [optional] |
-|**modifyCustomField2** | **String** |  |  [optional] |
-|**modifyCustomField3** | **String** |  |  [optional] |
-|**modifyCustomField4** | **String** |  |  [optional] |
-|**modifyCustomField5** | **String** |  |  [optional] |
-|**modifyCustomField6** | **String** |  |  [optional] |
-|**modifyCustomField7** | **String** |  |  [optional] |
-|**modifySkipAffiliate** | **Boolean** |  |  [optional] |
-|**modifySkipAffiliateNetworkPixel** | **Boolean** |  |  [optional] |
-|**rotatingTransactionGatewayFilters** | [**List&lt;FraudRuleRotatingTransactionGatewayFilter&gt;**](FraudRuleRotatingTransactionGatewayFilter.md) |  |  [optional] |
+|**itemFilters** | [**List&lt;FraudRuleItemFilter&gt;**](FraudRuleItemFilter.md) | Item filters restricting this rule to orders containing one or more of these items. |  [optional] |
+|**merchantItemId** | **String** | Merchant item id for the &#39;item matches&#39; rule type. |  [optional] |
+|**modifyCustomField1** | **String** | Value the rule sets on order custom field 1 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField2** | **String** | Value the rule sets on order custom field 2 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField3** | **String** | Value the rule sets on order custom field 3 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField4** | **String** | Value the rule sets on order custom field 4 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField5** | **String** | Value the rule sets on order custom field 5 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField6** | **String** | Value the rule sets on order custom field 6 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifyCustomField7** | **String** | Value the rule sets on order custom field 7 (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifySkipAffiliate** | **Boolean** | When true, the rule strips the affiliate from the order (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**modifySkipAffiliateNetworkPixel** | **Boolean** | When true, the rule suppresses the affiliate network pixel (only meaningful for &#39;Process Payment and Modify&#39;). |  [optional] |
+|**rotatingTransactionGatewayFilters** | [**List&lt;FraudRuleRotatingTransactionGatewayFilter&gt;**](FraudRuleRotatingTransactionGatewayFilter.md) | Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways. |  [optional] |
 |**ruleGroup** | **String** | Group containing this rule type (eg &#39;creditCardRules&#39;). Deliberately not constrained by allowableValues on the response so SDK consumers do not hard-fail on an unexpected value if a future rule_type slips through the server-side mapping. Search REQUESTS still restrict rule_group to the known set. |  [optional] |
 |**ruleType** | [**RuleTypeEnum**](#RuleTypeEnum) | Rule type. |  [optional] |
-|**storefrontFilters** | [**List&lt;FraudRuleStorefrontFilter&gt;**](FraudRuleStorefrontFilter.md) |  |  [optional] |
+|**storefrontFilters** | [**List&lt;FraudRuleStorefrontFilter&gt;**](FraudRuleStorefrontFilter.md) | Storefront filters restricting this rule to orders placed on one of these storefronts. |  [optional] |
 |**userAction** | [**UserActionEnum**](#UserActionEnum) |  |  [optional] |
 
 

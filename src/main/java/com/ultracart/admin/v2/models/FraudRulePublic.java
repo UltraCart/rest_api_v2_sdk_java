@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRulePublic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T09:40:49.293-04:00[America/Indianapolis]")
 public class FraudRulePublic {
   public static final String SERIALIZED_NAME_AFFILIATE_OID = "affiliate_oid";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID)
@@ -146,7 +146,7 @@ public class FraudRulePublic {
 
   public static final String SERIALIZED_NAME_CREDIT_CARD_BINS = "credit_card_bins";
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD_BINS)
-  private Object creditCardBins;
+  private List<String> creditCardBins = null;
 
   public static final String SERIALIZED_NAME_DECLINE_MESSAGE = "decline_message";
   @SerializedName(SERIALIZED_NAME_DECLINE_MESSAGE)
@@ -540,11 +540,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get affiliateOid
+   * Affiliate oid for the &#39;affiliate matches&#39; rule type.
    * @return affiliateOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Affiliate oid for the 'affiliate matches' rule type.")
 
   public Integer getAffiliateOid() {
     return affiliateOid;
@@ -563,11 +563,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get amountThreshold
+   * Monetary or score threshold for amount/score/percentage rule types.
    * @return amountThreshold
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Monetary or score threshold for amount/score/percentage rule types.")
 
   public BigDecimal getAmountThreshold() {
     return amountThreshold;
@@ -586,11 +586,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get autoNote
+   * Note automatically appended to the order&#39;s merchant note when this rule fires.
    * @return autoNote
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Note automatically appended to the order's merchant note when this rule fires.")
 
   public String getAutoNote() {
     return autoNote;
@@ -632,11 +632,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get avsResponseCodes
+   * AVS response codes for the &#39;address street and zip avs&#39; rule type.
    * @return avsResponseCodes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "AVS response codes for the 'address street and zip avs' rule type.")
 
   public String getAvsResponseCodes() {
     return avsResponseCodes;
@@ -678,11 +678,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get countThreshold
+   * Integer count threshold for count/quantity/hours rule types.
    * @return countThreshold
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Integer count threshold for count/quantity/hours rule types.")
 
   public Integer getCountThreshold() {
     return countThreshold;
@@ -701,11 +701,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get countryCode
+   * ISO country code for the &#39;address not in country&#39; rule type.
    * @return countryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "ISO country code for the 'address not in country' rule type.")
 
   public String getCountryCode() {
     return countryCode;
@@ -763,9 +763,17 @@ public class FraudRulePublic {
   }
 
 
-  public FraudRulePublic creditCardBins(Object creditCardBins) {
+  public FraudRulePublic creditCardBins(List<String> creditCardBins) {
     
     this.creditCardBins = creditCardBins;
+    return this;
+  }
+
+  public FraudRulePublic addCreditCardBinsItem(String creditCardBinsItem) {
+    if (this.creditCardBins == null) {
+      this.creditCardBins = new ArrayList<>();
+    }
+    this.creditCardBins.add(creditCardBinsItem);
     return this;
   }
 
@@ -776,12 +784,12 @@ public class FraudRulePublic {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Credit card BINs blocked by the 'credit card block bin' rule type.")
 
-  public Object getCreditCardBins() {
+  public List<String> getCreditCardBins() {
     return creditCardBins;
   }
 
 
-  public void setCreditCardBins(Object creditCardBins) {
+  public void setCreditCardBins(List<String> creditCardBins) {
     this.creditCardBins = creditCardBins;
   }
 
@@ -793,11 +801,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get declineMessage
+   * Message shown in the A/R review screen when this rule fires.
    * @return declineMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Message shown in the A/R review screen when this rule fires.")
 
   public String getDeclineMessage() {
     return declineMessage;
@@ -862,11 +870,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get email
+   * Email address for the &#39;address email&#39; rule type.
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Email address for the 'address email' rule type.")
 
   public String getEmail() {
     return email;
@@ -931,11 +939,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get gatewayResponseCodes
+   * Gateway response code key for the &#39;gateway response&#39; rule type.
    * @return gatewayResponseCodes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gateway response code key for the 'gateway response' rule type.")
 
   public String getGatewayResponseCodes() {
     return gatewayResponseCodes;
@@ -954,11 +962,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get gatewayResponseValue
+   * Gateway response code value for the &#39;gateway response&#39; rule type.
    * @return gatewayResponseValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gateway response code value for the 'gateway response' rule type.")
 
   public String getGatewayResponseValue() {
     return gatewayResponseValue;
@@ -977,11 +985,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get ipAddress
+   * IP address or subnet for &#39;exempt ip&#39; and &#39;ip matches&#39; rule types.
    * @return ipAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "IP address or subnet for 'exempt ip' and 'ip matches' rule types.")
 
   public String getIpAddress() {
     return ipAddress;
@@ -1031,11 +1039,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get itemFilters
+   * Item filters restricting this rule to orders containing one or more of these items.
    * @return itemFilters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Item filters restricting this rule to orders containing one or more of these items.")
 
   public List<FraudRuleItemFilter> getItemFilters() {
     return itemFilters;
@@ -1054,11 +1062,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get merchantItemId
+   * Merchant item id for the &#39;item matches&#39; rule type.
    * @return merchantItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Merchant item id for the 'item matches' rule type.")
 
   public String getMerchantItemId() {
     return merchantItemId;
@@ -1077,11 +1085,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField1
+   * Value the rule sets on order custom field 1 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 1 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField1() {
     return modifyCustomField1;
@@ -1100,11 +1108,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField2
+   * Value the rule sets on order custom field 2 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 2 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField2() {
     return modifyCustomField2;
@@ -1123,11 +1131,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField3
+   * Value the rule sets on order custom field 3 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField3
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 3 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField3() {
     return modifyCustomField3;
@@ -1146,11 +1154,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField4
+   * Value the rule sets on order custom field 4 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 4 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField4() {
     return modifyCustomField4;
@@ -1169,11 +1177,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField5
+   * Value the rule sets on order custom field 5 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField5
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 5 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField5() {
     return modifyCustomField5;
@@ -1192,11 +1200,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField6
+   * Value the rule sets on order custom field 6 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField6
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 6 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField6() {
     return modifyCustomField6;
@@ -1215,11 +1223,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifyCustomField7
+   * Value the rule sets on order custom field 7 (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifyCustomField7
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Value the rule sets on order custom field 7 (only meaningful for 'Process Payment and Modify').")
 
   public String getModifyCustomField7() {
     return modifyCustomField7;
@@ -1238,11 +1246,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifySkipAffiliate
+   * When true, the rule strips the affiliate from the order (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifySkipAffiliate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When true, the rule strips the affiliate from the order (only meaningful for 'Process Payment and Modify').")
 
   public Boolean getModifySkipAffiliate() {
     return modifySkipAffiliate;
@@ -1261,11 +1269,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get modifySkipAffiliateNetworkPixel
+   * When true, the rule suppresses the affiliate network pixel (only meaningful for &#39;Process Payment and Modify&#39;).
    * @return modifySkipAffiliateNetworkPixel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When true, the rule suppresses the affiliate network pixel (only meaningful for 'Process Payment and Modify').")
 
   public Boolean getModifySkipAffiliateNetworkPixel() {
     return modifySkipAffiliateNetworkPixel;
@@ -1292,11 +1300,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get rotatingTransactionGatewayFilters
+   * Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.
    * @return rotatingTransactionGatewayFilters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Gateway filters restricting this rule to orders processed by one of these rotating transaction gateways.")
 
   public List<FraudRuleRotatingTransactionGatewayFilter> getRotatingTransactionGatewayFilters() {
     return rotatingTransactionGatewayFilters;
@@ -1369,11 +1377,11 @@ public class FraudRulePublic {
   }
 
    /**
-   * Get storefrontFilters
+   * Storefront filters restricting this rule to orders placed on one of these storefronts.
    * @return storefrontFilters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Storefront filters restricting this rule to orders placed on one of these storefronts.")
 
   public List<FraudRuleStorefrontFilter> getStorefrontFilters() {
     return storefrontFilters;
@@ -1609,6 +1617,10 @@ public class FraudRulePublic {
       }
       if (jsonObj.get("created_dts") != null && !jsonObj.get("created_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_dts").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("credit_card_bins") != null && !jsonObj.get("credit_card_bins").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `credit_card_bins` to be an array in the JSON string but got `%s`", jsonObj.get("credit_card_bins").toString()));
       }
       if (jsonObj.get("decline_message") != null && !jsonObj.get("decline_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `decline_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decline_message").toString()));

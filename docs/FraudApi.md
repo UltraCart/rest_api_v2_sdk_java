@@ -4,8 +4,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**declineEmail**](FraudApi.md#declineEmail) | **POST** /fraud/decline_email | Decline emails during checkout fraud review |
+| [**declineEmail**](FraudApi.md#declineEmail) | **POST** /fraud/decline_email | Decline email during checkout fraud review |
 | [**deleteFraudRule**](FraudApi.md#deleteFraudRule) | **DELETE** /fraud/rules/{fraud_rule_oid} | Delete a fraud rule |
+| [**establishFraudRulesFromOrder**](FraudApi.md#establishFraudRulesFromOrder) | **POST** /fraud/rules/from_order | Establish fraud rules from an order |
 | [**getFraudLookupValues**](FraudApi.md#getFraudLookupValues) | **GET** /fraud/lookup_values | Retrieve fraud rule lookup values |
 | [**insertFraudRule**](FraudApi.md#insertFraudRule) | **POST** /fraud/rules | Insert a fraud rule |
 | [**searchFraudRules**](FraudApi.md#searchFraudRules) | **POST** /fraud/rules/search | Search fraud rules |
@@ -15,9 +16,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 # **declineEmail**
 > declineEmail(fraudDeclineEmailsRequest)
 
-Decline emails during checkout fraud review
+Decline email during checkout fraud review
 
-Adds one or more email addresses to the fraud decline list for this merchant account. 
+Adds one email address to the fraud decline list for this merchant account. 
 
 ### Example
 
@@ -91,6 +92,49 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="establishFraudRulesFromOrder"></a>
+# **establishFraudRulesFromOrder**
+> FraudRulesResponse establishFraudRulesFromOrder(fraudRuleFromOrderRequest)
+
+Establish fraud rules from an order
+
+Creates one or more fraud rules for this merchant account derived from an existing order, mirroring the &#39;establish fraud filter&#39; action in the order processing screen. Select which filters to establish; all values are taken from the order. The IP rule is created against the order&#39;s /24 subnet (last octet masked). The credit card filter duplicates the order&#39;s stored card vault token, so no card number is sent through the API. Filters whose order data is missing (no stored card, no email, no usable IP, or no numeric street) are skipped and reported in the warning slot rather than failing the request. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **fraudRuleFromOrderRequest** | [**FraudRuleFromOrderRequest**](FraudRuleFromOrderRequest.md)| Fraud rule from order request | |
+
+### Return type
+
+[**FraudRulesResponse**](FraudRulesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

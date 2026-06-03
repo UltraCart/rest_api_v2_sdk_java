@@ -599,8 +599,12 @@ docs/FileManagerUploadRequest.md
 docs/FileManagerUploadUrlResponse.md
 docs/FraudApi.md
 docs/FraudDeclineEmailRequest.md
+docs/FraudLookupAffiliate.md
+docs/FraudLookupGateway.md
+docs/FraudLookupTheme.md
 docs/FraudLookupValues.md
 docs/FraudLookupValuesResponse.md
+docs/FraudRuleFromOrderRequest.md
 docs/FraudRuleInsertRequest.md
 docs/FraudRuleItemFilter.md
 docs/FraudRulePublic.md
@@ -1641,8 +1645,12 @@ src/main/java/com/ultracart/admin/v2/models/FileManagerPageResponse.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerUploadRequest.java
 src/main/java/com/ultracart/admin/v2/models/FileManagerUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/FraudDeclineEmailRequest.java
+src/main/java/com/ultracart/admin/v2/models/FraudLookupAffiliate.java
+src/main/java/com/ultracart/admin/v2/models/FraudLookupGateway.java
+src/main/java/com/ultracart/admin/v2/models/FraudLookupTheme.java
 src/main/java/com/ultracart/admin/v2/models/FraudLookupValues.java
 src/main/java/com/ultracart/admin/v2/models/FraudLookupValuesResponse.java
+src/main/java/com/ultracart/admin/v2/models/FraudRuleFromOrderRequest.java
 src/main/java/com/ultracart/admin/v2/models/FraudRuleInsertRequest.java
 src/main/java/com/ultracart/admin/v2/models/FraudRuleItemFilter.java
 src/main/java/com/ultracart/admin/v2/models/FraudRulePublic.java

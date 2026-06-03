@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentCallEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T09:40:49.293-04:00[America/Indianapolis]")
 public class ConversationAgentCallEvent {
   public static final String SERIALIZED_NAME_CALL_UUID = "call_uuid";
   @SerializedName(SERIALIZED_NAME_CALL_UUID)

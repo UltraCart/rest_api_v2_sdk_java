@@ -20,9 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.FraudLookupAffiliate;
+import com.ultracart.admin.v2.models.FraudLookupGateway;
+import com.ultracart.admin.v2.models.FraudLookupTheme;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,38 +52,66 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudLookupValues
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T09:40:49.293-04:00[America/Indianapolis]")
 public class FraudLookupValues {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
-  private Object affiliates;
+  private List<FraudLookupAffiliate> affiliates = null;
+
+  public static final String SERIALIZED_NAME_AVS_MATCH_TYPES = "avs_match_types";
+  @SerializedName(SERIALIZED_NAME_AVS_MATCH_TYPES)
+  private List<String> avsMatchTypes = null;
 
   public static final String SERIALIZED_NAME_COUNTRIES = "countries";
   @SerializedName(SERIALIZED_NAME_COUNTRIES)
-  private Object countries;
+  private List<String> countries = null;
+
+  public static final String SERIALIZED_NAME_FAILURE_ACTIONS = "failure_actions";
+  @SerializedName(SERIALIZED_NAME_FAILURE_ACTIONS)
+  private List<String> failureActions = null;
 
   public static final String SERIALIZED_NAME_IP_RANGE_TYPES = "ip_range_types";
   @SerializedName(SERIALIZED_NAME_IP_RANGE_TYPES)
-  private Object ipRangeTypes;
+  private List<String> ipRangeTypes = null;
 
   public static final String SERIALIZED_NAME_LINKED_ACCOUNTS = "linked_accounts";
   @SerializedName(SERIALIZED_NAME_LINKED_ACCOUNTS)
   private Boolean linkedAccounts;
 
+  public static final String SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAYS = "rotating_transaction_gateways";
+  @SerializedName(SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAYS)
+  private List<FraudLookupGateway> rotatingTransactionGateways = null;
+
   public static final String SERIALIZED_NAME_RULE_GROUPS = "rule_groups";
   @SerializedName(SERIALIZED_NAME_RULE_GROUPS)
-  private Object ruleGroups;
+  private List<String> ruleGroups = null;
 
   public static final String SERIALIZED_NAME_RULE_TYPES = "rule_types";
   @SerializedName(SERIALIZED_NAME_RULE_TYPES)
-  private Object ruleTypes;
+  private List<String> ruleTypes = null;
+
+  public static final String SERIALIZED_NAME_SCREEN_BRANDING_THEMES = "screen_branding_themes";
+  @SerializedName(SERIALIZED_NAME_SCREEN_BRANDING_THEMES)
+  private List<FraudLookupTheme> screenBrandingThemes = null;
+
+  public static final String SERIALIZED_NAME_USER_ACTIONS = "user_actions";
+  @SerializedName(SERIALIZED_NAME_USER_ACTIONS)
+  private List<String> userActions = null;
 
   public FraudLookupValues() { 
   }
 
-  public FraudLookupValues affiliates(Object affiliates) {
+  public FraudLookupValues affiliates(List<FraudLookupAffiliate> affiliates) {
     
     this.affiliates = affiliates;
+    return this;
+  }
+
+  public FraudLookupValues addAffiliatesItem(FraudLookupAffiliate affiliatesItem) {
+    if (this.affiliates == null) {
+      this.affiliates = new ArrayList<>();
+    }
+    this.affiliates.add(affiliatesItem);
     return this;
   }
 
@@ -89,19 +122,58 @@ public class FraudLookupValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Affiliates with non-empty email, sorted by email.")
 
-  public Object getAffiliates() {
+  public List<FraudLookupAffiliate> getAffiliates() {
     return affiliates;
   }
 
 
-  public void setAffiliates(Object affiliates) {
+  public void setAffiliates(List<FraudLookupAffiliate> affiliates) {
     this.affiliates = affiliates;
   }
 
 
-  public FraudLookupValues countries(Object countries) {
+  public FraudLookupValues avsMatchTypes(List<String> avsMatchTypes) {
+    
+    this.avsMatchTypes = avsMatchTypes;
+    return this;
+  }
+
+  public FraudLookupValues addAvsMatchTypesItem(String avsMatchTypesItem) {
+    if (this.avsMatchTypes == null) {
+      this.avsMatchTypes = new ArrayList<>();
+    }
+    this.avsMatchTypes.add(avsMatchTypesItem);
+    return this;
+  }
+
+   /**
+   * Valid values for avs_match_type on the &#39;address street and zip avs&#39; rule type.
+   * @return avsMatchTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Valid values for avs_match_type on the 'address street and zip avs' rule type.")
+
+  public List<String> getAvsMatchTypes() {
+    return avsMatchTypes;
+  }
+
+
+  public void setAvsMatchTypes(List<String> avsMatchTypes) {
+    this.avsMatchTypes = avsMatchTypes;
+  }
+
+
+  public FraudLookupValues countries(List<String> countries) {
     
     this.countries = countries;
+    return this;
+  }
+
+  public FraudLookupValues addCountriesItem(String countriesItem) {
+    if (this.countries == null) {
+      this.countries = new ArrayList<>();
+    }
+    this.countries.add(countriesItem);
     return this;
   }
 
@@ -112,19 +184,58 @@ public class FraudLookupValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ISO country codes available to this merchant.")
 
-  public Object getCountries() {
+  public List<String> getCountries() {
     return countries;
   }
 
 
-  public void setCountries(Object countries) {
+  public void setCountries(List<String> countries) {
     this.countries = countries;
   }
 
 
-  public FraudLookupValues ipRangeTypes(Object ipRangeTypes) {
+  public FraudLookupValues failureActions(List<String> failureActions) {
+    
+    this.failureActions = failureActions;
+    return this;
+  }
+
+  public FraudLookupValues addFailureActionsItem(String failureActionsItem) {
+    if (this.failureActions == null) {
+      this.failureActions = new ArrayList<>();
+    }
+    this.failureActions.add(failureActionsItem);
+    return this;
+  }
+
+   /**
+   * Valid values for failure_action on insert and search requests.
+   * @return failureActions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Valid values for failure_action on insert and search requests.")
+
+  public List<String> getFailureActions() {
+    return failureActions;
+  }
+
+
+  public void setFailureActions(List<String> failureActions) {
+    this.failureActions = failureActions;
+  }
+
+
+  public FraudLookupValues ipRangeTypes(List<String> ipRangeTypes) {
     
     this.ipRangeTypes = ipRangeTypes;
+    return this;
+  }
+
+  public FraudLookupValues addIpRangeTypesItem(String ipRangeTypesItem) {
+    if (this.ipRangeTypes == null) {
+      this.ipRangeTypes = new ArrayList<>();
+    }
+    this.ipRangeTypes.add(ipRangeTypesItem);
     return this;
   }
 
@@ -135,12 +246,12 @@ public class FraudLookupValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Valid values for ip_range_type on IP-based rules.")
 
-  public Object getIpRangeTypes() {
+  public List<String> getIpRangeTypes() {
     return ipRangeTypes;
   }
 
 
-  public void setIpRangeTypes(Object ipRangeTypes) {
+  public void setIpRangeTypes(List<String> ipRangeTypes) {
     this.ipRangeTypes = ipRangeTypes;
   }
 
@@ -168,9 +279,48 @@ public class FraudLookupValues {
   }
 
 
-  public FraudLookupValues ruleGroups(Object ruleGroups) {
+  public FraudLookupValues rotatingTransactionGateways(List<FraudLookupGateway> rotatingTransactionGateways) {
+    
+    this.rotatingTransactionGateways = rotatingTransactionGateways;
+    return this;
+  }
+
+  public FraudLookupValues addRotatingTransactionGatewaysItem(FraudLookupGateway rotatingTransactionGatewaysItem) {
+    if (this.rotatingTransactionGateways == null) {
+      this.rotatingTransactionGateways = new ArrayList<>();
+    }
+    this.rotatingTransactionGateways.add(rotatingTransactionGatewaysItem);
+    return this;
+  }
+
+   /**
+   * Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert.
+   * @return rotatingTransactionGateways
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Rotating transaction gateways configured for this merchant. Use the oid as a value in rotating_transaction_gateway_filters on insert.")
+
+  public List<FraudLookupGateway> getRotatingTransactionGateways() {
+    return rotatingTransactionGateways;
+  }
+
+
+  public void setRotatingTransactionGateways(List<FraudLookupGateway> rotatingTransactionGateways) {
+    this.rotatingTransactionGateways = rotatingTransactionGateways;
+  }
+
+
+  public FraudLookupValues ruleGroups(List<String> ruleGroups) {
     
     this.ruleGroups = ruleGroups;
+    return this;
+  }
+
+  public FraudLookupValues addRuleGroupsItem(String ruleGroupsItem) {
+    if (this.ruleGroups == null) {
+      this.ruleGroups = new ArrayList<>();
+    }
+    this.ruleGroups.add(ruleGroupsItem);
     return this;
   }
 
@@ -181,19 +331,27 @@ public class FraudLookupValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Valid values for rule_group on search requests.")
 
-  public Object getRuleGroups() {
+  public List<String> getRuleGroups() {
     return ruleGroups;
   }
 
 
-  public void setRuleGroups(Object ruleGroups) {
+  public void setRuleGroups(List<String> ruleGroups) {
     this.ruleGroups = ruleGroups;
   }
 
 
-  public FraudLookupValues ruleTypes(Object ruleTypes) {
+  public FraudLookupValues ruleTypes(List<String> ruleTypes) {
     
     this.ruleTypes = ruleTypes;
+    return this;
+  }
+
+  public FraudLookupValues addRuleTypesItem(String ruleTypesItem) {
+    if (this.ruleTypes == null) {
+      this.ruleTypes = new ArrayList<>();
+    }
+    this.ruleTypes.add(ruleTypesItem);
     return this;
   }
 
@@ -204,13 +362,75 @@ public class FraudLookupValues {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Valid values for rule_type on insert and search requests.")
 
-  public Object getRuleTypes() {
+  public List<String> getRuleTypes() {
     return ruleTypes;
   }
 
 
-  public void setRuleTypes(Object ruleTypes) {
+  public void setRuleTypes(List<String> ruleTypes) {
     this.ruleTypes = ruleTypes;
+  }
+
+
+  public FraudLookupValues screenBrandingThemes(List<FraudLookupTheme> screenBrandingThemes) {
+    
+    this.screenBrandingThemes = screenBrandingThemes;
+    return this;
+  }
+
+  public FraudLookupValues addScreenBrandingThemesItem(FraudLookupTheme screenBrandingThemesItem) {
+    if (this.screenBrandingThemes == null) {
+      this.screenBrandingThemes = new ArrayList<>();
+    }
+    this.screenBrandingThemes.add(screenBrandingThemesItem);
+    return this;
+  }
+
+   /**
+   * Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert.
+   * @return screenBrandingThemes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Screen branding themes configured for this merchant. Use the oid as a value in screen_branding_theme_filters on insert.")
+
+  public List<FraudLookupTheme> getScreenBrandingThemes() {
+    return screenBrandingThemes;
+  }
+
+
+  public void setScreenBrandingThemes(List<FraudLookupTheme> screenBrandingThemes) {
+    this.screenBrandingThemes = screenBrandingThemes;
+  }
+
+
+  public FraudLookupValues userActions(List<String> userActions) {
+    
+    this.userActions = userActions;
+    return this;
+  }
+
+  public FraudLookupValues addUserActionsItem(String userActionsItem) {
+    if (this.userActions == null) {
+      this.userActions = new ArrayList<>();
+    }
+    this.userActions.add(userActionsItem);
+    return this;
+  }
+
+   /**
+   * Valid values for user_action on rule types that distinguish between attempted and approved transactions.
+   * @return userActions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Valid values for user_action on rule types that distinguish between attempted and approved transactions.")
+
+  public List<String> getUserActions() {
+    return userActions;
+  }
+
+
+  public void setUserActions(List<String> userActions) {
+    this.userActions = userActions;
   }
 
 
@@ -225,16 +445,21 @@ public class FraudLookupValues {
     }
     FraudLookupValues fraudLookupValues = (FraudLookupValues) o;
     return Objects.equals(this.affiliates, fraudLookupValues.affiliates) &&
+        Objects.equals(this.avsMatchTypes, fraudLookupValues.avsMatchTypes) &&
         Objects.equals(this.countries, fraudLookupValues.countries) &&
+        Objects.equals(this.failureActions, fraudLookupValues.failureActions) &&
         Objects.equals(this.ipRangeTypes, fraudLookupValues.ipRangeTypes) &&
         Objects.equals(this.linkedAccounts, fraudLookupValues.linkedAccounts) &&
+        Objects.equals(this.rotatingTransactionGateways, fraudLookupValues.rotatingTransactionGateways) &&
         Objects.equals(this.ruleGroups, fraudLookupValues.ruleGroups) &&
-        Objects.equals(this.ruleTypes, fraudLookupValues.ruleTypes);
+        Objects.equals(this.ruleTypes, fraudLookupValues.ruleTypes) &&
+        Objects.equals(this.screenBrandingThemes, fraudLookupValues.screenBrandingThemes) &&
+        Objects.equals(this.userActions, fraudLookupValues.userActions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliates, countries, ipRangeTypes, linkedAccounts, ruleGroups, ruleTypes);
+    return Objects.hash(affiliates, avsMatchTypes, countries, failureActions, ipRangeTypes, linkedAccounts, rotatingTransactionGateways, ruleGroups, ruleTypes, screenBrandingThemes, userActions);
   }
 
   @Override
@@ -242,11 +467,16 @@ public class FraudLookupValues {
     StringBuilder sb = new StringBuilder();
     sb.append("class FraudLookupValues {\n");
     sb.append("    affiliates: ").append(toIndentedString(affiliates)).append("\n");
+    sb.append("    avsMatchTypes: ").append(toIndentedString(avsMatchTypes)).append("\n");
     sb.append("    countries: ").append(toIndentedString(countries)).append("\n");
+    sb.append("    failureActions: ").append(toIndentedString(failureActions)).append("\n");
     sb.append("    ipRangeTypes: ").append(toIndentedString(ipRangeTypes)).append("\n");
     sb.append("    linkedAccounts: ").append(toIndentedString(linkedAccounts)).append("\n");
+    sb.append("    rotatingTransactionGateways: ").append(toIndentedString(rotatingTransactionGateways)).append("\n");
     sb.append("    ruleGroups: ").append(toIndentedString(ruleGroups)).append("\n");
     sb.append("    ruleTypes: ").append(toIndentedString(ruleTypes)).append("\n");
+    sb.append("    screenBrandingThemes: ").append(toIndentedString(screenBrandingThemes)).append("\n");
+    sb.append("    userActions: ").append(toIndentedString(userActions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -270,11 +500,16 @@ public class FraudLookupValues {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("affiliates");
+    openapiFields.add("avs_match_types");
     openapiFields.add("countries");
+    openapiFields.add("failure_actions");
     openapiFields.add("ip_range_types");
     openapiFields.add("linked_accounts");
+    openapiFields.add("rotating_transaction_gateways");
     openapiFields.add("rule_groups");
     openapiFields.add("rule_types");
+    openapiFields.add("screen_branding_themes");
+    openapiFields.add("user_actions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -301,6 +536,70 @@ public class FraudLookupValues {
         if (!FraudLookupValues.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FraudLookupValues` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayaffiliates = jsonObj.getAsJsonArray("affiliates");
+      if (jsonArrayaffiliates != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("affiliates").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `affiliates` to be an array in the JSON string but got `%s`", jsonObj.get("affiliates").toString()));
+        }
+
+        // validate the optional field `affiliates` (array)
+        for (int i = 0; i < jsonArrayaffiliates.size(); i++) {
+          FraudLookupAffiliate.validateJsonObject(jsonArrayaffiliates.get(i).getAsJsonObject());
+        };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("avs_match_types") != null && !jsonObj.get("avs_match_types").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `avs_match_types` to be an array in the JSON string but got `%s`", jsonObj.get("avs_match_types").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("countries") != null && !jsonObj.get("countries").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `countries` to be an array in the JSON string but got `%s`", jsonObj.get("countries").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("failure_actions") != null && !jsonObj.get("failure_actions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failure_actions` to be an array in the JSON string but got `%s`", jsonObj.get("failure_actions").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("ip_range_types") != null && !jsonObj.get("ip_range_types").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ip_range_types` to be an array in the JSON string but got `%s`", jsonObj.get("ip_range_types").toString()));
+      }
+      JsonArray jsonArrayrotatingTransactionGateways = jsonObj.getAsJsonArray("rotating_transaction_gateways");
+      if (jsonArrayrotatingTransactionGateways != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("rotating_transaction_gateways").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `rotating_transaction_gateways` to be an array in the JSON string but got `%s`", jsonObj.get("rotating_transaction_gateways").toString()));
+        }
+
+        // validate the optional field `rotating_transaction_gateways` (array)
+        for (int i = 0; i < jsonArrayrotatingTransactionGateways.size(); i++) {
+          FraudLookupGateway.validateJsonObject(jsonArrayrotatingTransactionGateways.get(i).getAsJsonObject());
+        };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("rule_groups") != null && !jsonObj.get("rule_groups").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rule_groups` to be an array in the JSON string but got `%s`", jsonObj.get("rule_groups").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("rule_types") != null && !jsonObj.get("rule_types").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rule_types` to be an array in the JSON string but got `%s`", jsonObj.get("rule_types").toString()));
+      }
+      JsonArray jsonArrayscreenBrandingThemes = jsonObj.getAsJsonArray("screen_branding_themes");
+      if (jsonArrayscreenBrandingThemes != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("screen_branding_themes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `screen_branding_themes` to be an array in the JSON string but got `%s`", jsonObj.get("screen_branding_themes").toString()));
+        }
+
+        // validate the optional field `screen_branding_themes` (array)
+        for (int i = 0; i < jsonArrayscreenBrandingThemes.size(); i++) {
+          FraudLookupTheme.validateJsonObject(jsonArrayscreenBrandingThemes.get(i).getAsJsonObject());
+        };
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("user_actions") != null && !jsonObj.get("user_actions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_actions` to be an array in the JSON string but got `%s`", jsonObj.get("user_actions").toString()));
       }
   }
 

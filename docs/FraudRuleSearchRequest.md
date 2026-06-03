@@ -9,34 +9,34 @@
 |------------ | ------------- | ------------- | -------------|
 |**affiliateOidOrEmail** | **String** | Affiliate oid (integer) or affiliate email. Email is resolved to oid before searching. |  [optional] |
 |**amountThresholdBegin** | **BigDecimal** | Lower bound on amount/score/percentage thresholds (rules backed by the same numeric column). |  [optional] |
-|**amountThresholdEnd** | **BigDecimal** |  |  [optional] |
+|**amountThresholdEnd** | **BigDecimal** | Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column). |  [optional] |
 |**autoNote** | **String** | Wildcard search on the rule&#39;s auto_note. Use &#39;*&#39; for wildcards. |  [optional] |
 |**countThresholdBegin** | **Integer** | Lower bound on count thresholds (rules backed by the same integer count column). |  [optional] |
-|**countThresholdEnd** | **Integer** |  |  [optional] |
-|**createdBy** | **String** |  |  [optional] |
+|**countThresholdEnd** | **Integer** | Upper bound on count thresholds (rules backed by the same integer count column). |  [optional] |
+|**createdBy** | **String** | Filter to rules created by this user login. |  [optional] |
 |**createdDateBegin** | **String** | Rule creation date begin (MM/dd/yyyy) |  [optional] |
 |**createdDateEnd** | **String** | Rule creation date end (MM/dd/yyyy) |  [optional] |
 |**creditCardPartial** | **String** | Partial credit card number for matching &#39;credit card matches&#39; rules. Use &#39;*&#39; wildcards. |  [optional] |
 |**declineMessage** | **String** | Wildcard search on the rule&#39;s decline_message. Use &#39;*&#39; for wildcards. |  [optional] |
 |**failureAction** | [**FailureActionEnum**](#FailureActionEnum) |  |  [optional] |
-|**gatewayCode** | **String** |  |  [optional] |
-|**merchantItemId** | **String** |  |  [optional] |
+|**gatewayCode** | **String** | Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list. |  [optional] |
+|**merchantItemId** | **String** | Filter to rules with this merchant item id in their item_filters list. |  [optional] |
 |**modifierValue** | **String** | Wildcard search on the rule&#39;s secondary modifier (eg &#39;address&#39;/&#39;subnet&#39;, gateway codes, avs match types). |  [optional] |
-|**modifyCustomField1** | **String** |  |  [optional] |
-|**modifyCustomField2** | **String** |  |  [optional] |
-|**modifyCustomField3** | **String** |  |  [optional] |
-|**modifyCustomField4** | **String** |  |  [optional] |
-|**modifyCustomField5** | **String** |  |  [optional] |
-|**modifyCustomField6** | **String** |  |  [optional] |
-|**modifyCustomField7** | **String** |  |  [optional] |
-|**modifySkipAffiliate** | **Boolean** |  |  [optional] |
-|**modifySkipAffiliateNetworkPixel** | **Boolean** |  |  [optional] |
+|**modifyCustomField1** | **String** | Wildcard search on rules&#39; modify_custom_field1 value. |  [optional] |
+|**modifyCustomField2** | **String** | Wildcard search on rules&#39; modify_custom_field2 value. |  [optional] |
+|**modifyCustomField3** | **String** | Wildcard search on rules&#39; modify_custom_field3 value. |  [optional] |
+|**modifyCustomField4** | **String** | Wildcard search on rules&#39; modify_custom_field4 value. |  [optional] |
+|**modifyCustomField5** | **String** | Wildcard search on rules&#39; modify_custom_field5 value. |  [optional] |
+|**modifyCustomField6** | **String** | Wildcard search on rules&#39; modify_custom_field6 value. |  [optional] |
+|**modifyCustomField7** | **String** | Wildcard search on rules&#39; modify_custom_field7 value. |  [optional] |
+|**modifySkipAffiliate** | **Boolean** | Filter to rules whose modify_skip_affiliate flag matches this value. |  [optional] |
+|**modifySkipAffiliateNetworkPixel** | **Boolean** | Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value. |  [optional] |
 |**ruleGroup** | [**RuleGroupEnum**](#RuleGroupEnum) | Rule group to filter by. |  [optional] |
 |**ruleType** | [**RuleTypeEnum**](#RuleTypeEnum) | Rule type to filter by. |  [optional] |
 |**searchLinkedAccounts** | **Boolean** | Include rules from accounts linked to this merchant. Defaults to false. |  [optional] |
-|**storefrontHostname** | **String** |  |  [optional] |
+|**storefrontHostname** | **String** | Filter to rules with this storefront hostname in their screen_branding_theme_filters list. |  [optional] |
 |**textValue** | **String** | Wildcard search on the rule&#39;s text parameter (email / ip / bin / country / item id / avs codes - the backend disambiguates by rule_type). |  [optional] |
-|**themeCode** | **String** |  |  [optional] |
+|**themeCode** | **String** | Filter to rules with this screen branding theme code in their screen_branding_theme_filters list. |  [optional] |
 |**userAction** | [**UserActionEnum**](#UserActionEnum) |  |  [optional] |
 
 

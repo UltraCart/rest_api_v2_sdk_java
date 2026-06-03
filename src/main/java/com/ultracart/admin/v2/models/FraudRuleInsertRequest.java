@@ -24,6 +24,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRuleInsertRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T09:40:49.293-04:00[America/Indianapolis]")
 public class FraudRuleInsertRequest {
   public static final String SERIALIZED_NAME_AFFILIATE_EMAIL = "affiliate_email";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_EMAIL)
@@ -133,7 +135,7 @@ public class FraudRuleInsertRequest {
 
   public static final String SERIALIZED_NAME_CREDIT_CARD_BINS = "credit_card_bins";
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD_BINS)
-  private Object creditCardBins;
+  private List<String> creditCardBins = null;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -261,7 +263,7 @@ public class FraudRuleInsertRequest {
 
   public static final String SERIALIZED_NAME_ITEM_FILTERS = "item_filters";
   @SerializedName(SERIALIZED_NAME_ITEM_FILTERS)
-  private Object itemFilters;
+  private List<String> itemFilters = null;
 
   public static final String SERIALIZED_NAME_MERCHANT_ITEM_ID = "merchant_item_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_ID)
@@ -305,7 +307,7 @@ public class FraudRuleInsertRequest {
 
   public static final String SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAY_FILTERS = "rotating_transaction_gateway_filters";
   @SerializedName(SERIALIZED_NAME_ROTATING_TRANSACTION_GATEWAY_FILTERS)
-  private Object rotatingTransactionGatewayFilters;
+  private List<Integer> rotatingTransactionGatewayFilters = null;
 
   /**
    * Rule type. Also returned by GET /v2/fraud/lookup_values.
@@ -444,7 +446,7 @@ public class FraudRuleInsertRequest {
 
   public static final String SERIALIZED_NAME_SCREEN_BRANDING_THEME_FILTERS = "screen_branding_theme_filters";
   @SerializedName(SERIALIZED_NAME_SCREEN_BRANDING_THEME_FILTERS)
-  private Object screenBrandingThemeFilters;
+  private List<Integer> screenBrandingThemeFilters = null;
 
   /**
    * Only used by rule types that distinguish between attempted and approved transactions.
@@ -684,9 +686,17 @@ public class FraudRuleInsertRequest {
   }
 
 
-  public FraudRuleInsertRequest creditCardBins(Object creditCardBins) {
+  public FraudRuleInsertRequest creditCardBins(List<String> creditCardBins) {
     
     this.creditCardBins = creditCardBins;
+    return this;
+  }
+
+  public FraudRuleInsertRequest addCreditCardBinsItem(String creditCardBinsItem) {
+    if (this.creditCardBins == null) {
+      this.creditCardBins = new ArrayList<>();
+    }
+    this.creditCardBins.add(creditCardBinsItem);
     return this;
   }
 
@@ -697,12 +707,12 @@ public class FraudRuleInsertRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Credit card BINs to block (max 20). Used by the 'credit card block bin' rule type.")
 
-  public Object getCreditCardBins() {
+  public List<String> getCreditCardBins() {
     return creditCardBins;
   }
 
 
-  public void setCreditCardBins(Object creditCardBins) {
+  public void setCreditCardBins(List<String> creditCardBins) {
     this.creditCardBins = creditCardBins;
   }
 
@@ -845,9 +855,17 @@ public class FraudRuleInsertRequest {
   }
 
 
-  public FraudRuleInsertRequest itemFilters(Object itemFilters) {
+  public FraudRuleInsertRequest itemFilters(List<String> itemFilters) {
     
     this.itemFilters = itemFilters;
+    return this;
+  }
+
+  public FraudRuleInsertRequest addItemFiltersItem(String itemFiltersItem) {
+    if (this.itemFilters == null) {
+      this.itemFilters = new ArrayList<>();
+    }
+    this.itemFilters.add(itemFiltersItem);
     return this;
   }
 
@@ -858,12 +876,12 @@ public class FraudRuleInsertRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional list of merchant item ids restricting this rule to orders containing one or more of these items.")
 
-  public Object getItemFilters() {
+  public List<String> getItemFilters() {
     return itemFilters;
   }
 
 
-  public void setItemFilters(Object itemFilters) {
+  public void setItemFilters(List<String> itemFilters) {
     this.itemFilters = itemFilters;
   }
 
@@ -898,11 +916,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField1
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 1 to this value.
    * @return modifyCustomField1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 1 to this value.")
 
   public String getModifyCustomField1() {
     return modifyCustomField1;
@@ -921,11 +939,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField2
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 2 to this value.
    * @return modifyCustomField2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 2 to this value.")
 
   public String getModifyCustomField2() {
     return modifyCustomField2;
@@ -944,11 +962,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField3
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 3 to this value.
    * @return modifyCustomField3
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 3 to this value.")
 
   public String getModifyCustomField3() {
     return modifyCustomField3;
@@ -967,11 +985,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField4
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 4 to this value.
    * @return modifyCustomField4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 4 to this value.")
 
   public String getModifyCustomField4() {
     return modifyCustomField4;
@@ -990,11 +1008,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField5
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 5 to this value.
    * @return modifyCustomField5
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 5 to this value.")
 
   public String getModifyCustomField5() {
     return modifyCustomField5;
@@ -1013,11 +1031,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField6
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 6 to this value.
    * @return modifyCustomField6
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 6 to this value.")
 
   public String getModifyCustomField6() {
     return modifyCustomField6;
@@ -1036,11 +1054,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifyCustomField7
+   * When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 7 to this value.
    * @return modifyCustomField7
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', set order custom field 7 to this value.")
 
   public String getModifyCustomField7() {
     return modifyCustomField7;
@@ -1059,11 +1077,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifySkipAffiliate
+   * When failure_action is &#39;Process Payment and Modify&#39;, strip the affiliate from the order.
    * @return modifySkipAffiliate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', strip the affiliate from the order.")
 
   public Boolean getModifySkipAffiliate() {
     return modifySkipAffiliate;
@@ -1082,11 +1100,11 @@ public class FraudRuleInsertRequest {
   }
 
    /**
-   * Get modifySkipAffiliateNetworkPixel
+   * When failure_action is &#39;Process Payment and Modify&#39;, skip firing the affiliate network pixel.
    * @return modifySkipAffiliateNetworkPixel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When failure_action is 'Process Payment and Modify', skip firing the affiliate network pixel.")
 
   public Boolean getModifySkipAffiliateNetworkPixel() {
     return modifySkipAffiliateNetworkPixel;
@@ -1098,9 +1116,17 @@ public class FraudRuleInsertRequest {
   }
 
 
-  public FraudRuleInsertRequest rotatingTransactionGatewayFilters(Object rotatingTransactionGatewayFilters) {
+  public FraudRuleInsertRequest rotatingTransactionGatewayFilters(List<Integer> rotatingTransactionGatewayFilters) {
     
     this.rotatingTransactionGatewayFilters = rotatingTransactionGatewayFilters;
+    return this;
+  }
+
+  public FraudRuleInsertRequest addRotatingTransactionGatewayFiltersItem(Integer rotatingTransactionGatewayFiltersItem) {
+    if (this.rotatingTransactionGatewayFilters == null) {
+      this.rotatingTransactionGatewayFilters = new ArrayList<>();
+    }
+    this.rotatingTransactionGatewayFilters.add(rotatingTransactionGatewayFiltersItem);
     return this;
   }
 
@@ -1111,12 +1137,12 @@ public class FraudRuleInsertRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways.")
 
-  public Object getRotatingTransactionGatewayFilters() {
+  public List<Integer> getRotatingTransactionGatewayFilters() {
     return rotatingTransactionGatewayFilters;
   }
 
 
-  public void setRotatingTransactionGatewayFilters(Object rotatingTransactionGatewayFilters) {
+  public void setRotatingTransactionGatewayFilters(List<Integer> rotatingTransactionGatewayFilters) {
     this.rotatingTransactionGatewayFilters = rotatingTransactionGatewayFilters;
   }
 
@@ -1144,9 +1170,17 @@ public class FraudRuleInsertRequest {
   }
 
 
-  public FraudRuleInsertRequest screenBrandingThemeFilters(Object screenBrandingThemeFilters) {
+  public FraudRuleInsertRequest screenBrandingThemeFilters(List<Integer> screenBrandingThemeFilters) {
     
     this.screenBrandingThemeFilters = screenBrandingThemeFilters;
+    return this;
+  }
+
+  public FraudRuleInsertRequest addScreenBrandingThemeFiltersItem(Integer screenBrandingThemeFiltersItem) {
+    if (this.screenBrandingThemeFilters == null) {
+      this.screenBrandingThemeFilters = new ArrayList<>();
+    }
+    this.screenBrandingThemeFilters.add(screenBrandingThemeFiltersItem);
     return this;
   }
 
@@ -1157,12 +1191,12 @@ public class FraudRuleInsertRequest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts.")
 
-  public Object getScreenBrandingThemeFilters() {
+  public List<Integer> getScreenBrandingThemeFilters() {
     return screenBrandingThemeFilters;
   }
 
 
-  public void setScreenBrandingThemeFilters(Object screenBrandingThemeFilters) {
+  public void setScreenBrandingThemeFilters(List<Integer> screenBrandingThemeFilters) {
     this.screenBrandingThemeFilters = screenBrandingThemeFilters;
   }
 
@@ -1365,6 +1399,10 @@ public class FraudRuleInsertRequest {
       if (jsonObj.get("country_code") != null && !jsonObj.get("country_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `country_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country_code").toString()));
       }
+      // ensure the json data is an array
+      if (jsonObj.get("credit_card_bins") != null && !jsonObj.get("credit_card_bins").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `credit_card_bins` to be an array in the JSON string but got `%s`", jsonObj.get("credit_card_bins").toString()));
+      }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
@@ -1382,6 +1420,10 @@ public class FraudRuleInsertRequest {
       }
       if (jsonObj.get("ip_range_type") != null && !jsonObj.get("ip_range_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ip_range_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip_range_type").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("item_filters") != null && !jsonObj.get("item_filters").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_filters` to be an array in the JSON string but got `%s`", jsonObj.get("item_filters").toString()));
       }
       if (jsonObj.get("merchant_item_id") != null && !jsonObj.get("merchant_item_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_item_id").toString()));
@@ -1407,8 +1449,16 @@ public class FraudRuleInsertRequest {
       if (jsonObj.get("modify_custom_field7") != null && !jsonObj.get("modify_custom_field7").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modify_custom_field7` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modify_custom_field7").toString()));
       }
+      // ensure the json data is an array
+      if (jsonObj.get("rotating_transaction_gateway_filters") != null && !jsonObj.get("rotating_transaction_gateway_filters").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rotating_transaction_gateway_filters` to be an array in the JSON string but got `%s`", jsonObj.get("rotating_transaction_gateway_filters").toString()));
+      }
       if (jsonObj.get("rule_type") != null && !jsonObj.get("rule_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rule_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rule_type").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("screen_branding_theme_filters") != null && !jsonObj.get("screen_branding_theme_filters").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `screen_branding_theme_filters` to be an array in the JSON string but got `%s`", jsonObj.get("screen_branding_theme_filters").toString()));
       }
       if (jsonObj.get("user_action") != null && !jsonObj.get("user_action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_action").toString()));

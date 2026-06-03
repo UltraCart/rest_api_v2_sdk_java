@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRuleSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T05:09:10.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-03T09:40:49.293-04:00[America/Indianapolis]")
 public class FraudRuleSearchRequest {
   public static final String SERIALIZED_NAME_AFFILIATE_OID_OR_EMAIL = "affiliate_oid_or_email";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID_OR_EMAIL)
@@ -520,11 +520,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get amountThresholdEnd
+   * Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).
    * @return amountThresholdEnd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Upper bound on amount/score/percentage thresholds (rules backed by the same numeric column).")
 
   public BigDecimal getAmountThresholdEnd() {
     return amountThresholdEnd;
@@ -589,11 +589,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get countThresholdEnd
+   * Upper bound on count thresholds (rules backed by the same integer count column).
    * @return countThresholdEnd
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Upper bound on count thresholds (rules backed by the same integer count column).")
 
   public Integer getCountThresholdEnd() {
     return countThresholdEnd;
@@ -612,11 +612,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get createdBy
+   * Filter to rules created by this user login.
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules created by this user login.")
 
   public String getCreatedBy() {
     return createdBy;
@@ -750,11 +750,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get gatewayCode
+   * Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.
    * @return gatewayCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules with this rotating transaction gateway code in their rotating_transaction_gateway_filters list.")
 
   public String getGatewayCode() {
     return gatewayCode;
@@ -773,11 +773,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get merchantItemId
+   * Filter to rules with this merchant item id in their item_filters list.
    * @return merchantItemId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules with this merchant item id in their item_filters list.")
 
   public String getMerchantItemId() {
     return merchantItemId;
@@ -819,11 +819,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField1
+   * Wildcard search on rules&#39; modify_custom_field1 value.
    * @return modifyCustomField1
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field1 value.")
 
   public String getModifyCustomField1() {
     return modifyCustomField1;
@@ -842,11 +842,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField2
+   * Wildcard search on rules&#39; modify_custom_field2 value.
    * @return modifyCustomField2
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field2 value.")
 
   public String getModifyCustomField2() {
     return modifyCustomField2;
@@ -865,11 +865,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField3
+   * Wildcard search on rules&#39; modify_custom_field3 value.
    * @return modifyCustomField3
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field3 value.")
 
   public String getModifyCustomField3() {
     return modifyCustomField3;
@@ -888,11 +888,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField4
+   * Wildcard search on rules&#39; modify_custom_field4 value.
    * @return modifyCustomField4
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field4 value.")
 
   public String getModifyCustomField4() {
     return modifyCustomField4;
@@ -911,11 +911,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField5
+   * Wildcard search on rules&#39; modify_custom_field5 value.
    * @return modifyCustomField5
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field5 value.")
 
   public String getModifyCustomField5() {
     return modifyCustomField5;
@@ -934,11 +934,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField6
+   * Wildcard search on rules&#39; modify_custom_field6 value.
    * @return modifyCustomField6
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field6 value.")
 
   public String getModifyCustomField6() {
     return modifyCustomField6;
@@ -957,11 +957,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifyCustomField7
+   * Wildcard search on rules&#39; modify_custom_field7 value.
    * @return modifyCustomField7
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Wildcard search on rules' modify_custom_field7 value.")
 
   public String getModifyCustomField7() {
     return modifyCustomField7;
@@ -980,11 +980,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifySkipAffiliate
+   * Filter to rules whose modify_skip_affiliate flag matches this value.
    * @return modifySkipAffiliate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules whose modify_skip_affiliate flag matches this value.")
 
   public Boolean getModifySkipAffiliate() {
     return modifySkipAffiliate;
@@ -1003,11 +1003,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get modifySkipAffiliateNetworkPixel
+   * Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.
    * @return modifySkipAffiliateNetworkPixel
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules whose modify_skip_affiliate_network_pixel flag matches this value.")
 
   public Boolean getModifySkipAffiliateNetworkPixel() {
     return modifySkipAffiliateNetworkPixel;
@@ -1095,11 +1095,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get storefrontHostname
+   * Filter to rules with this storefront hostname in their screen_branding_theme_filters list.
    * @return storefrontHostname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules with this storefront hostname in their screen_branding_theme_filters list.")
 
   public String getStorefrontHostname() {
     return storefrontHostname;
@@ -1141,11 +1141,11 @@ public class FraudRuleSearchRequest {
   }
 
    /**
-   * Get themeCode
+   * Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.
    * @return themeCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Filter to rules with this screen branding theme code in their screen_branding_theme_filters list.")
 
   public String getThemeCode() {
     return themeCode;

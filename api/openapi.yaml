@@ -28464,7 +28464,7 @@ paths:
   /fraud/decline_email:
     post:
       description: |
-        Adds one or more email addresses to the fraud decline list for this merchant account.
+        Adds one email address to the fraud decline list for this merchant account.
       operationId: declineEmail
       requestBody:
         content:
@@ -28539,7 +28539,7 @@ paths:
       - ultraCartOauth:
         - fraud_write
       - ultraCartSimpleApiKey: []
-      summary: Decline emails during checkout fraud review
+      summary: Decline email during checkout fraud review
       tags:
       - fraud
       x-codegen-request-body-name: fraud_decline_emails_request
@@ -28702,6 +28702,100 @@ paths:
       tags:
       - fraud
       x-codegen-request-body-name: fraud_rule_insert_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /fraud/rules/from_order:
+    post:
+      description: "Creates one or more fraud rules for this merchant account derived\
+        \ from an existing order, mirroring the 'establish fraud filter' action in\
+        \ the order processing screen. Select which filters to establish; all values\
+        \ are taken from the order. The IP rule is created against the order's /24\
+        \ subnet (last octet masked). The credit card filter duplicates the order's\
+        \ stored card vault token, so no card number is sent through the API. Filters\
+        \ whose order data is missing (no stored card, no email, no usable IP, or\
+        \ no numeric street) are skipped and reported in the warning slot rather than\
+        \ failing the request.\n"
+      operationId: establishFraudRulesFromOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FraudRuleFromOrderRequest'
+        description: Fraud rule from order request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FraudRulesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - fraud_write
+      - ultraCartSimpleApiKey: []
+      summary: Establish fraud rules from an order
+      tags:
+      - fraud
+      x-codegen-request-body-name: fraud_rule_from_order_request
       x-content-type: application/json
       x-accepts: application/json
   /fraud/rules/search:
@@ -176775,42 +176869,202 @@ components:
           description: email to decline during checkout fraud review
           type: string
       type: object
+    FraudLookupAffiliate:
+      example:
+        affiliate_oid: 0
+        email: email
+      properties:
+        affiliate_oid:
+          description: Oid of the affiliate. Use this value in affiliate_oid on insert
+            for the 'affiliate matches' rule type.
+          format: int32
+          type: integer
+        email:
+          description: Email of the affiliate. May also be supplied as affiliate_email
+            on insert in place of affiliate_oid.
+          type: string
+      type: object
+    FraudLookupGateway:
+      example:
+        code: code
+        name: name
+        rotating_transaction_gateway_oid: 6
+      properties:
+        code:
+          description: Code of the rotating transaction gateway.
+          type: string
+        name:
+          description: Display name of the rotating transaction gateway.
+          type: string
+        rotating_transaction_gateway_oid:
+          description: Oid of the rotating transaction gateway. Use this value in
+            rotating_transaction_gateway_filters on insert.
+          format: int32
+          type: integer
+      type: object
+    FraudLookupTheme:
+      example:
+        code: code
+        screen_branding_theme_oid: 1
+        storefront_hostname: storefront_hostname
+      properties:
+        code:
+          description: Code of the screen branding theme.
+          type: string
+        screen_branding_theme_oid:
+          description: Oid of the screen branding theme. Use this value in screen_branding_theme_filters
+            on insert.
+          format: int32
+          type: integer
+        storefront_hostname:
+          description: "Storefront hostname associated with this theme, when available."
+          type: string
+      type: object
     FraudLookupValues:
       example:
-        rule_types: "{}"
-        affiliates: "{}"
-        countries: "{}"
-        rule_groups: "{}"
-        ip_range_types: "{}"
+        rule_types:
+        - rule_types
+        - rule_types
+        screen_branding_themes:
+        - code: code
+          screen_branding_theme_oid: 1
+          storefront_hostname: storefront_hostname
+        - code: code
+          screen_branding_theme_oid: 1
+          storefront_hostname: storefront_hostname
+        failure_actions:
+        - failure_actions
+        - failure_actions
+        user_actions:
+        - user_actions
+        - user_actions
+        rotating_transaction_gateways:
+        - code: code
+          name: name
+          rotating_transaction_gateway_oid: 6
+        - code: code
+          name: name
+          rotating_transaction_gateway_oid: 6
+        affiliates:
+        - affiliate_oid: 0
+          email: email
+        - affiliate_oid: 0
+          email: email
+        countries:
+        - countries
+        - countries
+        rule_groups:
+        - rule_groups
+        - rule_groups
+        avs_match_types:
+        - avs_match_types
+        - avs_match_types
+        ip_range_types:
+        - ip_range_types
+        - ip_range_types
         linked_accounts: true
       properties:
         affiliates:
           description: "Affiliates with non-empty email, sorted by email."
-          type: object
+          items:
+            $ref: '#/components/schemas/FraudLookupAffiliate'
+          type: array
+        avs_match_types:
+          description: Valid values for avs_match_type on the 'address street and
+            zip avs' rule type.
+          items:
+            type: string
+          type: array
         countries:
           description: ISO country codes available to this merchant.
-          type: object
+          items:
+            type: string
+          type: array
+        failure_actions:
+          description: Valid values for failure_action on insert and search requests.
+          items:
+            type: string
+          type: array
         ip_range_types:
           description: Valid values for ip_range_type on IP-based rules.
-          type: object
+          items:
+            type: string
+          type: array
         linked_accounts:
           description: True when this merchant has at least one linked merchant account.
           type: boolean
+        rotating_transaction_gateways:
+          description: Rotating transaction gateways configured for this merchant.
+            Use the oid as a value in rotating_transaction_gateway_filters on insert.
+          items:
+            $ref: '#/components/schemas/FraudLookupGateway'
+          type: array
         rule_groups:
           description: Valid values for rule_group on search requests.
-          type: object
+          items:
+            type: string
+          type: array
         rule_types:
           description: Valid values for rule_type on insert and search requests.
-          type: object
+          items:
+            type: string
+          type: array
+        screen_branding_themes:
+          description: Screen branding themes configured for this merchant. Use the
+            oid as a value in screen_branding_theme_filters on insert.
+          items:
+            $ref: '#/components/schemas/FraudLookupTheme'
+          type: array
+        user_actions:
+          description: Valid values for user_action on rule types that distinguish
+            between attempted and approved transactions.
+          items:
+            type: string
+          type: array
       type: object
     FraudLookupValuesResponse:
       example:
         fraud_lookup_values:
-          rule_types: "{}"
-          affiliates: "{}"
-          countries: "{}"
-          rule_groups: "{}"
-          ip_range_types: "{}"
+          rule_types:
+          - rule_types
+          - rule_types
+          screen_branding_themes:
+          - code: code
+            screen_branding_theme_oid: 1
+            storefront_hostname: storefront_hostname
+          - code: code
+            screen_branding_theme_oid: 1
+            storefront_hostname: storefront_hostname
+          failure_actions:
+          - failure_actions
+          - failure_actions
+          user_actions:
+          - user_actions
+          - user_actions
+          rotating_transaction_gateways:
+          - code: code
+            name: name
+            rotating_transaction_gateway_oid: 6
+          - code: code
+            name: name
+            rotating_transaction_gateway_oid: 6
+          affiliates:
+          - affiliate_oid: 0
+            email: email
+          - affiliate_oid: 0
+            email: email
+          countries:
+          - countries
+          - countries
+          rule_groups:
+          - rule_groups
+          - rule_groups
+          avs_match_types:
+          - avs_match_types
+          - avs_match_types
+          ip_range_types:
+          - ip_range_types
+          - ip_range_types
           linked_accounts: true
         metadata:
           payload_name: payload_name
@@ -176845,6 +177099,49 @@ components:
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
+    FraudRuleFromOrderRequest:
+      example:
+        auto_note: auto_note
+        establish_email_filter: true
+        failure_action: Flag For Review
+        establish_card_filter: true
+        establish_ip_filter: true
+        order_id: order_id
+        establish_address_filter: true
+      properties:
+        auto_note:
+          description: Note automatically appended to the order's merchant note when
+            these rules fire.
+          type: string
+        establish_address_filter:
+          description: Establish an 'address street and zip avs' rule from the order's
+            ship-to street and zip.
+          type: boolean
+        establish_card_filter:
+          description: Establish a 'credit card matches' rule by duplicating the order's
+            stored card vault token. Skipped if the order has no stored card.
+          type: boolean
+        establish_email_filter:
+          description: Establish an 'address email' rule from the order's email address.
+          type: boolean
+        establish_ip_filter:
+          description: Establish an 'ip matches' subnet rule from the order's customer
+            IP address (last octet masked to a subnet).
+          type: boolean
+        failure_action:
+          description: Action to take when these rules fire. Defaults to 'Flag For
+            Review' when omitted.
+          enum:
+          - Flag For Review
+          - Process Payment and Modify
+          - Process Payment and Review
+          - Decline Transaction
+          - Exempt
+          type: string
+        order_id:
+          description: The order id to establish the fraud rule(s) from.
+          type: string
+      type: object
     FraudRuleInsertRequest:
       example:
         auto_note: auto_note
@@ -176858,9 +177155,13 @@ components:
         email: email
         merchant_item_id: merchant_item_id
         modify_skip_affiliate_network_pixel: true
-        screen_branding_theme_filters: "{}"
+        screen_branding_theme_filters:
+        - 5
+        - 5
         ip_address: ip_address
-        rotating_transaction_gateway_filters: "{}"
+        rotating_transaction_gateway_filters:
+        - 5
+        - 5
         gateway_response_codes: gateway_response_codes
         ip_range_type: address
         modify_custom_field4: modify_custom_field4
@@ -176870,12 +177171,16 @@ components:
         avs_match_type: match
         modify_custom_field2: modify_custom_field2
         modify_custom_field1: modify_custom_field1
-        item_filters: "{}"
+        item_filters:
+        - item_filters
+        - item_filters
         modify_custom_field7: modify_custom_field7
         modify_custom_field6: modify_custom_field6
         modify_custom_field5: modify_custom_field5
         gateway_response_value: gateway_response_value
-        credit_card_bins: "{}"
+        credit_card_bins:
+        - credit_card_bins
+        - credit_card_bins
         avs_response_codes: avs_response_codes
       properties:
         affiliate_email:
@@ -176919,7 +177224,9 @@ components:
         credit_card_bins:
           description: Credit card BINs to block (max 20). Used by the 'credit card
             block bin' rule type.
-          type: object
+          items:
+            type: string
+          type: array
         email:
           description: Email address. Used by the 'address email' rule type.
           type: string
@@ -176954,32 +177261,54 @@ components:
         item_filters:
           description: Optional list of merchant item ids restricting this rule to
             orders containing one or more of these items.
-          type: object
+          items:
+            type: string
+          type: array
         merchant_item_id:
           description: Merchant item id. Used by the 'item matches' rule type.
           type: string
         modify_custom_field1:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 1 to this value."
           type: string
         modify_custom_field2:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 2 to this value."
           type: string
         modify_custom_field3:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 3 to this value."
           type: string
         modify_custom_field4:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 4 to this value."
           type: string
         modify_custom_field5:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 5 to this value."
           type: string
         modify_custom_field6:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 6 to this value."
           type: string
         modify_custom_field7:
+          description: "When failure_action is 'Process Payment and Modify', set order\
+            \ custom field 7 to this value."
           type: string
         modify_skip_affiliate:
+          description: "When failure_action is 'Process Payment and Modify', strip\
+            \ the affiliate from the order."
           type: boolean
         modify_skip_affiliate_network_pixel:
+          description: "When failure_action is 'Process Payment and Modify', skip\
+            \ firing the affiliate network pixel."
           type: boolean
         rotating_transaction_gateway_filters:
           description: Optional list of rotating transaction gateway oids restricting
             this rule to orders processed by one of these gateways.
-          type: object
+          items:
+            type: integer
+          type: array
         rule_type:
           description: Rule type. Also returned by GET /v2/fraud/lookup_values.
           enum:
@@ -177031,7 +177360,9 @@ components:
         screen_branding_theme_filters:
           description: Optional list of screen branding theme oids restricting this
             rule to orders associated with one or more storefronts.
-          type: object
+          items:
+            type: integer
+          type: array
         user_action:
           description: Only used by rule types that distinguish between attempted
             and approved transactions.
@@ -177103,15 +177434,22 @@ components:
         modify_custom_field5: modify_custom_field5
         description_html: description_html
         gateway_response_value: gateway_response_value
-        credit_card_bins: "{}"
+        credit_card_bins:
+        - credit_card_bins
+        - credit_card_bins
         avs_response_codes: avs_response_codes
       properties:
         affiliate_oid:
+          description: Affiliate oid for the 'affiliate matches' rule type.
           format: int32
           type: integer
         amount_threshold:
+          description: Monetary or score threshold for amount/score/percentage rule
+            types.
           type: number
         auto_note:
+          description: Note automatically appended to the order's merchant note when
+            this rule fires.
           type: string
         avs_match_type:
           enum:
@@ -177120,14 +177458,18 @@ components:
           - partial
           type: string
         avs_response_codes:
+          description: AVS response codes for the 'address street and zip avs' rule
+            type.
           type: string
         card_number:
           description: Masked credit card number for rules tied to a specific card
           type: string
         count_threshold:
+          description: Integer count threshold for count/quantity/hours rule types.
           format: int32
           type: integer
         country_code:
+          description: ISO country code for the 'address not in country' rule type.
           type: string
         created_by:
           type: string
@@ -177138,8 +177480,11 @@ components:
         credit_card_bins:
           description: Credit card BINs blocked by the 'credit card block bin' rule
             type.
-          type: object
+          items:
+            type: string
+          type: array
         decline_message:
+          description: Message shown in the A/R review screen when this rule fires.
           type: string
         description:
           description: Human-readable description of the rule
@@ -177148,6 +177493,7 @@ components:
           description: HTML version of the rule description
           type: string
         email:
+          description: Email address for the 'address email' rule type.
           type: string
         failure_action:
           description: Action taken when this rule fires.
@@ -177163,10 +177509,15 @@ components:
           format: int32
           type: integer
         gateway_response_codes:
+          description: Gateway response code key for the 'gateway response' rule type.
           type: string
         gateway_response_value:
+          description: Gateway response code value for the 'gateway response' rule
+            type.
           type: string
         ip_address:
+          description: IP address or subnet for 'exempt ip' and 'ip matches' rule
+            types.
           type: string
         ip_range_type:
           enum:
@@ -177174,30 +177525,53 @@ components:
           - subnet
           type: string
         item_filters:
+          description: Item filters restricting this rule to orders containing one
+            or more of these items.
           items:
             $ref: '#/components/schemas/FraudRuleItemFilter'
           type: array
         merchant_item_id:
+          description: Merchant item id for the 'item matches' rule type.
           type: string
         modify_custom_field1:
+          description: Value the rule sets on order custom field 1 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field2:
+          description: Value the rule sets on order custom field 2 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field3:
+          description: Value the rule sets on order custom field 3 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field4:
+          description: Value the rule sets on order custom field 4 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field5:
+          description: Value the rule sets on order custom field 5 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field6:
+          description: Value the rule sets on order custom field 6 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_custom_field7:
+          description: Value the rule sets on order custom field 7 (only meaningful
+            for 'Process Payment and Modify').
           type: string
         modify_skip_affiliate:
+          description: "When true, the rule strips the affiliate from the order (only\
+            \ meaningful for 'Process Payment and Modify')."
           type: boolean
         modify_skip_affiliate_network_pixel:
+          description: "When true, the rule suppresses the affiliate network pixel\
+            \ (only meaningful for 'Process Payment and Modify')."
           type: boolean
         rotating_transaction_gateway_filters:
+          description: Gateway filters restricting this rule to orders processed by
+            one of these rotating transaction gateways.
           items:
             $ref: '#/components/schemas/FraudRuleRotatingTransactionGatewayFilter'
           type: array
@@ -177257,6 +177631,8 @@ components:
           - browser os linux
           type: string
         storefront_filters:
+          description: Storefront filters restricting this rule to orders placed on
+            one of these storefronts.
           items:
             $ref: '#/components/schemas/FraudRuleStorefrontFilter'
           type: array
@@ -177330,7 +177706,9 @@ components:
           modify_custom_field5: modify_custom_field5
           description_html: description_html
           gateway_response_value: gateway_response_value
-          credit_card_bins: "{}"
+          credit_card_bins:
+          - credit_card_bins
+          - credit_card_bins
           avs_response_codes: avs_response_codes
         error:
           developer_message: developer_message
@@ -177409,6 +177787,8 @@ components:
             by the same numeric column).
           type: number
         amount_threshold_end:
+          description: Upper bound on amount/score/percentage thresholds (rules backed
+            by the same numeric column).
           type: number
         auto_note:
           description: Wildcard search on the rule's auto_note. Use '*' for wildcards.
@@ -177419,9 +177799,12 @@ components:
           format: int32
           type: integer
         count_threshold_end:
+          description: Upper bound on count thresholds (rules backed by the same integer
+            count column).
           format: int32
           type: integer
         created_by:
+          description: Filter to rules created by this user login.
           type: string
         created_date_begin:
           description: Rule creation date begin (MM/dd/yyyy)
@@ -177448,30 +177831,45 @@ components:
           - Exempt
           type: string
         gateway_code:
+          description: Filter to rules with this rotating transaction gateway code
+            in their rotating_transaction_gateway_filters list.
           type: string
         merchant_item_id:
+          description: Filter to rules with this merchant item id in their item_filters
+            list.
           type: string
         modifier_value:
           description: "Wildcard search on the rule's secondary modifier (eg 'address'/'subnet',\
             \ gateway codes, avs match types)."
           type: string
         modify_custom_field1:
+          description: Wildcard search on rules' modify_custom_field1 value.
           type: string
         modify_custom_field2:
+          description: Wildcard search on rules' modify_custom_field2 value.
           type: string
         modify_custom_field3:
+          description: Wildcard search on rules' modify_custom_field3 value.
           type: string
         modify_custom_field4:
+          description: Wildcard search on rules' modify_custom_field4 value.
           type: string
         modify_custom_field5:
+          description: Wildcard search on rules' modify_custom_field5 value.
           type: string
         modify_custom_field6:
+          description: Wildcard search on rules' modify_custom_field6 value.
           type: string
         modify_custom_field7:
+          description: Wildcard search on rules' modify_custom_field7 value.
           type: string
         modify_skip_affiliate:
+          description: Filter to rules whose modify_skip_affiliate flag matches this
+            value.
           type: boolean
         modify_skip_affiliate_network_pixel:
+          description: Filter to rules whose modify_skip_affiliate_network_pixel flag
+            matches this value.
           type: boolean
         rule_group:
           description: Rule group to filter by.
@@ -177538,12 +177936,16 @@ components:
             to false.
           type: boolean
         storefront_hostname:
+          description: Filter to rules with this storefront hostname in their screen_branding_theme_filters
+            list.
           type: string
         text_value:
           description: Wildcard search on the rule's text parameter (email / ip /
             bin / country / item id / avs codes - the backend disambiguates by rule_type).
           type: string
         theme_code:
+          description: Filter to rules with this screen branding theme code in their
+            screen_branding_theme_filters list.
           type: string
         user_action:
           enum:
@@ -177621,7 +178023,9 @@ components:
           modify_custom_field5: modify_custom_field5
           description_html: description_html
           gateway_response_value: gateway_response_value
-          credit_card_bins: "{}"
+          credit_card_bins:
+          - credit_card_bins
+          - credit_card_bins
           avs_response_codes: avs_response_codes
         - auto_note: auto_note
           user_action: Attempted
@@ -177670,7 +178074,9 @@ components:
           modify_custom_field5: modify_custom_field5
           description_html: description_html
           gateway_response_value: gateway_response_value
-          credit_card_bins: "{}"
+          credit_card_bins:
+          - credit_card_bins
+          - credit_card_bins
           avs_response_codes: avs_response_codes
       properties:
         error:

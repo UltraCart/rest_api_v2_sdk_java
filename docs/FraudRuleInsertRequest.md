@@ -15,27 +15,27 @@
 |**avsResponseCodes** | **String** | AVS response codes (street). Used by the &#39;address street and zip avs&#39; rule type. |  [optional] |
 |**countThreshold** | **Integer** | Integer count threshold. Used by *count exceeds*, *change number*, *quantity exceeds*, and *purchased within last hours* rules. |  [optional] |
 |**countryCode** | **String** | ISO country code. Used by the &#39;address not in country&#39; rule type. |  [optional] |
-|**creditCardBins** | **Object** | Credit card BINs to block (max 20). Used by the &#39;credit card block bin&#39; rule type. |  [optional] |
+|**creditCardBins** | **List&lt;String&gt;** | Credit card BINs to block (max 20). Used by the &#39;credit card block bin&#39; rule type. |  [optional] |
 |**email** | **String** | Email address. Used by the &#39;address email&#39; rule type. |  [optional] |
 |**failureAction** | [**FailureActionEnum**](#FailureActionEnum) | Action to take when this rule fires. |  [optional] |
 |**gatewayResponseCodes** | **String** | Gateway response code key. Used by the &#39;gateway response&#39; rule type. |  [optional] |
 |**gatewayResponseValue** | **String** | Gateway response code value. Used by the &#39;gateway response&#39; rule type. |  [optional] |
 |**ipAddress** | **String** | IP address or subnet (eg &#39;192.168.1.1&#39; or &#39;10.0.0.0/8&#39;). Used by &#39;exempt ip&#39; and &#39;ip matches&#39; rules. |  [optional] |
 |**ipRangeType** | [**IpRangeTypeEnum**](#IpRangeTypeEnum) | Specifies whether an IP rule applies to a single address or a subnet. |  [optional] |
-|**itemFilters** | **Object** | Optional list of merchant item ids restricting this rule to orders containing one or more of these items. |  [optional] |
+|**itemFilters** | **List&lt;String&gt;** | Optional list of merchant item ids restricting this rule to orders containing one or more of these items. |  [optional] |
 |**merchantItemId** | **String** | Merchant item id. Used by the &#39;item matches&#39; rule type. |  [optional] |
-|**modifyCustomField1** | **String** |  |  [optional] |
-|**modifyCustomField2** | **String** |  |  [optional] |
-|**modifyCustomField3** | **String** |  |  [optional] |
-|**modifyCustomField4** | **String** |  |  [optional] |
-|**modifyCustomField5** | **String** |  |  [optional] |
-|**modifyCustomField6** | **String** |  |  [optional] |
-|**modifyCustomField7** | **String** |  |  [optional] |
-|**modifySkipAffiliate** | **Boolean** |  |  [optional] |
-|**modifySkipAffiliateNetworkPixel** | **Boolean** |  |  [optional] |
-|**rotatingTransactionGatewayFilters** | **Object** | Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways. |  [optional] |
+|**modifyCustomField1** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 1 to this value. |  [optional] |
+|**modifyCustomField2** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 2 to this value. |  [optional] |
+|**modifyCustomField3** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 3 to this value. |  [optional] |
+|**modifyCustomField4** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 4 to this value. |  [optional] |
+|**modifyCustomField5** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 5 to this value. |  [optional] |
+|**modifyCustomField6** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 6 to this value. |  [optional] |
+|**modifyCustomField7** | **String** | When failure_action is &#39;Process Payment and Modify&#39;, set order custom field 7 to this value. |  [optional] |
+|**modifySkipAffiliate** | **Boolean** | When failure_action is &#39;Process Payment and Modify&#39;, strip the affiliate from the order. |  [optional] |
+|**modifySkipAffiliateNetworkPixel** | **Boolean** | When failure_action is &#39;Process Payment and Modify&#39;, skip firing the affiliate network pixel. |  [optional] |
+|**rotatingTransactionGatewayFilters** | **List&lt;Integer&gt;** | Optional list of rotating transaction gateway oids restricting this rule to orders processed by one of these gateways. |  [optional] |
 |**ruleType** | [**RuleTypeEnum**](#RuleTypeEnum) | Rule type. Also returned by GET /v2/fraud/lookup_values. |  [optional] |
-|**screenBrandingThemeFilters** | **Object** | Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts. |  [optional] |
+|**screenBrandingThemeFilters** | **List&lt;Integer&gt;** | Optional list of screen branding theme oids restricting this rule to orders associated with one or more storefronts. |  [optional] |
 |**userAction** | [**UserActionEnum**](#UserActionEnum) | Only used by rule types that distinguish between attempted and approved transactions. |  [optional] |
 
 

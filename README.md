@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-03T05:09:10.655-04:00[America/Indianapolis]
+- Build date: 2026-06-03T09:40:49.293-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.96</version>
+    <version>4.1.97</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.96"
+     implementation "com.ultracart:rest-sdk:4.1.97"
   }
 ```
 
@@ -372,8 +372,9 @@ Class | Method | HTTP request | Description
 *DatawarehouseApi* | [**updateCustomReport**](docs/DatawarehouseApi.md#updateCustomReport) | **PUT** /datawarehouse/custom_reports/{custom_report_oid} | Update a custom report
 *DatawarehouseApi* | [**updateCustomReportAccountConfig**](docs/DatawarehouseApi.md#updateCustomReportAccountConfig) | **PUT** /datawarehouse/custom_reports/account_config | Update custom report account config
 *DatawarehouseApi* | [**updateReport**](docs/DatawarehouseApi.md#updateReport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
-*FraudApi* | [**declineEmail**](docs/FraudApi.md#declineEmail) | **POST** /fraud/decline_email | Decline emails during checkout fraud review
+*FraudApi* | [**declineEmail**](docs/FraudApi.md#declineEmail) | **POST** /fraud/decline_email | Decline email during checkout fraud review
 *FraudApi* | [**deleteFraudRule**](docs/FraudApi.md#deleteFraudRule) | **DELETE** /fraud/rules/{fraud_rule_oid} | Delete a fraud rule
+*FraudApi* | [**establishFraudRulesFromOrder**](docs/FraudApi.md#establishFraudRulesFromOrder) | **POST** /fraud/rules/from_order | Establish fraud rules from an order
 *FraudApi* | [**getFraudLookupValues**](docs/FraudApi.md#getFraudLookupValues) | **GET** /fraud/lookup_values | Retrieve fraud rule lookup values
 *FraudApi* | [**insertFraudRule**](docs/FraudApi.md#insertFraudRule) | **POST** /fraud/rules | Insert a fraud rule
 *FraudApi* | [**searchFraudRules**](docs/FraudApi.md#searchFraudRules) | **POST** /fraud/rules/search | Search fraud rules
@@ -1298,8 +1299,12 @@ Class | Method | HTTP request | Description
  - [FileManagerUploadRequest](docs/FileManagerUploadRequest.md)
  - [FileManagerUploadUrlResponse](docs/FileManagerUploadUrlResponse.md)
  - [FraudDeclineEmailRequest](docs/FraudDeclineEmailRequest.md)
+ - [FraudLookupAffiliate](docs/FraudLookupAffiliate.md)
+ - [FraudLookupGateway](docs/FraudLookupGateway.md)
+ - [FraudLookupTheme](docs/FraudLookupTheme.md)
  - [FraudLookupValues](docs/FraudLookupValues.md)
  - [FraudLookupValuesResponse](docs/FraudLookupValuesResponse.md)
+ - [FraudRuleFromOrderRequest](docs/FraudRuleFromOrderRequest.md)
  - [FraudRuleInsertRequest](docs/FraudRuleInsertRequest.md)
  - [FraudRuleItemFilter](docs/FraudRuleItemFilter.md)
  - [FraudRulePublic](docs/FraudRulePublic.md)
@@ -1794,6 +1799,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.97 | 06/03/2026 | fraud api alpha version |
 | 4.1.96 | 06/03/2026 | fraud api alpha build |
 | 4.1.95 | 06/02/2026 | fraud api alpha version |
 | 4.1.94 | 06/02/2026 | fraud api alpha version |
