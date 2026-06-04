@@ -158149,14 +158149,14 @@ components:
     Coupon:
       example:
         amount_shipping_with_subtotal:
-          shipping_amount: 7.457744773683766
-          purchase_amount: 6.84685269835264
+          shipping_amount: 4.965218492984954
+          purchase_amount: 1.1730742509559433
           shipping_methods:
           - shipping_methods
           - shipping_methods
           currency_code: currency_code
         percent_off_subtotal_with_items_purchase:
-          discount_percent: 8.251625748923757
+          discount_percent: 3.901545264248647
           items:
           - items
           - items
@@ -158168,21 +158168,34 @@ components:
           - shipping_methods
         amount_off_subtotal_with_block_purchase:
           required_purchase_item: required_purchase_item
-          discount_amount: 2.027123023002322
-          required_purchase_quantity: 4
+          discount_amount: 7.386281948385884
+          required_purchase_quantity: 1
           currency_code: currency_code
         super_coupon: true
         affiliate_oid: 0
+        amount_off_items_and_free_shipping:
+          shipping_methods:
+          - shipping_methods
+          - shipping_methods
+          item_tags:
+          - item_tags
+          - item_tags
+          discount_amount: 5.962133916683182
+          limit: 5
+          items:
+          - items
+          - items
+          currency_code: currency_code
         percent_off_items_with_minimum_item_amount:
           excluded_item_tags:
           - excluded_item_tags
           - excluded_item_tags
-          minimum_item_amount: 4.258773108174356
+          minimum_item_amount: 4.678947989005849
           item_tags:
           - item_tags
           - item_tags
-          limit: 6
-          discount_percent: 0.2025324113236393
+          limit: 1
+          discount_percent: 4.258773108174356
           excluded_items:
           - excluded_items
           - excluded_items
@@ -158197,8 +158210,8 @@ components:
           item_tags:
           - item_tags
           - item_tags
-          limit: 7
-          discount_percent: 3.0576100241049344
+          limit: 3
+          discount_percent: 5.533258397034986
           excluded_items:
           - excluded_items
           - excluded_items
@@ -158213,14 +158226,14 @@ components:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          discount_percent: 0.5199002018724985
+          discount_percent: 5.507386964179881
         more_loyalty_cashback:
-          loyalty_cashback: 7.143538047012306
+          loyalty_cashback: 7.058770351582356
         more_loyalty_points:
-          loyalty_points: 0.8851374739011653
+          loyalty_points: 6.519180951018382
         hide_from_customer: true
         amount_off_subtotal_and_shipping:
-          discount_amount: 3.616076749251911
+          discount_amount: 4.145608029883936
           currency_code: currency_code
         free_shipping_with_items_purchase:
           shipping_methods:
@@ -158235,36 +158248,36 @@ components:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          discount_amount: 5.637376656633329
+          discount_amount: 7.061401241503109
           items:
           - items
           - items
           currency_code: currency_code
         free_items_with_mixmatch_purchase:
           free_item: free_item
-          limit: 6
+          limit: 3
           required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-          required_purchase_quantity: 3
-          free_quantity: 5
+          required_purchase_quantity: 7
+          free_quantity: 3
         free_item_and_shipping_with_subtotal:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          limit: 8
+          limit: 6
           items:
           - items
           - items
           currency_code: currency_code
-          subtotal_amount: 9.018348186070783
+          subtotal_amount: 3.5571952270680973
         automatically_apply_coupon_codes:
           coupon_codes:
           - coupon_codes
           - coupon_codes
         percent_off_msrp_items:
-          limit: 4
-          minimum_cumulative_msrp: 7.260521264802104
-          discount_percent: 1.041444916118296
-          minimum_subtotal: 9.132027271330688
+          limit: 9
+          minimum_cumulative_msrp: 0.8774076871421566
+          discount_percent: 7.260521264802104
+          minimum_subtotal: 9.702963800023566
           excluded_items:
           - excluded_items
           - excluded_items
@@ -158272,14 +158285,14 @@ components:
           - items
           - items
         discount_items:
-          discount_price: 9.369310271410669
-          limit: 6
+          discount_price: 8.762042012749001
+          limit: 9
           items:
           - items
           - items
           currency_code: currency_code
         percent_off_subtotal:
-          discount_percent: 7.933506881737151
+          discount_percent: 4.86315908102884
         restrict_by_postal_codes:
         - restrict_by_postal_codes
         - restrict_by_postal_codes
@@ -158287,22 +158300,22 @@ components:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          discount_percent: 5.507386964179881
+          discount_percent: 6.073898085781152
         no_discount:
           ignore_this_property: true
         percent_off_item_with_items_quantity_purchase:
           item_tags:
           - item_tags
           - item_tags
-          limit: 7
+          limit: 3
           required_purchase_items:
           - required_purchase_items
           - required_purchase_items
           required_purchase_items_tags:
           - required_purchase_items_tags
           - required_purchase_items_tags
-          discount_percent: 8.969578798196912
-          required_purchase_quantity: 3
+          discount_percent: 3.0205796992916243
+          required_purchase_quantity: 7
           items:
           - items
           - items
@@ -158316,7 +158329,7 @@ components:
           item_tags:
           - item_tags
           - item_tags
-          discount_percent: 5.533258397034986
+          discount_percent: 4.078845849666752
           excluded_items:
           - excluded_items
           - excluded_items
@@ -158324,72 +158337,72 @@ components:
           - items
           - items
         amount_off_subtotal_with_purchase:
-          purchase_amount: 1.4894159098541704
-          discount_amount: 1.0246457001441578
+          purchase_amount: 7.457744773683766
+          discount_amount: 6.84685269835264
           currency_code: currency_code
         coupon_type: coupon_type
         amount_off_subtotal:
-          discount_amount: 2.3021358869347655
+          discount_amount: 9.301444243932576
           currency_code: currency_code
         free_item_with_subtotal:
-          limit: 6
+          limit: 2
           items:
           - items
           - items
           currency_code: currency_code
-          subtotal_amount: 1.284659006116532
+          subtotal_amount: 6.778324963048013
         multiple_amounts_off_items:
           discounts:
-          - discount_amount: 7.058770351582356
+          - discount_amount: 0.10263654006109402
             items:
             - items
             - items
-          - discount_amount: 7.058770351582356
+          - discount_amount: 0.10263654006109402
             items:
             - items
             - items
-          limit: 6
+          limit: 4
         percent_more_loyalty_points:
-          percent_more_loyalty_points: 4.652396432933246
+          percent_more_loyalty_points: 7.740351818741173
         free_items_with_item_purchase:
           required_purchase_item: required_purchase_item
           free_item: free_item
-          limit: 6
+          limit: 5
           required_purchase_quantity: 6
-          free_quantity: 2
+          free_quantity: 6
         description: description
         tiered_percent_off_items:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_percent: 8.863729185622827
-            item_quantity: 9
+            discount_percent: 1.8268702177058116
+            item_quantity: 3
           - quickbooks_code: quickbooks_code
-            discount_percent: 8.863729185622827
-            item_quantity: 9
+            discount_percent: 1.8268702177058116
+            item_quantity: 3
           item_tags:
           - item_tags
           - item_tags
-          limit: 4.573936264232251
+          limit: 9.254183946267839
           items:
           - items
           - items
         amount_off_subtotal_and_free_shipping:
-          purchase_amount: 9.301444243932576
+          purchase_amount: 2.027123023002322
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          discount_amount: 7.061401241503109
+          discount_amount: 3.616076749251911
           currency_code: currency_code
         percent_more_loyalty_cashback:
-          percent_more_loyalty_cashback: 0.10263654006109402
+          percent_more_loyalty_cashback: 8.969578798196912
         tiered_percent_off_subtotal_based_on_msrp:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           items:
           - items
           - items
@@ -158398,7 +158411,7 @@ components:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          limit: 3
+          limit: 1
           required_purchase_items:
           - required_purchase_items
           - required_purchase_items
@@ -158418,17 +158431,17 @@ components:
         tiered_percent_off_subtotal:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           items:
           - items
           - items
         allow_multiple_one_time_codes: true
         free_shipping_with_subtotal:
-          purchase_amount: 3.0937452626664474
+          purchase_amount: 0.8851374739011653
           shipping_methods:
           - shipping_methods
           - shipping_methods
@@ -158446,7 +158459,7 @@ components:
           item_tags:
           - item_tags
           - item_tags
-          limit: 1
+          limit: 5
           items:
           - items
           - items
@@ -158464,17 +158477,17 @@ components:
           shipping_methods:
           - shipping_methods
           - shipping_methods
-          discount_amount: 5.962133916683182
+          discount_amount: 2.3021358869347655
           currency_code: currency_code
-        coupon_oid: 4
+        coupon_oid: 9
         tiered_percent_off_shipping:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           - quickbooks_code: quickbooks_code
-            discount_percent: 1.8268702177058116
-            subtotal_amount: 3.502657762086401
+            discount_percent: 9.183123594773994
+            subtotal_amount: 8.761432466225475
           quickbooks_code: quickbooks_code
           shipping_methods:
           - shipping_methods
@@ -158482,15 +158495,15 @@ components:
         tiered_amount_off_items:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_amount: 2.9409642974827896
-            item_quantity: 1
+            discount_amount: 8.28965939814297
+            item_quantity: 6
           - quickbooks_code: quickbooks_code
-            discount_amount: 2.9409642974827896
-            item_quantity: 1
+            discount_amount: 8.28965939814297
+            item_quantity: 6
           item_tags:
           - item_tags
           - item_tags
-          limit: 0.43431398824148815
+          limit: 1.7325933120207193
           items:
           - items
           - items
@@ -158498,8 +158511,8 @@ components:
         skip_on_rebill: true
         discount_item_with_item_purchase:
           required_purchase_item: required_purchase_item
-          discount_price: 5.025004791520295
-          limit: 9
+          discount_price: 9.369310271410669
+          limit: 6
           required_purchase_items_tags:
           - required_purchase_items_tags
           - required_purchase_items_tags
@@ -158509,8 +158522,8 @@ components:
           currency_code: currency_code
           discount_item: discount_item
         percent_off_retail_price_items:
-          limit: 9
-          discount_percent: 0.8774076871421566
+          limit: 7
+          discount_percent: 0.5199002018724985
           excluded_items:
           - excluded_items
           - excluded_items
@@ -158520,17 +158533,17 @@ components:
         tiered_amount_off_subtotal:
           tiers:
           - quickbooks_code: quickbooks_code
-            discount_amount: 8.28965939814297
-            subtotal_amount: 6.623518433804886
+            discount_amount: 4.573936264232251
+            subtotal_amount: 8.863729185622827
           - quickbooks_code: quickbooks_code
-            discount_amount: 8.28965939814297
-            subtotal_amount: 6.623518433804886
+            discount_amount: 4.573936264232251
+            subtotal_amount: 8.863729185622827
           items:
           - items
           - items
         percent_off_subtotal_limit:
-          limit: 6.073898085781152
-          discount_percent: 4.86315908102884
+          limit: 4.459605034958679
+          discount_percent: 8.251625748923757
           currency_code: currency_code
         free_item_with_item_purchase:
           match_required_purchase_item_to_free_item: true
@@ -158548,28 +158561,28 @@ components:
           - items
           - items
         amount_off_subtotal_with_items_purchase:
-          discount_amount: 7.386281948385884
+          discount_amount: 1.0246457001441578
           required_purchase_quantity: 1
           items:
           - items
           - items
           currency_code: currency_code
         percent_off_subtotal_with_subtotal:
-          discount_percent: 4.459605034958679
+          discount_percent: 0.43431398824148815
           currency_code: currency_code
-          subtotal_amount: 3.901545264248647
+          subtotal_amount: 2.9409642974827896
         percent_off_items_with_items_purchase:
           item_tags:
           - item_tags
           - item_tags
-          limit: 4
+          limit: 6
           required_purchase_items:
           - required_purchase_items
           - required_purchase_items
           required_purchase_items_tags:
           - required_purchase_items_tags
           - required_purchase_items_tags
-          discount_percent: 3.2588565619047607
+          discount_percent: 0.2025324113236393
           items:
           - items
           - items
@@ -158586,6 +158599,8 @@ components:
           type: boolean
         amount_off_items:
           $ref: '#/components/schemas/CouponAmountOffItems'
+        amount_off_items_and_free_shipping:
+          $ref: '#/components/schemas/CouponAmountOffItemsAndFreeShipping'
         amount_off_shipping:
           $ref: '#/components/schemas/CouponAmountOffShipping'
         amount_off_shipping_with_items_purchase:
@@ -158798,12 +158813,57 @@ components:
           format: int32
           type: integer
       type: object
+    CouponAmountOffItemsAndFreeShipping:
+      example:
+        shipping_methods:
+        - shipping_methods
+        - shipping_methods
+        item_tags:
+        - item_tags
+        - item_tags
+        discount_amount: 5.962133916683182
+        limit: 5
+        items:
+        - items
+        - items
+        currency_code: currency_code
+      properties:
+        currency_code:
+          description: The ISO-4217 three letter currency code the customer is viewing
+            prices in
+          maxLength: 3
+          type: string
+        discount_amount:
+          description: The amount of discount
+          type: number
+        item_tags:
+          description: An optional list of item tags which will receive a discount.
+          items:
+            type: string
+          type: array
+        items:
+          description: A list of items which are eligible for the discount amount.
+          items:
+            type: string
+          type: array
+        limit:
+          description: The limit of items which are eligible for the discount amount.
+          format: int32
+          type: integer
+        shipping_methods:
+          description: "One or more shipping methods that may be used with this coupon.\
+            \  If not specified or empty, methods that are marked as qualifies for\
+            \ free shipping will be the only free methods"
+          items:
+            type: string
+          type: array
+      type: object
     CouponAmountOffShipping:
       example:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        discount_amount: 5.962133916683182
+        discount_amount: 2.3021358869347655
         currency_code: currency_code
       properties:
         currency_code:
@@ -158825,7 +158885,7 @@ components:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        discount_amount: 5.637376656633329
+        discount_amount: 7.061401241503109
         items:
         - items
         - items
@@ -158853,7 +158913,7 @@ components:
       type: object
     CouponAmountOffSubtotal:
       example:
-        discount_amount: 2.3021358869347655
+        discount_amount: 9.301444243932576
         currency_code: currency_code
       properties:
         currency_code:
@@ -158867,7 +158927,7 @@ components:
       type: object
     CouponAmountOffSubtotalAndShipping:
       example:
-        discount_amount: 3.616076749251911
+        discount_amount: 4.145608029883936
         currency_code: currency_code
       properties:
         currency_code:
@@ -158881,11 +158941,11 @@ components:
       type: object
     CouponAmountOffSubtotalFreeShippingWithPurchase:
       example:
-        purchase_amount: 9.301444243932576
+        purchase_amount: 2.027123023002322
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        discount_amount: 7.061401241503109
+        discount_amount: 3.616076749251911
         currency_code: currency_code
       properties:
         currency_code:
@@ -158909,8 +158969,8 @@ components:
     CouponAmountOffSubtotalWithBlockPurchase:
       example:
         required_purchase_item: required_purchase_item
-        discount_amount: 2.027123023002322
-        required_purchase_quantity: 4
+        discount_amount: 7.386281948385884
+        required_purchase_quantity: 1
         currency_code: currency_code
       properties:
         currency_code:
@@ -158932,7 +158992,7 @@ components:
       type: object
     CouponAmountOffSubtotalWithItemsPurchase:
       example:
-        discount_amount: 7.386281948385884
+        discount_amount: 1.0246457001441578
         required_purchase_quantity: 1
         items:
         - items
@@ -158961,8 +159021,8 @@ components:
       type: object
     CouponAmountOffSubtotalWithPurchase:
       example:
-        purchase_amount: 1.4894159098541704
-        discount_amount: 1.0246457001441578
+        purchase_amount: 7.457744773683766
+        discount_amount: 6.84685269835264
         currency_code: currency_code
       properties:
         currency_code:
@@ -158980,8 +159040,8 @@ components:
       type: object
     CouponAmountShippingWithSubtotal:
       example:
-        shipping_amount: 7.457744773683766
-        purchase_amount: 6.84685269835264
+        shipping_amount: 4.965218492984954
+        purchase_amount: 1.1730742509559433
         shipping_methods:
         - shipping_methods
         - shipping_methods
@@ -159095,7 +159155,7 @@ components:
         item_tags:
         - item_tags
         - item_tags
-        limit: 1
+        limit: 5
         items:
         - items
         - items
@@ -159237,8 +159297,8 @@ components:
       type: object
     CouponDiscountItems:
       example:
-        discount_price: 9.369310271410669
-        limit: 6
+        discount_price: 8.762042012749001
+        limit: 9
         items:
         - items
         - items
@@ -159265,8 +159325,8 @@ components:
     CouponDiscountItemWithItemPurchase:
       example:
         required_purchase_item: required_purchase_item
-        discount_price: 5.025004791520295
-        limit: 9
+        discount_price: 9.369310271410669
+        limit: 6
         required_purchase_items_tags:
         - required_purchase_items_tags
         - required_purchase_items_tags
@@ -159456,12 +159516,12 @@ components:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        limit: 8
+        limit: 6
         items:
         - items
         - items
         currency_code: currency_code
-        subtotal_amount: 9.018348186070783
+        subtotal_amount: 3.5571952270680973
       properties:
         currency_code:
           description: The ISO-4217 three letter currency code the customer is viewing
@@ -159491,9 +159551,9 @@ components:
       example:
         required_purchase_item: required_purchase_item
         free_item: free_item
-        limit: 6
+        limit: 5
         required_purchase_quantity: 6
-        free_quantity: 2
+        free_quantity: 6
       properties:
         free_item:
           description: The item id of the free item that will be received when the
@@ -159520,10 +159580,10 @@ components:
     CouponFreeItemsWithMixMatchPurchase:
       example:
         free_item: free_item
-        limit: 6
+        limit: 3
         required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-        required_purchase_quantity: 3
-        free_quantity: 5
+        required_purchase_quantity: 7
+        free_quantity: 3
       properties:
         free_item:
           description: The item id of the free item that will be received when the
@@ -159603,7 +159663,7 @@ components:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        limit: 3
+        limit: 1
         required_purchase_items:
         - required_purchase_items
         - required_purchase_items
@@ -159642,12 +159702,12 @@ components:
       type: object
     CouponFreeItemWithSubtotal:
       example:
-        limit: 6
+        limit: 2
         items:
         - items
         - items
         currency_code: currency_code
-        subtotal_amount: 1.284659006116532
+        subtotal_amount: 6.778324963048013
       properties:
         currency_code:
           description: The ISO-4217 three letter currency code the customer is viewing
@@ -159716,7 +159776,7 @@ components:
       type: object
     CouponFreeShippingWithSubtotal:
       example:
-        purchase_amount: 3.0937452626664474
+        purchase_amount: 0.8851374739011653
         shipping_methods:
         - shipping_methods
         - shipping_methods
@@ -159834,7 +159894,7 @@ components:
       type: object
     CouponMoreLoyaltyCashback:
       example:
-        loyalty_cashback: 7.143538047012306
+        loyalty_cashback: 7.058770351582356
       properties:
         loyalty_cashback:
           description: The additional loyalty cashback
@@ -159842,7 +159902,7 @@ components:
       type: object
     CouponMoreLoyaltyPoints:
       example:
-        loyalty_points: 0.8851374739011653
+        loyalty_points: 6.519180951018382
       properties:
         loyalty_points:
           description: The additional loyalty points
@@ -159851,15 +159911,15 @@ components:
     CouponMultipleAmountsOffItems:
       example:
         discounts:
-        - discount_amount: 7.058770351582356
+        - discount_amount: 0.10263654006109402
           items:
           - items
           - items
-        - discount_amount: 7.058770351582356
+        - discount_amount: 0.10263654006109402
           items:
           - items
           - items
-        limit: 6
+        limit: 4
       properties:
         discounts:
           description: A list of item discounts.
@@ -159883,7 +159943,7 @@ components:
       type: object
     CouponPercentMoreLoyaltyCashback:
       example:
-        percent_more_loyalty_cashback: 0.10263654006109402
+        percent_more_loyalty_cashback: 8.969578798196912
       properties:
         percent_more_loyalty_cashback:
           description: The percentage of additional loyalty cashback
@@ -159891,7 +159951,7 @@ components:
       type: object
     CouponPercentMoreLoyaltyPoints:
       example:
-        percent_more_loyalty_points: 4.652396432933246
+        percent_more_loyalty_points: 7.740351818741173
       properties:
         percent_more_loyalty_points:
           description: The percentage of additional loyalty points
@@ -159905,8 +159965,8 @@ components:
         item_tags:
         - item_tags
         - item_tags
-        limit: 7
-        discount_percent: 3.0576100241049344
+        limit: 3
+        discount_percent: 5.533258397034986
         excluded_items:
         - excluded_items
         - excluded_items
@@ -159955,7 +160015,7 @@ components:
         item_tags:
         - item_tags
         - item_tags
-        discount_percent: 5.533258397034986
+        discount_percent: 4.078845849666752
         excluded_items:
         - excluded_items
         - excluded_items
@@ -160001,14 +160061,14 @@ components:
         item_tags:
         - item_tags
         - item_tags
-        limit: 4
+        limit: 6
         required_purchase_items:
         - required_purchase_items
         - required_purchase_items
         required_purchase_items_tags:
         - required_purchase_items_tags
         - required_purchase_items_tags
-        discount_percent: 3.2588565619047607
+        discount_percent: 0.2025324113236393
         items:
         - items
         - items
@@ -160049,12 +160109,12 @@ components:
         excluded_item_tags:
         - excluded_item_tags
         - excluded_item_tags
-        minimum_item_amount: 4.258773108174356
+        minimum_item_amount: 4.678947989005849
         item_tags:
         - item_tags
         - item_tags
-        limit: 6
-        discount_percent: 0.2025324113236393
+        limit: 1
+        discount_percent: 4.258773108174356
         excluded_items:
         - excluded_items
         - excluded_items
@@ -160107,15 +160167,15 @@ components:
         item_tags:
         - item_tags
         - item_tags
-        limit: 7
+        limit: 3
         required_purchase_items:
         - required_purchase_items
         - required_purchase_items
         required_purchase_items_tags:
         - required_purchase_items_tags
         - required_purchase_items_tags
-        discount_percent: 8.969578798196912
-        required_purchase_quantity: 3
+        discount_percent: 3.0205796992916243
+        required_purchase_quantity: 7
         items:
         - items
         - items
@@ -160159,10 +160219,10 @@ components:
       type: object
     CouponPercentOffMsrpItems:
       example:
-        limit: 4
-        minimum_cumulative_msrp: 7.260521264802104
-        discount_percent: 1.041444916118296
-        minimum_subtotal: 9.132027271330688
+        limit: 9
+        minimum_cumulative_msrp: 0.8774076871421566
+        discount_percent: 7.260521264802104
+        minimum_subtotal: 9.702963800023566
         excluded_items:
         - excluded_items
         - excluded_items
@@ -160196,8 +160256,8 @@ components:
       type: object
     CouponPercentOffRetailPriceItems:
       example:
-        limit: 9
-        discount_percent: 0.8774076871421566
+        limit: 7
+        discount_percent: 0.5199002018724985
         excluded_items:
         - excluded_items
         - excluded_items
@@ -160229,7 +160289,7 @@ components:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        discount_percent: 0.5199002018724985
+        discount_percent: 5.507386964179881
       properties:
         discount_percent:
           description: The percentage of subtotal discount
@@ -160242,7 +160302,7 @@ components:
       type: object
     CouponPercentOffSubtotal:
       example:
-        discount_percent: 7.933506881737151
+        discount_percent: 4.86315908102884
       properties:
         discount_percent:
           description: The percentage of subtotal discount
@@ -160253,7 +160313,7 @@ components:
         shipping_methods:
         - shipping_methods
         - shipping_methods
-        discount_percent: 5.507386964179881
+        discount_percent: 6.073898085781152
       properties:
         discount_percent:
           description: The percentage of subtotal discount
@@ -160266,8 +160326,8 @@ components:
       type: object
     CouponPercentOffSubtotalLimit:
       example:
-        limit: 6.073898085781152
-        discount_percent: 4.86315908102884
+        limit: 4.459605034958679
+        discount_percent: 8.251625748923757
         currency_code: currency_code
       properties:
         currency_code:
@@ -160284,7 +160344,7 @@ components:
       type: object
     CouponPercentOffSubtotalWithItemsPurchase:
       example:
-        discount_percent: 8.251625748923757
+        discount_percent: 3.901545264248647
         items:
         - items
         - items
@@ -160301,9 +160361,9 @@ components:
       type: object
     CouponPercentOffSubtotalWithSubtotal:
       example:
-        discount_percent: 4.459605034958679
+        discount_percent: 0.43431398824148815
         currency_code: currency_code
-        subtotal_amount: 3.901545264248647
+        subtotal_amount: 2.9409642974827896
       properties:
         currency_code:
           description: The ISO-4217 three letter currency code the customer is viewing
@@ -160379,14 +160439,14 @@ components:
             next_offset: 5
         coupon:
           amount_shipping_with_subtotal:
-            shipping_amount: 7.457744773683766
-            purchase_amount: 6.84685269835264
+            shipping_amount: 4.965218492984954
+            purchase_amount: 1.1730742509559433
             shipping_methods:
             - shipping_methods
             - shipping_methods
             currency_code: currency_code
           percent_off_subtotal_with_items_purchase:
-            discount_percent: 8.251625748923757
+            discount_percent: 3.901545264248647
             items:
             - items
             - items
@@ -160398,21 +160458,34 @@ components:
             - shipping_methods
           amount_off_subtotal_with_block_purchase:
             required_purchase_item: required_purchase_item
-            discount_amount: 2.027123023002322
-            required_purchase_quantity: 4
+            discount_amount: 7.386281948385884
+            required_purchase_quantity: 1
             currency_code: currency_code
           super_coupon: true
           affiliate_oid: 0
+          amount_off_items_and_free_shipping:
+            shipping_methods:
+            - shipping_methods
+            - shipping_methods
+            item_tags:
+            - item_tags
+            - item_tags
+            discount_amount: 5.962133916683182
+            limit: 5
+            items:
+            - items
+            - items
+            currency_code: currency_code
           percent_off_items_with_minimum_item_amount:
             excluded_item_tags:
             - excluded_item_tags
             - excluded_item_tags
-            minimum_item_amount: 4.258773108174356
+            minimum_item_amount: 4.678947989005849
             item_tags:
             - item_tags
             - item_tags
-            limit: 6
-            discount_percent: 0.2025324113236393
+            limit: 1
+            discount_percent: 4.258773108174356
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160427,8 +160500,8 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
-            discount_percent: 3.0576100241049344
+            limit: 3
+            discount_percent: 5.533258397034986
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160443,14 +160516,14 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 0.5199002018724985
+            discount_percent: 5.507386964179881
           more_loyalty_cashback:
-            loyalty_cashback: 7.143538047012306
+            loyalty_cashback: 7.058770351582356
           more_loyalty_points:
-            loyalty_points: 0.8851374739011653
+            loyalty_points: 6.519180951018382
           hide_from_customer: true
           amount_off_subtotal_and_shipping:
-            discount_amount: 3.616076749251911
+            discount_amount: 4.145608029883936
             currency_code: currency_code
           free_shipping_with_items_purchase:
             shipping_methods:
@@ -160465,36 +160538,36 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.637376656633329
+            discount_amount: 7.061401241503109
             items:
             - items
             - items
             currency_code: currency_code
           free_items_with_mixmatch_purchase:
             free_item: free_item
-            limit: 6
+            limit: 3
             required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-            required_purchase_quantity: 3
-            free_quantity: 5
+            required_purchase_quantity: 7
+            free_quantity: 3
           free_item_and_shipping_with_subtotal:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 8
+            limit: 6
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 9.018348186070783
+            subtotal_amount: 3.5571952270680973
           automatically_apply_coupon_codes:
             coupon_codes:
             - coupon_codes
             - coupon_codes
           percent_off_msrp_items:
-            limit: 4
-            minimum_cumulative_msrp: 7.260521264802104
-            discount_percent: 1.041444916118296
-            minimum_subtotal: 9.132027271330688
+            limit: 9
+            minimum_cumulative_msrp: 0.8774076871421566
+            discount_percent: 7.260521264802104
+            minimum_subtotal: 9.702963800023566
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160502,14 +160575,14 @@ components:
             - items
             - items
           discount_items:
-            discount_price: 9.369310271410669
-            limit: 6
+            discount_price: 8.762042012749001
+            limit: 9
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal:
-            discount_percent: 7.933506881737151
+            discount_percent: 4.86315908102884
           restrict_by_postal_codes:
           - restrict_by_postal_codes
           - restrict_by_postal_codes
@@ -160517,22 +160590,22 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 5.507386964179881
+            discount_percent: 6.073898085781152
           no_discount:
             ignore_this_property: true
           percent_off_item_with_items_quantity_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
+            limit: 3
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 8.969578798196912
-            required_purchase_quantity: 3
+            discount_percent: 3.0205796992916243
+            required_purchase_quantity: 7
             items:
             - items
             - items
@@ -160546,7 +160619,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            discount_percent: 5.533258397034986
+            discount_percent: 4.078845849666752
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160554,72 +160627,72 @@ components:
             - items
             - items
           amount_off_subtotal_with_purchase:
-            purchase_amount: 1.4894159098541704
-            discount_amount: 1.0246457001441578
+            purchase_amount: 7.457744773683766
+            discount_amount: 6.84685269835264
             currency_code: currency_code
           coupon_type: coupon_type
           amount_off_subtotal:
-            discount_amount: 2.3021358869347655
+            discount_amount: 9.301444243932576
             currency_code: currency_code
           free_item_with_subtotal:
-            limit: 6
+            limit: 2
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 1.284659006116532
+            subtotal_amount: 6.778324963048013
           multiple_amounts_off_items:
             discounts:
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            limit: 6
+            limit: 4
           percent_more_loyalty_points:
-            percent_more_loyalty_points: 4.652396432933246
+            percent_more_loyalty_points: 7.740351818741173
           free_items_with_item_purchase:
             required_purchase_item: required_purchase_item
             free_item: free_item
-            limit: 6
+            limit: 5
             required_purchase_quantity: 6
-            free_quantity: 2
+            free_quantity: 6
           description: description
           tiered_percent_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             item_tags:
             - item_tags
             - item_tags
-            limit: 4.573936264232251
+            limit: 9.254183946267839
             items:
             - items
             - items
           amount_off_subtotal_and_free_shipping:
-            purchase_amount: 9.301444243932576
+            purchase_amount: 2.027123023002322
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 7.061401241503109
+            discount_amount: 3.616076749251911
             currency_code: currency_code
           percent_more_loyalty_cashback:
-            percent_more_loyalty_cashback: 0.10263654006109402
+            percent_more_loyalty_cashback: 8.969578798196912
           tiered_percent_off_subtotal_based_on_msrp:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
@@ -160628,7 +160701,7 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 3
+            limit: 1
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
@@ -160648,17 +160721,17 @@ components:
           tiered_percent_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
           allow_multiple_one_time_codes: true
           free_shipping_with_subtotal:
-            purchase_amount: 3.0937452626664474
+            purchase_amount: 0.8851374739011653
             shipping_methods:
             - shipping_methods
             - shipping_methods
@@ -160676,7 +160749,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 1
+            limit: 5
             items:
             - items
             - items
@@ -160694,17 +160767,17 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.962133916683182
+            discount_amount: 2.3021358869347655
             currency_code: currency_code
-          coupon_oid: 4
+          coupon_oid: 9
           tiered_percent_off_shipping:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             quickbooks_code: quickbooks_code
             shipping_methods:
             - shipping_methods
@@ -160712,15 +160785,15 @@ components:
           tiered_amount_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             item_tags:
             - item_tags
             - item_tags
-            limit: 0.43431398824148815
+            limit: 1.7325933120207193
             items:
             - items
             - items
@@ -160728,8 +160801,8 @@ components:
           skip_on_rebill: true
           discount_item_with_item_purchase:
             required_purchase_item: required_purchase_item
-            discount_price: 5.025004791520295
-            limit: 9
+            discount_price: 9.369310271410669
+            limit: 6
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
@@ -160739,8 +160812,8 @@ components:
             currency_code: currency_code
             discount_item: discount_item
           percent_off_retail_price_items:
-            limit: 9
-            discount_percent: 0.8774076871421566
+            limit: 7
+            discount_percent: 0.5199002018724985
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160750,17 +160823,17 @@ components:
           tiered_amount_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             items:
             - items
             - items
           percent_off_subtotal_limit:
-            limit: 6.073898085781152
-            discount_percent: 4.86315908102884
+            limit: 4.459605034958679
+            discount_percent: 8.251625748923757
             currency_code: currency_code
           free_item_with_item_purchase:
             match_required_purchase_item_to_free_item: true
@@ -160778,28 +160851,28 @@ components:
             - items
             - items
           amount_off_subtotal_with_items_purchase:
-            discount_amount: 7.386281948385884
+            discount_amount: 1.0246457001441578
             required_purchase_quantity: 1
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal_with_subtotal:
-            discount_percent: 4.459605034958679
+            discount_percent: 0.43431398824148815
             currency_code: currency_code
-            subtotal_amount: 3.901545264248647
+            subtotal_amount: 2.9409642974827896
           percent_off_items_with_items_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 4
+            limit: 6
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 3.2588565619047607
+            discount_percent: 0.2025324113236393
             items:
             - items
             - items
@@ -160858,14 +160931,14 @@ components:
       example:
         coupons:
         - amount_shipping_with_subtotal:
-            shipping_amount: 7.457744773683766
-            purchase_amount: 6.84685269835264
+            shipping_amount: 4.965218492984954
+            purchase_amount: 1.1730742509559433
             shipping_methods:
             - shipping_methods
             - shipping_methods
             currency_code: currency_code
           percent_off_subtotal_with_items_purchase:
-            discount_percent: 8.251625748923757
+            discount_percent: 3.901545264248647
             items:
             - items
             - items
@@ -160877,21 +160950,34 @@ components:
             - shipping_methods
           amount_off_subtotal_with_block_purchase:
             required_purchase_item: required_purchase_item
-            discount_amount: 2.027123023002322
-            required_purchase_quantity: 4
+            discount_amount: 7.386281948385884
+            required_purchase_quantity: 1
             currency_code: currency_code
           super_coupon: true
           affiliate_oid: 0
+          amount_off_items_and_free_shipping:
+            shipping_methods:
+            - shipping_methods
+            - shipping_methods
+            item_tags:
+            - item_tags
+            - item_tags
+            discount_amount: 5.962133916683182
+            limit: 5
+            items:
+            - items
+            - items
+            currency_code: currency_code
           percent_off_items_with_minimum_item_amount:
             excluded_item_tags:
             - excluded_item_tags
             - excluded_item_tags
-            minimum_item_amount: 4.258773108174356
+            minimum_item_amount: 4.678947989005849
             item_tags:
             - item_tags
             - item_tags
-            limit: 6
-            discount_percent: 0.2025324113236393
+            limit: 1
+            discount_percent: 4.258773108174356
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160906,8 +160992,8 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
-            discount_percent: 3.0576100241049344
+            limit: 3
+            discount_percent: 5.533258397034986
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160922,14 +161008,14 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 0.5199002018724985
+            discount_percent: 5.507386964179881
           more_loyalty_cashback:
-            loyalty_cashback: 7.143538047012306
+            loyalty_cashback: 7.058770351582356
           more_loyalty_points:
-            loyalty_points: 0.8851374739011653
+            loyalty_points: 6.519180951018382
           hide_from_customer: true
           amount_off_subtotal_and_shipping:
-            discount_amount: 3.616076749251911
+            discount_amount: 4.145608029883936
             currency_code: currency_code
           free_shipping_with_items_purchase:
             shipping_methods:
@@ -160944,36 +161030,36 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.637376656633329
+            discount_amount: 7.061401241503109
             items:
             - items
             - items
             currency_code: currency_code
           free_items_with_mixmatch_purchase:
             free_item: free_item
-            limit: 6
+            limit: 3
             required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-            required_purchase_quantity: 3
-            free_quantity: 5
+            required_purchase_quantity: 7
+            free_quantity: 3
           free_item_and_shipping_with_subtotal:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 8
+            limit: 6
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 9.018348186070783
+            subtotal_amount: 3.5571952270680973
           automatically_apply_coupon_codes:
             coupon_codes:
             - coupon_codes
             - coupon_codes
           percent_off_msrp_items:
-            limit: 4
-            minimum_cumulative_msrp: 7.260521264802104
-            discount_percent: 1.041444916118296
-            minimum_subtotal: 9.132027271330688
+            limit: 9
+            minimum_cumulative_msrp: 0.8774076871421566
+            discount_percent: 7.260521264802104
+            minimum_subtotal: 9.702963800023566
             excluded_items:
             - excluded_items
             - excluded_items
@@ -160981,14 +161067,14 @@ components:
             - items
             - items
           discount_items:
-            discount_price: 9.369310271410669
-            limit: 6
+            discount_price: 8.762042012749001
+            limit: 9
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal:
-            discount_percent: 7.933506881737151
+            discount_percent: 4.86315908102884
           restrict_by_postal_codes:
           - restrict_by_postal_codes
           - restrict_by_postal_codes
@@ -160996,22 +161082,22 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 5.507386964179881
+            discount_percent: 6.073898085781152
           no_discount:
             ignore_this_property: true
           percent_off_item_with_items_quantity_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
+            limit: 3
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 8.969578798196912
-            required_purchase_quantity: 3
+            discount_percent: 3.0205796992916243
+            required_purchase_quantity: 7
             items:
             - items
             - items
@@ -161025,7 +161111,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            discount_percent: 5.533258397034986
+            discount_percent: 4.078845849666752
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161033,72 +161119,72 @@ components:
             - items
             - items
           amount_off_subtotal_with_purchase:
-            purchase_amount: 1.4894159098541704
-            discount_amount: 1.0246457001441578
+            purchase_amount: 7.457744773683766
+            discount_amount: 6.84685269835264
             currency_code: currency_code
           coupon_type: coupon_type
           amount_off_subtotal:
-            discount_amount: 2.3021358869347655
+            discount_amount: 9.301444243932576
             currency_code: currency_code
           free_item_with_subtotal:
-            limit: 6
+            limit: 2
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 1.284659006116532
+            subtotal_amount: 6.778324963048013
           multiple_amounts_off_items:
             discounts:
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            limit: 6
+            limit: 4
           percent_more_loyalty_points:
-            percent_more_loyalty_points: 4.652396432933246
+            percent_more_loyalty_points: 7.740351818741173
           free_items_with_item_purchase:
             required_purchase_item: required_purchase_item
             free_item: free_item
-            limit: 6
+            limit: 5
             required_purchase_quantity: 6
-            free_quantity: 2
+            free_quantity: 6
           description: description
           tiered_percent_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             item_tags:
             - item_tags
             - item_tags
-            limit: 4.573936264232251
+            limit: 9.254183946267839
             items:
             - items
             - items
           amount_off_subtotal_and_free_shipping:
-            purchase_amount: 9.301444243932576
+            purchase_amount: 2.027123023002322
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 7.061401241503109
+            discount_amount: 3.616076749251911
             currency_code: currency_code
           percent_more_loyalty_cashback:
-            percent_more_loyalty_cashback: 0.10263654006109402
+            percent_more_loyalty_cashback: 8.969578798196912
           tiered_percent_off_subtotal_based_on_msrp:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
@@ -161107,7 +161193,7 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 3
+            limit: 1
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
@@ -161127,17 +161213,17 @@ components:
           tiered_percent_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
           allow_multiple_one_time_codes: true
           free_shipping_with_subtotal:
-            purchase_amount: 3.0937452626664474
+            purchase_amount: 0.8851374739011653
             shipping_methods:
             - shipping_methods
             - shipping_methods
@@ -161155,7 +161241,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 1
+            limit: 5
             items:
             - items
             - items
@@ -161173,17 +161259,17 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.962133916683182
+            discount_amount: 2.3021358869347655
             currency_code: currency_code
-          coupon_oid: 4
+          coupon_oid: 9
           tiered_percent_off_shipping:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             quickbooks_code: quickbooks_code
             shipping_methods:
             - shipping_methods
@@ -161191,15 +161277,15 @@ components:
           tiered_amount_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             item_tags:
             - item_tags
             - item_tags
-            limit: 0.43431398824148815
+            limit: 1.7325933120207193
             items:
             - items
             - items
@@ -161207,8 +161293,8 @@ components:
           skip_on_rebill: true
           discount_item_with_item_purchase:
             required_purchase_item: required_purchase_item
-            discount_price: 5.025004791520295
-            limit: 9
+            discount_price: 9.369310271410669
+            limit: 6
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
@@ -161218,8 +161304,8 @@ components:
             currency_code: currency_code
             discount_item: discount_item
           percent_off_retail_price_items:
-            limit: 9
-            discount_percent: 0.8774076871421566
+            limit: 7
+            discount_percent: 0.5199002018724985
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161229,17 +161315,17 @@ components:
           tiered_amount_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             items:
             - items
             - items
           percent_off_subtotal_limit:
-            limit: 6.073898085781152
-            discount_percent: 4.86315908102884
+            limit: 4.459605034958679
+            discount_percent: 8.251625748923757
             currency_code: currency_code
           free_item_with_item_purchase:
             match_required_purchase_item_to_free_item: true
@@ -161257,42 +161343,42 @@ components:
             - items
             - items
           amount_off_subtotal_with_items_purchase:
-            discount_amount: 7.386281948385884
+            discount_amount: 1.0246457001441578
             required_purchase_quantity: 1
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal_with_subtotal:
-            discount_percent: 4.459605034958679
+            discount_percent: 0.43431398824148815
             currency_code: currency_code
-            subtotal_amount: 3.901545264248647
+            subtotal_amount: 2.9409642974827896
           percent_off_items_with_items_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 4
+            limit: 6
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 3.2588565619047607
+            discount_percent: 0.2025324113236393
             items:
             - items
             - items
           usable_by: Anyone
           expiration_dts: expiration_dts
         - amount_shipping_with_subtotal:
-            shipping_amount: 7.457744773683766
-            purchase_amount: 6.84685269835264
+            shipping_amount: 4.965218492984954
+            purchase_amount: 1.1730742509559433
             shipping_methods:
             - shipping_methods
             - shipping_methods
             currency_code: currency_code
           percent_off_subtotal_with_items_purchase:
-            discount_percent: 8.251625748923757
+            discount_percent: 3.901545264248647
             items:
             - items
             - items
@@ -161304,21 +161390,34 @@ components:
             - shipping_methods
           amount_off_subtotal_with_block_purchase:
             required_purchase_item: required_purchase_item
-            discount_amount: 2.027123023002322
-            required_purchase_quantity: 4
+            discount_amount: 7.386281948385884
+            required_purchase_quantity: 1
             currency_code: currency_code
           super_coupon: true
           affiliate_oid: 0
+          amount_off_items_and_free_shipping:
+            shipping_methods:
+            - shipping_methods
+            - shipping_methods
+            item_tags:
+            - item_tags
+            - item_tags
+            discount_amount: 5.962133916683182
+            limit: 5
+            items:
+            - items
+            - items
+            currency_code: currency_code
           percent_off_items_with_minimum_item_amount:
             excluded_item_tags:
             - excluded_item_tags
             - excluded_item_tags
-            minimum_item_amount: 4.258773108174356
+            minimum_item_amount: 4.678947989005849
             item_tags:
             - item_tags
             - item_tags
-            limit: 6
-            discount_percent: 0.2025324113236393
+            limit: 1
+            discount_percent: 4.258773108174356
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161333,8 +161432,8 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
-            discount_percent: 3.0576100241049344
+            limit: 3
+            discount_percent: 5.533258397034986
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161349,14 +161448,14 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 0.5199002018724985
+            discount_percent: 5.507386964179881
           more_loyalty_cashback:
-            loyalty_cashback: 7.143538047012306
+            loyalty_cashback: 7.058770351582356
           more_loyalty_points:
-            loyalty_points: 0.8851374739011653
+            loyalty_points: 6.519180951018382
           hide_from_customer: true
           amount_off_subtotal_and_shipping:
-            discount_amount: 3.616076749251911
+            discount_amount: 4.145608029883936
             currency_code: currency_code
           free_shipping_with_items_purchase:
             shipping_methods:
@@ -161371,36 +161470,36 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.637376656633329
+            discount_amount: 7.061401241503109
             items:
             - items
             - items
             currency_code: currency_code
           free_items_with_mixmatch_purchase:
             free_item: free_item
-            limit: 6
+            limit: 3
             required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-            required_purchase_quantity: 3
-            free_quantity: 5
+            required_purchase_quantity: 7
+            free_quantity: 3
           free_item_and_shipping_with_subtotal:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 8
+            limit: 6
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 9.018348186070783
+            subtotal_amount: 3.5571952270680973
           automatically_apply_coupon_codes:
             coupon_codes:
             - coupon_codes
             - coupon_codes
           percent_off_msrp_items:
-            limit: 4
-            minimum_cumulative_msrp: 7.260521264802104
-            discount_percent: 1.041444916118296
-            minimum_subtotal: 9.132027271330688
+            limit: 9
+            minimum_cumulative_msrp: 0.8774076871421566
+            discount_percent: 7.260521264802104
+            minimum_subtotal: 9.702963800023566
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161408,14 +161507,14 @@ components:
             - items
             - items
           discount_items:
-            discount_price: 9.369310271410669
-            limit: 6
+            discount_price: 8.762042012749001
+            limit: 9
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal:
-            discount_percent: 7.933506881737151
+            discount_percent: 4.86315908102884
           restrict_by_postal_codes:
           - restrict_by_postal_codes
           - restrict_by_postal_codes
@@ -161423,22 +161522,22 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 5.507386964179881
+            discount_percent: 6.073898085781152
           no_discount:
             ignore_this_property: true
           percent_off_item_with_items_quantity_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
+            limit: 3
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 8.969578798196912
-            required_purchase_quantity: 3
+            discount_percent: 3.0205796992916243
+            required_purchase_quantity: 7
             items:
             - items
             - items
@@ -161452,7 +161551,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            discount_percent: 5.533258397034986
+            discount_percent: 4.078845849666752
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161460,72 +161559,72 @@ components:
             - items
             - items
           amount_off_subtotal_with_purchase:
-            purchase_amount: 1.4894159098541704
-            discount_amount: 1.0246457001441578
+            purchase_amount: 7.457744773683766
+            discount_amount: 6.84685269835264
             currency_code: currency_code
           coupon_type: coupon_type
           amount_off_subtotal:
-            discount_amount: 2.3021358869347655
+            discount_amount: 9.301444243932576
             currency_code: currency_code
           free_item_with_subtotal:
-            limit: 6
+            limit: 2
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 1.284659006116532
+            subtotal_amount: 6.778324963048013
           multiple_amounts_off_items:
             discounts:
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            limit: 6
+            limit: 4
           percent_more_loyalty_points:
-            percent_more_loyalty_points: 4.652396432933246
+            percent_more_loyalty_points: 7.740351818741173
           free_items_with_item_purchase:
             required_purchase_item: required_purchase_item
             free_item: free_item
-            limit: 6
+            limit: 5
             required_purchase_quantity: 6
-            free_quantity: 2
+            free_quantity: 6
           description: description
           tiered_percent_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             item_tags:
             - item_tags
             - item_tags
-            limit: 4.573936264232251
+            limit: 9.254183946267839
             items:
             - items
             - items
           amount_off_subtotal_and_free_shipping:
-            purchase_amount: 9.301444243932576
+            purchase_amount: 2.027123023002322
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 7.061401241503109
+            discount_amount: 3.616076749251911
             currency_code: currency_code
           percent_more_loyalty_cashback:
-            percent_more_loyalty_cashback: 0.10263654006109402
+            percent_more_loyalty_cashback: 8.969578798196912
           tiered_percent_off_subtotal_based_on_msrp:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
@@ -161534,7 +161633,7 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 3
+            limit: 1
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
@@ -161554,17 +161653,17 @@ components:
           tiered_percent_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
           allow_multiple_one_time_codes: true
           free_shipping_with_subtotal:
-            purchase_amount: 3.0937452626664474
+            purchase_amount: 0.8851374739011653
             shipping_methods:
             - shipping_methods
             - shipping_methods
@@ -161582,7 +161681,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 1
+            limit: 5
             items:
             - items
             - items
@@ -161600,17 +161699,17 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.962133916683182
+            discount_amount: 2.3021358869347655
             currency_code: currency_code
-          coupon_oid: 4
+          coupon_oid: 9
           tiered_percent_off_shipping:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             quickbooks_code: quickbooks_code
             shipping_methods:
             - shipping_methods
@@ -161618,15 +161717,15 @@ components:
           tiered_amount_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             item_tags:
             - item_tags
             - item_tags
-            limit: 0.43431398824148815
+            limit: 1.7325933120207193
             items:
             - items
             - items
@@ -161634,8 +161733,8 @@ components:
           skip_on_rebill: true
           discount_item_with_item_purchase:
             required_purchase_item: required_purchase_item
-            discount_price: 5.025004791520295
-            limit: 9
+            discount_price: 9.369310271410669
+            limit: 6
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
@@ -161645,8 +161744,8 @@ components:
             currency_code: currency_code
             discount_item: discount_item
           percent_off_retail_price_items:
-            limit: 9
-            discount_percent: 0.8774076871421566
+            limit: 7
+            discount_percent: 0.5199002018724985
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161656,17 +161755,17 @@ components:
           tiered_amount_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             items:
             - items
             - items
           percent_off_subtotal_limit:
-            limit: 6.073898085781152
-            discount_percent: 4.86315908102884
+            limit: 4.459605034958679
+            discount_percent: 8.251625748923757
             currency_code: currency_code
           free_item_with_item_purchase:
             match_required_purchase_item_to_free_item: true
@@ -161684,28 +161783,28 @@ components:
             - items
             - items
           amount_off_subtotal_with_items_purchase:
-            discount_amount: 7.386281948385884
+            discount_amount: 1.0246457001441578
             required_purchase_quantity: 1
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal_with_subtotal:
-            discount_percent: 4.459605034958679
+            discount_percent: 0.43431398824148815
             currency_code: currency_code
-            subtotal_amount: 3.901545264248647
+            subtotal_amount: 2.9409642974827896
           percent_off_items_with_items_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 4
+            limit: 6
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 3.2588565619047607
+            discount_percent: 0.2025324113236393
             items:
             - items
             - items
@@ -161731,14 +161830,14 @@ components:
             next_offset: 5
         coupons:
         - amount_shipping_with_subtotal:
-            shipping_amount: 7.457744773683766
-            purchase_amount: 6.84685269835264
+            shipping_amount: 4.965218492984954
+            purchase_amount: 1.1730742509559433
             shipping_methods:
             - shipping_methods
             - shipping_methods
             currency_code: currency_code
           percent_off_subtotal_with_items_purchase:
-            discount_percent: 8.251625748923757
+            discount_percent: 3.901545264248647
             items:
             - items
             - items
@@ -161750,21 +161849,34 @@ components:
             - shipping_methods
           amount_off_subtotal_with_block_purchase:
             required_purchase_item: required_purchase_item
-            discount_amount: 2.027123023002322
-            required_purchase_quantity: 4
+            discount_amount: 7.386281948385884
+            required_purchase_quantity: 1
             currency_code: currency_code
           super_coupon: true
           affiliate_oid: 0
+          amount_off_items_and_free_shipping:
+            shipping_methods:
+            - shipping_methods
+            - shipping_methods
+            item_tags:
+            - item_tags
+            - item_tags
+            discount_amount: 5.962133916683182
+            limit: 5
+            items:
+            - items
+            - items
+            currency_code: currency_code
           percent_off_items_with_minimum_item_amount:
             excluded_item_tags:
             - excluded_item_tags
             - excluded_item_tags
-            minimum_item_amount: 4.258773108174356
+            minimum_item_amount: 4.678947989005849
             item_tags:
             - item_tags
             - item_tags
-            limit: 6
-            discount_percent: 0.2025324113236393
+            limit: 1
+            discount_percent: 4.258773108174356
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161779,8 +161891,8 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
-            discount_percent: 3.0576100241049344
+            limit: 3
+            discount_percent: 5.533258397034986
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161795,14 +161907,14 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 0.5199002018724985
+            discount_percent: 5.507386964179881
           more_loyalty_cashback:
-            loyalty_cashback: 7.143538047012306
+            loyalty_cashback: 7.058770351582356
           more_loyalty_points:
-            loyalty_points: 0.8851374739011653
+            loyalty_points: 6.519180951018382
           hide_from_customer: true
           amount_off_subtotal_and_shipping:
-            discount_amount: 3.616076749251911
+            discount_amount: 4.145608029883936
             currency_code: currency_code
           free_shipping_with_items_purchase:
             shipping_methods:
@@ -161817,36 +161929,36 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.637376656633329
+            discount_amount: 7.061401241503109
             items:
             - items
             - items
             currency_code: currency_code
           free_items_with_mixmatch_purchase:
             free_item: free_item
-            limit: 6
+            limit: 3
             required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-            required_purchase_quantity: 3
-            free_quantity: 5
+            required_purchase_quantity: 7
+            free_quantity: 3
           free_item_and_shipping_with_subtotal:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 8
+            limit: 6
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 9.018348186070783
+            subtotal_amount: 3.5571952270680973
           automatically_apply_coupon_codes:
             coupon_codes:
             - coupon_codes
             - coupon_codes
           percent_off_msrp_items:
-            limit: 4
-            minimum_cumulative_msrp: 7.260521264802104
-            discount_percent: 1.041444916118296
-            minimum_subtotal: 9.132027271330688
+            limit: 9
+            minimum_cumulative_msrp: 0.8774076871421566
+            discount_percent: 7.260521264802104
+            minimum_subtotal: 9.702963800023566
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161854,14 +161966,14 @@ components:
             - items
             - items
           discount_items:
-            discount_price: 9.369310271410669
-            limit: 6
+            discount_price: 8.762042012749001
+            limit: 9
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal:
-            discount_percent: 7.933506881737151
+            discount_percent: 4.86315908102884
           restrict_by_postal_codes:
           - restrict_by_postal_codes
           - restrict_by_postal_codes
@@ -161869,22 +161981,22 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 5.507386964179881
+            discount_percent: 6.073898085781152
           no_discount:
             ignore_this_property: true
           percent_off_item_with_items_quantity_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
+            limit: 3
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 8.969578798196912
-            required_purchase_quantity: 3
+            discount_percent: 3.0205796992916243
+            required_purchase_quantity: 7
             items:
             - items
             - items
@@ -161898,7 +162010,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            discount_percent: 5.533258397034986
+            discount_percent: 4.078845849666752
             excluded_items:
             - excluded_items
             - excluded_items
@@ -161906,72 +162018,72 @@ components:
             - items
             - items
           amount_off_subtotal_with_purchase:
-            purchase_amount: 1.4894159098541704
-            discount_amount: 1.0246457001441578
+            purchase_amount: 7.457744773683766
+            discount_amount: 6.84685269835264
             currency_code: currency_code
           coupon_type: coupon_type
           amount_off_subtotal:
-            discount_amount: 2.3021358869347655
+            discount_amount: 9.301444243932576
             currency_code: currency_code
           free_item_with_subtotal:
-            limit: 6
+            limit: 2
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 1.284659006116532
+            subtotal_amount: 6.778324963048013
           multiple_amounts_off_items:
             discounts:
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            limit: 6
+            limit: 4
           percent_more_loyalty_points:
-            percent_more_loyalty_points: 4.652396432933246
+            percent_more_loyalty_points: 7.740351818741173
           free_items_with_item_purchase:
             required_purchase_item: required_purchase_item
             free_item: free_item
-            limit: 6
+            limit: 5
             required_purchase_quantity: 6
-            free_quantity: 2
+            free_quantity: 6
           description: description
           tiered_percent_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             item_tags:
             - item_tags
             - item_tags
-            limit: 4.573936264232251
+            limit: 9.254183946267839
             items:
             - items
             - items
           amount_off_subtotal_and_free_shipping:
-            purchase_amount: 9.301444243932576
+            purchase_amount: 2.027123023002322
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 7.061401241503109
+            discount_amount: 3.616076749251911
             currency_code: currency_code
           percent_more_loyalty_cashback:
-            percent_more_loyalty_cashback: 0.10263654006109402
+            percent_more_loyalty_cashback: 8.969578798196912
           tiered_percent_off_subtotal_based_on_msrp:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
@@ -161980,7 +162092,7 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 3
+            limit: 1
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
@@ -162000,17 +162112,17 @@ components:
           tiered_percent_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
           allow_multiple_one_time_codes: true
           free_shipping_with_subtotal:
-            purchase_amount: 3.0937452626664474
+            purchase_amount: 0.8851374739011653
             shipping_methods:
             - shipping_methods
             - shipping_methods
@@ -162028,7 +162140,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 1
+            limit: 5
             items:
             - items
             - items
@@ -162046,17 +162158,17 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.962133916683182
+            discount_amount: 2.3021358869347655
             currency_code: currency_code
-          coupon_oid: 4
+          coupon_oid: 9
           tiered_percent_off_shipping:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             quickbooks_code: quickbooks_code
             shipping_methods:
             - shipping_methods
@@ -162064,15 +162176,15 @@ components:
           tiered_amount_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             item_tags:
             - item_tags
             - item_tags
-            limit: 0.43431398824148815
+            limit: 1.7325933120207193
             items:
             - items
             - items
@@ -162080,8 +162192,8 @@ components:
           skip_on_rebill: true
           discount_item_with_item_purchase:
             required_purchase_item: required_purchase_item
-            discount_price: 5.025004791520295
-            limit: 9
+            discount_price: 9.369310271410669
+            limit: 6
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
@@ -162091,8 +162203,8 @@ components:
             currency_code: currency_code
             discount_item: discount_item
           percent_off_retail_price_items:
-            limit: 9
-            discount_percent: 0.8774076871421566
+            limit: 7
+            discount_percent: 0.5199002018724985
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162102,17 +162214,17 @@ components:
           tiered_amount_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             items:
             - items
             - items
           percent_off_subtotal_limit:
-            limit: 6.073898085781152
-            discount_percent: 4.86315908102884
+            limit: 4.459605034958679
+            discount_percent: 8.251625748923757
             currency_code: currency_code
           free_item_with_item_purchase:
             match_required_purchase_item_to_free_item: true
@@ -162130,42 +162242,42 @@ components:
             - items
             - items
           amount_off_subtotal_with_items_purchase:
-            discount_amount: 7.386281948385884
+            discount_amount: 1.0246457001441578
             required_purchase_quantity: 1
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal_with_subtotal:
-            discount_percent: 4.459605034958679
+            discount_percent: 0.43431398824148815
             currency_code: currency_code
-            subtotal_amount: 3.901545264248647
+            subtotal_amount: 2.9409642974827896
           percent_off_items_with_items_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 4
+            limit: 6
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 3.2588565619047607
+            discount_percent: 0.2025324113236393
             items:
             - items
             - items
           usable_by: Anyone
           expiration_dts: expiration_dts
         - amount_shipping_with_subtotal:
-            shipping_amount: 7.457744773683766
-            purchase_amount: 6.84685269835264
+            shipping_amount: 4.965218492984954
+            purchase_amount: 1.1730742509559433
             shipping_methods:
             - shipping_methods
             - shipping_methods
             currency_code: currency_code
           percent_off_subtotal_with_items_purchase:
-            discount_percent: 8.251625748923757
+            discount_percent: 3.901545264248647
             items:
             - items
             - items
@@ -162177,21 +162289,34 @@ components:
             - shipping_methods
           amount_off_subtotal_with_block_purchase:
             required_purchase_item: required_purchase_item
-            discount_amount: 2.027123023002322
-            required_purchase_quantity: 4
+            discount_amount: 7.386281948385884
+            required_purchase_quantity: 1
             currency_code: currency_code
           super_coupon: true
           affiliate_oid: 0
+          amount_off_items_and_free_shipping:
+            shipping_methods:
+            - shipping_methods
+            - shipping_methods
+            item_tags:
+            - item_tags
+            - item_tags
+            discount_amount: 5.962133916683182
+            limit: 5
+            items:
+            - items
+            - items
+            currency_code: currency_code
           percent_off_items_with_minimum_item_amount:
             excluded_item_tags:
             - excluded_item_tags
             - excluded_item_tags
-            minimum_item_amount: 4.258773108174356
+            minimum_item_amount: 4.678947989005849
             item_tags:
             - item_tags
             - item_tags
-            limit: 6
-            discount_percent: 0.2025324113236393
+            limit: 1
+            discount_percent: 4.258773108174356
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162206,8 +162331,8 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
-            discount_percent: 3.0576100241049344
+            limit: 3
+            discount_percent: 5.533258397034986
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162222,14 +162347,14 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 0.5199002018724985
+            discount_percent: 5.507386964179881
           more_loyalty_cashback:
-            loyalty_cashback: 7.143538047012306
+            loyalty_cashback: 7.058770351582356
           more_loyalty_points:
-            loyalty_points: 0.8851374739011653
+            loyalty_points: 6.519180951018382
           hide_from_customer: true
           amount_off_subtotal_and_shipping:
-            discount_amount: 3.616076749251911
+            discount_amount: 4.145608029883936
             currency_code: currency_code
           free_shipping_with_items_purchase:
             shipping_methods:
@@ -162244,36 +162369,36 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.637376656633329
+            discount_amount: 7.061401241503109
             items:
             - items
             - items
             currency_code: currency_code
           free_items_with_mixmatch_purchase:
             free_item: free_item
-            limit: 6
+            limit: 3
             required_purchase_mix_and_match_group: required_purchase_mix_and_match_group
-            required_purchase_quantity: 3
-            free_quantity: 5
+            required_purchase_quantity: 7
+            free_quantity: 3
           free_item_and_shipping_with_subtotal:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 8
+            limit: 6
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 9.018348186070783
+            subtotal_amount: 3.5571952270680973
           automatically_apply_coupon_codes:
             coupon_codes:
             - coupon_codes
             - coupon_codes
           percent_off_msrp_items:
-            limit: 4
-            minimum_cumulative_msrp: 7.260521264802104
-            discount_percent: 1.041444916118296
-            minimum_subtotal: 9.132027271330688
+            limit: 9
+            minimum_cumulative_msrp: 0.8774076871421566
+            discount_percent: 7.260521264802104
+            minimum_subtotal: 9.702963800023566
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162281,14 +162406,14 @@ components:
             - items
             - items
           discount_items:
-            discount_price: 9.369310271410669
-            limit: 6
+            discount_price: 8.762042012749001
+            limit: 9
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal:
-            discount_percent: 7.933506881737151
+            discount_percent: 4.86315908102884
           restrict_by_postal_codes:
           - restrict_by_postal_codes
           - restrict_by_postal_codes
@@ -162296,22 +162421,22 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_percent: 5.507386964179881
+            discount_percent: 6.073898085781152
           no_discount:
             ignore_this_property: true
           percent_off_item_with_items_quantity_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 7
+            limit: 3
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 8.969578798196912
-            required_purchase_quantity: 3
+            discount_percent: 3.0205796992916243
+            required_purchase_quantity: 7
             items:
             - items
             - items
@@ -162325,7 +162450,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            discount_percent: 5.533258397034986
+            discount_percent: 4.078845849666752
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162333,72 +162458,72 @@ components:
             - items
             - items
           amount_off_subtotal_with_purchase:
-            purchase_amount: 1.4894159098541704
-            discount_amount: 1.0246457001441578
+            purchase_amount: 7.457744773683766
+            discount_amount: 6.84685269835264
             currency_code: currency_code
           coupon_type: coupon_type
           amount_off_subtotal:
-            discount_amount: 2.3021358869347655
+            discount_amount: 9.301444243932576
             currency_code: currency_code
           free_item_with_subtotal:
-            limit: 6
+            limit: 2
             items:
             - items
             - items
             currency_code: currency_code
-            subtotal_amount: 1.284659006116532
+            subtotal_amount: 6.778324963048013
           multiple_amounts_off_items:
             discounts:
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            - discount_amount: 7.058770351582356
+            - discount_amount: 0.10263654006109402
               items:
               - items
               - items
-            limit: 6
+            limit: 4
           percent_more_loyalty_points:
-            percent_more_loyalty_points: 4.652396432933246
+            percent_more_loyalty_points: 7.740351818741173
           free_items_with_item_purchase:
             required_purchase_item: required_purchase_item
             free_item: free_item
-            limit: 6
+            limit: 5
             required_purchase_quantity: 6
-            free_quantity: 2
+            free_quantity: 6
           description: description
           tiered_percent_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             - quickbooks_code: quickbooks_code
-              discount_percent: 8.863729185622827
-              item_quantity: 9
+              discount_percent: 1.8268702177058116
+              item_quantity: 3
             item_tags:
             - item_tags
             - item_tags
-            limit: 4.573936264232251
+            limit: 9.254183946267839
             items:
             - items
             - items
           amount_off_subtotal_and_free_shipping:
-            purchase_amount: 9.301444243932576
+            purchase_amount: 2.027123023002322
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 7.061401241503109
+            discount_amount: 3.616076749251911
             currency_code: currency_code
           percent_more_loyalty_cashback:
-            percent_more_loyalty_cashback: 0.10263654006109402
+            percent_more_loyalty_cashback: 8.969578798196912
           tiered_percent_off_subtotal_based_on_msrp:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
@@ -162407,7 +162532,7 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            limit: 3
+            limit: 1
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
@@ -162427,17 +162552,17 @@ components:
           tiered_percent_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             items:
             - items
             - items
           allow_multiple_one_time_codes: true
           free_shipping_with_subtotal:
-            purchase_amount: 3.0937452626664474
+            purchase_amount: 0.8851374739011653
             shipping_methods:
             - shipping_methods
             - shipping_methods
@@ -162455,7 +162580,7 @@ components:
             item_tags:
             - item_tags
             - item_tags
-            limit: 1
+            limit: 5
             items:
             - items
             - items
@@ -162473,17 +162598,17 @@ components:
             shipping_methods:
             - shipping_methods
             - shipping_methods
-            discount_amount: 5.962133916683182
+            discount_amount: 2.3021358869347655
             currency_code: currency_code
-          coupon_oid: 4
+          coupon_oid: 9
           tiered_percent_off_shipping:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             - quickbooks_code: quickbooks_code
-              discount_percent: 1.8268702177058116
-              subtotal_amount: 3.502657762086401
+              discount_percent: 9.183123594773994
+              subtotal_amount: 8.761432466225475
             quickbooks_code: quickbooks_code
             shipping_methods:
             - shipping_methods
@@ -162491,15 +162616,15 @@ components:
           tiered_amount_off_items:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             - quickbooks_code: quickbooks_code
-              discount_amount: 2.9409642974827896
-              item_quantity: 1
+              discount_amount: 8.28965939814297
+              item_quantity: 6
             item_tags:
             - item_tags
             - item_tags
-            limit: 0.43431398824148815
+            limit: 1.7325933120207193
             items:
             - items
             - items
@@ -162507,8 +162632,8 @@ components:
           skip_on_rebill: true
           discount_item_with_item_purchase:
             required_purchase_item: required_purchase_item
-            discount_price: 5.025004791520295
-            limit: 9
+            discount_price: 9.369310271410669
+            limit: 6
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
@@ -162518,8 +162643,8 @@ components:
             currency_code: currency_code
             discount_item: discount_item
           percent_off_retail_price_items:
-            limit: 9
-            discount_percent: 0.8774076871421566
+            limit: 7
+            discount_percent: 0.5199002018724985
             excluded_items:
             - excluded_items
             - excluded_items
@@ -162529,17 +162654,17 @@ components:
           tiered_amount_off_subtotal:
             tiers:
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             - quickbooks_code: quickbooks_code
-              discount_amount: 8.28965939814297
-              subtotal_amount: 6.623518433804886
+              discount_amount: 4.573936264232251
+              subtotal_amount: 8.863729185622827
             items:
             - items
             - items
           percent_off_subtotal_limit:
-            limit: 6.073898085781152
-            discount_percent: 4.86315908102884
+            limit: 4.459605034958679
+            discount_percent: 8.251625748923757
             currency_code: currency_code
           free_item_with_item_purchase:
             match_required_purchase_item_to_free_item: true
@@ -162557,28 +162682,28 @@ components:
             - items
             - items
           amount_off_subtotal_with_items_purchase:
-            discount_amount: 7.386281948385884
+            discount_amount: 1.0246457001441578
             required_purchase_quantity: 1
             items:
             - items
             - items
             currency_code: currency_code
           percent_off_subtotal_with_subtotal:
-            discount_percent: 4.459605034958679
+            discount_percent: 0.43431398824148815
             currency_code: currency_code
-            subtotal_amount: 3.901545264248647
+            subtotal_amount: 2.9409642974827896
           percent_off_items_with_items_purchase:
             item_tags:
             - item_tags
             - item_tags
-            limit: 4
+            limit: 6
             required_purchase_items:
             - required_purchase_items
             - required_purchase_items
             required_purchase_items_tags:
             - required_purchase_items_tags
             - required_purchase_items_tags
-            discount_percent: 3.2588565619047607
+            discount_percent: 0.2025324113236393
             items:
             - items
             - items
@@ -162613,8 +162738,8 @@ components:
     CouponTierAmount:
       example:
         quickbooks_code: quickbooks_code
-        discount_amount: 8.28965939814297
-        subtotal_amount: 6.623518433804886
+        discount_amount: 4.573936264232251
+        subtotal_amount: 8.863729185622827
       properties:
         discount_amount:
           description: The amount of subtotal discount
@@ -162631,15 +162756,15 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_amount: 2.9409642974827896
-          item_quantity: 1
+          discount_amount: 8.28965939814297
+          item_quantity: 6
         - quickbooks_code: quickbooks_code
-          discount_amount: 2.9409642974827896
-          item_quantity: 1
+          discount_amount: 8.28965939814297
+          item_quantity: 6
         item_tags:
         - item_tags
         - item_tags
-        limit: 0.43431398824148815
+        limit: 1.7325933120207193
         items:
         - items
         - items
@@ -162668,11 +162793,11 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_amount: 8.28965939814297
-          subtotal_amount: 6.623518433804886
+          discount_amount: 4.573936264232251
+          subtotal_amount: 8.863729185622827
         - quickbooks_code: quickbooks_code
-          discount_amount: 8.28965939814297
-          subtotal_amount: 6.623518433804886
+          discount_amount: 4.573936264232251
+          subtotal_amount: 8.863729185622827
         items:
         - items
         - items
@@ -162694,15 +162819,15 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_percent: 8.863729185622827
-          item_quantity: 9
+          discount_percent: 1.8268702177058116
+          item_quantity: 3
         - quickbooks_code: quickbooks_code
-          discount_percent: 8.863729185622827
-          item_quantity: 9
+          discount_percent: 1.8268702177058116
+          item_quantity: 3
         item_tags:
         - item_tags
         - item_tags
-        limit: 4.573936264232251
+        limit: 9.254183946267839
         items:
         - items
         - items
@@ -162732,11 +162857,11 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         quickbooks_code: quickbooks_code
         shipping_methods:
         - shipping_methods
@@ -162761,11 +162886,11 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         items:
         - items
         - items
@@ -162787,11 +162912,11 @@ components:
       example:
         tiers:
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         - quickbooks_code: quickbooks_code
-          discount_percent: 1.8268702177058116
-          subtotal_amount: 3.502657762086401
+          discount_percent: 9.183123594773994
+          subtotal_amount: 8.761432466225475
         items:
         - items
         - items
@@ -162811,7 +162936,7 @@ components:
       type: object
     CouponTierItemDiscount:
       example:
-        discount_amount: 7.058770351582356
+        discount_amount: 0.10263654006109402
         items:
         - items
         - items
@@ -162828,8 +162953,8 @@ components:
     CouponTierPercent:
       example:
         quickbooks_code: quickbooks_code
-        discount_percent: 1.8268702177058116
-        subtotal_amount: 3.502657762086401
+        discount_percent: 9.183123594773994
+        subtotal_amount: 8.761432466225475
       properties:
         discount_percent:
           description: The percent of subtotal discount
@@ -162845,8 +162970,8 @@ components:
     CouponTierQuantityAmount:
       example:
         quickbooks_code: quickbooks_code
-        discount_amount: 2.9409642974827896
-        item_quantity: 1
+        discount_amount: 8.28965939814297
+        item_quantity: 6
       properties:
         discount_amount:
           description: The amount of discount per item.
@@ -162863,8 +162988,8 @@ components:
     CouponTierQuantityPercent:
       example:
         quickbooks_code: quickbooks_code
-        discount_percent: 8.863729185622827
-        item_quantity: 9
+        discount_percent: 1.8268702177058116
+        item_quantity: 3
       properties:
         discount_percent:
           description: The percent of discount per item.

@@ -322,6 +322,7 @@ docs/CountriesResponse.md
 docs/Country.md
 docs/Coupon.md
 docs/CouponAmountOffItems.md
+docs/CouponAmountOffItemsAndFreeShipping.md
 docs/CouponAmountOffShipping.md
 docs/CouponAmountOffShippingWithItemsPurchase.md
 docs/CouponAmountOffSubtotal.md
@@ -1372,6 +1373,7 @@ src/main/java/com/ultracart/admin/v2/models/CountriesResponse.java
 src/main/java/com/ultracart/admin/v2/models/Country.java
 src/main/java/com/ultracart/admin/v2/models/Coupon.java
 src/main/java/com/ultracart/admin/v2/models/CouponAmountOffItems.java
+src/main/java/com/ultracart/admin/v2/models/CouponAmountOffItemsAndFreeShipping.java
 src/main/java/com/ultracart/admin/v2/models/CouponAmountOffShipping.java
 src/main/java/com/ultracart/admin/v2/models/CouponAmountOffShippingWithItemsPurchase.java
 src/main/java/com/ultracart/admin/v2/models/CouponAmountOffSubtotal.java
