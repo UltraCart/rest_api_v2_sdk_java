@@ -221151,6 +221151,7 @@ components:
         webhook_oid: 2
         compress_events: true
         webhook_url: webhook_url
+        merchant_comments: merchant_comments
         pending: 5
         merchant_id: merchant_id
         api_version: 2017-03-01
@@ -221166,6 +221167,7 @@ components:
           developer_name: developer_name
         next_retry_after: next_retry_after
         consecutive_failures: 6
+        name: name
         disabled: true
         iam_secret_key: iam_secret_key
         basic_username: basic_username
@@ -221231,8 +221233,14 @@ components:
           description: The maximum size of the payload that UltraCart will deliver
           format: int32
           type: integer
+        merchant_comments:
+          description: Merchant comments about this webhook
+          type: string
         merchant_id:
           description: The UltraCart merchant ID that owns this webhook
+          type: string
+        name:
+          description: Friendly name to help identify this webhook
           type: string
         next_retry_after:
           description: The next time UltraCart will attempt delivery if failures have
@@ -221751,6 +221759,7 @@ components:
           webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
+          merchant_comments: merchant_comments
           pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
@@ -221766,6 +221775,7 @@ components:
             developer_name: developer_name
           next_retry_after: next_retry_after
           consecutive_failures: 6
+          name: name
           disabled: true
           iam_secret_key: iam_secret_key
           basic_username: basic_username
@@ -221865,6 +221875,7 @@ components:
           webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
+          merchant_comments: merchant_comments
           pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
@@ -221880,6 +221891,7 @@ components:
             developer_name: developer_name
           next_retry_after: next_retry_after
           consecutive_failures: 6
+          name: name
           disabled: true
           iam_secret_key: iam_secret_key
           basic_username: basic_username
@@ -221943,6 +221955,7 @@ components:
           webhook_oid: 2
           compress_events: true
           webhook_url: webhook_url
+          merchant_comments: merchant_comments
           pending: 5
           merchant_id: merchant_id
           api_version: 2017-03-01
@@ -221958,6 +221971,7 @@ components:
             developer_name: developer_name
           next_retry_after: next_retry_after
           consecutive_failures: 6
+          name: name
           disabled: true
           iam_secret_key: iam_secret_key
           basic_username: basic_username

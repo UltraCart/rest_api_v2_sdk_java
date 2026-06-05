@@ -21,7 +21,9 @@
 |**iamSecretKey** | **String** | IAM Secret Key for AWS SQS Delivery |  [optional] |
 |**maximumEvents** | **Integer** | The maximum number of events in the payload that UltraCart will deliver |  [optional] |
 |**maximumSize** | **Integer** | The maximum size of the payload that UltraCart will deliver |  [optional] |
+|**merchantComments** | **String** | Merchant comments about this webhook |  [optional] |
 |**merchantId** | **String** | The UltraCart merchant ID that owns this webhook |  [optional] |
+|**name** | **String** | Friendly name to help identify this webhook |  [optional] |
 |**nextRetryAfter** | **String** | The next time UltraCart will attempt delivery if failures have been occurring |  [optional] |
 |**pending** | **Integer** | The number of pending events for this webhook |  [optional] |
 |**webhookOid** | **Integer** | The object identifier for this webhook |  [optional] |

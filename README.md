@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-04T10:57:18.113-04:00[America/Indianapolis]
+- Build date: 2026-06-05T10:29:30.974-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.98</version>
+    <version>4.1.99</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.98"
+     implementation "com.ultracart:rest-sdk:4.1.99"
   }
 ```
 
@@ -1800,6 +1800,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |
 | 4.1.98 | 06/04/2026 | coupon - new coupon type for amount off items with free shipping |
 | 4.1.97 | 06/03/2026 | fraud api alpha version |
 | 4.1.96 | 06/03/2026 | fraud api alpha build |

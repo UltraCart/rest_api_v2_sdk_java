@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Webhook
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-04T10:57:18.113-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T10:29:30.974-04:00[America/Indianapolis]")
 public class Webhook {
   public static final String SERIALIZED_NAME_API_USER_OID = "api_user_oid";
   @SerializedName(SERIALIZED_NAME_API_USER_OID)
@@ -205,9 +205,17 @@ public class Webhook {
   @SerializedName(SERIALIZED_NAME_MAXIMUM_SIZE)
   private Integer maximumSize;
 
+  public static final String SERIALIZED_NAME_MERCHANT_COMMENTS = "merchant_comments";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_COMMENTS)
+  private String merchantComments;
+
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_NEXT_RETRY_AFTER = "next_retry_after";
   @SerializedName(SERIALIZED_NAME_NEXT_RETRY_AFTER)
@@ -558,6 +566,29 @@ public class Webhook {
   }
 
 
+  public Webhook merchantComments(String merchantComments) {
+    
+    this.merchantComments = merchantComments;
+    return this;
+  }
+
+   /**
+   * Merchant comments about this webhook
+   * @return merchantComments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Merchant comments about this webhook")
+
+  public String getMerchantComments() {
+    return merchantComments;
+  }
+
+
+  public void setMerchantComments(String merchantComments) {
+    this.merchantComments = merchantComments;
+  }
+
+
   public Webhook merchantId(String merchantId) {
     
     this.merchantId = merchantId;
@@ -578,6 +609,29 @@ public class Webhook {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public Webhook name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Friendly name to help identify this webhook
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Friendly name to help identify this webhook")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -697,7 +751,9 @@ public class Webhook {
         Objects.equals(this.iamSecretKey, webhook.iamSecretKey) &&
         Objects.equals(this.maximumEvents, webhook.maximumEvents) &&
         Objects.equals(this.maximumSize, webhook.maximumSize) &&
+        Objects.equals(this.merchantComments, webhook.merchantComments) &&
         Objects.equals(this.merchantId, webhook.merchantId) &&
+        Objects.equals(this.name, webhook.name) &&
         Objects.equals(this.nextRetryAfter, webhook.nextRetryAfter) &&
         Objects.equals(this.pending, webhook.pending) &&
         Objects.equals(this.webhookOid, webhook.webhookOid) &&
@@ -706,7 +762,7 @@ public class Webhook {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, compressEvents, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantId, nextRetryAfter, pending, webhookOid, webhookUrl);
+    return Objects.hash(apiUserOid, apiVersion, applicationProfile, authenticationType, basicPassword, basicUsername, compressEvents, consecutiveFailures, disabled, eventCategories, iamAccessKey, iamSecretKey, maximumEvents, maximumSize, merchantComments, merchantId, name, nextRetryAfter, pending, webhookOid, webhookUrl);
   }
 
   @Override
@@ -727,7 +783,9 @@ public class Webhook {
     sb.append("    iamSecretKey: ").append(toIndentedString(iamSecretKey)).append("\n");
     sb.append("    maximumEvents: ").append(toIndentedString(maximumEvents)).append("\n");
     sb.append("    maximumSize: ").append(toIndentedString(maximumSize)).append("\n");
+    sb.append("    merchantComments: ").append(toIndentedString(merchantComments)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nextRetryAfter: ").append(toIndentedString(nextRetryAfter)).append("\n");
     sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
     sb.append("    webhookOid: ").append(toIndentedString(webhookOid)).append("\n");
@@ -768,7 +826,9 @@ public class Webhook {
     openapiFields.add("iam_secret_key");
     openapiFields.add("maximum_events");
     openapiFields.add("maximum_size");
+    openapiFields.add("merchant_comments");
     openapiFields.add("merchant_id");
+    openapiFields.add("name");
     openapiFields.add("next_retry_after");
     openapiFields.add("pending");
     openapiFields.add("webhook_oid");
@@ -834,8 +894,14 @@ public class Webhook {
       if (jsonObj.get("iam_secret_key") != null && !jsonObj.get("iam_secret_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `iam_secret_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iam_secret_key").toString()));
       }
+      if (jsonObj.get("merchant_comments") != null && !jsonObj.get("merchant_comments").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_comments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_comments").toString()));
+      }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (jsonObj.get("next_retry_after") != null && !jsonObj.get("next_retry_after").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_retry_after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_retry_after").toString()));
