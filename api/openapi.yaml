@@ -43636,6 +43636,52 @@ paths:
         schema:
           format: int32
           type: integer
+      - description: Filter by request id
+        in: query
+        name: requestId
+        schema:
+          type: string
+      - description: Filter to deliveries on or after this date/time
+        in: query
+        name: beginDate
+        schema:
+          type: string
+      - description: Filter to deliveries on or before this date/time
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: Filter by HTTP status code
+        in: query
+        name: status
+        schema:
+          type: string
+      - description: Filter by success (true) or failure (false)
+        in: query
+        name: success
+        schema:
+          type: boolean
+      - description: Filter by an event name contained in the delivery
+        in: query
+        name: event
+        schema:
+          type: string
+      - description: Filter by an order id contained in the delivery
+        in: query
+        name: orderId
+        schema:
+          type: string
+      - description: Filter by text contained in the request payload
+        in: query
+        name: request
+        schema:
+          type: string
+      - description: Filter to deliveries that took at least this many milliseconds
+        in: query
+        name: duration
+        schema:
+          format: int32
+          type: integer
       - description: The maximum number of records to return on this one API call.
         in: query
         name: _limit
@@ -221456,16 +221502,23 @@ components:
       type: object
     WebhookLog:
       example:
-        duration: 0
         request: request
         webhook_oid: 5
+        event_names:
+        - event_names
+        - event_names
+        status_code: 1
+        order_ids:
+        - order_ids
+        - order_ids
+        uri: uri
+        duration: 0
         delivery_dts: delivery_dts
         response_headers:
         - name: name
           value: value
         - name: name
           value: value
-        status_code: 1
         response: response
         success: true
         request_headers:
@@ -221475,7 +221528,6 @@ components:
           value: value
         queue_delay: 6
         request_id: request_id
-        uri: uri
       properties:
         delivery_dts:
           description: Date/time of delivery
@@ -221485,6 +221537,16 @@ components:
           description: Number of milliseconds to process the notification
           format: int32
           type: integer
+        event_names:
+          description: Event names contained in this delivery
+          items:
+            type: string
+          type: array
+        order_ids:
+          description: Order ids contained in this delivery
+          items:
+            type: string
+          type: array
         queue_delay:
           description: Number of milliseconds of delay caused by queuing
           format: int64
@@ -221546,16 +221608,23 @@ components:
           error_code: error_code
           object_id: object_id
         webhook_log:
-          duration: 0
           request: request
           webhook_oid: 5
+          event_names:
+          - event_names
+          - event_names
+          status_code: 1
+          order_ids:
+          - order_ids
+          - order_ids
+          uri: uri
+          duration: 0
           delivery_dts: delivery_dts
           response_headers:
           - name: name
             value: value
           - name: name
             value: value
-          status_code: 1
           response: response
           success: true
           request_headers:
@@ -221565,7 +221634,6 @@ components:
             value: value
           queue_delay: 6
           request_id: request_id
-          uri: uri
       properties:
         error:
           $ref: '#/components/schemas/Error'
@@ -221596,11 +221664,27 @@ components:
           more_info: more_info
           warning_code: warning_code
         webhook_log_summaries:
-        - delivery_dts: delivery_dts
+        - duration: 0
+          delivery_dts: delivery_dts
+          event_names:
+          - event_names
+          - event_names
+          status_code: 6
           success: true
+          order_ids:
+          - order_ids
+          - order_ids
           request_id: request_id
-        - delivery_dts: delivery_dts
+        - duration: 0
+          delivery_dts: delivery_dts
+          event_names:
+          - event_names
+          - event_names
+          status_code: 6
           success: true
+          order_ids:
+          - order_ids
+          - order_ids
           request_id: request_id
         error:
           developer_message: developer_message
@@ -221626,17 +221710,43 @@ components:
       type: object
     WebhookLogSummary:
       example:
+        duration: 0
         delivery_dts: delivery_dts
+        event_names:
+        - event_names
+        - event_names
+        status_code: 6
         success: true
+        order_ids:
+        - order_ids
+        - order_ids
         request_id: request_id
       properties:
         delivery_dts:
           description: Date/time of the delivery
           format: dateTime
           type: string
+        duration:
+          description: Number of milliseconds to process the notification
+          format: int32
+          type: integer
+        event_names:
+          description: Event names contained in this delivery
+          items:
+            type: string
+          type: array
+        order_ids:
+          description: Order ids contained in this delivery
+          items:
+            type: string
+          type: array
         request_id:
           description: Request id
           type: string
+        status_code:
+          description: HTTP status code received from the server
+          format: int32
+          type: integer
         success:
           description: True if the notification was successful
           type: boolean

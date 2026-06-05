@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsTaxes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T10:29:30.974-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T14:47:08.377-04:00[America/Indianapolis]")
 public class CartSettingsTaxes {
   public static final String SERIALIZED_NAME_COUNTIES = "counties";
   @SerializedName(SERIALIZED_NAME_COUNTIES)

@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WebhookLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T10:29:30.974-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T14:47:08.377-04:00[America/Indianapolis]")
 public class WebhookLog {
   public static final String SERIALIZED_NAME_DELIVERY_DTS = "delivery_dts";
   @SerializedName(SERIALIZED_NAME_DELIVERY_DTS)
@@ -59,6 +59,14 @@ public class WebhookLog {
   public static final String SERIALIZED_NAME_DURATION = "duration";
   @SerializedName(SERIALIZED_NAME_DURATION)
   private Integer duration;
+
+  public static final String SERIALIZED_NAME_EVENT_NAMES = "event_names";
+  @SerializedName(SERIALIZED_NAME_EVENT_NAMES)
+  private List<String> eventNames = null;
+
+  public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
+  @SerializedName(SERIALIZED_NAME_ORDER_IDS)
+  private List<String> orderIds = null;
 
   public static final String SERIALIZED_NAME_QUEUE_DELAY = "queue_delay";
   @SerializedName(SERIALIZED_NAME_QUEUE_DELAY)
@@ -146,6 +154,68 @@ public class WebhookLog {
 
   public void setDuration(Integer duration) {
     this.duration = duration;
+  }
+
+
+  public WebhookLog eventNames(List<String> eventNames) {
+    
+    this.eventNames = eventNames;
+    return this;
+  }
+
+  public WebhookLog addEventNamesItem(String eventNamesItem) {
+    if (this.eventNames == null) {
+      this.eventNames = new ArrayList<>();
+    }
+    this.eventNames.add(eventNamesItem);
+    return this;
+  }
+
+   /**
+   * Event names contained in this delivery
+   * @return eventNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Event names contained in this delivery")
+
+  public List<String> getEventNames() {
+    return eventNames;
+  }
+
+
+  public void setEventNames(List<String> eventNames) {
+    this.eventNames = eventNames;
+  }
+
+
+  public WebhookLog orderIds(List<String> orderIds) {
+    
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public WebhookLog addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * Order ids contained in this delivery
+   * @return orderIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Order ids contained in this delivery")
+
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
   }
 
 
@@ -407,6 +477,8 @@ public class WebhookLog {
     WebhookLog webhookLog = (WebhookLog) o;
     return Objects.equals(this.deliveryDts, webhookLog.deliveryDts) &&
         Objects.equals(this.duration, webhookLog.duration) &&
+        Objects.equals(this.eventNames, webhookLog.eventNames) &&
+        Objects.equals(this.orderIds, webhookLog.orderIds) &&
         Objects.equals(this.queueDelay, webhookLog.queueDelay) &&
         Objects.equals(this.request, webhookLog.request) &&
         Objects.equals(this.requestHeaders, webhookLog.requestHeaders) &&
@@ -421,7 +493,7 @@ public class WebhookLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryDts, duration, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri, webhookOid);
+    return Objects.hash(deliveryDts, duration, eventNames, orderIds, queueDelay, request, requestHeaders, requestId, response, responseHeaders, statusCode, success, uri, webhookOid);
   }
 
   @Override
@@ -430,6 +502,8 @@ public class WebhookLog {
     sb.append("class WebhookLog {\n");
     sb.append("    deliveryDts: ").append(toIndentedString(deliveryDts)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    eventNames: ").append(toIndentedString(eventNames)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    queueDelay: ").append(toIndentedString(queueDelay)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    requestHeaders: ").append(toIndentedString(requestHeaders)).append("\n");
@@ -464,6 +538,8 @@ public class WebhookLog {
     openapiFields = new HashSet<String>();
     openapiFields.add("delivery_dts");
     openapiFields.add("duration");
+    openapiFields.add("event_names");
+    openapiFields.add("order_ids");
     openapiFields.add("queue_delay");
     openapiFields.add("request");
     openapiFields.add("request_headers");
@@ -503,6 +579,14 @@ public class WebhookLog {
       }
       if (jsonObj.get("delivery_dts") != null && !jsonObj.get("delivery_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delivery_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delivery_dts").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("event_names") != null && !jsonObj.get("event_names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event_names` to be an array in the JSON string but got `%s`", jsonObj.get("event_names").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
       }
       if (jsonObj.get("request") != null && !jsonObj.get("request").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request").toString()));

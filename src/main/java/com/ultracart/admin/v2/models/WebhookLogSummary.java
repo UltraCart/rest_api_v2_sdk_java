@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,15 +49,31 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WebhookLogSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T10:29:30.974-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T14:47:08.377-04:00[America/Indianapolis]")
 public class WebhookLogSummary {
   public static final String SERIALIZED_NAME_DELIVERY_DTS = "delivery_dts";
   @SerializedName(SERIALIZED_NAME_DELIVERY_DTS)
   private String deliveryDts;
 
+  public static final String SERIALIZED_NAME_DURATION = "duration";
+  @SerializedName(SERIALIZED_NAME_DURATION)
+  private Integer duration;
+
+  public static final String SERIALIZED_NAME_EVENT_NAMES = "event_names";
+  @SerializedName(SERIALIZED_NAME_EVENT_NAMES)
+  private List<String> eventNames = null;
+
+  public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
+  @SerializedName(SERIALIZED_NAME_ORDER_IDS)
+  private List<String> orderIds = null;
+
   public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   private String requestId;
+
+  public static final String SERIALIZED_NAME_STATUS_CODE = "status_code";
+  @SerializedName(SERIALIZED_NAME_STATUS_CODE)
+  private Integer statusCode;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -87,6 +105,91 @@ public class WebhookLogSummary {
   }
 
 
+  public WebhookLogSummary duration(Integer duration) {
+    
+    this.duration = duration;
+    return this;
+  }
+
+   /**
+   * Number of milliseconds to process the notification
+   * @return duration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of milliseconds to process the notification")
+
+  public Integer getDuration() {
+    return duration;
+  }
+
+
+  public void setDuration(Integer duration) {
+    this.duration = duration;
+  }
+
+
+  public WebhookLogSummary eventNames(List<String> eventNames) {
+    
+    this.eventNames = eventNames;
+    return this;
+  }
+
+  public WebhookLogSummary addEventNamesItem(String eventNamesItem) {
+    if (this.eventNames == null) {
+      this.eventNames = new ArrayList<>();
+    }
+    this.eventNames.add(eventNamesItem);
+    return this;
+  }
+
+   /**
+   * Event names contained in this delivery
+   * @return eventNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Event names contained in this delivery")
+
+  public List<String> getEventNames() {
+    return eventNames;
+  }
+
+
+  public void setEventNames(List<String> eventNames) {
+    this.eventNames = eventNames;
+  }
+
+
+  public WebhookLogSummary orderIds(List<String> orderIds) {
+    
+    this.orderIds = orderIds;
+    return this;
+  }
+
+  public WebhookLogSummary addOrderIdsItem(String orderIdsItem) {
+    if (this.orderIds == null) {
+      this.orderIds = new ArrayList<>();
+    }
+    this.orderIds.add(orderIdsItem);
+    return this;
+  }
+
+   /**
+   * Order ids contained in this delivery
+   * @return orderIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Order ids contained in this delivery")
+
+  public List<String> getOrderIds() {
+    return orderIds;
+  }
+
+
+  public void setOrderIds(List<String> orderIds) {
+    this.orderIds = orderIds;
+  }
+
+
   public WebhookLogSummary requestId(String requestId) {
     
     this.requestId = requestId;
@@ -107,6 +210,29 @@ public class WebhookLogSummary {
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+  }
+
+
+  public WebhookLogSummary statusCode(Integer statusCode) {
+    
+    this.statusCode = statusCode;
+    return this;
+  }
+
+   /**
+   * HTTP status code received from the server
+   * @return statusCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "HTTP status code received from the server")
+
+  public Integer getStatusCode() {
+    return statusCode;
+  }
+
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
   }
 
 
@@ -144,13 +270,17 @@ public class WebhookLogSummary {
     }
     WebhookLogSummary webhookLogSummary = (WebhookLogSummary) o;
     return Objects.equals(this.deliveryDts, webhookLogSummary.deliveryDts) &&
+        Objects.equals(this.duration, webhookLogSummary.duration) &&
+        Objects.equals(this.eventNames, webhookLogSummary.eventNames) &&
+        Objects.equals(this.orderIds, webhookLogSummary.orderIds) &&
         Objects.equals(this.requestId, webhookLogSummary.requestId) &&
+        Objects.equals(this.statusCode, webhookLogSummary.statusCode) &&
         Objects.equals(this.success, webhookLogSummary.success);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deliveryDts, requestId, success);
+    return Objects.hash(deliveryDts, duration, eventNames, orderIds, requestId, statusCode, success);
   }
 
   @Override
@@ -158,7 +288,11 @@ public class WebhookLogSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookLogSummary {\n");
     sb.append("    deliveryDts: ").append(toIndentedString(deliveryDts)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    eventNames: ").append(toIndentedString(eventNames)).append("\n");
+    sb.append("    orderIds: ").append(toIndentedString(orderIds)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -183,7 +317,11 @@ public class WebhookLogSummary {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("delivery_dts");
+    openapiFields.add("duration");
+    openapiFields.add("event_names");
+    openapiFields.add("order_ids");
     openapiFields.add("request_id");
+    openapiFields.add("status_code");
     openapiFields.add("success");
 
     // a set of required properties/fields (JSON key names)
@@ -214,6 +352,14 @@ public class WebhookLogSummary {
       }
       if (jsonObj.get("delivery_dts") != null && !jsonObj.get("delivery_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delivery_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delivery_dts").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("event_names") != null && !jsonObj.get("event_names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event_names` to be an array in the JSON string but got `%s`", jsonObj.get("event_names").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("order_ids") != null && !jsonObj.get("order_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `order_ids` to be an array in the JSON string but got `%s`", jsonObj.get("order_ids").toString()));
       }
       if (jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));

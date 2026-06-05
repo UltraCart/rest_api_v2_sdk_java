@@ -9,6 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**deliveryDts** | **String** | Date/time of delivery |  [optional] |
 |**duration** | **Integer** | Number of milliseconds to process the notification |  [optional] |
+|**eventNames** | **List&lt;String&gt;** | Event names contained in this delivery |  [optional] |
+|**orderIds** | **List&lt;String&gt;** | Order ids contained in this delivery |  [optional] |
 |**queueDelay** | **Long** | Number of milliseconds of delay caused by queuing |  [optional] |
 |**request** | **String** | Request payload (first 100,000 characters) |  [optional] |
 |**requestHeaders** | [**List&lt;HTTPHeader&gt;**](HTTPHeader.md) | Request headers sent to the server |  [optional] |
