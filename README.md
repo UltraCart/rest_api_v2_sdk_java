@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-05T14:47:08.377-04:00[America/Indianapolis]
+- Build date: 2026-06-10T13:47:30.153-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.100</version>
+    <version>4.1.101</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.100"
+     implementation "com.ultracart:rest-sdk:4.1.101"
   }
 ```
 
@@ -282,6 +282,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**updatePbxAddress**](docs/ConversationApi.md#updatePbxAddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address
 *ConversationApi* | [**updatePbxAgent**](docs/ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent
 *ConversationApi* | [**updatePbxAudio**](docs/ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio
+*ConversationApi* | [**updatePbxCall**](docs/ConversationApi.md#updatePbxCall) | **PUT** /conversation/pbx/call/{callUuid} | Update pbx call record
 *ConversationApi* | [**updatePbxClassOfService**](docs/ConversationApi.md#updatePbxClassOfService) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service
 *ConversationApi* | [**updatePbxDefaultTimezone**](docs/ConversationApi.md#updatePbxDefaultTimezone) | **PUT** /conversation/pbx/config/default-timezone | Set the merchant default timezone
 *ConversationApi* | [**updatePbxHardwarePhone**](docs/ConversationApi.md#updatePbxHardwarePhone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone
@@ -955,6 +956,7 @@ Class | Method | HTTP request | Description
  - [ConversationPbxCallTranscript](docs/ConversationPbxCallTranscript.md)
  - [ConversationPbxCallTranscriptSegment](docs/ConversationPbxCallTranscriptSegment.md)
  - [ConversationPbxCallTransfer](docs/ConversationPbxCallTransfer.md)
+ - [ConversationPbxCallUpdateRequest](docs/ConversationPbxCallUpdateRequest.md)
  - [ConversationPbxClassOfService](docs/ConversationPbxClassOfService.md)
  - [ConversationPbxClassOfServiceResponse](docs/ConversationPbxClassOfServiceResponse.md)
  - [ConversationPbxClassOfServicesResponse](docs/ConversationPbxClassOfServicesResponse.md)
@@ -1800,6 +1802,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |
 | 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |
 | 4.1.98 | 06/04/2026 | coupon - new coupon type for amount off items with free shipping |

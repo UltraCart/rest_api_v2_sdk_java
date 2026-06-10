@@ -132,6 +132,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updatePbxAddress**](ConversationApi.md#updatePbxAddress) | **PUT** /conversation/pbx/address/{conversationPbxAddressUuid} | Update pbx address |
 | [**updatePbxAgent**](ConversationApi.md#updatePbxAgent) | **PUT** /conversation/pbx/agent/{conversationPbxAgentUuid} | Update pbx agent |
 | [**updatePbxAudio**](ConversationApi.md#updatePbxAudio) | **PUT** /conversation/pbx/audio/{conversationPbxAudioUuid} | Update pbx audio |
+| [**updatePbxCall**](ConversationApi.md#updatePbxCall) | **PUT** /conversation/pbx/call/{callUuid} | Update pbx call record |
 | [**updatePbxClassOfService**](ConversationApi.md#updatePbxClassOfService) | **PUT** /conversation/pbx/class_of_service/{classOfServiceUuid} | Update pbx class of service |
 | [**updatePbxDefaultTimezone**](ConversationApi.md#updatePbxDefaultTimezone) | **PUT** /conversation/pbx/config/default-timezone | Set the merchant default timezone |
 | [**updatePbxHardwarePhone**](ConversationApi.md#updatePbxHardwarePhone) | **PUT** /conversation/pbx/hardware_phone/{conversationPbxHardwarePhoneUuid} | Update pbx hardware phone |
@@ -5618,6 +5619,50 @@ Update a pbx audio
 ### Return type
 
 [**ConversationPbxAudioResponse**](ConversationPbxAudioResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updatePbxCall"></a>
+# **updatePbxCall**
+> ConversationPbxCallResponse updatePbxCall(callUuid, updateRequest)
+
+Update pbx call record
+
+Update the agent-authored fields (notes, finalize) on a PBX call record 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **callUuid** | **String**|  | |
+| **updateRequest** | [**ConversationPbxCallUpdateRequest**](ConversationPbxCallUpdateRequest.md)| Update Request | |
+
+### Return type
+
+[**ConversationPbxCallResponse**](ConversationPbxCallResponse.md)
 
 ### Authorization
 

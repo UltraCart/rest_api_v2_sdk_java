@@ -38108,6 +38108,98 @@ paths:
       tags:
       - conversation
       x-accepts: application/json
+    put:
+      description: "Update the agent-authored fields (notes, finalize) on a PBX call\
+        \ record\n"
+      operationId: updatePbxCall
+      parameters:
+      - in: path
+        name: callUuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationPbxCallUpdateRequest'
+        description: Update Request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationPbxCallResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - conversation_write
+      - ultraCartSimpleApiKey: []
+      summary: Update pbx call record
+      tags:
+      - conversation
+      x-codegen-request-body-name: update_request
+      x-content-type: application/json
+      x-accepts: application/json
   /conversation/pbx/class_of_service:
     get:
       description: |
@@ -121408,6 +121500,7 @@ components:
       type: object
     ConversationPbxCall:
       example:
+        notes: notes
         financial:
           ai_agent_billed_minutes: 9.301444243932576
           call_currency: call_currency
@@ -121434,6 +121527,7 @@ components:
             wait_seconds: 4
           direction: direction
         zoho_desk_ticket_url: zoho_desk_ticket_url
+        notes_finalized_dts: notes_finalized_dts
         created_at_dts: created_at_dts
         call_sid: call_sid
         transfers:
@@ -121712,6 +121806,15 @@ components:
           type: array
         merchant_id:
           description: Merchant identifier
+          type: string
+        notes:
+          description: "Agent-authored notes for this call, captured during the call\
+            \ and after-call work"
+          type: string
+        notes_finalized_dts:
+          description: Timestamp when the agent finalized notes via Save & finish;
+            gates Zoho Desk ticket creation
+          format: dateTime
           type: string
         recording_sids:
           description: List of all Twilio recording SIDs associated with this call
@@ -122201,6 +122304,7 @@ components:
     ConversationPbxCallResponse:
       example:
         call:
+          notes: notes
           financial:
             ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
@@ -122227,6 +122331,7 @@ components:
               wait_seconds: 4
             direction: direction
           zoho_desk_ticket_url: zoho_desk_ticket_url
+          notes_finalized_dts: notes_finalized_dts
           created_at_dts: created_at_dts
           call_sid: call_sid
           transfers:
@@ -122597,7 +122702,8 @@ components:
             limit: 1
             next_offset: 5
         calls:
-        - financial:
+        - notes: notes
+          financial:
             ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
             ai_agent_cost: 3.616076749251911
@@ -122623,6 +122729,7 @@ components:
               wait_seconds: 4
             direction: direction
           zoho_desk_ticket_url: zoho_desk_ticket_url
+          notes_finalized_dts: notes_finalized_dts
           created_at_dts: created_at_dts
           call_sid: call_sid
           transfers:
@@ -122844,7 +122951,8 @@ components:
             talk_time_seconds: 9
           customer_name: customer_name
           status: status
-        - financial:
+        - notes: notes
+          financial:
             ai_agent_billed_minutes: 9.301444243932576
             call_currency: call_currency
             ai_agent_cost: 3.616076749251911
@@ -122870,6 +122978,7 @@ components:
               wait_seconds: 4
             direction: direction
           zoho_desk_ticket_url: zoho_desk_ticket_url
+          notes_finalized_dts: notes_finalized_dts
           created_at_dts: created_at_dts
           call_sid: call_sid
           transfers:
@@ -123260,6 +123369,21 @@ components:
         transferred_to:
           description: "Destination of the transfer (agent ID, queue name, or phone\
             \ number)"
+          type: string
+      type: object
+    ConversationPbxCallUpdateRequest:
+      example:
+        notes: notes
+        finalize: true
+      properties:
+        finalize:
+          description: "True when the agent has finished after-call work (Save & finish).\
+            \ Stamps notes_finalized_dts, which together with transcript availability\
+            \ gates Zoho Desk ticket creation."
+          type: boolean
+        notes:
+          description: Agent-authored notes for the call. Card-like values are scrubbed
+            server-side for PCI compliance.
           type: string
       type: object
     ConversationPbxClassOfService:

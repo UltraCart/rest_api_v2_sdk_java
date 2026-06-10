@@ -84,6 +84,7 @@ import com.ultracart.admin.v2.models.ConversationPbxAvailablePhoneNumbersRespons
 import com.ultracart.admin.v2.models.ConversationPbxCallResponse;
 import com.ultracart.admin.v2.models.ConversationPbxCallSearchRequest;
 import com.ultracart.admin.v2.models.ConversationPbxCallSearchResponse;
+import com.ultracart.admin.v2.models.ConversationPbxCallUpdateRequest;
 import com.ultracart.admin.v2.models.ConversationPbxClassOfService;
 import com.ultracart.admin.v2.models.ConversationPbxClassOfServiceResponse;
 import com.ultracart.admin.v2.models.ConversationPbxClassOfServicesResponse;
@@ -18861,6 +18862,162 @@ public class ConversationApi {
 
         okhttp3.Call localVarCall = updatePbxAudioValidateBeforeCall(conversationPbxAudioUuid, pbxAudio, _callback);
         Type localVarReturnType = new TypeToken<ConversationPbxAudioResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updatePbxCall
+     * @param callUuid  (required)
+     * @param updateRequest Update Request (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updatePbxCallCall(String callUuid, ConversationPbxCallUpdateRequest updateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateRequest;
+
+        // create path and map variables
+        String localVarPath = "/conversation/pbx/call/{callUuid}"
+            .replaceAll("\\{" + "callUuid" + "\\}", localVarApiClient.escapeString(callUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updatePbxCallValidateBeforeCall(String callUuid, ConversationPbxCallUpdateRequest updateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'callUuid' is set
+        if (callUuid == null) {
+            throw new ApiException("Missing the required parameter 'callUuid' when calling updatePbxCall(Async)");
+        }
+        
+        // verify the required parameter 'updateRequest' is set
+        if (updateRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateRequest' when calling updatePbxCall(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updatePbxCallCall(callUuid, updateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update pbx call record
+     * Update the agent-authored fields (notes, finalize) on a PBX call record 
+     * @param callUuid  (required)
+     * @param updateRequest Update Request (required)
+     * @return ConversationPbxCallResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ConversationPbxCallResponse updatePbxCall(String callUuid, ConversationPbxCallUpdateRequest updateRequest) throws ApiException {
+        ApiResponse<ConversationPbxCallResponse> localVarResp = updatePbxCallWithHttpInfo(callUuid, updateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update pbx call record
+     * Update the agent-authored fields (notes, finalize) on a PBX call record 
+     * @param callUuid  (required)
+     * @param updateRequest Update Request (required)
+     * @return ApiResponse&lt;ConversationPbxCallResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationPbxCallResponse> updatePbxCallWithHttpInfo(String callUuid, ConversationPbxCallUpdateRequest updateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updatePbxCallValidateBeforeCall(callUuid, updateRequest, null);
+        Type localVarReturnType = new TypeToken<ConversationPbxCallResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update pbx call record (asynchronously)
+     * Update the agent-authored fields (notes, finalize) on a PBX call record 
+     * @param callUuid  (required)
+     * @param updateRequest Update Request (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updatePbxCallAsync(String callUuid, ConversationPbxCallUpdateRequest updateRequest, final ApiCallback<ConversationPbxCallResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updatePbxCallValidateBeforeCall(callUuid, updateRequest, _callback);
+        Type localVarReturnType = new TypeToken<ConversationPbxCallResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -59,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCall
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-05T14:47:08.377-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-10T13:47:30.153-04:00[America/Indianapolis]")
 public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_ACCOUNT_SID = "account_sid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_SID)
@@ -128,6 +128,14 @@ public class ConversationPbxCall {
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private String notes;
+
+  public static final String SERIALIZED_NAME_NOTES_FINALIZED_DTS = "notes_finalized_dts";
+  @SerializedName(SERIALIZED_NAME_NOTES_FINALIZED_DTS)
+  private String notesFinalizedDts;
 
   public static final String SERIALIZED_NAME_RECORDING_SIDS = "recording_sids";
   @SerializedName(SERIALIZED_NAME_RECORDING_SIDS)
@@ -583,6 +591,52 @@ public class ConversationPbxCall {
   }
 
 
+  public ConversationPbxCall notes(String notes) {
+    
+    this.notes = notes;
+    return this;
+  }
+
+   /**
+   * Agent-authored notes for this call, captured during the call and after-call work
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Agent-authored notes for this call, captured during the call and after-call work")
+
+  public String getNotes() {
+    return notes;
+  }
+
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
+
+
+  public ConversationPbxCall notesFinalizedDts(String notesFinalizedDts) {
+    
+    this.notesFinalizedDts = notesFinalizedDts;
+    return this;
+  }
+
+   /**
+   * Timestamp when the agent finalized notes via Save &amp; finish; gates Zoho Desk ticket creation
+   * @return notesFinalizedDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp when the agent finalized notes via Save & finish; gates Zoho Desk ticket creation")
+
+  public String getNotesFinalizedDts() {
+    return notesFinalizedDts;
+  }
+
+
+  public void setNotesFinalizedDts(String notesFinalizedDts) {
+    this.notesFinalizedDts = notesFinalizedDts;
+  }
+
+
   public ConversationPbxCall recordingSids(List<String> recordingSids) {
     
     this.recordingSids = recordingSids;
@@ -841,6 +895,8 @@ public class ConversationPbxCall {
         Objects.equals(this.financial, conversationPbxCall.financial) &&
         Objects.equals(this.holds, conversationPbxCall.holds) &&
         Objects.equals(this.merchantId, conversationPbxCall.merchantId) &&
+        Objects.equals(this.notes, conversationPbxCall.notes) &&
+        Objects.equals(this.notesFinalizedDts, conversationPbxCall.notesFinalizedDts) &&
         Objects.equals(this.recordingSids, conversationPbxCall.recordingSids) &&
         Objects.equals(this.recordings, conversationPbxCall.recordings) &&
         Objects.equals(this.routing, conversationPbxCall.routing) &&
@@ -854,7 +910,7 @@ public class ConversationPbxCall {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSid, agents, aiAgentEngagements, aiSummary, callSid, callUuid, caller, conferenceSid, contextMerchantId, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts, zohoDeskTicketId, zohoDeskTicketUrl);
+    return Objects.hash(accountSid, agents, aiAgentEngagements, aiSummary, callSid, callUuid, caller, conferenceSid, contextMerchantId, createdAtDts, customerName, customerProfileOid, disposition, email, financial, holds, merchantId, notes, notesFinalizedDts, recordingSids, recordings, routing, status, timeline, transfers, updatedAtDts, zohoDeskTicketId, zohoDeskTicketUrl);
   }
 
   @Override
@@ -878,6 +934,8 @@ public class ConversationPbxCall {
     sb.append("    financial: ").append(toIndentedString(financial)).append("\n");
     sb.append("    holds: ").append(toIndentedString(holds)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    notesFinalizedDts: ").append(toIndentedString(notesFinalizedDts)).append("\n");
     sb.append("    recordingSids: ").append(toIndentedString(recordingSids)).append("\n");
     sb.append("    recordings: ").append(toIndentedString(recordings)).append("\n");
     sb.append("    routing: ").append(toIndentedString(routing)).append("\n");
@@ -926,6 +984,8 @@ public class ConversationPbxCall {
     openapiFields.add("financial");
     openapiFields.add("holds");
     openapiFields.add("merchant_id");
+    openapiFields.add("notes");
+    openapiFields.add("notes_finalized_dts");
     openapiFields.add("recording_sids");
     openapiFields.add("recordings");
     openapiFields.add("routing");
@@ -1042,6 +1102,12 @@ public class ConversationPbxCall {
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+      }
+      if (jsonObj.get("notes_finalized_dts") != null && !jsonObj.get("notes_finalized_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes_finalized_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("notes_finalized_dts").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("recording_sids") != null && !jsonObj.get("recording_sids").isJsonArray()) {
