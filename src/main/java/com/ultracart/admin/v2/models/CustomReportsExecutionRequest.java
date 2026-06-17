@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomReportsExecutionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-10T13:47:30.153-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-17T11:27:34.601-04:00[America/Indianapolis]")
 public class CustomReportsExecutionRequest {
   public static final String SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OIDS = "data_warehouse_report_config_oids";
   @SerializedName(SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OIDS)

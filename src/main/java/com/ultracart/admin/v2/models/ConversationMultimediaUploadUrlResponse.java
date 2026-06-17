@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationMultimediaUploadUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-10T13:47:30.153-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-17T11:27:34.601-04:00[America/Indianapolis]")
 public class ConversationMultimediaUploadUrlResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_MULTIMEDIA_UPLOAD_URL = "conversation_multimedia_upload_url";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_MULTIMEDIA_UPLOAD_URL)

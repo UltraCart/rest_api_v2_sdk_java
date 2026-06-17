@@ -55,7 +55,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-10T13:47:30.153-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-17T11:27:34.601-04:00[America/Indianapolis]")
 public class AutoOrderItem {
   public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
   @SerializedName(SERIALIZED_NAME_ADD_ONS)
@@ -92,6 +92,14 @@ public class AutoOrderItem {
   public static final String SERIALIZED_NAME_CALCULATED_NEXT_SHIPMENT_DTS = "calculated_next_shipment_dts";
   @SerializedName(SERIALIZED_NAME_CALCULATED_NEXT_SHIPMENT_DTS)
   private String calculatedNextShipmentDts;
+
+  public static final String SERIALIZED_NAME_CANCEL_DTS = "cancel_dts";
+  @SerializedName(SERIALIZED_NAME_CANCEL_DTS)
+  private String cancelDts;
+
+  public static final String SERIALIZED_NAME_CANCEL_REASON = "cancel_reason";
+  @SerializedName(SERIALIZED_NAME_CANCEL_REASON)
+  private String cancelReason;
 
   public static final String SERIALIZED_NAME_FIRST_ORDER_DTS = "first_order_dts";
   @SerializedName(SERIALIZED_NAME_FIRST_ORDER_DTS)
@@ -469,6 +477,52 @@ public class AutoOrderItem {
 
   public void setCalculatedNextShipmentDts(String calculatedNextShipmentDts) {
     this.calculatedNextShipmentDts = calculatedNextShipmentDts;
+  }
+
+
+  public AutoOrderItem cancelDts(String cancelDts) {
+    
+    this.cancelDts = cancelDts;
+    return this;
+  }
+
+   /**
+   * Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+   * @return cancelDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date/time this item was cancelled (companion to cancel_reason).  On update, null leaves the existing value unchanged; pass an empty string to clear it.")
+
+  public String getCancelDts() {
+    return cancelDts;
+  }
+
+
+  public void setCancelDts(String cancelDts) {
+    this.cancelDts = cancelDts;
+  }
+
+
+  public AutoOrderItem cancelReason(String cancelReason) {
+    
+    this.cancelReason = cancelReason;
+    return this;
+  }
+
+   /**
+   * Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it.
+   * @return cancelReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Reason this item was cancelled, captured when the item was cancelled by the customer or merchant.  On update, null leaves the existing value unchanged; pass an empty string to clear it.")
+
+  public String getCancelReason() {
+    return cancelReason;
+  }
+
+
+  public void setCancelReason(String cancelReason) {
+    this.cancelReason = cancelReason;
   }
 
 
@@ -998,6 +1052,8 @@ public class AutoOrderItem {
         Objects.equals(this.arbitraryUnitCostRemainingOrders, autoOrderItem.arbitraryUnitCostRemainingOrders) &&
         Objects.equals(this.autoOrderItemOid, autoOrderItem.autoOrderItemOid) &&
         Objects.equals(this.calculatedNextShipmentDts, autoOrderItem.calculatedNextShipmentDts) &&
+        Objects.equals(this.cancelDts, autoOrderItem.cancelDts) &&
+        Objects.equals(this.cancelReason, autoOrderItem.cancelReason) &&
         Objects.equals(this.firstOrderDts, autoOrderItem.firstOrderDts) &&
         Objects.equals(this.frequency, autoOrderItem.frequency) &&
         Objects.equals(this.futureSchedules, autoOrderItem.futureSchedules) &&
@@ -1023,7 +1079,7 @@ public class AutoOrderItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addOns, arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, properties, rebillValue, remainingRepeatCount, simpleSchedule);
+    return Objects.hash(addOns, arbitraryItemId, arbitraryPercentageDiscount, arbitraryQuantity, arbitraryScheduleDays, arbitraryUnitCost, arbitraryUnitCostRemainingOrders, autoOrderItemOid, calculatedNextShipmentDts, cancelDts, cancelReason, firstOrderDts, frequency, futureSchedules, lastOrderDts, lifeTimeValue, nextItemId, nextPreshipmentNoticeDts, nextShipmentDts, noOrderAfterDts, numberOfRebills, options, originalItemId, originalQuantity, paused, paypalPayerId, paypalRecurringPaymentProfileId, preshipmentNoticeSent, properties, rebillValue, remainingRepeatCount, simpleSchedule);
   }
 
   @Override
@@ -1039,6 +1095,8 @@ public class AutoOrderItem {
     sb.append("    arbitraryUnitCostRemainingOrders: ").append(toIndentedString(arbitraryUnitCostRemainingOrders)).append("\n");
     sb.append("    autoOrderItemOid: ").append(toIndentedString(autoOrderItemOid)).append("\n");
     sb.append("    calculatedNextShipmentDts: ").append(toIndentedString(calculatedNextShipmentDts)).append("\n");
+    sb.append("    cancelDts: ").append(toIndentedString(cancelDts)).append("\n");
+    sb.append("    cancelReason: ").append(toIndentedString(cancelReason)).append("\n");
     sb.append("    firstOrderDts: ").append(toIndentedString(firstOrderDts)).append("\n");
     sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("    futureSchedules: ").append(toIndentedString(futureSchedules)).append("\n");
@@ -1091,6 +1149,8 @@ public class AutoOrderItem {
     openapiFields.add("arbitrary_unit_cost_remaining_orders");
     openapiFields.add("auto_order_item_oid");
     openapiFields.add("calculated_next_shipment_dts");
+    openapiFields.add("cancel_dts");
+    openapiFields.add("cancel_reason");
     openapiFields.add("first_order_dts");
     openapiFields.add("frequency");
     openapiFields.add("future_schedules");
@@ -1156,6 +1216,12 @@ public class AutoOrderItem {
       }
       if (jsonObj.get("calculated_next_shipment_dts") != null && !jsonObj.get("calculated_next_shipment_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `calculated_next_shipment_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calculated_next_shipment_dts").toString()));
+      }
+      if (jsonObj.get("cancel_dts") != null && !jsonObj.get("cancel_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cancel_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cancel_dts").toString()));
+      }
+      if (jsonObj.get("cancel_reason") != null && !jsonObj.get("cancel_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cancel_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cancel_reason").toString()));
       }
       if (jsonObj.get("first_order_dts") != null && !jsonObj.get("first_order_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `first_order_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_order_dts").toString()));

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemEbayMarketPlaceAnalysis
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-10T13:47:30.153-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-17T11:27:34.601-04:00[America/Indianapolis]")
 public class ItemEbayMarketPlaceAnalysis {
   public static final String SERIALIZED_NAME_ADJUSTED_PRICE = "adjusted_price";
   @SerializedName(SERIALIZED_NAME_ADJUSTED_PRICE)

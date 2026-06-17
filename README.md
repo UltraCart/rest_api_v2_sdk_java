@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-10T13:47:30.153-04:00[America/Indianapolis]
+- Build date: 2026-06-17T11:27:34.601-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.101</version>
+    <version>4.1.102</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.101"
+     implementation "com.ultracart:rest-sdk:4.1.102"
   }
 ```
 
@@ -500,6 +500,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/StorefrontApi.md#deleteScreenRecordingSegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
 *StorefrontApi* | [**deleteTwilioAccount**](docs/StorefrontApi.md#deleteTwilioAccount) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 *StorefrontApi* | [**duplicateLibraryItem**](docs/StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
+*StorefrontApi* | [**enrollCommseqCustomer**](docs/StorefrontApi.md#enrollCommseqCustomer) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/enroll | Enroll a customer into a communication sequence
 *StorefrontApi* | [**favoriteScreenRecording**](docs/StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 *StorefrontApi* | [**getCountries**](docs/StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
@@ -1181,6 +1182,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqEmailSendTestResponse](docs/EmailCommseqEmailSendTestResponse.md)
  - [EmailCommseqEmailsRequest](docs/EmailCommseqEmailsRequest.md)
  - [EmailCommseqEmailsResponse](docs/EmailCommseqEmailsResponse.md)
+ - [EmailCommseqEnrollmentRequest](docs/EmailCommseqEnrollmentRequest.md)
+ - [EmailCommseqEnrollmentResponse](docs/EmailCommseqEnrollmentResponse.md)
  - [EmailCommseqPostcard](docs/EmailCommseqPostcard.md)
  - [EmailCommseqPostcardResponse](docs/EmailCommseqPostcardResponse.md)
  - [EmailCommseqPostcardSendTestRequest](docs/EmailCommseqPostcardSendTestRequest.md)
@@ -1802,6 +1805,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |
 | 4.1.99 | 06/05/2026 | added webhook name and merchant_comments |

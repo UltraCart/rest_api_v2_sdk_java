@@ -479,6 +479,8 @@ docs/EmailCommseqEmailSendTestRequest.md
 docs/EmailCommseqEmailSendTestResponse.md
 docs/EmailCommseqEmailsRequest.md
 docs/EmailCommseqEmailsResponse.md
+docs/EmailCommseqEnrollmentRequest.md
+docs/EmailCommseqEnrollmentResponse.md
 docs/EmailCommseqPostcard.md
 docs/EmailCommseqPostcardResponse.md
 docs/EmailCommseqPostcardSendTestRequest.md
@@ -1528,6 +1530,8 @@ src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailSendTestRequest.jav
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailSendTestResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailsRequest.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailsResponse.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEnrollmentRequest.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEnrollmentResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqPostcard.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqPostcardResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqPostcardSendTestRequest.java
