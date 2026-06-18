@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRuleSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-17T11:27:34.601-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-18T14:47:41.506-04:00[America/Indianapolis]")
 public class FraudRuleSearchRequest {
   public static final String SERIALIZED_NAME_AFFILIATE_OID_OR_EMAIL = "affiliate_oid_or_email";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_OID_OR_EMAIL)

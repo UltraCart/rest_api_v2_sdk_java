@@ -26855,6 +26855,486 @@ paths:
       x-codegen-request-body-name: token_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /affiliate/affiliates:
+    post:
+      description: |
+        Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant's active affiliate program.
+      operationId: insertAffiliate
+      parameters:
+      - description: The object expansion to perform on the result.  See documentation
+          for examples
+        in: query
+        name: _expand
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/Affiliate'
+        description: Affiliate to insert
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AffiliateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - affiliate_write
+      - ultraCartSimpleApiKey: []
+      summary: Insert an affiliate
+      tags:
+      - affiliate
+      x-codegen-request-body-name: affiliate
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /affiliate/affiliates/query:
+    post:
+      description: "Retrieves a group of affiliates from the account based on a query\
+        \ object.  If no parameters are specified, the API call will fail with a bad\
+        \ request error.  Always specify some parameters to limit the scope of the\
+        \ affiliates returned to ones you are truly interested in.  You will need\
+        \ to make multiple API calls in order to retrieve the entire result set since\
+        \ this API performs result set pagination.\n"
+      operationId: getAffiliatesByQuery
+      parameters:
+      - description: The maximum number of records to return on this one API call.
+          (Maximum 200)
+        in: query
+        name: _limit
+        schema:
+          default: 100
+          type: integer
+      - description: Pagination of the record set.  Offset is a zero based index.
+        in: query
+        name: _offset
+        schema:
+          default: 0
+          type: integer
+      - description: The sort order of the affiliates.  See Sorting documentation
+          for examples of using multiple values and sorting by ascending and descending.
+        in: query
+        name: _sort
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AffiliateQuery'
+        description: Affiliate query
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AffiliatesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - affiliate_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve affiliates
+      tags:
+      - affiliate
+      x-codegen-request-body-name: affiliate_query
+      x-content-type: application/json
+      x-accepts: application/json
+  /affiliate/affiliates/{affiliate_oid}:
+    delete:
+      description: |
+        Delete an affiliate on the UltraCart account.  The affiliate is disabled within the active affiliate program; their ledger and click history is preserved.
+      operationId: deleteAffiliate
+      parameters:
+      - description: The affiliate oid to delete.
+        in: path
+        name: affiliate_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - affiliate_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete an affiliate
+      tags:
+      - affiliate
+      x-accepts: application/json
+    get:
+      description: |
+        Retrieves a single affiliate using the specified affiliate oid.
+      operationId: getAffiliate
+      parameters:
+      - description: The affiliate oid to retrieve.
+        in: path
+        name: affiliate_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The object expansion to perform on the result.  See documentation
+          for examples
+        in: query
+        name: _expand
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AffiliateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - affiliate_read
+      - ultraCartSimpleApiKey: []
+      summary: Retrieve an affiliate
+      tags:
+      - affiliate
+      x-accepts: application/json
+    put:
+      description: "Update an affiliate on the UltraCart account.  This is a full\
+        \ replacement of the affiliate; omitted fields are reset to their defaults,\
+        \ with the exception of password which is only changed when supplied.\n"
+      operationId: updateAffiliate
+      parameters:
+      - description: The affiliate oid to update.
+        in: path
+        name: affiliate_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The object expansion to perform on the result.  See documentation
+          for examples
+        in: query
+        name: _expand
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/Affiliate'
+        description: Affiliate to update
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AffiliateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - affiliate_write
+      - ultraCartSimpleApiKey: []
+      summary: Update an affiliate
+      tags:
+      - affiliate
+      x-codegen-request-body-name: affiliate
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /affiliate/clicks/query:
     post:
       description: "Retrieves a group of clicks from the account based on a query\
@@ -55196,6 +55676,292 @@ components:
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
+    Affiliate:
+      example:
+        allow_downline_recruiting: true
+        check_payable_to: check_payable_to
+        remove_cookie_after_purchase: true
+        address_1: address_1
+        address_2: address_2
+        affiliate_oid: 6
+        paypal_email: paypal_email
+        prevent_cookie_stomping: true
+        auto_apply_coupon_code: auto_apply_coupon_code
+        accepted_downline_recruiting_terms: true
+        password: password
+        state: state
+        fax: fax
+        email_notification_schedule: None
+        pay_commissions_on_auto_orders: true
+        tier_relationships:
+        - affiliate_oid: 9
+          tier_number: 3
+        - affiliate_oid: 9
+          tier_number: 3
+        auto_apply_coupon_oid: 1
+        short_code: short_code
+        html_permitted: true
+        google_conversion_id: google_conversion_id
+        minimum_payout: 2.3021358869347655
+        tax_id: tax_id
+        country_code: country_code
+        phone: phone
+        dob: dob
+        company_name: company_name
+        salesforce_contact_id: salesforce_contact_id
+        auto_approve_commissions: true
+        status: Active
+        member_type: 5
+        city: city
+        salesforce_account_id: salesforce_account_id
+        cookie_ttl: 5
+        ysm_account_id: ysm_account_id
+        pay_commissions_on_repeat_orders_by_email: true
+        marketing_strategy:
+          using_adware: true
+          website_name: website_name
+          using_per_acquisition: true
+          using_ppc: true
+          using_other: using_other
+          website_url: website_url
+          using_ad_network: true
+          marketing_strategy: marketing_strategy
+          using_seo: true
+          using_website: true
+          using_blog: true
+        merchant_id: merchant_id
+        analytics_internal_tracking: true
+        refund_server_to_server_postback_url: refund_server_to_server_postback_url
+        prevent_sending_all_emails: true
+        last_terms_acceptance: last_terms_acceptance
+        payment_adjustment: 7.061401241503109
+        terminated_for_spam: true
+        first_name: first_name
+        email: email
+        affiliate_commission_group_oid: 0
+        pay_via_paypal: true
+        allow_yahoo_search_marketing_tracking: true
+        last_name: last_name
+        server_to_server_postback_url: server_to_server_postback_url
+        allow_google_adwords_tracking: true
+        attributes:
+        - name: name
+          type: type
+          value: value
+        - name: name
+          type: type
+          value: value
+        postal_code: postal_code
+      properties:
+        accepted_downline_recruiting_terms:
+          description: True if affiliate has agreed to the terms associated with recruiting
+            downline affiliates
+          type: boolean
+        address_1:
+          description: Address 1
+          type: string
+        address_2:
+          description: Address 2
+          type: string
+        affiliate_commission_group_oid:
+          description: Commission group that this affiliate is assigned to
+          format: int32
+          type: integer
+        affiliate_oid:
+          description: Unique object identifier for this Affiliate
+          format: int32
+          type: integer
+        allow_downline_recruiting:
+          description: True if affiliate is allowed to recruit downline affiliates
+          type: boolean
+        allow_google_adwords_tracking:
+          description: True if the affiliate is allowed to have their Google Adwords
+            tracking pixel on the receipt
+          type: boolean
+        allow_yahoo_search_marketing_tracking:
+          description: True if the affiliate is allowed to have their Yahoo Search
+            Marketing tracking pixel on the receipt
+          type: boolean
+        analytics_internal_tracking:
+          description: True if this is used for internal tracking and should not influence
+            UltraCart Analytics
+          type: boolean
+        attributes:
+          description: Custom attributes about the affiliate that can be used in the
+            catalog/StoreFront
+          items:
+            $ref: '#/components/schemas/AffiliateAttribute'
+          type: array
+        auto_apply_coupon_code:
+          description: Coupon code to automatically apply when this affiliate sends
+            traffic
+          type: string
+        auto_apply_coupon_oid:
+          description: Coupon object id to automatically apply when this affiliate
+            sends traffic
+          format: int32
+          type: integer
+        auto_approve_commissions:
+          description: True if this affiliates commissions are automatically approved
+          type: boolean
+        check_payable_to:
+          description: "If the affiliate wants to be paid by check instead of PayPal,\
+            \ then this is the name to make the check out to"
+          type: string
+        city:
+          description: City
+          type: string
+        company_name:
+          description: Company Name
+          type: string
+        cookie_ttl:
+          description: Number of days the affiliate tracking cookie lasts before expiring
+          format: int32
+          type: integer
+        country_code:
+          description: ISO-3166 two letter country code
+          maxLength: 2
+          type: string
+        dob:
+          description: Date of birth
+          format: dateTime
+          type: string
+        email:
+          description: Email
+          type: string
+        email_notification_schedule:
+          description: Email notification of transactions
+          enum:
+          - None
+          - Each
+          - Daily
+          - Weekly
+          - Monthly
+          type: string
+        fax:
+          description: Fax
+          type: string
+        first_name:
+          description: First Name
+          type: string
+        google_conversion_id:
+          description: Google Adwords conversion id to use for the tracking pixel
+          type: string
+        html_permitted:
+          description: True if the affiliate is allowed to specify custom HTML to
+            render on the receipt
+          type: boolean
+        last_name:
+          description: Last Name
+          type: string
+        last_terms_acceptance:
+          description: Last date/time the affiliate program terms were agreed to
+          format: dateTime
+          type: string
+        marketing_strategy:
+          $ref: '#/components/schemas/AffiliateMarketingStrategy'
+        member_type:
+          description: Member type object identifier the affiliate is assigned to
+            within the program
+          format: int32
+          type: integer
+        merchant_id:
+          description: Merchant ID
+          type: string
+        minimum_payout:
+          description: Minimum balance that must accrue before the affiliate is paid
+          type: number
+        password:
+          description: Password (can only be used to update)
+          type: string
+        pay_commissions_on_auto_orders:
+          description: True if commissions are paid on auto order (rebill) transactions
+          type: boolean
+        pay_commissions_on_repeat_orders_by_email:
+          description: True if commissions are paid on repeat orders matched by customer
+            email
+          type: boolean
+        pay_via_paypal:
+          description: True if the affiliate is paid via PayPal
+          type: boolean
+        payment_adjustment:
+          description: Fixed adjustment applied to the affiliate's commission payments
+          type: number
+        paypal_email:
+          description: Alternate email address to use for their PayPal payment if
+            different than their primary email
+          type: string
+        phone:
+          description: Phone
+          type: string
+        postal_code:
+          description: Postal Code
+          type: string
+        prevent_cookie_stomping:
+          description: True if cookie stomping of this affiliate is prevented
+          type: boolean
+        prevent_sending_all_emails:
+          description: "If true, affiliate will not receive any email notifications."
+          type: boolean
+        refund_server_to_server_postback_url:
+          description: Server to server postback URL notified of affiliate refunds
+          type: string
+        remove_cookie_after_purchase:
+          description: "If true, affiliate cookies are removed after a purchase."
+          type: boolean
+        salesforce_account_id:
+          description: Salesforce.com account id
+          type: string
+        salesforce_contact_id:
+          description: Salesforce.com contact id
+          type: string
+        server_to_server_postback_url:
+          description: Server to server postback URL notified of affiliate transactions
+          type: string
+        short_code:
+          description: Short code that can be used in place of the affiliate id within
+            tracking links
+          type: string
+        state:
+          description: State
+          type: string
+        status:
+          description: Status
+          enum:
+          - Active
+          - Inactive
+          type: string
+        tax_id:
+          description: Tax ID (can only be used to update)
+          type: string
+        terminated_for_spam:
+          description: True if the affiliate has been terminated for spamming
+          type: boolean
+        tier_relationships:
+          description: Relationship with other affiliates that recruted this affiliate
+          items:
+            $ref: '#/components/schemas/AffiliateTierRelationship'
+          type: array
+        ysm_account_id:
+          description: Yahoo Search Marketing account id to use for the tracking pixel
+          type: string
+      type: object
+    AffiliateAttribute:
+      example:
+        name: name
+        type: type
+        value: value
+      properties:
+        name:
+          description: Name of the attribute
+          type: string
+        type:
+          description: Type of the attribute
+          type: string
+        value:
+          description: Value of the attribute
+          type: string
+      type: object
     AffiliateClick:
       example:
         referrer_query_string: referrer_query_string
@@ -61046,6 +61812,427 @@ components:
           - invisible
           - direct
           type: string
+      type: object
+    AffiliateMarketingStrategy:
+      example:
+        using_adware: true
+        website_name: website_name
+        using_per_acquisition: true
+        using_ppc: true
+        using_other: using_other
+        website_url: website_url
+        using_ad_network: true
+        marketing_strategy: marketing_strategy
+        using_seo: true
+        using_website: true
+        using_blog: true
+      properties:
+        marketing_strategy:
+          description: Description of their marketing strategy
+          type: string
+        using_ad_network:
+          description: True if they are using an ad network
+          type: boolean
+        using_adware:
+          description: True if they are using ad software
+          type: boolean
+        using_blog:
+          description: True if they are using their blog
+          type: boolean
+        using_other:
+          description: True if they are using some ohter marketing technique
+          type: string
+        using_per_acquisition:
+          description: True if they are using a per acquisition model
+          type: boolean
+        using_ppc:
+          description: True if they are using pay per click ads
+          type: boolean
+        using_seo:
+          description: True if they are using search engine optimization techniques
+          type: boolean
+        using_website:
+          description: True if they are driving traffic from their website
+          type: boolean
+        website_name:
+          description: Name of the affiliates website
+          type: string
+        website_url:
+          description: URL of the affiliates website
+          type: string
+      type: object
+    AffiliateQuery:
+      example:
+        country_code: country_code
+        city: city
+        company_name: company_name
+        affiliate_oid: 0
+        last_name: last_name
+        state: state
+        postal_code: postal_code
+        first_name: first_name
+        email: email
+        short_code: short_code
+        status: Active
+      properties:
+        affiliate_oid:
+          description: Affiliate OID
+          format: int32
+          type: integer
+        city:
+          description: City
+          maxLength: 50
+          type: string
+        company_name:
+          description: Company name
+          maxLength: 100
+          type: string
+        country_code:
+          description: ISO-3166 two letter country code
+          maxLength: 2
+          type: string
+        email:
+          description: Email
+          maxLength: 150
+          type: string
+        first_name:
+          description: First name
+          maxLength: 50
+          type: string
+        last_name:
+          description: Last name
+          maxLength: 50
+          type: string
+        postal_code:
+          description: Postal code
+          maxLength: 15
+          type: string
+        short_code:
+          description: StoreFront short code
+          maxLength: 30
+          type: string
+        state:
+          description: State for United States otherwise region or province for other
+            countries
+          maxLength: 30
+          type: string
+        status:
+          description: Status
+          enum:
+          - Active
+          - Inactive
+          type: string
+      type: object
+    AffiliateResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        affiliate:
+          allow_downline_recruiting: true
+          check_payable_to: check_payable_to
+          remove_cookie_after_purchase: true
+          address_1: address_1
+          address_2: address_2
+          affiliate_oid: 6
+          paypal_email: paypal_email
+          prevent_cookie_stomping: true
+          auto_apply_coupon_code: auto_apply_coupon_code
+          accepted_downline_recruiting_terms: true
+          password: password
+          state: state
+          fax: fax
+          email_notification_schedule: None
+          pay_commissions_on_auto_orders: true
+          tier_relationships:
+          - affiliate_oid: 9
+            tier_number: 3
+          - affiliate_oid: 9
+            tier_number: 3
+          auto_apply_coupon_oid: 1
+          short_code: short_code
+          html_permitted: true
+          google_conversion_id: google_conversion_id
+          minimum_payout: 2.3021358869347655
+          tax_id: tax_id
+          country_code: country_code
+          phone: phone
+          dob: dob
+          company_name: company_name
+          salesforce_contact_id: salesforce_contact_id
+          auto_approve_commissions: true
+          status: Active
+          member_type: 5
+          city: city
+          salesforce_account_id: salesforce_account_id
+          cookie_ttl: 5
+          ysm_account_id: ysm_account_id
+          pay_commissions_on_repeat_orders_by_email: true
+          marketing_strategy:
+            using_adware: true
+            website_name: website_name
+            using_per_acquisition: true
+            using_ppc: true
+            using_other: using_other
+            website_url: website_url
+            using_ad_network: true
+            marketing_strategy: marketing_strategy
+            using_seo: true
+            using_website: true
+            using_blog: true
+          merchant_id: merchant_id
+          analytics_internal_tracking: true
+          refund_server_to_server_postback_url: refund_server_to_server_postback_url
+          prevent_sending_all_emails: true
+          last_terms_acceptance: last_terms_acceptance
+          payment_adjustment: 7.061401241503109
+          terminated_for_spam: true
+          first_name: first_name
+          email: email
+          affiliate_commission_group_oid: 0
+          pay_via_paypal: true
+          allow_yahoo_search_marketing_tracking: true
+          last_name: last_name
+          server_to_server_postback_url: server_to_server_postback_url
+          allow_google_adwords_tracking: true
+          attributes:
+          - name: name
+            type: type
+            value: value
+          - name: name
+            type: type
+            value: value
+          postal_code: postal_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        affiliate:
+          $ref: '#/components/schemas/Affiliate'
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    AffiliatesResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 7
+            more: true
+            total_records: 6
+            count: 0
+            limit: 9
+            next_offset: 9
+        success: true
+        affiliates:
+        - allow_downline_recruiting: true
+          check_payable_to: check_payable_to
+          remove_cookie_after_purchase: true
+          address_1: address_1
+          address_2: address_2
+          affiliate_oid: 6
+          paypal_email: paypal_email
+          prevent_cookie_stomping: true
+          auto_apply_coupon_code: auto_apply_coupon_code
+          accepted_downline_recruiting_terms: true
+          password: password
+          state: state
+          fax: fax
+          email_notification_schedule: None
+          pay_commissions_on_auto_orders: true
+          tier_relationships:
+          - affiliate_oid: 9
+            tier_number: 3
+          - affiliate_oid: 9
+            tier_number: 3
+          auto_apply_coupon_oid: 1
+          short_code: short_code
+          html_permitted: true
+          google_conversion_id: google_conversion_id
+          minimum_payout: 2.3021358869347655
+          tax_id: tax_id
+          country_code: country_code
+          phone: phone
+          dob: dob
+          company_name: company_name
+          salesforce_contact_id: salesforce_contact_id
+          auto_approve_commissions: true
+          status: Active
+          member_type: 5
+          city: city
+          salesforce_account_id: salesforce_account_id
+          cookie_ttl: 5
+          ysm_account_id: ysm_account_id
+          pay_commissions_on_repeat_orders_by_email: true
+          marketing_strategy:
+            using_adware: true
+            website_name: website_name
+            using_per_acquisition: true
+            using_ppc: true
+            using_other: using_other
+            website_url: website_url
+            using_ad_network: true
+            marketing_strategy: marketing_strategy
+            using_seo: true
+            using_website: true
+            using_blog: true
+          merchant_id: merchant_id
+          analytics_internal_tracking: true
+          refund_server_to_server_postback_url: refund_server_to_server_postback_url
+          prevent_sending_all_emails: true
+          last_terms_acceptance: last_terms_acceptance
+          payment_adjustment: 7.061401241503109
+          terminated_for_spam: true
+          first_name: first_name
+          email: email
+          affiliate_commission_group_oid: 0
+          pay_via_paypal: true
+          allow_yahoo_search_marketing_tracking: true
+          last_name: last_name
+          server_to_server_postback_url: server_to_server_postback_url
+          allow_google_adwords_tracking: true
+          attributes:
+          - name: name
+            type: type
+            value: value
+          - name: name
+            type: type
+            value: value
+          postal_code: postal_code
+        - allow_downline_recruiting: true
+          check_payable_to: check_payable_to
+          remove_cookie_after_purchase: true
+          address_1: address_1
+          address_2: address_2
+          affiliate_oid: 6
+          paypal_email: paypal_email
+          prevent_cookie_stomping: true
+          auto_apply_coupon_code: auto_apply_coupon_code
+          accepted_downline_recruiting_terms: true
+          password: password
+          state: state
+          fax: fax
+          email_notification_schedule: None
+          pay_commissions_on_auto_orders: true
+          tier_relationships:
+          - affiliate_oid: 9
+            tier_number: 3
+          - affiliate_oid: 9
+            tier_number: 3
+          auto_apply_coupon_oid: 1
+          short_code: short_code
+          html_permitted: true
+          google_conversion_id: google_conversion_id
+          minimum_payout: 2.3021358869347655
+          tax_id: tax_id
+          country_code: country_code
+          phone: phone
+          dob: dob
+          company_name: company_name
+          salesforce_contact_id: salesforce_contact_id
+          auto_approve_commissions: true
+          status: Active
+          member_type: 5
+          city: city
+          salesforce_account_id: salesforce_account_id
+          cookie_ttl: 5
+          ysm_account_id: ysm_account_id
+          pay_commissions_on_repeat_orders_by_email: true
+          marketing_strategy:
+            using_adware: true
+            website_name: website_name
+            using_per_acquisition: true
+            using_ppc: true
+            using_other: using_other
+            website_url: website_url
+            using_ad_network: true
+            marketing_strategy: marketing_strategy
+            using_seo: true
+            using_website: true
+            using_blog: true
+          merchant_id: merchant_id
+          analytics_internal_tracking: true
+          refund_server_to_server_postback_url: refund_server_to_server_postback_url
+          prevent_sending_all_emails: true
+          last_terms_acceptance: last_terms_acceptance
+          payment_adjustment: 7.061401241503109
+          terminated_for_spam: true
+          first_name: first_name
+          email: email
+          affiliate_commission_group_oid: 0
+          pay_via_paypal: true
+          allow_yahoo_search_marketing_tracking: true
+          last_name: last_name
+          server_to_server_postback_url: server_to_server_postback_url
+          allow_google_adwords_tracking: true
+          attributes:
+          - name: name
+            type: type
+            value: value
+          - name: name
+            type: type
+            value: value
+          postal_code: postal_code
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        affiliates:
+          description: affiliates
+          items:
+            $ref: '#/components/schemas/Affiliate'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    AffiliateTierRelationship:
+      example:
+        affiliate_oid: 9
+        tier_number: 3
+      properties:
+        affiliate_oid:
+          description: Affiliate object ID that recruited the affiliate
+          format: int32
+          type: integer
+        tier_number:
+          description: Tier number
+          format: int32
+          type: integer
       type: object
     AgentSummary:
       example:

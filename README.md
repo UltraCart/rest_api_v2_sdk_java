@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-17T11:27:34.601-04:00[America/Indianapolis]
+- Build date: 2026-06-18T14:47:41.506-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.102</version>
+    <version>4.1.103</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.102"
+     implementation "com.ultracart:rest-sdk:4.1.103"
   }
 ```
 
@@ -101,8 +101,13 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AffiliateApi* | [**deleteAffiliate**](docs/AffiliateApi.md#deleteAffiliate) | **DELETE** /affiliate/affiliates/{affiliate_oid} | Delete an affiliate
+*AffiliateApi* | [**getAffiliate**](docs/AffiliateApi.md#getAffiliate) | **GET** /affiliate/affiliates/{affiliate_oid} | Retrieve an affiliate
+*AffiliateApi* | [**getAffiliatesByQuery**](docs/AffiliateApi.md#getAffiliatesByQuery) | **POST** /affiliate/affiliates/query | Retrieve affiliates
 *AffiliateApi* | [**getClicksByQuery**](docs/AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AffiliateApi* | [**insertAffiliate**](docs/AffiliateApi.md#insertAffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
+*AffiliateApi* | [**updateAffiliate**](docs/AffiliateApi.md#updateAffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
 *AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
 *AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
@@ -728,6 +733,8 @@ Class | Method | HTTP request | Description
  - [AddLibraryItemRequest](docs/AddLibraryItemRequest.md)
  - [AdjustInternalCertificateRequest](docs/AdjustInternalCertificateRequest.md)
  - [AdjustInternalCertificateResponse](docs/AdjustInternalCertificateResponse.md)
+ - [Affiliate](docs/Affiliate.md)
+ - [AffiliateAttribute](docs/AffiliateAttribute.md)
  - [AffiliateClick](docs/AffiliateClick.md)
  - [AffiliateClickQuery](docs/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/AffiliateClicksResponse.md)
@@ -735,6 +742,11 @@ Class | Method | HTTP request | Description
  - [AffiliateLedgerQuery](docs/AffiliateLedgerQuery.md)
  - [AffiliateLedgersResponse](docs/AffiliateLedgersResponse.md)
  - [AffiliateLink](docs/AffiliateLink.md)
+ - [AffiliateMarketingStrategy](docs/AffiliateMarketingStrategy.md)
+ - [AffiliateQuery](docs/AffiliateQuery.md)
+ - [AffiliateResponse](docs/AffiliateResponse.md)
+ - [AffiliateTierRelationship](docs/AffiliateTierRelationship.md)
+ - [AffiliatesResponse](docs/AffiliatesResponse.md)
  - [AgentSummary](docs/AgentSummary.md)
  - [ApiUserApplicationProfile](docs/ApiUserApplicationProfile.md)
  - [ApplyLibraryItemRequest](docs/ApplyLibraryItemRequest.md)
@@ -1805,6 +1817,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.103 | 06/18/2026 | affiliate api alpha |
 | 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |
 | 4.1.100 | 06/05/2026 | webhook log summary filtering |

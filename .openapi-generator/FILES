@@ -16,7 +16,9 @@ docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
 docs/AdjustInternalCertificateResponse.md
+docs/Affiliate.md
 docs/AffiliateApi.md
+docs/AffiliateAttribute.md
 docs/AffiliateClick.md
 docs/AffiliateClickQuery.md
 docs/AffiliateClicksResponse.md
@@ -24,6 +26,11 @@ docs/AffiliateLedger.md
 docs/AffiliateLedgerQuery.md
 docs/AffiliateLedgersResponse.md
 docs/AffiliateLink.md
+docs/AffiliateMarketingStrategy.md
+docs/AffiliateQuery.md
+docs/AffiliateResponse.md
+docs/AffiliateTierRelationship.md
+docs/AffiliatesResponse.md
 docs/AgentSummary.md
 docs/ApiUserApplicationProfile.md
 docs/ApplyLibraryItemRequest.md
@@ -1076,6 +1083,8 @@ src/main/java/com/ultracart/admin/v2/models/Activity.java
 src/main/java/com/ultracart/admin/v2/models/AddLibraryItemRequest.java
 src/main/java/com/ultracart/admin/v2/models/AdjustInternalCertificateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AdjustInternalCertificateResponse.java
+src/main/java/com/ultracart/admin/v2/models/Affiliate.java
+src/main/java/com/ultracart/admin/v2/models/AffiliateAttribute.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateClick.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateClickQuery.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateClicksResponse.java
@@ -1083,6 +1092,11 @@ src/main/java/com/ultracart/admin/v2/models/AffiliateLedger.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateLedgerQuery.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateLedgersResponse.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateLink.java
+src/main/java/com/ultracart/admin/v2/models/AffiliateMarketingStrategy.java
+src/main/java/com/ultracart/admin/v2/models/AffiliateQuery.java
+src/main/java/com/ultracart/admin/v2/models/AffiliateResponse.java
+src/main/java/com/ultracart/admin/v2/models/AffiliateTierRelationship.java
+src/main/java/com/ultracart/admin/v2/models/AffiliatesResponse.java
 src/main/java/com/ultracart/admin/v2/models/AgentSummary.java
 src/main/java/com/ultracart/admin/v2/models/ApiUserApplicationProfile.java
 src/main/java/com/ultracart/admin/v2/models/ApplyLibraryItemRequest.java
