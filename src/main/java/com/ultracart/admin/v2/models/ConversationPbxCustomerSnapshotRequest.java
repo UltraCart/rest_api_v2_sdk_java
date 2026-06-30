@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCustomerSnapshotRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-18T14:47:41.506-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-30T08:58:46.286-04:00[America/Indianapolis]")
 public class ConversationPbxCustomerSnapshotRequest {
   public static final String SERIALIZED_NAME_AUTO_ORDER_EXPAND = "auto_order_expand";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_EXPAND)
@@ -79,6 +79,10 @@ public class ConversationPbxCustomerSnapshotRequest {
   public static final String SERIALIZED_NAME_SEARCH_LINKED_ACCOUNTS = "search_linked_accounts";
   @SerializedName(SERIALIZED_NAME_SEARCH_LINKED_ACCOUNTS)
   private Boolean searchLinkedAccounts;
+
+  public static final String SERIALIZED_NAME_SEARCH_ZOHO_DESK_TICKETS = "search_zoho_desk_tickets";
+  @SerializedName(SERIALIZED_NAME_SEARCH_ZOHO_DESK_TICKETS)
+  private Boolean searchZohoDeskTickets;
 
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -252,6 +256,29 @@ public class ConversationPbxCustomerSnapshotRequest {
   }
 
 
+  public ConversationPbxCustomerSnapshotRequest searchZohoDeskTickets(Boolean searchZohoDeskTickets) {
+    
+    this.searchZohoDeskTickets = searchZohoDeskTickets;
+    return this;
+  }
+
+   /**
+   * Get searchZohoDeskTickets
+   * @return searchZohoDeskTickets
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getSearchZohoDeskTickets() {
+    return searchZohoDeskTickets;
+  }
+
+
+  public void setSearchZohoDeskTickets(Boolean searchZohoDeskTickets) {
+    this.searchZohoDeskTickets = searchZohoDeskTickets;
+  }
+
+
   public ConversationPbxCustomerSnapshotRequest success(Boolean success) {
     
     this.success = success;
@@ -315,13 +342,14 @@ public class ConversationPbxCustomerSnapshotRequest {
         Objects.equals(this.orderExpand, conversationPbxCustomerSnapshotRequest.orderExpand) &&
         Objects.equals(this.phoneNumber, conversationPbxCustomerSnapshotRequest.phoneNumber) &&
         Objects.equals(this.searchLinkedAccounts, conversationPbxCustomerSnapshotRequest.searchLinkedAccounts) &&
+        Objects.equals(this.searchZohoDeskTickets, conversationPbxCustomerSnapshotRequest.searchZohoDeskTickets) &&
         Objects.equals(this.success, conversationPbxCustomerSnapshotRequest.success) &&
         Objects.equals(this.warning, conversationPbxCustomerSnapshotRequest.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrderExpand, customerExpand, error, metadata, orderExpand, phoneNumber, searchLinkedAccounts, success, warning);
+    return Objects.hash(autoOrderExpand, customerExpand, error, metadata, orderExpand, phoneNumber, searchLinkedAccounts, searchZohoDeskTickets, success, warning);
   }
 
   @Override
@@ -335,6 +363,7 @@ public class ConversationPbxCustomerSnapshotRequest {
     sb.append("    orderExpand: ").append(toIndentedString(orderExpand)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    searchLinkedAccounts: ").append(toIndentedString(searchLinkedAccounts)).append("\n");
+    sb.append("    searchZohoDeskTickets: ").append(toIndentedString(searchZohoDeskTickets)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
@@ -366,6 +395,7 @@ public class ConversationPbxCustomerSnapshotRequest {
     openapiFields.add("order_expand");
     openapiFields.add("phone_number");
     openapiFields.add("search_linked_accounts");
+    openapiFields.add("search_zoho_desk_tickets");
     openapiFields.add("success");
     openapiFields.add("warning");
 

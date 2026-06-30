@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-06-18T14:47:41.506-04:00[America/Indianapolis]
+- Build date: 2026-06-30T08:58:46.286-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.103</version>
+    <version>4.1.104</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.103"
+     implementation "com.ultracart:rest-sdk:4.1.104"
   }
 ```
 
@@ -1734,6 +1734,7 @@ Class | Method | HTTP request | Description
  - [WorkflowUser](docs/WorkflowUser.md)
  - [WorkflowUserResponse](docs/WorkflowUserResponse.md)
  - [WorkflowUsersResponse](docs/WorkflowUsersResponse.md)
+ - [ZohoDeskTicketSummary](docs/ZohoDeskTicketSummary.md)
 
 
 ## Documentation for Authorization
@@ -1817,6 +1818,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.104 | 06/30/2026 | conversations - customer snapshot zoho desk tickets included |
 | 4.1.103 | 06/18/2026 | affiliate api alpha |
 | 4.1.102 | 06/17/2026 | storefront communications - new single email enrollment method |
 | 4.1.101 | 06/10/2026 | conversation pbx call notes fields |

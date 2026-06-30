@@ -14,6 +14,7 @@
 |**orders** | [**List&lt;Order&gt;**](Order.md) |  |  [optional] |
 |**success** | **Boolean** | Indicates if API call was successful |  [optional] |
 |**warning** | [**Warning**](Warning.md) |  |  [optional] |
+|**zohoDeskTickets** | [**List&lt;ZohoDeskTicketSummary&gt;**](ZohoDeskTicketSummary.md) |  |  [optional] |
 
 
 

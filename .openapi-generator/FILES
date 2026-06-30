@@ -1039,6 +1039,7 @@ docs/WorkflowTasksResponse.md
 docs/WorkflowUser.md
 docs/WorkflowUserResponse.md
 docs/WorkflowUsersResponse.md
+docs/ZohoDeskTicketSummary.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -2084,6 +2085,7 @@ src/main/java/com/ultracart/admin/v2/models/WorkflowTasksResponse.java
 src/main/java/com/ultracart/admin/v2/models/WorkflowUser.java
 src/main/java/com/ultracart/admin/v2/models/WorkflowUserResponse.java
 src/main/java/com/ultracart/admin/v2/models/WorkflowUsersResponse.java
+src/main/java/com/ultracart/admin/v2/models/ZohoDeskTicketSummary.java
 src/main/java/com/ultracart/admin/v2/util/ApiCallback.java
 src/main/java/com/ultracart/admin/v2/util/ApiClient.java
 src/main/java/com/ultracart/admin/v2/util/ApiException.java

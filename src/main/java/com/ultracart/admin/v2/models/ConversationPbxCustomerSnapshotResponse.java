@@ -26,6 +26,7 @@ import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.Order;
 import com.ultracart.admin.v2.models.ResponseMetadata;
 import com.ultracart.admin.v2.models.Warning;
+import com.ultracart.admin.v2.models.ZohoDeskTicketSummary;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -55,7 +56,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCustomerSnapshotResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-18T14:47:41.506-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-30T08:58:46.286-04:00[America/Indianapolis]")
 public class ConversationPbxCustomerSnapshotResponse {
   public static final String SERIALIZED_NAME_AUTO_ORDERS = "auto_orders";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDERS)
@@ -84,6 +85,10 @@ public class ConversationPbxCustomerSnapshotResponse {
   public static final String SERIALIZED_NAME_WARNING = "warning";
   @SerializedName(SERIALIZED_NAME_WARNING)
   private Warning warning;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKETS = "zoho_desk_tickets";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKETS)
+  private List<ZohoDeskTicketSummary> zohoDeskTickets = null;
 
   public ConversationPbxCustomerSnapshotResponse() { 
   }
@@ -273,6 +278,37 @@ public class ConversationPbxCustomerSnapshotResponse {
   }
 
 
+  public ConversationPbxCustomerSnapshotResponse zohoDeskTickets(List<ZohoDeskTicketSummary> zohoDeskTickets) {
+    
+    this.zohoDeskTickets = zohoDeskTickets;
+    return this;
+  }
+
+  public ConversationPbxCustomerSnapshotResponse addZohoDeskTicketsItem(ZohoDeskTicketSummary zohoDeskTicketsItem) {
+    if (this.zohoDeskTickets == null) {
+      this.zohoDeskTickets = new ArrayList<>();
+    }
+    this.zohoDeskTickets.add(zohoDeskTicketsItem);
+    return this;
+  }
+
+   /**
+   * Get zohoDeskTickets
+   * @return zohoDeskTickets
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ZohoDeskTicketSummary> getZohoDeskTickets() {
+    return zohoDeskTickets;
+  }
+
+
+  public void setZohoDeskTickets(List<ZohoDeskTicketSummary> zohoDeskTickets) {
+    this.zohoDeskTickets = zohoDeskTickets;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -289,12 +325,13 @@ public class ConversationPbxCustomerSnapshotResponse {
         Objects.equals(this.metadata, conversationPbxCustomerSnapshotResponse.metadata) &&
         Objects.equals(this.orders, conversationPbxCustomerSnapshotResponse.orders) &&
         Objects.equals(this.success, conversationPbxCustomerSnapshotResponse.success) &&
-        Objects.equals(this.warning, conversationPbxCustomerSnapshotResponse.warning);
+        Objects.equals(this.warning, conversationPbxCustomerSnapshotResponse.warning) &&
+        Objects.equals(this.zohoDeskTickets, conversationPbxCustomerSnapshotResponse.zohoDeskTickets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoOrders, customers, error, metadata, orders, success, warning);
+    return Objects.hash(autoOrders, customers, error, metadata, orders, success, warning, zohoDeskTickets);
   }
 
   @Override
@@ -308,6 +345,7 @@ public class ConversationPbxCustomerSnapshotResponse {
     sb.append("    orders: ").append(toIndentedString(orders)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
+    sb.append("    zohoDeskTickets: ").append(toIndentedString(zohoDeskTickets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -337,6 +375,7 @@ public class ConversationPbxCustomerSnapshotResponse {
     openapiFields.add("orders");
     openapiFields.add("success");
     openapiFields.add("warning");
+    openapiFields.add("zoho_desk_tickets");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -411,6 +450,18 @@ public class ConversationPbxCustomerSnapshotResponse {
       // validate the optional field `warning`
       if (jsonObj.getAsJsonObject("warning") != null) {
         Warning.validateJsonObject(jsonObj.getAsJsonObject("warning"));
+      }
+      JsonArray jsonArrayzohoDeskTickets = jsonObj.getAsJsonArray("zoho_desk_tickets");
+      if (jsonArrayzohoDeskTickets != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("zoho_desk_tickets").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_tickets` to be an array in the JSON string but got `%s`", jsonObj.get("zoho_desk_tickets").toString()));
+        }
+
+        // validate the optional field `zoho_desk_tickets` (array)
+        for (int i = 0; i < jsonArrayzohoDeskTickets.size(); i++) {
+          ZohoDeskTicketSummary.validateJsonObject(jsonArrayzohoDeskTickets.get(i).getAsJsonObject());
+        };
       }
   }
 
