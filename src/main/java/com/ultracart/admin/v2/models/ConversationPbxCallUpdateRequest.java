@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-30T08:58:46.286-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-01T12:11:26.871-04:00[America/Indianapolis]")
 public class ConversationPbxCallUpdateRequest {
   public static final String SERIALIZED_NAME_FINALIZE = "finalize";
   @SerializedName(SERIALIZED_NAME_FINALIZE)
@@ -56,6 +56,14 @@ public class ConversationPbxCallUpdateRequest {
   public static final String SERIALIZED_NAME_NOTES = "notes";
   @SerializedName(SERIALIZED_NAME_NOTES)
   private String notes;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKET_ID = "zoho_desk_ticket_id";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKET_ID)
+  private String zohoDeskTicketId;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_TICKET_URL = "zoho_desk_ticket_url";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_TICKET_URL)
+  private String zohoDeskTicketUrl;
 
   public ConversationPbxCallUpdateRequest() { 
   }
@@ -106,6 +114,52 @@ public class ConversationPbxCallUpdateRequest {
   }
 
 
+  public ConversationPbxCallUpdateRequest zohoDeskTicketId(String zohoDeskTicketId) {
+    
+    this.zohoDeskTicketId = zohoDeskTicketId;
+    return this;
+  }
+
+   /**
+   * Existing zoho desk ticket id to associate this call with.
+   * @return zohoDeskTicketId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Existing zoho desk ticket id to associate this call with.")
+
+  public String getZohoDeskTicketId() {
+    return zohoDeskTicketId;
+  }
+
+
+  public void setZohoDeskTicketId(String zohoDeskTicketId) {
+    this.zohoDeskTicketId = zohoDeskTicketId;
+  }
+
+
+  public ConversationPbxCallUpdateRequest zohoDeskTicketUrl(String zohoDeskTicketUrl) {
+    
+    this.zohoDeskTicketUrl = zohoDeskTicketUrl;
+    return this;
+  }
+
+   /**
+   * Existing zoho desk ticket URL
+   * @return zohoDeskTicketUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Existing zoho desk ticket URL")
+
+  public String getZohoDeskTicketUrl() {
+    return zohoDeskTicketUrl;
+  }
+
+
+  public void setZohoDeskTicketUrl(String zohoDeskTicketUrl) {
+    this.zohoDeskTicketUrl = zohoDeskTicketUrl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -117,12 +171,14 @@ public class ConversationPbxCallUpdateRequest {
     }
     ConversationPbxCallUpdateRequest conversationPbxCallUpdateRequest = (ConversationPbxCallUpdateRequest) o;
     return Objects.equals(this.finalize, conversationPbxCallUpdateRequest.finalize) &&
-        Objects.equals(this.notes, conversationPbxCallUpdateRequest.notes);
+        Objects.equals(this.notes, conversationPbxCallUpdateRequest.notes) &&
+        Objects.equals(this.zohoDeskTicketId, conversationPbxCallUpdateRequest.zohoDeskTicketId) &&
+        Objects.equals(this.zohoDeskTicketUrl, conversationPbxCallUpdateRequest.zohoDeskTicketUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(finalize, notes);
+    return Objects.hash(finalize, notes, zohoDeskTicketId, zohoDeskTicketUrl);
   }
 
   @Override
@@ -131,6 +187,8 @@ public class ConversationPbxCallUpdateRequest {
     sb.append("class ConversationPbxCallUpdateRequest {\n");
     sb.append("    finalize: ").append(toIndentedString(finalize)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    zohoDeskTicketId: ").append(toIndentedString(zohoDeskTicketId)).append("\n");
+    sb.append("    zohoDeskTicketUrl: ").append(toIndentedString(zohoDeskTicketUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -155,6 +213,8 @@ public class ConversationPbxCallUpdateRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("finalize");
     openapiFields.add("notes");
+    openapiFields.add("zoho_desk_ticket_id");
+    openapiFields.add("zoho_desk_ticket_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -184,6 +244,12 @@ public class ConversationPbxCallUpdateRequest {
       }
       if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `notes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+      }
+      if (jsonObj.get("zoho_desk_ticket_id") != null && !jsonObj.get("zoho_desk_ticket_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_ticket_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_ticket_id").toString()));
+      }
+      if (jsonObj.get("zoho_desk_ticket_url") != null && !jsonObj.get("zoho_desk_ticket_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_ticket_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_ticket_url").toString()));
       }
   }
 

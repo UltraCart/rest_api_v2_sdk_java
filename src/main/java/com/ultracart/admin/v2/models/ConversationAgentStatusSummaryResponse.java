@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentStatusSummaryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-30T08:58:46.286-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-01T12:11:26.871-04:00[America/Indianapolis]")
 public class ConversationAgentStatusSummaryResponse {
   public static final String SERIALIZED_NAME_AGENTS = "agents";
   @SerializedName(SERIALIZED_NAME_AGENTS)
