@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderEmail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-01T12:11:26.871-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-03T09:31:40.032-04:00[America/Indianapolis]")
 public class AutoOrderEmail {
   public static final String SERIALIZED_NAME_BOUNCE_DIAGNOSTIC_CODE = "bounce_diagnostic_code";
   @SerializedName(SERIALIZED_NAME_BOUNCE_DIAGNOSTIC_CODE)

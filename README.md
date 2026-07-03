@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-01T12:11:26.871-04:00[America/Indianapolis]
+- Build date: 2026-07-03T09:31:40.032-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.105</version>
+    <version>4.1.106</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.105"
+     implementation "com.ultracart:rest-sdk:4.1.106"
   }
 ```
 
@@ -1818,6 +1818,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.106 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.105 | 07/01/2026 | conversation - updatePbxCall support additional zoho desk values |
 | 4.1.104 | 06/30/2026 | conversations - customer snapshot zoho desk tickets included |
 | 4.1.103 | 06/18/2026 | affiliate api alpha |
