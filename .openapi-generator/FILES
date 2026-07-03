@@ -65,6 +65,14 @@ docs/Browser.md
 docs/BrowserDevice.md
 docs/BrowserOS.md
 docs/BrowserUserAgent.md
+docs/BulkApi.md
+docs/BulkJob.md
+docs/BulkJobRequest.md
+docs/BulkJobResponse.md
+docs/BulkJobsResponse.md
+docs/BulkRecord.md
+docs/BulkRecordsResponse.md
+docs/BulkUploadUrlResponse.md
 docs/Cart.md
 docs/CartAffiliate.md
 docs/CartAffirmCheckoutResponse.md
@@ -1051,6 +1059,7 @@ settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/ultracart/admin/v2/AffiliateApi.java
 src/main/java/com/ultracart/admin/v2/AutoOrderApi.java
+src/main/java/com/ultracart/admin/v2/BulkApi.java
 src/main/java/com/ultracart/admin/v2/ChannelPartnerApi.java
 src/main/java/com/ultracart/admin/v2/CheckoutApi.java
 src/main/java/com/ultracart/admin/v2/ConversationApi.java
@@ -1131,6 +1140,13 @@ src/main/java/com/ultracart/admin/v2/models/Browser.java
 src/main/java/com/ultracart/admin/v2/models/BrowserDevice.java
 src/main/java/com/ultracart/admin/v2/models/BrowserOS.java
 src/main/java/com/ultracart/admin/v2/models/BrowserUserAgent.java
+src/main/java/com/ultracart/admin/v2/models/BulkJob.java
+src/main/java/com/ultracart/admin/v2/models/BulkJobRequest.java
+src/main/java/com/ultracart/admin/v2/models/BulkJobResponse.java
+src/main/java/com/ultracart/admin/v2/models/BulkJobsResponse.java
+src/main/java/com/ultracart/admin/v2/models/BulkRecord.java
+src/main/java/com/ultracart/admin/v2/models/BulkRecordsResponse.java
+src/main/java/com/ultracart/admin/v2/models/BulkUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/Cart.java
 src/main/java/com/ultracart/admin/v2/models/CartAffiliate.java
 src/main/java/com/ultracart/admin/v2/models/CartAffirmCheckoutResponse.java
