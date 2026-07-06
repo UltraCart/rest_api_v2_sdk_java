@@ -122688,6 +122688,7 @@ components:
           - message
           - notice
           - engagement prompt
+          - tool call
           type: string
         upload_keys:
           items:
