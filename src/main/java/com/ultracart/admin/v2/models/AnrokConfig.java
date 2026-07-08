@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AnrokConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T16:00:17.760-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T17:25:38.806-04:00[America/Indianapolis]")
 public class AnrokConfig {
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
@@ -64,6 +64,10 @@ public class AnrokConfig {
   public static final String SERIALIZED_NAME_LAST_TEST_DTS = "last_test_dts";
   @SerializedName(SERIALIZED_NAME_LAST_TEST_DTS)
   private String lastTestDts;
+
+  public static final String SERIALIZED_NAME_SHIPPING_PRODUCT_ID = "shipping_product_id";
+  @SerializedName(SERIALIZED_NAME_SHIPPING_PRODUCT_ID)
+  private String shippingProductId;
 
   public static final String SERIALIZED_NAME_TEST_RESULTS = "test_results";
   @SerializedName(SERIALIZED_NAME_TEST_RESULTS)
@@ -164,6 +168,29 @@ public class AnrokConfig {
   }
 
 
+  public AnrokConfig shippingProductId(String shippingProductId) {
+    
+    this.shippingProductId = shippingProductId;
+    return this;
+  }
+
+   /**
+   * Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category
+   * @return shippingProductId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Anrok Product ID used to classify shipping/handling charges; must be created in Anrok and mapped to the Shipping cost tax category")
+
+  public String getShippingProductId() {
+    return shippingProductId;
+  }
+
+
+  public void setShippingProductId(String shippingProductId) {
+    this.shippingProductId = shippingProductId;
+  }
+
+
   public AnrokConfig testResults(String testResults) {
     
     this.testResults = testResults;
@@ -201,12 +228,13 @@ public class AnrokConfig {
         Objects.equals(this.defaultProductId, anrokConfig.defaultProductId) &&
         Objects.equals(this.estimateOnly, anrokConfig.estimateOnly) &&
         Objects.equals(this.lastTestDts, anrokConfig.lastTestDts) &&
+        Objects.equals(this.shippingProductId, anrokConfig.shippingProductId) &&
         Objects.equals(this.testResults, anrokConfig.testResults);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, defaultProductId, estimateOnly, lastTestDts, testResults);
+    return Objects.hash(apiKey, defaultProductId, estimateOnly, lastTestDts, shippingProductId, testResults);
   }
 
   @Override
@@ -217,6 +245,7 @@ public class AnrokConfig {
     sb.append("    defaultProductId: ").append(toIndentedString(defaultProductId)).append("\n");
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    lastTestDts: ").append(toIndentedString(lastTestDts)).append("\n");
+    sb.append("    shippingProductId: ").append(toIndentedString(shippingProductId)).append("\n");
     sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,6 +273,7 @@ public class AnrokConfig {
     openapiFields.add("default_product_id");
     openapiFields.add("estimate_only");
     openapiFields.add("last_test_dts");
+    openapiFields.add("shipping_product_id");
     openapiFields.add("test_results");
 
     // a set of required properties/fields (JSON key names)
@@ -280,6 +310,9 @@ public class AnrokConfig {
       }
       if (jsonObj.get("last_test_dts") != null && !jsonObj.get("last_test_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_test_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_test_dts").toString()));
+      }
+      if (jsonObj.get("shipping_product_id") != null && !jsonObj.get("shipping_product_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shipping_product_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shipping_product_id").toString()));
       }
       if (jsonObj.get("test_results") != null && !jsonObj.get("test_results").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `test_results` to be a primitive type in the JSON string but got `%s`", jsonObj.get("test_results").toString()));

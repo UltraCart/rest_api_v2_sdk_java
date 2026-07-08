@@ -63506,6 +63506,7 @@ components:
         default_product_id: default_product_id
         estimate_only: true
         test_results: test_results
+        shipping_product_id: shipping_product_id
       properties:
         api_key:
           description: Anrok API key
@@ -63521,6 +63522,10 @@ components:
         last_test_dts:
           description: Date/time of the connection test to Anrok
           format: dateTime
+          type: string
+        shipping_product_id:
+          description: Anrok Product ID used to classify shipping/handling charges;
+            must be created in Anrok and mapped to the Shipping cost tax category
           type: string
         test_results:
           description: Test results of the last connection test to Anrok
@@ -221800,6 +221805,7 @@ components:
           default_product_id: default_product_id
           estimate_only: true
           test_results: test_results
+          shipping_product_id: shipping_product_id
         description: description
         title: title
         selected: true
@@ -223165,6 +223171,7 @@ components:
             default_product_id: default_product_id
             estimate_only: true
             test_results: test_results
+            shipping_product_id: shipping_product_id
           description: description
           title: title
           selected: true
