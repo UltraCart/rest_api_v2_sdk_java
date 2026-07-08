@@ -56,10 +56,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getEmailCommseqStepWaiting**](StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step |
 | [**getEmailCommseqWebhookEditorValues**](StorefrontApi.md#getEmailCommseqWebhookEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values |
 | [**getEmailCommseqs**](StorefrontApi.md#getEmailCommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs |
+| [**getEmailCustomerDispatchLogs**](StorefrontApi.md#getEmailCustomerDispatchLogs) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs | Get a customer&#39;s dispatch-log journey across all flows/campaigns |
 | [**getEmailCustomerEditorUrl**](StorefrontApi.md#getEmailCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL |
 | [**getEmailCustomers**](StorefrontApi.md#getEmailCustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers |
 | [**getEmailDashboardActivity**](StorefrontApi.md#getEmailDashboardActivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity |
 | [**getEmailDashboardStats**](StorefrontApi.md#getEmailDashboardStats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats |
+| [**getEmailDispatchLogCustomerLookup**](StorefrontApi.md#getEmailDispatchLogCustomerLookup) | **GET** /storefront/{storefront_oid}/email/dispatch_logs/customer_lookup | Resolve a customer email to its ESP customer UUID |
 | [**getEmailDispatchLogs**](StorefrontApi.md#getEmailDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs |
 | [**getEmailEmail**](StorefrontApi.md#getEmailEmail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email |
 | [**getEmailEmailClicks**](StorefrontApi.md#getEmailEmailClicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks |
@@ -93,6 +95,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getEmailSendingDomains**](StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains |
 | [**getEmailSettings**](StorefrontApi.md#getEmailSettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings |
 | [**getEmailSmsOrders**](StorefrontApi.md#getEmailSmsOrders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders |
+| [**getEmailStepDispatchLogDetail**](StorefrontApi.md#getEmailStepDispatchLogDetail) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail | Get the full detail of a single dispatch-log record |
+| [**getEmailStepDispatchLogs**](StorefrontApi.md#getEmailStepDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs | Get a paginated, date-boundable dispatch-log feed for a step |
 | [**getEmailTemplate**](StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template |
 | [**getEmailTemplates**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates |
 | [**getEmailThirdPartyProviders**](StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers |
@@ -2419,6 +2423,55 @@ Get email commseqs
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="getEmailCustomerDispatchLogs"></a>
+# **getEmailCustomerDispatchLogs**
+> EmailDispatchLogsResponse getEmailCustomerDispatchLogs(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward)
+
+Get a customer&#39;s dispatch-log journey across all flows/campaigns
+
+Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row&#39;s detail via getEmailStepDispatchLogDetail. scanForward&#x3D;false (default) returns recent-first; true returns chronological progression. Page forward until &#39;more&#39; is false. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **emailCustomerUuid** | **String**|  | |
+| **since** | **String**|  | [optional] |
+| **until** | **String**|  | [optional] |
+| **pageNumber** | **Integer**|  | [optional] |
+| **pageSize** | **Integer**|  | [optional] |
+| **scanForward** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**EmailDispatchLogsResponse**](EmailDispatchLogsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="getEmailCustomerEditorUrl"></a>
 # **getEmailCustomerEditorUrl**
 > EmailCustomerEditorUrlResponse getEmailCustomerEditorUrl(storefrontOid, emailCustomerUuid)
@@ -2573,6 +2626,50 @@ Get dashboard stats
 ### Return type
 
 [**EmailDashboardStatsResponse**](EmailDashboardStatsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getEmailDispatchLogCustomerLookup"></a>
+# **getEmailDispatchLogCustomerLookup**
+> EmailCustomerLookupResponse getEmailDispatchLogCustomerLookup(storefrontOid, email)
+
+Resolve a customer email to its ESP customer UUID
+
+Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant&#39;s customer email, or a null uuid when the email is not on file. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **email** | **String**|  | [optional] |
+
+### Return type
+
+[**EmailCustomerLookupResponse**](EmailCustomerLookupResponse.md)
 
 ### Authorization
 
@@ -3988,6 +4085,102 @@ Get email sms orders
 ### Return type
 
 [**EmailSmsOrdersResponse**](EmailSmsOrdersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getEmailStepDispatchLogDetail"></a>
+# **getEmailStepDispatchLogDetail**
+> EmailDispatchLogDetailResponse getEmailStepDispatchLogDetail(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid)
+
+Get the full detail of a single dispatch-log record
+
+Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
+| **commseqStepUuid** | **String**|  | |
+| **logDts** | **String**|  | [optional] |
+| **espCustomerUuid** | **String**|  | [optional] |
+
+### Return type
+
+[**EmailDispatchLogDetailResponse**](EmailDispatchLogDetailResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getEmailStepDispatchLogs"></a>
+# **getEmailStepDispatchLogs**
+> EmailDispatchLogsResponse getEmailStepDispatchLogs(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize)
+
+Get a paginated, date-boundable dispatch-log feed for a step
+
+Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **commseqUuid** | **String**|  | |
+| **commseqStepUuid** | **String**|  | |
+| **since** | **String**|  | [optional] |
+| **until** | **String**|  | [optional] |
+| **pageNumber** | **Integer**|  | [optional] |
+| **pageSize** | **Integer**|  | [optional] |
+
+### Return type
+
+[**EmailDispatchLogsResponse**](EmailDispatchLogsResponse.md)
 
 ### Authorization
 

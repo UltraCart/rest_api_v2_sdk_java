@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallTimeline
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-06T17:28:58.359-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T12:41:48.336-04:00[America/Indianapolis]")
 public class ConversationPbxCallTimeline {
   public static final String SERIALIZED_NAME_ANSWER_DTS = "answer_dts";
   @SerializedName(SERIALIZED_NAME_ANSWER_DTS)

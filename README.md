@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-06T17:28:58.359-04:00[America/Indianapolis]
+- Build date: 2026-07-08T12:41:48.336-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.110</version>
+    <version>4.1.111</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.110"
+     implementation "com.ultracart:rest-sdk:4.1.111"
   }
 ```
 
@@ -535,10 +535,12 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
 *StorefrontApi* | [**getEmailCommseqWebhookEditorValues**](docs/StorefrontApi.md#getEmailCommseqWebhookEditorValues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 *StorefrontApi* | [**getEmailCommseqs**](docs/StorefrontApi.md#getEmailCommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+*StorefrontApi* | [**getEmailCustomerDispatchLogs**](docs/StorefrontApi.md#getEmailCustomerDispatchLogs) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs | Get a customer&#39;s dispatch-log journey across all flows/campaigns
 *StorefrontApi* | [**getEmailCustomerEditorUrl**](docs/StorefrontApi.md#getEmailCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 *StorefrontApi* | [**getEmailCustomers**](docs/StorefrontApi.md#getEmailCustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 *StorefrontApi* | [**getEmailDashboardActivity**](docs/StorefrontApi.md#getEmailDashboardActivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 *StorefrontApi* | [**getEmailDashboardStats**](docs/StorefrontApi.md#getEmailDashboardStats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+*StorefrontApi* | [**getEmailDispatchLogCustomerLookup**](docs/StorefrontApi.md#getEmailDispatchLogCustomerLookup) | **GET** /storefront/{storefront_oid}/email/dispatch_logs/customer_lookup | Resolve a customer email to its ESP customer UUID
 *StorefrontApi* | [**getEmailDispatchLogs**](docs/StorefrontApi.md#getEmailDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs
 *StorefrontApi* | [**getEmailEmail**](docs/StorefrontApi.md#getEmailEmail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 *StorefrontApi* | [**getEmailEmailClicks**](docs/StorefrontApi.md#getEmailEmailClicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
@@ -572,6 +574,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailSendingDomains**](docs/StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 *StorefrontApi* | [**getEmailSettings**](docs/StorefrontApi.md#getEmailSettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
 *StorefrontApi* | [**getEmailSmsOrders**](docs/StorefrontApi.md#getEmailSmsOrders) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/sms/orders | Get email sms orders
+*StorefrontApi* | [**getEmailStepDispatchLogDetail**](docs/StorefrontApi.md#getEmailStepDispatchLogDetail) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail | Get the full detail of a single dispatch-log record
+*StorefrontApi* | [**getEmailStepDispatchLogs**](docs/StorefrontApi.md#getEmailStepDispatchLogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs | Get a paginated, date-boundable dispatch-log feed for a step
 *StorefrontApi* | [**getEmailTemplate**](docs/StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
@@ -1230,10 +1234,15 @@ Class | Method | HTTP request | Description
  - [EmailCommseqsResponse](docs/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/EmailCustomerEditorUrlResponse.md)
+ - [EmailCustomerLookupResponse](docs/EmailCustomerLookupResponse.md)
  - [EmailCustomersResponse](docs/EmailCustomersResponse.md)
  - [EmailDashboardActivity](docs/EmailDashboardActivity.md)
  - [EmailDashboardActivityResponse](docs/EmailDashboardActivityResponse.md)
  - [EmailDashboardStatsResponse](docs/EmailDashboardStatsResponse.md)
+ - [EmailDispatchLog](docs/EmailDispatchLog.md)
+ - [EmailDispatchLogDetail](docs/EmailDispatchLogDetail.md)
+ - [EmailDispatchLogDetailResponse](docs/EmailDispatchLogDetailResponse.md)
+ - [EmailDispatchLogsResponse](docs/EmailDispatchLogsResponse.md)
  - [EmailDomain](docs/EmailDomain.md)
  - [EmailEditorTokenResponse](docs/EmailEditorTokenResponse.md)
  - [EmailEditorValuesResponse](docs/EmailEditorValuesResponse.md)
@@ -1831,6 +1840,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.111 | 07/08/2026 | storefront - additional email dispatch log methods |
 | 4.1.110 | 07/06/2026 | Conversation - CRM message type constant for tool call |
 | 4.1.109 | 07/03/2026 | bulk import endpoints (alpha) |
 | 4.1.108 | 07/03/2026 | bulk import endpoints (alpha) |

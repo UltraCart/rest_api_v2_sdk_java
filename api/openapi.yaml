@@ -40410,6 +40410,228 @@ paths:
       x-codegen-request-body-name: statsRequest
       x-content-type: application/json
       x-accepts: application/json
+  /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs:
+    get:
+      description: "Paginated per-step dispatch activity with 90-day depth (AP3/AP4).\
+        \ Rows are lean, rendered from the DynamoDB keys; fetch a row's full detail\
+        \ via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber\
+        \ until the response 'more' flag is false. since/until are inclusive ISO-8601\
+        \ bounds on log_dts.\n"
+      operationId: getEmailStepDispatchLogs
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: commseq_step_uuid
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: since
+        schema:
+          type: string
+      - in: query
+        name: until
+        schema:
+          type: string
+      - in: query
+        name: pageNumber
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDispatchLogsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: "Get a paginated, date-boundable dispatch-log feed for a step"
+      tags:
+      - storefront
+      x-accepts: application/json
+  /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail:
+    get:
+      description: "Fetches and gunzips the full detail payload of one dispatch-log\
+        \ record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid\
+        \ shown on the list row.\n"
+      operationId: getEmailStepDispatchLogDetail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: commseq_step_uuid
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: log_dts
+        schema:
+          type: string
+      - in: query
+        name: esp_customer_uuid
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDispatchLogDetailResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: Get the full detail of a single dispatch-log record
+      tags:
+      - storefront
+      x-accepts: application/json
   /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks:
     get:
       operationId: getEmailEmailClicks
@@ -41462,6 +41684,122 @@ paths:
       x-codegen-request-body-name: email_customer
       x-content-type: application/json
       x-accepts: application/json
+  /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs:
+    get:
+      description: "Paginated, date-boundable journey of every flow/campaign step\
+        \ a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a\
+        \ row's detail via getEmailStepDispatchLogDetail. scanForward=false (default)\
+        \ returns recent-first; true returns chronological progression. Page forward\
+        \ until 'more' is false.\n"
+      operationId: getEmailCustomerDispatchLogs
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: email_customer_uuid
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: since
+        schema:
+          type: string
+      - in: query
+        name: until
+        schema:
+          type: string
+      - in: query
+        name: pageNumber
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: scanForward
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailDispatchLogsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: Get a customer's dispatch-log journey across all flows/campaigns
+      tags:
+      - storefront
+      x-accepts: application/json
   /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url:
     get:
       operationId: getEmailCustomerEditorUrl
@@ -41726,6 +42064,97 @@ paths:
       - ultraCartSimpleApiKey: []
       - ultraCartBrowserApiKey: []
       summary: Get dashboard stats
+      tags:
+      - storefront
+      x-accepts: application/json
+  /storefront/{storefront_oid}/email/dispatch_logs/customer_lookup:
+    get:
+      description: "Entry-hop resolver for the customer-journey screen (AP0). Returns\
+        \ the esp_customer_uuid for a merchant's customer email, or a null uuid when\
+        \ the email is not on file.\n"
+      operationId: getEmailDispatchLogCustomerLookup
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: email
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailCustomerLookupResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: Resolve a customer email to its ESP customer UUID
       tags:
       - storefront
       x-accepts: application/json
@@ -173754,6 +174183,47 @@ components:
         warning:
           $ref: '#/components/schemas/Warning'
       type: object
+    EmailCustomerLookupResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        esp_customer_uuid: esp_customer_uuid
+        email: email
+      properties:
+        email:
+          description: The email that was looked up
+          type: string
+        error:
+          $ref: '#/components/schemas/Error'
+        esp_customer_uuid:
+          description: "ESP customer UUID, or null when the email is not on file"
+          type: string
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
     EmailCustomersResponse:
       example:
         page_number: 0
@@ -174001,6 +174471,177 @@ components:
           items:
             $ref: '#/components/schemas/EmailStat'
           type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    EmailDispatchLog:
+      example:
+        esp_commseq_step_uuid: esp_commseq_step_uuid
+        log_dts: log_dts
+        esp_customer_uuid: esp_customer_uuid
+        email: email
+        esp_commseq_uuid: esp_commseq_uuid
+      properties:
+        email:
+          description: "Customer email, resolved from the customer UUID for the page"
+          type: string
+        esp_commseq_step_uuid:
+          description: Communication sequence step UUID
+          type: string
+        esp_commseq_uuid:
+          description: Communication sequence (flow/campaign) UUID
+          type: string
+        esp_customer_uuid:
+          description: ESP customer UUID
+          type: string
+        log_dts:
+          description: Log date/time (ISO-8601)
+          format: dateTime
+          type: string
+      type: object
+    EmailDispatchLogDetail:
+      example:
+        esp_commseq_step_uuid: esp_commseq_step_uuid
+        storefront_oid: 0
+        detail: detail
+        log_dts: log_dts
+        merchant_id: merchant_id
+        esp_customer_uuid: esp_customer_uuid
+        email: email
+        esp_commseq_uuid: esp_commseq_uuid
+      properties:
+        detail:
+          description: Dispatch detail text (free-form log of how the customer moved
+            through the step)
+          type: string
+        email:
+          description: "Customer email, resolved from the customer UUID"
+          type: string
+        esp_commseq_step_uuid:
+          description: Communication sequence step UUID
+          type: string
+        esp_commseq_uuid:
+          description: Communication sequence (flow/campaign) UUID
+          type: string
+        esp_customer_uuid:
+          description: ESP customer UUID
+          type: string
+        log_dts:
+          description: Log date/time (ISO-8601)
+          format: dateTime
+          type: string
+        merchant_id:
+          description: Merchant id
+          type: string
+        storefront_oid:
+          description: Storefront oid
+          format: int32
+          type: integer
+      type: object
+    EmailDispatchLogDetailResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        dispatch_log:
+          esp_commseq_step_uuid: esp_commseq_step_uuid
+          storefront_oid: 0
+          detail: detail
+          log_dts: log_dts
+          merchant_id: merchant_id
+          esp_customer_uuid: esp_customer_uuid
+          email: email
+          esp_commseq_uuid: esp_commseq_uuid
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        dispatch_log:
+          $ref: '#/components/schemas/EmailDispatchLogDetail'
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    EmailDispatchLogsResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        page_number: 0
+        more: true
+        success: true
+        dispatch_logs:
+        - esp_commseq_step_uuid: esp_commseq_step_uuid
+          log_dts: log_dts
+          esp_customer_uuid: esp_customer_uuid
+          email: email
+          esp_commseq_uuid: esp_commseq_uuid
+        - esp_commseq_step_uuid: esp_commseq_step_uuid
+          log_dts: log_dts
+          esp_customer_uuid: esp_customer_uuid
+          email: email
+          esp_commseq_uuid: esp_commseq_uuid
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+        page_size: 6
+      properties:
+        dispatch_logs:
+          description: Dispatch log rows on this page
+          items:
+            $ref: '#/components/schemas/EmailDispatchLog'
+          type: array
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        more:
+          description: True when another page exists after this one
+          type: boolean
+        page_number:
+          description: Page number (one based)
+          format: int32
+          type: integer
+        page_size:
+          description: Number of records per page
+          format: int32
+          type: integer
         success:
           description: Indicates if API call was successful
           type: boolean

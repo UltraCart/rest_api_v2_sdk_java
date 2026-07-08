@@ -67,9 +67,12 @@ import com.ultracart.admin.v2.models.EmailCommseqWebhookSendTestResponse;
 import com.ultracart.admin.v2.models.EmailCommseqsResponse;
 import com.ultracart.admin.v2.models.EmailCustomer;
 import com.ultracart.admin.v2.models.EmailCustomerEditorUrlResponse;
+import com.ultracart.admin.v2.models.EmailCustomerLookupResponse;
 import com.ultracart.admin.v2.models.EmailCustomersResponse;
 import com.ultracart.admin.v2.models.EmailDashboardActivityResponse;
 import com.ultracart.admin.v2.models.EmailDashboardStatsResponse;
+import com.ultracart.admin.v2.models.EmailDispatchLogDetailResponse;
+import com.ultracart.admin.v2.models.EmailDispatchLogsResponse;
 import com.ultracart.admin.v2.models.EmailDomain;
 import com.ultracart.admin.v2.models.EmailEditorTokenResponse;
 import com.ultracart.admin.v2.models.EmailEditorValuesResponse;
@@ -8291,6 +8294,203 @@ public class StorefrontApi {
         return localVarCall;
     }
     /**
+     * Build call for getEmailCustomerDispatchLogs
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param scanForward  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailCustomerDispatchLogsCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/customers/{email_customer_uuid}/dispatch_logs"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_customer_uuid" + "\\}", localVarApiClient.escapeString(emailCustomerUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (since != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("since", since));
+        }
+
+        if (until != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("until", until));
+        }
+
+        if (pageNumber != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageNumber", pageNumber));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (scanForward != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scanForward", scanForward));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailCustomerDispatchLogsValidateBeforeCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailCustomerDispatchLogs(Async)");
+        }
+        
+        // verify the required parameter 'emailCustomerUuid' is set
+        if (emailCustomerUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailCustomerUuid' when calling getEmailCustomerDispatchLogs(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a customer&#39;s dispatch-log journey across all flows/campaigns
+     * Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row&#39;s detail via getEmailStepDispatchLogDetail. scanForward&#x3D;false (default) returns recent-first; true returns chronological progression. Page forward until &#39;more&#39; is false. 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param scanForward  (optional)
+     * @return EmailDispatchLogsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailDispatchLogsResponse getEmailCustomerDispatchLogs(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward) throws ApiException {
+        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a customer&#39;s dispatch-log journey across all flows/campaigns
+     * Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row&#39;s detail via getEmailStepDispatchLogDetail. scanForward&#x3D;false (default) returns recent-first; true returns chronological progression. Page forward until &#39;more&#39; is false. 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param scanForward  (optional)
+     * @return ApiResponse&lt;EmailDispatchLogsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailDispatchLogsResponse> getEmailCustomerDispatchLogsWithHttpInfo(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward) throws ApiException {
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, null);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a customer&#39;s dispatch-log journey across all flows/campaigns (asynchronously)
+     * Paginated, date-boundable journey of every flow/campaign step a customer moved through (AP1/AP2), time-sorted. Rows are lean; fetch a row&#39;s detail via getEmailStepDispatchLogDetail. scanForward&#x3D;false (default) returns recent-first; true returns chronological progression. Page forward until &#39;more&#39; is false. 
+     * @param storefrontOid  (required)
+     * @param emailCustomerUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param scanForward  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailCustomerDispatchLogsAsync(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, _callback);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getEmailCustomerEditorUrl
      * @param storefrontOid  (required)
      * @param emailCustomerUuid  (required)
@@ -8925,6 +9125,161 @@ public class StorefrontApi {
 
         okhttp3.Call localVarCall = getEmailDashboardStatsValidateBeforeCall(storefrontOid, days, _callback);
         Type localVarReturnType = new TypeToken<EmailDashboardStatsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailDispatchLogCustomerLookup
+     * @param storefrontOid  (required)
+     * @param email  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailDispatchLogCustomerLookupCall(Integer storefrontOid, String email, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/dispatch_logs/customer_lookup"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailDispatchLogCustomerLookupValidateBeforeCall(Integer storefrontOid, String email, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailDispatchLogCustomerLookup(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailDispatchLogCustomerLookupCall(storefrontOid, email, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Resolve a customer email to its ESP customer UUID
+     * Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant&#39;s customer email, or a null uuid when the email is not on file. 
+     * @param storefrontOid  (required)
+     * @param email  (optional)
+     * @return EmailCustomerLookupResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailCustomerLookupResponse getEmailDispatchLogCustomerLookup(Integer storefrontOid, String email) throws ApiException {
+        ApiResponse<EmailCustomerLookupResponse> localVarResp = getEmailDispatchLogCustomerLookupWithHttpInfo(storefrontOid, email);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Resolve a customer email to its ESP customer UUID
+     * Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant&#39;s customer email, or a null uuid when the email is not on file. 
+     * @param storefrontOid  (required)
+     * @param email  (optional)
+     * @return ApiResponse&lt;EmailCustomerLookupResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailCustomerLookupResponse> getEmailDispatchLogCustomerLookupWithHttpInfo(Integer storefrontOid, String email) throws ApiException {
+        okhttp3.Call localVarCall = getEmailDispatchLogCustomerLookupValidateBeforeCall(storefrontOid, email, null);
+        Type localVarReturnType = new TypeToken<EmailCustomerLookupResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Resolve a customer email to its ESP customer UUID (asynchronously)
+     * Entry-hop resolver for the customer-journey screen (AP0). Returns the esp_customer_uuid for a merchant&#39;s customer email, or a null uuid when the email is not on file. 
+     * @param storefrontOid  (required)
+     * @param email  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailDispatchLogCustomerLookupAsync(Integer storefrontOid, String email, final ApiCallback<EmailCustomerLookupResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailDispatchLogCustomerLookupValidateBeforeCall(storefrontOid, email, _callback);
+        Type localVarReturnType = new TypeToken<EmailCustomerLookupResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14090,6 +14445,388 @@ public class StorefrontApi {
 
         okhttp3.Call localVarCall = getEmailSmsOrdersValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, days, _callback);
         Type localVarReturnType = new TypeToken<EmailSmsOrdersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailStepDispatchLogDetail
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param logDts  (optional)
+     * @param espCustomerUuid  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailStepDispatchLogDetailCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String logDts, String espCustomerUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs/detail"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", localVarApiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", localVarApiClient.escapeString(commseqStepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (logDts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("log_dts", logDts));
+        }
+
+        if (espCustomerUuid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("esp_customer_uuid", espCustomerUuid));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailStepDispatchLogDetailValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String logDts, String espCustomerUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailStepDispatchLogDetail(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailStepDispatchLogDetail(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling getEmailStepDispatchLogDetail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailStepDispatchLogDetailCall(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get the full detail of a single dispatch-log record
+     * Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param logDts  (optional)
+     * @param espCustomerUuid  (optional)
+     * @return EmailDispatchLogDetailResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailDispatchLogDetailResponse getEmailStepDispatchLogDetail(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String logDts, String espCustomerUuid) throws ApiException {
+        ApiResponse<EmailDispatchLogDetailResponse> localVarResp = getEmailStepDispatchLogDetailWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the full detail of a single dispatch-log record
+     * Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param logDts  (optional)
+     * @param espCustomerUuid  (optional)
+     * @return ApiResponse&lt;EmailDispatchLogDetailResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailDispatchLogDetailResponse> getEmailStepDispatchLogDetailWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String logDts, String espCustomerUuid) throws ApiException {
+        okhttp3.Call localVarCall = getEmailStepDispatchLogDetailValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid, null);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogDetailResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the full detail of a single dispatch-log record (asynchronously)
+     * Fetches and gunzips the full detail payload of one dispatch-log record (AP5 drill-down), identified by its step plus the log_dts and esp_customer_uuid shown on the list row. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param logDts  (optional)
+     * @param espCustomerUuid  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailStepDispatchLogDetailAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String logDts, String espCustomerUuid, final ApiCallback<EmailDispatchLogDetailResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailStepDispatchLogDetailValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, logDts, espCustomerUuid, _callback);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogDetailResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailStepDispatchLogs
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailStepDispatchLogsCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/dispatch_logs"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_uuid" + "\\}", localVarApiClient.escapeString(commseqUuid.toString()))
+            .replaceAll("\\{" + "commseq_step_uuid" + "\\}", localVarApiClient.escapeString(commseqStepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (since != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("since", since));
+        }
+
+        if (until != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("until", until));
+        }
+
+        if (pageNumber != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageNumber", pageNumber));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailStepDispatchLogsValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailStepDispatchLogs(Async)");
+        }
+        
+        // verify the required parameter 'commseqUuid' is set
+        if (commseqUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqUuid' when calling getEmailStepDispatchLogs(Async)");
+        }
+        
+        // verify the required parameter 'commseqStepUuid' is set
+        if (commseqStepUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqStepUuid' when calling getEmailStepDispatchLogs(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a paginated, date-boundable dispatch-log feed for a step
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @return EmailDispatchLogsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailDispatchLogsResponse getEmailStepDispatchLogs(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize) throws ApiException {
+        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a paginated, date-boundable dispatch-log feed for a step
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @return ApiResponse&lt;EmailDispatchLogsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailDispatchLogsResponse> getEmailStepDispatchLogsWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, null);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a paginated, date-boundable dispatch-log feed for a step (asynchronously)
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * @param storefrontOid  (required)
+     * @param commseqUuid  (required)
+     * @param commseqStepUuid  (required)
+     * @param since  (optional)
+     * @param until  (optional)
+     * @param pageNumber  (optional)
+     * @param pageSize  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailStepDispatchLogsAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
