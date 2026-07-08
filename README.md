@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-08T12:41:48.336-04:00[America/Indianapolis]
+- Build date: 2026-07-08T13:48:40.815-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.111</version>
+    <version>4.1.112</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.111"
+     implementation "com.ultracart:rest-sdk:4.1.112"
   }
 ```
 
@@ -672,6 +672,8 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/TaxApi.md#deleteTaxProviderSelfCounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
 *TaxApi* | [**deleteTaxProviderSelfPostalCode**](docs/TaxApi.md#deleteTaxProviderSelfPostalCode) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
 *TaxApi* | [**deleteTaxProviderSelfState**](docs/TaxApi.md#deleteTaxProviderSelfState) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
+*TaxApi* | [**getTaxProviderAnrok**](docs/TaxApi.md#getTaxProviderAnrok) | **GET** /tax/providers/anrok | Retrieve the Anrok tax provider
+*TaxApi* | [**getTaxProviderAnrokTest**](docs/TaxApi.md#getTaxProviderAnrokTest) | **GET** /tax/providers/anrok/test | Attempts to connect to Anrok and returns back the response
 *TaxApi* | [**getTaxProviderAvalara**](docs/TaxApi.md#getTaxProviderAvalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
 *TaxApi* | [**getTaxProviderAvalaraCompanies**](docs/TaxApi.md#getTaxProviderAvalaraCompanies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
 *TaxApi* | [**getTaxProviderAvalaraTest**](docs/TaxApi.md#getTaxProviderAvalaraTest) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
@@ -685,6 +687,7 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**getTaxProviderUltraCart**](docs/TaxApi.md#getTaxProviderUltraCart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
 *TaxApi* | [**getTaxProviders**](docs/TaxApi.md#getTaxProviders) | **GET** /tax/providers | Retrieve tax methods
 *TaxApi* | [**setActiveTaxProvider**](docs/TaxApi.md#setActiveTaxProvider) | **POST** /tax/providers/setActive/{providerName} | Toggle a tax provider to active
+*TaxApi* | [**updateTaxProviderAnrok**](docs/TaxApi.md#updateTaxProviderAnrok) | **POST** /tax/providers/anrok | Update the Anrok tax provider
 *TaxApi* | [**updateTaxProviderAvalara**](docs/TaxApi.md#updateTaxProviderAvalara) | **POST** /tax/providers/avalara | Update the Avalara tax provider
 *TaxApi* | [**updateTaxProviderSelf**](docs/TaxApi.md#updateTaxProviderSelf) | **POST** /tax/providers/self | Update the Self tax provider
 *TaxApi* | [**updateTaxProviderSelfCity**](docs/TaxApi.md#updateTaxProviderSelfCity) | **POST** /tax/providers/self/city/{city} | Updates a Self tax provider city
@@ -758,6 +761,7 @@ Class | Method | HTTP request | Description
  - [AffiliateTierRelationship](docs/AffiliateTierRelationship.md)
  - [AffiliatesResponse](docs/AffiliatesResponse.md)
  - [AgentSummary](docs/AgentSummary.md)
+ - [AnrokConfig](docs/AnrokConfig.md)
  - [ApiUserApplicationProfile](docs/ApiUserApplicationProfile.md)
  - [ApplyLibraryItemRequest](docs/ApplyLibraryItemRequest.md)
  - [ApplyLibraryItemResponse](docs/ApplyLibraryItemResponse.md)
@@ -1688,6 +1692,7 @@ Class | Method | HTTP request | Description
  - [TaxJarConfig](docs/TaxJarConfig.md)
  - [TaxPostalCode](docs/TaxPostalCode.md)
  - [TaxProviderActivateResult](docs/TaxProviderActivateResult.md)
+ - [TaxProviderAnrok](docs/TaxProviderAnrok.md)
  - [TaxProviderAvalara](docs/TaxProviderAvalara.md)
  - [TaxProviderAvalaraCompaniesResult](docs/TaxProviderAvalaraCompaniesResult.md)
  - [TaxProviderAvalaraCompany](docs/TaxProviderAvalaraCompany.md)
@@ -1840,6 +1845,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.112 | 07/08/2026 | tax - added anrok tax provider |
 | 4.1.111 | 07/08/2026 | storefront - additional email dispatch log methods |
 | 4.1.110 | 07/06/2026 | Conversation - CRM message type constant for tool call |
 | 4.1.109 | 07/03/2026 | bulk import endpoints (alpha) |

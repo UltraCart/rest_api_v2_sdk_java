@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.Error;
 import com.ultracart.admin.v2.models.ResponseMetadata;
+import com.ultracart.admin.v2.models.TaxProviderAnrok;
 import com.ultracart.admin.v2.models.TaxProviderAvalara;
 import com.ultracart.admin.v2.models.TaxProviderSelf;
 import com.ultracart.admin.v2.models.TaxProviderSovos;
@@ -55,8 +56,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TaxProvidersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T12:41:48.336-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T13:48:40.815-04:00[America/Indianapolis]")
 public class TaxProvidersResponse {
+  public static final String SERIALIZED_NAME_ANROK = "anrok";
+  @SerializedName(SERIALIZED_NAME_ANROK)
+  private TaxProviderAnrok anrok;
+
   public static final String SERIALIZED_NAME_AVALARA = "avalara";
   @SerializedName(SERIALIZED_NAME_AVALARA)
   private TaxProviderAvalara avalara;
@@ -95,6 +100,29 @@ public class TaxProvidersResponse {
 
   public TaxProvidersResponse() { 
   }
+
+  public TaxProvidersResponse anrok(TaxProviderAnrok anrok) {
+    
+    this.anrok = anrok;
+    return this;
+  }
+
+   /**
+   * Get anrok
+   * @return anrok
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TaxProviderAnrok getAnrok() {
+    return anrok;
+  }
+
+
+  public void setAnrok(TaxProviderAnrok anrok) {
+    this.anrok = anrok;
+  }
+
 
   public TaxProvidersResponse avalara(TaxProviderAvalara avalara) {
     
@@ -313,7 +341,8 @@ public class TaxProvidersResponse {
       return false;
     }
     TaxProvidersResponse taxProvidersResponse = (TaxProvidersResponse) o;
-    return Objects.equals(this.avalara, taxProvidersResponse.avalara) &&
+    return Objects.equals(this.anrok, taxProvidersResponse.anrok) &&
+        Objects.equals(this.avalara, taxProvidersResponse.avalara) &&
         Objects.equals(this.error, taxProvidersResponse.error) &&
         Objects.equals(this.metadata, taxProvidersResponse.metadata) &&
         Objects.equals(this.self, taxProvidersResponse.self) &&
@@ -326,13 +355,14 @@ public class TaxProvidersResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(avalara, error, metadata, self, sovos, success, taxjar, ultracart, warning);
+    return Objects.hash(anrok, avalara, error, metadata, self, sovos, success, taxjar, ultracart, warning);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaxProvidersResponse {\n");
+    sb.append("    anrok: ").append(toIndentedString(anrok)).append("\n");
     sb.append("    avalara: ").append(toIndentedString(avalara)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -364,6 +394,7 @@ public class TaxProvidersResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("anrok");
     openapiFields.add("avalara");
     openapiFields.add("error");
     openapiFields.add("metadata");
@@ -399,6 +430,10 @@ public class TaxProvidersResponse {
         if (!TaxProvidersResponse.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TaxProvidersResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `anrok`
+      if (jsonObj.getAsJsonObject("anrok") != null) {
+        TaxProviderAnrok.validateJsonObject(jsonObj.getAsJsonObject("anrok"));
       }
       // validate the optional field `avalara`
       if (jsonObj.getAsJsonObject("avalara") != null) {

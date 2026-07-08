@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OauthDeviceAuthorizationResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T12:41:48.336-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T13:48:40.815-04:00[America/Indianapolis]")
 public class OauthDeviceAuthorizationResponse {
   public static final String SERIALIZED_NAME_DEVICE_CODE = "device_code";
   @SerializedName(SERIALIZED_NAME_DEVICE_CODE)
