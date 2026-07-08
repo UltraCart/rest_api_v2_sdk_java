@@ -47,11 +47,15 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AnrokConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T13:48:40.815-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T16:00:17.760-04:00[America/Indianapolis]")
 public class AnrokConfig {
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
   private String apiKey;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PRODUCT_ID = "default_product_id";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRODUCT_ID)
+  private String defaultProductId;
 
   public static final String SERIALIZED_NAME_ESTIMATE_ONLY = "estimate_only";
   @SerializedName(SERIALIZED_NAME_ESTIMATE_ONLY)
@@ -88,6 +92,29 @@ public class AnrokConfig {
 
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
+  }
+
+
+  public AnrokConfig defaultProductId(String defaultProductId) {
+    
+    this.defaultProductId = defaultProductId;
+    return this;
+  }
+
+   /**
+   * Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned
+   * @return defaultProductId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Default Anrok Product ID, used for cart items that do not have their own Anrok Product ID assigned")
+
+  public String getDefaultProductId() {
+    return defaultProductId;
+  }
+
+
+  public void setDefaultProductId(String defaultProductId) {
+    this.defaultProductId = defaultProductId;
   }
 
 
@@ -171,6 +198,7 @@ public class AnrokConfig {
     }
     AnrokConfig anrokConfig = (AnrokConfig) o;
     return Objects.equals(this.apiKey, anrokConfig.apiKey) &&
+        Objects.equals(this.defaultProductId, anrokConfig.defaultProductId) &&
         Objects.equals(this.estimateOnly, anrokConfig.estimateOnly) &&
         Objects.equals(this.lastTestDts, anrokConfig.lastTestDts) &&
         Objects.equals(this.testResults, anrokConfig.testResults);
@@ -178,7 +206,7 @@ public class AnrokConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, estimateOnly, lastTestDts, testResults);
+    return Objects.hash(apiKey, defaultProductId, estimateOnly, lastTestDts, testResults);
   }
 
   @Override
@@ -186,6 +214,7 @@ public class AnrokConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnrokConfig {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    defaultProductId: ").append(toIndentedString(defaultProductId)).append("\n");
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    lastTestDts: ").append(toIndentedString(lastTestDts)).append("\n");
     sb.append("    testResults: ").append(toIndentedString(testResults)).append("\n");
@@ -212,6 +241,7 @@ public class AnrokConfig {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("api_key");
+    openapiFields.add("default_product_id");
     openapiFields.add("estimate_only");
     openapiFields.add("last_test_dts");
     openapiFields.add("test_results");
@@ -244,6 +274,9 @@ public class AnrokConfig {
       }
       if (jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+      }
+      if (jsonObj.get("default_product_id") != null && !jsonObj.get("default_product_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_product_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_product_id").toString()));
       }
       if (jsonObj.get("last_test_dts") != null && !jsonObj.get("last_test_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_test_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_test_dts").toString()));

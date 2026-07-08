@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailFlow
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T13:48:40.815-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T16:00:17.760-04:00[America/Indianapolis]")
 public class EmailFlow {
   public static final String SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS = "allow_multiple_concurrent_enrollments";
   @SerializedName(SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS)

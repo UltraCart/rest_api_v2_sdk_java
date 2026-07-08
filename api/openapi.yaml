@@ -63503,11 +63503,16 @@ components:
       example:
         api_key: api_key
         last_test_dts: last_test_dts
+        default_product_id: default_product_id
         estimate_only: true
         test_results: test_results
       properties:
         api_key:
           description: Anrok API key
+          type: string
+        default_product_id:
+          description: "Default Anrok Product ID, used for cart items that do not\
+            \ have their own Anrok Product ID assigned"
           type: string
         estimate_only:
           description: True if this Anrok configuration is to estimate taxes only
@@ -221792,6 +221797,7 @@ components:
         configuration:
           api_key: api_key
           last_test_dts: last_test_dts
+          default_product_id: default_product_id
           estimate_only: true
           test_results: test_results
         description: description
@@ -223156,6 +223162,7 @@ components:
           configuration:
             api_key: api_key
             last_test_dts: last_test_dts
+            default_product_id: default_product_id
             estimate_only: true
             test_results: test_results
           description: description

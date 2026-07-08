@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Affiliate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T13:48:40.815-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T16:00:17.760-04:00[America/Indianapolis]")
 public class Affiliate {
   public static final String SERIALIZED_NAME_ACCEPTED_DOWNLINE_RECRUITING_TERMS = "accepted_downline_recruiting_terms";
   @SerializedName(SERIALIZED_NAME_ACCEPTED_DOWNLINE_RECRUITING_TERMS)
