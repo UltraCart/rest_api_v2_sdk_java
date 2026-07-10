@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAudioUploadUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
 public class ConversationPbxAudioUploadUrlResponse {
   public static final String SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UPLOAD_URL = "conversation_pbx_audio_upload_url";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_PBX_AUDIO_UPLOAD_URL)

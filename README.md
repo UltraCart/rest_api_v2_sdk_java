@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-10T16:06:34.677-04:00[America/Indianapolis]
+- Build date: 2026-07-10T16:31:06.759-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.115</version>
+    <version>4.1.116</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.115"
+     implementation "com.ultracart:rest-sdk:4.1.116"
   }
 ```
 
@@ -1848,6 +1848,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.116 | 07/10/2026 | customer - method to search quickbooks online customers |
 | 4.1.115 | 07/10/2026 | customer profile birthday |
 | 4.1.114 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.113 | 07/08/2026 | tax - anrok tax provider |

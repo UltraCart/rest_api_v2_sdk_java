@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxDefaultTimezoneUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
 public class ConversationPbxDefaultTimezoneUpdateRequest {
   public static final String SERIALIZED_NAME_DEFAULT_TIMEZONE = "default_timezone";
   @SerializedName(SERIALIZED_NAME_DEFAULT_TIMEZONE)

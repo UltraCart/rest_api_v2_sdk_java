@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderItemOptionFileAttachment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
 public class OrderItemOptionFileAttachment {
   public static final String SERIALIZED_NAME_EXPIRATION_DTS = "expiration_dts";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DTS)

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * BulkJobRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
 public class BulkJobRequest {
   /**
    * Mutation mode - insert (create only) or upsert (create or update). Defaults to insert. This is always a mutation verb â€” the bulk surface writes only and has no read / query mode. upsert is currently supported for customer only.

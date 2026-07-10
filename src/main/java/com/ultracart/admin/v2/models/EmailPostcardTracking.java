@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailPostcardTracking
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
 public class EmailPostcardTracking {
   public static final String SERIALIZED_NAME_COMMSEQ_POSTCARD_UUID = "commseq_postcard_uuid";
   @SerializedName(SERIALIZED_NAME_COMMSEQ_POSTCARD_UUID)
