@@ -876,6 +876,8 @@ docs/PricingTierNotification.md
 docs/PricingTiersResponse.md
 docs/Property.md
 docs/PublishLibraryItemRequest.md
+docs/QuickBooksOnlineCustomer.md
+docs/QuickBooksOnlineCustomersResponse.md
 docs/RegisterAffiliateClickRequest.md
 docs/RegisterAffiliateClickResponse.md
 docs/ReplaceOrderItemIdRequest.md
@@ -1943,6 +1945,8 @@ src/main/java/com/ultracart/admin/v2/models/PricingTierNotification.java
 src/main/java/com/ultracart/admin/v2/models/PricingTiersResponse.java
 src/main/java/com/ultracart/admin/v2/models/Property.java
 src/main/java/com/ultracart/admin/v2/models/PublishLibraryItemRequest.java
+src/main/java/com/ultracart/admin/v2/models/QuickBooksOnlineCustomer.java
+src/main/java/com/ultracart/admin/v2/models/QuickBooksOnlineCustomersResponse.java
 src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickRequest.java
 src/main/java/com/ultracart/admin/v2/models/RegisterAffiliateClickResponse.java
 src/main/java/com/ultracart/admin/v2/models/ReplaceOrderItemIdRequest.java

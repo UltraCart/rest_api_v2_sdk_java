@@ -34432,6 +34432,91 @@ paths:
       tags:
       - customer
       x-accepts: application/json
+  /customer/quickbooks_online/customers:
+    get:
+      description: |
+        Typeahead search of the merchant's QuickBooks Online customers by display name.  Used by the customer profile editor to link a profile 1:1 to a QuickBooks Online customer.  Returns up to 100 matches.  If QuickBooks Online is not connected the list will be empty.
+      operationId: getQuickBooksOnlineCustomers
+      parameters:
+      - description: Search query matched against the QuickBooks Online customer display
+          name
+        in: query
+        name: q
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuickBooksOnlineCustomersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - customer_read
+      - ultraCartSimpleApiKey: []
+      summary: Search the merchant's QuickBooks Online customers
+      tags:
+      - customer
+      x-accepts: application/json
   /customer/search:
     post:
       operationId: searchCustomerProfileValues
@@ -58091,6 +58176,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -58199,6 +58285,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -60015,6 +60102,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -60123,6 +60211,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -61824,6 +61913,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -61932,6 +62022,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -64295,6 +64386,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -64403,6 +64495,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -66044,6 +66137,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -66152,6 +66246,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -67876,6 +67971,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -67984,6 +68080,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -70850,6 +70947,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -70958,6 +71056,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -72599,6 +72698,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -72707,6 +72807,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -74431,6 +74532,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -74539,6 +74641,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -76357,6 +76460,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -76465,6 +76569,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -78106,6 +78211,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -78214,6 +78320,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -79938,6 +80045,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -80046,6 +80154,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -81842,6 +81951,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -81950,6 +82060,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -83591,6 +83702,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -83699,6 +83811,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -85423,6 +85536,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -85531,6 +85645,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -87347,6 +87462,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -87455,6 +87571,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -89096,6 +89213,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -89204,6 +89322,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -90928,6 +91047,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -91036,6 +91156,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -92832,6 +92953,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -92940,6 +93062,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -94581,6 +94704,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -94689,6 +94813,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -96413,6 +96538,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -96521,6 +96647,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -103579,6 +103706,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -103687,6 +103815,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -127443,6 +127572,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -127551,6 +127681,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -129192,6 +129323,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -129300,6 +129432,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -131024,6 +131157,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -131132,6 +131266,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -132928,6 +133063,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -133036,6 +133172,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -134677,6 +134814,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -134785,6 +134923,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -136509,6 +136648,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -136617,6 +136757,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -138417,6 +138558,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -138525,6 +138667,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -140166,6 +140309,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -140274,6 +140418,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -141283,6 +141428,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -141391,6 +141537,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -141670,6 +141817,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -141778,6 +141926,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -145825,6 +145974,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -145933,6 +146083,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -147574,6 +147725,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -147682,6 +147834,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -149406,6 +149559,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -149514,6 +149668,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -151310,6 +151465,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -151418,6 +151574,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -153059,6 +153216,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -153167,6 +153325,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -154891,6 +155050,7 @@ components:
               allow_purchase_order: true
               qb_class: qb_class
               free_shipping: true
+              birth_date: birth_date
               referral_source: referral_source
               affiliate_oid: 6
               allow_drop_shipping: true
@@ -154999,6 +155159,7 @@ components:
                 evening_phone_e164: evening_phone_e164
               terms: terms
               free_shipping_minimum: 0.2025324113236393
+              quickbooks_online_customer_id: quickbooks_online_customer_id
               fax: fax
               dhl_account_number: dhl_account_number
               fedex_account_number: fedex_account_number
@@ -156795,6 +156956,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -156903,6 +157065,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -158544,6 +158707,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -158652,6 +158816,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -166841,6 +167006,7 @@ components:
         allow_purchase_order: true
         qb_class: qb_class
         free_shipping: true
+        birth_date: birth_date
         referral_source: referral_source
         affiliate_oid: 6
         allow_drop_shipping: true
@@ -166949,6 +167115,7 @@ components:
           evening_phone_e164: evening_phone_e164
         terms: terms
         free_shipping_minimum: 0.2025324113236393
+        quickbooks_online_customer_id: quickbooks_online_customer_id
         fax: fax
         dhl_account_number: dhl_account_number
         fedex_account_number: fedex_account_number
@@ -167269,6 +167436,10 @@ components:
           items:
             $ref: '#/components/schemas/CustomerBilling'
           type: array
+        birth_date:
+          description: Customer birthday
+          format: dateTime
+          type: string
         business_notes:
           description: Business notes (internally visible only)
           maxLength: 2000
@@ -167387,6 +167558,11 @@ components:
           description: QuickBooks tax exemption reason code
           format: int32
           type: integer
+        quickbooks_online_customer_id:
+          description: QuickBooks Online customer ID used to lock this customer 1:1
+            with QuickBooks Online
+          maxLength: 50
+          type: string
         quotes:
           description: Quotes associated with this customer profile
           items:
@@ -168537,6 +168713,7 @@ components:
           allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -168645,6 +168822,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -169145,6 +169323,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -169253,6 +169432,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -169532,6 +169712,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -169640,6 +169821,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -171123,6 +171305,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -171231,6 +171414,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -171510,6 +171694,7 @@ components:
         - allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -171618,6 +171803,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -197644,6 +197830,7 @@ components:
           allow_purchase_order: true
           qb_class: qb_class
           free_shipping: true
+          birth_date: birth_date
           referral_source: referral_source
           affiliate_oid: 6
           allow_drop_shipping: true
@@ -197752,6 +197939,7 @@ components:
             evening_phone_e164: evening_phone_e164
           terms: terms
           free_shipping_minimum: 0.2025324113236393
+          quickbooks_online_customer_id: quickbooks_online_customer_id
           fax: fax
           dhl_account_number: dhl_account_number
           fedex_account_number: fedex_account_number
@@ -203389,6 +203577,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -203497,6 +203686,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -205427,6 +205617,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -205535,6 +205726,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -207176,6 +207368,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -207284,6 +207477,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -210242,6 +210436,7 @@ components:
             allow_purchase_order: true
             qb_class: qb_class
             free_shipping: true
+            birth_date: birth_date
             referral_source: referral_source
             affiliate_oid: 6
             allow_drop_shipping: true
@@ -210350,6 +210545,7 @@ components:
               evening_phone_e164: evening_phone_e164
             terms: terms
             free_shipping_minimum: 0.2025324113236393
+            quickbooks_online_customer_id: quickbooks_online_customer_id
             fax: fax
             dhl_account_number: dhl_account_number
             fedex_account_number: fedex_account_number
@@ -211836,6 +212032,68 @@ components:
         release_notes:
           description: Release notes for this release version.
           type: string
+      type: object
+    QuickBooksOnlineCustomer:
+      example:
+        customer_id: customer_id
+        display_name: display_name
+        email: email
+      properties:
+        customer_id:
+          description: The QuickBooks Online internal customer id.  Stored on the
+            customer profile to lock it 1:1 with QuickBooks Online.
+          type: string
+        display_name:
+          description: The QuickBooks Online customer display name.
+          type: string
+        email:
+          description: "The QuickBooks Online customer primary email address, if any."
+          type: string
+      type: object
+    QuickBooksOnlineCustomersResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        quickbooks_online_customers:
+        - customer_id: customer_id
+          display_name: display_name
+          email: email
+        - customer_id: customer_id
+          display_name: display_name
+          email: email
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        quickbooks_online_customers:
+          description: QuickBooks Online customers matching the typeahead query
+          items:
+            $ref: '#/components/schemas/QuickBooksOnlineCustomer'
+          type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
       type: object
     RegisterAffiliateClickRequest:
       example:

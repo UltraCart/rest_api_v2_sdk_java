@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-08T17:25:38.806-04:00[America/Indianapolis]
+- Build date: 2026-07-10T16:06:34.677-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.114</version>
+    <version>4.1.115</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.114"
+     implementation "com.ultracart:rest-sdk:4.1.115"
   }
 ```
 
@@ -345,6 +345,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**getMagicLink**](docs/CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
+*CustomerApi* | [**getQuickBooksOnlineCustomers**](docs/CustomerApi.md#getQuickBooksOnlineCustomers) | **GET** /customer/quickbooks_online/customers | Search the merchant&#39;s QuickBooks Online customers
 *CustomerApi* | [**insertCustomer**](docs/CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**insertWishListItem**](docs/CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 *CustomerApi* | [**mergeCustomer**](docs/CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
@@ -1589,6 +1590,8 @@ Class | Method | HTTP request | Description
  - [PricingTiersResponse](docs/PricingTiersResponse.md)
  - [Property](docs/Property.md)
  - [PublishLibraryItemRequest](docs/PublishLibraryItemRequest.md)
+ - [QuickBooksOnlineCustomer](docs/QuickBooksOnlineCustomer.md)
+ - [QuickBooksOnlineCustomersResponse](docs/QuickBooksOnlineCustomersResponse.md)
  - [RegisterAffiliateClickRequest](docs/RegisterAffiliateClickRequest.md)
  - [RegisterAffiliateClickResponse](docs/RegisterAffiliateClickResponse.md)
  - [ReplaceOrderItemIdRequest](docs/ReplaceOrderItemIdRequest.md)
@@ -1845,6 +1848,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.115 | 07/10/2026 | customer profile birthday |
 | 4.1.114 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.113 | 07/08/2026 | tax - anrok tax provider |
 | 4.1.112 | 07/08/2026 | tax - added anrok tax provider |

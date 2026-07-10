@@ -20,6 +20,7 @@
 |**autoApprovePurchaseOrder** | **Boolean** | Auto approve purchase orders by this customer |  [optional] |
 |**automaticMerchantNotes** | **String** | Automatic merchant notes are added to every order placed |  [optional] |
 |**billing** | [**List&lt;CustomerBilling&gt;**](CustomerBilling.md) | Billing addresses for this customer |  [optional] |
+|**birthDate** | **String** | Customer birthday |  [optional] |
 |**businessNotes** | **String** | Business notes (internally visible only) |  [optional] |
 |**cards** | [**List&lt;CustomerCard&gt;**](CustomerCard.md) | Credit Cards for this customer |  [optional] |
 |**ccEmails** | [**List&lt;CustomerEmail&gt;**](CustomerEmail.md) | Additional emails to CC notification |  [optional] |
@@ -53,6 +54,7 @@
 |**qbClass** | **String** | QuickBooks class to import this customer as |  [optional] |
 |**qbCode** | **String** | QuickBooks name to import this customer as |  [optional] |
 |**qbTaxExemptionReasonCode** | **Integer** | QuickBooks tax exemption reason code |  [optional] |
+|**quickbooksOnlineCustomerId** | **String** | QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online |  [optional] |
 |**quotes** | [**List&lt;Order&gt;**](Order.md) | Quotes associated with this customer profile |  [optional] |
 |**quotesSummary** | [**CustomerQuotesSummary**](CustomerQuotesSummary.md) |  |  [optional] |
 |**referralSource** | **String** | Referral Source specified on the wholesale customer signup form.  No other meaning than that signup flow. |  [optional] |

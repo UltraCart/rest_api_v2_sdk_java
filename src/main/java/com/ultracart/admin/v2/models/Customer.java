@@ -68,7 +68,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Customer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-08T17:25:38.806-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:06:34.677-04:00[America/Indianapolis]")
 public class Customer {
   public static final String SERIALIZED_NAME_ACTIVITY = "activity";
   @SerializedName(SERIALIZED_NAME_ACTIVITY)
@@ -121,6 +121,10 @@ public class Customer {
   public static final String SERIALIZED_NAME_BILLING = "billing";
   @SerializedName(SERIALIZED_NAME_BILLING)
   private List<CustomerBilling> billing = null;
+
+  public static final String SERIALIZED_NAME_BIRTH_DATE = "birth_date";
+  @SerializedName(SERIALIZED_NAME_BIRTH_DATE)
+  private String birthDate;
 
   public static final String SERIALIZED_NAME_BUSINESS_NOTES = "business_notes";
   @SerializedName(SERIALIZED_NAME_BUSINESS_NOTES)
@@ -253,6 +257,10 @@ public class Customer {
   public static final String SERIALIZED_NAME_QB_TAX_EXEMPTION_REASON_CODE = "qb_tax_exemption_reason_code";
   @SerializedName(SERIALIZED_NAME_QB_TAX_EXEMPTION_REASON_CODE)
   private Integer qbTaxExemptionReasonCode;
+
+  public static final String SERIALIZED_NAME_QUICKBOOKS_ONLINE_CUSTOMER_ID = "quickbooks_online_customer_id";
+  @SerializedName(SERIALIZED_NAME_QUICKBOOKS_ONLINE_CUSTOMER_ID)
+  private String quickbooksOnlineCustomerId;
 
   public static final String SERIALIZED_NAME_QUOTES = "quotes";
   @SerializedName(SERIALIZED_NAME_QUOTES)
@@ -645,6 +653,29 @@ public class Customer {
 
   public void setBilling(List<CustomerBilling> billing) {
     this.billing = billing;
+  }
+
+
+  public Customer birthDate(String birthDate) {
+    
+    this.birthDate = birthDate;
+    return this;
+  }
+
+   /**
+   * Customer birthday
+   * @return birthDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Customer birthday")
+
+  public String getBirthDate() {
+    return birthDate;
+  }
+
+
+  public void setBirthDate(String birthDate) {
+    this.birthDate = birthDate;
   }
 
 
@@ -1447,6 +1478,29 @@ public class Customer {
   }
 
 
+  public Customer quickbooksOnlineCustomerId(String quickbooksOnlineCustomerId) {
+    
+    this.quickbooksOnlineCustomerId = quickbooksOnlineCustomerId;
+    return this;
+  }
+
+   /**
+   * QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online
+   * @return quickbooksOnlineCustomerId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "QuickBooks Online customer ID used to lock this customer 1:1 with QuickBooks Online")
+
+  public String getQuickbooksOnlineCustomerId() {
+    return quickbooksOnlineCustomerId;
+  }
+
+
+  public void setQuickbooksOnlineCustomerId(String quickbooksOnlineCustomerId) {
+    this.quickbooksOnlineCustomerId = quickbooksOnlineCustomerId;
+  }
+
+
   public Customer quotes(List<Order> quotes) {
     
     this.quotes = quotes;
@@ -1939,6 +1993,7 @@ public class Customer {
         Objects.equals(this.autoApprovePurchaseOrder, customer.autoApprovePurchaseOrder) &&
         Objects.equals(this.automaticMerchantNotes, customer.automaticMerchantNotes) &&
         Objects.equals(this.billing, customer.billing) &&
+        Objects.equals(this.birthDate, customer.birthDate) &&
         Objects.equals(this.businessNotes, customer.businessNotes) &&
         Objects.equals(this.cards, customer.cards) &&
         Objects.equals(this.ccEmails, customer.ccEmails) &&
@@ -1972,6 +2027,7 @@ public class Customer {
         Objects.equals(this.qbClass, customer.qbClass) &&
         Objects.equals(this.qbCode, customer.qbCode) &&
         Objects.equals(this.qbTaxExemptionReasonCode, customer.qbTaxExemptionReasonCode) &&
+        Objects.equals(this.quickbooksOnlineCustomerId, customer.quickbooksOnlineCustomerId) &&
         Objects.equals(this.quotes, customer.quotes) &&
         Objects.equals(this.quotesSummary, customer.quotesSummary) &&
         Objects.equals(this.referralSource, customer.referralSource) &&
@@ -1995,7 +2051,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fax, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
+    return Objects.hash(activity, affiliateOid, allow3rdPartyBilling, allowCod, allowDropShipping, allowPurchaseOrder, allowQuoteRequest, allowSelectionOfAddressType, attachments, autoApproveCod, autoApprovePurchaseOrder, automaticMerchantNotes, billing, birthDate, businessNotes, cards, ccEmails, customerProfileOid, dhlAccountNumber, dhlDutyAccountNumber, doNotSendMail, edi, email, exemptShippingHandlingCharge, fax, fedexAccountNumber, freeShipping, freeShippingMinimum, lastModifiedBy, lastModifiedDts, loyalty, maximumItemCount, merchantId, minimumItemCount, minimumSubtotal, noCoupons, noFreeShipping, noRealtimeCharge, orders, ordersSummary, password, pricingTiers, privacy, properties, qbClass, qbCode, qbTaxExemptionReasonCode, quickbooksOnlineCustomerId, quotes, quotesSummary, referralSource, reviewer, salesRepCode, sendSignupNotification, shipping, signupDts, softwareEntitlements, suppressBuysafe, tags, taxCodes, taxExempt, taxId, terms, trackSeparately, unapproved, upsAccountNumber, websiteUrl);
   }
 
   @Override
@@ -2015,6 +2071,7 @@ public class Customer {
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
     sb.append("    automaticMerchantNotes: ").append(toIndentedString(automaticMerchantNotes)).append("\n");
     sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
+    sb.append("    birthDate: ").append(toIndentedString(birthDate)).append("\n");
     sb.append("    businessNotes: ").append(toIndentedString(businessNotes)).append("\n");
     sb.append("    cards: ").append(toIndentedString(cards)).append("\n");
     sb.append("    ccEmails: ").append(toIndentedString(ccEmails)).append("\n");
@@ -2048,6 +2105,7 @@ public class Customer {
     sb.append("    qbClass: ").append(toIndentedString(qbClass)).append("\n");
     sb.append("    qbCode: ").append(toIndentedString(qbCode)).append("\n");
     sb.append("    qbTaxExemptionReasonCode: ").append(toIndentedString(qbTaxExemptionReasonCode)).append("\n");
+    sb.append("    quickbooksOnlineCustomerId: ").append(toIndentedString(quickbooksOnlineCustomerId)).append("\n");
     sb.append("    quotes: ").append(toIndentedString(quotes)).append("\n");
     sb.append("    quotesSummary: ").append(toIndentedString(quotesSummary)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");
@@ -2102,6 +2160,7 @@ public class Customer {
     openapiFields.add("auto_approve_purchase_order");
     openapiFields.add("automatic_merchant_notes");
     openapiFields.add("billing");
+    openapiFields.add("birth_date");
     openapiFields.add("business_notes");
     openapiFields.add("cards");
     openapiFields.add("cc_emails");
@@ -2135,6 +2194,7 @@ public class Customer {
     openapiFields.add("qb_class");
     openapiFields.add("qb_code");
     openapiFields.add("qb_tax_exemption_reason_code");
+    openapiFields.add("quickbooks_online_customer_id");
     openapiFields.add("quotes");
     openapiFields.add("quotes_summary");
     openapiFields.add("referral_source");
@@ -2211,6 +2271,9 @@ public class Customer {
         for (int i = 0; i < jsonArraybilling.size(); i++) {
           CustomerBilling.validateJsonObject(jsonArraybilling.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("birth_date") != null && !jsonObj.get("birth_date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `birth_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("birth_date").toString()));
       }
       if (jsonObj.get("business_notes") != null && !jsonObj.get("business_notes").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `business_notes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("business_notes").toString()));
@@ -2323,6 +2386,9 @@ public class Customer {
       }
       if (jsonObj.get("qb_code") != null && !jsonObj.get("qb_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `qb_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("qb_code").toString()));
+      }
+      if (jsonObj.get("quickbooks_online_customer_id") != null && !jsonObj.get("quickbooks_online_customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `quickbooks_online_customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quickbooks_online_customer_id").toString()));
       }
       JsonArray jsonArrayquotes = jsonObj.getAsJsonArray("quotes");
       if (jsonArrayquotes != null) {
