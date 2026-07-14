@@ -10,6 +10,7 @@
 |**addConversationParticipantArns** | **List&lt;String&gt;** |  |  [optional] |
 |**conversationArn** | **String** |  |  [optional] |
 |**conversationWebchatQueueUuid** | **String** |  |  [optional] |
+|**resolveOnly** | **Boolean** |  |  [optional] |
 
 
 

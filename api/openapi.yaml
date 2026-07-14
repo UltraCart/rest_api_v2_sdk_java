@@ -144891,6 +144891,7 @@ components:
     ConversationStartRequest:
       example:
         conversation_arn: conversation_arn
+        resolve_only: true
         add_conversation_participant_arns:
         - add_conversation_participant_arns
         - add_conversation_participant_arns
@@ -144904,6 +144905,8 @@ components:
           type: string
         conversation_webchat_queue_uuid:
           type: string
+        resolve_only:
+          type: boolean
       type: object
     ConversationStartResponse:
       example:

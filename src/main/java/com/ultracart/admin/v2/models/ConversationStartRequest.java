@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationStartRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-14T10:49:39.646-04:00[America/Indianapolis]")
 public class ConversationStartRequest {
   public static final String SERIALIZED_NAME_ADD_CONVERSATION_PARTICIPANT_ARNS = "add_conversation_participant_arns";
   @SerializedName(SERIALIZED_NAME_ADD_CONVERSATION_PARTICIPANT_ARNS)
@@ -62,6 +62,10 @@ public class ConversationStartRequest {
   public static final String SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID = "conversation_webchat_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID)
   private String conversationWebchatQueueUuid;
+
+  public static final String SERIALIZED_NAME_RESOLVE_ONLY = "resolve_only";
+  @SerializedName(SERIALIZED_NAME_RESOLVE_ONLY)
+  private Boolean resolveOnly;
 
   public ConversationStartRequest() { 
   }
@@ -143,6 +147,29 @@ public class ConversationStartRequest {
   }
 
 
+  public ConversationStartRequest resolveOnly(Boolean resolveOnly) {
+    
+    this.resolveOnly = resolveOnly;
+    return this;
+  }
+
+   /**
+   * Get resolveOnly
+   * @return resolveOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getResolveOnly() {
+    return resolveOnly;
+  }
+
+
+  public void setResolveOnly(Boolean resolveOnly) {
+    this.resolveOnly = resolveOnly;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -155,12 +182,13 @@ public class ConversationStartRequest {
     ConversationStartRequest conversationStartRequest = (ConversationStartRequest) o;
     return Objects.equals(this.addConversationParticipantArns, conversationStartRequest.addConversationParticipantArns) &&
         Objects.equals(this.conversationArn, conversationStartRequest.conversationArn) &&
-        Objects.equals(this.conversationWebchatQueueUuid, conversationStartRequest.conversationWebchatQueueUuid);
+        Objects.equals(this.conversationWebchatQueueUuid, conversationStartRequest.conversationWebchatQueueUuid) &&
+        Objects.equals(this.resolveOnly, conversationStartRequest.resolveOnly);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addConversationParticipantArns, conversationArn, conversationWebchatQueueUuid);
+    return Objects.hash(addConversationParticipantArns, conversationArn, conversationWebchatQueueUuid, resolveOnly);
   }
 
   @Override
@@ -170,6 +198,7 @@ public class ConversationStartRequest {
     sb.append("    addConversationParticipantArns: ").append(toIndentedString(addConversationParticipantArns)).append("\n");
     sb.append("    conversationArn: ").append(toIndentedString(conversationArn)).append("\n");
     sb.append("    conversationWebchatQueueUuid: ").append(toIndentedString(conversationWebchatQueueUuid)).append("\n");
+    sb.append("    resolveOnly: ").append(toIndentedString(resolveOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -195,6 +224,7 @@ public class ConversationStartRequest {
     openapiFields.add("add_conversation_participant_arns");
     openapiFields.add("conversation_arn");
     openapiFields.add("conversation_webchat_queue_uuid");
+    openapiFields.add("resolve_only");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

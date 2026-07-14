@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailFlowBackPopulateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-10T16:31:06.759-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-14T10:49:39.646-04:00[America/Indianapolis]")
 public class EmailFlowBackPopulateRequest {
   public static final String SERIALIZED_NAME_ORDER_DAYS_OLD = "order_days_old";
   @SerializedName(SERIALIZED_NAME_ORDER_DAYS_OLD)
