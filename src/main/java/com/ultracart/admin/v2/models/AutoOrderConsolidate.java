@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderConsolidate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-14T10:49:39.646-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-14T16:05:46.415-04:00[America/Indianapolis]")
 public class AutoOrderConsolidate {
   public static final String SERIALIZED_NAME_SOURCE_AUTO_ORDER_OIDS = "source_auto_order_oids";
   @SerializedName(SERIALIZED_NAME_SOURCE_AUTO_ORDER_OIDS)
