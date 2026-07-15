@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-07-14T16:05:46.415-04:00[America/Indianapolis]
+- Build date: 2026-07-15T11:16:39.034-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.118</version>
+    <version>4.1.119</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.118"
+     implementation "com.ultracart:rest-sdk:4.1.119"
   }
 ```
 
@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *AffiliateApi* | [**getClicksByQuery**](docs/AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
 *AffiliateApi* | [**insertAffiliate**](docs/AffiliateApi.md#insertAffiliate) | **POST** /affiliate/affiliates | Insert an affiliate
+*AffiliateApi* | [**sendAffiliateWelcomeEmail**](docs/AffiliateApi.md#sendAffiliateWelcomeEmail) | **POST** /affiliate/affiliates/{affiliate_oid}/welcome_email | Send a welcome email to an affiliate
 *AffiliateApi* | [**updateAffiliate**](docs/AffiliateApi.md#updateAffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate
 *AutoOrderApi* | [**cancelAutoOrderItemByReferenceOrderId**](docs/AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order
 *AutoOrderApi* | [**consolidateAutoOrders**](docs/AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders
@@ -1560,6 +1561,7 @@ Class | Method | HTTP request | Description
  - [OrderProperty](docs/OrderProperty.md)
  - [OrderQuery](docs/OrderQuery.md)
  - [OrderQueryBatch](docs/OrderQueryBatch.md)
+ - [OrderQueryPaymentTransactionFilter](docs/OrderQueryPaymentTransactionFilter.md)
  - [OrderQuote](docs/OrderQuote.md)
  - [OrderReason](docs/OrderReason.md)
  - [OrderRefundableResponse](docs/OrderRefundableResponse.md)
@@ -1848,6 +1850,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.119 | 07/15/2026 | order api - query transaction details for cache target |
 | 4.1.118 | 07/14/2026 | affiliate - send welcome letter method |
 | 4.1.117 | 07/14/2026 | conversation - join method resolve_only flag added |
 | 4.1.116 | 07/10/2026 | customer - method to search quickbooks online customers |

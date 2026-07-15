@@ -10,6 +10,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getClicksByQuery**](AffiliateApi.md#getClicksByQuery) | **POST** /affiliate/clicks/query | Retrieve clicks |
 | [**getLedgersByQuery**](AffiliateApi.md#getLedgersByQuery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries |
 | [**insertAffiliate**](AffiliateApi.md#insertAffiliate) | **POST** /affiliate/affiliates | Insert an affiliate |
+| [**sendAffiliateWelcomeEmail**](AffiliateApi.md#sendAffiliateWelcomeEmail) | **POST** /affiliate/affiliates/{affiliate_oid}/welcome_email | Send a welcome email to an affiliate |
 | [**updateAffiliate**](AffiliateApi.md#updateAffiliate) | **PUT** /affiliate/affiliates/{affiliate_oid} | Update an affiliate |
 
 
@@ -254,7 +255,7 @@ public class GetLedgersByQuery {
 
 <a name="insertAffiliate"></a>
 # **insertAffiliate**
-> AffiliateResponse insertAffiliate(affiliate, expand)
+> AffiliateResponse insertAffiliate(affiliate, sendWelcomeEmail, expand)
 
 Insert an affiliate
 
@@ -271,6 +272,7 @@ Insert an affiliate on the UltraCart account.  The affiliate is created within t
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **affiliate** | [**Affiliate**](Affiliate.md)| Affiliate to insert | |
+| **sendWelcomeEmail** | **Boolean**| Whether to send a welcome email to the affiliate after it is created.  Defaults to false. | [optional] [default to false] |
 | **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
 
 ### Return type
@@ -290,6 +292,49 @@ Insert an affiliate on the UltraCart account.  The affiliate is created within t
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="sendAffiliateWelcomeEmail"></a>
+# **sendAffiliateWelcomeEmail**
+> sendAffiliateWelcomeEmail(affiliateOid)
+
+Send a welcome email to an affiliate
+
+Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant&#39;s active affiliate program. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **affiliateOid** | **Integer**| The affiliate oid to send the welcome email to. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |

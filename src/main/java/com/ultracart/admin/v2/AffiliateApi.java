@@ -918,6 +918,7 @@ public class AffiliateApi {
     /**
      * Build call for insertAffiliate
      * @param affiliate Affiliate to insert (required)
+     * @param sendWelcomeEmail Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -933,7 +934,7 @@ public class AffiliateApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call insertAffiliateCall(Affiliate affiliate, String expand, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call insertAffiliateCall(Affiliate affiliate, Boolean sendWelcomeEmail, String expand, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -957,6 +958,10 @@ public class AffiliateApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sendWelcomeEmail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("send_welcome_email", sendWelcomeEmail));
+        }
 
         if (expand != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
@@ -983,7 +988,7 @@ public class AffiliateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call insertAffiliateValidateBeforeCall(Affiliate affiliate, String expand, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call insertAffiliateValidateBeforeCall(Affiliate affiliate, Boolean sendWelcomeEmail, String expand, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'affiliate' is set
         if (affiliate == null) {
@@ -991,7 +996,7 @@ public class AffiliateApi {
         }
         
 
-        okhttp3.Call localVarCall = insertAffiliateCall(affiliate, expand, _callback);
+        okhttp3.Call localVarCall = insertAffiliateCall(affiliate, sendWelcomeEmail, expand, _callback);
         return localVarCall;
 
     }
@@ -1000,6 +1005,7 @@ public class AffiliateApi {
      * Insert an affiliate
      * Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant&#39;s active affiliate program. 
      * @param affiliate Affiliate to insert (required)
+     * @param sendWelcomeEmail Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return AffiliateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1014,8 +1020,8 @@ public class AffiliateApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public AffiliateResponse insertAffiliate(Affiliate affiliate, String expand) throws ApiException {
-        ApiResponse<AffiliateResponse> localVarResp = insertAffiliateWithHttpInfo(affiliate, expand);
+    public AffiliateResponse insertAffiliate(Affiliate affiliate, Boolean sendWelcomeEmail, String expand) throws ApiException {
+        ApiResponse<AffiliateResponse> localVarResp = insertAffiliateWithHttpInfo(affiliate, sendWelcomeEmail, expand);
         return localVarResp.getData();
     }
 
@@ -1023,6 +1029,7 @@ public class AffiliateApi {
      * Insert an affiliate
      * Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant&#39;s active affiliate program. 
      * @param affiliate Affiliate to insert (required)
+     * @param sendWelcomeEmail Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return ApiResponse&lt;AffiliateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1037,8 +1044,8 @@ public class AffiliateApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<AffiliateResponse> insertAffiliateWithHttpInfo(Affiliate affiliate, String expand) throws ApiException {
-        okhttp3.Call localVarCall = insertAffiliateValidateBeforeCall(affiliate, expand, null);
+    public ApiResponse<AffiliateResponse> insertAffiliateWithHttpInfo(Affiliate affiliate, Boolean sendWelcomeEmail, String expand) throws ApiException {
+        okhttp3.Call localVarCall = insertAffiliateValidateBeforeCall(affiliate, sendWelcomeEmail, expand, null);
         Type localVarReturnType = new TypeToken<AffiliateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1047,6 +1054,7 @@ public class AffiliateApi {
      * Insert an affiliate (asynchronously)
      * Insert an affiliate on the UltraCart account.  The affiliate is created within the merchant&#39;s active affiliate program. 
      * @param affiliate Affiliate to insert (required)
+     * @param sendWelcomeEmail Whether to send a welcome email to the affiliate after it is created.  Defaults to false. (optional, default to false)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1062,11 +1070,154 @@ public class AffiliateApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call insertAffiliateAsync(Affiliate affiliate, String expand, final ApiCallback<AffiliateResponse> _callback) throws ApiException {
+    public okhttp3.Call insertAffiliateAsync(Affiliate affiliate, Boolean sendWelcomeEmail, String expand, final ApiCallback<AffiliateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = insertAffiliateValidateBeforeCall(affiliate, expand, _callback);
+        okhttp3.Call localVarCall = insertAffiliateValidateBeforeCall(affiliate, sendWelcomeEmail, expand, _callback);
         Type localVarReturnType = new TypeToken<AffiliateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for sendAffiliateWelcomeEmail
+     * @param affiliateOid The affiliate oid to send the welcome email to. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendAffiliateWelcomeEmailCall(Integer affiliateOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/affiliate/affiliates/{affiliate_oid}/welcome_email"
+            .replaceAll("\\{" + "affiliate_oid" + "\\}", localVarApiClient.escapeString(affiliateOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendAffiliateWelcomeEmailValidateBeforeCall(Integer affiliateOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'affiliateOid' is set
+        if (affiliateOid == null) {
+            throw new ApiException("Missing the required parameter 'affiliateOid' when calling sendAffiliateWelcomeEmail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = sendAffiliateWelcomeEmailCall(affiliateOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Send a welcome email to an affiliate
+     * Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant&#39;s active affiliate program. 
+     * @param affiliateOid The affiliate oid to send the welcome email to. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void sendAffiliateWelcomeEmail(Integer affiliateOid) throws ApiException {
+        sendAffiliateWelcomeEmailWithHttpInfo(affiliateOid);
+    }
+
+    /**
+     * Send a welcome email to an affiliate
+     * Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant&#39;s active affiliate program. 
+     * @param affiliateOid The affiliate oid to send the welcome email to. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> sendAffiliateWelcomeEmailWithHttpInfo(Integer affiliateOid) throws ApiException {
+        okhttp3.Call localVarCall = sendAffiliateWelcomeEmailValidateBeforeCall(affiliateOid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Send a welcome email to an affiliate (asynchronously)
+     * Sends a welcome email to the specified affiliate using the welcome letter configured on the merchant&#39;s active affiliate program. 
+     * @param affiliateOid The affiliate oid to send the welcome email to. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendAffiliateWelcomeEmailAsync(Integer affiliateOid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendAffiliateWelcomeEmailValidateBeforeCall(affiliateOid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

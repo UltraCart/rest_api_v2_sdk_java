@@ -20,10 +20,13 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.OrderQueryPaymentTransactionFilter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-14T16:05:46.415-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T11:16:39.034-04:00[America/Indianapolis]")
 public class OrderQuery {
   public static final String SERIALIZED_NAME_CC_EMAIL = "cc_email";
   @SerializedName(SERIALIZED_NAME_CC_EMAIL)
@@ -307,6 +310,10 @@ public class OrderQuery {
   public static final String SERIALIZED_NAME_PAYMENT_METHOD = "payment_method";
   @SerializedName(SERIALIZED_NAME_PAYMENT_METHOD)
   private PaymentMethodEnum paymentMethod;
+
+  public static final String SERIALIZED_NAME_PAYMENT_TRANSACTION_FILTERS = "payment_transaction_filters";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_TRANSACTION_FILTERS)
+  private List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters = null;
 
   public static final String SERIALIZED_NAME_PHONE = "phone";
   @SerializedName(SERIALIZED_NAME_PHONE)
@@ -1062,6 +1069,37 @@ public class OrderQuery {
   }
 
 
+  public OrderQuery paymentTransactionFilters(List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters) {
+    
+    this.paymentTransactionFilters = paymentTransactionFilters;
+    return this;
+  }
+
+  public OrderQuery addPaymentTransactionFiltersItem(OrderQueryPaymentTransactionFilter paymentTransactionFiltersItem) {
+    if (this.paymentTransactionFilters == null) {
+      this.paymentTransactionFilters = new ArrayList<>();
+    }
+    this.paymentTransactionFilters.add(paymentTransactionFiltersItem);
+    return this;
+  }
+
+   /**
+   * Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+   * @return paymentTransactionFilters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.")
+
+  public List<OrderQueryPaymentTransactionFilter> getPaymentTransactionFilters() {
+    return paymentTransactionFilters;
+  }
+
+
+  public void setPaymentTransactionFilters(List<OrderQueryPaymentTransactionFilter> paymentTransactionFilters) {
+    this.paymentTransactionFilters = paymentTransactionFilters;
+  }
+
+
   public OrderQuery phone(String phone) {
     
     this.phone = phone;
@@ -1445,6 +1483,7 @@ public class OrderQuery {
         Objects.equals(this.paymentDateBegin, orderQuery.paymentDateBegin) &&
         Objects.equals(this.paymentDateEnd, orderQuery.paymentDateEnd) &&
         Objects.equals(this.paymentMethod, orderQuery.paymentMethod) &&
+        Objects.equals(this.paymentTransactionFilters, orderQuery.paymentTransactionFilters) &&
         Objects.equals(this.phone, orderQuery.phone) &&
         Objects.equals(this.postalCode, orderQuery.postalCode) &&
         Objects.equals(this.purchaseOrderNumber, orderQuery.purchaseOrderNumber) &&
@@ -1464,7 +1503,7 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, paymentTransactionFilters, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
   }
 
   @Override
@@ -1499,6 +1538,7 @@ public class OrderQuery {
     sb.append("    paymentDateBegin: ").append(toIndentedString(paymentDateBegin)).append("\n");
     sb.append("    paymentDateEnd: ").append(toIndentedString(paymentDateEnd)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    paymentTransactionFilters: ").append(toIndentedString(paymentTransactionFilters)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    purchaseOrderNumber: ").append(toIndentedString(purchaseOrderNumber)).append("\n");
@@ -1564,6 +1604,7 @@ public class OrderQuery {
     openapiFields.add("payment_date_begin");
     openapiFields.add("payment_date_end");
     openapiFields.add("payment_method");
+    openapiFields.add("payment_transaction_filters");
     openapiFields.add("phone");
     openapiFields.add("postal_code");
     openapiFields.add("purchase_order_number");
@@ -1686,6 +1727,18 @@ public class OrderQuery {
       }
       if (jsonObj.get("payment_method") != null && !jsonObj.get("payment_method").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payment_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_method").toString()));
+      }
+      JsonArray jsonArraypaymentTransactionFilters = jsonObj.getAsJsonArray("payment_transaction_filters");
+      if (jsonArraypaymentTransactionFilters != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("payment_transaction_filters").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `payment_transaction_filters` to be an array in the JSON string but got `%s`", jsonObj.get("payment_transaction_filters").toString()));
+        }
+
+        // validate the optional field `payment_transaction_filters` (array)
+        for (int i = 0; i < jsonArraypaymentTransactionFilters.size(); i++) {
+          OrderQueryPaymentTransactionFilter.validateJsonObject(jsonArraypaymentTransactionFilters.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
