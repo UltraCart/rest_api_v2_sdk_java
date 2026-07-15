@@ -8302,6 +8302,7 @@ public class StorefrontApi {
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
      * @param scanForward  (optional)
+     * @param includeDetail  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8316,7 +8317,7 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailCustomerDispatchLogsCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmailCustomerDispatchLogsCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, Boolean includeDetail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8363,6 +8364,10 @@ public class StorefrontApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("scanForward", scanForward));
         }
 
+        if (includeDetail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeDetail", includeDetail));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -8384,7 +8389,7 @@ public class StorefrontApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailCustomerDispatchLogsValidateBeforeCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailCustomerDispatchLogsValidateBeforeCall(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, Boolean includeDetail, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -8397,7 +8402,7 @@ public class StorefrontApi {
         }
         
 
-        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, _callback);
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail, _callback);
         return localVarCall;
 
     }
@@ -8412,6 +8417,7 @@ public class StorefrontApi {
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
      * @param scanForward  (optional)
+     * @param includeDetail  (optional)
      * @return EmailDispatchLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8425,8 +8431,8 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public EmailDispatchLogsResponse getEmailCustomerDispatchLogs(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward) throws ApiException {
-        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward);
+    public EmailDispatchLogsResponse getEmailCustomerDispatchLogs(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, Boolean includeDetail) throws ApiException {
+        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailCustomerDispatchLogsWithHttpInfo(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail);
         return localVarResp.getData();
     }
 
@@ -8440,6 +8446,7 @@ public class StorefrontApi {
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
      * @param scanForward  (optional)
+     * @param includeDetail  (optional)
      * @return ApiResponse&lt;EmailDispatchLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8453,8 +8460,8 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<EmailDispatchLogsResponse> getEmailCustomerDispatchLogsWithHttpInfo(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward) throws ApiException {
-        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, null);
+    public ApiResponse<EmailDispatchLogsResponse> getEmailCustomerDispatchLogsWithHttpInfo(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, Boolean includeDetail) throws ApiException {
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail, null);
         Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8469,6 +8476,7 @@ public class StorefrontApi {
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
      * @param scanForward  (optional)
+     * @param includeDetail  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8483,9 +8491,9 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailCustomerDispatchLogsAsync(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call getEmailCustomerDispatchLogsAsync(Integer storefrontOid, String emailCustomerUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean scanForward, Boolean includeDetail, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, _callback);
+        okhttp3.Call localVarCall = getEmailCustomerDispatchLogsValidateBeforeCall(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail, _callback);
         Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -14640,6 +14648,7 @@ public class StorefrontApi {
      * @param until  (optional)
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
+     * @param includeDetail  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -14654,7 +14663,7 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailStepDispatchLogsCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEmailStepDispatchLogsCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean includeDetail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14698,6 +14707,10 @@ public class StorefrontApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
+        if (includeDetail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeDetail", includeDetail));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -14719,7 +14732,7 @@ public class StorefrontApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailStepDispatchLogsValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailStepDispatchLogsValidateBeforeCall(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean includeDetail, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -14737,14 +14750,14 @@ public class StorefrontApi {
         }
         
 
-        okhttp3.Call localVarCall = getEmailStepDispatchLogsCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, _callback);
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail, _callback);
         return localVarCall;
 
     }
 
     /**
      * Get a paginated, date-boundable dispatch-log feed for a step
-     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
      * @param storefrontOid  (required)
      * @param commseqUuid  (required)
      * @param commseqStepUuid  (required)
@@ -14752,6 +14765,7 @@ public class StorefrontApi {
      * @param until  (optional)
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
+     * @param includeDetail  (optional)
      * @return EmailDispatchLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -14765,14 +14779,14 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public EmailDispatchLogsResponse getEmailStepDispatchLogs(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize) throws ApiException {
-        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize);
+    public EmailDispatchLogsResponse getEmailStepDispatchLogs(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean includeDetail) throws ApiException {
+        ApiResponse<EmailDispatchLogsResponse> localVarResp = getEmailStepDispatchLogsWithHttpInfo(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail);
         return localVarResp.getData();
     }
 
     /**
      * Get a paginated, date-boundable dispatch-log feed for a step
-     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
      * @param storefrontOid  (required)
      * @param commseqUuid  (required)
      * @param commseqStepUuid  (required)
@@ -14780,6 +14794,7 @@ public class StorefrontApi {
      * @param until  (optional)
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
+     * @param includeDetail  (optional)
      * @return ApiResponse&lt;EmailDispatchLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -14793,15 +14808,15 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<EmailDispatchLogsResponse> getEmailStepDispatchLogsWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, null);
+    public ApiResponse<EmailDispatchLogsResponse> getEmailStepDispatchLogsWithHttpInfo(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean includeDetail) throws ApiException {
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail, null);
         Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get a paginated, date-boundable dispatch-log feed for a step (asynchronously)
-     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+     * Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
      * @param storefrontOid  (required)
      * @param commseqUuid  (required)
      * @param commseqStepUuid  (required)
@@ -14809,6 +14824,7 @@ public class StorefrontApi {
      * @param until  (optional)
      * @param pageNumber  (optional)
      * @param pageSize  (optional)
+     * @param includeDetail  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -14823,9 +14839,9 @@ public class StorefrontApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getEmailStepDispatchLogsAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call getEmailStepDispatchLogsAsync(Integer storefrontOid, String commseqUuid, String commseqStepUuid, String since, String until, Integer pageNumber, Integer pageSize, Boolean includeDetail, final ApiCallback<EmailDispatchLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, _callback);
+        okhttp3.Call localVarCall = getEmailStepDispatchLogsValidateBeforeCall(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail, _callback);
         Type localVarReturnType = new TypeToken<EmailDispatchLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -2425,7 +2425,7 @@ Get email commseqs
 
 <a name="getEmailCustomerDispatchLogs"></a>
 # **getEmailCustomerDispatchLogs**
-> EmailDispatchLogsResponse getEmailCustomerDispatchLogs(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward)
+> EmailDispatchLogsResponse getEmailCustomerDispatchLogs(storefrontOid, emailCustomerUuid, since, until, pageNumber, pageSize, scanForward, includeDetail)
 
 Get a customer&#39;s dispatch-log journey across all flows/campaigns
 
@@ -2448,6 +2448,7 @@ Paginated, date-boundable journey of every flow/campaign step a customer moved t
 | **pageNumber** | **Integer**|  | [optional] |
 | **pageSize** | **Integer**|  | [optional] |
 | **scanForward** | **Boolean**|  | [optional] |
+| **includeDetail** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -4154,11 +4155,11 @@ Fetches and gunzips the full detail payload of one dispatch-log record (AP5 dril
 
 <a name="getEmailStepDispatchLogs"></a>
 # **getEmailStepDispatchLogs**
-> EmailDispatchLogsResponse getEmailStepDispatchLogs(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize)
+> EmailDispatchLogsResponse getEmailStepDispatchLogs(storefrontOid, commseqUuid, commseqStepUuid, since, until, pageNumber, pageSize, includeDetail)
 
 Get a paginated, date-boundable dispatch-log feed for a step
 
-Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
+Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean unless includeDetail is passed as true, rendered from the DynamoDB keys; fetch a row&#39;s full detail via getEmailStepDispatchLogDetail. Page forward by incrementing pageNumber until the response &#39;more&#39; flag is false. since/until are inclusive ISO-8601 bounds on log_dts. 
 
 ### Example
 
@@ -4177,6 +4178,7 @@ Paginated per-step dispatch activity with 90-day depth (AP3/AP4). Rows are lean,
 | **until** | **String**|  | [optional] |
 | **pageNumber** | **Integer**|  | [optional] |
 | **pageSize** | **Integer**|  | [optional] |
+| **includeDetail** | **Boolean**|  | [optional] |
 
 ### Return type
 

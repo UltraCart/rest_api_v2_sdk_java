@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailDispatchLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:30:22.581-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:54:53.521-04:00[America/Indianapolis]")
 public class EmailDispatchLog {
+  public static final String SERIALIZED_NAME_DETAIL = "detail";
+  @SerializedName(SERIALIZED_NAME_DETAIL)
+  private String detail;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -71,6 +75,29 @@ public class EmailDispatchLog {
 
   public EmailDispatchLog() { 
   }
+
+  public EmailDispatchLog detail(String detail) {
+    
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Dispatch detail text (free-form log of how the customer moved through the step)
+   * @return detail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Dispatch detail text (free-form log of how the customer moved through the step)")
+
+  public String getDetail() {
+    return detail;
+  }
+
+
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
 
   public EmailDispatchLog email(String email) {
     
@@ -197,7 +224,8 @@ public class EmailDispatchLog {
       return false;
     }
     EmailDispatchLog emailDispatchLog = (EmailDispatchLog) o;
-    return Objects.equals(this.email, emailDispatchLog.email) &&
+    return Objects.equals(this.detail, emailDispatchLog.detail) &&
+        Objects.equals(this.email, emailDispatchLog.email) &&
         Objects.equals(this.espCommseqStepUuid, emailDispatchLog.espCommseqStepUuid) &&
         Objects.equals(this.espCommseqUuid, emailDispatchLog.espCommseqUuid) &&
         Objects.equals(this.espCustomerUuid, emailDispatchLog.espCustomerUuid) &&
@@ -206,13 +234,14 @@ public class EmailDispatchLog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, espCommseqStepUuid, espCommseqUuid, espCustomerUuid, logDts);
+    return Objects.hash(detail, email, espCommseqStepUuid, espCommseqUuid, espCustomerUuid, logDts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EmailDispatchLog {\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    espCommseqStepUuid: ").append(toIndentedString(espCommseqStepUuid)).append("\n");
     sb.append("    espCommseqUuid: ").append(toIndentedString(espCommseqUuid)).append("\n");
@@ -240,6 +269,7 @@ public class EmailDispatchLog {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("detail");
     openapiFields.add("email");
     openapiFields.add("esp_commseq_step_uuid");
     openapiFields.add("esp_commseq_uuid");
@@ -271,6 +301,9 @@ public class EmailDispatchLog {
         if (!EmailDispatchLog.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailDispatchLog` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `detail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detail").toString()));
       }
       if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
