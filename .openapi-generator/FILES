@@ -53,10 +53,12 @@ docs/AutoOrderItemOption.md
 docs/AutoOrderItemSimpleSchedule.md
 docs/AutoOrderLog.md
 docs/AutoOrderManagement.md
+docs/AutoOrderPaymentUpdateRequest.md
 docs/AutoOrderPropertiesUpdateRequest.md
 docs/AutoOrderProperty.md
 docs/AutoOrderQuery.md
 docs/AutoOrderQueryBatch.md
+docs/AutoOrderRebillResponse.md
 docs/AutoOrderResponse.md
 docs/AutoOrdersRequest.md
 docs/AutoOrdersResponse.md
@@ -1138,10 +1140,12 @@ src/main/java/com/ultracart/admin/v2/models/AutoOrderItemOption.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderItemSimpleSchedule.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderLog.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderManagement.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderPaymentUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderPropertiesUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderProperty.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQuery.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderQueryBatch.java
+src/main/java/com/ultracart/admin/v2/models/AutoOrderRebillResponse.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrderResponse.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrdersRequest.java
 src/main/java/com/ultracart/admin/v2/models/AutoOrdersResponse.java

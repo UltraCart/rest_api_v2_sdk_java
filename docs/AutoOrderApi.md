@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**attemptAutoOrderRebill**](AutoOrderApi.md#attemptAutoOrderRebill) | **POST** /auto_order/auto_orders/{auto_order_oid}/rebill | Attempt a failed rebill on an auto order |
 | [**cancelAutoOrderItemByReferenceOrderId**](AutoOrderApi.md#cancelAutoOrderItemByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id}/items/original/{original_item_id}/cancel | Cancel a single item on an auto order |
 | [**consolidateAutoOrders**](AutoOrderApi.md#consolidateAutoOrders) | **PUT** /auto_order/auto_orders/{auto_order_oid}/consolidate | Consolidates multiple auto orders |
 | [**establishAutoOrderByReferenceOrderId**](AutoOrderApi.md#establishAutoOrderByReferenceOrderId) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id |
@@ -19,9 +20,54 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order |
 | [**updateAutoOrderItemAddOns**](AutoOrderApi.md#updateAutoOrderItemAddOns) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/add_ons | Update an auto order item add ons |
 | [**updateAutoOrderItemProperties**](AutoOrderApi.md#updateAutoOrderItemProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/items/{auto_order_item_oid}/properties | Update an auto order item properties |
+| [**updateAutoOrderPayment**](AutoOrderApi.md#updateAutoOrderPayment) | **PUT** /auto_order/auto_orders/{auto_order_oid}/payment | Update the payment information on an auto order |
 | [**updateAutoOrderProperties**](AutoOrderApi.md#updateAutoOrderProperties) | **PUT** /auto_order/auto_orders/{auto_order_oid}/properties | Update an auto order properties |
 | [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders |
 
+
+<a name="attemptAutoOrderRebill"></a>
+# **attemptAutoOrderRebill**
+> AutoOrderRebillResponse attemptAutoOrderRebill(autoOrderOid, expand)
+
+Attempt a failed rebill on an auto order
+
+Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to rebill. | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderRebillResponse**](AutoOrderRebillResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="cancelAutoOrderItemByReferenceOrderId"></a>
 # **cancelAutoOrderItemByReferenceOrderId**
@@ -1465,6 +1511,51 @@ Update an auto order item properties.  Returns the auto order based upon expansi
 ### Return type
 
 [**AutoOrderResponse**](AutoOrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateAutoOrderPayment"></a>
+# **updateAutoOrderPayment**
+> AutoOrderRebillResponse updateAutoOrderPayment(autoOrderOid, autoOrderPaymentUpdateRequest, expand)
+
+Update the payment information on an auto order
+
+Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **autoOrderOid** | **Integer**| The auto order oid to update payment information on. | |
+| **autoOrderPaymentUpdateRequest** | [**AutoOrderPaymentUpdateRequest**](AutoOrderPaymentUpdateRequest.md)| Payment information to place on the auto order | |
+| **expand** | **String**| The object expansion to perform on the result.  See documentation for examples | [optional] |
+
+### Return type
+
+[**AutoOrderRebillResponse**](AutoOrderRebillResponse.md)
 
 ### Authorization
 

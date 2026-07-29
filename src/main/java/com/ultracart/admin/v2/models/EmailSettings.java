@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:54:53.521-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-29T10:54:34.314-04:00[America/Indianapolis]")
 public class EmailSettings {
   public static final String SERIALIZED_NAME_EMAILS_PER_DAY = "emails_per_day";
   @SerializedName(SERIALIZED_NAME_EMAILS_PER_DAY)
@@ -60,6 +60,10 @@ public class EmailSettings {
   public static final String SERIALIZED_NAME_EMAILS_PER_MONTH = "emails_per_month";
   @SerializedName(SERIALIZED_NAME_EMAILS_PER_MONTH)
   private Integer emailsPerMonth;
+
+  public static final String SERIALIZED_NAME_MACHINE_OPEN_IGNORE = "machine_open_ignore";
+  @SerializedName(SERIALIZED_NAME_MACHINE_OPEN_IGNORE)
+  private Boolean machineOpenIgnore;
 
   public static final String SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER = "marketing_esp_domain_user";
   @SerializedName(SERIALIZED_NAME_MARKETING_ESP_DOMAIN_USER)
@@ -194,6 +198,29 @@ public class EmailSettings {
 
   public void setEmailsPerMonth(Integer emailsPerMonth) {
     this.emailsPerMonth = emailsPerMonth;
+  }
+
+
+  public EmailSettings machineOpenIgnore(Boolean machineOpenIgnore) {
+    
+    this.machineOpenIgnore = machineOpenIgnore;
+    return this;
+  }
+
+   /**
+   * If machine open should be ignored
+   * @return machineOpenIgnore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If machine open should be ignored")
+
+  public Boolean getMachineOpenIgnore() {
+    return machineOpenIgnore;
+  }
+
+
+  public void setMachineOpenIgnore(Boolean machineOpenIgnore) {
+    this.machineOpenIgnore = machineOpenIgnore;
   }
 
 
@@ -578,6 +605,7 @@ public class EmailSettings {
     return Objects.equals(this.emailsPerDay, emailSettings.emailsPerDay) &&
         Objects.equals(this.emailsPerHour, emailSettings.emailsPerHour) &&
         Objects.equals(this.emailsPerMonth, emailSettings.emailsPerMonth) &&
+        Objects.equals(this.machineOpenIgnore, emailSettings.machineOpenIgnore) &&
         Objects.equals(this.marketingEspDomainUser, emailSettings.marketingEspDomainUser) &&
         Objects.equals(this.marketingEspDomainUuid, emailSettings.marketingEspDomainUuid) &&
         Objects.equals(this.marketingEspFriendlyName, emailSettings.marketingEspFriendlyName) &&
@@ -598,7 +626,7 @@ public class EmailSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailsPerDay, emailsPerHour, emailsPerMonth, marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, requireOrderWithinLast, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
+    return Objects.hash(emailsPerDay, emailsPerHour, emailsPerMonth, machineOpenIgnore, marketingEspDomainUser, marketingEspDomainUuid, marketingEspFriendlyName, postcardFromAddress1, postcardFromAddress2, postcardFromCity, postcardFromName, postcardFromPostalCode, postcardFromState, requireOrderWithinLast, reviewsIoConfigured, smsEspTwilioUuid, smsPhoneNumber, transactionalEspDomainUser, transactionalEspDomainUuid, transactionalEspFriendlyName);
   }
 
   @Override
@@ -608,6 +636,7 @@ public class EmailSettings {
     sb.append("    emailsPerDay: ").append(toIndentedString(emailsPerDay)).append("\n");
     sb.append("    emailsPerHour: ").append(toIndentedString(emailsPerHour)).append("\n");
     sb.append("    emailsPerMonth: ").append(toIndentedString(emailsPerMonth)).append("\n");
+    sb.append("    machineOpenIgnore: ").append(toIndentedString(machineOpenIgnore)).append("\n");
     sb.append("    marketingEspDomainUser: ").append(toIndentedString(marketingEspDomainUser)).append("\n");
     sb.append("    marketingEspDomainUuid: ").append(toIndentedString(marketingEspDomainUuid)).append("\n");
     sb.append("    marketingEspFriendlyName: ").append(toIndentedString(marketingEspFriendlyName)).append("\n");
@@ -649,6 +678,7 @@ public class EmailSettings {
     openapiFields.add("emails_per_day");
     openapiFields.add("emails_per_hour");
     openapiFields.add("emails_per_month");
+    openapiFields.add("machine_open_ignore");
     openapiFields.add("marketing_esp_domain_user");
     openapiFields.add("marketing_esp_domain_uuid");
     openapiFields.add("marketing_esp_friendly_name");

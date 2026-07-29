@@ -10,6 +10,7 @@
 |**emailsPerDay** | **Integer** | Emails per day allowed |  [optional] |
 |**emailsPerHour** | **Integer** | Emails per hour allowed |  [optional] |
 |**emailsPerMonth** | **Integer** | Emails per month allowed |  [optional] |
+|**machineOpenIgnore** | **Boolean** | If machine open should be ignored |  [optional] |
 |**marketingEspDomainUser** | **String** |  |  [optional] |
 |**marketingEspDomainUuid** | **String** |  |  [optional] |
 |**marketingEspFriendlyName** | **String** |  |  [optional] |

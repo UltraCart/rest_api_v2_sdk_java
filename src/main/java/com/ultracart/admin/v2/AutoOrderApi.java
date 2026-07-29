@@ -33,9 +33,11 @@ import com.ultracart.admin.v2.models.AutoOrderCancelReasonsResponse;
 import com.ultracart.admin.v2.models.AutoOrderConsolidate;
 import com.ultracart.admin.v2.models.AutoOrderEmailsResponse;
 import com.ultracart.admin.v2.models.AutoOrderItemCancelRequest;
+import com.ultracart.admin.v2.models.AutoOrderPaymentUpdateRequest;
 import com.ultracart.admin.v2.models.AutoOrderPropertiesUpdateRequest;
 import com.ultracart.admin.v2.models.AutoOrderQuery;
 import com.ultracart.admin.v2.models.AutoOrderQueryBatch;
+import com.ultracart.admin.v2.models.AutoOrderRebillResponse;
 import com.ultracart.admin.v2.models.AutoOrderResponse;
 import com.ultracart.admin.v2.models.AutoOrdersRequest;
 import com.ultracart.admin.v2.models.AutoOrdersResponse;
@@ -111,6 +113,161 @@ public class AutoOrderApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for attemptAutoOrderRebill
+     * @param autoOrderOid The auto order oid to rebill. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call attemptAutoOrderRebillCall(Integer autoOrderOid, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}/rebill"
+            .replaceAll("\\{" + "auto_order_oid" + "\\}", localVarApiClient.escapeString(autoOrderOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call attemptAutoOrderRebillValidateBeforeCall(Integer autoOrderOid, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'autoOrderOid' is set
+        if (autoOrderOid == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling attemptAutoOrderRebill(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = attemptAutoOrderRebillCall(autoOrderOid, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Attempt a failed rebill on an auto order
+     * Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to rebill. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderRebillResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AutoOrderRebillResponse attemptAutoOrderRebill(Integer autoOrderOid, String expand) throws ApiException {
+        ApiResponse<AutoOrderRebillResponse> localVarResp = attemptAutoOrderRebillWithHttpInfo(autoOrderOid, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Attempt a failed rebill on an auto order
+     * Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to rebill. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderRebillResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoOrderRebillResponse> attemptAutoOrderRebillWithHttpInfo(Integer autoOrderOid, String expand) throws ApiException {
+        okhttp3.Call localVarCall = attemptAutoOrderRebillValidateBeforeCall(autoOrderOid, expand, null);
+        Type localVarReturnType = new TypeToken<AutoOrderRebillResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Attempt a failed rebill on an auto order (asynchronously)
+     * Attempts to rebill an auto order using the payment information already on the original order.  The attempt is refused if the auto order is scheduled to charge within the next five minutes, or if it was already billed within the last 24 hours, both of which guard against double charging.  Runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to rebill. (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call attemptAutoOrderRebillAsync(Integer autoOrderOid, String expand, final ApiCallback<AutoOrderRebillResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = attemptAutoOrderRebillValidateBeforeCall(autoOrderOid, expand, _callback);
+        Type localVarReturnType = new TypeToken<AutoOrderRebillResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for cancelAutoOrderItemByReferenceOrderId
      * @param referenceOrderId The reference order id (original_order_id) of the auto order. (required)
@@ -2682,6 +2839,170 @@ public class AutoOrderApi {
 
         okhttp3.Call localVarCall = updateAutoOrderItemPropertiesValidateBeforeCall(autoOrderOid, autoOrderItemOid, autoOrderPropertiesUpdateRequest, expand, _callback);
         Type localVarReturnType = new TypeToken<AutoOrderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateAutoOrderPayment
+     * @param autoOrderOid The auto order oid to update payment information on. (required)
+     * @param autoOrderPaymentUpdateRequest Payment information to place on the auto order (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutoOrderPaymentCall(Integer autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, String expand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = autoOrderPaymentUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/auto_order/auto_orders/{auto_order_oid}/payment"
+            .replaceAll("\\{" + "auto_order_oid" + "\\}", localVarApiClient.escapeString(autoOrderOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (expand != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("_expand", expand));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAutoOrderPaymentValidateBeforeCall(Integer autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, String expand, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'autoOrderOid' is set
+        if (autoOrderOid == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderOid' when calling updateAutoOrderPayment(Async)");
+        }
+        
+        // verify the required parameter 'autoOrderPaymentUpdateRequest' is set
+        if (autoOrderPaymentUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'autoOrderPaymentUpdateRequest' when calling updateAutoOrderPayment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateAutoOrderPaymentCall(autoOrderOid, autoOrderPaymentUpdateRequest, expand, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update the payment information on an auto order
+     * Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to update payment information on. (required)
+     * @param autoOrderPaymentUpdateRequest Payment information to place on the auto order (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return AutoOrderRebillResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AutoOrderRebillResponse updateAutoOrderPayment(Integer autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, String expand) throws ApiException {
+        ApiResponse<AutoOrderRebillResponse> localVarResp = updateAutoOrderPaymentWithHttpInfo(autoOrderOid, autoOrderPaymentUpdateRequest, expand);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update the payment information on an auto order
+     * Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to update payment information on. (required)
+     * @param autoOrderPaymentUpdateRequest Payment information to place on the auto order (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return ApiResponse&lt;AutoOrderRebillResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoOrderRebillResponse> updateAutoOrderPaymentWithHttpInfo(Integer autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, String expand) throws ApiException {
+        okhttp3.Call localVarCall = updateAutoOrderPaymentValidateBeforeCall(autoOrderOid, autoOrderPaymentUpdateRequest, expand, null);
+        Type localVarReturnType = new TypeToken<AutoOrderRebillResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update the payment information on an auto order (asynchronously)
+     * Updates the credit card on the original order behind an auto order, along with any rebills sitting in accounts receivable, and reactivates the auto order.  Card data is accepted as hosted field tokens only. raw card numbers and card verification numbers are rejected.  Set attempt_rebill to true to also attempt the rebill immediately, which runs synchronously and may take some time while the gateway is contacted.  A declined card is reported in the response body rather than as an API error. 
+     * @param autoOrderOid The auto order oid to update payment information on. (required)
+     * @param autoOrderPaymentUpdateRequest Payment information to place on the auto order (required)
+     * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateAutoOrderPaymentAsync(Integer autoOrderOid, AutoOrderPaymentUpdateRequest autoOrderPaymentUpdateRequest, String expand, final ApiCallback<AutoOrderRebillResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateAutoOrderPaymentValidateBeforeCall(autoOrderOid, autoOrderPaymentUpdateRequest, expand, _callback);
+        Type localVarReturnType = new TypeToken<AutoOrderRebillResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
