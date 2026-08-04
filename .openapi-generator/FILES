@@ -451,6 +451,9 @@ docs/CustomerEDI.md
 docs/CustomerEditorValues.md
 docs/CustomerEmail.md
 docs/CustomerEmailListChanges.md
+docs/CustomerEmailSuppressionRequest.md
+docs/CustomerEmailSuppressionResponse.md
+docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
@@ -599,6 +602,7 @@ docs/EmailStepStatRequest.md
 docs/EmailStepStatResponse.md
 docs/EmailStepWaitingRequest.md
 docs/EmailStepWaitingResponse.md
+docs/EmailSuppressionSurfaces.md
 docs/EmailTemplate.md
 docs/EmailTemplatesResponse.md
 docs/EmailThirdPartyList.md
@@ -1531,6 +1535,9 @@ src/main/java/com/ultracart/admin/v2/models/CustomerEDI.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEditorValues.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEmail.java
 src/main/java/com/ultracart/admin/v2/models/CustomerEmailListChanges.java
+src/main/java/com/ultracart/admin/v2/models/CustomerEmailSuppressionRequest.java
+src/main/java/com/ultracart/admin/v2/models/CustomerEmailSuppressionResponse.java
+src/main/java/com/ultracart/admin/v2/models/CustomerEmailSuppressionResult.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyalty.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyLedger.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyRedemption.java
@@ -1678,6 +1685,7 @@ src/main/java/com/ultracart/admin/v2/models/EmailStepStatRequest.java
 src/main/java/com/ultracart/admin/v2/models/EmailStepStatResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailStepWaitingRequest.java
 src/main/java/com/ultracart/admin/v2/models/EmailStepWaitingResponse.java
+src/main/java/com/ultracart/admin/v2/models/EmailSuppressionSurfaces.java
 src/main/java/com/ultracart/admin/v2/models/EmailTemplate.java
 src/main/java/com/ultracart/admin/v2/models/EmailTemplatesResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailThirdPartyList.java
