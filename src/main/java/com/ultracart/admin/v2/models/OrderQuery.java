@@ -51,8 +51,16 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderQuery
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-04T11:10:35.942-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
 public class OrderQuery {
+  public static final String SERIALIZED_NAME_CARD_BIN = "card_bin";
+  @SerializedName(SERIALIZED_NAME_CARD_BIN)
+  private String cardBin;
+
+  public static final String SERIALIZED_NAME_CARD_LAST4 = "card_last4";
+  @SerializedName(SERIALIZED_NAME_CARD_LAST4)
+  private String cardLast4;
+
   public static final String SERIALIZED_NAME_CC_EMAIL = "cc_email";
   @SerializedName(SERIALIZED_NAME_CC_EMAIL)
   private String ccEmail;
@@ -424,6 +432,52 @@ public class OrderQuery {
 
   public OrderQuery() { 
   }
+
+  public OrderQuery cardBin(String cardBin) {
+    
+    this.cardBin = cardBin;
+    return this;
+  }
+
+   /**
+   * First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache.
+   * @return cardBin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target=cache.")
+
+  public String getCardBin() {
+    return cardBin;
+  }
+
+
+  public void setCardBin(String cardBin) {
+    this.cardBin = cardBin;
+  }
+
+
+  public OrderQuery cardLast4(String cardLast4) {
+    
+    this.cardLast4 = cardLast4;
+    return this;
+  }
+
+   /**
+   * Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache.
+   * @return cardLast4
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target=cache.")
+
+  public String getCardLast4() {
+    return cardLast4;
+  }
+
+
+  public void setCardLast4(String cardLast4) {
+    this.cardLast4 = cardLast4;
+  }
+
 
   public OrderQuery ccEmail(String ccEmail) {
     
@@ -1084,11 +1138,11 @@ public class OrderQuery {
   }
 
    /**
-   * Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
+   * Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.
    * @return paymentTransactionFilters
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.")
+  @ApiModelProperty(value = "Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target=cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName.")
 
   public List<OrderQueryPaymentTransactionFilter> getPaymentTransactionFilters() {
     return paymentTransactionFilters;
@@ -1455,7 +1509,9 @@ public class OrderQuery {
       return false;
     }
     OrderQuery orderQuery = (OrderQuery) o;
-    return Objects.equals(this.ccEmail, orderQuery.ccEmail) &&
+    return Objects.equals(this.cardBin, orderQuery.cardBin) &&
+        Objects.equals(this.cardLast4, orderQuery.cardLast4) &&
+        Objects.equals(this.ccEmail, orderQuery.ccEmail) &&
         Objects.equals(this.channelPartnerCode, orderQuery.channelPartnerCode) &&
         Objects.equals(this.channelPartnerOrderId, orderQuery.channelPartnerOrderId) &&
         Objects.equals(this.city, orderQuery.city) &&
@@ -1503,13 +1559,15 @@ public class OrderQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, paymentTransactionFilters, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
+    return Objects.hash(cardBin, cardLast4, ccEmail, channelPartnerCode, channelPartnerOrderId, city, company, countryCode, creationDateBegin, creationDateEnd, currentStage, customField1, customField10, customField2, customField3, customField4, customField5, customField6, customField7, customField8, customField9, customerProfileOid, email, firstName, itemId, lastName, orderId, paymentDateBegin, paymentDateEnd, paymentMethod, paymentTransactionFilters, phone, postalCode, purchaseOrderNumber, queryTarget, refundDateBegin, refundDateEnd, rma, screenBrandingThemeCode, shipmentDateBegin, shipmentDateEnd, shippedOnDateBegin, shippedOnDateEnd, stateRegion, storefrontHostName, total);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderQuery {\n");
+    sb.append("    cardBin: ").append(toIndentedString(cardBin)).append("\n");
+    sb.append("    cardLast4: ").append(toIndentedString(cardLast4)).append("\n");
     sb.append("    ccEmail: ").append(toIndentedString(ccEmail)).append("\n");
     sb.append("    channelPartnerCode: ").append(toIndentedString(channelPartnerCode)).append("\n");
     sb.append("    channelPartnerOrderId: ").append(toIndentedString(channelPartnerOrderId)).append("\n");
@@ -1576,6 +1634,8 @@ public class OrderQuery {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("card_bin");
+    openapiFields.add("card_last4");
     openapiFields.add("cc_email");
     openapiFields.add("channel_partner_code");
     openapiFields.add("channel_partner_order_id");
@@ -1646,6 +1706,12 @@ public class OrderQuery {
         if (!OrderQuery.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OrderQuery` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("card_bin") != null && !jsonObj.get("card_bin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `card_bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_bin").toString()));
+      }
+      if (jsonObj.get("card_last4") != null && !jsonObj.get("card_last4").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `card_last4` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_last4").toString()));
       }
       if (jsonObj.get("cc_email") != null && !jsonObj.get("cc_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cc_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cc_email").toString()));

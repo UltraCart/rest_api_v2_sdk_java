@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-04T11:10:35.942-04:00[America/Indianapolis]
+- Build date: 2026-08-06T14:29:49.180-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.124</version>
+    <version>4.1.125</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.124"
+     implementation "com.ultracart:rest-sdk:4.1.125"
   }
 ```
 
@@ -1859,6 +1859,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.123 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.122 | 07/29/2026 | auto order api - new methods for payment information and rebill |

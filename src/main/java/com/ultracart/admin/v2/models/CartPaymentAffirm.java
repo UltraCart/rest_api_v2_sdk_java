@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartPaymentAffirm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-04T11:10:35.942-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
 public class CartPaymentAffirm {
   public static final String SERIALIZED_NAME_AFFIRM_CHECKOUT_TOKEN = "affirm_checkout_token";
   @SerializedName(SERIALIZED_NAME_AFFIRM_CHECKOUT_TOKEN)

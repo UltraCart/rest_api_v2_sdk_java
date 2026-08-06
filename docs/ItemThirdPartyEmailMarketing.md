@@ -30,7 +30,6 @@
 | LYRIS | &quot;Lyris&quot; |
 | LYRISHQ | &quot;LyrisHQ&quot; |
 | MAILCHIMP | &quot;MailChimp&quot; |
-| SILVERPOP | &quot;SilverPop&quot; |
 
 
 

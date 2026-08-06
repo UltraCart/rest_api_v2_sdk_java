@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**cardBin** | **String** | First six digits (BIN) of the credit card number.  Must be specified together with card_last4 and a payment_date_begin/payment_date_end range.  Requires query_target&#x3D;cache. |  [optional] |
+|**cardLast4** | **String** | Last four digits of the credit card number.  Must be specified together with card_bin and a payment_date_begin/payment_date_end range.  Always supply four digits, including for American Express.  Requires query_target&#x3D;cache. |  [optional] |
 |**ccEmail** | **String** | CC Email |  [optional] |
 |**channelPartnerCode** | **String** | The code of the channel partner |  [optional] |
 |**channelPartnerOrderId** | **String** | The order ID assigned by the channel partner for this order |  [optional] |
@@ -35,7 +37,7 @@
 |**paymentDateBegin** | **String** | Date/time that the order was successfully processed |  [optional] |
 |**paymentDateEnd** | **String** | Date/time that the order was successfully processed |  [optional] |
 |**paymentMethod** | [**PaymentMethodEnum**](#PaymentMethodEnum) | Payment method |  [optional] |
-|**paymentTransactionFilters** | [**List&lt;OrderQueryPaymentTransactionFilter&gt;**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache which uses the ElasticSearch cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. |  [optional] |
+|**paymentTransactionFilters** | [**List&lt;OrderQueryPaymentTransactionFilter&gt;**](OrderQueryPaymentTransactionFilter.md) | Exact-match filters on the detail name/value pairs of a single payment transaction, AND-ed against the same transaction. Requires query_target&#x3D;cache. The origin or database path cannot search transaction details. The rotating gateway is just another pair, name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName. |  [optional] |
 |**phone** | **String** | Phone |  [optional] |
 |**postalCode** | **String** | Postal code |  [optional] |
 |**purchaseOrderNumber** | **String** | Purchase order number |  [optional] |

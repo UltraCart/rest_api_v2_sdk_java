@@ -56,7 +56,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * TaxProvidersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-04T11:10:35.942-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
 public class TaxProvidersResponse {
   public static final String SERIALIZED_NAME_ANROK = "anrok";
   @SerializedName(SERIALIZED_NAME_ANROK)

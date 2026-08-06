@@ -202036,7 +202036,6 @@ components:
           - Lyris
           - LyrisHQ
           - MailChimp
-          - SilverPop
           type: string
         remove_tags:
           description: Remove tags
@@ -208596,11 +208595,13 @@ components:
         first_name: first_name
         email: email
         payment_method: Affirm
+        card_bin: card_bin
         channel_partner_code: channel_partner_code
         refund_date_end: refund_date_end
         item_id: item_id
         storefront_host_name: storefront_host_name
         custom_field_5: custom_field_5
+        card_last4: card_last4
         custom_field_6: custom_field_6
         last_name: last_name
         custom_field_3: custom_field_3
@@ -208621,6 +208622,19 @@ components:
         postal_code: postal_code
         order_id: order_id
       properties:
+        card_bin:
+          description: First six digits (BIN) of the credit card number.  Must be
+            specified together with card_last4 and a payment_date_begin/payment_date_end
+            range.  Requires query_target=cache.
+          maxLength: 6
+          type: string
+        card_last4:
+          description: "Last four digits of the credit card number.  Must be specified\
+            \ together with card_bin and a payment_date_begin/payment_date_end range.\
+            \  Always supply four digits, including for American Express.  Requires\
+            \ query_target=cache."
+          maxLength: 4
+          type: string
         cc_email:
           description: CC Email
           maxLength: 100
@@ -208751,10 +208765,10 @@ components:
           type: string
         payment_transaction_filters:
           description: "Exact-match filters on the detail name/value pairs of a single\
-            \ payment transaction, AND-ed against the same transaction. Requires query_target=cache\
-            \ which uses the ElasticSearch cache. The origin or database path cannot\
-            \ search transaction details. The rotating gateway is just another pair,\
-            \ name equals rotatingTransactionGatewayCode or rotatingTransactionGatewayName."
+            \ payment transaction, AND-ed against the same transaction. Requires query_target=cache.\
+            \ The origin or database path cannot search transaction details. The rotating\
+            \ gateway is just another pair, name equals rotatingTransactionGatewayCode\
+            \ or rotatingTransactionGatewayName."
           items:
             $ref: '#/components/schemas/OrderQueryPaymentTransactionFilter'
           type: array
