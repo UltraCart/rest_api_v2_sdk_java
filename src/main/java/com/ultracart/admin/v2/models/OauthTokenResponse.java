@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OauthTokenResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
 public class OauthTokenResponse {
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
@@ -68,6 +68,10 @@ public class OauthTokenResponse {
   public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
   private String expiresIn;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
+  private String merchantId;
 
   public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
   @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
@@ -244,6 +248,29 @@ public class OauthTokenResponse {
   }
 
 
+  public OauthTokenResponse merchantId(String merchantId) {
+    
+    this.merchantId = merchantId;
+    return this;
+  }
+
+   /**
+   * The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.
+   * @return merchantId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name.")
+
+  public String getMerchantId() {
+    return merchantId;
+  }
+
+
+  public void setMerchantId(String merchantId) {
+    this.merchantId = merchantId;
+  }
+
+
   public OauthTokenResponse refreshToken(String refreshToken) {
     
     this.refreshToken = refreshToken;
@@ -328,6 +355,7 @@ public class OauthTokenResponse {
         Objects.equals(this.errorDescription, oauthTokenResponse.errorDescription) &&
         Objects.equals(this.errorUri, oauthTokenResponse.errorUri) &&
         Objects.equals(this.expiresIn, oauthTokenResponse.expiresIn) &&
+        Objects.equals(this.merchantId, oauthTokenResponse.merchantId) &&
         Objects.equals(this.refreshToken, oauthTokenResponse.refreshToken) &&
         Objects.equals(this.scope, oauthTokenResponse.scope) &&
         Objects.equals(this.tokenType, oauthTokenResponse.tokenType);
@@ -335,7 +363,7 @@ public class OauthTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, error, errorDescription, errorUri, expiresIn, refreshToken, scope, tokenType);
+    return Objects.hash(accessToken, error, errorDescription, errorUri, expiresIn, merchantId, refreshToken, scope, tokenType);
   }
 
   @Override
@@ -347,6 +375,7 @@ public class OauthTokenResponse {
     sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
     sb.append("    errorUri: ").append(toIndentedString(errorUri)).append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
+    sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
@@ -377,6 +406,7 @@ public class OauthTokenResponse {
     openapiFields.add("error_description");
     openapiFields.add("error_uri");
     openapiFields.add("expires_in");
+    openapiFields.add("merchant_id");
     openapiFields.add("refresh_token");
     openapiFields.add("scope");
     openapiFields.add("token_type");
@@ -421,6 +451,9 @@ public class OauthTokenResponse {
       }
       if (jsonObj.get("expires_in") != null && !jsonObj.get("expires_in").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_in` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_in").toString()));
+      }
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       if (jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));

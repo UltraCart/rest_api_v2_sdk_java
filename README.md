@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-06T14:29:49.180-04:00[America/Indianapolis]
+- Build date: 2026-08-10T13:28:57.129-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.125</version>
+    <version>4.1.126</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.125"
+     implementation "com.ultracart:rest-sdk:4.1.126"
   }
 ```
 
@@ -445,6 +445,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/OauthApi.md#oauthAccessToken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthDeviceAuthorize**](docs/OauthApi.md#oauthDeviceAuthorize) | **POST** /oauth/device/authorize | Initiate a device authorization flow.
+*OauthApi* | [**oauthMe**](docs/OauthApi.md#oauthMe) | **GET** /oauth/me | Identify the merchant account this access token belongs to.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**assignToAffiliate**](docs/OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
@@ -1508,6 +1509,7 @@ Class | Method | HTTP request | Description
  - [Metric](docs/Metric.md)
  - [Notification](docs/Notification.md)
  - [OauthDeviceAuthorizationResponse](docs/OauthDeviceAuthorizationResponse.md)
+ - [OauthMeResponse](docs/OauthMeResponse.md)
  - [OauthRevokeSuccessResponse](docs/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/OauthTokenResponse.md)
  - [Order](docs/Order.md)
@@ -1859,6 +1861,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.126 | 08/10/2026 | oauth - add /oauth/me method to assist application in indentifying the connected account |
 | 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |
 | 4.1.123 | 08/04/2026 | customer - method to remove customer profile from email suppression |

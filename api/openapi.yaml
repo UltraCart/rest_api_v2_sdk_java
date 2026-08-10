@@ -5347,6 +5347,76 @@ paths:
       - oauth
       x-content-type: application/x-www-form-urlencoded
       x-accepts: application/json
+  /oauth/me:
+    get:
+      description: "Returns the UltraCart merchant account that authorized your application,\
+        \ along with the permissions that were granted.  Call it immediately after\
+        \ exchanging your authorization code so you can display the connected account\
+        \ to your user and map it within your own system.  Any OAuth access token\
+        \ may call this endpoint regardless of the permissions it holds.  The granted\
+        \ permissions are the ones the merchant approved, which may be narrower than\
+        \ the permissions your application currently requests, because permissions\
+        \ are recorded when the merchant authorizes and do not change afterwards.\
+        \  If you add a permission to your application, already connected merchants\
+        \ keep the permissions they originally approved until they authorize again,\
+        \ so read this list rather than assuming your application's configured permissions.\n"
+      operationId: oauthMe
+      responses:
+        "200":
+          $ref: '#/components/responses/'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth: []
+      summary: Identify the merchant account this access token belongs to.
+      tags:
+      - oauth
+      x-accepts: application/json
   /oauth/revoke:
     post:
       description: |
@@ -203310,6 +203380,31 @@ components:
           description: The verification URI with the user code pre-filled
           type: string
       type: object
+    OauthMeResponse:
+      properties:
+        application_name:
+          description: The name of your application as the merchant approved it.
+          type: string
+        client_id:
+          description: "Your application's client_id.  Null when authenticating with\
+            \ a simple key, which is not tied to an application."
+          type: string
+        merchant_id:
+          description: "The UltraCart merchant account that authorized your application.\
+            \  Stable, and the value to key your own records on."
+          type: string
+        merchant_name:
+          description: "The account's company name, suitable for displaying to your\
+            \ user.  The merchant can change this, so display it rather than storing\
+            \ it as an identifier."
+          type: string
+        scopes:
+          description: The permissions the merchant granted.  May be narrower than
+            the permissions your application currently requests.
+          items:
+            type: string
+          type: array
+      type: object
     OauthRevokeSuccessResponse:
       example:
         message: message
@@ -203328,6 +203423,7 @@ components:
         refresh_token: refresh_token
         error_description: error_description
         scope: scope
+        merchant_id: merchant_id
         error: error
         error_uri: error_uri
         token_type: bearer
@@ -203345,6 +203441,11 @@ components:
         expires_in:
           description: The number of seconds since issuance when the access token
             will expire and need to be refreshed using the refresh token
+          type: string
+        merchant_id:
+          description: The UltraCart merchant account that authorized this token.  Use
+            it to map the token to the merchant within your own system.  Also returned
+            by GET /oauth/me along with the account name.
           type: string
         refresh_token:
           description: The refresh token that should be used to fetch a new access

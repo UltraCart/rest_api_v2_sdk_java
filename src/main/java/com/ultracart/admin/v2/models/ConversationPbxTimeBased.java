@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxTimeBased
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
 public class ConversationPbxTimeBased {
   public static final String SERIALIZED_NAME_CONTEXT_MERCHANT_ID = "context_merchant_id";
   @SerializedName(SERIALIZED_NAME_CONTEXT_MERCHANT_ID)

@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponPercentOffShipping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
 public class CouponPercentOffShipping {
   public static final String SERIALIZED_NAME_DISCOUNT_PERCENT = "discount_percent";
   @SerializedName(SERIALIZED_NAME_DISCOUNT_PERCENT)

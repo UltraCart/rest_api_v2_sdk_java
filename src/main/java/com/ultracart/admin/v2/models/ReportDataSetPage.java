@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ReportDataSetPage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-06T14:29:49.180-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
 public class ReportDataSetPage {
   public static final String SERIALIZED_NAME_DATA_SET_UUID = "data_set_uuid";
   @SerializedName(SERIALIZED_NAME_DATA_SET_UUID)
