@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailDispatchLogDetailResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
 public class EmailDispatchLogDetailResponse {
   public static final String SERIALIZED_NAME_DISPATCH_LOG = "dispatch_log";
   @SerializedName(SERIALIZED_NAME_DISPATCH_LOG)

@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderQueryBatch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
 public class OrderQueryBatch {
   public static final String SERIALIZED_NAME_ORDER_IDS = "order_ids";
   @SerializedName(SERIALIZED_NAME_ORDER_IDS)

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
 public class OrderChannelPartner {
   public static final String SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER = "auto_approve_purchase_order";
   @SerializedName(SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER)
@@ -76,6 +76,10 @@ public class OrderChannelPartner {
   public static final String SERIALIZED_NAME_NO_REALTIME_PAYMENT_PROCESSING = "no_realtime_payment_processing";
   @SerializedName(SERIALIZED_NAME_NO_REALTIME_PAYMENT_PROCESSING)
   private Boolean noRealtimePaymentProcessing;
+
+  public static final String SERIALIZED_NAME_SKIP_AUTO_ORDER_SETUP = "skip_auto_order_setup";
+  @SerializedName(SERIALIZED_NAME_SKIP_AUTO_ORDER_SETUP)
+  private Boolean skipAutoOrderSetup;
 
   public static final String SERIALIZED_NAME_SKIP_PAYMENT_PROCESSING = "skip_payment_processing";
   @SerializedName(SERIALIZED_NAME_SKIP_PAYMENT_PROCESSING)
@@ -257,6 +261,29 @@ public class OrderChannelPartner {
   }
 
 
+  public OrderChannelPartner skipAutoOrderSetup(Boolean skipAutoOrderSetup) {
+    
+    this.skipAutoOrderSetup = skipAutoOrderSetup;
+    return this;
+  }
+
+   /**
+   * Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.
+   * @return skipAutoOrderSetup
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Instructs UltraCart to skip auto order setup.  Only applicable on inserting orders.")
+
+  public Boolean getSkipAutoOrderSetup() {
+    return skipAutoOrderSetup;
+  }
+
+
+  public void setSkipAutoOrderSetup(Boolean skipAutoOrderSetup) {
+    this.skipAutoOrderSetup = skipAutoOrderSetup;
+  }
+
+
   public OrderChannelPartner skipPaymentProcessing(Boolean skipPaymentProcessing) {
     
     this.skipPaymentProcessing = skipPaymentProcessing;
@@ -366,6 +393,7 @@ public class OrderChannelPartner {
         Objects.equals(this.channelPartnerOrderId, orderChannelPartner.channelPartnerOrderId) &&
         Objects.equals(this.ignoreInvalidShippingMethod, orderChannelPartner.ignoreInvalidShippingMethod) &&
         Objects.equals(this.noRealtimePaymentProcessing, orderChannelPartner.noRealtimePaymentProcessing) &&
+        Objects.equals(this.skipAutoOrderSetup, orderChannelPartner.skipAutoOrderSetup) &&
         Objects.equals(this.skipPaymentProcessing, orderChannelPartner.skipPaymentProcessing) &&
         Objects.equals(this.storeCompleted, orderChannelPartner.storeCompleted) &&
         Objects.equals(this.storeIfPaymentDeclines, orderChannelPartner.storeIfPaymentDeclines) &&
@@ -374,7 +402,7 @@ public class OrderChannelPartner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, ignoreInvalidShippingMethod, noRealtimePaymentProcessing, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
+    return Objects.hash(autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, ignoreInvalidShippingMethod, noRealtimePaymentProcessing, skipAutoOrderSetup, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
   }
 
   @Override
@@ -388,6 +416,7 @@ public class OrderChannelPartner {
     sb.append("    channelPartnerOrderId: ").append(toIndentedString(channelPartnerOrderId)).append("\n");
     sb.append("    ignoreInvalidShippingMethod: ").append(toIndentedString(ignoreInvalidShippingMethod)).append("\n");
     sb.append("    noRealtimePaymentProcessing: ").append(toIndentedString(noRealtimePaymentProcessing)).append("\n");
+    sb.append("    skipAutoOrderSetup: ").append(toIndentedString(skipAutoOrderSetup)).append("\n");
     sb.append("    skipPaymentProcessing: ").append(toIndentedString(skipPaymentProcessing)).append("\n");
     sb.append("    storeCompleted: ").append(toIndentedString(storeCompleted)).append("\n");
     sb.append("    storeIfPaymentDeclines: ").append(toIndentedString(storeIfPaymentDeclines)).append("\n");
@@ -421,6 +450,7 @@ public class OrderChannelPartner {
     openapiFields.add("channel_partner_order_id");
     openapiFields.add("ignore_invalid_shipping_method");
     openapiFields.add("no_realtime_payment_processing");
+    openapiFields.add("skip_auto_order_setup");
     openapiFields.add("skip_payment_processing");
     openapiFields.add("store_completed");
     openapiFields.add("store_if_payment_declines");

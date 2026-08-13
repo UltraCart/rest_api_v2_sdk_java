@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
 public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertisingSource";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
@@ -560,6 +560,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_SHIPTO_TITLE = "shipto_title";
   @SerializedName(SERIALIZED_NAME_SHIPTO_TITLE)
   private String shiptoTitle;
+
+  public static final String SERIALIZED_NAME_SKIP_AUTO_ORDER_SETUP = "skip_auto_order_setup";
+  @SerializedName(SERIALIZED_NAME_SKIP_AUTO_ORDER_SETUP)
+  private Boolean skipAutoOrderSetup;
 
   public static final String SERIALIZED_NAME_SKIP_PAYMENT_PROCESSING = "skip_payment_processing";
   @SerializedName(SERIALIZED_NAME_SKIP_PAYMENT_PROCESSING)
@@ -2606,6 +2610,29 @@ public class ChannelPartnerOrder {
   }
 
 
+  public ChannelPartnerOrder skipAutoOrderSetup(Boolean skipAutoOrderSetup) {
+    
+    this.skipAutoOrderSetup = skipAutoOrderSetup;
+    return this;
+  }
+
+   /**
+   * If true the setup of the auto order record is skipped
+   * @return skipAutoOrderSetup
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true the setup of the auto order record is skipped")
+
+  public Boolean getSkipAutoOrderSetup() {
+    return skipAutoOrderSetup;
+  }
+
+
+  public void setSkipAutoOrderSetup(Boolean skipAutoOrderSetup) {
+    this.skipAutoOrderSetup = skipAutoOrderSetup;
+  }
+
+
   public ChannelPartnerOrder skipPaymentProcessing(Boolean skipPaymentProcessing) {
     
     this.skipPaymentProcessing = skipPaymentProcessing;
@@ -2932,6 +2959,7 @@ public class ChannelPartnerOrder {
         Objects.equals(this.shiptoPostalCode, channelPartnerOrder.shiptoPostalCode) &&
         Objects.equals(this.shiptoStateRegion, channelPartnerOrder.shiptoStateRegion) &&
         Objects.equals(this.shiptoTitle, channelPartnerOrder.shiptoTitle) &&
+        Objects.equals(this.skipAutoOrderSetup, channelPartnerOrder.skipAutoOrderSetup) &&
         Objects.equals(this.skipPaymentProcessing, channelPartnerOrder.skipPaymentProcessing) &&
         Objects.equals(this.specialInstructions, channelPartnerOrder.specialInstructions) &&
         Objects.equals(this.storeCompleted, channelPartnerOrder.storeCompleted) &&
@@ -2946,7 +2974,7 @@ public class ChannelPartnerOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, arbitraryTaxableSubtotalDiscount, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, arbitraryTaxableSubtotalDiscount, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipAutoOrderSetup, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
   }
 
   @Override
@@ -3039,6 +3067,7 @@ public class ChannelPartnerOrder {
     sb.append("    shiptoPostalCode: ").append(toIndentedString(shiptoPostalCode)).append("\n");
     sb.append("    shiptoStateRegion: ").append(toIndentedString(shiptoStateRegion)).append("\n");
     sb.append("    shiptoTitle: ").append(toIndentedString(shiptoTitle)).append("\n");
+    sb.append("    skipAutoOrderSetup: ").append(toIndentedString(skipAutoOrderSetup)).append("\n");
     sb.append("    skipPaymentProcessing: ").append(toIndentedString(skipPaymentProcessing)).append("\n");
     sb.append("    specialInstructions: ").append(toIndentedString(specialInstructions)).append("\n");
     sb.append("    storeCompleted: ").append(toIndentedString(storeCompleted)).append("\n");
@@ -3157,6 +3186,7 @@ public class ChannelPartnerOrder {
     openapiFields.add("shipto_postal_code");
     openapiFields.add("shipto_state_region");
     openapiFields.add("shipto_title");
+    openapiFields.add("skip_auto_order_setup");
     openapiFields.add("skip_payment_processing");
     openapiFields.add("special_instructions");
     openapiFields.add("store_completed");

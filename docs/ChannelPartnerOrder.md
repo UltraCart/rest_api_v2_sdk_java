@@ -93,6 +93,7 @@
 |**shiptoPostalCode** | **String** | Shipping Postal code |  [optional] |
 |**shiptoStateRegion** | **String** | Shipping State for United States otherwise region or province for other countries |  [optional] |
 |**shiptoTitle** | **String** | Shipping Title |  [optional] |
+|**skipAutoOrderSetup** | **Boolean** | If true the setup of the auto order record is skipped |  [optional] |
 |**skipPaymentProcessing** | **Boolean** | If true the order is placed directly into the shipping department |  [optional] |
 |**specialInstructions** | **String** | Special instructions from the customer regarding shipping |  [optional] |
 |**storeCompleted** | **Boolean** | If true the order bypasses shipping and is marked completed |  [optional] |

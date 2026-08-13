@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemPricingTierLimit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
 public class ItemPricingTierLimit {
   public static final String SERIALIZED_NAME_CUMULATIVE_ORDER_LIMIT = "cumulative_order_limit";
   @SerializedName(SERIALIZED_NAME_CUMULATIVE_ORDER_LIMIT)

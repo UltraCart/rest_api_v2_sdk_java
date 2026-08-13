@@ -58170,6 +58170,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -60108,6 +60109,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -61931,6 +61933,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -64416,6 +64419,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -66179,6 +66183,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -68025,6 +68030,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -71056,6 +71062,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -72819,6 +72826,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -74665,6 +74673,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -76633,6 +76642,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -78396,6 +78406,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -80242,6 +80253,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -82182,6 +82194,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -83945,6 +83958,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -85791,6 +85805,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -87709,6 +87724,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -89472,6 +89488,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -91318,6 +91335,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -93256,6 +93274,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -95019,6 +95038,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -96865,6 +96885,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -98783,6 +98804,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -100546,6 +100568,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -102392,6 +102415,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -109572,6 +109596,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -123012,54 +123037,31 @@ components:
       example:
         gift: true
         echeck_bank_name: echeck_bank_name
-        least_cost_route_shipping_methods:
-        - least_cost_route_shipping_methods
-        - least_cost_route_shipping_methods
         shipto_first_name: shipto_first_name
-        shipto_title: shipto_title
         shipto_company: shipto_company
+        skip_auto_order_setup: true
         affiliate_id: affiliate_id
         cc_email: cc_email
-        shipto_evening_phone: shipto_evening_phone
-        arbitrary_tax: 1.4658129805029452
         creation_dts: creation_dts
-        echeck_customer_tax_id: echeck_customer_tax_id
         echeck_bank_account_number: echeck_bank_account_number
-        hosted_fields_card_token: hosted_fields_card_token
         coupons:
         - coupons
         - coupons
-        credit_card_authorization_amount: 7.061401241503109
-        use_prior_payment_information_from_order_id: use_prior_payment_information_from_order_id
         shipping_method: shipping_method
         purchase_order_number: purchase_order_number
-        billto_postal_code: billto_postal_code
         shipto_address2: shipto_address2
-        payment_method: Affirm
         shipto_address1: shipto_address1
         auto_approve_purchase_order: true
         echeck_drivers_license_number: echeck_drivers_license_number
         echeck_drivers_license_state: echeck_drivers_license_state
-        special_instructions: special_instructions
         billto_day_phone: billto_day_phone
         rotating_transaction_gateway_code: rotating_transaction_gateway_code
-        associate_with_customer_profile_if_present: true
-        tax_exempt: true
         insurance_claim_id: insurance_claim_id
         affiliate_sub_id: affiliate_sub_id
         tax_county: tax_county
-        billto_title: billto_title
         channel_partner_order_id: channel_partner_order_id
         credit_card_authorization_dts: credit_card_authorization_dts
-        credit_card_type: credit_card_type
-        delivery_date: delivery_date
-        echeck_bank_owner_type: Business
-        store_completed: true
-        credit_card_expiration_month: 9
-        shipto_country_code: shipto_country_code
-        shipto_day_phone: shipto_day_phone
         echeck_bank_aba_code: echeck_bank_aba_code
-        store_if_payment_declines: true
         billto_company: billto_company
         items:
         - merchant_item_id: merchant_item_id
@@ -123102,32 +123104,66 @@ components:
             name: name
             expiration_dts: expiration_dts
             value: value
-        arbitrary_taxable_subtotal: 5.637376656633329
-        shipto_city: shipto_city
-        shipto_state_region: shipto_state_region
         insurance_application_id: insurance_application_id
-        billto_last_name: billto_last_name
-        credit_card_authorization_number: credit_card_authorization_number
         arbitrary_shipping_handling_total: 0.8008281904610115
-        hosted_fields_cvv_token: hosted_fields_cvv_token
         screen_branding_theme_code: screen_branding_theme_code
-        ship_to_residential: true
         gift_email: gift_email
         ship_on_date: ship_on_date
-        arbitrary_taxable_subtotal_discount: 2.3021358869347655
         advertisingSource: advertisingSource
-        shipto_last_name: shipto_last_name
         sales_rep_code: sales_rep_code
         no_realtime_payment_processing: true
         echeck_bank_account_name: echeck_bank_account_name
         email: email
         arbitrary_subtotal_discount: 6.027456183070403
+        echeck_drivers_license_dob: echeck_drivers_license_dob
+        billto_city: billto_city
+        least_cost_route: true
+        shipto_postal_code: shipto_postal_code
+        skip_payment_processing: true
+        transaction:
+          details:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          successful: true
+        least_cost_route_shipping_methods:
+        - least_cost_route_shipping_methods
+        - least_cost_route_shipping_methods
+        shipto_title: shipto_title
+        shipto_evening_phone: shipto_evening_phone
+        arbitrary_tax: 1.4658129805029452
+        echeck_customer_tax_id: echeck_customer_tax_id
+        hosted_fields_card_token: hosted_fields_card_token
+        credit_card_authorization_amount: 7.061401241503109
+        use_prior_payment_information_from_order_id: use_prior_payment_information_from_order_id
+        billto_postal_code: billto_postal_code
+        payment_method: Affirm
+        special_instructions: special_instructions
+        associate_with_customer_profile_if_present: true
+        tax_exempt: true
+        billto_title: billto_title
+        credit_card_type: credit_card_type
+        delivery_date: delivery_date
+        echeck_bank_owner_type: Business
+        store_completed: true
+        credit_card_expiration_month: 9
+        shipto_country_code: shipto_country_code
+        shipto_day_phone: shipto_day_phone
+        store_if_payment_declines: true
+        arbitrary_taxable_subtotal: 5.637376656633329
+        shipto_city: shipto_city
+        shipto_state_region: shipto_state_region
+        billto_last_name: billto_last_name
+        credit_card_authorization_number: credit_card_authorization_number
+        hosted_fields_cvv_token: hosted_fields_cvv_token
+        ship_to_residential: true
+        arbitrary_taxable_subtotal_discount: 2.3021358869347655
+        shipto_last_name: shipto_last_name
         custom_field1: custom_field1
         treat_warnings_as_errors: true
-        echeck_drivers_license_dob: echeck_drivers_license_dob
         custom_field3: custom_field3
         storefront_host_name: storefront_host_name
-        billto_city: billto_city
         billto_evening_phone: billto_evening_phone
         custom_field2: custom_field2
         custom_field5: custom_field5
@@ -123136,25 +123172,15 @@ components:
         custom_field6: custom_field6
         ip_address: ip_address
         billto_country_code: billto_country_code
-        least_cost_route: true
         mailing_list_opt_in: true
         echeck_bank_account_type: Checking
-        shipto_postal_code: shipto_postal_code
         billto_address2: billto_address2
         billto_address1: billto_address1
         billto_state_region: billto_state_region
         credit_card_expiration_year: 3
         arbitrary_tax_rate: 5.962133916683182
         consider_recurring: true
-        skip_payment_processing: true
         gift_message: gift_message
-        transaction:
-          details:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          successful: true
         billto_first_name: billto_first_name
       properties:
         advertisingSource:
@@ -123505,6 +123531,9 @@ components:
           description: Shipping Title
           maxLength: 50
           type: string
+        skip_auto_order_setup:
+          description: If true the setup of the auto order record is skipped
+          type: boolean
         skip_payment_processing:
           description: If true the order is placed directly into the shipping department
           type: boolean
@@ -133462,6 +133491,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -135225,6 +135255,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -137071,6 +137102,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -138989,6 +139021,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -140752,6 +140785,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -142598,6 +142632,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -144520,6 +144555,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -146283,6 +146319,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -151963,6 +152000,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -153726,6 +153764,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -155572,6 +155611,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -157490,6 +157530,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -159253,6 +159294,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -161099,6 +161141,7 @@ components:
               auto_approve_purchase_order: true
               channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
+              skip_auto_order_setup: true
               treat_warnings_as_errors: true
               store_completed: true
               skip_payment_processing: true
@@ -163017,6 +163060,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -164780,6 +164824,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -204124,6 +204169,7 @@ components:
           auto_approve_purchase_order: true
           channel_partner_order_id: channel_partner_order_id
           channel_partner_data: channel_partner_data
+          skip_auto_order_setup: true
           treat_warnings_as_errors: true
           store_completed: true
           skip_payment_processing: true
@@ -206781,6 +206827,7 @@ components:
         auto_approve_purchase_order: true
         channel_partner_order_id: channel_partner_order_id
         channel_partner_data: channel_partner_data
+        skip_auto_order_setup: true
         treat_warnings_as_errors: true
         store_completed: true
         skip_payment_processing: true
@@ -206815,6 +206862,10 @@ components:
         no_realtime_payment_processing:
           description: Indicates this order should be placed in Account Receivable
             for later payment processing
+          type: boolean
+        skip_auto_order_setup:
+          description: Instructs UltraCart to skip auto order setup.  Only applicable
+            on inserting orders.
           type: boolean
         skip_payment_processing:
           description: Indicates this order was already paid for via a channel purchase
@@ -209926,6 +209977,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -211978,6 +212030,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -213741,6 +213794,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
@@ -216837,6 +216891,7 @@ components:
             auto_approve_purchase_order: true
             channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
+            skip_auto_order_setup: true
             treat_warnings_as_errors: true
             store_completed: true
             skip_payment_processing: true
