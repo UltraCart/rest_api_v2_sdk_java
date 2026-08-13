@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:29:31.532-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:58:04.658-04:00[America/Indianapolis]")
 public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertisingSource";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
@@ -70,6 +70,10 @@ public class ChannelPartnerOrder {
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)
   private BigDecimal arbitraryShippingHandlingTotal;
 
+  public static final String SERIALIZED_NAME_ARBITRARY_SUBTOTAL_DISCOUNT = "arbitrary_subtotal_discount";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_SUBTOTAL_DISCOUNT)
+  private BigDecimal arbitrarySubtotalDiscount;
+
   public static final String SERIALIZED_NAME_ARBITRARY_TAX = "arbitrary_tax";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_TAX)
   private BigDecimal arbitraryTax;
@@ -81,6 +85,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL = "arbitrary_taxable_subtotal";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL)
   private BigDecimal arbitraryTaxableSubtotal;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL_DISCOUNT = "arbitrary_taxable_subtotal_discount";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL_DISCOUNT)
+  private BigDecimal arbitraryTaxableSubtotalDiscount;
 
   public static final String SERIALIZED_NAME_ASSOCIATE_WITH_CUSTOMER_PROFILE_IF_PRESENT = "associate_with_customer_profile_if_present";
   @SerializedName(SERIALIZED_NAME_ASSOCIATE_WITH_CUSTOMER_PROFILE_IF_PRESENT)
@@ -688,6 +696,29 @@ public class ChannelPartnerOrder {
   }
 
 
+  public ChannelPartnerOrder arbitrarySubtotalDiscount(BigDecimal arbitrarySubtotalDiscount) {
+    
+    this.arbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
+    return this;
+  }
+
+   /**
+   * Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.
+   * @return arbitrarySubtotalDiscount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here.")
+
+  public BigDecimal getArbitrarySubtotalDiscount() {
+    return arbitrarySubtotalDiscount;
+  }
+
+
+  public void setArbitrarySubtotalDiscount(BigDecimal arbitrarySubtotalDiscount) {
+    this.arbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
+  }
+
+
   public ChannelPartnerOrder arbitraryTax(BigDecimal arbitraryTax) {
     
     this.arbitraryTax = arbitraryTax;
@@ -754,6 +785,29 @@ public class ChannelPartnerOrder {
 
   public void setArbitraryTaxableSubtotal(BigDecimal arbitraryTaxableSubtotal) {
     this.arbitraryTaxableSubtotal = arbitraryTaxableSubtotal;
+  }
+
+
+  public ChannelPartnerOrder arbitraryTaxableSubtotalDiscount(BigDecimal arbitraryTaxableSubtotalDiscount) {
+    
+    this.arbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
+    return this;
+  }
+
+   /**
+   * Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.
+   * @return arbitraryTaxableSubtotalDiscount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both.")
+
+  public BigDecimal getArbitraryTaxableSubtotalDiscount() {
+    return arbitraryTaxableSubtotalDiscount;
+  }
+
+
+  public void setArbitraryTaxableSubtotalDiscount(BigDecimal arbitraryTaxableSubtotalDiscount) {
+    this.arbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
   }
 
 
@@ -2796,9 +2850,11 @@ public class ChannelPartnerOrder {
         Objects.equals(this.affiliateId, channelPartnerOrder.affiliateId) &&
         Objects.equals(this.affiliateSubId, channelPartnerOrder.affiliateSubId) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, channelPartnerOrder.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.arbitrarySubtotalDiscount, channelPartnerOrder.arbitrarySubtotalDiscount) &&
         Objects.equals(this.arbitraryTax, channelPartnerOrder.arbitraryTax) &&
         Objects.equals(this.arbitraryTaxRate, channelPartnerOrder.arbitraryTaxRate) &&
         Objects.equals(this.arbitraryTaxableSubtotal, channelPartnerOrder.arbitraryTaxableSubtotal) &&
+        Objects.equals(this.arbitraryTaxableSubtotalDiscount, channelPartnerOrder.arbitraryTaxableSubtotalDiscount) &&
         Objects.equals(this.associateWithCustomerProfileIfPresent, channelPartnerOrder.associateWithCustomerProfileIfPresent) &&
         Objects.equals(this.autoApprovePurchaseOrder, channelPartnerOrder.autoApprovePurchaseOrder) &&
         Objects.equals(this.billtoAddress1, channelPartnerOrder.billtoAddress1) &&
@@ -2890,7 +2946,7 @@ public class ChannelPartnerOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, arbitraryTaxableSubtotalDiscount, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
   }
 
   @Override
@@ -2901,9 +2957,11 @@ public class ChannelPartnerOrder {
     sb.append("    affiliateId: ").append(toIndentedString(affiliateId)).append("\n");
     sb.append("    affiliateSubId: ").append(toIndentedString(affiliateSubId)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
+    sb.append("    arbitrarySubtotalDiscount: ").append(toIndentedString(arbitrarySubtotalDiscount)).append("\n");
     sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
     sb.append("    arbitraryTaxRate: ").append(toIndentedString(arbitraryTaxRate)).append("\n");
     sb.append("    arbitraryTaxableSubtotal: ").append(toIndentedString(arbitraryTaxableSubtotal)).append("\n");
+    sb.append("    arbitraryTaxableSubtotalDiscount: ").append(toIndentedString(arbitraryTaxableSubtotalDiscount)).append("\n");
     sb.append("    associateWithCustomerProfileIfPresent: ").append(toIndentedString(associateWithCustomerProfileIfPresent)).append("\n");
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
     sb.append("    billtoAddress1: ").append(toIndentedString(billtoAddress1)).append("\n");
@@ -3017,9 +3075,11 @@ public class ChannelPartnerOrder {
     openapiFields.add("affiliate_id");
     openapiFields.add("affiliate_sub_id");
     openapiFields.add("arbitrary_shipping_handling_total");
+    openapiFields.add("arbitrary_subtotal_discount");
     openapiFields.add("arbitrary_tax");
     openapiFields.add("arbitrary_tax_rate");
     openapiFields.add("arbitrary_taxable_subtotal");
+    openapiFields.add("arbitrary_taxable_subtotal_discount");
     openapiFields.add("associate_with_customer_profile_if_present");
     openapiFields.add("auto_approve_purchase_order");
     openapiFields.add("billto_address1");

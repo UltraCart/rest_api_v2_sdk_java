@@ -11,9 +11,11 @@
 |**affiliateId** | **String** | Affiliate Id |  [optional] |
 |**affiliateSubId** | **String** | Affiliate Sub Id |  [optional] |
 |**arbitraryShippingHandlingTotal** | **BigDecimal** | Arbitrary shipping handling total |  [optional] |
+|**arbitrarySubtotalDiscount** | **BigDecimal** | Arbitrary subtotal discount for overriding the calculated subtotal discount.  Send the gross price in the item arbitrary unit cost and the discount here. |  [optional] |
 |**arbitraryTax** | **BigDecimal** | Arbitrary tax for overriding calculated taxes |  [optional] |
 |**arbitraryTaxRate** | **BigDecimal** | Arbitrary tax rate |  [optional] |
 |**arbitraryTaxableSubtotal** | **BigDecimal** | Arbitrary taxable subtotal |  [optional] |
+|**arbitraryTaxableSubtotalDiscount** | **BigDecimal** | Arbitrary taxable subtotal discount.  If an arbitrary subtotal discount is supplied without this field, the arbitrary subtotal discount is used for both. |  [optional] |
 |**associateWithCustomerProfileIfPresent** | **Boolean** | If true any matching customer profile based on email is associated with this order |  [optional] |
 |**autoApprovePurchaseOrder** | **Boolean** | If true any purchase orders are automatically approved |  [optional] |
 |**billtoAddress1** | **String** | Billing Address line 1 |  [optional] |

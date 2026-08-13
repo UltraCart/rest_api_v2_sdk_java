@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-13T13:29:31.532-04:00[America/Indianapolis]
+- Build date: 2026-08-13T13:58:04.658-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.127</version>
+    <version>4.1.128</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.127"
+     implementation "com.ultracart:rest-sdk:4.1.128"
   }
 ```
 
@@ -1859,6 +1859,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.128 | 08/13/2026 | channel partner - added arbitrary discount to ChannelPartnerOrder |
 | 4.1.127 | 08/13/2026 | added arbitrary discounts to order creation for historical imports |
 | 4.1.126 | 08/10/2026 | oauth - add /oauth/me method to assist application in indentifying the connected account |
 | 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |

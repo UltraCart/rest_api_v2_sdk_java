@@ -123021,7 +123021,7 @@ components:
         affiliate_id: affiliate_id
         cc_email: cc_email
         shipto_evening_phone: shipto_evening_phone
-        arbitrary_tax: 6.027456183070403
+        arbitrary_tax: 1.4658129805029452
         creation_dts: creation_dts
         echeck_customer_tax_id: echeck_customer_tax_id
         echeck_bank_account_number: echeck_bank_account_number
@@ -123029,7 +123029,7 @@ components:
         coupons:
         - coupons
         - coupons
-        credit_card_authorization_amount: 5.637376656633329
+        credit_card_authorization_amount: 7.061401241503109
         use_prior_payment_information_from_order_id: use_prior_payment_information_from_order_id
         shipping_method: shipping_method
         purchase_order_number: purchase_order_number
@@ -123055,7 +123055,7 @@ components:
         delivery_date: delivery_date
         echeck_bank_owner_type: Business
         store_completed: true
-        credit_card_expiration_month: 2
+        credit_card_expiration_month: 9
         shipto_country_code: shipto_country_code
         shipto_day_phone: shipto_day_phone
         echeck_bank_aba_code: echeck_bank_aba_code
@@ -123063,8 +123063,8 @@ components:
         billto_company: billto_company
         items:
         - merchant_item_id: merchant_item_id
-          quantity: 3.616076749251911
-          arbitrary_unit_cost: 9.301444243932576
+          quantity: 4.145608029883936
+          arbitrary_unit_cost: 2.027123023002322
           options:
           - name: name
             value: value
@@ -123083,8 +123083,8 @@ components:
             expiration_dts: expiration_dts
             value: value
         - merchant_item_id: merchant_item_id
-          quantity: 3.616076749251911
-          arbitrary_unit_cost: 9.301444243932576
+          quantity: 4.145608029883936
+          arbitrary_unit_cost: 2.027123023002322
           options:
           - name: name
             value: value
@@ -123102,7 +123102,7 @@ components:
             name: name
             expiration_dts: expiration_dts
             value: value
-        arbitrary_taxable_subtotal: 5.962133916683182
+        arbitrary_taxable_subtotal: 5.637376656633329
         shipto_city: shipto_city
         shipto_state_region: shipto_state_region
         insurance_application_id: insurance_application_id
@@ -123114,12 +123114,14 @@ components:
         ship_to_residential: true
         gift_email: gift_email
         ship_on_date: ship_on_date
+        arbitrary_taxable_subtotal_discount: 2.3021358869347655
         advertisingSource: advertisingSource
         shipto_last_name: shipto_last_name
         sales_rep_code: sales_rep_code
         no_realtime_payment_processing: true
         echeck_bank_account_name: echeck_bank_account_name
         email: email
+        arbitrary_subtotal_discount: 6.027456183070403
         custom_field1: custom_field1
         treat_warnings_as_errors: true
         echeck_drivers_license_dob: echeck_drivers_license_dob
@@ -123141,8 +123143,8 @@ components:
         billto_address2: billto_address2
         billto_address1: billto_address1
         billto_state_region: billto_state_region
-        credit_card_expiration_year: 7
-        arbitrary_tax_rate: 1.4658129805029452
+        credit_card_expiration_year: 3
+        arbitrary_tax_rate: 5.962133916683182
         consider_recurring: true
         skip_payment_processing: true
         gift_message: gift_message
@@ -123167,6 +123169,11 @@ components:
         arbitrary_shipping_handling_total:
           description: Arbitrary shipping handling total
           type: number
+        arbitrary_subtotal_discount:
+          description: Arbitrary subtotal discount for overriding the calculated subtotal
+            discount.  Send the gross price in the item arbitrary unit cost and the
+            discount here.
+          type: number
         arbitrary_tax:
           description: Arbitrary tax for overriding calculated taxes
           type: number
@@ -123175,6 +123182,11 @@ components:
           type: number
         arbitrary_taxable_subtotal:
           description: Arbitrary taxable subtotal
+          type: number
+        arbitrary_taxable_subtotal_discount:
+          description: "Arbitrary taxable subtotal discount.  If an arbitrary subtotal\
+            \ discount is supplied without this field, the arbitrary subtotal discount\
+            \ is used for both."
           type: number
         associate_with_customer_profile_if_present:
           description: If true any matching customer profile based on email is associated
@@ -123532,8 +123544,8 @@ components:
     ChannelPartnerOrderItem:
       example:
         merchant_item_id: merchant_item_id
-        quantity: 3.616076749251911
-        arbitrary_unit_cost: 9.301444243932576
+        quantity: 4.145608029883936
+        arbitrary_unit_cost: 2.027123023002322
         options:
         - name: name
           value: value
