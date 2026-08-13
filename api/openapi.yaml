@@ -18,8 +18,6 @@ security:
   - auto_order_write
   - channel_partner_read
   - channel_partner_write
-  - chargeback_read
-  - chargeback_write
   - checkout_read
   - checkout_write
   - configuration_read
@@ -59096,6 +59094,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -59121,6 +59125,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -61022,6 +61032,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -61047,6 +61063,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -62833,6 +62855,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -62858,6 +62886,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -65306,6 +65340,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -65331,6 +65371,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -67057,6 +67103,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -67082,6 +67134,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -68891,6 +68949,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -68916,6 +68980,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -71910,6 +71980,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -71935,6 +72011,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -73661,6 +73743,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -73686,6 +73774,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -75495,6 +75589,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -75520,6 +75620,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -77451,6 +77557,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -77476,6 +77588,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -79202,6 +79320,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -79227,6 +79351,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -81036,6 +81166,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -81061,6 +81197,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -82964,6 +83106,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -82989,6 +83137,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -84715,6 +84869,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -84740,6 +84900,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -86549,6 +86715,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -86574,6 +86746,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -88455,6 +88633,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -88480,6 +88664,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -90206,6 +90396,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -90231,6 +90427,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -92040,6 +92242,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -92065,6 +92273,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -93966,6 +94180,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -93991,6 +94211,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -95717,6 +95943,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -95742,6 +95974,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -97551,6 +97789,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -97576,6 +97820,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -99457,6 +99707,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -99482,6 +99738,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -101208,6 +101470,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -101233,6 +101501,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -103042,6 +103316,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -103067,6 +103347,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -110210,6 +110496,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -110235,6 +110527,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -134076,6 +134374,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -134101,6 +134405,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -135827,6 +136137,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -135852,6 +136168,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -137661,6 +137983,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -137686,6 +138014,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -139567,6 +139901,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -139592,6 +139932,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -141318,6 +141664,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -141343,6 +141695,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -143152,6 +143510,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -143177,6 +143541,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -145062,6 +145432,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -145087,6 +145463,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -146813,6 +147195,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -146838,6 +147226,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -152481,6 +152875,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -152506,6 +152906,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -154232,6 +154638,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -154257,6 +154669,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -156066,6 +156484,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -156091,6 +156515,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -157972,6 +158402,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -157997,6 +158433,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -159723,6 +160165,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -159748,6 +160196,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -161557,6 +162011,12 @@ components:
                 localized: 6.878052220127876
                 value: 5.944895607614016
                 currency_code: currency_code
+              arbitrary_taxable_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               internal_gift_certificate_amount:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -161582,6 +162042,12 @@ components:
                 value: 5.944895607614016
                 currency_code: currency_code
               actual_profit_analyzed: true
+              arbitrary_subtotal_discount:
+                localized_formatted: localized_formatted
+                exchange_rate: 6.778324963048013
+                localized: 6.878052220127876
+                value: 5.944895607614016
+                currency_code: currency_code
               health_benefit_card_refunded:
                 localized_formatted: localized_formatted
                 exchange_rate: 6.778324963048013
@@ -163463,6 +163929,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -163488,6 +163960,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -165214,6 +165692,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -165239,6 +165723,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -204546,6 +205036,12 @@ components:
             localized: 6.878052220127876
             value: 5.944895607614016
             currency_code: currency_code
+          arbitrary_taxable_subtotal_discount:
+            localized_formatted: localized_formatted
+            exchange_rate: 6.778324963048013
+            localized: 6.878052220127876
+            value: 5.944895607614016
+            currency_code: currency_code
           internal_gift_certificate_amount:
             localized_formatted: localized_formatted
             exchange_rate: 6.778324963048013
@@ -204571,6 +205067,12 @@ components:
             value: 5.944895607614016
             currency_code: currency_code
           actual_profit_analyzed: true
+          arbitrary_subtotal_discount:
+            localized_formatted: localized_formatted
+            exchange_rate: 6.778324963048013
+            localized: 6.878052220127876
+            value: 5.944895607614016
+            currency_code: currency_code
           health_benefit_card_refunded:
             localized_formatted: localized_formatted
             exchange_rate: 6.778324963048013
@@ -210336,6 +210838,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -210361,6 +210869,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -212376,6 +212890,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -212401,6 +212921,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -214127,6 +214653,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -214152,6 +214684,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -214879,6 +215417,12 @@ components:
           localized: 6.878052220127876
           value: 5.944895607614016
           currency_code: currency_code
+        arbitrary_taxable_subtotal_discount:
+          localized_formatted: localized_formatted
+          exchange_rate: 6.778324963048013
+          localized: 6.878052220127876
+          value: 5.944895607614016
+          currency_code: currency_code
         internal_gift_certificate_amount:
           localized_formatted: localized_formatted
           exchange_rate: 6.778324963048013
@@ -214904,6 +215448,12 @@ components:
           value: 5.944895607614016
           currency_code: currency_code
         actual_profit_analyzed: true
+        arbitrary_subtotal_discount:
+          localized_formatted: localized_formatted
+          exchange_rate: 6.778324963048013
+          localized: 6.878052220127876
+          value: 5.944895607614016
+          currency_code: currency_code
         health_benefit_card_refunded:
           localized_formatted: localized_formatted
           exchange_rate: 6.778324963048013
@@ -214982,6 +215532,10 @@ components:
         actual_shipping:
           $ref: '#/components/schemas/Currency'
         arbitrary_shipping_handling_total:
+          $ref: '#/components/schemas/Currency'
+        arbitrary_subtotal_discount:
+          $ref: '#/components/schemas/Currency'
+        arbitrary_taxable_subtotal_discount:
           $ref: '#/components/schemas/Currency'
         health_benefit_card_amount:
           $ref: '#/components/schemas/Currency'
@@ -217195,6 +217749,12 @@ components:
               localized: 6.878052220127876
               value: 5.944895607614016
               currency_code: currency_code
+            arbitrary_taxable_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             internal_gift_certificate_amount:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -217220,6 +217780,12 @@ components:
               value: 5.944895607614016
               currency_code: currency_code
             actual_profit_analyzed: true
+            arbitrary_subtotal_discount:
+              localized_formatted: localized_formatted
+              exchange_rate: 6.778324963048013
+              localized: 6.878052220127876
+              value: 5.944895607614016
+              currency_code: currency_code
             health_benefit_card_refunded:
               localized_formatted: localized_formatted
               exchange_rate: 6.778324963048013
@@ -233755,8 +234321,6 @@ components:
             auto_order_write: Allows you to write auto order information.
             channel_partner_read: Allows you to read channel partner information.
             channel_partner_write: Allows you to write channel partner information.
-            chargeback_read: Allows you to read chargeback information.
-            chargeback_write: Allows you to write chargeback information.
             checkout_read: Allows you to read checkout information.
             checkout_write: Allows you to write checkout information.
             configuration_read: Allows you to read configuration information.

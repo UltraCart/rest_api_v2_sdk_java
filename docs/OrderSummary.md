@@ -15,6 +15,8 @@
 |**actualProfitReview** | **Boolean** | Actual profit needs review |  [optional] |
 |**actualShipping** | [**Currency**](Currency.md) |  |  [optional] |
 |**arbitraryShippingHandlingTotal** | [**Currency**](Currency.md) |  |  [optional] |
+|**arbitrarySubtotalDiscount** | [**Currency**](Currency.md) |  |  [optional] |
+|**arbitraryTaxableSubtotalDiscount** | [**Currency**](Currency.md) |  |  [optional] |
 |**healthBenefitCardAmount** | [**Currency**](Currency.md) |  |  [optional] |
 |**healthBenefitCardRefunded** | [**Currency**](Currency.md) |  |  [optional] |
 |**internalGiftCertificateAmount** | [**Currency**](Currency.md) |  |  [optional] |

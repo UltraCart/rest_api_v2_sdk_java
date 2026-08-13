@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:29:31.532-04:00[America/Indianapolis]")
 public class OrderSummary {
   public static final String SERIALIZED_NAME_ACTUAL_FULFILLMENT = "actual_fulfillment";
   @SerializedName(SERIALIZED_NAME_ACTUAL_FULFILLMENT)
@@ -81,6 +81,14 @@ public class OrderSummary {
   public static final String SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL = "arbitrary_shipping_handling_total";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)
   private Currency arbitraryShippingHandlingTotal;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_SUBTOTAL_DISCOUNT = "arbitrary_subtotal_discount";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_SUBTOTAL_DISCOUNT)
+  private Currency arbitrarySubtotalDiscount;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL_DISCOUNT = "arbitrary_taxable_subtotal_discount";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_TAXABLE_SUBTOTAL_DISCOUNT)
+  private Currency arbitraryTaxableSubtotalDiscount;
 
   public static final String SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT = "health_benefit_card_amount";
   @SerializedName(SERIALIZED_NAME_HEALTH_BENEFIT_CARD_AMOUNT)
@@ -338,6 +346,52 @@ public class OrderSummary {
 
   public void setArbitraryShippingHandlingTotal(Currency arbitraryShippingHandlingTotal) {
     this.arbitraryShippingHandlingTotal = arbitraryShippingHandlingTotal;
+  }
+
+
+  public OrderSummary arbitrarySubtotalDiscount(Currency arbitrarySubtotalDiscount) {
+    
+    this.arbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
+    return this;
+  }
+
+   /**
+   * Get arbitrarySubtotalDiscount
+   * @return arbitrarySubtotalDiscount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getArbitrarySubtotalDiscount() {
+    return arbitrarySubtotalDiscount;
+  }
+
+
+  public void setArbitrarySubtotalDiscount(Currency arbitrarySubtotalDiscount) {
+    this.arbitrarySubtotalDiscount = arbitrarySubtotalDiscount;
+  }
+
+
+  public OrderSummary arbitraryTaxableSubtotalDiscount(Currency arbitraryTaxableSubtotalDiscount) {
+    
+    this.arbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
+    return this;
+  }
+
+   /**
+   * Get arbitraryTaxableSubtotalDiscount
+   * @return arbitraryTaxableSubtotalDiscount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Currency getArbitraryTaxableSubtotalDiscount() {
+    return arbitraryTaxableSubtotalDiscount;
+  }
+
+
+  public void setArbitraryTaxableSubtotalDiscount(Currency arbitraryTaxableSubtotalDiscount) {
+    this.arbitraryTaxableSubtotalDiscount = arbitraryTaxableSubtotalDiscount;
   }
 
 
@@ -773,6 +827,8 @@ public class OrderSummary {
         Objects.equals(this.actualProfitReview, orderSummary.actualProfitReview) &&
         Objects.equals(this.actualShipping, orderSummary.actualShipping) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, orderSummary.arbitraryShippingHandlingTotal) &&
+        Objects.equals(this.arbitrarySubtotalDiscount, orderSummary.arbitrarySubtotalDiscount) &&
+        Objects.equals(this.arbitraryTaxableSubtotalDiscount, orderSummary.arbitraryTaxableSubtotalDiscount) &&
         Objects.equals(this.healthBenefitCardAmount, orderSummary.healthBenefitCardAmount) &&
         Objects.equals(this.healthBenefitCardRefunded, orderSummary.healthBenefitCardRefunded) &&
         Objects.equals(this.internalGiftCertificateAmount, orderSummary.internalGiftCertificateAmount) &&
@@ -795,7 +851,7 @@ public class OrderSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actualFulfillment, actualOtherCost, actualPaymentProcessing, actualProfit, actualProfitAnalyzed, actualProfitReview, actualShipping, arbitraryShippingHandlingTotal, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
+    return Objects.hash(actualFulfillment, actualOtherCost, actualPaymentProcessing, actualProfit, actualProfitAnalyzed, actualProfitReview, actualShipping, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTaxableSubtotalDiscount, healthBenefitCardAmount, healthBenefitCardRefunded, internalGiftCertificateAmount, internalGiftCertificateRefunded, otherRefunded, shippingHandlingRefunded, shippingHandlingTotal, shippingHandlingTotalDiscount, subtotal, subtotalDiscount, subtotalDiscountRefunded, subtotalRefunded, tax, taxRefunded, taxableSubtotal, taxableSubtotalDiscount, total, totalRefunded);
   }
 
   @Override
@@ -810,6 +866,8 @@ public class OrderSummary {
     sb.append("    actualProfitReview: ").append(toIndentedString(actualProfitReview)).append("\n");
     sb.append("    actualShipping: ").append(toIndentedString(actualShipping)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
+    sb.append("    arbitrarySubtotalDiscount: ").append(toIndentedString(arbitrarySubtotalDiscount)).append("\n");
+    sb.append("    arbitraryTaxableSubtotalDiscount: ").append(toIndentedString(arbitraryTaxableSubtotalDiscount)).append("\n");
     sb.append("    healthBenefitCardAmount: ").append(toIndentedString(healthBenefitCardAmount)).append("\n");
     sb.append("    healthBenefitCardRefunded: ").append(toIndentedString(healthBenefitCardRefunded)).append("\n");
     sb.append("    internalGiftCertificateAmount: ").append(toIndentedString(internalGiftCertificateAmount)).append("\n");
@@ -858,6 +916,8 @@ public class OrderSummary {
     openapiFields.add("actual_profit_review");
     openapiFields.add("actual_shipping");
     openapiFields.add("arbitrary_shipping_handling_total");
+    openapiFields.add("arbitrary_subtotal_discount");
+    openapiFields.add("arbitrary_taxable_subtotal_discount");
     openapiFields.add("health_benefit_card_amount");
     openapiFields.add("health_benefit_card_refunded");
     openapiFields.add("internal_gift_certificate_amount");
@@ -926,6 +986,14 @@ public class OrderSummary {
       // validate the optional field `arbitrary_shipping_handling_total`
       if (jsonObj.getAsJsonObject("arbitrary_shipping_handling_total") != null) {
         Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_shipping_handling_total"));
+      }
+      // validate the optional field `arbitrary_subtotal_discount`
+      if (jsonObj.getAsJsonObject("arbitrary_subtotal_discount") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_subtotal_discount"));
+      }
+      // validate the optional field `arbitrary_taxable_subtotal_discount`
+      if (jsonObj.getAsJsonObject("arbitrary_taxable_subtotal_discount") != null) {
+        Currency.validateJsonObject(jsonObj.getAsJsonObject("arbitrary_taxable_subtotal_discount"));
       }
       // validate the optional field `health_benefit_card_amount`
       if (jsonObj.getAsJsonObject("health_benefit_card_amount") != null) {

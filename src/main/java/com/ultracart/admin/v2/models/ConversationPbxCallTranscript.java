@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallTranscript
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-10T13:28:57.129-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T13:29:31.532-04:00[America/Indianapolis]")
 public class ConversationPbxCallTranscript {
   public static final String SERIALIZED_NAME_FULL_TRANSCRIPT_S3_KEY = "full_transcript_s3_key";
   @SerializedName(SERIALIZED_NAME_FULL_TRANSCRIPT_S3_KEY)

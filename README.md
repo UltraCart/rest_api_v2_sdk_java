@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-10T13:28:57.129-04:00[America/Indianapolis]
+- Build date: 2026-08-13T13:29:31.532-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.126</version>
+    <version>4.1.127</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.126"
+     implementation "com.ultracart:rest-sdk:4.1.127"
   }
 ```
 
@@ -1801,8 +1801,6 @@ Authentication schemes defined for the API:
   - auto_order_write: Allows you to write auto order information.
   - channel_partner_read: Allows you to read channel partner information.
   - channel_partner_write: Allows you to write channel partner information.
-  - chargeback_read: Allows you to read chargeback information.
-  - chargeback_write: Allows you to write chargeback information.
   - checkout_read: Allows you to read checkout information.
   - checkout_write: Allows you to write checkout information.
   - configuration_read: Allows you to read configuration information.
@@ -1861,6 +1859,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.127 | 08/13/2026 | added arbitrary discounts to order creation for historical imports |
 | 4.1.126 | 08/10/2026 | oauth - add /oauth/me method to assist application in indentifying the connected account |
 | 4.1.125 | 08/06/2026 | order api - ability to query by bin and last 4 in unlimited scenarios for chargeback order association |
 | 4.1.124 | 08/04/2026 | customer - method to remove customer profile from email suppression |
