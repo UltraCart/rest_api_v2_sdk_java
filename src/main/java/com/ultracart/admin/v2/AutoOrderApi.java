@@ -2417,7 +2417,7 @@ public class AutoOrderApi {
 
     /**
      * Update an auto order
-     * Update an auto order on the UltraCart account. 
+     * Update an auto order on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
      * @param validateOriginalOrder Validate original order before updating (optional)
@@ -2442,7 +2442,7 @@ public class AutoOrderApi {
 
     /**
      * Update an auto order
-     * Update an auto order on the UltraCart account. 
+     * Update an auto order on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
      * @param validateOriginalOrder Validate original order before updating (optional)
@@ -2468,7 +2468,7 @@ public class AutoOrderApi {
 
     /**
      * Update an auto order (asynchronously)
-     * Update an auto order on the UltraCart account. 
+     * Update an auto order on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrderOid The auto order oid to update. (required)
      * @param autoOrder Auto order to update (required)
      * @param validateOriginalOrder Validate original order before updating (optional)
@@ -3263,7 +3263,7 @@ public class AutoOrderApi {
 
     /**
      * Update multiple auto orders
-     * Update multiple auto orders on the UltraCart account. 
+     * Update multiple auto orders on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -3288,7 +3288,7 @@ public class AutoOrderApi {
 
     /**
      * Update multiple auto orders
-     * Update multiple auto orders on the UltraCart account. 
+     * Update multiple auto orders on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -3314,7 +3314,7 @@ public class AutoOrderApi {
 
     /**
      * Update multiple auto orders (asynchronously)
-     * Update multiple auto orders on the UltraCart account. 
+     * Update multiple auto orders on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
      * @param autoOrdersRequest Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)

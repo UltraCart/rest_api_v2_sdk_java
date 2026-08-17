@@ -56,7 +56,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-13T15:46:39.276-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-17T13:12:42.026-04:00[America/Indianapolis]")
 public class AutoOrder {
   public static final String SERIALIZED_NAME_ADD_ONS = "add_ons";
   @SerializedName(SERIALIZED_NAME_ADD_ONS)
@@ -358,11 +358,11 @@ public class AutoOrder {
   }
 
    /**
-   * The reason this auto order was canceled by either merchant or customer
+   * The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
    * @return cancelReason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The reason this auto order was canceled by either merchant or customer")
+  @ApiModelProperty(value = "The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.")
 
   public String getCancelReason() {
     return cancelReason;
@@ -404,11 +404,11 @@ public class AutoOrder {
   }
 
    /**
-   * The user that canceled the auto order
+   * The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.
    * @return canceledByUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The user that canceled the auto order")
+  @ApiModelProperty(value = "The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable.")
 
   public String getCanceledByUser() {
     return canceledByUser;
@@ -427,11 +427,11 @@ public class AutoOrder {
   }
 
    /**
-   * The date/time that the auto order was canceled
+   * The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.
    * @return canceledDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date/time that the auto order was canceled")
+  @ApiModelProperty(value = "The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user.")
 
   public String getCanceledDts() {
     return canceledDts;
@@ -496,11 +496,11 @@ public class AutoOrder {
   }
 
    /**
-   * The date/time the auto order was disabled due to failed rebills
+   * The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation
    * @return disabledDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date/time the auto order was disabled due to failed rebills")
+  @ApiModelProperty(value = "The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation")
 
   public String getDisabledDts() {
     return disabledDts;
@@ -550,11 +550,11 @@ public class AutoOrder {
   }
 
    /**
-   * True if this auto order is enabled
+   * True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if this auto order is enabled")
+  @ApiModelProperty(value = "True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead.")
 
   public Boolean getEnabled() {
     return enabled;

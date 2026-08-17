@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-13T15:46:39.276-04:00[America/Indianapolis]
+- Build date: 2026-08-17T13:12:42.026-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.129</version>
+    <version>4.1.130</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.129"
+     implementation "com.ultracart:rest-sdk:4.1.130"
   }
 ```
 
@@ -464,6 +464,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/OrderApi.md#getOrderByToken) | **POST** /order/orders/token | Retrieve an order using a token
+*OrderApi* | [**getOrderCustomerActivity**](docs/OrderApi.md#getOrderCustomerActivity) | **GET** /order/orders/{order_id}/customer_activity | Retrieve customer activity for this order.
 *OrderApi* | [**getOrderEdiDocuments**](docs/OrderApi.md#getOrderEdiDocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrderEmails**](docs/OrderApi.md#getOrderEmails) | **GET** /order/orders/{order_id}/emails | Retrieve email delivery information for this order.
 *OrderApi* | [**getOrderPageViewHistory**](docs/OrderApi.md#getOrderPageViewHistory) | **GET** /order/orders/{order_id}/page_view_history | Retrieve page view history for this order.
@@ -1525,6 +1526,7 @@ Class | Method | HTTP request | Description
  - [OrderCheckout](docs/OrderCheckout.md)
  - [OrderCoupon](docs/OrderCoupon.md)
  - [OrderCurrentStageHistory](docs/OrderCurrentStageHistory.md)
+ - [OrderCustomerActivityResponse](docs/OrderCustomerActivityResponse.md)
  - [OrderDigitalItem](docs/OrderDigitalItem.md)
  - [OrderDigitalOrder](docs/OrderDigitalOrder.md)
  - [OrderEdi](docs/OrderEdi.md)
@@ -1859,6 +1861,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.130 | 08/17/2026 | order api - new method to obtain customer activity similar to the customer endpoint for a profile |
 | 4.1.129 | 08/13/2026 | ChannelPartnerOrder and OrderChannelPartner were missing a property |
 | 4.1.128 | 08/13/2026 | channel partner - added arbitrary discount to ChannelPartnerOrder |
 | 4.1.127 | 08/13/2026 | added arbitrary discounts to order creation for historical imports |

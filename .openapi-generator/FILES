@@ -806,6 +806,7 @@ docs/OrderChannelPartner.md
 docs/OrderCheckout.md
 docs/OrderCoupon.md
 docs/OrderCurrentStageHistory.md
+docs/OrderCustomerActivityResponse.md
 docs/OrderDigitalItem.md
 docs/OrderDigitalOrder.md
 docs/OrderEdi.md
@@ -1883,6 +1884,7 @@ src/main/java/com/ultracart/admin/v2/models/OrderChannelPartner.java
 src/main/java/com/ultracart/admin/v2/models/OrderCheckout.java
 src/main/java/com/ultracart/admin/v2/models/OrderCoupon.java
 src/main/java/com/ultracart/admin/v2/models/OrderCurrentStageHistory.java
+src/main/java/com/ultracart/admin/v2/models/OrderCustomerActivityResponse.java
 src/main/java/com/ultracart/admin/v2/models/OrderDigitalItem.java
 src/main/java/com/ultracart/admin/v2/models/OrderDigitalOrder.java
 src/main/java/com/ultracart/admin/v2/models/OrderEdi.java

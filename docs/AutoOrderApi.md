@@ -1357,7 +1357,7 @@ public class PauseAutoOrder {
 
 Update an auto order
 
-Update an auto order on the UltraCart account. 
+Update an auto order on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
 
 ### Example
 
@@ -1627,7 +1627,7 @@ Update an auto order properties.  Returns the auto order based upon expansion
 
 Update multiple auto orders
 
-Update multiple auto orders on the UltraCart account. 
+Update multiple auto orders on the UltraCart account.  To cancel an auto order, set enabled to false and supply either cancel_reason or canceled_by_user, which records the change as a cancellation and fires the auto order cancel notifications.  Setting enabled to false without either field records a disable. 
 
 ### Example
 

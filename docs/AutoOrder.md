@@ -12,15 +12,15 @@
 |**autoOrderOid** | **Integer** | Auto order object identifier |  [optional] |
 |**cancelAfterNextXOrders** | **Integer** | Cancel this auto order after X additional rebills |  [optional] |
 |**cancelDowngrade** | **Boolean** | True if the auto order was canceled because the customer purchased a downgrade item |  [optional] |
-|**cancelReason** | **String** | The reason this auto order was canceled by either merchant or customer |  [optional] |
+|**cancelReason** | **String** | The reason this auto order was canceled by either merchant or customer. Supplying this when setting enabled to false records the change as a cancellation rather than a disable. |  [optional] |
 |**cancelUpgrade** | **Boolean** | True if the auto order was canceled because the customer purchased an upgrade item |  [optional] |
-|**canceledByUser** | **String** | The user that canceled the auto order |  [optional] |
-|**canceledDts** | **String** | The date/time that the auto order was canceled |  [optional] |
+|**canceledByUser** | **String** | The user that canceled the auto order. Supplying this when setting enabled to false records the change as a cancellation rather than a disable. |  [optional] |
+|**canceledDts** | **String** | The date/time that the auto order was canceled. Supply this to record an explicit cancellation time, otherwise it is stamped automatically when enabled is set to false along with cancel_reason or canceled_by_user. |  [optional] |
 |**completed** | **Boolean** | True if the auto order ran successfully to completion |  [optional] |
 |**creditCardAttempt** | **Integer** | The number of credit card attempts that have taken place |  [optional] |
-|**disabledDts** | **String** | The date/time the auto order was disabled due to failed rebills |  [optional] |
+|**disabledDts** | **String** | The date/time the auto order was disabled, either by a failed rebill or by setting enabled to false without a cancellation |  [optional] |
 |**emails** | [**List&lt;AutoOrderEmail&gt;**](AutoOrderEmail.md) | Email delivery records associated with this auto order. |  [optional] |
-|**enabled** | **Boolean** | True if this auto order is enabled |  [optional] |
+|**enabled** | **Boolean** | True if this auto order is enabled. Setting this to false along with cancel_reason or canceled_by_user records the change as a cancellation and fires the auto order cancel notifications. Setting it to false without either field records a disable instead. |  [optional] |
 |**failureReason** | **String** | The reason this auto order failed during the last rebill attempt |  [optional] |
 |**items** | [**List&lt;AutoOrderItem&gt;**](AutoOrderItem.md) | The items that are setup to rebill |  [optional] |
 |**logs** | [**List&lt;AutoOrderLog&gt;**](AutoOrderLog.md) | Logs associated with this auto order |  [optional] |
