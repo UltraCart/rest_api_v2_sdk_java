@@ -53,8 +53,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerActivity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-17T13:12:42.026-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T11:56:09.546-04:00[America/Indianapolis]")
 public class CustomerActivity {
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
+
   public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
   @SerializedName(SERIALIZED_NAME_ACTIVITIES)
   private List<Activity> activities = null;
@@ -66,6 +70,10 @@ public class CustomerActivity {
   public static final String SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED_DTS = "global_unsubscribed_dts";
   @SerializedName(SERIALIZED_NAME_GLOBAL_UNSUBSCRIBED_DTS)
   private String globalUnsubscribedDts;
+
+  public static final String SERIALIZED_NAME_LAST_ACTIVITY_DTS = "last_activity_dts";
+  @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_DTS)
+  private String lastActivityDts;
 
   public static final String SERIALIZED_NAME_MEMBERSHIPS = "memberships";
   @SerializedName(SERIALIZED_NAME_MEMBERSHIPS)
@@ -97,6 +105,29 @@ public class CustomerActivity {
 
   public CustomerActivity() { 
   }
+
+  public CustomerActivity active(Boolean active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getActive() {
+    return active;
+  }
+
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
 
   public CustomerActivity activities(List<Activity> activities) {
     
@@ -172,6 +203,29 @@ public class CustomerActivity {
 
   public void setGlobalUnsubscribedDts(String globalUnsubscribedDts) {
     this.globalUnsubscribedDts = globalUnsubscribedDts;
+  }
+
+
+  public CustomerActivity lastActivityDts(String lastActivityDts) {
+    
+    this.lastActivityDts = lastActivityDts;
+    return this;
+  }
+
+   /**
+   * Get lastActivityDts
+   * @return lastActivityDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLastActivityDts() {
+    return lastActivityDts;
+  }
+
+
+  public void setLastActivityDts(String lastActivityDts) {
+    this.lastActivityDts = lastActivityDts;
   }
 
 
@@ -370,9 +424,11 @@ public class CustomerActivity {
       return false;
     }
     CustomerActivity customerActivity = (CustomerActivity) o;
-    return Objects.equals(this.activities, customerActivity.activities) &&
+    return Objects.equals(this.active, customerActivity.active) &&
+        Objects.equals(this.activities, customerActivity.activities) &&
         Objects.equals(this.globalUnsubscribed, customerActivity.globalUnsubscribed) &&
         Objects.equals(this.globalUnsubscribedDts, customerActivity.globalUnsubscribedDts) &&
+        Objects.equals(this.lastActivityDts, customerActivity.lastActivityDts) &&
         Objects.equals(this.memberships, customerActivity.memberships) &&
         Objects.equals(this.metrics, customerActivity.metrics) &&
         Objects.equals(this.propertiesList, customerActivity.propertiesList) &&
@@ -384,16 +440,18 @@ public class CustomerActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activities, globalUnsubscribed, globalUnsubscribedDts, memberships, metrics, propertiesList, sms, smsStop, spamComplaint, spamComplaintDts);
+    return Objects.hash(active, activities, globalUnsubscribed, globalUnsubscribedDts, lastActivityDts, memberships, metrics, propertiesList, sms, smsStop, spamComplaint, spamComplaintDts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerActivity {\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
     sb.append("    globalUnsubscribed: ").append(toIndentedString(globalUnsubscribed)).append("\n");
     sb.append("    globalUnsubscribedDts: ").append(toIndentedString(globalUnsubscribedDts)).append("\n");
+    sb.append("    lastActivityDts: ").append(toIndentedString(lastActivityDts)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    propertiesList: ").append(toIndentedString(propertiesList)).append("\n");
@@ -423,9 +481,11 @@ public class CustomerActivity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("active");
     openapiFields.add("activities");
     openapiFields.add("global_unsubscribed");
     openapiFields.add("global_unsubscribed_dts");
+    openapiFields.add("last_activity_dts");
     openapiFields.add("memberships");
     openapiFields.add("metrics");
     openapiFields.add("properties_list");
@@ -474,6 +534,9 @@ public class CustomerActivity {
       }
       if (jsonObj.get("global_unsubscribed_dts") != null && !jsonObj.get("global_unsubscribed_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `global_unsubscribed_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("global_unsubscribed_dts").toString()));
+      }
+      if (jsonObj.get("last_activity_dts") != null && !jsonObj.get("last_activity_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_activity_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_activity_dts").toString()));
       }
       JsonArray jsonArraymemberships = jsonObj.getAsJsonArray("memberships");
       if (jsonArraymemberships != null) {

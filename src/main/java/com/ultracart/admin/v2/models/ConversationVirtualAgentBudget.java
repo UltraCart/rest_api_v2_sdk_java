@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentBudget
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-17T13:12:42.026-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T11:56:09.546-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentBudget {
   public static final String SERIALIZED_NAME_BUDGET_DAILY = "budget_daily";
   @SerializedName(SERIALIZED_NAME_BUDGET_DAILY)
