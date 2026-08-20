@@ -26,7 +26,7 @@
 |**surchargeTransactionFee** | **BigDecimal** | Surcharge transaction fee |  [optional] |
 |**surchargeTransactionPercentage** | **BigDecimal** | Surcharge transaction percentage |  [optional] |
 |**testOrder** | **Boolean** | True if this is a test order |  [optional] |
-|**transactions** | [**List&lt;OrderPaymentTransaction&gt;**](OrderPaymentTransaction.md) | Transactions associated with processing this payment |  [optional] |
+|**transactions** | [**List&lt;OrderPaymentTransaction&gt;**](OrderPaymentTransaction.md) | Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system. |  [optional] |
 
 
 

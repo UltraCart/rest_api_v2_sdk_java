@@ -79,7 +79,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * Order
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T12:22:20.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T11:20:22.034-04:00[America/Indianapolis]")
 public class Order {
   public static final String SERIALIZED_NAME_AFFILIATES = "affiliates";
   @SerializedName(SERIALIZED_NAME_AFFILIATES)
@@ -1012,11 +1012,11 @@ public class Order {
   }
 
    /**
-   * Properties, available only through update, not through insert due to the nature of how properties are handled internally
+   * Properties associated with the order
    * @return properties
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Properties, available only through update, not through insert due to the nature of how properties are handled internally")
+  @ApiModelProperty(value = "Properties associated with the order")
 
   public List<OrderProperty> getProperties() {
     return properties;

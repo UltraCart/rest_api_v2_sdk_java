@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxAgent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T12:22:20.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T11:20:22.034-04:00[America/Indianapolis]")
 public class ConversationPbxAgent {
   public static final String SERIALIZED_NAME_AI = "ai";
   @SerializedName(SERIALIZED_NAME_AI)
@@ -230,6 +230,14 @@ public class ConversationPbxAgent {
   public static final String SERIALIZED_NAME_VOICEMAIL = "voicemail";
   @SerializedName(SERIALIZED_NAME_VOICEMAIL)
   private Boolean voicemail;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_OUTBOUND_DEPARTMENT_ID = "zoho_desk_outbound_department_id";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_OUTBOUND_DEPARTMENT_ID)
+  private String zohoDeskOutboundDepartmentId;
+
+  public static final String SERIALIZED_NAME_ZOHO_DESK_OUTBOUND_TICKET_ENABLED = "zoho_desk_outbound_ticket_enabled";
+  @SerializedName(SERIALIZED_NAME_ZOHO_DESK_OUTBOUND_TICKET_ENABLED)
+  private Boolean zohoDeskOutboundTicketEnabled;
 
   public ConversationPbxAgent() { 
   }
@@ -725,6 +733,52 @@ public class ConversationPbxAgent {
   }
 
 
+  public ConversationPbxAgent zohoDeskOutboundDepartmentId(String zohoDeskOutboundDepartmentId) {
+    
+    this.zohoDeskOutboundDepartmentId = zohoDeskOutboundDepartmentId;
+    return this;
+  }
+
+   /**
+   * Zoho Desk department ID to create outbound-call tickets in for this agent
+   * @return zohoDeskOutboundDepartmentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Zoho Desk department ID to create outbound-call tickets in for this agent")
+
+  public String getZohoDeskOutboundDepartmentId() {
+    return zohoDeskOutboundDepartmentId;
+  }
+
+
+  public void setZohoDeskOutboundDepartmentId(String zohoDeskOutboundDepartmentId) {
+    this.zohoDeskOutboundDepartmentId = zohoDeskOutboundDepartmentId;
+  }
+
+
+  public ConversationPbxAgent zohoDeskOutboundTicketEnabled(Boolean zohoDeskOutboundTicketEnabled) {
+    
+    this.zohoDeskOutboundTicketEnabled = zohoDeskOutboundTicketEnabled;
+    return this;
+  }
+
+   /**
+   * If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent
+   * @return zohoDeskOutboundTicketEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, a Zoho Desk ticket is automatically created for outbound calls placed by this agent")
+
+  public Boolean getZohoDeskOutboundTicketEnabled() {
+    return zohoDeskOutboundTicketEnabled;
+  }
+
+
+  public void setZohoDeskOutboundTicketEnabled(Boolean zohoDeskOutboundTicketEnabled) {
+    this.zohoDeskOutboundTicketEnabled = zohoDeskOutboundTicketEnabled;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -755,12 +809,14 @@ public class ConversationPbxAgent {
         Objects.equals(this.unavailableSay, conversationPbxAgent.unavailableSay) &&
         Objects.equals(this.unavailableSayVoice, conversationPbxAgent.unavailableSayVoice) &&
         Objects.equals(this.userId, conversationPbxAgent.userId) &&
-        Objects.equals(this.voicemail, conversationPbxAgent.voicemail);
+        Objects.equals(this.voicemail, conversationPbxAgent.voicemail) &&
+        Objects.equals(this.zohoDeskOutboundDepartmentId, conversationPbxAgent.zohoDeskOutboundDepartmentId) &&
+        Objects.equals(this.zohoDeskOutboundTicketEnabled, conversationPbxAgent.zohoDeskOutboundTicketEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail);
+    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail, zohoDeskOutboundDepartmentId, zohoDeskOutboundTicketEnabled);
   }
 
   @Override
@@ -788,6 +844,8 @@ public class ConversationPbxAgent {
     sb.append("    unavailableSayVoice: ").append(toIndentedString(unavailableSayVoice)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    voicemail: ").append(toIndentedString(voicemail)).append("\n");
+    sb.append("    zohoDeskOutboundDepartmentId: ").append(toIndentedString(zohoDeskOutboundDepartmentId)).append("\n");
+    sb.append("    zohoDeskOutboundTicketEnabled: ").append(toIndentedString(zohoDeskOutboundTicketEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -831,6 +889,8 @@ public class ConversationPbxAgent {
     openapiFields.add("unavailable_say_voice");
     openapiFields.add("user_id");
     openapiFields.add("voicemail");
+    openapiFields.add("zoho_desk_outbound_department_id");
+    openapiFields.add("zoho_desk_outbound_ticket_enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -906,6 +966,9 @@ public class ConversationPbxAgent {
       }
       if (jsonObj.get("unavailable_say_voice") != null && !jsonObj.get("unavailable_say_voice").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unavailable_say_voice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unavailable_say_voice").toString()));
+      }
+      if (jsonObj.get("zoho_desk_outbound_department_id") != null && !jsonObj.get("zoho_desk_outbound_department_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `zoho_desk_outbound_department_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("zoho_desk_outbound_department_id").toString()));
       }
   }
 

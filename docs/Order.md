@@ -35,7 +35,7 @@
 |**orderId** | **String** | Order ID |  [optional] |
 |**payment** | [**OrderPayment**](OrderPayment.md) |  |  [optional] |
 |**pointOfSale** | [**OrderPointOfSale**](OrderPointOfSale.md) |  |  [optional] |
-|**properties** | [**List&lt;OrderProperty&gt;**](OrderProperty.md) | Properties, available only through update, not through insert due to the nature of how properties are handled internally |  [optional] |
+|**properties** | [**List&lt;OrderProperty&gt;**](OrderProperty.md) | Properties associated with the order |  [optional] |
 |**quote** | [**OrderQuote**](OrderQuote.md) |  |  [optional] |
 |**refundDts** | **String** | If the order was refunded, the date/time that the last refund occurred |  [optional] |
 |**refundReason** | **String** | Refund reason code.  This can only be written during a refund operation otherwise this field is read only. |  [optional] |

@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailWebhookEditorValuesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T12:22:20.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T11:20:22.034-04:00[America/Indianapolis]")
 public class EmailWebhookEditorValuesResponse {
   public static final String SERIALIZED_NAME_AVAILABLE_EXPANSIONS = "available_expansions";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_EXPANSIONS)

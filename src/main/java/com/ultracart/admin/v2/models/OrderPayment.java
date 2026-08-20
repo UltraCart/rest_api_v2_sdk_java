@@ -59,7 +59,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-18T12:22:20.655-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T11:20:22.034-04:00[America/Indianapolis]")
 public class OrderPayment {
   public static final String SERIALIZED_NAME_CHECK = "check";
   @SerializedName(SERIALIZED_NAME_CHECK)
@@ -762,11 +762,11 @@ public class OrderPayment {
   }
 
    /**
-   * Transactions associated with processing this payment
+   * Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.
    * @return transactions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Transactions associated with processing this payment")
+  @ApiModelProperty(value = "Transactions associated with processing this payment.  Accepted on insert to carry the payment history of an order captured outside the system.")
 
   public List<OrderPaymentTransaction> getTransactions() {
     return transactions;
