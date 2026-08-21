@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxMenuMapping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-20T11:20:22.034-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-21T10:23:19.839-04:00[America/Indianapolis]")
 public class ConversationPbxMenuMapping {
   /**
    * Action
@@ -62,7 +62,9 @@ public class ConversationPbxMenuMapping {
     
     VOICEMAIL("voicemail"),
     
-    AGENT("agent");
+    AGENT("agent"),
+    
+    SEND_TEXT("send text");
 
     private String value;
 
@@ -117,6 +119,10 @@ public class ConversationPbxMenuMapping {
   public static final String SERIALIZED_NAME_SPEECH = "speech";
   @SerializedName(SERIALIZED_NAME_SPEECH)
   private String speech;
+
+  public static final String SERIALIZED_NAME_TEXT_MESSAGE = "text_message";
+  @SerializedName(SERIALIZED_NAME_TEXT_MESSAGE)
+  private String textMessage;
 
   public ConversationPbxMenuMapping() { 
   }
@@ -213,6 +219,29 @@ public class ConversationPbxMenuMapping {
   }
 
 
+  public ConversationPbxMenuMapping textMessage(String textMessage) {
+    
+    this.textMessage = textMessage;
+    return this;
+  }
+
+   /**
+   * Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions.
+   * @return textMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Text message body sent to the caller when the action is 'send text'.  Ignored for all other actions.")
+
+  public String getTextMessage() {
+    return textMessage;
+  }
+
+
+  public void setTextMessage(String textMessage) {
+    this.textMessage = textMessage;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -226,12 +255,13 @@ public class ConversationPbxMenuMapping {
     return Objects.equals(this.action, conversationPbxMenuMapping.action) &&
         Objects.equals(this.actionTarget, conversationPbxMenuMapping.actionTarget) &&
         Objects.equals(this.digits, conversationPbxMenuMapping.digits) &&
-        Objects.equals(this.speech, conversationPbxMenuMapping.speech);
+        Objects.equals(this.speech, conversationPbxMenuMapping.speech) &&
+        Objects.equals(this.textMessage, conversationPbxMenuMapping.textMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, digits, speech);
+    return Objects.hash(action, actionTarget, digits, speech, textMessage);
   }
 
   @Override
@@ -242,6 +272,7 @@ public class ConversationPbxMenuMapping {
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
     sb.append("    digits: ").append(toIndentedString(digits)).append("\n");
     sb.append("    speech: ").append(toIndentedString(speech)).append("\n");
+    sb.append("    textMessage: ").append(toIndentedString(textMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -268,6 +299,7 @@ public class ConversationPbxMenuMapping {
     openapiFields.add("action_target");
     openapiFields.add("digits");
     openapiFields.add("speech");
+    openapiFields.add("text_message");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -303,6 +335,9 @@ public class ConversationPbxMenuMapping {
       }
       if (jsonObj.get("speech") != null && !jsonObj.get("speech").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `speech` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speech").toString()));
+      }
+      if (jsonObj.get("text_message") != null && !jsonObj.get("text_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text_message").toString()));
       }
   }
 

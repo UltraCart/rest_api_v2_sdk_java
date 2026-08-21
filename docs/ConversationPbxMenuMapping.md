@@ -11,6 +11,7 @@
 |**actionTarget** | **String** | Action target.  This is the UUID associated with the configuration object of that particular type. |  [optional] |
 |**digits** | **Integer** | Digits |  [optional] |
 |**speech** | **String** | Speech |  [optional] |
+|**textMessage** | **String** | Text message body sent to the caller when the action is &#39;send text&#39;.  Ignored for all other actions. |  [optional] |
 
 
 
@@ -23,6 +24,7 @@
 | QUEUE | &quot;queue&quot; |
 | VOICEMAIL | &quot;voicemail&quot; |
 | AGENT | &quot;agent&quot; |
+| SEND_TEXT | &quot;send text&quot; |
 
 
 
