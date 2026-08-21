@@ -131082,11 +131082,13 @@ components:
           mappings:
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
@@ -131104,11 +131106,13 @@ components:
           mappings:
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
@@ -149193,11 +149197,13 @@ components:
         mappings:
         - speech: speech
           text_message: text_message
+          sms_from_number: sms_from_number
           action: time based
           digits: 0
           action_target: action_target
         - speech: speech
           text_message: text_message
+          sms_from_number: sms_from_number
           action: time based
           digits: 0
           action_target: action_target
@@ -149270,6 +149276,7 @@ components:
       example:
         speech: speech
         text_message: text_message
+        sms_from_number: sms_from_number
         action: time based
         digits: 0
         action_target: action_target
@@ -149294,6 +149301,12 @@ components:
           description: Digits
           format: int32
           type: integer
+        sms_from_number:
+          description: Optional phone number to send the text message from.  Must
+            be a phone number configured on this merchant account and SMS enabled.  Defaults
+            to the number the caller dialed.  Only used when the action is 'send text'.
+          maxLength: 25
+          type: string
         speech:
           description: Speech
           type: string
@@ -149330,11 +149343,13 @@ components:
           mappings:
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
@@ -149382,11 +149397,13 @@ components:
           mappings:
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
@@ -149404,11 +149421,13 @@ components:
           mappings:
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target
           - speech: speech
             text_message: text_message
+            sms_from_number: sms_from_number
             action: time based
             digits: 0
             action_target: action_target

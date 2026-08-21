@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxMenuMapping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-21T10:23:19.839-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-21T12:55:45.313-04:00[America/Indianapolis]")
 public class ConversationPbxMenuMapping {
   /**
    * Action
@@ -115,6 +115,10 @@ public class ConversationPbxMenuMapping {
   public static final String SERIALIZED_NAME_DIGITS = "digits";
   @SerializedName(SERIALIZED_NAME_DIGITS)
   private Integer digits;
+
+  public static final String SERIALIZED_NAME_SMS_FROM_NUMBER = "sms_from_number";
+  @SerializedName(SERIALIZED_NAME_SMS_FROM_NUMBER)
+  private String smsFromNumber;
 
   public static final String SERIALIZED_NAME_SPEECH = "speech";
   @SerializedName(SERIALIZED_NAME_SPEECH)
@@ -196,6 +200,29 @@ public class ConversationPbxMenuMapping {
   }
 
 
+  public ConversationPbxMenuMapping smsFromNumber(String smsFromNumber) {
+    
+    this.smsFromNumber = smsFromNumber;
+    return this;
+  }
+
+   /**
+   * Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is &#39;send text&#39;.
+   * @return smsFromNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional phone number to send the text message from.  Must be a phone number configured on this merchant account and SMS enabled.  Defaults to the number the caller dialed.  Only used when the action is 'send text'.")
+
+  public String getSmsFromNumber() {
+    return smsFromNumber;
+  }
+
+
+  public void setSmsFromNumber(String smsFromNumber) {
+    this.smsFromNumber = smsFromNumber;
+  }
+
+
   public ConversationPbxMenuMapping speech(String speech) {
     
     this.speech = speech;
@@ -255,13 +282,14 @@ public class ConversationPbxMenuMapping {
     return Objects.equals(this.action, conversationPbxMenuMapping.action) &&
         Objects.equals(this.actionTarget, conversationPbxMenuMapping.actionTarget) &&
         Objects.equals(this.digits, conversationPbxMenuMapping.digits) &&
+        Objects.equals(this.smsFromNumber, conversationPbxMenuMapping.smsFromNumber) &&
         Objects.equals(this.speech, conversationPbxMenuMapping.speech) &&
         Objects.equals(this.textMessage, conversationPbxMenuMapping.textMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, actionTarget, digits, speech, textMessage);
+    return Objects.hash(action, actionTarget, digits, smsFromNumber, speech, textMessage);
   }
 
   @Override
@@ -271,6 +299,7 @@ public class ConversationPbxMenuMapping {
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    actionTarget: ").append(toIndentedString(actionTarget)).append("\n");
     sb.append("    digits: ").append(toIndentedString(digits)).append("\n");
+    sb.append("    smsFromNumber: ").append(toIndentedString(smsFromNumber)).append("\n");
     sb.append("    speech: ").append(toIndentedString(speech)).append("\n");
     sb.append("    textMessage: ").append(toIndentedString(textMessage)).append("\n");
     sb.append("}");
@@ -298,6 +327,7 @@ public class ConversationPbxMenuMapping {
     openapiFields.add("action");
     openapiFields.add("action_target");
     openapiFields.add("digits");
+    openapiFields.add("sms_from_number");
     openapiFields.add("speech");
     openapiFields.add("text_message");
 
@@ -332,6 +362,9 @@ public class ConversationPbxMenuMapping {
       }
       if (jsonObj.get("action_target") != null && !jsonObj.get("action_target").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action_target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action_target").toString()));
+      }
+      if (jsonObj.get("sms_from_number") != null && !jsonObj.get("sms_from_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_from_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_from_number").toString()));
       }
       if (jsonObj.get("speech") != null && !jsonObj.get("speech").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `speech` to be a primitive type in the JSON string but got `%s`", jsonObj.get("speech").toString()));

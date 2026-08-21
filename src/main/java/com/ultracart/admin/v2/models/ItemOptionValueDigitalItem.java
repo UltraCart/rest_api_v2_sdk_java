@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemOptionValueDigitalItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-21T10:23:19.839-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-21T12:55:45.313-04:00[America/Indianapolis]")
 public class ItemOptionValueDigitalItem {
   public static final String SERIALIZED_NAME_DIGITAL_ITEM_OID = "digital_item_oid";
   @SerializedName(SERIALIZED_NAME_DIGITAL_ITEM_OID)
