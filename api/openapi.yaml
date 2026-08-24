@@ -33721,6 +33721,104 @@ paths:
       x-codegen-request-body-name: adjust_internal_certificate_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /customer/customers/{customer_profile_oid}/adjust_loyalty_points:
+    post:
+      description: "Adjusts the loyalty points for a customer by adding a record to\
+        \ the loyalty ledger.  The loyalty ledger is append only.  Records are never\
+        \ updated or deleted, so a correction is made by posting a second adjustment\
+        \ with the opposite sign.\n"
+      operationId: adjustLoyaltyPoints
+      parameters:
+      - description: The customer profile oid
+        in: path
+        name: customer_profile_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/AdjustLoyaltyPointsRequest'
+        description: adjustLoyaltyPointsRequest
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdjustLoyaltyPointsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - customer_write
+      - ultraCartSimpleApiKey: []
+      summary: Adjusts the loyalty points for a customer by adding a record to the
+        loyalty ledger.
+      tags:
+      - customer
+      x-codegen-request-body-name: adjust_loyalty_points_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /customer/customers/{customer_profile_oid}/email_lists:
     post:
       description: |
@@ -33916,6 +34014,93 @@ paths:
       - customer
       x-codegen-request-body-name: suppression_changes
       x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /customer/customers/{customer_profile_oid}/loyalty:
+    get:
+      description: "Retrieve the loyalty points, ledger and redemptions for a customer.\
+        \  This is a convenience method that returns the same information as expanding\
+        \ loyalty on the customer object, without having to retrieve the entire customer.\n"
+      operationId: getCustomerLoyalty
+      parameters:
+      - description: The customer oid to retrieve.
+        in: path
+        name: customer_profile_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerLoyaltyResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - customer_read
+      - ultraCartSimpleApiKey: []
+      summary: "Retrieve the loyalty points, ledger and redemptions for a customer"
+      tags:
+      - customer
       x-accepts: application/json
   /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name}:
     put:
@@ -57551,6 +57736,81 @@ components:
           $ref: '#/components/schemas/Error'
         metadata:
           $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    AdjustLoyaltyPointsRequest:
+      example:
+        loyalty_points: 0
+        vesting_days: 6
+        description: description
+        order_id: order_id
+      properties:
+        description:
+          description: "Description of this adjustment, 200 characters max"
+          type: string
+        loyalty_points:
+          description: The number of loyalty points to add to the ledger.  Use a negative
+            number to debit points.  Required and may not be zero.
+          format: int32
+          type: integer
+        order_id:
+          description: Optional order id if this adjustment is related to a particular
+            order
+          type: string
+        vesting_days:
+          description: Optional days required for this adjustment to vest.  Leave
+            null to use the merchant configured default.  Use zero for immediate vesting.
+          format: int32
+          type: integer
+      type: object
+    AdjustLoyaltyPointsResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        loyalty_points: 6
+        success: true
+        current_points: 0
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        pending_points: 1
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        current_points:
+          description: The current (vested) points balance after the adjustment was
+            made
+          format: int32
+          type: integer
+        error:
+          $ref: '#/components/schemas/Error'
+        loyalty_points:
+          description: The loyalty points adjustment that was written to the ledger
+          format: int32
+          type: integer
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        pending_points:
+          description: The pending (unvested) points balance after the adjustment
+            was made
+          format: int32
+          type: integer
         success:
           description: Indicates if API call was successful
           type: boolean
@@ -175371,6 +175631,134 @@ components:
         remaining_balance:
           description: Remaining balance
           type: number
+      type: object
+    CustomerLoyaltyResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 4
+            more: true
+            total_records: 7
+            count: 9
+            limit: 3
+            next_offset: 2
+        success: true
+        customer_loyalty:
+          internal_gift_certificate:
+            internal: true
+            merchant_note: merchant_note
+            code: code
+            remaining_balance: 7.061401241503109
+            ledger_entries:
+            - amount: 1.4658129805029452
+              entry_dts: entry_dts
+              reference_order_id: reference_order_id
+              description: description
+              gift_certificate_ledger_oid: 5
+              gift_certificate_oid: 5
+            - amount: 1.4658129805029452
+              entry_dts: entry_dts
+              reference_order_id: reference_order_id
+              description: description
+              gift_certificate_ledger_oid: 5
+              gift_certificate_oid: 5
+            merchant_id: merchant_id
+            customer_profile_oid: 0
+            deleted: true
+            reference_order_id: reference_order_id
+            expiration_dts: expiration_dts
+            email: email
+            original_balance: 2.3021358869347655
+            activated: true
+            gift_certificate_oid: 6
+          redemptions:
+          - loyalty_ledger_oid: 4
+            description_for_customer: description_for_customer
+            coupon_code: coupon_code
+            remaining_balance: 4.459605034958679
+            redemption_dts: redemption_dts
+            gift_certificate_code: gift_certificate_code
+            loyalty_points: 6
+            coupon_code_oid: 7
+            coupon_used: true
+            expiration_dts: expiration_dts
+            loyalty_redemption_oid: 8
+            order_id: order_id
+            gift_certificate_oid: 5
+          - loyalty_ledger_oid: 4
+            description_for_customer: description_for_customer
+            coupon_code: coupon_code
+            remaining_balance: 4.459605034958679
+            redemption_dts: redemption_dts
+            gift_certificate_code: gift_certificate_code
+            loyalty_points: 6
+            coupon_code_oid: 7
+            coupon_used: true
+            expiration_dts: expiration_dts
+            loyalty_redemption_oid: 8
+            order_id: order_id
+            gift_certificate_oid: 5
+          internal_gift_certificate_oid: 4
+          current_points: 6
+          ledger_entries:
+          - loyalty_ledger_oid: 7
+            quantity: 0
+            loyalty_campaign_oid: 4
+            item_id: item_id
+            description: description
+            created_by: created_by
+            item_index: 1
+            modified_dts: modified_dts
+            ledger_dts: ledger_dts
+            vesting_dts: vesting_dts
+            loyalty_points: 9
+            modified_by: modified_by
+            created_dts: created_dts
+            order_id: order_id
+            email: email
+          - loyalty_ledger_oid: 7
+            quantity: 0
+            loyalty_campaign_oid: 4
+            item_id: item_id
+            description: description
+            created_by: created_by
+            item_index: 1
+            modified_dts: modified_dts
+            ledger_dts: ledger_dts
+            vesting_dts: vesting_dts
+            loyalty_points: 9
+            modified_by: modified_by
+            created_dts: created_dts
+            order_id: order_id
+            email: email
+          pending_points: 0
+          internal_gift_certificate_balance: internal_gift_certificate_balance
+          loyalty_tier_oid: 9
+          loyalty_tier_expiration_dts: loyalty_tier_expiration_dts
+          loyalty_tier_name: loyalty_tier_name
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        customer_loyalty:
+          $ref: '#/components/schemas/CustomerLoyalty'
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
       type: object
     CustomerMagicLinkResponse:
       example:

@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-21T12:55:45.313-04:00[America/Indianapolis]
+- Build date: 2026-08-24T16:33:58.434-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.135</version>
+    <version>4.1.136</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.135"
+     implementation "com.ultracart:rest-sdk:4.1.136"
   }
 ```
 
@@ -334,12 +334,14 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**uploadCouponCodes**](docs/CouponApi.md#uploadCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**addCustomerStoreCredit**](docs/CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 *CustomerApi* | [**adjustInternalCertificate**](docs/CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+*CustomerApi* | [**adjustLoyaltyPoints**](docs/CustomerApi.md#adjustLoyaltyPoints) | **POST** /customer/customers/{customer_profile_oid}/adjust_loyalty_points | Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
 *CustomerApi* | [**deleteCustomer**](docs/CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**deleteWishListItem**](docs/CustomerApi.md#deleteWishListItem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 *CustomerApi* | [**getCustomer**](docs/CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 *CustomerApi* | [**getCustomerEditorValues**](docs/CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getCustomerEmailLists**](docs/CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getCustomerLoyalty**](docs/CustomerApi.md#getCustomerLoyalty) | **GET** /customer/customers/{customer_profile_oid}/loyalty | Retrieve the loyalty points, ledger and redemptions for a customer
 *CustomerApi* | [**getCustomerStoreCredit**](docs/CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 *CustomerApi* | [**getCustomerWishList**](docs/CustomerApi.md#getCustomerWishList) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
 *CustomerApi* | [**getCustomerWishListItem**](docs/CustomerApi.md#getCustomerWishListItem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
@@ -753,6 +755,8 @@ Class | Method | HTTP request | Description
  - [AddLibraryItemRequest](docs/AddLibraryItemRequest.md)
  - [AdjustInternalCertificateRequest](docs/AdjustInternalCertificateRequest.md)
  - [AdjustInternalCertificateResponse](docs/AdjustInternalCertificateResponse.md)
+ - [AdjustLoyaltyPointsRequest](docs/AdjustLoyaltyPointsRequest.md)
+ - [AdjustLoyaltyPointsResponse](docs/AdjustLoyaltyPointsResponse.md)
  - [Affiliate](docs/Affiliate.md)
  - [AffiliateAttribute](docs/AffiliateAttribute.md)
  - [AffiliateClick](docs/AffiliateClick.md)
@@ -1185,6 +1189,7 @@ Class | Method | HTTP request | Description
  - [CustomerLoyalty](docs/CustomerLoyalty.md)
  - [CustomerLoyaltyLedger](docs/CustomerLoyaltyLedger.md)
  - [CustomerLoyaltyRedemption](docs/CustomerLoyaltyRedemption.md)
+ - [CustomerLoyaltyResponse](docs/CustomerLoyaltyResponse.md)
  - [CustomerMagicLinkResponse](docs/CustomerMagicLinkResponse.md)
  - [CustomerMergeRequest](docs/CustomerMergeRequest.md)
  - [CustomerOrdersSummary](docs/CustomerOrdersSummary.md)
@@ -1861,6 +1866,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.136 | 08/24/2026 | customer api - adjust method for loyalty points |
 | 4.1.135 | 08/21/2026 | conversation pbx - support send text operation as a menu item froma different phone number |
 | 4.1.134 | 08/21/2026 | conversation - pbx menu mapping for send text |
 | 4.1.133 | 08/20/2026 | conversations - pbx agent setting for creating tickets in zoho desk for outgoing calls |

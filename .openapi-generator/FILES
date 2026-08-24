@@ -16,6 +16,8 @@ docs/Activity.md
 docs/AddLibraryItemRequest.md
 docs/AdjustInternalCertificateRequest.md
 docs/AdjustInternalCertificateResponse.md
+docs/AdjustLoyaltyPointsRequest.md
+docs/AdjustLoyaltyPointsResponse.md
 docs/Affiliate.md
 docs/AffiliateApi.md
 docs/AffiliateAttribute.md
@@ -457,6 +459,7 @@ docs/CustomerEmailSuppressionResult.md
 docs/CustomerLoyalty.md
 docs/CustomerLoyaltyLedger.md
 docs/CustomerLoyaltyRedemption.md
+docs/CustomerLoyaltyResponse.md
 docs/CustomerMagicLinkResponse.md
 docs/CustomerMergeRequest.md
 docs/CustomerOrdersSummary.md
@@ -1111,6 +1114,8 @@ src/main/java/com/ultracart/admin/v2/models/Activity.java
 src/main/java/com/ultracart/admin/v2/models/AddLibraryItemRequest.java
 src/main/java/com/ultracart/admin/v2/models/AdjustInternalCertificateRequest.java
 src/main/java/com/ultracart/admin/v2/models/AdjustInternalCertificateResponse.java
+src/main/java/com/ultracart/admin/v2/models/AdjustLoyaltyPointsRequest.java
+src/main/java/com/ultracart/admin/v2/models/AdjustLoyaltyPointsResponse.java
 src/main/java/com/ultracart/admin/v2/models/Affiliate.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateAttribute.java
 src/main/java/com/ultracart/admin/v2/models/AffiliateClick.java
@@ -1543,6 +1548,7 @@ src/main/java/com/ultracart/admin/v2/models/CustomerEmailSuppressionResult.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyalty.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyLedger.java
 src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyRedemption.java
+src/main/java/com/ultracart/admin/v2/models/CustomerLoyaltyResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomerMagicLinkResponse.java
 src/main/java/com/ultracart/admin/v2/models/CustomerMergeRequest.java
 src/main/java/com/ultracart/admin/v2/models/CustomerOrdersSummary.java

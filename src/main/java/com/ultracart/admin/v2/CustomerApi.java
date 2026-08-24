@@ -29,12 +29,15 @@ import java.io.IOException;
 
 import com.ultracart.admin.v2.models.AdjustInternalCertificateRequest;
 import com.ultracart.admin.v2.models.AdjustInternalCertificateResponse;
+import com.ultracart.admin.v2.models.AdjustLoyaltyPointsRequest;
+import com.ultracart.admin.v2.models.AdjustLoyaltyPointsResponse;
 import com.ultracart.admin.v2.models.BaseResponse;
 import com.ultracart.admin.v2.models.Customer;
 import com.ultracart.admin.v2.models.CustomerEditorValues;
 import com.ultracart.admin.v2.models.CustomerEmailListChanges;
 import com.ultracart.admin.v2.models.CustomerEmailSuppressionRequest;
 import com.ultracart.admin.v2.models.CustomerEmailSuppressionResponse;
+import com.ultracart.admin.v2.models.CustomerLoyaltyResponse;
 import com.ultracart.admin.v2.models.CustomerMagicLinkResponse;
 import com.ultracart.admin.v2.models.CustomerMergeRequest;
 import com.ultracart.admin.v2.models.CustomerQuery;
@@ -435,6 +438,162 @@ public class CustomerApi {
 
         okhttp3.Call localVarCall = adjustInternalCertificateValidateBeforeCall(customerProfileOid, adjustInternalCertificateRequest, _callback);
         Type localVarReturnType = new TypeToken<AdjustInternalCertificateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for adjustLoyaltyPoints
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustLoyaltyPointsRequest adjustLoyaltyPointsRequest (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call adjustLoyaltyPointsCall(Integer customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = adjustLoyaltyPointsRequest;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/adjust_loyalty_points"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call adjustLoyaltyPointsValidateBeforeCall(Integer customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling adjustLoyaltyPoints(Async)");
+        }
+        
+        // verify the required parameter 'adjustLoyaltyPointsRequest' is set
+        if (adjustLoyaltyPointsRequest == null) {
+            throw new ApiException("Missing the required parameter 'adjustLoyaltyPointsRequest' when calling adjustLoyaltyPoints(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = adjustLoyaltyPointsCall(customerProfileOid, adjustLoyaltyPointsRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustLoyaltyPointsRequest adjustLoyaltyPointsRequest (required)
+     * @return AdjustLoyaltyPointsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public AdjustLoyaltyPointsResponse adjustLoyaltyPoints(Integer customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest) throws ApiException {
+        ApiResponse<AdjustLoyaltyPointsResponse> localVarResp = adjustLoyaltyPointsWithHttpInfo(customerProfileOid, adjustLoyaltyPointsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustLoyaltyPointsRequest adjustLoyaltyPointsRequest (required)
+     * @return ApiResponse&lt;AdjustLoyaltyPointsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<AdjustLoyaltyPointsResponse> adjustLoyaltyPointsWithHttpInfo(Integer customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest) throws ApiException {
+        okhttp3.Call localVarCall = adjustLoyaltyPointsValidateBeforeCall(customerProfileOid, adjustLoyaltyPointsRequest, null);
+        Type localVarReturnType = new TypeToken<AdjustLoyaltyPointsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger. (asynchronously)
+     * Adjusts the loyalty points for a customer by adding a record to the loyalty ledger.  The loyalty ledger is append only.  Records are never updated or deleted, so a correction is made by posting a second adjustment with the opposite sign. 
+     * @param customerProfileOid The customer profile oid (required)
+     * @param adjustLoyaltyPointsRequest adjustLoyaltyPointsRequest (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call adjustLoyaltyPointsAsync(Integer customerProfileOid, AdjustLoyaltyPointsRequest adjustLoyaltyPointsRequest, final ApiCallback<AdjustLoyaltyPointsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = adjustLoyaltyPointsValidateBeforeCall(customerProfileOid, adjustLoyaltyPointsRequest, _callback);
+        Type localVarReturnType = new TypeToken<AdjustLoyaltyPointsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1307,6 +1466,153 @@ public class CustomerApi {
 
         okhttp3.Call localVarCall = getCustomerEmailListsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<EmailListsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCustomerLoyalty
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerLoyaltyCall(Integer customerProfileOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/customer/customers/{customer_profile_oid}/loyalty"
+            .replaceAll("\\{" + "customer_profile_oid" + "\\}", localVarApiClient.escapeString(customerProfileOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCustomerLoyaltyValidateBeforeCall(Integer customerProfileOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'customerProfileOid' is set
+        if (customerProfileOid == null) {
+            throw new ApiException("Missing the required parameter 'customerProfileOid' when calling getCustomerLoyalty(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getCustomerLoyaltyCall(customerProfileOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Retrieve the loyalty points, ledger and redemptions for a customer
+     * Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @return CustomerLoyaltyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public CustomerLoyaltyResponse getCustomerLoyalty(Integer customerProfileOid) throws ApiException {
+        ApiResponse<CustomerLoyaltyResponse> localVarResp = getCustomerLoyaltyWithHttpInfo(customerProfileOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve the loyalty points, ledger and redemptions for a customer
+     * Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @return ApiResponse&lt;CustomerLoyaltyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<CustomerLoyaltyResponse> getCustomerLoyaltyWithHttpInfo(Integer customerProfileOid) throws ApiException {
+        okhttp3.Call localVarCall = getCustomerLoyaltyValidateBeforeCall(customerProfileOid, null);
+        Type localVarReturnType = new TypeToken<CustomerLoyaltyResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve the loyalty points, ledger and redemptions for a customer (asynchronously)
+     * Retrieve the loyalty points, ledger and redemptions for a customer.  This is a convenience method that returns the same information as expanding loyalty on the customer object, without having to retrieve the entire customer. 
+     * @param customerProfileOid The customer oid to retrieve. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCustomerLoyaltyAsync(Integer customerProfileOid, final ApiCallback<CustomerLoyaltyResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCustomerLoyaltyValidateBeforeCall(customerProfileOid, _callback);
+        Type localVarReturnType = new TypeToken<CustomerLoyaltyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
