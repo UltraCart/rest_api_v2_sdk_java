@@ -58524,15 +58524,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -60465,15 +60468,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -62291,15 +62297,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -64779,15 +64788,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -66545,15 +66557,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -68394,15 +68409,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -71437,15 +71455,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -73203,15 +73224,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -75052,15 +75076,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -77023,15 +77050,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -78789,15 +78819,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -80638,15 +80671,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -82581,15 +82617,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -84347,15 +84386,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -86196,15 +86238,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -88117,15 +88162,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -89883,15 +89931,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -91732,15 +91783,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -93673,15 +93727,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -95439,15 +95496,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -97288,15 +97348,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -99209,15 +99272,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -100975,15 +101041,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -102824,15 +102893,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -110007,15 +110079,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -123525,6 +123600,9 @@ components:
         gift_email: gift_email
         ship_on_date: ship_on_date
         advertisingSource: advertisingSource
+        arbitrary_pricing_tier_names:
+        - arbitrary_pricing_tier_names
+        - arbitrary_pricing_tier_names
         sales_rep_code: sales_rep_code
         no_realtime_payment_processing: true
         echeck_bank_account_name: echeck_bank_account_name
@@ -123607,6 +123685,15 @@ components:
         affiliate_sub_id:
           description: Affiliate Sub Id
           type: string
+        arbitrary_pricing_tier_names:
+          description: "Names of pricing tiers to price this order against, without\
+            \ associating a customer profile.  An unknown tier name will fail the\
+            \ import.  An item that also supplies arbitrary_unit_cost keeps that cost\
+            \ and ignores the tier.  If a customer profile is attached to this order\
+            \ during checkout, these tiers are granted to that profile permanently."
+          items:
+            type: string
+          type: array
         arbitrary_shipping_handling_total:
           description: Arbitrary shipping handling total
           type: number
@@ -133929,15 +134016,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -135695,15 +135785,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -137544,15 +137637,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -139465,15 +139561,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -141231,15 +141330,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -143080,15 +143182,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -145005,15 +145110,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -146771,15 +146879,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -152488,15 +152599,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -154254,15 +154368,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -156103,15 +156220,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -158024,15 +158144,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -159790,15 +159913,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -161639,15 +161765,18 @@ components:
               quoted_by: quoted_by
             channel_partner:
               auto_approve_purchase_order: true
-              channel_partner_order_id: channel_partner_order_id
               channel_partner_data: channel_partner_data
               skip_auto_order_setup: true
               treat_warnings_as_errors: true
+              ignore_invalid_shipping_method: true
+              channel_partner_order_id: channel_partner_order_id
               store_completed: true
               skip_payment_processing: true
+              arbitrary_pricing_tier_names:
+              - arbitrary_pricing_tier_names
+              - arbitrary_pricing_tier_names
               store_if_payment_declines: true
               channel_partner_oid: 6
-              ignore_invalid_shipping_method: true
               no_realtime_payment_processing: true
               channel_partner_code: channel_partner_code
             refund_dts: refund_dts
@@ -163560,15 +163689,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -165326,15 +165458,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -204819,15 +204954,18 @@ components:
           quoted_by: quoted_by
         channel_partner:
           auto_approve_purchase_order: true
-          channel_partner_order_id: channel_partner_order_id
           channel_partner_data: channel_partner_data
           skip_auto_order_setup: true
           treat_warnings_as_errors: true
+          ignore_invalid_shipping_method: true
+          channel_partner_order_id: channel_partner_order_id
           store_completed: true
           skip_payment_processing: true
+          arbitrary_pricing_tier_names:
+          - arbitrary_pricing_tier_names
+          - arbitrary_pricing_tier_names
           store_if_payment_declines: true
           channel_partner_oid: 6
-          ignore_invalid_shipping_method: true
           no_realtime_payment_processing: true
           channel_partner_code: channel_partner_code
         refund_dts: refund_dts
@@ -207478,18 +207616,31 @@ components:
     OrderChannelPartner:
       example:
         auto_approve_purchase_order: true
-        channel_partner_order_id: channel_partner_order_id
         channel_partner_data: channel_partner_data
         skip_auto_order_setup: true
         treat_warnings_as_errors: true
+        ignore_invalid_shipping_method: true
+        channel_partner_order_id: channel_partner_order_id
         store_completed: true
         skip_payment_processing: true
+        arbitrary_pricing_tier_names:
+        - arbitrary_pricing_tier_names
+        - arbitrary_pricing_tier_names
         store_if_payment_declines: true
         channel_partner_oid: 6
-        ignore_invalid_shipping_method: true
         no_realtime_payment_processing: true
         channel_partner_code: channel_partner_code
       properties:
+        arbitrary_pricing_tier_names:
+          description: "Names of pricing tiers to price this order against, without\
+            \ associating a customer profile.  An unknown tier name will fail the\
+            \ import.  An item that also supplies arbitrary_unit_cost keeps that cost\
+            \ and ignores the tier.  If a customer profile is attached to this order\
+            \ during checkout, these tiers are granted to that profile permanently.\
+            \  Only applicable on inserting orders."
+          items:
+            type: string
+          type: array
         auto_approve_purchase_order:
           description: "If true, any purchase order submitted is automatically approved"
           type: boolean
@@ -210725,15 +210876,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -212780,15 +212934,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -214546,15 +214703,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts
@@ -217645,15 +217805,18 @@ components:
             quoted_by: quoted_by
           channel_partner:
             auto_approve_purchase_order: true
-            channel_partner_order_id: channel_partner_order_id
             channel_partner_data: channel_partner_data
             skip_auto_order_setup: true
             treat_warnings_as_errors: true
+            ignore_invalid_shipping_method: true
+            channel_partner_order_id: channel_partner_order_id
             store_completed: true
             skip_payment_processing: true
+            arbitrary_pricing_tier_names:
+            - arbitrary_pricing_tier_names
+            - arbitrary_pricing_tier_names
             store_if_payment_declines: true
             channel_partner_oid: 6
-            ignore_invalid_shipping_method: true
             no_realtime_payment_processing: true
             channel_partner_code: channel_partner_code
           refund_dts: refund_dts

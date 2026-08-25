@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentStatusRollupSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T16:33:58.434-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T22:41:04.567-04:00[America/Indianapolis]")
 public class ConversationAgentStatusRollupSearchRequest {
   public static final String SERIALIZED_NAME_AGENT_USER_ID = "agent_user_id";
   @SerializedName(SERIALIZED_NAME_AGENT_USER_ID)

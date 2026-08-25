@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**arbitraryPricingTierNames** | **List&lt;String&gt;** | Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders. |  [optional] |
 |**autoApprovePurchaseOrder** | **Boolean** | If true, any purchase order submitted is automatically approved |  [optional] |
 |**channelPartnerCode** | **String** | The code of the channel partner |  [optional] |
 |**channelPartnerData** | **String** | Additional data provided by the channel partner, read-only |  [optional] |

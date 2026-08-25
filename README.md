@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-08-24T16:33:58.434-04:00[America/Indianapolis]
+- Build date: 2026-08-24T22:41:04.567-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.136</version>
+    <version>4.1.137</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.136"
+     implementation "com.ultracart:rest-sdk:4.1.137"
   }
 ```
 
@@ -1866,6 +1866,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.137 | 08/24/2026 | order api - arbitrary pricing tier for order creation |
 | 4.1.136 | 08/24/2026 | customer api - adjust method for loyalty points |
 | 4.1.135 | 08/21/2026 | conversation pbx - support send text operation as a menu item froma different phone number |
 | 4.1.134 | 08/21/2026 | conversation - pbx menu mapping for send text |

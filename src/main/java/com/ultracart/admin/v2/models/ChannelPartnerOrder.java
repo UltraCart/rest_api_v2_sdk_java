@@ -52,7 +52,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ChannelPartnerOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T16:33:58.434-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T22:41:04.567-04:00[America/Indianapolis]")
 public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertisingSource";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)
@@ -65,6 +65,10 @@ public class ChannelPartnerOrder {
   public static final String SERIALIZED_NAME_AFFILIATE_SUB_ID = "affiliate_sub_id";
   @SerializedName(SERIALIZED_NAME_AFFILIATE_SUB_ID)
   private String affiliateSubId;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES = "arbitrary_pricing_tier_names";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES)
+  private List<String> arbitraryPricingTierNames = null;
 
   public static final String SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL = "arbitrary_shipping_handling_total";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_SHIPPING_HANDLING_TOTAL)
@@ -674,6 +678,37 @@ public class ChannelPartnerOrder {
 
   public void setAffiliateSubId(String affiliateSubId) {
     this.affiliateSubId = affiliateSubId;
+  }
+
+
+  public ChannelPartnerOrder arbitraryPricingTierNames(List<String> arbitraryPricingTierNames) {
+    
+    this.arbitraryPricingTierNames = arbitraryPricingTierNames;
+    return this;
+  }
+
+  public ChannelPartnerOrder addArbitraryPricingTierNamesItem(String arbitraryPricingTierNamesItem) {
+    if (this.arbitraryPricingTierNames == null) {
+      this.arbitraryPricingTierNames = new ArrayList<>();
+    }
+    this.arbitraryPricingTierNames.add(arbitraryPricingTierNamesItem);
+    return this;
+  }
+
+   /**
+   * Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.
+   * @return arbitraryPricingTierNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.")
+
+  public List<String> getArbitraryPricingTierNames() {
+    return arbitraryPricingTierNames;
+  }
+
+
+  public void setArbitraryPricingTierNames(List<String> arbitraryPricingTierNames) {
+    this.arbitraryPricingTierNames = arbitraryPricingTierNames;
   }
 
 
@@ -2876,6 +2911,7 @@ public class ChannelPartnerOrder {
     return Objects.equals(this.advertisingSource, channelPartnerOrder.advertisingSource) &&
         Objects.equals(this.affiliateId, channelPartnerOrder.affiliateId) &&
         Objects.equals(this.affiliateSubId, channelPartnerOrder.affiliateSubId) &&
+        Objects.equals(this.arbitraryPricingTierNames, channelPartnerOrder.arbitraryPricingTierNames) &&
         Objects.equals(this.arbitraryShippingHandlingTotal, channelPartnerOrder.arbitraryShippingHandlingTotal) &&
         Objects.equals(this.arbitrarySubtotalDiscount, channelPartnerOrder.arbitrarySubtotalDiscount) &&
         Objects.equals(this.arbitraryTax, channelPartnerOrder.arbitraryTax) &&
@@ -2974,7 +3010,7 @@ public class ChannelPartnerOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, arbitraryTaxableSubtotalDiscount, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipAutoOrderSetup, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
+    return Objects.hash(advertisingSource, affiliateId, affiliateSubId, arbitraryPricingTierNames, arbitraryShippingHandlingTotal, arbitrarySubtotalDiscount, arbitraryTax, arbitraryTaxRate, arbitraryTaxableSubtotal, arbitraryTaxableSubtotalDiscount, associateWithCustomerProfileIfPresent, autoApprovePurchaseOrder, billtoAddress1, billtoAddress2, billtoCity, billtoCompany, billtoCountryCode, billtoDayPhone, billtoEveningPhone, billtoFirstName, billtoLastName, billtoPostalCode, billtoStateRegion, billtoTitle, ccEmail, channelPartnerOrderId, considerRecurring, coupons, creationDts, creditCardAuthorizationAmount, creditCardAuthorizationDts, creditCardAuthorizationNumber, creditCardExpirationMonth, creditCardExpirationYear, creditCardType, customField1, customField2, customField3, customField4, customField5, customField6, customField7, deliveryDate, echeckBankAbaCode, echeckBankAccountName, echeckBankAccountNumber, echeckBankAccountType, echeckBankName, echeckBankOwnerType, echeckCustomerTaxId, echeckDriversLicenseDob, echeckDriversLicenseNumber, echeckDriversLicenseState, email, gift, giftEmail, giftMessage, hostedFieldsCardToken, hostedFieldsCvvToken, insuranceApplicationId, insuranceClaimId, ipAddress, items, leastCostRoute, leastCostRouteShippingMethods, mailingListOptIn, noRealtimePaymentProcessing, paymentMethod, purchaseOrderNumber, rotatingTransactionGatewayCode, salesRepCode, screenBrandingThemeCode, shipOnDate, shipToResidential, shippingMethod, shiptoAddress1, shiptoAddress2, shiptoCity, shiptoCompany, shiptoCountryCode, shiptoDayPhone, shiptoEveningPhone, shiptoFirstName, shiptoLastName, shiptoPostalCode, shiptoStateRegion, shiptoTitle, skipAutoOrderSetup, skipPaymentProcessing, specialInstructions, storeCompleted, storeIfPaymentDeclines, storefrontHostName, taxCounty, taxExempt, transaction, treatWarningsAsErrors, usePriorPaymentInformationFromOrderId);
   }
 
   @Override
@@ -2984,6 +3020,7 @@ public class ChannelPartnerOrder {
     sb.append("    advertisingSource: ").append(toIndentedString(advertisingSource)).append("\n");
     sb.append("    affiliateId: ").append(toIndentedString(affiliateId)).append("\n");
     sb.append("    affiliateSubId: ").append(toIndentedString(affiliateSubId)).append("\n");
+    sb.append("    arbitraryPricingTierNames: ").append(toIndentedString(arbitraryPricingTierNames)).append("\n");
     sb.append("    arbitraryShippingHandlingTotal: ").append(toIndentedString(arbitraryShippingHandlingTotal)).append("\n");
     sb.append("    arbitrarySubtotalDiscount: ").append(toIndentedString(arbitrarySubtotalDiscount)).append("\n");
     sb.append("    arbitraryTax: ").append(toIndentedString(arbitraryTax)).append("\n");
@@ -3103,6 +3140,7 @@ public class ChannelPartnerOrder {
     openapiFields.add("advertisingSource");
     openapiFields.add("affiliate_id");
     openapiFields.add("affiliate_sub_id");
+    openapiFields.add("arbitrary_pricing_tier_names");
     openapiFields.add("arbitrary_shipping_handling_total");
     openapiFields.add("arbitrary_subtotal_discount");
     openapiFields.add("arbitrary_tax");
@@ -3232,6 +3270,10 @@ public class ChannelPartnerOrder {
       }
       if (jsonObj.get("affiliate_sub_id") != null && !jsonObj.get("affiliate_sub_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `affiliate_sub_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("affiliate_sub_id").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("arbitrary_pricing_tier_names") != null && !jsonObj.get("arbitrary_pricing_tier_names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `arbitrary_pricing_tier_names` to be an array in the JSON string but got `%s`", jsonObj.get("arbitrary_pricing_tier_names").toString()));
       }
       if (jsonObj.get("billto_address1") != null && !jsonObj.get("billto_address1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `billto_address1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("billto_address1").toString()));

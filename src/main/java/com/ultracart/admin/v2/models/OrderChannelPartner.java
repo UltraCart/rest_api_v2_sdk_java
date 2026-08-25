@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,8 +49,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T16:33:58.434-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-24T22:41:04.567-04:00[America/Indianapolis]")
 public class OrderChannelPartner {
+  public static final String SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES = "arbitrary_pricing_tier_names";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES)
+  private List<String> arbitraryPricingTierNames = null;
+
   public static final String SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER = "auto_approve_purchase_order";
   @SerializedName(SERIALIZED_NAME_AUTO_APPROVE_PURCHASE_ORDER)
   private Boolean autoApprovePurchaseOrder;
@@ -99,6 +105,37 @@ public class OrderChannelPartner {
 
   public OrderChannelPartner() { 
   }
+
+  public OrderChannelPartner arbitraryPricingTierNames(List<String> arbitraryPricingTierNames) {
+    
+    this.arbitraryPricingTierNames = arbitraryPricingTierNames;
+    return this;
+  }
+
+  public OrderChannelPartner addArbitraryPricingTierNamesItem(String arbitraryPricingTierNamesItem) {
+    if (this.arbitraryPricingTierNames == null) {
+      this.arbitraryPricingTierNames = new ArrayList<>();
+    }
+    this.arbitraryPricingTierNames.add(arbitraryPricingTierNamesItem);
+    return this;
+  }
+
+   /**
+   * Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.
+   * @return arbitraryPricingTierNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Names of pricing tiers to price this order against, without associating a customer profile.  An unknown tier name will fail the import.  An item that also supplies arbitrary_unit_cost keeps that cost and ignores the tier.  If a customer profile is attached to this order during checkout, these tiers are granted to that profile permanently.  Only applicable on inserting orders.")
+
+  public List<String> getArbitraryPricingTierNames() {
+    return arbitraryPricingTierNames;
+  }
+
+
+  public void setArbitraryPricingTierNames(List<String> arbitraryPricingTierNames) {
+    this.arbitraryPricingTierNames = arbitraryPricingTierNames;
+  }
+
 
   public OrderChannelPartner autoApprovePurchaseOrder(Boolean autoApprovePurchaseOrder) {
     
@@ -386,7 +423,8 @@ public class OrderChannelPartner {
       return false;
     }
     OrderChannelPartner orderChannelPartner = (OrderChannelPartner) o;
-    return Objects.equals(this.autoApprovePurchaseOrder, orderChannelPartner.autoApprovePurchaseOrder) &&
+    return Objects.equals(this.arbitraryPricingTierNames, orderChannelPartner.arbitraryPricingTierNames) &&
+        Objects.equals(this.autoApprovePurchaseOrder, orderChannelPartner.autoApprovePurchaseOrder) &&
         Objects.equals(this.channelPartnerCode, orderChannelPartner.channelPartnerCode) &&
         Objects.equals(this.channelPartnerData, orderChannelPartner.channelPartnerData) &&
         Objects.equals(this.channelPartnerOid, orderChannelPartner.channelPartnerOid) &&
@@ -402,13 +440,14 @@ public class OrderChannelPartner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, ignoreInvalidShippingMethod, noRealtimePaymentProcessing, skipAutoOrderSetup, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
+    return Objects.hash(arbitraryPricingTierNames, autoApprovePurchaseOrder, channelPartnerCode, channelPartnerData, channelPartnerOid, channelPartnerOrderId, ignoreInvalidShippingMethod, noRealtimePaymentProcessing, skipAutoOrderSetup, skipPaymentProcessing, storeCompleted, storeIfPaymentDeclines, treatWarningsAsErrors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrderChannelPartner {\n");
+    sb.append("    arbitraryPricingTierNames: ").append(toIndentedString(arbitraryPricingTierNames)).append("\n");
     sb.append("    autoApprovePurchaseOrder: ").append(toIndentedString(autoApprovePurchaseOrder)).append("\n");
     sb.append("    channelPartnerCode: ").append(toIndentedString(channelPartnerCode)).append("\n");
     sb.append("    channelPartnerData: ").append(toIndentedString(channelPartnerData)).append("\n");
@@ -443,6 +482,7 @@ public class OrderChannelPartner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("arbitrary_pricing_tier_names");
     openapiFields.add("auto_approve_purchase_order");
     openapiFields.add("channel_partner_code");
     openapiFields.add("channel_partner_data");
@@ -481,6 +521,10 @@ public class OrderChannelPartner {
         if (!OrderChannelPartner.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OrderChannelPartner` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("arbitrary_pricing_tier_names") != null && !jsonObj.get("arbitrary_pricing_tier_names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `arbitrary_pricing_tier_names` to be an array in the JSON string but got `%s`", jsonObj.get("arbitrary_pricing_tier_names").toString()));
       }
       if (jsonObj.get("channel_partner_code") != null && !jsonObj.get("channel_partner_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `channel_partner_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("channel_partner_code").toString()));
