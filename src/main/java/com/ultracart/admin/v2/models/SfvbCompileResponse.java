@@ -50,9 +50,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbCompileResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbCompileResponse {
-  public static final String SERIALIZED_NAME_CONTAINER_ID = "containerId";
+  public static final String SERIALIZED_NAME_CONTAINER_ID = "container_id";
   @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
   private String containerId;
 
@@ -64,7 +64,7 @@ public class SfvbCompileResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_USED_ELEMENTS = "usedElements";
+  public static final String SERIALIZED_NAME_USED_ELEMENTS = "used_elements";
   @SerializedName(SERIALIZED_NAME_USED_ELEMENTS)
   private List<String> usedElements = null;
 
@@ -288,10 +288,10 @@ public class SfvbCompileResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("containerId");
+    openapiFields.add("container_id");
     openapiFields.add("directives");
     openapiFields.add("success");
-    openapiFields.add("usedElements");
+    openapiFields.add("used_elements");
     openapiFields.add("validation");
     openapiFields.add("velocity");
 
@@ -321,16 +321,16 @@ public class SfvbCompileResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbCompileResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("containerId") != null && !jsonObj.get("containerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerId").toString()));
+      if (jsonObj.get("container_id") != null && !jsonObj.get("container_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_id").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("directives") != null && !jsonObj.get("directives").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `directives` to be an array in the JSON string but got `%s`", jsonObj.get("directives").toString()));
       }
       // ensure the json data is an array
-      if (jsonObj.get("usedElements") != null && !jsonObj.get("usedElements").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usedElements` to be an array in the JSON string but got `%s`", jsonObj.get("usedElements").toString()));
+      if (jsonObj.get("used_elements") != null && !jsonObj.get("used_elements").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `used_elements` to be an array in the JSON string but got `%s`", jsonObj.get("used_elements").toString()));
       }
       // validate the optional field `validation`
       if (jsonObj.getAsJsonObject("validation") != null) {

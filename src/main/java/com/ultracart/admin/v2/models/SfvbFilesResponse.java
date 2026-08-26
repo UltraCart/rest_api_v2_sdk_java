@@ -50,21 +50,21 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFilesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFilesResponse {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
   private List<SfvbFileEntry> files = null;
 
-  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fsDirectoryOid";
+  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_FS_DIRECTORY_OID)
   private Integer fsDirectoryOid;
 
-  public static final String SERIALIZED_NAME_OMITTED_COUNT = "omittedCount";
+  public static final String SERIALIZED_NAME_OMITTED_COUNT = "omitted_count";
   @SerializedName(SERIALIZED_NAME_OMITTED_COUNT)
   private Integer omittedCount;
 
-  public static final String SERIALIZED_NAME_PARENT_FS_DIRECTORY_OID = "parentFsDirectoryOid";
+  public static final String SERIALIZED_NAME_PARENT_FS_DIRECTORY_OID = "parent_fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_PARENT_FS_DIRECTORY_OID)
   private Integer parentFsDirectoryOid;
 
@@ -281,9 +281,9 @@ public class SfvbFilesResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("files");
-    openapiFields.add("fsDirectoryOid");
-    openapiFields.add("omittedCount");
-    openapiFields.add("parentFsDirectoryOid");
+    openapiFields.add("fs_directory_oid");
+    openapiFields.add("omitted_count");
+    openapiFields.add("parent_fs_directory_oid");
     openapiFields.add("path");
     openapiFields.add("truncated");
 

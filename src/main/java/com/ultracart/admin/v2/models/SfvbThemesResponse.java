@@ -50,9 +50,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbThemesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbThemesResponse {
-  public static final String SERIALIZED_NAME_ACTIVE_THEME_OID = "activeThemeOid";
+  public static final String SERIALIZED_NAME_ACTIVE_THEME_OID = "active_theme_oid";
   @SerializedName(SERIALIZED_NAME_ACTIVE_THEME_OID)
   private Integer activeThemeOid;
 
@@ -164,7 +164,7 @@ public class SfvbThemesResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("activeThemeOid");
+    openapiFields.add("active_theme_oid");
     openapiFields.add("themes");
 
     // a set of required properties/fields (JSON key names)

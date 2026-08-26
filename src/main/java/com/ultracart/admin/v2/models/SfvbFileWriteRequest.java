@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileWriteRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileWriteRequest {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -57,7 +57,7 @@ public class SfvbFileWriteRequest {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
-  public static final String SERIALIZED_NAME_CREATE_IF_MISSING = "createIfMissing";
+  public static final String SERIALIZED_NAME_CREATE_IF_MISSING = "create_if_missing";
   @SerializedName(SERIALIZED_NAME_CREATE_IF_MISSING)
   private Boolean createIfMissing;
 
@@ -184,7 +184,7 @@ public class SfvbFileWriteRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("comment");
     openapiFields.add("content");
-    openapiFields.add("createIfMissing");
+    openapiFields.add("create_if_missing");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

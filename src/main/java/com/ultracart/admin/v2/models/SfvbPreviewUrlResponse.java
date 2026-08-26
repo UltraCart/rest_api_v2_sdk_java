@@ -47,9 +47,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbPreviewUrlResponse {
-  public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expiresInSeconds";
+  public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expires_in_seconds";
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN_SECONDS)
   private Integer expiresInSeconds;
 
@@ -57,15 +57,15 @@ public class SfvbPreviewUrlResponse {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
-  public static final String SERIALIZED_NAME_PREVIEW_SESSION_ID = "previewSessionId";
+  public static final String SERIALIZED_NAME_PREVIEW_SESSION_ID = "preview_session_id";
   @SerializedName(SERIALIZED_NAME_PREVIEW_SESSION_ID)
   private String previewSessionId;
 
-  public static final String SERIALIZED_NAME_PREVIEW_URL = "previewUrl";
+  public static final String SERIALIZED_NAME_PREVIEW_URL = "preview_url";
   @SerializedName(SERIALIZED_NAME_PREVIEW_URL)
   private String previewUrl;
 
-  public static final String SERIALIZED_NAME_REQUIRES_BROWSER_SESSION = "requiresBrowserSession";
+  public static final String SERIALIZED_NAME_REQUIRES_BROWSER_SESSION = "requires_browser_session";
   @SerializedName(SERIALIZED_NAME_REQUIRES_BROWSER_SESSION)
   private Boolean requiresBrowserSession;
 
@@ -73,7 +73,7 @@ public class SfvbPreviewUrlResponse {
   @SerializedName(SERIALIZED_NAME_SHAREABLE)
   private Boolean shareable;
 
-  public static final String SERIALIZED_NAME_USAGE_NOTE = "usageNote";
+  public static final String SERIALIZED_NAME_USAGE_NOTE = "usage_note";
   @SerializedName(SERIALIZED_NAME_USAGE_NOTE)
   private String usageNote;
 
@@ -298,13 +298,13 @@ public class SfvbPreviewUrlResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("expiresInSeconds");
+    openapiFields.add("expires_in_seconds");
     openapiFields.add("path");
-    openapiFields.add("previewSessionId");
-    openapiFields.add("previewUrl");
-    openapiFields.add("requiresBrowserSession");
+    openapiFields.add("preview_session_id");
+    openapiFields.add("preview_url");
+    openapiFields.add("requires_browser_session");
     openapiFields.add("shareable");
-    openapiFields.add("usageNote");
+    openapiFields.add("usage_note");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -335,14 +335,14 @@ public class SfvbPreviewUrlResponse {
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
-      if (jsonObj.get("previewSessionId") != null && !jsonObj.get("previewSessionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previewSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previewSessionId").toString()));
+      if (jsonObj.get("preview_session_id") != null && !jsonObj.get("preview_session_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preview_session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preview_session_id").toString()));
       }
-      if (jsonObj.get("previewUrl") != null && !jsonObj.get("previewUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previewUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previewUrl").toString()));
+      if (jsonObj.get("preview_url") != null && !jsonObj.get("preview_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preview_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preview_url").toString()));
       }
-      if (jsonObj.get("usageNote") != null && !jsonObj.get("usageNote").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usageNote` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usageNote").toString()));
+      if (jsonObj.get("usage_note") != null && !jsonObj.get("usage_note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usage_note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usage_note").toString()));
       }
   }
 

@@ -232099,25 +232099,25 @@ components:
       type: object
     SfvbCompileRequest:
       example:
-        containerName: containerName
-        storefrontOid: 0
-        themeOid: 6
+        container_name: container_name
+        storefront_oid: 0
+        theme_oid: 6
         cjson: cjson
         validate: true
       properties:
         cjson:
           description: The container JSON to compile.
           type: string
-        containerName:
+        container_name:
           description: "Optional container name, used to derive the container id the\
             \ same way a .cjson file name would.  Omit and the id on the document\
             \ is kept."
           type: string
-        storefrontOid:
+        storefront_oid:
           description: Optional storefront oid.  Required when theme_oid is supplied.
           format: int32
           type: integer
-        themeOid:
+        theme_oid:
           description: Optional theme oid.  Supplies the theme's inherit groups configuration
             so compilation matches what the theme would produce.  Omit to compile
             without inheritance.
@@ -232134,68 +232134,68 @@ components:
         - directives
         - directives
         success: true
-        usedElements:
-        - usedElements
-        - usedElements
+        used_elements:
+        - used_elements
+        - used_elements
         velocity: velocity
-        containerId: containerId
+        container_id: container_id
         validation:
           valid: true
+          used_elements:
+          - used_elements
+          - used_elements
           warnings:
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
-          usedElements:
-          - usedElements
-          - usedElements
           errors:
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
       properties:
-        containerId:
+        container_id:
           description: Container id the document compiled under.
           type: string
         directives:
@@ -232206,7 +232206,7 @@ components:
         success:
           description: True when compilation produced output.
           type: boolean
-        usedElements:
+        used_elements:
           description: "Element types used, sorted."
           items:
             type: string
@@ -232220,41 +232220,41 @@ components:
       type: object
     SfvbContainerResponse:
       example:
-        ownerType: theme
+        hash_sha256: hash_sha256
         path: path
-        activeTheme: true
-        containerName: containerName
-        ownerObjectId: ownerObjectId
-        lastModified: lastModified
-        containerId: containerId
+        owner_object_id: owner_object_id
+        container_name: container_name
+        active_theme: true
+        last_modified: last_modified
         version: 0
         cjson: cjson
-        hashSha256: hashSha256
+        container_id: container_id
+        owner_type: theme
       properties:
-        activeTheme:
+        active_theme:
           description: True when this container lives in the theme currently serving
             live traffic.  Writing to it requires the sfvb_publish scope.
           type: boolean
         cjson:
           description: The container JSON.  Runtime state is stripped on the way out.
           type: string
-        containerId:
+        container_id:
           description: Container id as the compiler will derive it.
           type: string
-        containerName:
+        container_name:
           description: Container name.
           type: string
-        hashSha256:
+        hash_sha256:
           description: SHA-256 of the cjson.  Send back as If-Match when writing.
           type: string
-        lastModified:
+        last_modified:
           description: "When the container was last modified, where the store records\
             \ it."
           type: string
-        ownerObjectId:
+        owner_object_id:
           description: Identifier of the owning object within its store.
           type: string
-        ownerType:
+        owner_type:
           description: Where this container lives.
           enum:
           - theme
@@ -232274,32 +232274,32 @@ components:
       type: object
     SfvbContainerRevertRequest:
       example:
+        container_history_oid: 0
         comment: comment
-        containerHistoryOid: 0
       properties:
         comment:
           description: Optional comment recorded against the new version the revert
             creates.
           type: string
-        containerHistoryOid:
+        container_history_oid:
           description: "History record oid to restore, as returned by container_versions."
           format: int32
           type: integer
       type: object
     SfvbContainerVersion:
       example:
-        ownerType: item
+        hash_sha256: hash_sha256
         current: true
-        editedBy: editedBy
+        owner_object_id: owner_object_id
+        container_history_oid: 0
+        container_name: container_name
         size: 6
-        containerName: containerName
-        ownerObjectId: ownerObjectId
-        createdDts: createdDts
         comment: comment
-        containerHistoryOid: 0
+        created_dts: created_dts
         operation: create
         cjson: cjson
-        hashSha256: hashSha256
+        edited_by: edited_by
+        owner_type: item
       properties:
         cjson:
           description: "The CJSON this version held.  Populated only when reading\
@@ -232309,24 +232309,24 @@ components:
         comment:
           description: Comment recorded with the write that replaced this version.
           type: string
-        containerHistoryOid:
+        container_history_oid:
           description: History record oid.  Pass to the revert operation on the owning
             container.
           format: int32
           type: integer
-        containerName:
+        container_name:
           description: "Container name, where the owner has more than one container."
           type: string
-        createdDts:
+        created_dts:
           description: When this snapshot was taken.
           type: string
         current:
           description: True for the value currently stored.
           type: boolean
-        editedBy:
+        edited_by:
           description: Login of whoever caused this snapshot.
           type: string
-        hashSha256:
+        hash_sha256:
           description: SHA-256 of this version's CJSON.
           type: string
         operation:
@@ -232337,10 +232337,10 @@ components:
           - create
           - update
           type: string
-        ownerObjectId:
+        owner_object_id:
           description: Owner object identifier.
           type: string
-        ownerType:
+        owner_type:
           description: Owner type.
           enum:
           - item
@@ -232357,30 +232357,30 @@ components:
     SfvbContainerVersionsResponse:
       example:
         versions:
-        - ownerType: item
+        - hash_sha256: hash_sha256
           current: true
-          editedBy: editedBy
+          owner_object_id: owner_object_id
+          container_history_oid: 0
+          container_name: container_name
           size: 6
-          containerName: containerName
-          ownerObjectId: ownerObjectId
-          createdDts: createdDts
           comment: comment
-          containerHistoryOid: 0
+          created_dts: created_dts
           operation: create
           cjson: cjson
-          hashSha256: hashSha256
-        - ownerType: item
+          edited_by: edited_by
+          owner_type: item
+        - hash_sha256: hash_sha256
           current: true
-          editedBy: editedBy
+          owner_object_id: owner_object_id
+          container_history_oid: 0
+          container_name: container_name
           size: 6
-          containerName: containerName
-          ownerObjectId: ownerObjectId
-          createdDts: createdDts
           comment: comment
-          containerHistoryOid: 0
+          created_dts: created_dts
           operation: create
           cjson: cjson
-          hashSha256: hashSha256
+          edited_by: edited_by
+          owner_type: item
       properties:
         versions:
           description: "Versions, newest first."
@@ -232390,12 +232390,12 @@ components:
       type: object
     SfvbContainerWriteRequest:
       example:
-        allowWarnings: true
+        marketing_email: true
+        allow_warnings: true
         comment: comment
-        marketingEmail: true
         cjson: cjson
       properties:
-        allowWarnings:
+        allow_warnings:
           description: Store the container even if quality warnings were raised.  Warnings
             never block by default; this field exists so a caller can opt into treating
             them as blocking by setting it false.
@@ -232406,17 +232406,17 @@ components:
         comment:
           description: Optional comment recorded against the version this write creates.
           type: string
-        marketingEmail:
+        marketing_email:
           description: "For email containers, whether this is a marketing email. \
             \ Selects whether CAN-SPAM footer rules apply."
           type: boolean
       type: object
     SfvbElement:
       example:
-        schemaAvailable: true
+        schema_available: true
         type: type
       properties:
-        schemaAvailable:
+        schema_available:
           description: "True when a per element configuration schema is available\
             \ from elements/{element_type}."
           type: boolean
@@ -232440,15 +232440,15 @@ components:
       type: object
     SfvbElementsResponse:
       example:
+        element_count: 0
         elements:
-        - schemaAvailable: true
+        - schema_available: true
           type: type
-        - schemaAvailable: true
+        - schema_available: true
           type: type
-        elementCount: 0
         version: version
       properties:
-        elementCount:
+        element_count:
           description: Number of element types.
           format: int32
           type: integer
@@ -232467,13 +232467,13 @@ components:
         pointer: pointer
         code: code
         found: found
-        didYouMean:
-        - didYouMean
-        - didYouMean
         line: 6
         expected: expected
         suggestion: suggestion
         column: 0
+        did_you_mean:
+        - did_you_mean
+        - did_you_mean
         message: message
       properties:
         code:
@@ -232484,7 +232484,7 @@ components:
           description: 1-indexed column number.  Populated for Velocity problems.
           format: int32
           type: integer
-        didYouMean:
+        did_you_mean:
           description: "Close matches for an unrecognized value, best match first.\
             \  Populated for unknown element types and unknown configuration keys."
           items:
@@ -232522,34 +232522,34 @@ components:
       type: object
     SfvbFileContentResponse:
       example:
+        hash_sha256: hash_sha256
         valid: true
         path: path
         size: 6
-        autoCompiled: true
+        mime_type: mime_type
+        fs_file_oid: 0
+        auto_compiled: true
         truncated: true
-        mimeType: mimeType
-        fsFileOid: 0
-        velocityErrors: velocityErrors
+        velocity_errors: velocity_errors
         version: 1
         content: content
-        hashSha256: hashSha256
       properties:
-        autoCompiled:
+        auto_compiled:
           description: True when this file is compiler output and must not be edited
             directly.
           type: boolean
         content:
           description: UTF-8 content.  Only text/* files can be read this way.
           type: string
-        fsFileOid:
+        fs_file_oid:
           description: StoreFront file system file oid.
           format: int32
           type: integer
-        hashSha256:
+        hash_sha256:
           description: SHA-256 of the content.  Also returned as the ETag header;
             send it back as If-Match when writing.
           type: string
-        mimeType:
+        mime_type:
           description: Mime type.
           type: string
         path:
@@ -232566,7 +232566,7 @@ components:
           description: False when the file failed Velocity validation on its last
             write.
           type: boolean
-        velocityErrors:
+        velocity_errors:
           description: Velocity errors recorded on the last write.  Null when valid.
           type: string
         version:
@@ -232576,52 +232576,52 @@ components:
       type: object
     SfvbFileEntry:
       example:
-        mergeConflict: true
-        autoCompiled: true
-        readOnly: true
-        mimeType: mimeType
-        fsFileOid: 6
+        i18n_violation: true
+        fs_directory_oid: 0
         directory: true
         version: 5
-        hashSha256: hashSha256
+        hash_sha256: hash_sha256
         valid: true
-        fsDirectoryOid: 0
         path: path
+        merge_conflict: true
         size: 1
+        mime_type: mime_type
+        read_only: true
+        fs_file_oid: 6
         name: name
-        lastModified: lastModified
-        i18nViolation: true
+        auto_compiled: true
+        last_modified: last_modified
       properties:
-        autoCompiled:
+        auto_compiled:
           description: True when this file is generated by the CJSON compiler and
             must not be edited directly.  Its .cjson sibling is the source.
           type: boolean
         directory:
           description: True when this entry is a directory.
           type: boolean
-        fsDirectoryOid:
+        fs_directory_oid:
           description: StoreFront file system directory oid.  For a directory this
             is its own oid; for a file it is the parent.
           format: int32
           type: integer
-        fsFileOid:
+        fs_file_oid:
           description: StoreFront file system file oid.
           format: int32
           type: integer
-        hashSha256:
+        hash_sha256:
           description: SHA-256 of the content.  Use as the If-Match value when writing.
           type: string
-        i18nViolation:
+        i18n_violation:
           description: True when the file has internationalization violations.
           type: boolean
-        lastModified:
+        last_modified:
           description: Last modified timestamp.
           type: string
-        mergeConflict:
+        merge_conflict:
           description: True when the file carries an unresolved theme merge conflict.  Blocks
             theme activation.
           type: boolean
-        mimeType:
+        mime_type:
           description: Mime type.  Only text/* files can be read as content or searched
             by text.
           type: string
@@ -232631,7 +232631,7 @@ components:
         path:
           description: Full path of the file or directory.
           type: string
-        readOnly:
+        read_only:
           description: True when the file is marked read only.
           type: boolean
         size:
@@ -232667,53 +232667,53 @@ components:
       type: object
     SfvbFileSearchRequest:
       example:
-        fileName: fileName
-        i18nViolations: true
+        modified_min: modified_min
         offset: 6
-        dynamicHtml: true
-        caseSensitive: true
-        mimeType: mimeType
-        subDirectories: true
-        mergeConflicts: true
-        modifiedMax: modifiedMax
-        sizeMin: 5
+        file_name: file_name
+        size_max: 1
+        dynamic_html: true
+        merge_conflicts: true
         path: path
-        maxResults: 0
+        modified_max: modified_max
+        size_min: 5
+        mime_type: mime_type
+        case_sensitive: true
+        i18n_violations: true
         invalid: true
+        sub_directories: true
+        max_results: 0
         text: text
-        modifiedMin: modifiedMin
-        sizeMax: 1
       properties:
-        caseSensitive:
+        case_sensitive:
           description: Whether the text search is case sensitive.  Defaults to false.
           type: boolean
-        dynamicHtml:
+        dynamic_html:
           description: Only dynamic HTML (arbitrary) files.
           type: boolean
-        fileName:
+        file_name:
           description: "Comma separated file name patterns, matched case insensitively\
             \ with wildcards."
           type: string
-        i18nViolations:
+        i18n_violations:
           description: Only files with internationalization violations.
           type: boolean
         invalid:
           description: Only files that failed Velocity validation.
           type: boolean
-        maxResults:
+        max_results:
           description: Maximum results to return.  Clamped to the server maximum.
           format: int32
           type: integer
-        mergeConflicts:
+        merge_conflicts:
           description: Only files with unresolved theme merge conflicts.
           type: boolean
-        mimeType:
+        mime_type:
           description: Restrict to a mime type.
           type: string
-        modifiedMax:
+        modified_max:
           description: Only files modified at or before this ISO-8601 timestamp.
           type: string
-        modifiedMin:
+        modified_min:
           description: Only files modified at or after this ISO-8601 timestamp.
           type: string
         offset:
@@ -232726,15 +232726,15 @@ components:
           description: Restrict to a directory path.  Strongly recommended alongside
             text.
           type: string
-        sizeMax:
+        size_max:
           description: Maximum size in bytes.
           format: int32
           type: integer
-        sizeMin:
+        size_min:
           description: Minimum size in bytes.
           format: int32
           type: integer
-        subDirectories:
+        sub_directories:
           description: Recurse below path.  Defaults to true.
           type: boolean
         text:
@@ -232744,55 +232744,55 @@ components:
       type: object
     SfvbFileSearchResponse:
       example:
-        resultCount: 5
         offset: 1
-        maxResults: 0
+        total_count: 5
+        truncation_advice: truncation_advice
         files:
-        - mergeConflict: true
-          autoCompiled: true
-          readOnly: true
-          mimeType: mimeType
-          fsFileOid: 6
+        - i18n_violation: true
+          fs_directory_oid: 0
           directory: true
           version: 5
-          hashSha256: hashSha256
+          hash_sha256: hash_sha256
           valid: true
-          fsDirectoryOid: 0
           path: path
+          merge_conflict: true
           size: 1
+          mime_type: mime_type
+          read_only: true
+          fs_file_oid: 6
           name: name
-          lastModified: lastModified
-          i18nViolation: true
-        - mergeConflict: true
-          autoCompiled: true
-          readOnly: true
-          mimeType: mimeType
-          fsFileOid: 6
+          auto_compiled: true
+          last_modified: last_modified
+        - i18n_violation: true
+          fs_directory_oid: 0
           directory: true
           version: 5
-          hashSha256: hashSha256
+          hash_sha256: hash_sha256
           valid: true
-          fsDirectoryOid: 0
           path: path
+          merge_conflict: true
           size: 1
+          mime_type: mime_type
+          read_only: true
+          fs_file_oid: 6
           name: name
-          lastModified: lastModified
-          i18nViolation: true
+          auto_compiled: true
+          last_modified: last_modified
+        max_results: 0
         truncated: true
-        nextOffset: 6
-        totalCount: 5
-        truncationAdvice: truncationAdvice
+        next_offset: 6
+        result_count: 5
       properties:
         files:
           description: Matching files.
           items:
             $ref: '#/components/schemas/SfvbFileEntry'
           type: array
-        maxResults:
+        max_results:
           description: The cap that was applied.
           format: int32
           type: integer
-        nextOffset:
+        next_offset:
           description: Offset to send for the next page.  Zero when truncated is false.  Never
             truncates without giving a way to continue.
           format: int32
@@ -232801,11 +232801,11 @@ components:
           description: Results skipped to produce this page.
           format: int32
           type: integer
-        resultCount:
+        result_count:
           description: Number of results returned.
           format: int32
           type: integer
-        totalCount:
+        total_count:
           description: Total matches found.  Available because the underlying query
             is unbounded and returns everything anyway; it is not evidence that fetching
             them all is cheap.
@@ -232815,63 +232815,63 @@ components:
           description: True when matches exist beyond this page.  next_offset is populated
             when it is.
           type: boolean
-        truncationAdvice:
+        truncation_advice:
           description: Advice for the caller when truncated is true.
           type: string
       type: object
     SfvbFilesResponse:
       example:
-        fsDirectoryOid: 5
+        parent_fs_directory_oid: 7
         path: path
-        parentFsDirectoryOid: 7
         files:
-        - mergeConflict: true
-          autoCompiled: true
-          readOnly: true
-          mimeType: mimeType
-          fsFileOid: 6
+        - i18n_violation: true
+          fs_directory_oid: 0
           directory: true
           version: 5
-          hashSha256: hashSha256
+          hash_sha256: hash_sha256
           valid: true
-          fsDirectoryOid: 0
           path: path
+          merge_conflict: true
           size: 1
+          mime_type: mime_type
+          read_only: true
+          fs_file_oid: 6
           name: name
-          lastModified: lastModified
-          i18nViolation: true
-        - mergeConflict: true
-          autoCompiled: true
-          readOnly: true
-          mimeType: mimeType
-          fsFileOid: 6
+          auto_compiled: true
+          last_modified: last_modified
+        - i18n_violation: true
+          fs_directory_oid: 0
           directory: true
           version: 5
-          hashSha256: hashSha256
+          hash_sha256: hash_sha256
           valid: true
-          fsDirectoryOid: 0
           path: path
+          merge_conflict: true
           size: 1
+          mime_type: mime_type
+          read_only: true
+          fs_file_oid: 6
           name: name
-          lastModified: lastModified
-          i18nViolation: true
+          auto_compiled: true
+          last_modified: last_modified
+        omitted_count: 2
         truncated: true
-        omittedCount: 2
+        fs_directory_oid: 5
       properties:
         files:
           description: "Directories first, then files, each sorted by name."
           items:
             $ref: '#/components/schemas/SfvbFileEntry'
           type: array
-        fsDirectoryOid:
+        fs_directory_oid:
           description: Oid of the directory that was listed.
           format: int32
           type: integer
-        omittedCount:
+        omitted_count:
           description: Number of entries omitted when truncated is true.
           format: int32
           type: integer
-        parentFsDirectoryOid:
+        parent_fs_directory_oid:
           description: "Oid of the parent directory, or zero at the root."
           format: int32
           type: integer
@@ -232884,15 +232884,15 @@ components:
       type: object
     SfvbFileVersion:
       example:
+        hash_sha256: hash_sha256
         current: true
         revertable: true
-        editedBy: editedBy
         size: 1
-        fsFileHistoryOid: 6
         comment: comment
-        lastModified: lastModified
+        last_modified: last_modified
         version: 5
-        hashSha256: hashSha256
+        edited_by: edited_by
+        fs_file_history_oid: 6
       properties:
         comment:
           description: Comment recorded with the write.
@@ -232900,17 +232900,17 @@ components:
         current:
           description: True for the version currently on disk.
           type: boolean
-        editedBy:
+        edited_by:
           description: Login of whoever wrote this version.
           type: string
-        fsFileHistoryOid:
+        fs_file_history_oid:
           description: History record oid.
           format: int32
           type: integer
-        hashSha256:
+        hash_sha256:
           description: SHA-256 of this version's content.
           type: string
-        lastModified:
+        last_modified:
           description: When this version was written.
           type: string
         revertable:
@@ -232929,27 +232929,27 @@ components:
       example:
         path: path
         versions:
-        - current: true
+        - hash_sha256: hash_sha256
+          current: true
           revertable: true
-          editedBy: editedBy
           size: 1
-          fsFileHistoryOid: 6
           comment: comment
-          lastModified: lastModified
+          last_modified: last_modified
           version: 5
-          hashSha256: hashSha256
-        - current: true
+          edited_by: edited_by
+          fs_file_history_oid: 6
+        - hash_sha256: hash_sha256
+          current: true
           revertable: true
-          editedBy: editedBy
           size: 1
-          fsFileHistoryOid: 6
           comment: comment
-          lastModified: lastModified
+          last_modified: last_modified
           version: 5
-          hashSha256: hashSha256
-        fsFileOid: 0
+          edited_by: edited_by
+          fs_file_history_oid: 6
+        fs_file_oid: 0
       properties:
-        fsFileOid:
+        fs_file_oid:
           description: StoreFront file system file oid.
           format: int32
           type: integer
@@ -232964,7 +232964,7 @@ components:
       type: object
     SfvbFileWriteRequest:
       example:
-        createIfMissing: true
+        create_if_missing: true
         comment: comment
         content: content
       properties:
@@ -232974,100 +232974,100 @@ components:
         content:
           description: UTF-8 content to write.
           type: string
-        createIfMissing:
+        create_if_missing:
           description: Create the file if it does not exist.  Defaults to true.
           type: boolean
       type: object
     SfvbFileWriteResponse:
       example:
+        hash_sha256: hash_sha256
         file:
-          mergeConflict: true
-          autoCompiled: true
-          readOnly: true
-          mimeType: mimeType
-          fsFileOid: 6
+          i18n_violation: true
+          fs_directory_oid: 0
           directory: true
           version: 5
-          hashSha256: hashSha256
+          hash_sha256: hash_sha256
           valid: true
-          fsDirectoryOid: 0
           path: path
+          merge_conflict: true
           size: 1
+          mime_type: mime_type
+          read_only: true
+          fs_file_oid: 6
           name: name
-          lastModified: lastModified
-          i18nViolation: true
-        compiledPath: compiledPath
-        velocityErrors: velocityErrors
+          auto_compiled: true
+          last_modified: last_modified
+        velocity_errors: velocity_errors
         version: 0
-        hashSha256: hashSha256
+        compiled_path: compiled_path
         validation:
           valid: true
+          used_elements:
+          - used_elements
+          - used_elements
           warnings:
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
-          usedElements:
-          - usedElements
-          - usedElements
           errors:
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
           - severity: error
             pointer: pointer
             code: code
             found: found
-            didYouMean:
-            - didYouMean
-            - didYouMean
             line: 6
             expected: expected
             suggestion: suggestion
             column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
             message: message
       properties:
-        compiledPath:
+        compiled_path:
           description: "Path of the compiled output, when writing a .cjson under a\
             \ theme triggered a compile."
           type: string
         file:
           $ref: '#/components/schemas/SfvbFileEntry'
-        hashSha256:
+        hash_sha256:
           description: New SHA-256.  Use as the next If-Match value.
           type: string
         validation:
           $ref: '#/components/schemas/SfvbValidationResponse'
-        velocityErrors:
+        velocity_errors:
           description: Velocity errors recorded by the store.  Present means the file
             was written but is not valid.
           type: string
@@ -233078,19 +233078,19 @@ components:
       type: object
     SfvbLibraryEntry:
       example:
-        libraryOid: 1
+        referenced_files:
+        - referenced_files
+        - referenced_files
         bookmarked: true
         owned: true
+        library_oid: 1
         name: name
         description: description
-        shareWithAccount: true
-        referencedFiles:
-        - referencedFiles
-        - referencedFiles
+        share_with_account: true
+        screenshot_key: screenshot_key
+        thumbnail_key: thumbnail_key
         cjson: cjson
-        screenshotKey: screenshotKey
-        widgetType: widgetType
-        thumbnailKey: thumbnailKey
+        widget_type: widget_type
       properties:
         bookmarked:
           description: True when the calling user has bookmarked this entry.
@@ -233102,7 +233102,7 @@ components:
         description:
           description: What this fragment is for.
           type: string
-        libraryOid:
+        library_oid:
           description: Library entry oid.
           format: int32
           type: integer
@@ -233112,37 +233112,37 @@ components:
         owned:
           description: True when the calling user owns this entry.
           type: boolean
-        referencedFiles:
+        referenced_files:
           description: Storefront file paths this fragment references.  Installing
             the fragment copies them into the storefront; reading it does not.
           items:
             type: string
           type: array
-        screenshotKey:
+        screenshot_key:
           description: "S3 listing key for the large screenshot, when one has been\
             \ generated."
           type: string
-        shareWithAccount:
+        share_with_account:
           description: True when the entry is shared across the merchant account.
           type: boolean
-        thumbnailKey:
+        thumbnail_key:
           description: "S3 listing key for the medium thumbnail, when one has been\
             \ generated.  Thumbnails are produced asynchronously and can lag a save\
             \ by a minute or two."
           type: string
-        widgetType:
+        widget_type:
           description: Element type at the root of the fragment.
           type: string
       type: object
     SfvbLibraryFacet:
       example:
-        displayName: displayName
         name: name
         options:
         - options
         - options
+        display_name: display_name
       properties:
-        displayName:
+        display_name:
           description: Human readable facet name.
           type: string
         name:
@@ -233156,48 +233156,48 @@ components:
       type: object
     SfvbLibraryResponse:
       example:
-        totalResults: 5
-        totalPages: 5
-        firstResultNumber: 0
+        first_result_number: 0
+        last_result_number: 6
+        total_pages: 5
         results:
-        - libraryOid: 1
+        - referenced_files:
+          - referenced_files
+          - referenced_files
           bookmarked: true
           owned: true
+          library_oid: 1
           name: name
           description: description
-          shareWithAccount: true
-          referencedFiles:
-          - referencedFiles
-          - referencedFiles
+          share_with_account: true
+          screenshot_key: screenshot_key
+          thumbnail_key: thumbnail_key
           cjson: cjson
-          screenshotKey: screenshotKey
-          widgetType: widgetType
-          thumbnailKey: thumbnailKey
-        - libraryOid: 1
+          widget_type: widget_type
+        - referenced_files:
+          - referenced_files
+          - referenced_files
           bookmarked: true
           owned: true
+          library_oid: 1
           name: name
           description: description
-          shareWithAccount: true
-          referencedFiles:
-          - referencedFiles
-          - referencedFiles
+          share_with_account: true
+          screenshot_key: screenshot_key
+          thumbnail_key: thumbnail_key
           cjson: cjson
-          screenshotKey: screenshotKey
-          widgetType: widgetType
-          thumbnailKey: thumbnailKey
-        lastResultNumber: 6
+          widget_type: widget_type
         facets:
-        - displayName: displayName
-          name: name
+        - name: name
           options:
           - options
           - options
-        - displayName: displayName
-          name: name
+          display_name: display_name
+        - name: name
           options:
           - options
           - options
+          display_name: display_name
+        total_results: 5
       properties:
         facets:
           description: "Available narrowing dimensions.  Send a chosen option back\
@@ -233205,11 +233205,11 @@ components:
           items:
             $ref: '#/components/schemas/SfvbLibraryFacet'
           type: array
-        firstResultNumber:
+        first_result_number:
           description: 1-indexed position of the first result on this page.
           format: int32
           type: integer
-        lastResultNumber:
+        last_result_number:
           description: 1-indexed position of the last result on this page.
           format: int32
           type: integer
@@ -233219,25 +233219,25 @@ components:
           items:
             $ref: '#/components/schemas/SfvbLibraryEntry'
           type: array
-        totalPages:
+        total_pages:
           description: Total pages available.
           format: int32
           type: integer
-        totalResults:
+        total_results:
           description: Total matches across all pages.
           format: int32
           type: integer
       type: object
     SfvbPreviewSessionRequest:
       example:
-        themeOid: 0
         containers: "{}"
+        theme_oid: 0
       properties:
         containers:
           description: "Containers to preview, keyed by container id.  Each value\
             \ is a full container document."
           type: object
-        themeOid:
+        theme_oid:
           description: Theme to compile against.  Supplies the inherit groups configuration.  Defaults
             to the active theme.
           format: int32
@@ -233245,58 +233245,58 @@ components:
       type: object
     SfvbPreviewSessionResponse:
       example:
-        storedKeys:
-        - storedKeys
-        - storedKeys
-        previewSessionId: previewSessionId
-        maxBytes: 1
-        expiresInSeconds: 6
-        bytesStored: 0
-        ownerLogin: ownerLogin
+        expires_in_seconds: 6
+        owner_login: owner_login
+        bytes_stored: 0
+        max_bytes: 1
+        preview_session_id: preview_session_id
+        stored_keys:
+        - stored_keys
+        - stored_keys
         skipped:
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
       properties:
-        bytesStored:
+        bytes_stored:
           description: Bytes stored in this session by the request that returned this
             response.
           format: int32
           type: integer
-        expiresInSeconds:
+        expires_in_seconds:
           description: Seconds until this session expires.
           format: int32
           type: integer
-        maxBytes:
+        max_bytes:
           description: Maximum bytes one preview session may hold.
           format: int32
           type: integer
-        ownerLogin:
+        owner_login:
           description: "Login this session belongs to.  Sessions are keyed by user,\
             \ not by token."
           type: string
-        previewSessionId:
+        preview_session_id:
           description: The preview session id.
           type: string
         skipped:
@@ -233305,7 +233305,7 @@ components:
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
           type: array
-        storedKeys:
+        stored_keys:
           description: "Preview map keys that were stored.  A container whose owner\
             \ type could not be resolved is silently dropped by the underlying store,\
             \ so compare this against what you sent."
@@ -233317,27 +233317,27 @@ components:
       example:
         shareable: true
         path: path
-        usageNote: usageNote
-        previewUrl: previewUrl
-        requiresBrowserSession: true
-        previewSessionId: previewSessionId
-        expiresInSeconds: 0
+        expires_in_seconds: 0
+        preview_url: preview_url
+        requires_browser_session: true
+        usage_note: usage_note
+        preview_session_id: preview_session_id
       properties:
-        expiresInSeconds:
+        expires_in_seconds:
           description: Seconds until the session expires.
           format: int32
           type: integer
         path:
           description: Storefront path being previewed.
           type: string
-        previewSessionId:
+        preview_session_id:
           description: The preview session id used.
           type: string
-        previewUrl:
+        preview_url:
           description: URL that renders the storefront page with the preview session's
             containers substituted for the stored ones.
           type: string
-        requiresBrowserSession:
+        requires_browser_session:
           description: "Always true.  The preview only applies to a request carrying\
             \ the UltraCart admin session cookie of the user who authorised this token.\
             \  Fetched without it, the URL returns the LIVE page with a 200 and no\
@@ -233348,33 +233348,33 @@ components:
           description: "Always false.  The session is keyed by individual login, so\
             \ anyone else opening this URL sees the live page rather than the preview."
           type: boolean
-        usageNote:
+        usage_note:
           description: "Plain language restatement of the two flags above, safe to\
             \ show a user."
           type: string
       type: object
     SfvbRenderRequest:
       example:
-        languageIsoCode: languageIsoCode
-        contextGroupPath: contextGroupPath
-        contextUpsellOfferOid: 1
-        childContainersJson: childContainersJson
-        ancestorsCjson: ancestorsCjson
-        contextAffiliateOid: 0
-        contextBlogPostOid: 6
-        contextPageNumber: contextPageNumber
-        contextItemId: contextItemId
-        contextOrderId: contextOrderId
+        context_blog_post_oid: 6
+        context_order_id: context_order_id
+        context_group_path: context_group_path
+        child_containers_json: child_containers_json
+        context_upsell_offer_oid: 1
+        ancestors_cjson: ancestors_cjson
+        context_affiliate_oid: 0
+        context_item_id: context_item_id
+        language_iso_code: language_iso_code
         uri: uri
         cjson: cjson
+        context_page_number: context_page_number
       properties:
-        ancestorsCjson:
+        ancestors_cjson:
           description: "The chain of ancestor nodes above this one, as CJSON.  Elements\
             \ that inherit layout or styling from a parent render differently without\
             \ it, so supply it when rendering a node from inside a container rather\
             \ than a standalone fragment."
           type: string
-        childContainersJson:
+        child_containers_json:
           description: "Child containers this node references, as a JSON object keyed\
             \ by container id.  Compiled into the render context so nested containers\
             \ resolve."
@@ -233382,32 +233382,32 @@ components:
         cjson:
           description: The CJSON node to render.
           type: string
-        contextAffiliateOid:
+        context_affiliate_oid:
           description: Affiliate oid for the rendering context.
           format: int32
           type: integer
-        contextBlogPostOid:
+        context_blog_post_oid:
           description: Blog post oid for the rendering context.
           format: int32
           type: integer
-        contextGroupPath:
+        context_group_path:
           description: Catalog group path for the rendering context.
           type: string
-        contextItemId:
+        context_item_id:
           description: Item id for the rendering context.  Required for item bound
             elements.
           type: string
-        contextOrderId:
+        context_order_id:
           description: Order id for the rendering context.
           type: string
-        contextPageNumber:
+        context_page_number:
           description: Page number for paginated elements.  Defaults to 1.
           type: string
-        contextUpsellOfferOid:
+        context_upsell_offer_oid:
           description: Upsell offer oid for the rendering context.
           format: int32
           type: integer
-        languageIsoCode:
+        language_iso_code:
           description: Language ISO code.  Defaults to ENG.
           type: string
         uri:
@@ -233417,33 +233417,33 @@ components:
       type: object
     SfvbRenderResponse:
       example:
-        pendingTranslationCount: 0
         success: true
         warnings:
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
+        pending_translation_count: 0
         truncated: true
         html: html
         errors:
@@ -233451,25 +233451,25 @@ components:
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
       properties:
         errors:
@@ -233480,7 +233480,7 @@ components:
         html:
           description: Rendered HTML.
           type: string
-        pendingTranslationCount:
+        pending_translation_count:
           description: Number of strings still awaiting translation in the requested
             language.
           format: int32
@@ -233499,18 +233499,18 @@ components:
       type: object
     SfvbStorefront:
       example:
-        hostName: hostName
-        storefrontOid: 6
-        activeThemeOid: 0
+        active_theme_oid: 0
+        storefront_oid: 6
+        host_name: host_name
       properties:
-        activeThemeOid:
+        active_theme_oid:
           description: Oid of the theme currently serving live traffic.
           format: int32
           type: integer
-        hostName:
+        host_name:
           description: Host name of the storefront.
           type: string
-        storefrontOid:
+        storefront_oid:
           description: StoreFront oid.
           format: int32
           type: integer
@@ -233518,12 +233518,12 @@ components:
     SfvbStorefrontsResponse:
       example:
         storefronts:
-        - hostName: hostName
-          storefrontOid: 6
-          activeThemeOid: 0
-        - hostName: hostName
-          storefrontOid: 6
-          activeThemeOid: 0
+        - active_theme_oid: 0
+          storefront_oid: 6
+          host_name: host_name
+        - active_theme_oid: 0
+          storefront_oid: 6
+          host_name: host_name
       properties:
         storefronts:
           description: Storefronts reachable with this token.
@@ -233533,15 +233533,15 @@ components:
       type: object
     SfvbTheme:
       example:
+        upgrade_available: true
         valid: true
-        fsDirectoryOid: 6
         path: path
-        themeName: themeName
-        storefrontOid: 1
+        theme_name: theme_name
         active: true
         description: description
-        themeOid: 5
-        upgradeAvailable: true
+        storefront_oid: 1
+        theme_oid: 5
+        fs_directory_oid: 6
         version: version
       properties:
         active:
@@ -233551,7 +233551,7 @@ components:
         description:
           description: "What the theme is, where the author supplied a description."
           type: string
-        fsDirectoryOid:
+        fs_directory_oid:
           description: Oid of the theme root directory in the storefront file system.
           format: int32
           type: integer
@@ -233559,18 +233559,18 @@ components:
           description: "Root path of the theme in the storefront file system, for\
             \ example /themes/mytheme/"
           type: string
-        storefrontOid:
+        storefront_oid:
           description: StoreFront oid this theme belongs to.
           format: int32
           type: integer
-        themeName:
+        theme_name:
           description: Theme name.
           type: string
-        themeOid:
+        theme_oid:
           description: StoreFront theme oid.
           format: int32
           type: integer
-        upgradeAvailable:
+        upgrade_available:
           description: True when a newer version of this theme exists.  Relevant because
             an upgrade is what produces the merge conflicts that block activation.
           type: boolean
@@ -233584,9 +233584,9 @@ components:
       type: object
     SfvbThemeDuplicateRequest:
       example:
-        themeName: themeName
         folder: folder
-        targetStorefrontOid: 0
+        target_storefront_oid: 0
+        theme_name: theme_name
       properties:
         folder:
           description: "Directory name for the new theme under /themes/.  Letters\
@@ -233594,29 +233594,29 @@ components:
             \ collision is refused rather than resolved, because silently creating\
             \ a differently named theme leaves you unsure what you made."
           type: string
-        targetStorefrontOid:
+        target_storefront_oid:
           description: Storefront to create the copy on.  Defaults to the storefront
             in the path.  Supply it only when copying a theme between storefronts
             you own.
           format: int32
           type: integer
-        themeName:
+        theme_name:
           description: Name for the new theme.
           type: string
       type: object
     SfvbThemeJobResponse:
       example:
-        jobId: 0
-        finishedDts: finishedDts
+        error_message: error_message
+        progress_description: progress_description
+        started_dts: started_dts
+        job_id: 0
         success: true
-        errorMessage: errorMessage
-        progressDescription: progressDescription
         description: description
         progress: 6
-        submittedDts: submittedDts
-        targetPath: targetPath
-        startedDts: startedDts
         complete: true
+        finished_dts: finished_dts
+        submitted_dts: submitted_dts
+        target_path: target_path
         status: submitted
       properties:
         complete:
@@ -233625,13 +233625,13 @@ components:
         description:
           description: Human readable description of the job.
           type: string
-        errorMessage:
+        error_message:
           description: Failure detail.  Populated only when status is error.
           type: string
-        finishedDts:
+        finished_dts:
           description: When the job stopped.  Null until it does.
           type: string
-        jobId:
+        job_id:
           description: Job handle.  Poll getSfvbThemeJob with this.
           format: int32
           type: integer
@@ -233639,11 +233639,11 @@ components:
           description: "Percent complete, 0-100."
           format: int32
           type: integer
-        progressDescription:
+        progress_description:
           description: "What the job is doing right now, for example 'Duplicating\
             \ locale text'."
           type: string
-        startedDts:
+        started_dts:
           description: When the job started running.  Null until it does.
           type: string
         status:
@@ -233655,14 +233655,14 @@ components:
           - finished
           - error
           type: string
-        submittedDts:
+        submitted_dts:
           description: When the job was queued.
           type: string
         success:
           description: True only when the job finished successfully.  Check complete
             first.
           type: boolean
-        targetPath:
+        target_path:
           description: "Path the new theme was created at.  Returned when the job\
             \ is started; the theme oid itself is NOT returned, because the job's\
             \ product is a plain text report rather than a structured result.  Once\
@@ -233672,29 +233672,29 @@ components:
     SfvbThemesResponse:
       example:
         themes:
-        - valid: true
-          fsDirectoryOid: 6
+        - upgrade_available: true
+          valid: true
           path: path
-          themeName: themeName
-          storefrontOid: 1
+          theme_name: theme_name
           active: true
           description: description
-          themeOid: 5
-          upgradeAvailable: true
+          storefront_oid: 1
+          theme_oid: 5
+          fs_directory_oid: 6
           version: version
-        - valid: true
-          fsDirectoryOid: 6
+        - upgrade_available: true
+          valid: true
           path: path
-          themeName: themeName
-          storefrontOid: 1
+          theme_name: theme_name
           active: true
           description: description
-          themeOid: 5
-          upgradeAvailable: true
+          storefront_oid: 1
+          theme_oid: 5
+          fs_directory_oid: 6
           version: version
-        activeThemeOid: 0
+        active_theme_oid: 0
       properties:
-        activeThemeOid:
+        active_theme_oid:
           description: "Oid of the active theme, repeated here so a caller does not\
             \ have to scan the list."
           format: int32
@@ -233708,74 +233708,74 @@ components:
       type: object
     SfvbUpsellOffer:
       example:
-        activeOverall: true
-        pathName: pathName
-        cjsonSize: 0
-        hasContainer: true
-        storefrontOid: 6
-        upsellOfferOid: 1
+        upsell_offer_oid: 1
+        has_container: true
+        cjson_size: 0
         name: name
         active: true
-        testOnly: true
+        storefront_oid: 6
+        active_overall: true
+        path_name: path_name
+        test_only: true
       properties:
         active:
           description: Whether the offer is switched on.
           type: boolean
-        activeOverall:
+        active_overall:
           description: Whether the offer is active once its date window and daily
             pricing are taken into account.  This is the one that says whether shoppers
             are actually seeing it.
           type: boolean
-        cjsonSize:
+        cjson_size:
           description: Size of the offer's container JSON in bytes.  A large value
             here alongside a low element count is the signature of a hand pasted HTML
             dump.
           format: int32
           type: integer
-        hasContainer:
+        has_container:
           description: Whether a container has been authored for this offer.
           type: boolean
         name:
           description: Offer name.
           type: string
-        pathName:
+        path_name:
           description: Name of the upsell path this offer sits on.
           type: string
-        storefrontOid:
+        storefront_oid:
           description: Storefront oid.
           format: int32
           type: integer
-        testOnly:
+        test_only:
           description: Whether the offer is restricted to test traffic.
           type: boolean
-        upsellOfferOid:
+        upsell_offer_oid:
           description: Upsell offer oid.
           format: int32
           type: integer
       type: object
     SfvbUpsellOffersResponse:
       example:
-        upsellOffers:
-        - activeOverall: true
-          pathName: pathName
-          cjsonSize: 0
-          hasContainer: true
-          storefrontOid: 6
-          upsellOfferOid: 1
+        upsell_offers:
+        - upsell_offer_oid: 1
+          has_container: true
+          cjson_size: 0
           name: name
           active: true
-          testOnly: true
-        - activeOverall: true
-          pathName: pathName
-          cjsonSize: 0
-          hasContainer: true
-          storefrontOid: 6
-          upsellOfferOid: 1
+          storefront_oid: 6
+          active_overall: true
+          path_name: path_name
+          test_only: true
+        - upsell_offer_oid: 1
+          has_container: true
+          cjson_size: 0
           name: name
           active: true
-          testOnly: true
+          storefront_oid: 6
+          active_overall: true
+          path_name: path_name
+          test_only: true
       properties:
-        upsellOffers:
+        upsell_offers:
           description: Upsell offers on this storefront.
           items:
             $ref: '#/components/schemas/SfvbUpsellOffer'
@@ -233783,28 +233783,28 @@ components:
       type: object
     SfvbValidateRequest:
       example:
-        ownerType: theme
-        containerName: containerName
-        includeWarnings: true
-        marketingEmail: true
+        marketing_email: true
+        include_warnings: true
+        container_name: container_name
         cjson: cjson
+        owner_type: theme
       properties:
         cjson:
           description: The container JSON to validate.
           type: string
-        containerName:
+        container_name:
           description: "Container name it will be stored under, for example upsell-offer\
             \ or email-footer.  Some rules key off the name."
           type: string
-        includeWarnings:
+        include_warnings:
           description: Include quality warnings as well as errors.  Defaults to true.
           type: boolean
-        marketingEmail:
+        marketing_email:
           description: "For email containers, whether this is a marketing email. \
             \ Marketing emails carry CAN-SPAM footer requirements that transactional\
             \ emails do not."
           type: boolean
-        ownerType:
+        owner_type:
           description: Where this container is destined to live.  Determines which
             contextual rules apply.
           enum:
@@ -233819,58 +233819,58 @@ components:
     SfvbValidationResponse:
       example:
         valid: true
+        used_elements:
+        - used_elements
+        - used_elements
         warnings:
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
-        usedElements:
-        - usedElements
-        - usedElements
         errors:
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
         - severity: error
           pointer: pointer
           code: code
           found: found
-          didYouMean:
-          - didYouMean
-          - didYouMean
           line: 6
           expected: expected
           suggestion: suggestion
           column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
           message: message
       properties:
         errors:
@@ -233878,7 +233878,7 @@ components:
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
           type: array
-        usedElements:
+        used_elements:
           description: "Element types found in the document, sorted."
           items:
             type: string
@@ -233909,50 +233909,50 @@ components:
       type: object
     SfvbVersionResponse:
       example:
-        maxCjsonBytes: 1
-        maxPreviewSessionBytes: 5
-        containerVersionsRetained: 0
+        max_cjson_bytes: 1
+        max_widget_ids_per_request: 7
+        max_search_results: 5
+        element_count: 6
         release: ga
-        containerManagerVersion: containerManagerVersion
-        elementCount: 6
-        maxWidgetIdsPerRequest: 7
-        previewSessionTtlSeconds: 9
-        maxSearchResults: 5
-        maxTemplateBytes: 2
+        preview_session_ttl_seconds: 9
+        max_preview_session_bytes: 5
+        container_manager_version: container_manager_version
+        max_template_bytes: 2
+        container_versions_retained: 0
       properties:
-        containerManagerVersion:
+        container_manager_version:
           description: Container manager version used to compile for this merchant.
           type: string
-        containerVersionsRetained:
+        container_versions_retained:
           description: "Versions kept per non-file container before the oldest are\
             \ pruned.  Beyond this, history is gone - not merely paginated."
           format: int32
           type: integer
-        elementCount:
+        element_count:
           description: Number of element types this version recognizes.
           format: int32
           type: integer
-        maxCjsonBytes:
+        max_cjson_bytes:
           description: "Largest CJSON document that will be parsed, in bytes."
           format: int32
           type: integer
-        maxPreviewSessionBytes:
+        max_preview_session_bytes:
           description: "Largest payload one preview session may hold, in bytes."
           format: int32
           type: integer
-        maxSearchResults:
+        max_search_results:
           description: Hard ceiling on file search results per page.
           format: int32
           type: integer
-        maxTemplateBytes:
+        max_template_bytes:
           description: "Largest template file that can be written, in bytes."
           format: int32
           type: integer
-        maxWidgetIdsPerRequest:
+        max_widget_ids_per_request:
           description: Most widget ids that can be reserved in one call.
           format: int32
           type: integer
-        previewSessionTtlSeconds:
+        preview_session_ttl_seconds:
           description: Seconds a preview session survives before expiring.
           format: int32
           type: integer
@@ -233966,63 +233966,63 @@ components:
       type: object
     SfvbWhoamiResponse:
       example:
-        canRead: true
-        deviceScope: deviceScope
-        actingAsUser: true
-        canWrite: true
+        can_write: true
+        storefronts_withheld: true
+        user_name: user_name
+        merchant_id: merchant_id
         login: login
-        storefrontsWithheld: true
-        userName: userName
-        merchantId: merchantId
-        canPublish: true
+        authentication_type: authentication_type
+        can_read: true
+        application_name: application_name
+        can_publish: true
         storefronts:
-        - hostName: hostName
-          storefrontOid: 6
-          activeThemeOid: 0
-        - hostName: hostName
-          storefrontOid: 6
-          activeThemeOid: 0
-        authenticationType: authenticationType
+        - active_theme_oid: 0
+          storefront_oid: 6
+          host_name: host_name
+        - active_theme_oid: 0
+          storefront_oid: 6
+          host_name: host_name
+        acting_as_user: true
         scopes:
         - scopes
         - scopes
-        applicationName: applicationName
+        device_scope: device_scope
       properties:
-        actingAsUser:
+        acting_as_user:
           description: "True when this token resolves to a merchant user.  Preview\
             \ sessions and file writes need one, because they are recorded against\
             \ the person who approved the token.  Only device flow tokens resolve\
             \ a user, so a plain API key will see this false."
           type: boolean
-        applicationName:
+        application_name:
           description: Description of the application this credential belongs to.
           type: string
-        authenticationType:
+        authentication_type:
           description: "How this token authenticated - Oauth2, Simple Key, Public/Private\
             \ Key or Browser Key."
           type: string
-        canPublish:
+        can_publish:
           description: "True when this token may write a target that is currently\
             \ live - an active upsell offer, an email on a delivering flow, the active\
             \ theme, the storefront root.  Never infer this; it is the difference\
             \ between a draft edit and a shopper visible change."
           type: boolean
-        canRead:
+        can_read:
           description: True when this token may read.  Do not infer this from the
             requested scope name.
           type: boolean
-        canWrite:
+        can_write:
           description: True when this token may write.  Writing a target that is not
             currently live needs only this.
           type: boolean
-        deviceScope:
+        device_scope:
           description: "Device scope name, when this is a device flow token."
           type: string
         login:
           description: Login of the user who approved this token.  Populated for device
             flow tokens; null for plain API key credentials.
           type: string
-        merchantId:
+        merchant_id:
           description: Merchant id this token acts against.
           type: string
         scopes:
@@ -234037,28 +234037,28 @@ components:
           items:
             $ref: '#/components/schemas/SfvbStorefront'
           type: array
-        storefrontsWithheld:
+        storefronts_withheld:
           description: "True when storefronts was emptied because the token lacks\
             \ sfvb_read, rather than because the account has none.  Without this the\
             \ two look identical."
           type: boolean
-        userName:
+        user_name:
           description: "Display name of the approving user, when known."
           type: string
       type: object
     SfvbWidgetIdsResponse:
       example:
+        first_id: 6
         count: 0
         ids:
         - 1
         - 1
-        firstId: 6
       properties:
         count:
           description: How many were reserved.
           format: int32
           type: integer
-        firstId:
+        first_id:
           description: First reserved number.
           format: int32
           type: integer

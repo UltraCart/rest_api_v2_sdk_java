@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbLibraryEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbLibraryEntry {
   public static final String SERIALIZED_NAME_BOOKMARKED = "bookmarked";
   @SerializedName(SERIALIZED_NAME_BOOKMARKED)
@@ -63,7 +63,7 @@ public class SfvbLibraryEntry {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_LIBRARY_OID = "libraryOid";
+  public static final String SERIALIZED_NAME_LIBRARY_OID = "library_oid";
   @SerializedName(SERIALIZED_NAME_LIBRARY_OID)
   private Integer libraryOid;
 
@@ -75,23 +75,23 @@ public class SfvbLibraryEntry {
   @SerializedName(SERIALIZED_NAME_OWNED)
   private Boolean owned;
 
-  public static final String SERIALIZED_NAME_REFERENCED_FILES = "referencedFiles";
+  public static final String SERIALIZED_NAME_REFERENCED_FILES = "referenced_files";
   @SerializedName(SERIALIZED_NAME_REFERENCED_FILES)
   private List<String> referencedFiles = null;
 
-  public static final String SERIALIZED_NAME_SCREENSHOT_KEY = "screenshotKey";
+  public static final String SERIALIZED_NAME_SCREENSHOT_KEY = "screenshot_key";
   @SerializedName(SERIALIZED_NAME_SCREENSHOT_KEY)
   private String screenshotKey;
 
-  public static final String SERIALIZED_NAME_SHARE_WITH_ACCOUNT = "shareWithAccount";
+  public static final String SERIALIZED_NAME_SHARE_WITH_ACCOUNT = "share_with_account";
   @SerializedName(SERIALIZED_NAME_SHARE_WITH_ACCOUNT)
   private Boolean shareWithAccount;
 
-  public static final String SERIALIZED_NAME_THUMBNAIL_KEY = "thumbnailKey";
+  public static final String SERIALIZED_NAME_THUMBNAIL_KEY = "thumbnail_key";
   @SerializedName(SERIALIZED_NAME_THUMBNAIL_KEY)
   private String thumbnailKey;
 
-  public static final String SERIALIZED_NAME_WIDGET_TYPE = "widgetType";
+  public static final String SERIALIZED_NAME_WIDGET_TYPE = "widget_type";
   @SerializedName(SERIALIZED_NAME_WIDGET_TYPE)
   private String widgetType;
 
@@ -427,14 +427,14 @@ public class SfvbLibraryEntry {
     openapiFields.add("bookmarked");
     openapiFields.add("cjson");
     openapiFields.add("description");
-    openapiFields.add("libraryOid");
+    openapiFields.add("library_oid");
     openapiFields.add("name");
     openapiFields.add("owned");
-    openapiFields.add("referencedFiles");
-    openapiFields.add("screenshotKey");
-    openapiFields.add("shareWithAccount");
-    openapiFields.add("thumbnailKey");
-    openapiFields.add("widgetType");
+    openapiFields.add("referenced_files");
+    openapiFields.add("screenshot_key");
+    openapiFields.add("share_with_account");
+    openapiFields.add("thumbnail_key");
+    openapiFields.add("widget_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -472,17 +472,17 @@ public class SfvbLibraryEntry {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the json data is an array
-      if (jsonObj.get("referencedFiles") != null && !jsonObj.get("referencedFiles").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `referencedFiles` to be an array in the JSON string but got `%s`", jsonObj.get("referencedFiles").toString()));
+      if (jsonObj.get("referenced_files") != null && !jsonObj.get("referenced_files").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referenced_files` to be an array in the JSON string but got `%s`", jsonObj.get("referenced_files").toString()));
       }
-      if (jsonObj.get("screenshotKey") != null && !jsonObj.get("screenshotKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `screenshotKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenshotKey").toString()));
+      if (jsonObj.get("screenshot_key") != null && !jsonObj.get("screenshot_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `screenshot_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenshot_key").toString()));
       }
-      if (jsonObj.get("thumbnailKey") != null && !jsonObj.get("thumbnailKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `thumbnailKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnailKey").toString()));
+      if (jsonObj.get("thumbnail_key") != null && !jsonObj.get("thumbnail_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `thumbnail_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_key").toString()));
       }
-      if (jsonObj.get("widgetType") != null && !jsonObj.get("widgetType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `widgetType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widgetType").toString()));
+      if (jsonObj.get("widget_type") != null && !jsonObj.get("widget_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `widget_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widget_type").toString()));
       }
   }
 

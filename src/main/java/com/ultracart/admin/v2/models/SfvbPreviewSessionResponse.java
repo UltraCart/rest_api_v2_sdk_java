@@ -50,25 +50,25 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewSessionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbPreviewSessionResponse {
-  public static final String SERIALIZED_NAME_BYTES_STORED = "bytesStored";
+  public static final String SERIALIZED_NAME_BYTES_STORED = "bytes_stored";
   @SerializedName(SERIALIZED_NAME_BYTES_STORED)
   private Integer bytesStored;
 
-  public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expiresInSeconds";
+  public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expires_in_seconds";
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN_SECONDS)
   private Integer expiresInSeconds;
 
-  public static final String SERIALIZED_NAME_MAX_BYTES = "maxBytes";
+  public static final String SERIALIZED_NAME_MAX_BYTES = "max_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_BYTES)
   private Integer maxBytes;
 
-  public static final String SERIALIZED_NAME_OWNER_LOGIN = "ownerLogin";
+  public static final String SERIALIZED_NAME_OWNER_LOGIN = "owner_login";
   @SerializedName(SERIALIZED_NAME_OWNER_LOGIN)
   private String ownerLogin;
 
-  public static final String SERIALIZED_NAME_PREVIEW_SESSION_ID = "previewSessionId";
+  public static final String SERIALIZED_NAME_PREVIEW_SESSION_ID = "preview_session_id";
   @SerializedName(SERIALIZED_NAME_PREVIEW_SESSION_ID)
   private String previewSessionId;
 
@@ -76,7 +76,7 @@ public class SfvbPreviewSessionResponse {
   @SerializedName(SERIALIZED_NAME_SKIPPED)
   private List<SfvbErrorDetail> skipped = null;
 
-  public static final String SERIALIZED_NAME_STORED_KEYS = "storedKeys";
+  public static final String SERIALIZED_NAME_STORED_KEYS = "stored_keys";
   @SerializedName(SERIALIZED_NAME_STORED_KEYS)
   private List<String> storedKeys = null;
 
@@ -317,13 +317,13 @@ public class SfvbPreviewSessionResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("bytesStored");
-    openapiFields.add("expiresInSeconds");
-    openapiFields.add("maxBytes");
-    openapiFields.add("ownerLogin");
-    openapiFields.add("previewSessionId");
+    openapiFields.add("bytes_stored");
+    openapiFields.add("expires_in_seconds");
+    openapiFields.add("max_bytes");
+    openapiFields.add("owner_login");
+    openapiFields.add("preview_session_id");
     openapiFields.add("skipped");
-    openapiFields.add("storedKeys");
+    openapiFields.add("stored_keys");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -351,11 +351,11 @@ public class SfvbPreviewSessionResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbPreviewSessionResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("ownerLogin") != null && !jsonObj.get("ownerLogin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerLogin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerLogin").toString()));
+      if (jsonObj.get("owner_login") != null && !jsonObj.get("owner_login").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_login` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_login").toString()));
       }
-      if (jsonObj.get("previewSessionId") != null && !jsonObj.get("previewSessionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `previewSessionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("previewSessionId").toString()));
+      if (jsonObj.get("preview_session_id") != null && !jsonObj.get("preview_session_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preview_session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preview_session_id").toString()));
       }
       JsonArray jsonArrayskipped = jsonObj.getAsJsonArray("skipped");
       if (jsonArrayskipped != null) {
@@ -370,8 +370,8 @@ public class SfvbPreviewSessionResponse {
         };
       }
       // ensure the json data is an array
-      if (jsonObj.get("storedKeys") != null && !jsonObj.get("storedKeys").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storedKeys` to be an array in the JSON string but got `%s`", jsonObj.get("storedKeys").toString()));
+      if (jsonObj.get("stored_keys") != null && !jsonObj.get("stored_keys").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `stored_keys` to be an array in the JSON string but got `%s`", jsonObj.get("stored_keys").toString()));
       }
   }
 

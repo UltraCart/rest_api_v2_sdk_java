@@ -47,21 +47,21 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbValidateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbValidateRequest {
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
 
-  public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
+  public static final String SERIALIZED_NAME_CONTAINER_NAME = "container_name";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
   private String containerName;
 
-  public static final String SERIALIZED_NAME_INCLUDE_WARNINGS = "includeWarnings";
+  public static final String SERIALIZED_NAME_INCLUDE_WARNINGS = "include_warnings";
   @SerializedName(SERIALIZED_NAME_INCLUDE_WARNINGS)
   private Boolean includeWarnings;
 
-  public static final String SERIALIZED_NAME_MARKETING_EMAIL = "marketingEmail";
+  public static final String SERIALIZED_NAME_MARKETING_EMAIL = "marketing_email";
   @SerializedName(SERIALIZED_NAME_MARKETING_EMAIL)
   private Boolean marketingEmail;
 
@@ -120,7 +120,7 @@ public class SfvbValidateRequest {
     }
   }
 
-  public static final String SERIALIZED_NAME_OWNER_TYPE = "ownerType";
+  public static final String SERIALIZED_NAME_OWNER_TYPE = "owner_type";
   @SerializedName(SERIALIZED_NAME_OWNER_TYPE)
   private OwnerTypeEnum ownerType;
 
@@ -296,10 +296,10 @@ public class SfvbValidateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("cjson");
-    openapiFields.add("containerName");
-    openapiFields.add("includeWarnings");
-    openapiFields.add("marketingEmail");
-    openapiFields.add("ownerType");
+    openapiFields.add("container_name");
+    openapiFields.add("include_warnings");
+    openapiFields.add("marketing_email");
+    openapiFields.add("owner_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -330,11 +330,11 @@ public class SfvbValidateRequest {
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
-      if (jsonObj.get("containerName") != null && !jsonObj.get("containerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
+      if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
       }
-      if (jsonObj.get("ownerType") != null && !jsonObj.get("ownerType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerType").toString()));
+      if (jsonObj.get("owner_type") != null && !jsonObj.get("owner_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_type").toString()));
       }
   }
 

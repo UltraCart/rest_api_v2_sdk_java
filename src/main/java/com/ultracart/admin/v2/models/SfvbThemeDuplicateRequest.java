@@ -47,17 +47,17 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbThemeDuplicateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbThemeDuplicateRequest {
   public static final String SERIALIZED_NAME_FOLDER = "folder";
   @SerializedName(SERIALIZED_NAME_FOLDER)
   private String folder;
 
-  public static final String SERIALIZED_NAME_TARGET_STOREFRONT_OID = "targetStorefrontOid";
+  public static final String SERIALIZED_NAME_TARGET_STOREFRONT_OID = "target_storefront_oid";
   @SerializedName(SERIALIZED_NAME_TARGET_STOREFRONT_OID)
   private Integer targetStorefrontOid;
 
-  public static final String SERIALIZED_NAME_THEME_NAME = "themeName";
+  public static final String SERIALIZED_NAME_THEME_NAME = "theme_name";
   @SerializedName(SERIALIZED_NAME_THEME_NAME)
   private String themeName;
 
@@ -183,8 +183,8 @@ public class SfvbThemeDuplicateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("folder");
-    openapiFields.add("targetStorefrontOid");
-    openapiFields.add("themeName");
+    openapiFields.add("target_storefront_oid");
+    openapiFields.add("theme_name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -215,8 +215,8 @@ public class SfvbThemeDuplicateRequest {
       if (jsonObj.get("folder") != null && !jsonObj.get("folder").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder").toString()));
       }
-      if (jsonObj.get("themeName") != null && !jsonObj.get("themeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `themeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("themeName").toString()));
+      if (jsonObj.get("theme_name") != null && !jsonObj.get("theme_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `theme_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("theme_name").toString()));
       }
   }
 

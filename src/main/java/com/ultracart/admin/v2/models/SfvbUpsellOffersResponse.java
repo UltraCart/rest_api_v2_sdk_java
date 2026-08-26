@@ -50,9 +50,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbUpsellOffersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbUpsellOffersResponse {
-  public static final String SERIALIZED_NAME_UPSELL_OFFERS = "upsellOffers";
+  public static final String SERIALIZED_NAME_UPSELL_OFFERS = "upsell_offers";
   @SerializedName(SERIALIZED_NAME_UPSELL_OFFERS)
   private List<SfvbUpsellOffer> upsellOffers = null;
 
@@ -135,7 +135,7 @@ public class SfvbUpsellOffersResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("upsellOffers");
+    openapiFields.add("upsell_offers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -163,14 +163,14 @@ public class SfvbUpsellOffersResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbUpsellOffersResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      JsonArray jsonArrayupsellOffers = jsonObj.getAsJsonArray("upsellOffers");
+      JsonArray jsonArrayupsellOffers = jsonObj.getAsJsonArray("upsell_offers");
       if (jsonArrayupsellOffers != null) {
         // ensure the json data is an array
-        if (!jsonObj.get("upsellOffers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `upsellOffers` to be an array in the JSON string but got `%s`", jsonObj.get("upsellOffers").toString()));
+        if (!jsonObj.get("upsell_offers").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `upsell_offers` to be an array in the JSON string but got `%s`", jsonObj.get("upsell_offers").toString()));
         }
 
-        // validate the optional field `upsellOffers` (array)
+        // validate the optional field `upsell_offers` (array)
         for (int i = 0; i < jsonArrayupsellOffers.size(); i++) {
           SfvbUpsellOffer.validateJsonObject(jsonArrayupsellOffers.get(i).getAsJsonObject());
         };

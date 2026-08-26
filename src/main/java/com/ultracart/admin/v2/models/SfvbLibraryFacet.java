@@ -49,9 +49,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbLibraryFacet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbLibraryFacet {
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   private String displayName;
 
@@ -192,7 +192,7 @@ public class SfvbLibraryFacet {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("displayName");
+    openapiFields.add("display_name");
     openapiFields.add("name");
     openapiFields.add("options");
 
@@ -222,8 +222,8 @@ public class SfvbLibraryFacet {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbLibraryFacet` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+      if (jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

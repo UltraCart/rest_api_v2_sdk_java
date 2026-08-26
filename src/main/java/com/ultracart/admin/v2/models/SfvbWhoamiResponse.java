@@ -50,33 +50,33 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbWhoamiResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbWhoamiResponse {
-  public static final String SERIALIZED_NAME_ACTING_AS_USER = "actingAsUser";
+  public static final String SERIALIZED_NAME_ACTING_AS_USER = "acting_as_user";
   @SerializedName(SERIALIZED_NAME_ACTING_AS_USER)
   private Boolean actingAsUser;
 
-  public static final String SERIALIZED_NAME_APPLICATION_NAME = "applicationName";
+  public static final String SERIALIZED_NAME_APPLICATION_NAME = "application_name";
   @SerializedName(SERIALIZED_NAME_APPLICATION_NAME)
   private String applicationName;
 
-  public static final String SERIALIZED_NAME_AUTHENTICATION_TYPE = "authenticationType";
+  public static final String SERIALIZED_NAME_AUTHENTICATION_TYPE = "authentication_type";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_TYPE)
   private String authenticationType;
 
-  public static final String SERIALIZED_NAME_CAN_PUBLISH = "canPublish";
+  public static final String SERIALIZED_NAME_CAN_PUBLISH = "can_publish";
   @SerializedName(SERIALIZED_NAME_CAN_PUBLISH)
   private Boolean canPublish;
 
-  public static final String SERIALIZED_NAME_CAN_READ = "canRead";
+  public static final String SERIALIZED_NAME_CAN_READ = "can_read";
   @SerializedName(SERIALIZED_NAME_CAN_READ)
   private Boolean canRead;
 
-  public static final String SERIALIZED_NAME_CAN_WRITE = "canWrite";
+  public static final String SERIALIZED_NAME_CAN_WRITE = "can_write";
   @SerializedName(SERIALIZED_NAME_CAN_WRITE)
   private Boolean canWrite;
 
-  public static final String SERIALIZED_NAME_DEVICE_SCOPE = "deviceScope";
+  public static final String SERIALIZED_NAME_DEVICE_SCOPE = "device_scope";
   @SerializedName(SERIALIZED_NAME_DEVICE_SCOPE)
   private String deviceScope;
 
@@ -84,7 +84,7 @@ public class SfvbWhoamiResponse {
   @SerializedName(SERIALIZED_NAME_LOGIN)
   private String login;
 
-  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchantId";
+  public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
@@ -96,11 +96,11 @@ public class SfvbWhoamiResponse {
   @SerializedName(SERIALIZED_NAME_STOREFRONTS)
   private List<SfvbStorefront> storefronts = null;
 
-  public static final String SERIALIZED_NAME_STOREFRONTS_WITHHELD = "storefrontsWithheld";
+  public static final String SERIALIZED_NAME_STOREFRONTS_WITHHELD = "storefronts_withheld";
   @SerializedName(SERIALIZED_NAME_STOREFRONTS_WITHHELD)
   private Boolean storefrontsWithheld;
 
-  public static final String SERIALIZED_NAME_USER_NAME = "userName";
+  public static final String SERIALIZED_NAME_USER_NAME = "user_name";
   @SerializedName(SERIALIZED_NAME_USER_NAME)
   private String userName;
 
@@ -491,19 +491,19 @@ public class SfvbWhoamiResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("actingAsUser");
-    openapiFields.add("applicationName");
-    openapiFields.add("authenticationType");
-    openapiFields.add("canPublish");
-    openapiFields.add("canRead");
-    openapiFields.add("canWrite");
-    openapiFields.add("deviceScope");
+    openapiFields.add("acting_as_user");
+    openapiFields.add("application_name");
+    openapiFields.add("authentication_type");
+    openapiFields.add("can_publish");
+    openapiFields.add("can_read");
+    openapiFields.add("can_write");
+    openapiFields.add("device_scope");
     openapiFields.add("login");
-    openapiFields.add("merchantId");
+    openapiFields.add("merchant_id");
     openapiFields.add("scopes");
     openapiFields.add("storefronts");
-    openapiFields.add("storefrontsWithheld");
-    openapiFields.add("userName");
+    openapiFields.add("storefronts_withheld");
+    openapiFields.add("user_name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -531,20 +531,20 @@ public class SfvbWhoamiResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbWhoamiResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("applicationName") != null && !jsonObj.get("applicationName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `applicationName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("applicationName").toString()));
+      if (jsonObj.get("application_name") != null && !jsonObj.get("application_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `application_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application_name").toString()));
       }
-      if (jsonObj.get("authenticationType") != null && !jsonObj.get("authenticationType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authenticationType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticationType").toString()));
+      if (jsonObj.get("authentication_type") != null && !jsonObj.get("authentication_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `authentication_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication_type").toString()));
       }
-      if (jsonObj.get("deviceScope") != null && !jsonObj.get("deviceScope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deviceScope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceScope").toString()));
+      if (jsonObj.get("device_scope") != null && !jsonObj.get("device_scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `device_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device_scope").toString()));
       }
       if (jsonObj.get("login") != null && !jsonObj.get("login").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `login` to be a primitive type in the JSON string but got `%s`", jsonObj.get("login").toString()));
       }
-      if (jsonObj.get("merchantId") != null && !jsonObj.get("merchantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `merchantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchantId").toString()));
+      if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("scopes") != null && !jsonObj.get("scopes").isJsonArray()) {
@@ -562,8 +562,8 @@ public class SfvbWhoamiResponse {
           SfvbStorefront.validateJsonObject(jsonArraystorefronts.get(i).getAsJsonObject());
         };
       }
-      if (jsonObj.get("userName") != null && !jsonObj.get("userName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userName").toString()));
+      if (jsonObj.get("user_name") != null && !jsonObj.get("user_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
       }
   }
 

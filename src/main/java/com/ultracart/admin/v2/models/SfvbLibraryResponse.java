@@ -51,17 +51,17 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbLibraryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbLibraryResponse {
   public static final String SERIALIZED_NAME_FACETS = "facets";
   @SerializedName(SERIALIZED_NAME_FACETS)
   private List<SfvbLibraryFacet> facets = null;
 
-  public static final String SERIALIZED_NAME_FIRST_RESULT_NUMBER = "firstResultNumber";
+  public static final String SERIALIZED_NAME_FIRST_RESULT_NUMBER = "first_result_number";
   @SerializedName(SERIALIZED_NAME_FIRST_RESULT_NUMBER)
   private Integer firstResultNumber;
 
-  public static final String SERIALIZED_NAME_LAST_RESULT_NUMBER = "lastResultNumber";
+  public static final String SERIALIZED_NAME_LAST_RESULT_NUMBER = "last_result_number";
   @SerializedName(SERIALIZED_NAME_LAST_RESULT_NUMBER)
   private Integer lastResultNumber;
 
@@ -69,11 +69,11 @@ public class SfvbLibraryResponse {
   @SerializedName(SERIALIZED_NAME_RESULTS)
   private List<SfvbLibraryEntry> results = null;
 
-  public static final String SERIALIZED_NAME_TOTAL_PAGES = "totalPages";
+  public static final String SERIALIZED_NAME_TOTAL_PAGES = "total_pages";
   @SerializedName(SERIALIZED_NAME_TOTAL_PAGES)
   private Integer totalPages;
 
-  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "totalResults";
+  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "total_results";
   @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
   private Integer totalResults;
 
@@ -290,11 +290,11 @@ public class SfvbLibraryResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("facets");
-    openapiFields.add("firstResultNumber");
-    openapiFields.add("lastResultNumber");
+    openapiFields.add("first_result_number");
+    openapiFields.add("last_result_number");
     openapiFields.add("results");
-    openapiFields.add("totalPages");
-    openapiFields.add("totalResults");
+    openapiFields.add("total_pages");
+    openapiFields.add("total_results");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -47,21 +47,21 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbCompileRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbCompileRequest {
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
 
-  public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
+  public static final String SERIALIZED_NAME_CONTAINER_NAME = "container_name";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
   private String containerName;
 
-  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefrontOid";
+  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
   private Integer storefrontOid;
 
-  public static final String SERIALIZED_NAME_THEME_OID = "themeOid";
+  public static final String SERIALIZED_NAME_THEME_OID = "theme_oid";
   @SerializedName(SERIALIZED_NAME_THEME_OID)
   private Integer themeOid;
 
@@ -241,9 +241,9 @@ public class SfvbCompileRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("cjson");
-    openapiFields.add("containerName");
-    openapiFields.add("storefrontOid");
-    openapiFields.add("themeOid");
+    openapiFields.add("container_name");
+    openapiFields.add("storefront_oid");
+    openapiFields.add("theme_oid");
     openapiFields.add("validate");
 
     // a set of required properties/fields (JSON key names)
@@ -275,8 +275,8 @@ public class SfvbCompileRequest {
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
-      if (jsonObj.get("containerName") != null && !jsonObj.get("containerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
+      if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
       }
   }
 

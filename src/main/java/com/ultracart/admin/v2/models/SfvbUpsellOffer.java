@@ -47,21 +47,21 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbUpsellOffer
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbUpsellOffer {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
   private Boolean active;
 
-  public static final String SERIALIZED_NAME_ACTIVE_OVERALL = "activeOverall";
+  public static final String SERIALIZED_NAME_ACTIVE_OVERALL = "active_overall";
   @SerializedName(SERIALIZED_NAME_ACTIVE_OVERALL)
   private Boolean activeOverall;
 
-  public static final String SERIALIZED_NAME_CJSON_SIZE = "cjsonSize";
+  public static final String SERIALIZED_NAME_CJSON_SIZE = "cjson_size";
   @SerializedName(SERIALIZED_NAME_CJSON_SIZE)
   private Integer cjsonSize;
 
-  public static final String SERIALIZED_NAME_HAS_CONTAINER = "hasContainer";
+  public static final String SERIALIZED_NAME_HAS_CONTAINER = "has_container";
   @SerializedName(SERIALIZED_NAME_HAS_CONTAINER)
   private Boolean hasContainer;
 
@@ -69,19 +69,19 @@ public class SfvbUpsellOffer {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PATH_NAME = "pathName";
+  public static final String SERIALIZED_NAME_PATH_NAME = "path_name";
   @SerializedName(SERIALIZED_NAME_PATH_NAME)
   private String pathName;
 
-  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefrontOid";
+  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
   private Integer storefrontOid;
 
-  public static final String SERIALIZED_NAME_TEST_ONLY = "testOnly";
+  public static final String SERIALIZED_NAME_TEST_ONLY = "test_only";
   @SerializedName(SERIALIZED_NAME_TEST_ONLY)
   private Boolean testOnly;
 
-  public static final String SERIALIZED_NAME_UPSELL_OFFER_OID = "upsellOfferOid";
+  public static final String SERIALIZED_NAME_UPSELL_OFFER_OID = "upsell_offer_oid";
   @SerializedName(SERIALIZED_NAME_UPSELL_OFFER_OID)
   private Integer upsellOfferOid;
 
@@ -357,14 +357,14 @@ public class SfvbUpsellOffer {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("active");
-    openapiFields.add("activeOverall");
-    openapiFields.add("cjsonSize");
-    openapiFields.add("hasContainer");
+    openapiFields.add("active_overall");
+    openapiFields.add("cjson_size");
+    openapiFields.add("has_container");
     openapiFields.add("name");
-    openapiFields.add("pathName");
-    openapiFields.add("storefrontOid");
-    openapiFields.add("testOnly");
-    openapiFields.add("upsellOfferOid");
+    openapiFields.add("path_name");
+    openapiFields.add("storefront_oid");
+    openapiFields.add("test_only");
+    openapiFields.add("upsell_offer_oid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -395,8 +395,8 @@ public class SfvbUpsellOffer {
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (jsonObj.get("pathName") != null && !jsonObj.get("pathName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pathName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pathName").toString()));
+      if (jsonObj.get("path_name") != null && !jsonObj.get("path_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `path_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path_name").toString()));
       }
   }
 

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FraudRuleItemFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class FraudRuleItemFilter {
   public static final String SERIALIZED_NAME_MERCHANT_ITEM_ID = "merchant_item_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_ID)

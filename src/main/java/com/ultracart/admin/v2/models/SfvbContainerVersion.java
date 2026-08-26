@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbContainerVersion {
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
@@ -57,15 +57,15 @@ public class SfvbContainerVersion {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_CONTAINER_HISTORY_OID = "containerHistoryOid";
+  public static final String SERIALIZED_NAME_CONTAINER_HISTORY_OID = "container_history_oid";
   @SerializedName(SERIALIZED_NAME_CONTAINER_HISTORY_OID)
   private Integer containerHistoryOid;
 
-  public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
+  public static final String SERIALIZED_NAME_CONTAINER_NAME = "container_name";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
   private String containerName;
 
-  public static final String SERIALIZED_NAME_CREATED_DTS = "createdDts";
+  public static final String SERIALIZED_NAME_CREATED_DTS = "created_dts";
   @SerializedName(SERIALIZED_NAME_CREATED_DTS)
   private String createdDts;
 
@@ -73,11 +73,11 @@ public class SfvbContainerVersion {
   @SerializedName(SERIALIZED_NAME_CURRENT)
   private Boolean current;
 
-  public static final String SERIALIZED_NAME_EDITED_BY = "editedBy";
+  public static final String SERIALIZED_NAME_EDITED_BY = "edited_by";
   @SerializedName(SERIALIZED_NAME_EDITED_BY)
   private String editedBy;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
@@ -132,7 +132,7 @@ public class SfvbContainerVersion {
   @SerializedName(SERIALIZED_NAME_OPERATION)
   private OperationEnum operation;
 
-  public static final String SERIALIZED_NAME_OWNER_OBJECT_ID = "ownerObjectId";
+  public static final String SERIALIZED_NAME_OWNER_OBJECT_ID = "owner_object_id";
   @SerializedName(SERIALIZED_NAME_OWNER_OBJECT_ID)
   private String ownerObjectId;
 
@@ -189,7 +189,7 @@ public class SfvbContainerVersion {
     }
   }
 
-  public static final String SERIALIZED_NAME_OWNER_TYPE = "ownerType";
+  public static final String SERIALIZED_NAME_OWNER_TYPE = "owner_type";
   @SerializedName(SERIALIZED_NAME_OWNER_TYPE)
   private OwnerTypeEnum ownerType;
 
@@ -545,15 +545,15 @@ public class SfvbContainerVersion {
     openapiFields = new HashSet<String>();
     openapiFields.add("cjson");
     openapiFields.add("comment");
-    openapiFields.add("containerHistoryOid");
-    openapiFields.add("containerName");
-    openapiFields.add("createdDts");
+    openapiFields.add("container_history_oid");
+    openapiFields.add("container_name");
+    openapiFields.add("created_dts");
     openapiFields.add("current");
-    openapiFields.add("editedBy");
-    openapiFields.add("hashSha256");
+    openapiFields.add("edited_by");
+    openapiFields.add("hash_sha256");
     openapiFields.add("operation");
-    openapiFields.add("ownerObjectId");
-    openapiFields.add("ownerType");
+    openapiFields.add("owner_object_id");
+    openapiFields.add("owner_type");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -588,26 +588,26 @@ public class SfvbContainerVersion {
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
-      if (jsonObj.get("containerName") != null && !jsonObj.get("containerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
+      if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
       }
-      if (jsonObj.get("createdDts") != null && !jsonObj.get("createdDts").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdDts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdDts").toString()));
+      if (jsonObj.get("created_dts") != null && !jsonObj.get("created_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_dts").toString()));
       }
-      if (jsonObj.get("editedBy") != null && !jsonObj.get("editedBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `editedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editedBy").toString()));
+      if (jsonObj.get("edited_by") != null && !jsonObj.get("edited_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `edited_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("edited_by").toString()));
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
       if (jsonObj.get("operation") != null && !jsonObj.get("operation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `operation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operation").toString()));
       }
-      if (jsonObj.get("ownerObjectId") != null && !jsonObj.get("ownerObjectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerObjectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerObjectId").toString()));
+      if (jsonObj.get("owner_object_id") != null && !jsonObj.get("owner_object_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_object_id").toString()));
       }
-      if (jsonObj.get("ownerType") != null && !jsonObj.get("ownerType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerType").toString()));
+      if (jsonObj.get("owner_type") != null && !jsonObj.get("owner_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_type").toString()));
       }
   }
 

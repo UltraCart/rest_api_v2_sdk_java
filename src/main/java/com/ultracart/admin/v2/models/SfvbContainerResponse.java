@@ -47,9 +47,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbContainerResponse {
-  public static final String SERIALIZED_NAME_ACTIVE_THEME = "activeTheme";
+  public static final String SERIALIZED_NAME_ACTIVE_THEME = "active_theme";
   @SerializedName(SERIALIZED_NAME_ACTIVE_THEME)
   private Boolean activeTheme;
 
@@ -57,23 +57,23 @@ public class SfvbContainerResponse {
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
 
-  public static final String SERIALIZED_NAME_CONTAINER_ID = "containerId";
+  public static final String SERIALIZED_NAME_CONTAINER_ID = "container_id";
   @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
   private String containerId;
 
-  public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
+  public static final String SERIALIZED_NAME_CONTAINER_NAME = "container_name";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
   private String containerName;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
-  public static final String SERIALIZED_NAME_LAST_MODIFIED = "lastModified";
+  public static final String SERIALIZED_NAME_LAST_MODIFIED = "last_modified";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED)
   private String lastModified;
 
-  public static final String SERIALIZED_NAME_OWNER_OBJECT_ID = "ownerObjectId";
+  public static final String SERIALIZED_NAME_OWNER_OBJECT_ID = "owner_object_id";
   @SerializedName(SERIALIZED_NAME_OWNER_OBJECT_ID)
   private String ownerObjectId;
 
@@ -132,7 +132,7 @@ public class SfvbContainerResponse {
     }
   }
 
-  public static final String SERIALIZED_NAME_OWNER_TYPE = "ownerType";
+  public static final String SERIALIZED_NAME_OWNER_TYPE = "owner_type";
   @SerializedName(SERIALIZED_NAME_OWNER_TYPE)
   private OwnerTypeEnum ownerType;
 
@@ -440,14 +440,14 @@ public class SfvbContainerResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("activeTheme");
+    openapiFields.add("active_theme");
     openapiFields.add("cjson");
-    openapiFields.add("containerId");
-    openapiFields.add("containerName");
-    openapiFields.add("hashSha256");
-    openapiFields.add("lastModified");
-    openapiFields.add("ownerObjectId");
-    openapiFields.add("ownerType");
+    openapiFields.add("container_id");
+    openapiFields.add("container_name");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("last_modified");
+    openapiFields.add("owner_object_id");
+    openapiFields.add("owner_type");
     openapiFields.add("path");
     openapiFields.add("version");
 
@@ -480,23 +480,23 @@ public class SfvbContainerResponse {
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
-      if (jsonObj.get("containerId") != null && !jsonObj.get("containerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerId").toString()));
+      if (jsonObj.get("container_id") != null && !jsonObj.get("container_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_id").toString()));
       }
-      if (jsonObj.get("containerName") != null && !jsonObj.get("containerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
+      if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
-      if (jsonObj.get("lastModified") != null && !jsonObj.get("lastModified").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastModified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastModified").toString()));
+      if (jsonObj.get("last_modified") != null && !jsonObj.get("last_modified").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_modified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified").toString()));
       }
-      if (jsonObj.get("ownerObjectId") != null && !jsonObj.get("ownerObjectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerObjectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerObjectId").toString()));
+      if (jsonObj.get("owner_object_id") != null && !jsonObj.get("owner_object_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_object_id").toString()));
       }
-      if (jsonObj.get("ownerType") != null && !jsonObj.get("ownerType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ownerType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ownerType").toString()));
+      if (jsonObj.get("owner_type") != null && !jsonObj.get("owner_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_type").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));

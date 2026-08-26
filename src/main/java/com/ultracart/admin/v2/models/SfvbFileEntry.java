@@ -47,9 +47,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileEntry {
-  public static final String SERIALIZED_NAME_AUTO_COMPILED = "autoCompiled";
+  public static final String SERIALIZED_NAME_AUTO_COMPILED = "auto_compiled";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPILED)
   private Boolean autoCompiled;
 
@@ -57,31 +57,31 @@ public class SfvbFileEntry {
   @SerializedName(SERIALIZED_NAME_DIRECTORY)
   private Boolean directory;
 
-  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fsDirectoryOid";
+  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_FS_DIRECTORY_OID)
   private Integer fsDirectoryOid;
 
-  public static final String SERIALIZED_NAME_FS_FILE_OID = "fsFileOid";
+  public static final String SERIALIZED_NAME_FS_FILE_OID = "fs_file_oid";
   @SerializedName(SERIALIZED_NAME_FS_FILE_OID)
   private Integer fsFileOid;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
-  public static final String SERIALIZED_NAME_I18N_VIOLATION = "i18nViolation";
+  public static final String SERIALIZED_NAME_I18N_VIOLATION = "i18n_violation";
   @SerializedName(SERIALIZED_NAME_I18N_VIOLATION)
   private Boolean i18nViolation;
 
-  public static final String SERIALIZED_NAME_LAST_MODIFIED = "lastModified";
+  public static final String SERIALIZED_NAME_LAST_MODIFIED = "last_modified";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED)
   private String lastModified;
 
-  public static final String SERIALIZED_NAME_MERGE_CONFLICT = "mergeConflict";
+  public static final String SERIALIZED_NAME_MERGE_CONFLICT = "merge_conflict";
   @SerializedName(SERIALIZED_NAME_MERGE_CONFLICT)
   private Boolean mergeConflict;
 
-  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   private String mimeType;
 
@@ -93,7 +93,7 @@ public class SfvbFileEntry {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
-  public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
+  public static final String SERIALIZED_NAME_READ_ONLY = "read_only";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
   private Boolean readOnly;
 
@@ -530,18 +530,18 @@ public class SfvbFileEntry {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("autoCompiled");
+    openapiFields.add("auto_compiled");
     openapiFields.add("directory");
-    openapiFields.add("fsDirectoryOid");
-    openapiFields.add("fsFileOid");
-    openapiFields.add("hashSha256");
-    openapiFields.add("i18nViolation");
-    openapiFields.add("lastModified");
-    openapiFields.add("mergeConflict");
-    openapiFields.add("mimeType");
+    openapiFields.add("fs_directory_oid");
+    openapiFields.add("fs_file_oid");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("i18n_violation");
+    openapiFields.add("last_modified");
+    openapiFields.add("merge_conflict");
+    openapiFields.add("mime_type");
     openapiFields.add("name");
     openapiFields.add("path");
-    openapiFields.add("readOnly");
+    openapiFields.add("read_only");
     openapiFields.add("size");
     openapiFields.add("valid");
     openapiFields.add("version");
@@ -572,14 +572,14 @@ public class SfvbFileEntry {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbFileEntry` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
-      if (jsonObj.get("lastModified") != null && !jsonObj.get("lastModified").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastModified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastModified").toString()));
+      if (jsonObj.get("last_modified") != null && !jsonObj.get("last_modified").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_modified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified").toString()));
       }
-      if (jsonObj.get("mimeType") != null && !jsonObj.get("mimeType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
+      if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

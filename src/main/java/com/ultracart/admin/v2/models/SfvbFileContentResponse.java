@@ -47,9 +47,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileContentResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileContentResponse {
-  public static final String SERIALIZED_NAME_AUTO_COMPILED = "autoCompiled";
+  public static final String SERIALIZED_NAME_AUTO_COMPILED = "auto_compiled";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPILED)
   private Boolean autoCompiled;
 
@@ -57,15 +57,15 @@ public class SfvbFileContentResponse {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
-  public static final String SERIALIZED_NAME_FS_FILE_OID = "fsFileOid";
+  public static final String SERIALIZED_NAME_FS_FILE_OID = "fs_file_oid";
   @SerializedName(SERIALIZED_NAME_FS_FILE_OID)
   private Integer fsFileOid;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
-  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   private String mimeType;
 
@@ -85,7 +85,7 @@ public class SfvbFileContentResponse {
   @SerializedName(SERIALIZED_NAME_VALID)
   private Boolean valid;
 
-  public static final String SERIALIZED_NAME_VELOCITY_ERRORS = "velocityErrors";
+  public static final String SERIALIZED_NAME_VELOCITY_ERRORS = "velocity_errors";
   @SerializedName(SERIALIZED_NAME_VELOCITY_ERRORS)
   private String velocityErrors;
 
@@ -414,16 +414,16 @@ public class SfvbFileContentResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("autoCompiled");
+    openapiFields.add("auto_compiled");
     openapiFields.add("content");
-    openapiFields.add("fsFileOid");
-    openapiFields.add("hashSha256");
-    openapiFields.add("mimeType");
+    openapiFields.add("fs_file_oid");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("mime_type");
     openapiFields.add("path");
     openapiFields.add("size");
     openapiFields.add("truncated");
     openapiFields.add("valid");
-    openapiFields.add("velocityErrors");
+    openapiFields.add("velocity_errors");
     openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
@@ -455,17 +455,17 @@ public class SfvbFileContentResponse {
       if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
-      if (jsonObj.get("mimeType") != null && !jsonObj.get("mimeType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
+      if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
-      if (jsonObj.get("velocityErrors") != null && !jsonObj.get("velocityErrors").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `velocityErrors` to be a primitive type in the JSON string but got `%s`", jsonObj.get("velocityErrors").toString()));
+      if (jsonObj.get("velocity_errors") != null && !jsonObj.get("velocity_errors").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `velocity_errors` to be a primitive type in the JSON string but got `%s`", jsonObj.get("velocity_errors").toString()));
       }
   }
 

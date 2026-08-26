@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbTheme
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbTheme {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -57,7 +57,7 @@ public class SfvbTheme {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fsDirectoryOid";
+  public static final String SERIALIZED_NAME_FS_DIRECTORY_OID = "fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_FS_DIRECTORY_OID)
   private Integer fsDirectoryOid;
 
@@ -65,19 +65,19 @@ public class SfvbTheme {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
-  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefrontOid";
+  public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
   private Integer storefrontOid;
 
-  public static final String SERIALIZED_NAME_THEME_NAME = "themeName";
+  public static final String SERIALIZED_NAME_THEME_NAME = "theme_name";
   @SerializedName(SERIALIZED_NAME_THEME_NAME)
   private String themeName;
 
-  public static final String SERIALIZED_NAME_THEME_OID = "themeOid";
+  public static final String SERIALIZED_NAME_THEME_OID = "theme_oid";
   @SerializedName(SERIALIZED_NAME_THEME_OID)
   private Integer themeOid;
 
-  public static final String SERIALIZED_NAME_UPGRADE_AVAILABLE = "upgradeAvailable";
+  public static final String SERIALIZED_NAME_UPGRADE_AVAILABLE = "upgrade_available";
   @SerializedName(SERIALIZED_NAME_UPGRADE_AVAILABLE)
   private Boolean upgradeAvailable;
 
@@ -387,12 +387,12 @@ public class SfvbTheme {
     openapiFields = new HashSet<String>();
     openapiFields.add("active");
     openapiFields.add("description");
-    openapiFields.add("fsDirectoryOid");
+    openapiFields.add("fs_directory_oid");
     openapiFields.add("path");
-    openapiFields.add("storefrontOid");
-    openapiFields.add("themeName");
-    openapiFields.add("themeOid");
-    openapiFields.add("upgradeAvailable");
+    openapiFields.add("storefront_oid");
+    openapiFields.add("theme_name");
+    openapiFields.add("theme_oid");
+    openapiFields.add("upgrade_available");
     openapiFields.add("valid");
     openapiFields.add("version");
 
@@ -428,8 +428,8 @@ public class SfvbTheme {
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
-      if (jsonObj.get("themeName") != null && !jsonObj.get("themeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `themeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("themeName").toString()));
+      if (jsonObj.get("theme_name") != null && !jsonObj.get("theme_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `theme_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("theme_name").toString()));
       }
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));

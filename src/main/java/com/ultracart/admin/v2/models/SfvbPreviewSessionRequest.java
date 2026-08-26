@@ -47,13 +47,13 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewSessionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbPreviewSessionRequest {
   public static final String SERIALIZED_NAME_CONTAINERS = "containers";
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
   private Object containers;
 
-  public static final String SERIALIZED_NAME_THEME_OID = "themeOid";
+  public static final String SERIALIZED_NAME_THEME_OID = "theme_oid";
   @SerializedName(SERIALIZED_NAME_THEME_OID)
   private Integer themeOid;
 
@@ -154,7 +154,7 @@ public class SfvbPreviewSessionRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("containers");
-    openapiFields.add("themeOid");
+    openapiFields.add("theme_oid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

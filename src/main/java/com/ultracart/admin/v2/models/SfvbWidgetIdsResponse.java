@@ -49,13 +49,13 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbWidgetIdsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbWidgetIdsResponse {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
 
-  public static final String SERIALIZED_NAME_FIRST_ID = "firstId";
+  public static final String SERIALIZED_NAME_FIRST_ID = "first_id";
   @SerializedName(SERIALIZED_NAME_FIRST_ID)
   private Integer firstId;
 
@@ -193,7 +193,7 @@ public class SfvbWidgetIdsResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("count");
-    openapiFields.add("firstId");
+    openapiFields.add("first_id");
     openapiFields.add("ids");
 
     // a set of required properties/fields (JSON key names)

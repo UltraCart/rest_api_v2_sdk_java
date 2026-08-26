@@ -47,13 +47,13 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbRenderRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbRenderRequest {
-  public static final String SERIALIZED_NAME_ANCESTORS_CJSON = "ancestorsCjson";
+  public static final String SERIALIZED_NAME_ANCESTORS_CJSON = "ancestors_cjson";
   @SerializedName(SERIALIZED_NAME_ANCESTORS_CJSON)
   private String ancestorsCjson;
 
-  public static final String SERIALIZED_NAME_CHILD_CONTAINERS_JSON = "childContainersJson";
+  public static final String SERIALIZED_NAME_CHILD_CONTAINERS_JSON = "child_containers_json";
   @SerializedName(SERIALIZED_NAME_CHILD_CONTAINERS_JSON)
   private String childContainersJson;
 
@@ -61,35 +61,35 @@ public class SfvbRenderRequest {
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
 
-  public static final String SERIALIZED_NAME_CONTEXT_AFFILIATE_OID = "contextAffiliateOid";
+  public static final String SERIALIZED_NAME_CONTEXT_AFFILIATE_OID = "context_affiliate_oid";
   @SerializedName(SERIALIZED_NAME_CONTEXT_AFFILIATE_OID)
   private Integer contextAffiliateOid;
 
-  public static final String SERIALIZED_NAME_CONTEXT_BLOG_POST_OID = "contextBlogPostOid";
+  public static final String SERIALIZED_NAME_CONTEXT_BLOG_POST_OID = "context_blog_post_oid";
   @SerializedName(SERIALIZED_NAME_CONTEXT_BLOG_POST_OID)
   private Integer contextBlogPostOid;
 
-  public static final String SERIALIZED_NAME_CONTEXT_GROUP_PATH = "contextGroupPath";
+  public static final String SERIALIZED_NAME_CONTEXT_GROUP_PATH = "context_group_path";
   @SerializedName(SERIALIZED_NAME_CONTEXT_GROUP_PATH)
   private String contextGroupPath;
 
-  public static final String SERIALIZED_NAME_CONTEXT_ITEM_ID = "contextItemId";
+  public static final String SERIALIZED_NAME_CONTEXT_ITEM_ID = "context_item_id";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ITEM_ID)
   private String contextItemId;
 
-  public static final String SERIALIZED_NAME_CONTEXT_ORDER_ID = "contextOrderId";
+  public static final String SERIALIZED_NAME_CONTEXT_ORDER_ID = "context_order_id";
   @SerializedName(SERIALIZED_NAME_CONTEXT_ORDER_ID)
   private String contextOrderId;
 
-  public static final String SERIALIZED_NAME_CONTEXT_PAGE_NUMBER = "contextPageNumber";
+  public static final String SERIALIZED_NAME_CONTEXT_PAGE_NUMBER = "context_page_number";
   @SerializedName(SERIALIZED_NAME_CONTEXT_PAGE_NUMBER)
   private String contextPageNumber;
 
-  public static final String SERIALIZED_NAME_CONTEXT_UPSELL_OFFER_OID = "contextUpsellOfferOid";
+  public static final String SERIALIZED_NAME_CONTEXT_UPSELL_OFFER_OID = "context_upsell_offer_oid";
   @SerializedName(SERIALIZED_NAME_CONTEXT_UPSELL_OFFER_OID)
   private Integer contextUpsellOfferOid;
 
-  public static final String SERIALIZED_NAME_LANGUAGE_ISO_CODE = "languageIsoCode";
+  public static final String SERIALIZED_NAME_LANGUAGE_ISO_CODE = "language_iso_code";
   @SerializedName(SERIALIZED_NAME_LANGUAGE_ISO_CODE)
   private String languageIsoCode;
 
@@ -443,17 +443,17 @@ public class SfvbRenderRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("ancestorsCjson");
-    openapiFields.add("childContainersJson");
+    openapiFields.add("ancestors_cjson");
+    openapiFields.add("child_containers_json");
     openapiFields.add("cjson");
-    openapiFields.add("contextAffiliateOid");
-    openapiFields.add("contextBlogPostOid");
-    openapiFields.add("contextGroupPath");
-    openapiFields.add("contextItemId");
-    openapiFields.add("contextOrderId");
-    openapiFields.add("contextPageNumber");
-    openapiFields.add("contextUpsellOfferOid");
-    openapiFields.add("languageIsoCode");
+    openapiFields.add("context_affiliate_oid");
+    openapiFields.add("context_blog_post_oid");
+    openapiFields.add("context_group_path");
+    openapiFields.add("context_item_id");
+    openapiFields.add("context_order_id");
+    openapiFields.add("context_page_number");
+    openapiFields.add("context_upsell_offer_oid");
+    openapiFields.add("language_iso_code");
     openapiFields.add("uri");
 
     // a set of required properties/fields (JSON key names)
@@ -482,29 +482,29 @@ public class SfvbRenderRequest {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbRenderRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("ancestorsCjson") != null && !jsonObj.get("ancestorsCjson").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ancestorsCjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ancestorsCjson").toString()));
+      if (jsonObj.get("ancestors_cjson") != null && !jsonObj.get("ancestors_cjson").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ancestors_cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ancestors_cjson").toString()));
       }
-      if (jsonObj.get("childContainersJson") != null && !jsonObj.get("childContainersJson").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `childContainersJson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("childContainersJson").toString()));
+      if (jsonObj.get("child_containers_json") != null && !jsonObj.get("child_containers_json").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `child_containers_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("child_containers_json").toString()));
       }
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
-      if (jsonObj.get("contextGroupPath") != null && !jsonObj.get("contextGroupPath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contextGroupPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextGroupPath").toString()));
+      if (jsonObj.get("context_group_path") != null && !jsonObj.get("context_group_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_group_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_group_path").toString()));
       }
-      if (jsonObj.get("contextItemId") != null && !jsonObj.get("contextItemId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contextItemId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextItemId").toString()));
+      if (jsonObj.get("context_item_id") != null && !jsonObj.get("context_item_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_item_id").toString()));
       }
-      if (jsonObj.get("contextOrderId") != null && !jsonObj.get("contextOrderId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contextOrderId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextOrderId").toString()));
+      if (jsonObj.get("context_order_id") != null && !jsonObj.get("context_order_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_order_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_order_id").toString()));
       }
-      if (jsonObj.get("contextPageNumber") != null && !jsonObj.get("contextPageNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contextPageNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextPageNumber").toString()));
+      if (jsonObj.get("context_page_number") != null && !jsonObj.get("context_page_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `context_page_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("context_page_number").toString()));
       }
-      if (jsonObj.get("languageIsoCode") != null && !jsonObj.get("languageIsoCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `languageIsoCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("languageIsoCode").toString()));
+      if (jsonObj.get("language_iso_code") != null && !jsonObj.get("language_iso_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `language_iso_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language_iso_code").toString()));
       }
       if (jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));

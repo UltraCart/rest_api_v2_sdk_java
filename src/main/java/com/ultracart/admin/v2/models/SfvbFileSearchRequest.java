@@ -47,21 +47,21 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileSearchRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileSearchRequest {
-  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "caseSensitive";
+  public static final String SERIALIZED_NAME_CASE_SENSITIVE = "case_sensitive";
   @SerializedName(SERIALIZED_NAME_CASE_SENSITIVE)
   private Boolean caseSensitive;
 
-  public static final String SERIALIZED_NAME_DYNAMIC_HTML = "dynamicHtml";
+  public static final String SERIALIZED_NAME_DYNAMIC_HTML = "dynamic_html";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_HTML)
   private Boolean dynamicHtml;
 
-  public static final String SERIALIZED_NAME_FILE_NAME = "fileName";
+  public static final String SERIALIZED_NAME_FILE_NAME = "file_name";
   @SerializedName(SERIALIZED_NAME_FILE_NAME)
   private String fileName;
 
-  public static final String SERIALIZED_NAME_I18N_VIOLATIONS = "i18nViolations";
+  public static final String SERIALIZED_NAME_I18N_VIOLATIONS = "i18n_violations";
   @SerializedName(SERIALIZED_NAME_I18N_VIOLATIONS)
   private Boolean i18nViolations;
 
@@ -69,23 +69,23 @@ public class SfvbFileSearchRequest {
   @SerializedName(SERIALIZED_NAME_INVALID)
   private Boolean invalid;
 
-  public static final String SERIALIZED_NAME_MAX_RESULTS = "maxResults";
+  public static final String SERIALIZED_NAME_MAX_RESULTS = "max_results";
   @SerializedName(SERIALIZED_NAME_MAX_RESULTS)
   private Integer maxResults;
 
-  public static final String SERIALIZED_NAME_MERGE_CONFLICTS = "mergeConflicts";
+  public static final String SERIALIZED_NAME_MERGE_CONFLICTS = "merge_conflicts";
   @SerializedName(SERIALIZED_NAME_MERGE_CONFLICTS)
   private Boolean mergeConflicts;
 
-  public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   private String mimeType;
 
-  public static final String SERIALIZED_NAME_MODIFIED_MAX = "modifiedMax";
+  public static final String SERIALIZED_NAME_MODIFIED_MAX = "modified_max";
   @SerializedName(SERIALIZED_NAME_MODIFIED_MAX)
   private String modifiedMax;
 
-  public static final String SERIALIZED_NAME_MODIFIED_MIN = "modifiedMin";
+  public static final String SERIALIZED_NAME_MODIFIED_MIN = "modified_min";
   @SerializedName(SERIALIZED_NAME_MODIFIED_MIN)
   private String modifiedMin;
 
@@ -97,15 +97,15 @@ public class SfvbFileSearchRequest {
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
-  public static final String SERIALIZED_NAME_SIZE_MAX = "sizeMax";
+  public static final String SERIALIZED_NAME_SIZE_MAX = "size_max";
   @SerializedName(SERIALIZED_NAME_SIZE_MAX)
   private Integer sizeMax;
 
-  public static final String SERIALIZED_NAME_SIZE_MIN = "sizeMin";
+  public static final String SERIALIZED_NAME_SIZE_MIN = "size_min";
   @SerializedName(SERIALIZED_NAME_SIZE_MIN)
   private Integer sizeMin;
 
-  public static final String SERIALIZED_NAME_SUB_DIRECTORIES = "subDirectories";
+  public static final String SERIALIZED_NAME_SUB_DIRECTORIES = "sub_directories";
   @SerializedName(SERIALIZED_NAME_SUB_DIRECTORIES)
   private Boolean subDirectories;
 
@@ -559,21 +559,21 @@ public class SfvbFileSearchRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("caseSensitive");
-    openapiFields.add("dynamicHtml");
-    openapiFields.add("fileName");
-    openapiFields.add("i18nViolations");
+    openapiFields.add("case_sensitive");
+    openapiFields.add("dynamic_html");
+    openapiFields.add("file_name");
+    openapiFields.add("i18n_violations");
     openapiFields.add("invalid");
-    openapiFields.add("maxResults");
-    openapiFields.add("mergeConflicts");
-    openapiFields.add("mimeType");
-    openapiFields.add("modifiedMax");
-    openapiFields.add("modifiedMin");
+    openapiFields.add("max_results");
+    openapiFields.add("merge_conflicts");
+    openapiFields.add("mime_type");
+    openapiFields.add("modified_max");
+    openapiFields.add("modified_min");
     openapiFields.add("offset");
     openapiFields.add("path");
-    openapiFields.add("sizeMax");
-    openapiFields.add("sizeMin");
-    openapiFields.add("subDirectories");
+    openapiFields.add("size_max");
+    openapiFields.add("size_min");
+    openapiFields.add("sub_directories");
     openapiFields.add("text");
 
     // a set of required properties/fields (JSON key names)
@@ -602,17 +602,17 @@ public class SfvbFileSearchRequest {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbFileSearchRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("fileName") != null && !jsonObj.get("fileName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fileName").toString()));
+      if (jsonObj.get("file_name") != null && !jsonObj.get("file_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `file_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_name").toString()));
       }
-      if (jsonObj.get("mimeType") != null && !jsonObj.get("mimeType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
+      if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
-      if (jsonObj.get("modifiedMax") != null && !jsonObj.get("modifiedMax").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedMax` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedMax").toString()));
+      if (jsonObj.get("modified_max") != null && !jsonObj.get("modified_max").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modified_max` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modified_max").toString()));
       }
-      if (jsonObj.get("modifiedMin") != null && !jsonObj.get("modifiedMin").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `modifiedMin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifiedMin").toString()));
+      if (jsonObj.get("modified_min") != null && !jsonObj.get("modified_min").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `modified_min` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modified_min").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));

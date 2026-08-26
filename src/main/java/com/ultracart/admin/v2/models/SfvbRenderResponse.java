@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbRenderResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbRenderResponse {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
@@ -60,7 +60,7 @@ public class SfvbRenderResponse {
   @SerializedName(SERIALIZED_NAME_HTML)
   private String html;
 
-  public static final String SERIALIZED_NAME_PENDING_TRANSLATION_COUNT = "pendingTranslationCount";
+  public static final String SERIALIZED_NAME_PENDING_TRANSLATION_COUNT = "pending_translation_count";
   @SerializedName(SERIALIZED_NAME_PENDING_TRANSLATION_COUNT)
   private Integer pendingTranslationCount;
 
@@ -290,7 +290,7 @@ public class SfvbRenderResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("errors");
     openapiFields.add("html");
-    openapiFields.add("pendingTranslationCount");
+    openapiFields.add("pending_translation_count");
     openapiFields.add("success");
     openapiFields.add("truncated");
     openapiFields.add("warnings");

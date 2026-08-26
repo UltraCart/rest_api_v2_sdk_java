@@ -50,17 +50,17 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileSearchResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileSearchResponse {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
   private List<SfvbFileEntry> files = null;
 
-  public static final String SERIALIZED_NAME_MAX_RESULTS = "maxResults";
+  public static final String SERIALIZED_NAME_MAX_RESULTS = "max_results";
   @SerializedName(SERIALIZED_NAME_MAX_RESULTS)
   private Integer maxResults;
 
-  public static final String SERIALIZED_NAME_NEXT_OFFSET = "nextOffset";
+  public static final String SERIALIZED_NAME_NEXT_OFFSET = "next_offset";
   @SerializedName(SERIALIZED_NAME_NEXT_OFFSET)
   private Integer nextOffset;
 
@@ -68,11 +68,11 @@ public class SfvbFileSearchResponse {
   @SerializedName(SERIALIZED_NAME_OFFSET)
   private Integer offset;
 
-  public static final String SERIALIZED_NAME_RESULT_COUNT = "resultCount";
+  public static final String SERIALIZED_NAME_RESULT_COUNT = "result_count";
   @SerializedName(SERIALIZED_NAME_RESULT_COUNT)
   private Integer resultCount;
 
-  public static final String SERIALIZED_NAME_TOTAL_COUNT = "totalCount";
+  public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
   @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
   private Integer totalCount;
 
@@ -80,7 +80,7 @@ public class SfvbFileSearchResponse {
   @SerializedName(SERIALIZED_NAME_TRUNCATED)
   private Boolean truncated;
 
-  public static final String SERIALIZED_NAME_TRUNCATION_ADVICE = "truncationAdvice";
+  public static final String SERIALIZED_NAME_TRUNCATION_ADVICE = "truncation_advice";
   @SerializedName(SERIALIZED_NAME_TRUNCATION_ADVICE)
   private String truncationAdvice;
 
@@ -339,13 +339,13 @@ public class SfvbFileSearchResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("files");
-    openapiFields.add("maxResults");
-    openapiFields.add("nextOffset");
+    openapiFields.add("max_results");
+    openapiFields.add("next_offset");
     openapiFields.add("offset");
-    openapiFields.add("resultCount");
-    openapiFields.add("totalCount");
+    openapiFields.add("result_count");
+    openapiFields.add("total_count");
     openapiFields.add("truncated");
-    openapiFields.add("truncationAdvice");
+    openapiFields.add("truncation_advice");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -385,8 +385,8 @@ public class SfvbFileSearchResponse {
           SfvbFileEntry.validateJsonObject(jsonArrayfiles.get(i).getAsJsonObject());
         };
       }
-      if (jsonObj.get("truncationAdvice") != null && !jsonObj.get("truncationAdvice").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `truncationAdvice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("truncationAdvice").toString()));
+      if (jsonObj.get("truncation_advice") != null && !jsonObj.get("truncation_advice").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `truncation_advice` to be a primitive type in the JSON string but got `%s`", jsonObj.get("truncation_advice").toString()));
       }
   }
 

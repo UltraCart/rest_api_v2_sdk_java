@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbErrorDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbErrorDetail {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -59,7 +59,7 @@ public class SfvbErrorDetail {
   @SerializedName(SERIALIZED_NAME_COLUMN)
   private Integer column;
 
-  public static final String SERIALIZED_NAME_DID_YOU_MEAN = "didYouMean";
+  public static final String SERIALIZED_NAME_DID_YOU_MEAN = "did_you_mean";
   @SerializedName(SERIALIZED_NAME_DID_YOU_MEAN)
   private List<String> didYouMean = null;
 
@@ -444,7 +444,7 @@ public class SfvbErrorDetail {
     openapiFields = new HashSet<String>();
     openapiFields.add("code");
     openapiFields.add("column");
-    openapiFields.add("didYouMean");
+    openapiFields.add("did_you_mean");
     openapiFields.add("expected");
     openapiFields.add("found");
     openapiFields.add("line");
@@ -483,8 +483,8 @@ public class SfvbErrorDetail {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       // ensure the json data is an array
-      if (jsonObj.get("didYouMean") != null && !jsonObj.get("didYouMean").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `didYouMean` to be an array in the JSON string but got `%s`", jsonObj.get("didYouMean").toString()));
+      if (jsonObj.get("did_you_mean") != null && !jsonObj.get("did_you_mean").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `did_you_mean` to be an array in the JSON string but got `%s`", jsonObj.get("did_you_mean").toString()));
       }
       if (jsonObj.get("expected") != null && !jsonObj.get("expected").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expected` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expected").toString()));

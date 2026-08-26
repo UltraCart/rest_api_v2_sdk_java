@@ -49,9 +49,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileWriteResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileWriteResponse {
-  public static final String SERIALIZED_NAME_COMPILED_PATH = "compiledPath";
+  public static final String SERIALIZED_NAME_COMPILED_PATH = "compiled_path";
   @SerializedName(SERIALIZED_NAME_COMPILED_PATH)
   private String compiledPath;
 
@@ -59,7 +59,7 @@ public class SfvbFileWriteResponse {
   @SerializedName(SERIALIZED_NAME_FILE)
   private SfvbFileEntry _file;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
@@ -67,7 +67,7 @@ public class SfvbFileWriteResponse {
   @SerializedName(SERIALIZED_NAME_VALIDATION)
   private SfvbValidationResponse validation;
 
-  public static final String SERIALIZED_NAME_VELOCITY_ERRORS = "velocityErrors";
+  public static final String SERIALIZED_NAME_VELOCITY_ERRORS = "velocity_errors";
   @SerializedName(SERIALIZED_NAME_VELOCITY_ERRORS)
   private String velocityErrors;
 
@@ -271,11 +271,11 @@ public class SfvbFileWriteResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("compiledPath");
+    openapiFields.add("compiled_path");
     openapiFields.add("file");
-    openapiFields.add("hashSha256");
+    openapiFields.add("hash_sha256");
     openapiFields.add("validation");
-    openapiFields.add("velocityErrors");
+    openapiFields.add("velocity_errors");
     openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
@@ -304,22 +304,22 @@ public class SfvbFileWriteResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbFileWriteResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("compiledPath") != null && !jsonObj.get("compiledPath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `compiledPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("compiledPath").toString()));
+      if (jsonObj.get("compiled_path") != null && !jsonObj.get("compiled_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `compiled_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("compiled_path").toString()));
       }
       // validate the optional field `file`
       if (jsonObj.getAsJsonObject("file") != null) {
         SfvbFileEntry.validateJsonObject(jsonObj.getAsJsonObject("file"));
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
       // validate the optional field `validation`
       if (jsonObj.getAsJsonObject("validation") != null) {
         SfvbValidationResponse.validateJsonObject(jsonObj.getAsJsonObject("validation"));
       }
-      if (jsonObj.get("velocityErrors") != null && !jsonObj.get("velocityErrors").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `velocityErrors` to be a primitive type in the JSON string but got `%s`", jsonObj.get("velocityErrors").toString()));
+      if (jsonObj.get("velocity_errors") != null && !jsonObj.get("velocity_errors").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `velocity_errors` to be a primitive type in the JSON string but got `%s`", jsonObj.get("velocity_errors").toString()));
       }
   }
 

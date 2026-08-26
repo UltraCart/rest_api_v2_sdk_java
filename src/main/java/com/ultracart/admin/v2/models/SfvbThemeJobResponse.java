@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbThemeJobResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbThemeJobResponse {
   public static final String SERIALIZED_NAME_COMPLETE = "complete";
   @SerializedName(SERIALIZED_NAME_COMPLETE)
@@ -57,15 +57,15 @@ public class SfvbThemeJobResponse {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "errorMessage";
+  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
   private String errorMessage;
 
-  public static final String SERIALIZED_NAME_FINISHED_DTS = "finishedDts";
+  public static final String SERIALIZED_NAME_FINISHED_DTS = "finished_dts";
   @SerializedName(SERIALIZED_NAME_FINISHED_DTS)
   private String finishedDts;
 
-  public static final String SERIALIZED_NAME_JOB_ID = "jobId";
+  public static final String SERIALIZED_NAME_JOB_ID = "job_id";
   @SerializedName(SERIALIZED_NAME_JOB_ID)
   private Integer jobId;
 
@@ -73,11 +73,11 @@ public class SfvbThemeJobResponse {
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   private Integer progress;
 
-  public static final String SERIALIZED_NAME_PROGRESS_DESCRIPTION = "progressDescription";
+  public static final String SERIALIZED_NAME_PROGRESS_DESCRIPTION = "progress_description";
   @SerializedName(SERIALIZED_NAME_PROGRESS_DESCRIPTION)
   private String progressDescription;
 
-  public static final String SERIALIZED_NAME_STARTED_DTS = "startedDts";
+  public static final String SERIALIZED_NAME_STARTED_DTS = "started_dts";
   @SerializedName(SERIALIZED_NAME_STARTED_DTS)
   private String startedDts;
 
@@ -138,7 +138,7 @@ public class SfvbThemeJobResponse {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_SUBMITTED_DTS = "submittedDts";
+  public static final String SERIALIZED_NAME_SUBMITTED_DTS = "submitted_dts";
   @SerializedName(SERIALIZED_NAME_SUBMITTED_DTS)
   private String submittedDts;
 
@@ -146,7 +146,7 @@ public class SfvbThemeJobResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
 
-  public static final String SERIALIZED_NAME_TARGET_PATH = "targetPath";
+  public static final String SERIALIZED_NAME_TARGET_PATH = "target_path";
   @SerializedName(SERIALIZED_NAME_TARGET_PATH)
   private String targetPath;
 
@@ -498,16 +498,16 @@ public class SfvbThemeJobResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("complete");
     openapiFields.add("description");
-    openapiFields.add("errorMessage");
-    openapiFields.add("finishedDts");
-    openapiFields.add("jobId");
+    openapiFields.add("error_message");
+    openapiFields.add("finished_dts");
+    openapiFields.add("job_id");
     openapiFields.add("progress");
-    openapiFields.add("progressDescription");
-    openapiFields.add("startedDts");
+    openapiFields.add("progress_description");
+    openapiFields.add("started_dts");
     openapiFields.add("status");
-    openapiFields.add("submittedDts");
+    openapiFields.add("submitted_dts");
     openapiFields.add("success");
-    openapiFields.add("targetPath");
+    openapiFields.add("target_path");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -538,26 +538,26 @@ public class SfvbThemeJobResponse {
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if (jsonObj.get("errorMessage") != null && !jsonObj.get("errorMessage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errorMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorMessage").toString()));
+      if (jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
-      if (jsonObj.get("finishedDts") != null && !jsonObj.get("finishedDts").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `finishedDts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finishedDts").toString()));
+      if (jsonObj.get("finished_dts") != null && !jsonObj.get("finished_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `finished_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finished_dts").toString()));
       }
-      if (jsonObj.get("progressDescription") != null && !jsonObj.get("progressDescription").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `progressDescription` to be a primitive type in the JSON string but got `%s`", jsonObj.get("progressDescription").toString()));
+      if (jsonObj.get("progress_description") != null && !jsonObj.get("progress_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `progress_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("progress_description").toString()));
       }
-      if (jsonObj.get("startedDts") != null && !jsonObj.get("startedDts").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `startedDts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startedDts").toString()));
+      if (jsonObj.get("started_dts") != null && !jsonObj.get("started_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `started_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("started_dts").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
-      if (jsonObj.get("submittedDts") != null && !jsonObj.get("submittedDts").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `submittedDts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("submittedDts").toString()));
+      if (jsonObj.get("submitted_dts") != null && !jsonObj.get("submitted_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `submitted_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("submitted_dts").toString()));
       }
-      if (jsonObj.get("targetPath") != null && !jsonObj.get("targetPath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `targetPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targetPath").toString()));
+      if (jsonObj.get("target_path") != null && !jsonObj.get("target_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `target_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_path").toString()));
       }
   }
 

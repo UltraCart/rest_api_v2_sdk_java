@@ -47,41 +47,41 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbVersionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbVersionResponse {
-  public static final String SERIALIZED_NAME_CONTAINER_MANAGER_VERSION = "containerManagerVersion";
+  public static final String SERIALIZED_NAME_CONTAINER_MANAGER_VERSION = "container_manager_version";
   @SerializedName(SERIALIZED_NAME_CONTAINER_MANAGER_VERSION)
   private String containerManagerVersion;
 
-  public static final String SERIALIZED_NAME_CONTAINER_VERSIONS_RETAINED = "containerVersionsRetained";
+  public static final String SERIALIZED_NAME_CONTAINER_VERSIONS_RETAINED = "container_versions_retained";
   @SerializedName(SERIALIZED_NAME_CONTAINER_VERSIONS_RETAINED)
   private Integer containerVersionsRetained;
 
-  public static final String SERIALIZED_NAME_ELEMENT_COUNT = "elementCount";
+  public static final String SERIALIZED_NAME_ELEMENT_COUNT = "element_count";
   @SerializedName(SERIALIZED_NAME_ELEMENT_COUNT)
   private Integer elementCount;
 
-  public static final String SERIALIZED_NAME_MAX_CJSON_BYTES = "maxCjsonBytes";
+  public static final String SERIALIZED_NAME_MAX_CJSON_BYTES = "max_cjson_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_CJSON_BYTES)
   private Integer maxCjsonBytes;
 
-  public static final String SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES = "maxPreviewSessionBytes";
+  public static final String SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES = "max_preview_session_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES)
   private Integer maxPreviewSessionBytes;
 
-  public static final String SERIALIZED_NAME_MAX_SEARCH_RESULTS = "maxSearchResults";
+  public static final String SERIALIZED_NAME_MAX_SEARCH_RESULTS = "max_search_results";
   @SerializedName(SERIALIZED_NAME_MAX_SEARCH_RESULTS)
   private Integer maxSearchResults;
 
-  public static final String SERIALIZED_NAME_MAX_TEMPLATE_BYTES = "maxTemplateBytes";
+  public static final String SERIALIZED_NAME_MAX_TEMPLATE_BYTES = "max_template_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_TEMPLATE_BYTES)
   private Integer maxTemplateBytes;
 
-  public static final String SERIALIZED_NAME_MAX_WIDGET_IDS_PER_REQUEST = "maxWidgetIdsPerRequest";
+  public static final String SERIALIZED_NAME_MAX_WIDGET_IDS_PER_REQUEST = "max_widget_ids_per_request";
   @SerializedName(SERIALIZED_NAME_MAX_WIDGET_IDS_PER_REQUEST)
   private Integer maxWidgetIdsPerRequest;
 
-  public static final String SERIALIZED_NAME_PREVIEW_SESSION_TTL_SECONDS = "previewSessionTtlSeconds";
+  public static final String SERIALIZED_NAME_PREVIEW_SESSION_TTL_SECONDS = "preview_session_ttl_seconds";
   @SerializedName(SERIALIZED_NAME_PREVIEW_SESSION_TTL_SECONDS)
   private Integer previewSessionTtlSeconds;
 
@@ -434,15 +434,15 @@ public class SfvbVersionResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("containerManagerVersion");
-    openapiFields.add("containerVersionsRetained");
-    openapiFields.add("elementCount");
-    openapiFields.add("maxCjsonBytes");
-    openapiFields.add("maxPreviewSessionBytes");
-    openapiFields.add("maxSearchResults");
-    openapiFields.add("maxTemplateBytes");
-    openapiFields.add("maxWidgetIdsPerRequest");
-    openapiFields.add("previewSessionTtlSeconds");
+    openapiFields.add("container_manager_version");
+    openapiFields.add("container_versions_retained");
+    openapiFields.add("element_count");
+    openapiFields.add("max_cjson_bytes");
+    openapiFields.add("max_preview_session_bytes");
+    openapiFields.add("max_search_results");
+    openapiFields.add("max_template_bytes");
+    openapiFields.add("max_widget_ids_per_request");
+    openapiFields.add("preview_session_ttl_seconds");
     openapiFields.add("release");
 
     // a set of required properties/fields (JSON key names)
@@ -471,8 +471,8 @@ public class SfvbVersionResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbVersionResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("containerManagerVersion") != null && !jsonObj.get("containerManagerVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerManagerVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerManagerVersion").toString()));
+      if (jsonObj.get("container_manager_version") != null && !jsonObj.get("container_manager_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `container_manager_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_manager_version").toString()));
       }
       if (jsonObj.get("release") != null && !jsonObj.get("release").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `release` to be a primitive type in the JSON string but got `%s`", jsonObj.get("release").toString()));

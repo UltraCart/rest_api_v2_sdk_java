@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileVersion {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -57,19 +57,19 @@ public class SfvbFileVersion {
   @SerializedName(SERIALIZED_NAME_CURRENT)
   private Boolean current;
 
-  public static final String SERIALIZED_NAME_EDITED_BY = "editedBy";
+  public static final String SERIALIZED_NAME_EDITED_BY = "edited_by";
   @SerializedName(SERIALIZED_NAME_EDITED_BY)
   private String editedBy;
 
-  public static final String SERIALIZED_NAME_FS_FILE_HISTORY_OID = "fsFileHistoryOid";
+  public static final String SERIALIZED_NAME_FS_FILE_HISTORY_OID = "fs_file_history_oid";
   @SerializedName(SERIALIZED_NAME_FS_FILE_HISTORY_OID)
   private Integer fsFileHistoryOid;
 
-  public static final String SERIALIZED_NAME_HASH_SHA256 = "hashSha256";
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
-  public static final String SERIALIZED_NAME_LAST_MODIFIED = "lastModified";
+  public static final String SERIALIZED_NAME_LAST_MODIFIED = "last_modified";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED)
   private String lastModified;
 
@@ -358,10 +358,10 @@ public class SfvbFileVersion {
     openapiFields = new HashSet<String>();
     openapiFields.add("comment");
     openapiFields.add("current");
-    openapiFields.add("editedBy");
-    openapiFields.add("fsFileHistoryOid");
-    openapiFields.add("hashSha256");
-    openapiFields.add("lastModified");
+    openapiFields.add("edited_by");
+    openapiFields.add("fs_file_history_oid");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("last_modified");
     openapiFields.add("revertable");
     openapiFields.add("size");
     openapiFields.add("version");
@@ -395,14 +395,14 @@ public class SfvbFileVersion {
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
-      if (jsonObj.get("editedBy") != null && !jsonObj.get("editedBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `editedBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editedBy").toString()));
+      if (jsonObj.get("edited_by") != null && !jsonObj.get("edited_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `edited_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("edited_by").toString()));
       }
-      if (jsonObj.get("hashSha256") != null && !jsonObj.get("hashSha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashSha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashSha256").toString()));
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
-      if (jsonObj.get("lastModified") != null && !jsonObj.get("lastModified").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lastModified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastModified").toString()));
+      if (jsonObj.get("last_modified") != null && !jsonObj.get("last_modified").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_modified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified").toString()));
       }
   }
 

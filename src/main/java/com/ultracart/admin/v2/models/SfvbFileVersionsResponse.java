@@ -50,9 +50,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileVersionsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbFileVersionsResponse {
-  public static final String SERIALIZED_NAME_FS_FILE_OID = "fsFileOid";
+  public static final String SERIALIZED_NAME_FS_FILE_OID = "fs_file_oid";
   @SerializedName(SERIALIZED_NAME_FS_FILE_OID)
   private Integer fsFileOid;
 
@@ -193,7 +193,7 @@ public class SfvbFileVersionsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("fsFileOid");
+    openapiFields.add("fs_file_oid");
     openapiFields.add("path");
     openapiFields.add("versions");
 

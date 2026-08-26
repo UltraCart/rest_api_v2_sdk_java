@@ -50,9 +50,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbElementsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbElementsResponse {
-  public static final String SERIALIZED_NAME_ELEMENT_COUNT = "elementCount";
+  public static final String SERIALIZED_NAME_ELEMENT_COUNT = "element_count";
   @SerializedName(SERIALIZED_NAME_ELEMENT_COUNT)
   private Integer elementCount;
 
@@ -193,7 +193,7 @@ public class SfvbElementsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("elementCount");
+    openapiFields.add("element_count");
     openapiFields.add("elements");
     openapiFields.add("version");
 

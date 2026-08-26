@@ -47,13 +47,13 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerRevertRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbContainerRevertRequest {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_CONTAINER_HISTORY_OID = "containerHistoryOid";
+  public static final String SERIALIZED_NAME_CONTAINER_HISTORY_OID = "container_history_oid";
   @SerializedName(SERIALIZED_NAME_CONTAINER_HISTORY_OID)
   private Integer containerHistoryOid;
 
@@ -154,7 +154,7 @@ public class SfvbContainerRevertRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("comment");
-    openapiFields.add("containerHistoryOid");
+    openapiFields.add("container_history_oid");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

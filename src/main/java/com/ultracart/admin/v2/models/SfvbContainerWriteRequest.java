@@ -47,9 +47,9 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerWriteRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbContainerWriteRequest {
-  public static final String SERIALIZED_NAME_ALLOW_WARNINGS = "allowWarnings";
+  public static final String SERIALIZED_NAME_ALLOW_WARNINGS = "allow_warnings";
   @SerializedName(SERIALIZED_NAME_ALLOW_WARNINGS)
   private Boolean allowWarnings;
 
@@ -61,7 +61,7 @@ public class SfvbContainerWriteRequest {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   private String comment;
 
-  public static final String SERIALIZED_NAME_MARKETING_EMAIL = "marketingEmail";
+  public static final String SERIALIZED_NAME_MARKETING_EMAIL = "marketing_email";
   @SerializedName(SERIALIZED_NAME_MARKETING_EMAIL)
   private Boolean marketingEmail;
 
@@ -211,10 +211,10 @@ public class SfvbContainerWriteRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("allowWarnings");
+    openapiFields.add("allow_warnings");
     openapiFields.add("cjson");
     openapiFields.add("comment");
-    openapiFields.add("marketingEmail");
+    openapiFields.add("marketing_email");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

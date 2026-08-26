@@ -50,13 +50,13 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbValidationResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
 public class SfvbValidationResponse {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   private List<SfvbErrorDetail> errors = null;
 
-  public static final String SERIALIZED_NAME_USED_ELEMENTS = "usedElements";
+  public static final String SERIALIZED_NAME_USED_ELEMENTS = "used_elements";
   @SerializedName(SERIALIZED_NAME_USED_ELEMENTS)
   private List<String> usedElements = null;
 
@@ -239,7 +239,7 @@ public class SfvbValidationResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("errors");
-    openapiFields.add("usedElements");
+    openapiFields.add("used_elements");
     openapiFields.add("valid");
     openapiFields.add("warnings");
 
@@ -282,8 +282,8 @@ public class SfvbValidationResponse {
         };
       }
       // ensure the json data is an array
-      if (jsonObj.get("usedElements") != null && !jsonObj.get("usedElements").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usedElements` to be an array in the JSON string but got `%s`", jsonObj.get("usedElements").toString()));
+      if (jsonObj.get("used_elements") != null && !jsonObj.get("used_elements").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `used_elements` to be an array in the JSON string but got `%s`", jsonObj.get("used_elements").toString()));
       }
       JsonArray jsonArraywarnings = jsonObj.getAsJsonArray("warnings");
       if (jsonArraywarnings != null) {
