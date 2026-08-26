@@ -233966,8 +233966,15 @@ components:
       type: object
     SfvbWhoamiResponse:
       example:
-        merchantId: merchantId
+        canRead: true
         deviceScope: deviceScope
+        actingAsUser: true
+        canWrite: true
+        login: login
+        storefrontsWithheld: true
+        userName: userName
+        merchantId: merchantId
+        canPublish: true
         storefronts:
         - hostName: hostName
           storefrontOid: 6
@@ -233975,14 +233982,10 @@ components:
         - hostName: hostName
           storefrontOid: 6
           activeThemeOid: 0
-        actingAsUser: true
         authenticationType: authenticationType
         scopes:
         - scopes
         - scopes
-        login: login
-        storefrontsWithheld: true
-        userName: userName
         applicationName: applicationName
       properties:
         actingAsUser:
@@ -233998,6 +234001,20 @@ components:
           description: "How this token authenticated - Oauth2, Simple Key, Public/Private\
             \ Key or Browser Key."
           type: string
+        canPublish:
+          description: "True when this token may write a target that is currently\
+            \ live - an active upsell offer, an email on a delivering flow, the active\
+            \ theme, the storefront root.  Never infer this; it is the difference\
+            \ between a draft edit and a shopper visible change."
+          type: boolean
+        canRead:
+          description: True when this token may read.  Do not infer this from the
+            requested scope name.
+          type: boolean
+        canWrite:
+          description: True when this token may write.  Writing a target that is not
+            currently live needs only this.
+          type: boolean
         deviceScope:
           description: "Device scope name, when this is a device flow token."
           type: string

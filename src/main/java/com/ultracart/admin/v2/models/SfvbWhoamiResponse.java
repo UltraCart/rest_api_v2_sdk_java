@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbWhoamiResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T12:28:57.920-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T15:05:33.032-04:00[America/Indianapolis]")
 public class SfvbWhoamiResponse {
   public static final String SERIALIZED_NAME_ACTING_AS_USER = "actingAsUser";
   @SerializedName(SERIALIZED_NAME_ACTING_AS_USER)
@@ -63,6 +63,18 @@ public class SfvbWhoamiResponse {
   public static final String SERIALIZED_NAME_AUTHENTICATION_TYPE = "authenticationType";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_TYPE)
   private String authenticationType;
+
+  public static final String SERIALIZED_NAME_CAN_PUBLISH = "canPublish";
+  @SerializedName(SERIALIZED_NAME_CAN_PUBLISH)
+  private Boolean canPublish;
+
+  public static final String SERIALIZED_NAME_CAN_READ = "canRead";
+  @SerializedName(SERIALIZED_NAME_CAN_READ)
+  private Boolean canRead;
+
+  public static final String SERIALIZED_NAME_CAN_WRITE = "canWrite";
+  @SerializedName(SERIALIZED_NAME_CAN_WRITE)
+  private Boolean canWrite;
 
   public static final String SERIALIZED_NAME_DEVICE_SCOPE = "deviceScope";
   @SerializedName(SERIALIZED_NAME_DEVICE_SCOPE)
@@ -161,6 +173,75 @@ public class SfvbWhoamiResponse {
 
   public void setAuthenticationType(String authenticationType) {
     this.authenticationType = authenticationType;
+  }
+
+
+  public SfvbWhoamiResponse canPublish(Boolean canPublish) {
+    
+    this.canPublish = canPublish;
+    return this;
+  }
+
+   /**
+   * True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.
+   * @return canPublish
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change.")
+
+  public Boolean getCanPublish() {
+    return canPublish;
+  }
+
+
+  public void setCanPublish(Boolean canPublish) {
+    this.canPublish = canPublish;
+  }
+
+
+  public SfvbWhoamiResponse canRead(Boolean canRead) {
+    
+    this.canRead = canRead;
+    return this;
+  }
+
+   /**
+   * True when this token may read.  Do not infer this from the requested scope name.
+   * @return canRead
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this token may read.  Do not infer this from the requested scope name.")
+
+  public Boolean getCanRead() {
+    return canRead;
+  }
+
+
+  public void setCanRead(Boolean canRead) {
+    this.canRead = canRead;
+  }
+
+
+  public SfvbWhoamiResponse canWrite(Boolean canWrite) {
+    
+    this.canWrite = canWrite;
+    return this;
+  }
+
+   /**
+   * True when this token may write.  Writing a target that is not currently live needs only this.
+   * @return canWrite
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this token may write.  Writing a target that is not currently live needs only this.")
+
+  public Boolean getCanWrite() {
+    return canWrite;
+  }
+
+
+  public void setCanWrite(Boolean canWrite) {
+    this.canWrite = canWrite;
   }
 
 
@@ -354,6 +435,9 @@ public class SfvbWhoamiResponse {
     return Objects.equals(this.actingAsUser, sfvbWhoamiResponse.actingAsUser) &&
         Objects.equals(this.applicationName, sfvbWhoamiResponse.applicationName) &&
         Objects.equals(this.authenticationType, sfvbWhoamiResponse.authenticationType) &&
+        Objects.equals(this.canPublish, sfvbWhoamiResponse.canPublish) &&
+        Objects.equals(this.canRead, sfvbWhoamiResponse.canRead) &&
+        Objects.equals(this.canWrite, sfvbWhoamiResponse.canWrite) &&
         Objects.equals(this.deviceScope, sfvbWhoamiResponse.deviceScope) &&
         Objects.equals(this.login, sfvbWhoamiResponse.login) &&
         Objects.equals(this.merchantId, sfvbWhoamiResponse.merchantId) &&
@@ -365,7 +449,7 @@ public class SfvbWhoamiResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actingAsUser, applicationName, authenticationType, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
+    return Objects.hash(actingAsUser, applicationName, authenticationType, canPublish, canRead, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
   }
 
   @Override
@@ -375,6 +459,9 @@ public class SfvbWhoamiResponse {
     sb.append("    actingAsUser: ").append(toIndentedString(actingAsUser)).append("\n");
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
+    sb.append("    canPublish: ").append(toIndentedString(canPublish)).append("\n");
+    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+    sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
     sb.append("    deviceScope: ").append(toIndentedString(deviceScope)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -407,6 +494,9 @@ public class SfvbWhoamiResponse {
     openapiFields.add("actingAsUser");
     openapiFields.add("applicationName");
     openapiFields.add("authenticationType");
+    openapiFields.add("canPublish");
+    openapiFields.add("canRead");
+    openapiFields.add("canWrite");
     openapiFields.add("deviceScope");
     openapiFields.add("login");
     openapiFields.add("merchantId");
