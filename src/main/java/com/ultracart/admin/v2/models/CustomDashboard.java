@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomDashboard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T16:15:49.231-04:00[America/Indianapolis]")
 public class CustomDashboard {
   public static final String SERIALIZED_NAME_DATA_WAREHOUSE_CUSTOM_DASHBOARD_OID = "data_warehouse_custom_dashboard_oid";
   @SerializedName(SERIALIZED_NAME_DATA_WAREHOUSE_CUSTOM_DASHBOARD_OID)

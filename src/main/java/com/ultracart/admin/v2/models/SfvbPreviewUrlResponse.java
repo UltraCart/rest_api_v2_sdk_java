@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T16:15:49.231-04:00[America/Indianapolis]")
 public class SfvbPreviewUrlResponse {
   public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expires_in_seconds";
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN_SECONDS)
@@ -202,11 +202,11 @@ public class SfvbPreviewUrlResponse {
   }
 
    /**
-   * Always false.  The session is keyed by individual login, so anyone else opening this URL sees the live page rather than the preview.
+   * The session is keyed by individual login, so anyone else opening this URL sees the live page rather than the preview.  This is false in every response, which means it is absent from the JSON - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Do not test it for equality with false.  usage_note carries the same warning as a string and does survive.
    * @return shareable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Always false.  The session is keyed by individual login, so anyone else opening this URL sees the live page rather than the preview.")
+  @ApiModelProperty(value = "The session is keyed by individual login, so anyone else opening this URL sees the live page rather than the preview.  This is false in every response, which means it is absent from the JSON - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Do not test it for equality with false.  usage_note carries the same warning as a string and does survive.")
 
   public Boolean getShareable() {
     return shareable;

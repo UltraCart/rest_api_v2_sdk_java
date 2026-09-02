@@ -8544,6 +8544,10 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url:
     get:
+      description: "Refuses a session that does not exist, so a URL you receive is\
+        \ for a session that was really there.  expires_in_seconds is the time actually\
+        \ remaining, not the configured lifetime.  Needs a token that resolves to\
+        \ a user, because a preview session belongs to the person who created it.\n"
       operationId: getSfvbPreviewUrl
       parameters:
       - in: path
@@ -8585,6 +8589,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -233670,8 +233696,12 @@ components:
             \  Present this URL for a human to open; do not fetch it."
           type: boolean
         shareable:
-          description: "Always false.  The session is keyed by individual login, so\
-            \ anyone else opening this URL sees the live page rather than the preview."
+          description: "The session is keyed by individual login, so anyone else opening\
+            \ this URL sees the live page rather than the preview.  This is false\
+            \ in every response, which means it is absent from the JSON - false booleans\
+            \ are omitted across this API, so a generated client sees undefined rather\
+            \ than false.  Do not test it for equality with false.  usage_note carries\
+            \ the same warning as a string and does survive."
           type: boolean
         usage_note:
           description: "Plain language restatement of the two flags above, safe to\
