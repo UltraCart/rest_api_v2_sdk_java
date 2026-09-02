@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
 public class SfvbContainerVersion {
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
@@ -253,11 +253,11 @@ public class SfvbContainerVersion {
   }
 
    /**
-   * History record oid.  Pass to the revert operation on the owning container.
+   * History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.
    * @return containerHistoryOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "History record oid.  Pass to the revert operation on the owning container.")
+  @ApiModelProperty(value = "History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to.")
 
   public Integer getContainerHistoryOid() {
     return containerHistoryOid;

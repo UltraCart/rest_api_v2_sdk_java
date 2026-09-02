@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
 public class SfvbFileEntry {
   public static final String SERIALIZED_NAME_AUTO_COMPILED = "auto_compiled";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPILED)
@@ -188,11 +188,11 @@ public class SfvbFileEntry {
   }
 
    /**
-   * StoreFront file system file oid.
+   * StoreFront file system file oid.  Absent on a directory entry, which has no file oid.
    * @return fsFileOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "StoreFront file system file oid.")
+  @ApiModelProperty(value = "StoreFront file system file oid.  Absent on a directory entry, which has no file oid.")
 
   public Integer getFsFileOid() {
     return fsFileOid;
@@ -441,11 +441,11 @@ public class SfvbFileEntry {
   }
 
    /**
-   * Current version number of the file.
+   * Current version number of the file.  Absent on a directory entry, which is not versioned.
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Current version number of the file.")
+  @ApiModelProperty(value = "Current version number of the file.  Absent on a directory entry, which is not versioned.")
 
   public Integer getVersion() {
     return version;

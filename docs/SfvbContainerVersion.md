@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**cjson** | **String** | The CJSON this version held.  Populated only when reading a single version, and null when the operation is create.  Listings omit it because container CJSON is large. |  [optional] |
 |**comment** | **String** | Comment recorded with the write that replaced this version. |  [optional] |
-|**containerHistoryOid** | **Integer** | History record oid.  Pass to the revert operation on the owning container. |  [optional] |
+|**containerHistoryOid** | **Integer** | History record oid.  Pass to the revert operation on the owning container.  Absent on the entry marked current, which holds the value stored right now, has no history row of its own, and so cannot be fetched or reverted to. |  [optional] |
 |**containerName** | **String** | Container name, where the owner has more than one container. |  [optional] |
 |**createdDts** | **String** | When this snapshot was taken. |  [optional] |
 |**current** | **Boolean** | True for the value currently stored. |  [optional] |

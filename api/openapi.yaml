@@ -232310,8 +232310,10 @@ components:
           description: Comment recorded with the write that replaced this version.
           type: string
         container_history_oid:
-          description: History record oid.  Pass to the revert operation on the owning
-            container.
+          description: "History record oid.  Pass to the revert operation on the owning\
+            \ container.  Absent on the entry marked current, which holds the value\
+            \ stored right now, has no history row of its own, and so cannot be fetched\
+            \ or reverted to."
           format: int32
           type: integer
         container_name:
@@ -232605,7 +232607,8 @@ components:
           format: int32
           type: integer
         fs_file_oid:
-          description: StoreFront file system file oid.
+          description: "StoreFront file system file oid.  Absent on a directory entry,\
+            \ which has no file oid."
           format: int32
           type: integer
         hash_sha256:
@@ -232643,7 +232646,8 @@ components:
             write.
           type: boolean
         version:
-          description: Current version number of the file.
+          description: "Current version number of the file.  Absent on a directory\
+            \ entry, which is not versioned."
           format: int32
           type: integer
       type: object

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallHold
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T17:35:12.667-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
 public class ConversationPbxCallHold {
   public static final String SERIALIZED_NAME_HELD_BY_AGENT_ID = "held_by_agent_id";
   @SerializedName(SERIALIZED_NAME_HELD_BY_AGENT_ID)
