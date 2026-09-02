@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbLibraryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
 public class SfvbLibraryResponse {
   public static final String SERIALIZED_NAME_FACETS = "facets";
   @SerializedName(SERIALIZED_NAME_FACETS)

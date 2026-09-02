@@ -994,6 +994,8 @@ docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
 docs/SfvbFileSearchResponse.md
+docs/SfvbFileUploadRequest.md
+docs/SfvbFileUploadUrlResponse.md
 docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
@@ -2121,6 +2123,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFileEntry.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileRevertRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileSearchRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileSearchResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFileUploadRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFileUploadUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileVersion.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileVersionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteRequest.java

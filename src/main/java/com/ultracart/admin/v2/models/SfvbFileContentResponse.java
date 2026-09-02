@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileContentResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
 public class SfvbFileContentResponse {
   public static final String SERIALIZED_NAME_AUTO_COMPILED = "auto_compiled";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPILED)
@@ -172,11 +172,11 @@ public class SfvbFileContentResponse {
   }
 
    /**
-   * SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.
+   * SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.
    * @return hashSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SHA-256 of the content.  Also returned as the ETag header; send it back as If-Match when writing.")
+  @ApiModelProperty(value = "SHA-256 of the content.  Send this back as If-Match when writing.  The ETag header carries the same hash, but a compressing proxy may append a suffix such as -gzip to it, so this body value is the authoritative one.  Both forms are accepted on write.")
 
   public String getHashSha256() {
     return hashSha256;

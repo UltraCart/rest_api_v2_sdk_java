@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxPhoneNumberPurchaseRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
 public class ConversationPbxPhoneNumberPurchaseRequest {
   /**
    * Initial action for incoming calls

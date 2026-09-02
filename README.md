@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-02T11:48:02.285-04:00[America/Indianapolis]
+- Build date: 2026-09-02T15:42:49.234-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.143</version>
+    <version>4.1.144</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.143"
+     implementation "com.ultracart:rest-sdk:4.1.144"
   }
 ```
 
@@ -493,12 +493,14 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
+*SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema for one element type
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
+*SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -522,6 +524,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
+*SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
 *SfvbApi* | [**validateSfvbCjson**](docs/SfvbApi.md#validateSfvbCjson) | **POST** /sfvb/cjson/validate | Validate CJSON
 *SfvbApi* | [**validateSfvbVelocity**](docs/SfvbApi.md#validateSfvbVelocity) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate | Validate a Velocity template against a theme
 *SsoApi* | [**getSsoSessionUser**](docs/SsoApi.md#getSsoSessionUser) | **GET** /sso/session/user | Get single sign on session user
@@ -1751,6 +1754,8 @@ Class | Method | HTTP request | Description
  - [SfvbFileRevertRequest](docs/SfvbFileRevertRequest.md)
  - [SfvbFileSearchRequest](docs/SfvbFileSearchRequest.md)
  - [SfvbFileSearchResponse](docs/SfvbFileSearchResponse.md)
+ - [SfvbFileUploadRequest](docs/SfvbFileUploadRequest.md)
+ - [SfvbFileUploadUrlResponse](docs/SfvbFileUploadUrlResponse.md)
  - [SfvbFileVersion](docs/SfvbFileVersion.md)
  - [SfvbFileVersionsResponse](docs/SfvbFileVersionsResponse.md)
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
@@ -1947,6 +1952,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.144 | 09/02/2026 | sfvb - internal testing |
 | 4.1.143 | 09/02/2026 | sfvb - internal development |
 | 4.1.142 | 08/26/2026 | sfvb - internal test |
 | 4.1.141 | 08/26/2026 | sfvb - internal testing |

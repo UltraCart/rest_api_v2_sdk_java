@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderChannelPartner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
 public class OrderChannelPartner {
   public static final String SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES = "arbitrary_pricing_tier_names";
   @SerializedName(SERIALIZED_NAME_ARBITRARY_PRICING_TIER_NAMES)

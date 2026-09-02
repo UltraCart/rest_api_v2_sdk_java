@@ -7324,8 +7324,9 @@ paths:
   /sfvb/storefronts/{storefront_oid}/files/content:
     get:
       description: "Returns the current content, or an earlier version when version\
-        \ is supplied.  The content hash is returned as an ETag; send it back as If-Match\
-        \ when writing.\n"
+        \ is supplied.  Send the body's hash_sha256 back as If-Match when writing.\
+        \  The ETag header carries the same hash, but a compressing proxy may append\
+        \ a suffix such as -gzip to it, so prefer the body value.\n"
       operationId: getSfvbFileContent
       parameters:
       - in: path
@@ -7503,6 +7504,81 @@ paths:
       x-codegen-request-body-name: file_write_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/files/download:
+    get:
+      description: "Returns the file itself rather than a JSON envelope, for any type\
+        \ including binaries that files/content refuses.  Use this to verify what\
+        \ you uploaded, and note it is the only way to read a file inside a theme\
+        \ that is not active - such a file is served to nobody until the theme is\
+        \ promoted, so it has no public URL to fetch instead.  On success the body\
+        \ is the file; on failure it is the usual JSON error object, so do not assume\
+        \ the content type without checking the status.\n"
+      operationId: downloadSfvbFile
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: path
+        schema:
+          type: string
+      responses:
+        "400":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a storefront file's raw bytes
+      tags:
+      - sfvb
+      x-accepts: application/octet-stream
   /sfvb/storefronts/{storefront_oid}/files/revert:
     post:
       description: "The revert lands as a new version, so it is itself undoable.\n"
@@ -7684,6 +7760,194 @@ paths:
       - sfvb
       x-codegen-request-body-name: search_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/files/upload:
+    post:
+      description: "The second half of the two step upload.  The bytes are fetched\
+        \ from the key, checked against the extension they claim to be, and written\
+        \ exactly as a text write is - so the same If-Match precondition, the same\
+        \ read only refusal and the same publish gate apply.  An SVG is sanitized\
+        \ before it is stored.  Writing outside /themes/ requires sfvb_publish, because\
+        \ anything served off the storefront root is live by definition.\n"
+      operationId: uploadSfvbFile
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Content hash from the last read.  Required when the file already\
+          \ exists; 428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbFileUploadRequest'
+        description: Where to store the uploaded bytes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbFileWriteResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Store a binary asset that was already uploaded
+      tags:
+      - sfvb
+      x-codegen-request-body-name: file_upload_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension}:
+    get:
+      description: "Binary content does not travel through this API as JSON, so uploading\
+        \ an image, font, video or PDF is two steps.  Ask here for a URL, PUT the\
+        \ raw bytes straight to it, then call uploadSfvbFile quoting the key you were\
+        \ given.  The bytes never pass through the API server.  The extension is checked\
+        \ against the accepted type list before a URL is issued, so an unsupported\
+        \ type fails here rather than after you have sent the file.  The URL is short\
+        \ lived and the key is bound to your account.\n"
+      operationId: getSfvbFileUploadUrl
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: extension
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbFileUploadUrlResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Get a URL to upload a binary asset to
+      tags:
+      - sfvb
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/files/versions:
     get:
@@ -232548,8 +232812,10 @@ components:
           format: int32
           type: integer
         hash_sha256:
-          description: SHA-256 of the content.  Also returned as the ETag header;
-            send it back as If-Match when writing.
+          description: "SHA-256 of the content.  Send this back as If-Match when writing.\
+            \  The ETag header carries the same hash, but a compressing proxy may\
+            \ append a suffix such as -gzip to it, so this body value is the authoritative\
+            \ one.  Both forms are accepted on write."
           type: string
         mime_type:
           description: Mime type.
@@ -232886,6 +233152,53 @@ components:
           description: True when the listing was capped.  Never truncated silently.
           type: boolean
       type: object
+    SfvbFileUploadRequest:
+      example:
+        path: path
+        create_if_missing: true
+        comment: comment
+        key: key
+      properties:
+        comment:
+          description: Optional comment recorded against the version this write creates.
+          type: string
+        create_if_missing:
+          description: Create the file if it does not exist.  Defaults to true.
+          type: boolean
+        key:
+          description: The key returned when the upload URL was issued.
+          type: string
+        path:
+          description: "Storefront path to write, for example /assets/imgs/hero.jpg.\
+            \  The extension must match the one the upload URL was issued for, and\
+            \ must match the bytes."
+          type: string
+      type: object
+    SfvbFileUploadUrlResponse:
+      example:
+        expires_in_seconds: 0
+        http_method: http_method
+        upload_url: upload_url
+        key: key
+      properties:
+        expires_in_seconds:
+          description: Seconds until the upload URL stops working.  Ask for a new
+            one rather than holding this across a long job.
+          format: int32
+          type: integer
+        http_method:
+          description: HTTP method the upload URL expects.
+          type: string
+        key:
+          description: Quote this back to the upload endpoint once the bytes are in
+            place.  It identifies the uploaded object and is bound to your account.
+          type: string
+        upload_url:
+          description: "Send the raw bytes to this URL.  It is short lived and single\
+            \ use, and it is not part of this API - do not send an Authorization header\
+            \ with it."
+          type: string
+      type: object
     SfvbFileVersion:
       example:
         hash_sha256: hash_sha256
@@ -232985,6 +233298,7 @@ components:
     SfvbFileWriteResponse:
       example:
         hash_sha256: hash_sha256
+        public_url: public_url
         file:
           i18n_violation: true
           fs_directory_oid: 0
@@ -233068,6 +233382,13 @@ components:
           $ref: '#/components/schemas/SfvbFileEntry'
         hash_sha256:
           description: New SHA-256.  Use as the next If-Match value.
+          type: string
+        public_url:
+          description: "Where a shopper's browser will fetch this file, for use in\
+            \ an img src or a background image.  Present only for a path outside /themes/,\
+            \ which is served straight off the storefront root.  A file inside a theme\
+            \ is absent here because its public URL depends on which theme is active,\
+            \ and guessing it would be worse than omitting it."
           type: string
         validation:
           $ref: '#/components/schemas/SfvbValidationResponse'

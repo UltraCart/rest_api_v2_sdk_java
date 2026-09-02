@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileWriteResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T11:48:02.285-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T15:42:49.234-04:00[America/Indianapolis]")
 public class SfvbFileWriteResponse {
   public static final String SERIALIZED_NAME_COMPILED_PATH = "compiled_path";
   @SerializedName(SERIALIZED_NAME_COMPILED_PATH)
@@ -62,6 +62,10 @@ public class SfvbFileWriteResponse {
   public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
+
+  public static final String SERIALIZED_NAME_PUBLIC_URL = "public_url";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_URL)
+  private String publicUrl;
 
   public static final String SERIALIZED_NAME_VALIDATION = "validation";
   @SerializedName(SERIALIZED_NAME_VALIDATION)
@@ -147,6 +151,29 @@ public class SfvbFileWriteResponse {
   }
 
 
+  public SfvbFileWriteResponse publicUrl(String publicUrl) {
+    
+    this.publicUrl = publicUrl;
+    return this;
+  }
+
+   /**
+   * Where a shopper&#39;s browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.
+   * @return publicUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Where a shopper's browser will fetch this file, for use in an img src or a background image.  Present only for a path outside /themes/, which is served straight off the storefront root.  A file inside a theme is absent here because its public URL depends on which theme is active, and guessing it would be worse than omitting it.")
+
+  public String getPublicUrl() {
+    return publicUrl;
+  }
+
+
+  public void setPublicUrl(String publicUrl) {
+    this.publicUrl = publicUrl;
+  }
+
+
   public SfvbFileWriteResponse validation(SfvbValidationResponse validation) {
     
     this.validation = validation;
@@ -229,6 +256,7 @@ public class SfvbFileWriteResponse {
     return Objects.equals(this.compiledPath, sfvbFileWriteResponse.compiledPath) &&
         Objects.equals(this._file, sfvbFileWriteResponse._file) &&
         Objects.equals(this.hashSha256, sfvbFileWriteResponse.hashSha256) &&
+        Objects.equals(this.publicUrl, sfvbFileWriteResponse.publicUrl) &&
         Objects.equals(this.validation, sfvbFileWriteResponse.validation) &&
         Objects.equals(this.velocityErrors, sfvbFileWriteResponse.velocityErrors) &&
         Objects.equals(this.version, sfvbFileWriteResponse.version);
@@ -236,7 +264,7 @@ public class SfvbFileWriteResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compiledPath, _file, hashSha256, validation, velocityErrors, version);
+    return Objects.hash(compiledPath, _file, hashSha256, publicUrl, validation, velocityErrors, version);
   }
 
   @Override
@@ -246,6 +274,7 @@ public class SfvbFileWriteResponse {
     sb.append("    compiledPath: ").append(toIndentedString(compiledPath)).append("\n");
     sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
+    sb.append("    publicUrl: ").append(toIndentedString(publicUrl)).append("\n");
     sb.append("    validation: ").append(toIndentedString(validation)).append("\n");
     sb.append("    velocityErrors: ").append(toIndentedString(velocityErrors)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -274,6 +303,7 @@ public class SfvbFileWriteResponse {
     openapiFields.add("compiled_path");
     openapiFields.add("file");
     openapiFields.add("hash_sha256");
+    openapiFields.add("public_url");
     openapiFields.add("validation");
     openapiFields.add("velocity_errors");
     openapiFields.add("version");
@@ -313,6 +343,9 @@ public class SfvbFileWriteResponse {
       }
       if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      if (jsonObj.get("public_url") != null && !jsonObj.get("public_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `public_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_url").toString()));
       }
       // validate the optional field `validation`
       if (jsonObj.getAsJsonObject("validation") != null) {
