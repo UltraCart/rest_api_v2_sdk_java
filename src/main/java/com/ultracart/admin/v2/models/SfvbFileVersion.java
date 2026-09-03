@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T16:15:49.231-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-03T17:00:00.259-04:00[America/Indianapolis]")
 public class SfvbFileVersion {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -164,11 +164,11 @@ public class SfvbFileVersion {
   }
 
    /**
-   * History record oid.
+   * History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.
    * @return fsFileHistoryOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "History record oid.")
+  @ApiModelProperty(value = "History record oid, for correlating an entry with the file manager.  Absent on the entry marked current, which is the content on disk right now and has no history row of its own.  Unlike container_history_oid on a container version, this is NOT addressable through this API - nothing accepts it.  Fetch and revert a file version by path plus version instead.")
 
   public Integer getFsFileHistoryOid() {
     return fsFileHistoryOid;
@@ -233,11 +233,11 @@ public class SfvbFileVersion {
   }
 
    /**
-   * True when this version can be reverted to.
+   * True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.
    * @return revertable
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True when this version can be reverted to.")
+  @ApiModelProperty(value = "True when this version can be reverted to, which is every entry except the one marked current.  Note that it is absent rather than false on that entry - false booleans are omitted across this API, so a generated client sees undefined rather than false.  Test whether the key is present, or simpler still, use current.")
 
   public Boolean getRevertable() {
     return revertable;

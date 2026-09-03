@@ -47,19 +47,11 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-02T16:15:49.231-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-03T17:00:00.259-04:00[America/Indianapolis]")
 public class SfvbContainerResponse {
-  public static final String SERIALIZED_NAME_ACTIVE_THEME = "active_theme";
-  @SerializedName(SERIALIZED_NAME_ACTIVE_THEME)
-  private Boolean activeTheme;
-
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
-
-  public static final String SERIALIZED_NAME_CONTAINER_ID = "container_id";
-  @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
-  private String containerId;
 
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "container_name";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
@@ -136,39 +128,8 @@ public class SfvbContainerResponse {
   @SerializedName(SERIALIZED_NAME_OWNER_TYPE)
   private OwnerTypeEnum ownerType;
 
-  public static final String SERIALIZED_NAME_PATH = "path";
-  @SerializedName(SERIALIZED_NAME_PATH)
-  private String path;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
   public SfvbContainerResponse() { 
   }
-
-  public SfvbContainerResponse activeTheme(Boolean activeTheme) {
-    
-    this.activeTheme = activeTheme;
-    return this;
-  }
-
-   /**
-   * True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.
-   * @return activeTheme
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True when this container lives in the theme currently serving live traffic.  Writing to it requires the sfvb_publish scope.")
-
-  public Boolean getActiveTheme() {
-    return activeTheme;
-  }
-
-
-  public void setActiveTheme(Boolean activeTheme) {
-    this.activeTheme = activeTheme;
-  }
-
 
   public SfvbContainerResponse cjson(String cjson) {
     
@@ -190,29 +151,6 @@ public class SfvbContainerResponse {
 
   public void setCjson(String cjson) {
     this.cjson = cjson;
-  }
-
-
-  public SfvbContainerResponse containerId(String containerId) {
-    
-    this.containerId = containerId;
-    return this;
-  }
-
-   /**
-   * Container id as the compiler will derive it.
-   * @return containerId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container id as the compiler will derive it.")
-
-  public String getContainerId() {
-    return containerId;
-  }
-
-
-  public void setContainerId(String containerId) {
-    this.containerId = containerId;
   }
 
 
@@ -269,11 +207,11 @@ public class SfvbContainerResponse {
   }
 
    /**
-   * When the container was last modified, where the store records it.
+   * When the container was last modified, in the store&#39;s own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.
    * @return lastModified
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the container was last modified, where the store records it.")
+  @ApiModelProperty(value = "When the container was last modified, in the store's own record of it.  Present for email, postcardfront and postcardback.  Absent for upsell and item, because those tables carry no modification timestamp at all - for those two, read created_dts on the current entry of container_versions, which records when this API last wrote the container.  Note that a postcard keeps one timestamp for both of its sides, so writing the front moves the value the back reports.")
 
   public String getLastModified() {
     return lastModified;
@@ -331,52 +269,6 @@ public class SfvbContainerResponse {
   }
 
 
-  public SfvbContainerResponse path(String path) {
-    
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * File path, for theme and page containers only.
-   * @return path
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File path, for theme and page containers only.")
-
-  public String getPath() {
-    return path;
-  }
-
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
-
-  public SfvbContainerResponse version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * File version, for theme and page containers only.
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "File version, for theme and page containers only.")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -387,37 +279,29 @@ public class SfvbContainerResponse {
       return false;
     }
     SfvbContainerResponse sfvbContainerResponse = (SfvbContainerResponse) o;
-    return Objects.equals(this.activeTheme, sfvbContainerResponse.activeTheme) &&
-        Objects.equals(this.cjson, sfvbContainerResponse.cjson) &&
-        Objects.equals(this.containerId, sfvbContainerResponse.containerId) &&
+    return Objects.equals(this.cjson, sfvbContainerResponse.cjson) &&
         Objects.equals(this.containerName, sfvbContainerResponse.containerName) &&
         Objects.equals(this.hashSha256, sfvbContainerResponse.hashSha256) &&
         Objects.equals(this.lastModified, sfvbContainerResponse.lastModified) &&
         Objects.equals(this.ownerObjectId, sfvbContainerResponse.ownerObjectId) &&
-        Objects.equals(this.ownerType, sfvbContainerResponse.ownerType) &&
-        Objects.equals(this.path, sfvbContainerResponse.path) &&
-        Objects.equals(this.version, sfvbContainerResponse.version);
+        Objects.equals(this.ownerType, sfvbContainerResponse.ownerType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeTheme, cjson, containerId, containerName, hashSha256, lastModified, ownerObjectId, ownerType, path, version);
+    return Objects.hash(cjson, containerName, hashSha256, lastModified, ownerObjectId, ownerType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbContainerResponse {\n");
-    sb.append("    activeTheme: ").append(toIndentedString(activeTheme)).append("\n");
     sb.append("    cjson: ").append(toIndentedString(cjson)).append("\n");
-    sb.append("    containerId: ").append(toIndentedString(containerId)).append("\n");
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
     sb.append("    ownerObjectId: ").append(toIndentedString(ownerObjectId)).append("\n");
     sb.append("    ownerType: ").append(toIndentedString(ownerType)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -440,16 +324,12 @@ public class SfvbContainerResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("active_theme");
     openapiFields.add("cjson");
-    openapiFields.add("container_id");
     openapiFields.add("container_name");
     openapiFields.add("hash_sha256");
     openapiFields.add("last_modified");
     openapiFields.add("owner_object_id");
     openapiFields.add("owner_type");
-    openapiFields.add("path");
-    openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -480,9 +360,6 @@ public class SfvbContainerResponse {
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
-      if (jsonObj.get("container_id") != null && !jsonObj.get("container_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `container_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_id").toString()));
-      }
       if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
       }
@@ -497,9 +374,6 @@ public class SfvbContainerResponse {
       }
       if (jsonObj.get("owner_type") != null && !jsonObj.get("owner_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_type").toString()));
-      }
-      if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
   }
 

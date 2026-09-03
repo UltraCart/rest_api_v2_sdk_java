@@ -6714,6 +6714,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -7289,6 +7300,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "429":
           content:
             application/json:
@@ -7473,6 +7495,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -7727,6 +7760,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "429":
           content:
             application/json:
@@ -7929,6 +7973,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -8093,6 +8148,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -8359,6 +8425,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -8426,6 +8503,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -8515,6 +8603,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -8763,6 +8862,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -9025,6 +9135,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "429":
           content:
             application/json:
@@ -9114,6 +9235,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -9173,6 +9305,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -9242,6 +9385,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -232511,25 +232665,14 @@ components:
     SfvbContainerResponse:
       example:
         hash_sha256: hash_sha256
-        path: path
         owner_object_id: owner_object_id
         container_name: container_name
-        active_theme: true
         last_modified: last_modified
-        version: 0
         cjson: cjson
-        container_id: container_id
         owner_type: theme
       properties:
-        active_theme:
-          description: True when this container lives in the theme currently serving
-            live traffic.  Writing to it requires the sfvb_publish scope.
-          type: boolean
         cjson:
           description: The container JSON.  Runtime state is stripped on the way out.
-          type: string
-        container_id:
-          description: Container id as the compiler will derive it.
           type: string
         container_name:
           description: Container name.
@@ -232538,8 +232681,13 @@ components:
           description: SHA-256 of the cjson.  Send back as If-Match when writing.
           type: string
         last_modified:
-          description: "When the container was last modified, where the store records\
-            \ it."
+          description: "When the container was last modified, in the store's own record\
+            \ of it.  Present for email, postcardfront and postcardback.  Absent for\
+            \ upsell and item, because those tables carry no modification timestamp\
+            \ at all - for those two, read created_dts on the current entry of container_versions,\
+            \ which records when this API last wrote the container.  Note that a postcard\
+            \ keeps one timestamp for both of its sides, so writing the front moves\
+            \ the value the back reports."
           type: string
         owner_object_id:
           description: Identifier of the owning object within its store.
@@ -232554,13 +232702,6 @@ components:
           - email
           - postcard
           type: string
-        path:
-          description: "File path, for theme and page containers only."
-          type: string
-        version:
-          description: "File version, for theme and page containers only."
-          format: int32
-          type: integer
       type: object
     SfvbContainerRevertRequest:
       example:
@@ -233247,7 +233388,11 @@ components:
           description: Login of whoever wrote this version.
           type: string
         fs_file_history_oid:
-          description: History record oid.
+          description: "History record oid, for correlating an entry with the file\
+            \ manager.  Absent on the entry marked current, which is the content on\
+            \ disk right now and has no history row of its own.  Unlike container_history_oid\
+            \ on a container version, this is NOT addressable through this API - nothing\
+            \ accepts it.  Fetch and revert a file version by path plus version instead."
           format: int32
           type: integer
         hash_sha256:
@@ -233257,7 +233402,11 @@ components:
           description: When this version was written.
           type: string
         revertable:
-          description: True when this version can be reverted to.
+          description: "True when this version can be reverted to, which is every\
+            \ entry except the one marked current.  Note that it is absent rather\
+            \ than false on that entry - false booleans are omitted across this API,\
+            \ so a generated client sees undefined rather than false.  Test whether\
+            \ the key is present, or simpler still, use current."
           type: boolean
         size:
           description: Size in bytes.
