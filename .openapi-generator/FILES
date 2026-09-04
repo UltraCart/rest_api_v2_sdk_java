@@ -187,6 +187,9 @@ docs/ConversationAgentStatusRollupSearchRequest.md
 docs/ConversationAgentStatusRollupSearchResponse.md
 docs/ConversationAgentStatusSummaryResponse.md
 docs/ConversationAgentStatusTimelineResponse.md
+docs/ConversationAgentTestSessionJoinRequest.md
+docs/ConversationAgentTestSessionRequest.md
+docs/ConversationAgentTestSessionResponse.md
 docs/ConversationApi.md
 docs/ConversationAutocompleteRequest.md
 docs/ConversationAutocompleteResponse.md
@@ -195,6 +198,7 @@ docs/ConversationCannedMessage.md
 docs/ConversationCannedMessageResponse.md
 docs/ConversationCannedMessagesResponse.md
 docs/ConversationCannedMessagesSearch.md
+docs/ConversationCustomerAuth.md
 docs/ConversationDeleteKnowledgeBaseDocumentResponse.md
 docs/ConversationDepartment.md
 docs/ConversationDepartmentMember.md
@@ -1330,6 +1334,9 @@ src/main/java/com/ultracart/admin/v2/models/ConversationAgentStatusRollupSearchR
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentStatusRollupSearchResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentStatusSummaryResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAgentStatusTimelineResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentTestSessionJoinRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentTestSessionRequest.java
+src/main/java/com/ultracart/admin/v2/models/ConversationAgentTestSessionResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteRequest.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationAutocompleteValue.java
@@ -1337,6 +1344,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessage.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessageResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationCannedMessagesSearch.java
+src/main/java/com/ultracart/admin/v2/models/ConversationCustomerAuth.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDeleteKnowledgeBaseDocumentResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartment.java
 src/main/java/com/ultracart/admin/v2/models/ConversationDepartmentMember.java

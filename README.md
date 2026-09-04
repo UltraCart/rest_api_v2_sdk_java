@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-04T14:04:08.480-04:00[America/Indianapolis]
+- Build date: 2026-09-04T15:59:36.528-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.149</version>
+    <version>4.1.151</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.149"
+     implementation "com.ultracart:rest-sdk:4.1.151"
   }
 ```
 
@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**insertPbxTimeRange**](docs/ConversationApi.md#insertPbxTimeRange) | **POST** /conversation/pbx/time_range | Insert pbx timeRange
 *ConversationApi* | [**insertPbxVoicemailMailbox**](docs/ConversationApi.md#insertPbxVoicemailMailbox) | **POST** /conversation/pbx/voicemail_mailbox | Insert pbx voicemailMailbox
 *ConversationApi* | [**insertUserPbxAudio**](docs/ConversationApi.md#insertUserPbxAudio) | **POST** /conversation/pbx/audio/user | Insert user pbx audio
+*ConversationApi* | [**joinAgentTestSession**](docs/ConversationApi.md#joinAgentTestSession) | **PUT** /conversation/agent/profiles/{user_id}/test_session/{conversation_uuid}/join | Join a test conversation as the simulated customer
 *ConversationApi* | [**joinConversation**](docs/ConversationApi.md#joinConversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/ConversationApi.md#leaveConversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**listenedPbxAgentVoicemail**](docs/ConversationApi.md#listenedPbxAgentVoicemail) | **GET** /conversation/pbx/agent/voicemails/{recording_sid}/listened | Listened Agent Voicemail
@@ -286,6 +287,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**searchPbxAvailablePhoneNumbers**](docs/ConversationApi.md#searchPbxAvailablePhoneNumbers) | **GET** /conversation/pbx/phone_number/search | Search for available phone numbers
 *ConversationApi* | [**searchPbxCalls**](docs/ConversationApi.md#searchPbxCalls) | **POST** /conversation/pbx/call/search | Search pbx call records
 *ConversationApi* | [**smsUnsubscribeConversation**](docs/ConversationApi.md#smsUnsubscribeConversation) | **PUT** /conversation/conversations/{conversation_uuid}/sms_unsubscribe | Unsubscribe any SMS participants in this conversation
+*ConversationApi* | [**startAgentTestSession**](docs/ConversationApi.md#startAgentTestSession) | **PUT** /conversation/agent/profiles/{user_id}/test_session | Start a test conversation with this AI agent
 *ConversationApi* | [**startConversation**](docs/ConversationApi.md#startConversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateAgentProfile**](docs/ConversationApi.md#updateAgentProfile) | **PUT** /conversation/agent/profile | Update agent profile
 *ConversationApi* | [**updateAgentProfileMcp**](docs/ConversationApi.md#updateAgentProfileMcp) | **POST** /conversation/agent/profiles/{user_id}/mcps/{mcp_server_uuid} | Update an agent MCP server
@@ -960,6 +962,9 @@ Class | Method | HTTP request | Description
  - [ConversationAgentStatusRollupSearchResponse](docs/ConversationAgentStatusRollupSearchResponse.md)
  - [ConversationAgentStatusSummaryResponse](docs/ConversationAgentStatusSummaryResponse.md)
  - [ConversationAgentStatusTimelineResponse](docs/ConversationAgentStatusTimelineResponse.md)
+ - [ConversationAgentTestSessionJoinRequest](docs/ConversationAgentTestSessionJoinRequest.md)
+ - [ConversationAgentTestSessionRequest](docs/ConversationAgentTestSessionRequest.md)
+ - [ConversationAgentTestSessionResponse](docs/ConversationAgentTestSessionResponse.md)
  - [ConversationAutocompleteRequest](docs/ConversationAutocompleteRequest.md)
  - [ConversationAutocompleteResponse](docs/ConversationAutocompleteResponse.md)
  - [ConversationAutocompleteValue](docs/ConversationAutocompleteValue.md)
@@ -967,6 +972,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessageResponse](docs/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/ConversationCannedMessagesResponse.md)
  - [ConversationCannedMessagesSearch](docs/ConversationCannedMessagesSearch.md)
+ - [ConversationCustomerAuth](docs/ConversationCustomerAuth.md)
  - [ConversationDeleteKnowledgeBaseDocumentResponse](docs/ConversationDeleteKnowledgeBaseDocumentResponse.md)
  - [ConversationDepartment](docs/ConversationDepartment.md)
  - [ConversationDepartmentMember](docs/ConversationDepartmentMember.md)
@@ -1953,6 +1959,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.151 | 09/04/2026 | conversations - added ai agent capabilities |
+| 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |
 | 4.1.149 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.148 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.147 | 09/04/2026 | sfvb - internal testing |

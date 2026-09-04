@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemChargebackAddendum
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T14:04:08.480-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T15:59:36.528-04:00[America/Indianapolis]")
 public class ItemChargebackAddendum {
   public static final String SERIALIZED_NAME_CHARGEBACK_ADDENDUM_OID = "chargeback_addendum_oid";
   @SerializedName(SERIALIZED_NAME_CHARGEBACK_ADDENDUM_OID)
