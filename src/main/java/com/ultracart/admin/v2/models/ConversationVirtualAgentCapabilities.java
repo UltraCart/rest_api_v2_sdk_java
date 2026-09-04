@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilityCustomCollection;
 import com.ultracart.admin.v2.models.ConversationVirtualAgentCapabilityZohoDeskDepartment;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -50,8 +51,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T11:29:17.164-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T12:58:36.068-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
+  public static final String SERIALIZED_NAME_ACCESS_CUSTOM_COLLECTIONS = "access_custom_collections";
+  @SerializedName(SERIALIZED_NAME_ACCESS_CUSTOM_COLLECTIONS)
+  private Boolean accessCustomCollections;
+
   public static final String SERIALIZED_NAME_ACCESS_STOREFRONT_AND_ITEM = "access_storefront_and_item";
   @SerializedName(SERIALIZED_NAME_ACCESS_STOREFRONT_AND_ITEM)
   private Boolean accessStorefrontAndItem;
@@ -59,6 +64,14 @@ public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_CANCEL_SUBSCRIPTION = "cancel_subscription";
   @SerializedName(SERIALIZED_NAME_CANCEL_SUBSCRIPTION)
   private Boolean cancelSubscription;
+
+  public static final String SERIALIZED_NAME_CUSTOM_COLLECTION_OIDS = "custom_collection_oids";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_COLLECTION_OIDS)
+  private Object customCollectionOids;
+
+  public static final String SERIALIZED_NAME_CUSTOM_COLLECTIONS = "custom_collections";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_COLLECTIONS)
+  private List<ConversationVirtualAgentCapabilityCustomCollection> customCollections = null;
 
   public static final String SERIALIZED_NAME_DELAY_SUBSCRIPTION = "delay_subscription";
   @SerializedName(SERIALIZED_NAME_DELAY_SUBSCRIPTION)
@@ -170,6 +183,29 @@ public class ConversationVirtualAgentCapabilities {
   public ConversationVirtualAgentCapabilities() { 
   }
 
+  public ConversationVirtualAgentCapabilities accessCustomCollections(Boolean accessCustomCollections) {
+    
+    this.accessCustomCollections = accessCustomCollections;
+    return this;
+  }
+
+   /**
+   * Permission flag to allow this Agent to search the merchant&#39;s custom Typesense collections.
+   * @return accessCustomCollections
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Permission flag to allow this Agent to search the merchant's custom Typesense collections.")
+
+  public Boolean getAccessCustomCollections() {
+    return accessCustomCollections;
+  }
+
+
+  public void setAccessCustomCollections(Boolean accessCustomCollections) {
+    this.accessCustomCollections = accessCustomCollections;
+  }
+
+
   public ConversationVirtualAgentCapabilities accessStorefrontAndItem(Boolean accessStorefrontAndItem) {
     
     this.accessStorefrontAndItem = accessStorefrontAndItem;
@@ -213,6 +249,60 @@ public class ConversationVirtualAgentCapabilities {
 
   public void setCancelSubscription(Boolean cancelSubscription) {
     this.cancelSubscription = cancelSubscription;
+  }
+
+
+  public ConversationVirtualAgentCapabilities customCollectionOids(Object customCollectionOids) {
+    
+    this.customCollectionOids = customCollectionOids;
+    return this;
+  }
+
+   /**
+   * The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.
+   * @return customCollectionOids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.")
+
+  public Object getCustomCollectionOids() {
+    return customCollectionOids;
+  }
+
+
+  public void setCustomCollectionOids(Object customCollectionOids) {
+    this.customCollectionOids = customCollectionOids;
+  }
+
+
+  public ConversationVirtualAgentCapabilities customCollections(List<ConversationVirtualAgentCapabilityCustomCollection> customCollections) {
+    
+    this.customCollections = customCollections;
+    return this;
+  }
+
+  public ConversationVirtualAgentCapabilities addCustomCollectionsItem(ConversationVirtualAgentCapabilityCustomCollection customCollectionsItem) {
+    if (this.customCollections == null) {
+      this.customCollections = new ArrayList<>();
+    }
+    this.customCollections.add(customCollectionsItem);
+    return this;
+  }
+
+   /**
+   * Read only.  All of the merchant&#39;s custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.
+   * @return customCollections
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  All of the merchant's custom collections, to populate the selection list for custom_collection_oids.  Changes here are ignored.")
+
+  public List<ConversationVirtualAgentCapabilityCustomCollection> getCustomCollections() {
+    return customCollections;
+  }
+
+
+  public void setCustomCollections(List<ConversationVirtualAgentCapabilityCustomCollection> customCollections) {
+    this.customCollections = customCollections;
   }
 
 
@@ -556,8 +646,11 @@ public class ConversationVirtualAgentCapabilities {
       return false;
     }
     ConversationVirtualAgentCapabilities conversationVirtualAgentCapabilities = (ConversationVirtualAgentCapabilities) o;
-    return Objects.equals(this.accessStorefrontAndItem, conversationVirtualAgentCapabilities.accessStorefrontAndItem) &&
+    return Objects.equals(this.accessCustomCollections, conversationVirtualAgentCapabilities.accessCustomCollections) &&
+        Objects.equals(this.accessStorefrontAndItem, conversationVirtualAgentCapabilities.accessStorefrontAndItem) &&
         Objects.equals(this.cancelSubscription, conversationVirtualAgentCapabilities.cancelSubscription) &&
+        Objects.equals(this.customCollectionOids, conversationVirtualAgentCapabilities.customCollectionOids) &&
+        Objects.equals(this.customCollections, conversationVirtualAgentCapabilities.customCollections) &&
         Objects.equals(this.delaySubscription, conversationVirtualAgentCapabilities.delaySubscription) &&
         Objects.equals(this.generateCoupon, conversationVirtualAgentCapabilities.generateCoupon) &&
         Objects.equals(this.lookupOrderInformation, conversationVirtualAgentCapabilities.lookupOrderInformation) &&
@@ -576,15 +669,18 @@ public class ConversationVirtualAgentCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessStorefrontAndItem, cancelSubscription, delaySubscription, generateCoupon, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
+    return Objects.hash(accessCustomCollections, accessStorefrontAndItem, cancelSubscription, customCollectionOids, customCollections, delaySubscription, generateCoupon, lookupOrderInformation, lookupSubscriptionInformation, openSupportTicket, openSupportTicketChannel, openSupportTicketChannelEmail, openSupportTicketZohoDeskDepartmentId, pauseSubscription, resumeSubscription, transferChatToLiveAgent, updateSubscriptionCreditCard, zohoDeskAvailable, zohoDeskDepartments);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationVirtualAgentCapabilities {\n");
+    sb.append("    accessCustomCollections: ").append(toIndentedString(accessCustomCollections)).append("\n");
     sb.append("    accessStorefrontAndItem: ").append(toIndentedString(accessStorefrontAndItem)).append("\n");
     sb.append("    cancelSubscription: ").append(toIndentedString(cancelSubscription)).append("\n");
+    sb.append("    customCollectionOids: ").append(toIndentedString(customCollectionOids)).append("\n");
+    sb.append("    customCollections: ").append(toIndentedString(customCollections)).append("\n");
     sb.append("    delaySubscription: ").append(toIndentedString(delaySubscription)).append("\n");
     sb.append("    generateCoupon: ").append(toIndentedString(generateCoupon)).append("\n");
     sb.append("    lookupOrderInformation: ").append(toIndentedString(lookupOrderInformation)).append("\n");
@@ -621,8 +717,11 @@ public class ConversationVirtualAgentCapabilities {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("access_custom_collections");
     openapiFields.add("access_storefront_and_item");
     openapiFields.add("cancel_subscription");
+    openapiFields.add("custom_collection_oids");
+    openapiFields.add("custom_collections");
     openapiFields.add("delay_subscription");
     openapiFields.add("generate_coupon");
     openapiFields.add("lookup_order_information");
@@ -663,6 +762,18 @@ public class ConversationVirtualAgentCapabilities {
         if (!ConversationVirtualAgentCapabilities.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationVirtualAgentCapabilities` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArraycustomCollections = jsonObj.getAsJsonArray("custom_collections");
+      if (jsonArraycustomCollections != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("custom_collections").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `custom_collections` to be an array in the JSON string but got `%s`", jsonObj.get("custom_collections").toString()));
+        }
+
+        // validate the optional field `custom_collections` (array)
+        for (int i = 0; i < jsonArraycustomCollections.size(); i++) {
+          ConversationVirtualAgentCapabilityCustomCollection.validateJsonObject(jsonArraycustomCollections.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("open_support_ticket_channel") != null && !jsonObj.get("open_support_ticket_channel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `open_support_ticket_channel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_support_ticket_channel").toString()));

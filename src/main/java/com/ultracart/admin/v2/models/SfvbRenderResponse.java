@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbRenderResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T11:29:17.164-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T12:58:36.068-04:00[America/Indianapolis]")
 public class SfvbRenderResponse {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)

@@ -332,6 +332,7 @@ docs/ConversationVirtualAgentBudget.md
 docs/ConversationVirtualAgentBudgetResponse.md
 docs/ConversationVirtualAgentCapabilities.md
 docs/ConversationVirtualAgentCapabilitiesResponse.md
+docs/ConversationVirtualAgentCapabilityCustomCollection.md
 docs/ConversationVirtualAgentCapabilityZohoDeskDepartment.md
 docs/ConversationWebchatContext.md
 docs/ConversationWebchatQueueStatus.md
@@ -1472,6 +1473,7 @@ src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudget.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentBudgetResponse.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilities.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilitiesResponse.java
+src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilityCustomCollection.java
 src/main/java/com/ultracart/admin/v2/models/ConversationVirtualAgentCapabilityZohoDeskDepartment.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatContext.java
 src/main/java/com/ultracart/admin/v2/models/ConversationWebchatQueueStatus.java

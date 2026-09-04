@@ -130984,8 +130984,24 @@ components:
         ai_voice_instructions: ai_voice_instructions
         ai_capabilities:
           resume_subscription: true
+          custom_collections:
+          - error_message: error_message
+            record_count: 0
+            last_update_dts: last_update_dts
+            ai_description: ai_description
+            typesense_custom_collection_oid: 6
+            ai_enabled: true
+            collection_name: collection_name
+          - error_message: error_message
+            record_count: 0
+            last_update_dts: last_update_dts
+            ai_description: ai_description
+            typesense_custom_collection_oid: 6
+            ai_enabled: true
+            collection_name: collection_name
           pause_subscription: true
           cancel_subscription: true
+          custom_collection_oids: "{}"
           access_storefront_and_item: true
           open_support_ticket_channel: none
           delay_subscription: true
@@ -131003,13 +131019,14 @@ components:
           zoho_desk_available: true
           open_support_ticket: true
           open_support_ticket_channel_email: open_support_ticket_channel_email
+          access_custom_collections: true
         default_language_iso_code: default_language_iso_code
         ai_sms_instructions: ai_sms_instructions
         ai_chat_instructions: ai_chat_instructions
         ai: true
         default_status: available
         profile_image_url: profile_image_url
-        chat_limit: 0
+        chat_limit: 1
         display_name: display_name
         ai_persona: ai_persona
         profile_image_upload_key: profile_image_upload_key
@@ -131017,7 +131034,7 @@ components:
         - zohodesk_departments
         - zohodesk_departments
         ai_voice_personality: Ara
-        user_id: 6
+        user_id: 5
         name: name
         ai_ticket_instructions: ai_ticket_instructions
         zohodesk_classifications:
@@ -131117,8 +131134,24 @@ components:
           ai_voice_instructions: ai_voice_instructions
           ai_capabilities:
             resume_subscription: true
+            custom_collections:
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
             pause_subscription: true
             cancel_subscription: true
+            custom_collection_oids: "{}"
             access_storefront_and_item: true
             open_support_ticket_channel: none
             delay_subscription: true
@@ -131136,13 +131169,14 @@ components:
             zoho_desk_available: true
             open_support_ticket: true
             open_support_ticket_channel_email: open_support_ticket_channel_email
+            access_custom_collections: true
           default_language_iso_code: default_language_iso_code
           ai_sms_instructions: ai_sms_instructions
           ai_chat_instructions: ai_chat_instructions
           ai: true
           default_status: available
           profile_image_url: profile_image_url
-          chat_limit: 0
+          chat_limit: 1
           display_name: display_name
           ai_persona: ai_persona
           profile_image_upload_key: profile_image_upload_key
@@ -131150,7 +131184,7 @@ components:
           - zohodesk_departments
           - zohodesk_departments
           ai_voice_personality: Ara
-          user_id: 6
+          user_id: 5
           name: name
           ai_ticket_instructions: ai_ticket_instructions
           zohodesk_classifications:
@@ -131205,8 +131239,24 @@ components:
         - ai_voice_instructions: ai_voice_instructions
           ai_capabilities:
             resume_subscription: true
+            custom_collections:
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
             pause_subscription: true
             cancel_subscription: true
+            custom_collection_oids: "{}"
             access_storefront_and_item: true
             open_support_ticket_channel: none
             delay_subscription: true
@@ -131224,13 +131274,14 @@ components:
             zoho_desk_available: true
             open_support_ticket: true
             open_support_ticket_channel_email: open_support_ticket_channel_email
+            access_custom_collections: true
           default_language_iso_code: default_language_iso_code
           ai_sms_instructions: ai_sms_instructions
           ai_chat_instructions: ai_chat_instructions
           ai: true
           default_status: available
           profile_image_url: profile_image_url
-          chat_limit: 0
+          chat_limit: 1
           display_name: display_name
           ai_persona: ai_persona
           profile_image_upload_key: profile_image_upload_key
@@ -131238,7 +131289,7 @@ components:
           - zohodesk_departments
           - zohodesk_departments
           ai_voice_personality: Ara
-          user_id: 6
+          user_id: 5
           name: name
           ai_ticket_instructions: ai_ticket_instructions
           zohodesk_classifications:
@@ -131247,8 +131298,24 @@ components:
         - ai_voice_instructions: ai_voice_instructions
           ai_capabilities:
             resume_subscription: true
+            custom_collections:
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
+            - error_message: error_message
+              record_count: 0
+              last_update_dts: last_update_dts
+              ai_description: ai_description
+              typesense_custom_collection_oid: 6
+              ai_enabled: true
+              collection_name: collection_name
             pause_subscription: true
             cancel_subscription: true
+            custom_collection_oids: "{}"
             access_storefront_and_item: true
             open_support_ticket_channel: none
             delay_subscription: true
@@ -131266,13 +131333,14 @@ components:
             zoho_desk_available: true
             open_support_ticket: true
             open_support_ticket_channel_email: open_support_ticket_channel_email
+            access_custom_collections: true
           default_language_iso_code: default_language_iso_code
           ai_sms_instructions: ai_sms_instructions
           ai_chat_instructions: ai_chat_instructions
           ai: true
           default_status: available
           profile_image_url: profile_image_url
-          chat_limit: 0
+          chat_limit: 1
           display_name: display_name
           ai_persona: ai_persona
           profile_image_upload_key: profile_image_upload_key
@@ -131280,7 +131348,7 @@ components:
           - zohodesk_departments
           - zohodesk_departments
           ai_voice_personality: Ara
-          user_id: 6
+          user_id: 5
           name: name
           ai_ticket_instructions: ai_ticket_instructions
           zohodesk_classifications:
@@ -155763,8 +155831,24 @@ components:
     ConversationVirtualAgentCapabilities:
       example:
         resume_subscription: true
+        custom_collections:
+        - error_message: error_message
+          record_count: 0
+          last_update_dts: last_update_dts
+          ai_description: ai_description
+          typesense_custom_collection_oid: 6
+          ai_enabled: true
+          collection_name: collection_name
+        - error_message: error_message
+          record_count: 0
+          last_update_dts: last_update_dts
+          ai_description: ai_description
+          typesense_custom_collection_oid: 6
+          ai_enabled: true
+          collection_name: collection_name
         pause_subscription: true
         cancel_subscription: true
+        custom_collection_oids: "{}"
         access_storefront_and_item: true
         open_support_ticket_channel: none
         delay_subscription: true
@@ -155782,13 +155866,28 @@ components:
         zoho_desk_available: true
         open_support_ticket: true
         open_support_ticket_channel_email: open_support_ticket_channel_email
+        access_custom_collections: true
       properties:
+        access_custom_collections:
+          description: Permission flag to allow this Agent to search the merchant's
+            custom Typesense collections.
+          type: boolean
         access_storefront_and_item:
           description: Permission flag to allow this Agent access to the storefront
             and item information.
           type: boolean
         cancel_subscription:
           type: boolean
+        custom_collection_oids:
+          description: "The custom collections this Agent is allowed to search.  Empty\
+            \ means none, even when access_custom_collections is true."
+          type: object
+        custom_collections:
+          description: "Read only.  All of the merchant's custom collections, to populate\
+            \ the selection list for custom_collection_oids.  Changes here are ignored."
+          items:
+            $ref: '#/components/schemas/ConversationVirtualAgentCapabilityCustomCollection'
+          type: array
         delay_subscription:
           type: boolean
         generate_coupon:
@@ -155846,8 +155945,24 @@ components:
             next_offset: 3
         capabilities:
           resume_subscription: true
+          custom_collections:
+          - error_message: error_message
+            record_count: 0
+            last_update_dts: last_update_dts
+            ai_description: ai_description
+            typesense_custom_collection_oid: 6
+            ai_enabled: true
+            collection_name: collection_name
+          - error_message: error_message
+            record_count: 0
+            last_update_dts: last_update_dts
+            ai_description: ai_description
+            typesense_custom_collection_oid: 6
+            ai_enabled: true
+            collection_name: collection_name
           pause_subscription: true
           cancel_subscription: true
+          custom_collection_oids: "{}"
           access_storefront_and_item: true
           open_support_ticket_channel: none
           delay_subscription: true
@@ -155865,6 +155980,7 @@ components:
           zoho_desk_available: true
           open_support_ticket: true
           open_support_ticket_channel_email: open_support_ticket_channel_email
+          access_custom_collections: true
         success: true
         warning:
           warning_message: warning_message
@@ -155888,6 +156004,47 @@ components:
           type: boolean
         warning:
           $ref: '#/components/schemas/Warning'
+      type: object
+    ConversationVirtualAgentCapabilityCustomCollection:
+      example:
+        error_message: error_message
+        record_count: 0
+        last_update_dts: last_update_dts
+        ai_description: ai_description
+        typesense_custom_collection_oid: 6
+        ai_enabled: true
+        collection_name: collection_name
+      properties:
+        ai_description:
+          description: "Merchant authored description of what is in this collection,\
+            \ which is what the agent sees when deciding whether to search it"
+          type: string
+        ai_enabled:
+          description: True if this collection has been enabled for AI access in its
+            own configuration.  A collection that is not enabled cannot be searched
+            even if it is selected here.
+          type: boolean
+        collection_name:
+          description: Merchant assigned name of the collection
+          type: string
+        error_message:
+          description: "Error from the last build, if it failed.  A collection with\
+            \ an error will return nothing to the agent, so this is worth surfacing\
+            \ next to the selection."
+          type: string
+        last_update_dts:
+          description: Date/time the collection was last rebuilt from the merchant's
+            BigQuery query
+          type: string
+        record_count:
+          description: Number of records loaded on the last build
+          format: int32
+          type: integer
+        typesense_custom_collection_oid:
+          description: The identifier to place in custom_collection_oids to grant
+            the agent access to this collection
+          format: int32
+          type: integer
       type: object
     ConversationVirtualAgentCapabilityZohoDeskDepartment:
       example:
