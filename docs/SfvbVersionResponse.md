@@ -10,10 +10,16 @@
 |**containerManagerVersion** | **String** | Container manager version used to compile for this merchant. |  [optional] |
 |**containerVersionsRetained** | **Integer** | Versions kept per non-file container before the oldest are pruned.  Beyond this, history is gone - not merely paginated. |  [optional] |
 |**elementCount** | **Integer** | Number of element types this version recognizes. |  [optional] |
+|**maxAssetBytes** | **Long** | Largest binary asset that can be uploaded, in bytes, for every accepted type except video. |  [optional] |
 |**maxCjsonBytes** | **Integer** | Largest CJSON document that will be parsed, in bytes. |  [optional] |
+|**maxDirectoryEntries** | **Integer** | Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries. |  [optional] |
+|**maxLibraryResultsPerPage** | **Integer** | Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut. |  [optional] |
 |**maxPreviewSessionBytes** | **Integer** | Largest payload one preview session may hold, in bytes. |  [optional] |
+|**maxRevertableBytes** | **Integer** | Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to. |  [optional] |
 |**maxSearchResults** | **Integer** | Hard ceiling on file search results per page. |  [optional] |
-|**maxTemplateBytes** | **Integer** | Largest template file that can be written, in bytes. |  [optional] |
+|**maxTemplateBytes** | **Integer** | Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that. |  [optional] |
+|**maxTextReadBytes** | **Integer** | Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling. |  [optional] |
+|**maxVideoBytes** | **Long** | Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes. |  [optional] |
 |**maxWidgetIdsPerRequest** | **Integer** | Most widget ids that can be reserved in one call. |  [optional] |
 |**previewSessionTtlSeconds** | **Integer** | Seconds a preview session survives before expiring. |  [optional] |
 |**release** | [**ReleaseEnum**](#ReleaseEnum) | Release channel selected for this merchant. |  [optional] |

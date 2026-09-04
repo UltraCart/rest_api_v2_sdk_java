@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponMoreLoyaltyPoints
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-03T17:00:00.259-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T11:29:17.164-04:00[America/Indianapolis]")
 public class CouponMoreLoyaltyPoints {
   public static final String SERIALIZED_NAME_LOYALTY_POINTS = "loyalty_points";
   @SerializedName(SERIALIZED_NAME_LOYALTY_POINTS)

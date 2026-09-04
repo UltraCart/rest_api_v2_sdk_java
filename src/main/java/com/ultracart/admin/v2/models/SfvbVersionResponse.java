@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbVersionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-03T17:00:00.259-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T11:29:17.164-04:00[America/Indianapolis]")
 public class SfvbVersionResponse {
   public static final String SERIALIZED_NAME_CONTAINER_MANAGER_VERSION = "container_manager_version";
   @SerializedName(SERIALIZED_NAME_CONTAINER_MANAGER_VERSION)
@@ -61,13 +61,29 @@ public class SfvbVersionResponse {
   @SerializedName(SERIALIZED_NAME_ELEMENT_COUNT)
   private Integer elementCount;
 
+  public static final String SERIALIZED_NAME_MAX_ASSET_BYTES = "max_asset_bytes";
+  @SerializedName(SERIALIZED_NAME_MAX_ASSET_BYTES)
+  private Long maxAssetBytes;
+
   public static final String SERIALIZED_NAME_MAX_CJSON_BYTES = "max_cjson_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_CJSON_BYTES)
   private Integer maxCjsonBytes;
 
+  public static final String SERIALIZED_NAME_MAX_DIRECTORY_ENTRIES = "max_directory_entries";
+  @SerializedName(SERIALIZED_NAME_MAX_DIRECTORY_ENTRIES)
+  private Integer maxDirectoryEntries;
+
+  public static final String SERIALIZED_NAME_MAX_LIBRARY_RESULTS_PER_PAGE = "max_library_results_per_page";
+  @SerializedName(SERIALIZED_NAME_MAX_LIBRARY_RESULTS_PER_PAGE)
+  private Integer maxLibraryResultsPerPage;
+
   public static final String SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES = "max_preview_session_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES)
   private Integer maxPreviewSessionBytes;
+
+  public static final String SERIALIZED_NAME_MAX_REVERTABLE_BYTES = "max_revertable_bytes";
+  @SerializedName(SERIALIZED_NAME_MAX_REVERTABLE_BYTES)
+  private Integer maxRevertableBytes;
 
   public static final String SERIALIZED_NAME_MAX_SEARCH_RESULTS = "max_search_results";
   @SerializedName(SERIALIZED_NAME_MAX_SEARCH_RESULTS)
@@ -76,6 +92,14 @@ public class SfvbVersionResponse {
   public static final String SERIALIZED_NAME_MAX_TEMPLATE_BYTES = "max_template_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_TEMPLATE_BYTES)
   private Integer maxTemplateBytes;
+
+  public static final String SERIALIZED_NAME_MAX_TEXT_READ_BYTES = "max_text_read_bytes";
+  @SerializedName(SERIALIZED_NAME_MAX_TEXT_READ_BYTES)
+  private Integer maxTextReadBytes;
+
+  public static final String SERIALIZED_NAME_MAX_VIDEO_BYTES = "max_video_bytes";
+  @SerializedName(SERIALIZED_NAME_MAX_VIDEO_BYTES)
+  private Long maxVideoBytes;
 
   public static final String SERIALIZED_NAME_MAX_WIDGET_IDS_PER_REQUEST = "max_widget_ids_per_request";
   @SerializedName(SERIALIZED_NAME_MAX_WIDGET_IDS_PER_REQUEST)
@@ -210,6 +234,29 @@ public class SfvbVersionResponse {
   }
 
 
+  public SfvbVersionResponse maxAssetBytes(Long maxAssetBytes) {
+    
+    this.maxAssetBytes = maxAssetBytes;
+    return this;
+  }
+
+   /**
+   * Largest binary asset that can be uploaded, in bytes, for every accepted type except video.
+   * @return maxAssetBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Largest binary asset that can be uploaded, in bytes, for every accepted type except video.")
+
+  public Long getMaxAssetBytes() {
+    return maxAssetBytes;
+  }
+
+
+  public void setMaxAssetBytes(Long maxAssetBytes) {
+    this.maxAssetBytes = maxAssetBytes;
+  }
+
+
   public SfvbVersionResponse maxCjsonBytes(Integer maxCjsonBytes) {
     
     this.maxCjsonBytes = maxCjsonBytes;
@@ -233,6 +280,52 @@ public class SfvbVersionResponse {
   }
 
 
+  public SfvbVersionResponse maxDirectoryEntries(Integer maxDirectoryEntries) {
+    
+    this.maxDirectoryEntries = maxDirectoryEntries;
+    return this;
+  }
+
+   /**
+   * Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.
+   * @return maxDirectoryEntries
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Most entries one directory listing returns.  Asking for more is silently reduced to this rather than refused, so compare against it instead of trusting that you got what you asked for.  The listing does set a truncated flag when it drops entries.")
+
+  public Integer getMaxDirectoryEntries() {
+    return maxDirectoryEntries;
+  }
+
+
+  public void setMaxDirectoryEntries(Integer maxDirectoryEntries) {
+    this.maxDirectoryEntries = maxDirectoryEntries;
+  }
+
+
+  public SfvbVersionResponse maxLibraryResultsPerPage(Integer maxLibraryResultsPerPage) {
+    
+    this.maxLibraryResultsPerPage = maxLibraryResultsPerPage;
+    return this;
+  }
+
+   /**
+   * Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.
+   * @return maxLibraryResultsPerPage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Most element library results one page returns.  Asking for more is silently reduced to this, and unlike the directory listing there is no truncation flag on the response, so this number is the only way to know a larger request was cut.")
+
+  public Integer getMaxLibraryResultsPerPage() {
+    return maxLibraryResultsPerPage;
+  }
+
+
+  public void setMaxLibraryResultsPerPage(Integer maxLibraryResultsPerPage) {
+    this.maxLibraryResultsPerPage = maxLibraryResultsPerPage;
+  }
+
+
   public SfvbVersionResponse maxPreviewSessionBytes(Integer maxPreviewSessionBytes) {
     
     this.maxPreviewSessionBytes = maxPreviewSessionBytes;
@@ -253,6 +346,29 @@ public class SfvbVersionResponse {
 
   public void setMaxPreviewSessionBytes(Integer maxPreviewSessionBytes) {
     this.maxPreviewSessionBytes = maxPreviewSessionBytes;
+  }
+
+
+  public SfvbVersionResponse maxRevertableBytes(Integer maxRevertableBytes) {
+    
+    this.maxRevertableBytes = maxRevertableBytes;
+    return this;
+  }
+
+   /**
+   * Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.
+   * @return maxRevertableBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Largest historical version files/revert will restore, in bytes.  Higher than max_text_read_bytes deliberately - putting back a version that is already stored is cheaper than serving it as JSON, so a version too large to read can still be reverted to.")
+
+  public Integer getMaxRevertableBytes() {
+    return maxRevertableBytes;
+  }
+
+
+  public void setMaxRevertableBytes(Integer maxRevertableBytes) {
+    this.maxRevertableBytes = maxRevertableBytes;
   }
 
 
@@ -286,11 +402,11 @@ public class SfvbVersionResponse {
   }
 
    /**
-   * Largest template file that can be written, in bytes.
+   * Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.
    * @return maxTemplateBytes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Largest template file that can be written, in bytes.")
+  @ApiModelProperty(value = "Largest .vm template that can be written, in bytes.  Narrow on purpose - it gates writes, only for files ending in .vm, and it is not the ceiling on reading a file back.  Use max_text_read_bytes for that.")
 
   public Integer getMaxTemplateBytes() {
     return maxTemplateBytes;
@@ -299,6 +415,52 @@ public class SfvbVersionResponse {
 
   public void setMaxTemplateBytes(Integer maxTemplateBytes) {
     this.maxTemplateBytes = maxTemplateBytes;
+  }
+
+
+  public SfvbVersionResponse maxTextReadBytes(Integer maxTextReadBytes) {
+    
+    this.maxTextReadBytes = maxTextReadBytes;
+    return this;
+  }
+
+   /**
+   * Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.
+   * @return maxTextReadBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Largest file files/content will return as text, in bytes.  A file above this is refused with sfvb.too_large however small its history versions are.  Bigger than max_template_bytes, so a file can be readable here and still be too large to write back as a template.  Anything above this is still readable in full through files/download, which returns raw bytes and applies no ceiling.")
+
+  public Integer getMaxTextReadBytes() {
+    return maxTextReadBytes;
+  }
+
+
+  public void setMaxTextReadBytes(Integer maxTextReadBytes) {
+    this.maxTextReadBytes = maxTextReadBytes;
+  }
+
+
+  public SfvbVersionResponse maxVideoBytes(Long maxVideoBytes) {
+    
+    this.maxVideoBytes = maxVideoBytes;
+    return this;
+  }
+
+   /**
+   * Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.
+   * @return maxVideoBytes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Largest video that can be uploaded, in bytes.  Video is the one type allowed past max_asset_bytes.")
+
+  public Long getMaxVideoBytes() {
+    return maxVideoBytes;
+  }
+
+
+  public void setMaxVideoBytes(Long maxVideoBytes) {
+    this.maxVideoBytes = maxVideoBytes;
   }
 
 
@@ -384,10 +546,16 @@ public class SfvbVersionResponse {
     return Objects.equals(this.containerManagerVersion, sfvbVersionResponse.containerManagerVersion) &&
         Objects.equals(this.containerVersionsRetained, sfvbVersionResponse.containerVersionsRetained) &&
         Objects.equals(this.elementCount, sfvbVersionResponse.elementCount) &&
+        Objects.equals(this.maxAssetBytes, sfvbVersionResponse.maxAssetBytes) &&
         Objects.equals(this.maxCjsonBytes, sfvbVersionResponse.maxCjsonBytes) &&
+        Objects.equals(this.maxDirectoryEntries, sfvbVersionResponse.maxDirectoryEntries) &&
+        Objects.equals(this.maxLibraryResultsPerPage, sfvbVersionResponse.maxLibraryResultsPerPage) &&
         Objects.equals(this.maxPreviewSessionBytes, sfvbVersionResponse.maxPreviewSessionBytes) &&
+        Objects.equals(this.maxRevertableBytes, sfvbVersionResponse.maxRevertableBytes) &&
         Objects.equals(this.maxSearchResults, sfvbVersionResponse.maxSearchResults) &&
         Objects.equals(this.maxTemplateBytes, sfvbVersionResponse.maxTemplateBytes) &&
+        Objects.equals(this.maxTextReadBytes, sfvbVersionResponse.maxTextReadBytes) &&
+        Objects.equals(this.maxVideoBytes, sfvbVersionResponse.maxVideoBytes) &&
         Objects.equals(this.maxWidgetIdsPerRequest, sfvbVersionResponse.maxWidgetIdsPerRequest) &&
         Objects.equals(this.previewSessionTtlSeconds, sfvbVersionResponse.previewSessionTtlSeconds) &&
         Objects.equals(this.release, sfvbVersionResponse.release);
@@ -395,7 +563,7 @@ public class SfvbVersionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerManagerVersion, containerVersionsRetained, elementCount, maxCjsonBytes, maxPreviewSessionBytes, maxSearchResults, maxTemplateBytes, maxWidgetIdsPerRequest, previewSessionTtlSeconds, release);
+    return Objects.hash(containerManagerVersion, containerVersionsRetained, elementCount, maxAssetBytes, maxCjsonBytes, maxDirectoryEntries, maxLibraryResultsPerPage, maxPreviewSessionBytes, maxRevertableBytes, maxSearchResults, maxTemplateBytes, maxTextReadBytes, maxVideoBytes, maxWidgetIdsPerRequest, previewSessionTtlSeconds, release);
   }
 
   @Override
@@ -405,10 +573,16 @@ public class SfvbVersionResponse {
     sb.append("    containerManagerVersion: ").append(toIndentedString(containerManagerVersion)).append("\n");
     sb.append("    containerVersionsRetained: ").append(toIndentedString(containerVersionsRetained)).append("\n");
     sb.append("    elementCount: ").append(toIndentedString(elementCount)).append("\n");
+    sb.append("    maxAssetBytes: ").append(toIndentedString(maxAssetBytes)).append("\n");
     sb.append("    maxCjsonBytes: ").append(toIndentedString(maxCjsonBytes)).append("\n");
+    sb.append("    maxDirectoryEntries: ").append(toIndentedString(maxDirectoryEntries)).append("\n");
+    sb.append("    maxLibraryResultsPerPage: ").append(toIndentedString(maxLibraryResultsPerPage)).append("\n");
     sb.append("    maxPreviewSessionBytes: ").append(toIndentedString(maxPreviewSessionBytes)).append("\n");
+    sb.append("    maxRevertableBytes: ").append(toIndentedString(maxRevertableBytes)).append("\n");
     sb.append("    maxSearchResults: ").append(toIndentedString(maxSearchResults)).append("\n");
     sb.append("    maxTemplateBytes: ").append(toIndentedString(maxTemplateBytes)).append("\n");
+    sb.append("    maxTextReadBytes: ").append(toIndentedString(maxTextReadBytes)).append("\n");
+    sb.append("    maxVideoBytes: ").append(toIndentedString(maxVideoBytes)).append("\n");
     sb.append("    maxWidgetIdsPerRequest: ").append(toIndentedString(maxWidgetIdsPerRequest)).append("\n");
     sb.append("    previewSessionTtlSeconds: ").append(toIndentedString(previewSessionTtlSeconds)).append("\n");
     sb.append("    release: ").append(toIndentedString(release)).append("\n");
@@ -437,10 +611,16 @@ public class SfvbVersionResponse {
     openapiFields.add("container_manager_version");
     openapiFields.add("container_versions_retained");
     openapiFields.add("element_count");
+    openapiFields.add("max_asset_bytes");
     openapiFields.add("max_cjson_bytes");
+    openapiFields.add("max_directory_entries");
+    openapiFields.add("max_library_results_per_page");
     openapiFields.add("max_preview_session_bytes");
+    openapiFields.add("max_revertable_bytes");
     openapiFields.add("max_search_results");
     openapiFields.add("max_template_bytes");
+    openapiFields.add("max_text_read_bytes");
+    openapiFields.add("max_video_bytes");
     openapiFields.add("max_widget_ids_per_request");
     openapiFields.add("preview_session_ttl_seconds");
     openapiFields.add("release");

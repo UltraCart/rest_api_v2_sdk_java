@@ -7007,6 +7007,8 @@ paths:
                 type: string
         "412":
           $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
         "500":
           content:
             application/json:
@@ -7217,6 +7219,10 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
         "500":
           content:
             application/json:
@@ -7515,6 +7521,8 @@ paths:
           $ref: '#/components/responses/412'
         "413":
           $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
         "500":
           content:
             application/json:
@@ -7688,6 +7696,10 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
         "500":
           content:
             application/json:
@@ -7889,6 +7901,8 @@ paths:
           $ref: '#/components/responses/412'
         "413":
           $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
         "500":
           content:
             application/json:
@@ -8371,7 +8385,8 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_sessions:
     post:
-      description: "Returns a server generated session id to push containers into.\
+      description: "Returns a server generated session id to push containers into,\
+        \ and opens the session so that id exists rather than merely being random.\
         \  The id is not caller supplied, because concurrent agents choosing their\
         \ own would be free to collide, and the browser editor's habit of minting\
         \ one with Math.random is not a property worth carrying into an API.  Expires\
@@ -8541,8 +8556,10 @@ paths:
       x-accepts: application/json
     put:
       description: "Stores compiled containers against a session created by createSfvbPreviewSession.\
-        \  Replaces whatever the session held.  Nothing durable is written.  Requires\
-        \ a token that resolves to a user, so use the device authorization flow.\n"
+        \  Replaces whatever the session held.  The session must exist - this does\
+        \ not create one, so a deleted, expired or never issued id is a 404 rather\
+        \ than a new session.  Nothing durable is written.  Requires a token that\
+        \ resolves to a user, so use the device authorization flow.\n"
       operationId: putSfvbPreviewSession
       parameters:
       - in: path
@@ -232682,12 +232699,14 @@ components:
           type: string
         last_modified:
           description: "When the container was last modified, in the store's own record\
-            \ of it.  Present for email, postcardfront and postcardback.  Absent for\
-            \ upsell and item, because those tables carry no modification timestamp\
-            \ at all - for those two, read created_dts on the current entry of container_versions,\
-            \ which records when this API last wrote the container.  Note that a postcard\
-            \ keeps one timestamp for both of its sides, so writing the front moves\
-            \ the value the back reports."
+            \ of it.  Every owner type reports this.  It is absent only when the container\
+            \ has never been written since the store began recording it, so treat\
+            \ an absent value as unknown rather than as never modified.  Two behaviours\
+            \ worth knowing.  A postcard keeps one timestamp for both of its sides,\
+            \ so writing the front moves the value the back reports.  An upsell container\
+            \ that is rewritten with byte identical content keeps its original date\
+            \ rather than moving to now, because the timestamp tracks changes to the\
+            \ container and not writes to the offer."
           type: string
         owner_object_id:
           description: Identifier of the owning object within its store.
@@ -234094,8 +234113,11 @@ components:
       properties:
         folder:
           description: "Directory name for the new theme under /themes/.  Letters\
-            \ and numbers; it is cleansed before use.  Must not already exist - a\
-            \ collision is refused rather than resolved, because silently creating\
+            \ and numbers, one path segment.  Used verbatim - anything that is not\
+            \ already a valid directory name is refused rather than adjusted, because\
+            \ this call does not return the new theme's oid and you find your copy\
+            \ by matching the target_path you asked for.  Must not already exist -\
+            \ a collision is refused rather than resolved, because silently creating\
             \ a differently named theme leaves you unsure what you made."
           type: string
         target_storefront_oid:
@@ -234167,10 +234189,12 @@ components:
             first.
           type: boolean
         target_path:
-          description: "Path the new theme was created at.  Returned when the job\
-            \ is started; the theme oid itself is NOT returned, because the job's\
-            \ product is a plain text report rather than a structured result.  Once\
-            \ the job completes, list themes and match on this path."
+          description: "Path the new theme is being created at.  Returned when the\
+            \ job is started and on every poll, so you do not have to keep the response\
+            \ that started it.  The theme oid itself is NOT returned, so once the\
+            \ job completes you list themes and match on this path.  It is also what\
+            \ success is checked against - a finished job whose theme is not here\
+            \ reports success false rather than pretending."
           type: string
       type: object
     SfvbThemesResponse:
@@ -234413,15 +234437,21 @@ components:
       type: object
     SfvbVersionResponse:
       example:
-        max_cjson_bytes: 1
-        max_widget_ids_per_request: 7
-        max_search_results: 5
-        element_count: 6
+        max_text_read_bytes: 4
+        max_revertable_bytes: 9
         release: ga
-        preview_session_ttl_seconds: 9
-        max_preview_session_bytes: 5
-        container_manager_version: container_manager_version
+        max_directory_entries: 5
+        max_library_results_per_page: 2
         max_template_bytes: 2
+        max_cjson_bytes: 5
+        max_widget_ids_per_request: 1
+        max_asset_bytes: 1
+        max_search_results: 3
+        element_count: 6
+        preview_session_ttl_seconds: 1
+        max_preview_session_bytes: 7
+        container_manager_version: container_manager_version
+        max_video_bytes: 7
         container_versions_retained: 0
       properties:
         container_manager_version:
@@ -234436,12 +234466,38 @@ components:
           description: Number of element types this version recognizes.
           format: int32
           type: integer
+        max_asset_bytes:
+          description: "Largest binary asset that can be uploaded, in bytes, for every\
+            \ accepted type except video."
+          format: int64
+          type: integer
         max_cjson_bytes:
           description: "Largest CJSON document that will be parsed, in bytes."
           format: int32
           type: integer
+        max_directory_entries:
+          description: "Most entries one directory listing returns.  Asking for more\
+            \ is silently reduced to this rather than refused, so compare against\
+            \ it instead of trusting that you got what you asked for.  The listing\
+            \ does set a truncated flag when it drops entries."
+          format: int32
+          type: integer
+        max_library_results_per_page:
+          description: "Most element library results one page returns.  Asking for\
+            \ more is silently reduced to this, and unlike the directory listing there\
+            \ is no truncation flag on the response, so this number is the only way\
+            \ to know a larger request was cut."
+          format: int32
+          type: integer
         max_preview_session_bytes:
           description: "Largest payload one preview session may hold, in bytes."
+          format: int32
+          type: integer
+        max_revertable_bytes:
+          description: "Largest historical version files/revert will restore, in bytes.\
+            \  Higher than max_text_read_bytes deliberately - putting back a version\
+            \ that is already stored is cheaper than serving it as JSON, so a version\
+            \ too large to read can still be reverted to."
           format: int32
           type: integer
         max_search_results:
@@ -234449,8 +234505,25 @@ components:
           format: int32
           type: integer
         max_template_bytes:
-          description: "Largest template file that can be written, in bytes."
+          description: "Largest .vm template that can be written, in bytes.  Narrow\
+            \ on purpose - it gates writes, only for files ending in .vm, and it is\
+            \ not the ceiling on reading a file back.  Use max_text_read_bytes for\
+            \ that."
           format: int32
+          type: integer
+        max_text_read_bytes:
+          description: "Largest file files/content will return as text, in bytes.\
+            \  A file above this is refused with sfvb.too_large however small its\
+            \ history versions are.  Bigger than max_template_bytes, so a file can\
+            \ be readable here and still be too large to write back as a template.\
+            \  Anything above this is still readable in full through files/download,\
+            \ which returns raw bytes and applies no ceiling."
+          format: int32
+          type: integer
+        max_video_bytes:
+          description: "Largest video that can be uploaded, in bytes.  Video is the\
+            \ one type allowed past max_asset_bytes."
+          format: int64
           type: integer
         max_widget_ids_per_request:
           description: Most widget ids that can be reserved in one call.
