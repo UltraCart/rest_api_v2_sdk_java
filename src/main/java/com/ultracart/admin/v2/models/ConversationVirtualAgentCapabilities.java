@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationVirtualAgentCapabilities
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T12:58:36.068-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-04T14:04:08.480-04:00[America/Indianapolis]")
 public class ConversationVirtualAgentCapabilities {
   public static final String SERIALIZED_NAME_ACCESS_CUSTOM_COLLECTIONS = "access_custom_collections";
   @SerializedName(SERIALIZED_NAME_ACCESS_CUSTOM_COLLECTIONS)
@@ -67,7 +67,7 @@ public class ConversationVirtualAgentCapabilities {
 
   public static final String SERIALIZED_NAME_CUSTOM_COLLECTION_OIDS = "custom_collection_oids";
   @SerializedName(SERIALIZED_NAME_CUSTOM_COLLECTION_OIDS)
-  private Object customCollectionOids;
+  private List<Integer> customCollectionOids = null;
 
   public static final String SERIALIZED_NAME_CUSTOM_COLLECTIONS = "custom_collections";
   @SerializedName(SERIALIZED_NAME_CUSTOM_COLLECTIONS)
@@ -252,9 +252,17 @@ public class ConversationVirtualAgentCapabilities {
   }
 
 
-  public ConversationVirtualAgentCapabilities customCollectionOids(Object customCollectionOids) {
+  public ConversationVirtualAgentCapabilities customCollectionOids(List<Integer> customCollectionOids) {
     
     this.customCollectionOids = customCollectionOids;
+    return this;
+  }
+
+  public ConversationVirtualAgentCapabilities addCustomCollectionOidsItem(Integer customCollectionOidsItem) {
+    if (this.customCollectionOids == null) {
+      this.customCollectionOids = new ArrayList<>();
+    }
+    this.customCollectionOids.add(customCollectionOidsItem);
     return this;
   }
 
@@ -265,12 +273,12 @@ public class ConversationVirtualAgentCapabilities {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The custom collections this Agent is allowed to search.  Empty means none, even when access_custom_collections is true.")
 
-  public Object getCustomCollectionOids() {
+  public List<Integer> getCustomCollectionOids() {
     return customCollectionOids;
   }
 
 
-  public void setCustomCollectionOids(Object customCollectionOids) {
+  public void setCustomCollectionOids(List<Integer> customCollectionOids) {
     this.customCollectionOids = customCollectionOids;
   }
 
@@ -762,6 +770,10 @@ public class ConversationVirtualAgentCapabilities {
         if (!ConversationVirtualAgentCapabilities.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConversationVirtualAgentCapabilities` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("custom_collection_oids") != null && !jsonObj.get("custom_collection_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `custom_collection_oids` to be an array in the JSON string but got `%s`", jsonObj.get("custom_collection_oids").toString()));
       }
       JsonArray jsonArraycustomCollections = jsonObj.getAsJsonArray("custom_collections");
       if (jsonArraycustomCollections != null) {
