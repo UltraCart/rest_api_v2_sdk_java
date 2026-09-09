@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-04T15:59:36.528-04:00[America/Indianapolis]
+- Build date: 2026-09-09T16:22:13.495-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.151</version>
+    <version>4.1.152</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.151"
+     implementation "com.ultracart:rest-sdk:4.1.152"
   }
 ```
 
@@ -506,6 +506,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
+*SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
 *SfvbApi* | [**getSfvbVersion**](docs/SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
@@ -520,6 +521,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
 *SfvbApi* | [**putSfvbPreviewSession**](docs/SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbThemeAttributes**](docs/SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**renderSfvbWidgets**](docs/SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 *SfvbApi* | [**revertSfvbContainer**](docs/SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
@@ -1779,7 +1781,13 @@ Class | Method | HTTP request | Description
  - [SfvbStorefront](docs/SfvbStorefront.md)
  - [SfvbStorefrontsResponse](docs/SfvbStorefrontsResponse.md)
  - [SfvbTheme](docs/SfvbTheme.md)
+ - [SfvbThemeAttribute](docs/SfvbThemeAttribute.md)
+ - [SfvbThemeAttributeUpdate](docs/SfvbThemeAttributeUpdate.md)
+ - [SfvbThemeAttributeUpdateRequest](docs/SfvbThemeAttributeUpdateRequest.md)
+ - [SfvbThemeAttributesResponse](docs/SfvbThemeAttributesResponse.md)
  - [SfvbThemeDuplicateRequest](docs/SfvbThemeDuplicateRequest.md)
+ - [SfvbThemeFont](docs/SfvbThemeFont.md)
+ - [SfvbThemeFontFamily](docs/SfvbThemeFontFamily.md)
  - [SfvbThemeJobResponse](docs/SfvbThemeJobResponse.md)
  - [SfvbThemesResponse](docs/SfvbThemesResponse.md)
  - [SfvbUpsellOffer](docs/SfvbUpsellOffer.md)
@@ -1959,6 +1967,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.152 | 09/09/2026 | sfvb - internal testing |
 | 4.1.151 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |
 | 4.1.149 | 09/04/2026 | conversations - added ai agent capabilities |

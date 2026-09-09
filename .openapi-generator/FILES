@@ -1017,7 +1017,13 @@ docs/SfvbRenderResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTheme.md
+docs/SfvbThemeAttribute.md
+docs/SfvbThemeAttributeUpdate.md
+docs/SfvbThemeAttributeUpdateRequest.md
+docs/SfvbThemeAttributesResponse.md
 docs/SfvbThemeDuplicateRequest.md
+docs/SfvbThemeFont.md
+docs/SfvbThemeFontFamily.md
 docs/SfvbThemeJobResponse.md
 docs/SfvbThemesResponse.md
 docs/SfvbUpsellOffer.md
@@ -2151,7 +2157,13 @@ src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefront.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTheme.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeAttribute.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeAttributeUpdate.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeAttributeUpdateRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeAttributesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbThemeDuplicateRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeFont.java
+src/main/java/com/ultracart/admin/v2/models/SfvbThemeFontFamily.java
 src/main/java/com/ultracart/admin/v2/models/SfvbThemeJobResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbThemesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbUpsellOffer.java

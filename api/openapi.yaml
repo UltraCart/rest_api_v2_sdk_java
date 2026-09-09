@@ -8991,6 +8991,194 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes:
+    get:
+      description: "The values theme.css and the compiled containers resolve at render\
+        \ time.  These do NOT live in any file.  settings.json contains a palette\
+        \ and looks like the answer, but it is the theme's factory template - it supplies\
+        \ defaults for slots that have never been set and is ignored for slots that\
+        \ have, so editing it will not change a color and reading it will not tell\
+        \ you the current one.  Slots a template declares but nothing has ever set\
+        \ are included here, carrying the default they will render with, so the response\
+        \ describes the whole theme rather than the rows that happen to exist.\n"
+      operationId: getSfvbThemeAttributes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: theme_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbThemeAttributesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "Read a theme's colors, fonts and settings"
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update.  Only the slots you name are changed and every\
+        \ other slot on the theme keeps its value, so there is no need to send the\
+        \ whole set back to change one color.  Send a whole palette in one call rather\
+        \ than one call per color - they are applied together, so the storefront never\
+        \ renders half of a change.  Needs sfvb_publish when the theme is the one\
+        \ serving live traffic, because a color is referenced by name from every template\
+        \ that uses it and one write repaints the whole storefront at once.  On a\
+        \ dormant theme sfvb_write is enough, which is what makes duplicate-then-restyle\
+        \ work.\n"
+      operationId: putSfvbThemeAttributes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: theme_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbThemeAttributeUpdateRequest'
+        description: Slots to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbThemeAttributesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: "Change a theme's colors, fonts and settings"
+      tags:
+      - sfvb
+      x-codegen-request-body-name: attribute_update_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate:
     post:
       description: "Copies a theme into a new one and returns a job handle to poll.\
@@ -234584,6 +234772,231 @@ components:
           description: Theme version.
           type: string
       type: object
+    SfvbThemeAttribute:
+      example:
+        undeclared: true
+        deprecated: true
+        name: name
+        description: description
+        default_value: default_value
+        unused: true
+        type: string
+        value: value
+        font:
+          size: size
+          weight: weight
+          families:
+          - kit_id: kit_id
+            family: family
+            type: google
+          - kit_id: kit_id
+            family: family
+            type: google
+      properties:
+        default_value:
+          description: What the declaring template falls back to when this slot has
+            no value.
+          type: string
+        deprecated:
+          description: True when the theme marks this slot as on its way out.  Prefer
+            not to build on it.
+          type: boolean
+        description:
+          description: "What this slot is for, where the theme author documented it."
+          type: string
+        font:
+          $ref: '#/components/schemas/SfvbThemeFont'
+        name:
+          description: "Slot name, for example Theme Color 01.  Returned in the casing\
+            \ the theme's templates declare, which may differ from the casing you\
+            \ wrote.  Compare case insensitively."
+          type: string
+        type:
+          description: "What kind of slot this is, taken from the template that declares\
+            \ it rather than guessed from the value.  orphan means nothing declares\
+            \ it."
+          enum:
+          - string
+          - color
+          - rgba
+          - boolean
+          - integer
+          - html
+          - orphan
+          - multiline
+          - reserved
+          - itemset
+          - slider
+          - simplelist
+          - definitionlist
+          - pagecollection
+          - font
+          - videolist
+          - mailinglist
+          type: string
+        undeclared:
+          description: "True when no template in this theme references this name.\
+            \  Writing such a name is allowed and is how the builder stores its own\
+            \ settings, but if you did not mean to create one this is a misspelling\
+            \ and the write changed nothing visible."
+          type: boolean
+        unused:
+          description: "True when the slot is declared but nothing in the theme actually\
+            \ reads it, so setting it has no visible effect."
+          type: boolean
+        value:
+          description: "The applied value.  For a colour this is a hex or rgb string,\
+            \ for a boolean the text true or false, for a font the raw JSON document\
+            \ also given in the font field.  When the stored value is empty the current\
+            \ preset's default is filled in here."
+          type: string
+      type: object
+    SfvbThemeAttributesResponse:
+      example:
+        theme_name: theme_name
+        active: true
+        attributes:
+        - undeclared: true
+          deprecated: true
+          name: name
+          description: description
+          default_value: default_value
+          unused: true
+          type: string
+          value: value
+          font:
+            size: size
+            weight: weight
+            families:
+            - kit_id: kit_id
+              family: family
+              type: google
+            - kit_id: kit_id
+              family: family
+              type: google
+        - undeclared: true
+          deprecated: true
+          name: name
+          description: description
+          default_value: default_value
+          unused: true
+          type: string
+          value: value
+          font:
+            size: size
+            weight: weight
+            families:
+            - kit_id: kit_id
+              family: family
+              type: google
+            - kit_id: kit_id
+              family: family
+              type: google
+        theme_oid: 0
+      properties:
+        active:
+          description: "True when this theme is the one serving live traffic.  Changing\
+            \ an active theme's colours changes what shoppers see immediately, so\
+            \ the write requires the sfvb_publish scope.  Duplicate the theme and\
+            \ restyle the copy to work with an ordinary write scope."
+          type: boolean
+        attributes:
+          description: "Every slot this theme has, including ones declared by a template\
+            \ but never set.  Sorted by name."
+          items:
+            $ref: '#/components/schemas/SfvbThemeAttribute'
+          type: array
+        theme_name:
+          description: "Theme name, so a caller can confirm it is working on the theme\
+            \ it meant."
+          type: string
+        theme_oid:
+          description: StoreFront theme oid these belong to.
+          format: int32
+          type: integer
+      type: object
+    SfvbThemeAttributeUpdate:
+      example:
+        name: name
+        type: color
+        value: value
+        font:
+          size: size
+          weight: weight
+          families:
+          - kit_id: kit_id
+            family: family
+            type: google
+          - kit_id: kit_id
+            family: family
+            type: google
+      properties:
+        font:
+          $ref: '#/components/schemas/SfvbThemeFont'
+        name:
+          description: "Slot name.  Matched without regard to case against what the\
+            \ theme already has, so you do not have to reproduce the exact casing.\
+            \  A name nothing matches creates a new slot."
+          type: string
+        type:
+          description: "Only consulted when creating a slot the theme does not already\
+            \ have.  For a slot that exists the declared type always wins, because\
+            \ the templates decide it and not the caller."
+          enum:
+          - color
+          - rgba
+          - font
+          - string
+          - multiline
+          - html
+          - boolean
+          - integer
+          type: string
+        value:
+          description: "The value to store.  An empty string clears the slot, which\
+            \ makes it fall back to the theme's default rather than removing it. \
+            \ Ignored for a font when the font field is supplied."
+          type: string
+      type: object
+    SfvbThemeAttributeUpdateRequest:
+      example:
+        attributes:
+        - name: name
+          type: color
+          value: value
+          font:
+            size: size
+            weight: weight
+            families:
+            - kit_id: kit_id
+              family: family
+              type: google
+            - kit_id: kit_id
+              family: family
+              type: google
+        - name: name
+          type: color
+          value: value
+          font:
+            size: size
+            weight: weight
+            families:
+            - kit_id: kit_id
+              family: family
+              type: google
+            - kit_id: kit_id
+              family: family
+              type: google
+      properties:
+        attributes:
+          description: "The slots to change.  Sending several in one call is preferred\
+            \ over one call each - they are applied together, so a palette lands as\
+            \ a single change rather than as a sequence a shopper could see halfway\
+            \ through."
+          items:
+            $ref: '#/components/schemas/SfvbThemeAttributeUpdate'
+          type: array
+      type: object
     SfvbThemeDuplicateRequest:
       example:
         folder: folder
@@ -234607,6 +235020,56 @@ components:
           type: integer
         theme_name:
           description: Name for the new theme.
+          type: string
+      type: object
+    SfvbThemeFont:
+      example:
+        size: size
+        weight: weight
+        families:
+        - kit_id: kit_id
+          family: family
+          type: google
+        - kit_id: kit_id
+          family: family
+          type: google
+      properties:
+        families:
+          description: "Ordered font stack.  The browser uses the first one it can\
+            \ load, so a generic family belongs last as the fallback."
+          items:
+            $ref: '#/components/schemas/SfvbThemeFontFamily'
+          type: array
+        size:
+          description: "Font size as a number without units, for example 16.  Empty\
+            \ means the theme decides."
+          type: string
+        weight:
+          description: "CSS font weight, for example 400 or bold.  Empty means the\
+            \ theme decides."
+          type: string
+      type: object
+    SfvbThemeFontFamily:
+      example:
+        kit_id: kit_id
+        family: family
+        type: google
+      properties:
+        family:
+          description: "Family name, for example Montserrat."
+          type: string
+        kit_id:
+          description: Typekit kit identifier.  Only meaningful when type is typekit.
+          type: string
+        type:
+          description: "Where the font comes from.  native means a font installed\
+            \ on the shopper's machine, generic means a CSS keyword such as serif\
+            \ or sans-serif and belongs last in the stack."
+          enum:
+          - google
+          - typekit
+          - native
+          - generic
           type: string
       type: object
     SfvbThemeJobResponse:
