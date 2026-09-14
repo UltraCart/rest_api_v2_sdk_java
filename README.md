@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-09T16:22:13.495-04:00[America/Indianapolis]
+- Build date: 2026-09-14T11:48:03.116-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.152</version>
+    <version>4.1.153</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.152"
+     implementation "com.ultracart:rest-sdk:4.1.153"
   }
 ```
 
@@ -494,6 +494,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
+*SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
@@ -504,6 +505,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
+*SfvbApi* | [**getSfvbPage**](docs/SfvbApi.md#getSfvbPage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
@@ -520,6 +522,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+*SfvbApi* | [**putSfvbPageAttributes**](docs/SfvbApi.md#putSfvbPageAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
+*SfvbApi* | [**putSfvbPageMultimedia**](docs/SfvbApi.md#putSfvbPageMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
 *SfvbApi* | [**putSfvbPreviewSession**](docs/SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**renderSfvbWidgets**](docs/SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
@@ -1773,6 +1777,12 @@ Class | Method | HTTP request | Description
  - [SfvbLibraryEntry](docs/SfvbLibraryEntry.md)
  - [SfvbLibraryFacet](docs/SfvbLibraryFacet.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
+ - [SfvbPageAttribute](docs/SfvbPageAttribute.md)
+ - [SfvbPageAttributeUpdate](docs/SfvbPageAttributeUpdate.md)
+ - [SfvbPageAttributeUpdateRequest](docs/SfvbPageAttributeUpdateRequest.md)
+ - [SfvbPageMultimedia](docs/SfvbPageMultimedia.md)
+ - [SfvbPageMultimediaRequest](docs/SfvbPageMultimediaRequest.md)
+ - [SfvbPageResponse](docs/SfvbPageResponse.md)
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
  - [SfvbPreviewSessionResponse](docs/SfvbPreviewSessionResponse.md)
  - [SfvbPreviewUrlResponse](docs/SfvbPreviewUrlResponse.md)
@@ -1967,6 +1977,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.153 | 09/14/2026 | sfvb internal testing |
 | 4.1.152 | 09/09/2026 | sfvb - internal testing |
 | 4.1.151 | 09/04/2026 | conversations - added ai agent capabilities |
 | 4.1.150 | 09/04/2026 | conversations - add ai agent capabilities |

@@ -8383,6 +8383,387 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages:
+    get:
+      description: "What the pageattribute and pageimage elements render for this\
+        \ page.  These are not in any file, which is why a page folder can be empty\
+        \ and its elements still render something.  Attributes and image codes a template\
+        \ declares but nothing has set are included, so the response describes what\
+        \ the page can show rather than only what has been saved.\n"
+      operationId: getSfvbPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /catalog/dispensers/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a page's attributes and images
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/attributes:
+    put:
+      description: "A partial update.  Only the attributes you name are changed. \
+        \ Every entry is checked before any is written.  List, slider, item set, page\
+        \ collection and video list attributes are refused - edit those in the page\
+        \ editor.  Always needs sfvb_publish, because a page's attributes are shared\
+        \ by every theme and there is no dormant copy to change instead.\n"
+      operationId: putSfvbPageAttributes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /catalog/dispensers/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbPageAttributeUpdateRequest'
+        description: Attributes to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_publish
+      - ultraCartSimpleApiKey: []
+      summary: Change a page's attributes
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_attribute_update_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/multimedia:
+    delete:
+      description: |
+        Name exactly one of code or default.  Removes the page's copy of the image; the source file in the page folder is left alone.  Always needs sfvb_publish.
+      operationId: deleteSfvbPageMultimedia
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /catalog/dispensers/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      - description: Image code to detach
+        in: query
+        name: code
+        schema:
+          type: string
+      - description: True to detach the default image
+        in: query
+        name: default
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_publish
+      - ultraCartSimpleApiKey: []
+      summary: Detach an image from a page
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Upload the image with files/upload to the page path followed by\
+        \ a filename first, then name that filename here as either the default image\
+        \ or an image code.  The default image is what a pageimage element with no\
+        \ pageImageCode renders, and what a subgroup tile shows.  Replaces whatever\
+        \ that slot held.  Always needs sfvb_publish.\n"
+      operationId: putSfvbPageMultimedia
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /catalog/dispensers/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbPageMultimediaRequest'
+        description: Image to attach
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_publish
+      - ultraCartSimpleApiKey: []
+      summary: Attach an image to a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_multimedia_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_sessions:
     post:
       description: "Returns a server generated session id to push containers into,\
@@ -234413,6 +234794,241 @@ components:
           description: Total matches across all pages.
           format: int32
           type: integer
+      type: object
+    SfvbPageAttribute:
+      example:
+        undeclared: true
+        used_by_current_theme: true
+        deprecated: true
+        name: name
+        type: string
+        used_by: used_by
+        value: value
+        writable: true
+      properties:
+        deprecated:
+          description: True when the active theme marks this attribute as on its way
+            out.  Prefer not to build on it.
+          type: boolean
+        name:
+          description: "Attribute name, as the template's uc page-attribute directive\
+            \ spells it.  Compare case insensitively.  This is the value pageAttributeName\
+            \ refers to."
+          type: string
+        type:
+          description: "What kind of attribute this is, taken from the template that\
+            \ declares it rather than from the stored row.  orphan means no template\
+            \ declares it.  reserved covers the page SEO fields."
+          enum:
+          - string
+          - color
+          - rgba
+          - boolean
+          - integer
+          - html
+          - orphan
+          - multiline
+          - reserved
+          - itemset
+          - slider
+          - simplelist
+          - definitionlist
+          - pagecollection
+          - font
+          - videolist
+          - mailinglist
+          type: string
+        undeclared:
+          description: "True when no template references this name.  Writing such\
+            \ a name is allowed, but if you did not mean to create one this is a misspelling\
+            \ and nothing on the page will show it."
+          type: boolean
+        used_by:
+          description: "The other themes that declare this attribute, when the active\
+            \ theme does not."
+          type: string
+        used_by_current_theme:
+          description: True when a template in the active theme declares this attribute.
+          type: boolean
+        value:
+          description: The stored value.  Empty when a template declares the attribute
+            and nothing has set it.
+          type: string
+        writable:
+          description: "True when this API will change the value.  List, slider, item\
+            \ set, page collection and video list values are structured documents\
+            \ carrying their own translation references and derived data, so they\
+            \ are shown here but must be edited in the page editor."
+          type: boolean
+      type: object
+    SfvbPageAttributeUpdate:
+      example:
+        name: name
+        type: string
+        value: value
+      properties:
+        name:
+          description: "Attribute name.  Matched without regard to case against what\
+            \ the page already has, so you do not have to reproduce the exact casing.\
+            \  A name nothing matches creates a new attribute."
+          type: string
+        type:
+          description: "Only consulted when creating an attribute no template declares.\
+            \  For a declared attribute the template's type always wins, because the\
+            \ templates decide it and not the caller."
+          enum:
+          - string
+          - multiline
+          - html
+          - boolean
+          - integer
+          - color
+          - rgba
+          type: string
+        value:
+          description: The value to store.  An empty string clears it.  For html the
+            markup is stored as given and rendered as given.  For boolean send the
+            text true or false.
+          type: string
+      type: object
+    SfvbPageAttributeUpdateRequest:
+      example:
+        attributes:
+        - name: name
+          type: string
+          value: value
+        - name: name
+          type: string
+          value: value
+      properties:
+        attributes:
+          description: "The attributes to change.  Every entry is checked before any\
+            \ is written, so a request naming one attribute this API will not change\
+            \ writes nothing rather than part of what it asked for."
+          items:
+            $ref: '#/components/schemas/SfvbPageAttributeUpdate'
+          type: array
+      type: object
+    SfvbPageMultimedia:
+      example:
+        declared: true
+        public_url: public_url
+        default: true
+        code: code
+        filename: filename
+        description: description
+        dimensions: dimensions
+      properties:
+        code:
+          description: "The image code, which is what pageImageCode refers to.  Empty\
+            \ for the default image."
+          type: string
+        declared:
+          description: True when a template declares this code.  An attached image
+            whose code nothing declares renders nowhere unless a pageimage element
+            names it.
+          type: boolean
+        default:
+          description: "True for the page's default image, which a pageimage element\
+            \ with no pageImageCode renders.  This is the thumbnail a subgroup tile\
+            \ shows."
+          type: boolean
+        description:
+          description: "What the slot is for, as the declaring template describes\
+            \ it, otherwise the description stored with the image.  Rendered as the\
+            \ alt text."
+          type: string
+        dimensions:
+          description: "Width x height in pixels, when the attached file is an image."
+          type: string
+        filename:
+          description: The attached file's name within the page's folder.  Empty when
+            nothing is attached.
+          type: string
+        public_url:
+          description: Where the source file is served on the storefront.  Absent
+            when nothing is attached.
+          type: string
+      type: object
+    SfvbPageMultimediaRequest:
+      example:
+        default: true
+        code: code
+        filename: filename
+        description: description
+      properties:
+        code:
+          description: "Attach under this image code, the value a pageimage element's\
+            \ pageImageCode names."
+          type: string
+        default:
+          description: "True to make this the page's default image, which a pageimage\
+            \ element with no pageImageCode renders and a subgroup tile shows.  Replaces\
+            \ any existing default."
+          type: boolean
+        description:
+          description: Stored with the image and rendered as its alt text.  Optional.
+          type: string
+        filename:
+          description: "Name of a raster image already stored directly in the page's\
+            \ folder, for example thumb.png for a file uploaded to the page path followed\
+            \ by thumb.png."
+          type: string
+      type: object
+    SfvbPageResponse:
+      example:
+        path: path
+        multimedia:
+        - declared: true
+          public_url: public_url
+          default: true
+          code: code
+          filename: filename
+          description: description
+          dimensions: dimensions
+        - declared: true
+          public_url: public_url
+          default: true
+          code: code
+          filename: filename
+          description: description
+          dimensions: dimensions
+        attributes:
+        - undeclared: true
+          used_by_current_theme: true
+          deprecated: true
+          name: name
+          type: string
+          used_by: used_by
+          value: value
+          writable: true
+        - undeclared: true
+          used_by_current_theme: true
+          deprecated: true
+          name: name
+          type: string
+          used_by: used_by
+          value: value
+          writable: true
+      properties:
+        attributes:
+          description: "Every attribute this page has, including ones a template declares\
+            \ but nothing has set yet.  These are what the pageattribute element renders.\
+            \  Sorted by name."
+          items:
+            $ref: '#/components/schemas/SfvbPageAttribute'
+          type: array
+        multimedia:
+          description: "The page's images, including codes a template declares but\
+            \ nothing has attached yet.  These are what the pageimage element renders\
+            \ - the default image when pageImageCode is empty, otherwise the image\
+            \ with that code.  The default image comes first."
+          items:
+            $ref: '#/components/schemas/SfvbPageMultimedia'
+          type: array
+        path:
+          description: "The page path, normalized to begin and end with a slash."
+          type: string
       type: object
     SfvbPreviewSessionRequest:
       example:
