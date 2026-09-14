@@ -1804,8 +1804,8 @@ public class SfvbApi {
     }
 
     /**
-     * Configuration schema for one element type
-     * 
+     * Configuration schema and field card for one element type
+     * schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
      * @param elementType  (required)
      * @return SfvbElementSchemaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1825,8 +1825,8 @@ public class SfvbApi {
     }
 
     /**
-     * Configuration schema for one element type
-     * 
+     * Configuration schema and field card for one element type
+     * schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
      * @param elementType  (required)
      * @return ApiResponse&lt;SfvbElementSchemaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1847,8 +1847,8 @@ public class SfvbApi {
     }
 
     /**
-     * Configuration schema for one element type (asynchronously)
-     * 
+     * Configuration schema and field card for one element type (asynchronously)
+     * schema is the draft-07 JSON schema for the element config object and doc is the markdown field card, both as strings.  Either is omitted when none has been published for the element, which is still a 200.  The catalog is published by the visual builder release process, and a republish can take up to an hour to appear here. 
      * @param elementType  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

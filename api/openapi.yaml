@@ -6555,6 +6555,11 @@ paths:
       x-accepts: application/json
   /sfvb/elements/{element_type}:
     get:
+      description: "schema is the draft-07 JSON schema for the element config object\
+        \ and doc is the markdown field card, both as strings.  Either is omitted\
+        \ when none has been published for the element, which is still a 200.  The\
+        \ catalog is published by the visual builder release process, and a republish\
+        \ can take up to an hour to appear here.\n"
       operationId: getSfvbElement
       parameters:
       - in: path
@@ -6618,7 +6623,7 @@ paths:
       - ultraCartOauth:
         - sfvb_read
       - ultraCartSimpleApiKey: []
-      summary: Configuration schema for one element type
+      summary: Configuration schema and field card for one element type
       tags:
       - sfvb
       x-accepts: application/json
@@ -8557,7 +8562,7 @@ paths:
                 type: string
       security:
       - ultraCartOauth:
-        - sfvb_publish
+        - sfvb_write
       - ultraCartSimpleApiKey: []
       summary: Change a page's attributes
       tags:
@@ -8658,7 +8663,7 @@ paths:
                 type: string
       security:
       - ultraCartOauth:
-        - sfvb_publish
+        - sfvb_write
       - ultraCartSimpleApiKey: []
       summary: Detach an image from a page
       tags:
@@ -8756,7 +8761,7 @@ paths:
                 type: string
       security:
       - ultraCartOauth:
-        - sfvb_publish
+        - sfvb_write
       - ultraCartSimpleApiKey: []
       summary: Attach an image to a page
       tags:
@@ -233914,8 +233919,13 @@ components:
     SfvbElement:
       example:
         schema_available: true
+        doc_available: true
         type: type
       properties:
+        doc_available:
+          description: "True when a markdown field card for this element is available\
+            \ from elements/{element_type}."
+          type: boolean
         schema_available:
           description: "True when a per element configuration schema is available\
             \ from elements/{element_type}."
@@ -233928,11 +233938,16 @@ components:
     SfvbElementSchemaResponse:
       example:
         schema: schema
+        doc: doc
         type: type
       properties:
+        doc:
+          description: "Markdown field card for this element, as a string.  Omitted\
+            \ when no field card has been published for this element."
+          type: string
         schema:
-          description: "JSON schema for this element's config object, as a JSON string.\
-            \  Null when no schema has been published for this element yet."
+          description: "Draft-07 JSON schema for this element's config object, as\
+            \ a JSON string.  Omitted when no schema has been published for this element."
           type: string
         type:
           description: The element type.
@@ -233943,8 +233958,10 @@ components:
         element_count: 0
         elements:
         - schema_available: true
+          doc_available: true
           type: type
         - schema_available: true
+          doc_available: true
           type: type
         version: version
       properties:
@@ -235710,7 +235727,9 @@ components:
           description: Human readable description of the job.
           type: string
         error_message:
-          description: Failure detail.  Populated only when status is error.
+          description: What to do next when the job did not produce a theme.  The
+            internal cause is not returned; it is recorded against the job id in the
+            server log.
           type: string
         finished_dts:
           description: When the job stopped.  Null until it does.

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbThemeJobResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T11:48:03.116-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T15:26:47.653-04:00[America/Indianapolis]")
 public class SfvbThemeJobResponse {
   public static final String SERIALIZED_NAME_COMPLETE = "complete";
   @SerializedName(SERIALIZED_NAME_COMPLETE)
@@ -206,11 +206,11 @@ public class SfvbThemeJobResponse {
   }
 
    /**
-   * Failure detail.  Populated only when status is error.
+   * What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.
    * @return errorMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Failure detail.  Populated only when status is error.")
+  @ApiModelProperty(value = "What to do next when the job did not produce a theme.  The internal cause is not returned; it is recorded against the job id in the server log.")
 
   public String getErrorMessage() {
     return errorMessage;

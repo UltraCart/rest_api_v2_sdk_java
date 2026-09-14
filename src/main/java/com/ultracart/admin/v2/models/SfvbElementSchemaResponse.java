@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbElementSchemaResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T11:48:03.116-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T15:26:47.653-04:00[America/Indianapolis]")
 public class SfvbElementSchemaResponse {
+  public static final String SERIALIZED_NAME_DOC = "doc";
+  @SerializedName(SERIALIZED_NAME_DOC)
+  private String doc;
+
   public static final String SERIALIZED_NAME_SCHEMA = "schema";
   @SerializedName(SERIALIZED_NAME_SCHEMA)
   private String schema;
@@ -60,6 +64,29 @@ public class SfvbElementSchemaResponse {
   public SfvbElementSchemaResponse() { 
   }
 
+  public SfvbElementSchemaResponse doc(String doc) {
+    
+    this.doc = doc;
+    return this;
+  }
+
+   /**
+   * Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.
+   * @return doc
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Markdown field card for this element, as a string.  Omitted when no field card has been published for this element.")
+
+  public String getDoc() {
+    return doc;
+  }
+
+
+  public void setDoc(String doc) {
+    this.doc = doc;
+  }
+
+
   public SfvbElementSchemaResponse schema(String schema) {
     
     this.schema = schema;
@@ -67,11 +94,11 @@ public class SfvbElementSchemaResponse {
   }
 
    /**
-   * JSON schema for this element&#39;s config object, as a JSON string.  Null when no schema has been published for this element yet.
+   * Draft-07 JSON schema for this element&#39;s config object, as a JSON string.  Omitted when no schema has been published for this element.
    * @return schema
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "JSON schema for this element's config object, as a JSON string.  Null when no schema has been published for this element yet.")
+  @ApiModelProperty(value = "Draft-07 JSON schema for this element's config object, as a JSON string.  Omitted when no schema has been published for this element.")
 
   public String getSchema() {
     return schema;
@@ -116,19 +143,21 @@ public class SfvbElementSchemaResponse {
       return false;
     }
     SfvbElementSchemaResponse sfvbElementSchemaResponse = (SfvbElementSchemaResponse) o;
-    return Objects.equals(this.schema, sfvbElementSchemaResponse.schema) &&
+    return Objects.equals(this.doc, sfvbElementSchemaResponse.doc) &&
+        Objects.equals(this.schema, sfvbElementSchemaResponse.schema) &&
         Objects.equals(this.type, sfvbElementSchemaResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schema, type);
+    return Objects.hash(doc, schema, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbElementSchemaResponse {\n");
+    sb.append("    doc: ").append(toIndentedString(doc)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -153,6 +182,7 @@ public class SfvbElementSchemaResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("doc");
     openapiFields.add("schema");
     openapiFields.add("type");
 
@@ -181,6 +211,9 @@ public class SfvbElementSchemaResponse {
         if (!SfvbElementSchemaResponse.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbElementSchemaResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("doc") != null && !jsonObj.get("doc").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `doc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doc").toString()));
       }
       if (jsonObj.get("schema") != null && !jsonObj.get("schema").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schema").toString()));

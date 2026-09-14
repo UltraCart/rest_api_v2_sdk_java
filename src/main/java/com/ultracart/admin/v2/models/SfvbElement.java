@@ -47,8 +47,12 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbElement
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T11:48:03.116-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T15:26:47.653-04:00[America/Indianapolis]")
 public class SfvbElement {
+  public static final String SERIALIZED_NAME_DOC_AVAILABLE = "doc_available";
+  @SerializedName(SERIALIZED_NAME_DOC_AVAILABLE)
+  private Boolean docAvailable;
+
   public static final String SERIALIZED_NAME_SCHEMA_AVAILABLE = "schema_available";
   @SerializedName(SERIALIZED_NAME_SCHEMA_AVAILABLE)
   private Boolean schemaAvailable;
@@ -59,6 +63,29 @@ public class SfvbElement {
 
   public SfvbElement() { 
   }
+
+  public SfvbElement docAvailable(Boolean docAvailable) {
+    
+    this.docAvailable = docAvailable;
+    return this;
+  }
+
+   /**
+   * True when a markdown field card for this element is available from elements/{element_type}.
+   * @return docAvailable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a markdown field card for this element is available from elements/{element_type}.")
+
+  public Boolean getDocAvailable() {
+    return docAvailable;
+  }
+
+
+  public void setDocAvailable(Boolean docAvailable) {
+    this.docAvailable = docAvailable;
+  }
+
 
   public SfvbElement schemaAvailable(Boolean schemaAvailable) {
     
@@ -116,19 +143,21 @@ public class SfvbElement {
       return false;
     }
     SfvbElement sfvbElement = (SfvbElement) o;
-    return Objects.equals(this.schemaAvailable, sfvbElement.schemaAvailable) &&
+    return Objects.equals(this.docAvailable, sfvbElement.docAvailable) &&
+        Objects.equals(this.schemaAvailable, sfvbElement.schemaAvailable) &&
         Objects.equals(this.type, sfvbElement.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(schemaAvailable, type);
+    return Objects.hash(docAvailable, schemaAvailable, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbElement {\n");
+    sb.append("    docAvailable: ").append(toIndentedString(docAvailable)).append("\n");
     sb.append("    schemaAvailable: ").append(toIndentedString(schemaAvailable)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -153,6 +182,7 @@ public class SfvbElement {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("doc_available");
     openapiFields.add("schema_available");
     openapiFields.add("type");
 
