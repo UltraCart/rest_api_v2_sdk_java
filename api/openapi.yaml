@@ -8769,6 +8769,105 @@ paths:
       x-codegen-request-body-name: page_multimedia_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/preview_access:
+    post:
+      description: "The preview URL only works in a browser already signed in to UltraCart\
+        \ on the storefront's own host, and an agent's built in browser never is.\
+        \  This returns a single use access_url on the storefront host instead.  Opening\
+        \ it gets past the storefront lock, shows the requested theme and applies\
+        \ the requested preview session for the rest of that browser session, then\
+        \ redirects to path.  It expires two minutes after issue or on first use.\
+        \  Pages opened afterwards carry an X-UltraCart-Preview header of applied\
+        \ or not-applied.  Requires a token that resolves to a user, so use the device\
+        \ authorization flow.\n"
+      operationId: createSfvbPreviewAccess
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbPreviewAccessRequest'
+        description: What the browser should see
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPreviewAccessResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: One time link that opens a preview in a browser with no UltraCart login
+      tags:
+      - sfvb
+      x-codegen-request-body-name: preview_access
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_sessions:
     post:
       description: "Returns a server generated session id to push containers into,\
@@ -235045,6 +235144,76 @@ components:
           type: array
         path:
           description: "The page path, normalized to begin and end with a slash."
+          type: string
+      type: object
+    SfvbPreviewAccessRequest:
+      example:
+        path: path
+        theme_oid: 0
+        preview_session_id: preview_session_id
+      properties:
+        path:
+          description: "Storefront path to land on, beginning with a slash.  Defaults\
+            \ to /"
+          type: string
+        preview_session_id:
+          description: Staged preview session to show.  It must be one this user created
+            and it must not have expired.  Leave it out to show the saved containers
+            with nothing staged.
+          type: string
+        theme_oid:
+          description: "Theme to show, which may be inactive.  Must belong to this\
+            \ storefront.  Defaults to the active theme."
+          format: int32
+          type: integer
+      type: object
+    SfvbPreviewAccessResponse:
+      example:
+        path: path
+        expires_in_seconds: 0
+        access_url: access_url
+        single_use: true
+        theme_oid: 1
+        usage_note: usage_note
+        preview_session_id: preview_session_id
+        session_lifetime_seconds: 6
+      properties:
+        access_url:
+          description: "One time link on the storefront's own host.  Opening it in\
+            \ any browser, including an agent's built in browser with no UltraCart\
+            \ login, gets past the storefront lock and applies the preview session\
+            \ and theme for the rest of that browser's session, then redirects to\
+            \ path.  It is a credential until used, so do not paste it anywhere other\
+            \ than the browser that should open it."
+          type: string
+        expires_in_seconds:
+          description: "Seconds left to open access_url.  It stops working after that,\
+            \ and after its first use."
+          format: int32
+          type: integer
+        path:
+          description: "Storefront path the browser lands on, after reserved preview\
+            \ parameters are removed."
+          type: string
+        preview_session_id:
+          description: "The preview session applied, when one was requested."
+          type: string
+        session_lifetime_seconds:
+          description: "How long the browser stays in preview once access_url is opened.\
+            \  The remaining life of the preview session, or eight hours when none\
+            \ was given.  The user and their storefront permission are checked again\
+            \ on every page, so removing either ends it sooner."
+          format: int32
+          type: integer
+        single_use:
+          description: Always true.  A second open of access_url returns 410.
+          type: boolean
+        theme_oid:
+          description: "The theme shown, when one was requested."
+          format: int32
+          type: integer
+        usage_note:
+          description: "Plain language instructions, safe to show a user."
           type: string
       type: object
     SfvbPreviewSessionRequest:

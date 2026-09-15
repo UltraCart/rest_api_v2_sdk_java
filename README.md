@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-14T15:26:47.653-04:00[America/Indianapolis]
+- Build date: 2026-09-15T11:36:11.089-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.154</version>
+    <version>4.1.155</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.154"
+     implementation "com.ultracart:rest-sdk:4.1.155"
   }
 ```
 
@@ -492,6 +492,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+*SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
@@ -1783,6 +1784,8 @@ Class | Method | HTTP request | Description
  - [SfvbPageMultimedia](docs/SfvbPageMultimedia.md)
  - [SfvbPageMultimediaRequest](docs/SfvbPageMultimediaRequest.md)
  - [SfvbPageResponse](docs/SfvbPageResponse.md)
+ - [SfvbPreviewAccessRequest](docs/SfvbPreviewAccessRequest.md)
+ - [SfvbPreviewAccessResponse](docs/SfvbPreviewAccessResponse.md)
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
  - [SfvbPreviewSessionResponse](docs/SfvbPreviewSessionResponse.md)
  - [SfvbPreviewUrlResponse](docs/SfvbPreviewUrlResponse.md)
@@ -1977,6 +1980,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.155 | 09/15/2026 | sfvb internal testing |
 | 4.1.154 | 09/14/2026 | sfvb internal testing |
 | 4.1.153 | 09/14/2026 | sfvb internal testing |
 | 4.1.152 | 09/09/2026 | sfvb - internal testing |

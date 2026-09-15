@@ -1015,6 +1015,8 @@ docs/SfvbPageAttributeUpdateRequest.md
 docs/SfvbPageMultimedia.md
 docs/SfvbPageMultimediaRequest.md
 docs/SfvbPageResponse.md
+docs/SfvbPreviewAccessRequest.md
+docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
 docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
@@ -2161,6 +2163,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPageAttributeUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageMultimedia.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageMultimediaRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewUrlResponse.java
