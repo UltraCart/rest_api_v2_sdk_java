@@ -1009,6 +1009,10 @@ docs/SfvbFilesResponse.md
 docs/SfvbLibraryEntry.md
 docs/SfvbLibraryFacet.md
 docs/SfvbLibraryResponse.md
+docs/SfvbMenu.md
+docs/SfvbMenuItem.md
+docs/SfvbMenuWriteRequest.md
+docs/SfvbMenusResponse.md
 docs/SfvbPageAttribute.md
 docs/SfvbPageAttributeUpdate.md
 docs/SfvbPageAttributeUpdateRequest.md
@@ -2157,6 +2161,10 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFilesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryEntry.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryFacet.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbMenu.java
+src/main/java/com/ultracart/admin/v2/models/SfvbMenuItem.java
+src/main/java/com/ultracart/admin/v2/models/SfvbMenuWriteRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbMenusResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttribute.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttributeUpdate.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttributeUpdateRequest.java

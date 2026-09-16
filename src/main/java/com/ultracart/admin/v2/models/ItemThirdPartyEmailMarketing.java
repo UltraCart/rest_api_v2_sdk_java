@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemThirdPartyEmailMarketing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T11:36:11.089-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-16T10:44:16.889-04:00[America/Indianapolis]")
 public class ItemThirdPartyEmailMarketing {
   public static final String SERIALIZED_NAME_ADD_TAGS = "add_tags";
   @SerializedName(SERIALIZED_NAME_ADD_TAGS)

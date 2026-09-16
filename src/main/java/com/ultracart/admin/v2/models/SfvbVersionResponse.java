@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbVersionResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T11:36:11.089-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-16T10:44:16.889-04:00[America/Indianapolis]")
 public class SfvbVersionResponse {
   public static final String SERIALIZED_NAME_CONTAINER_MANAGER_VERSION = "container_manager_version";
   @SerializedName(SERIALIZED_NAME_CONTAINER_MANAGER_VERSION)
@@ -76,6 +76,14 @@ public class SfvbVersionResponse {
   public static final String SERIALIZED_NAME_MAX_LIBRARY_RESULTS_PER_PAGE = "max_library_results_per_page";
   @SerializedName(SERIALIZED_NAME_MAX_LIBRARY_RESULTS_PER_PAGE)
   private Integer maxLibraryResultsPerPage;
+
+  public static final String SERIALIZED_NAME_MAX_MENU_DEPTH = "max_menu_depth";
+  @SerializedName(SERIALIZED_NAME_MAX_MENU_DEPTH)
+  private Integer maxMenuDepth;
+
+  public static final String SERIALIZED_NAME_MAX_MENU_ITEMS = "max_menu_items";
+  @SerializedName(SERIALIZED_NAME_MAX_MENU_ITEMS)
+  private Integer maxMenuItems;
 
   public static final String SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES = "max_preview_session_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_PREVIEW_SESSION_BYTES)
@@ -326,6 +334,52 @@ public class SfvbVersionResponse {
   }
 
 
+  public SfvbVersionResponse maxMenuDepth(Integer maxMenuDepth) {
+    
+    this.maxMenuDepth = maxMenuDepth;
+    return this;
+  }
+
+   /**
+   * How deeply store menu entries can nest.
+   * @return maxMenuDepth
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How deeply store menu entries can nest.")
+
+  public Integer getMaxMenuDepth() {
+    return maxMenuDepth;
+  }
+
+
+  public void setMaxMenuDepth(Integer maxMenuDepth) {
+    this.maxMenuDepth = maxMenuDepth;
+  }
+
+
+  public SfvbVersionResponse maxMenuItems(Integer maxMenuItems) {
+    
+    this.maxMenuItems = maxMenuItems;
+    return this;
+  }
+
+   /**
+   * Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.
+   * @return maxMenuItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Most entries one store menu can hold, counting every level of the tree.  A menu is navigation that renders on every page, so this is deliberately far below what the storage would physically accept.")
+
+  public Integer getMaxMenuItems() {
+    return maxMenuItems;
+  }
+
+
+  public void setMaxMenuItems(Integer maxMenuItems) {
+    this.maxMenuItems = maxMenuItems;
+  }
+
+
   public SfvbVersionResponse maxPreviewSessionBytes(Integer maxPreviewSessionBytes) {
     
     this.maxPreviewSessionBytes = maxPreviewSessionBytes;
@@ -550,6 +604,8 @@ public class SfvbVersionResponse {
         Objects.equals(this.maxCjsonBytes, sfvbVersionResponse.maxCjsonBytes) &&
         Objects.equals(this.maxDirectoryEntries, sfvbVersionResponse.maxDirectoryEntries) &&
         Objects.equals(this.maxLibraryResultsPerPage, sfvbVersionResponse.maxLibraryResultsPerPage) &&
+        Objects.equals(this.maxMenuDepth, sfvbVersionResponse.maxMenuDepth) &&
+        Objects.equals(this.maxMenuItems, sfvbVersionResponse.maxMenuItems) &&
         Objects.equals(this.maxPreviewSessionBytes, sfvbVersionResponse.maxPreviewSessionBytes) &&
         Objects.equals(this.maxRevertableBytes, sfvbVersionResponse.maxRevertableBytes) &&
         Objects.equals(this.maxSearchResults, sfvbVersionResponse.maxSearchResults) &&
@@ -563,7 +619,7 @@ public class SfvbVersionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerManagerVersion, containerVersionsRetained, elementCount, maxAssetBytes, maxCjsonBytes, maxDirectoryEntries, maxLibraryResultsPerPage, maxPreviewSessionBytes, maxRevertableBytes, maxSearchResults, maxTemplateBytes, maxTextReadBytes, maxVideoBytes, maxWidgetIdsPerRequest, previewSessionTtlSeconds, release);
+    return Objects.hash(containerManagerVersion, containerVersionsRetained, elementCount, maxAssetBytes, maxCjsonBytes, maxDirectoryEntries, maxLibraryResultsPerPage, maxMenuDepth, maxMenuItems, maxPreviewSessionBytes, maxRevertableBytes, maxSearchResults, maxTemplateBytes, maxTextReadBytes, maxVideoBytes, maxWidgetIdsPerRequest, previewSessionTtlSeconds, release);
   }
 
   @Override
@@ -577,6 +633,8 @@ public class SfvbVersionResponse {
     sb.append("    maxCjsonBytes: ").append(toIndentedString(maxCjsonBytes)).append("\n");
     sb.append("    maxDirectoryEntries: ").append(toIndentedString(maxDirectoryEntries)).append("\n");
     sb.append("    maxLibraryResultsPerPage: ").append(toIndentedString(maxLibraryResultsPerPage)).append("\n");
+    sb.append("    maxMenuDepth: ").append(toIndentedString(maxMenuDepth)).append("\n");
+    sb.append("    maxMenuItems: ").append(toIndentedString(maxMenuItems)).append("\n");
     sb.append("    maxPreviewSessionBytes: ").append(toIndentedString(maxPreviewSessionBytes)).append("\n");
     sb.append("    maxRevertableBytes: ").append(toIndentedString(maxRevertableBytes)).append("\n");
     sb.append("    maxSearchResults: ").append(toIndentedString(maxSearchResults)).append("\n");
@@ -615,6 +673,8 @@ public class SfvbVersionResponse {
     openapiFields.add("max_cjson_bytes");
     openapiFields.add("max_directory_entries");
     openapiFields.add("max_library_results_per_page");
+    openapiFields.add("max_menu_depth");
+    openapiFields.add("max_menu_items");
     openapiFields.add("max_preview_session_bytes");
     openapiFields.add("max_revertable_bytes");
     openapiFields.add("max_search_results");

@@ -8388,6 +8388,271 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/menus:
+    get:
+      description: "The menus a menu element's menuName can name, sorted by code and\
+        \ without their entries.  A code the active theme's templates ask for but\
+        \ nothing has created is included with unconfigured true - that code renders\
+        \ an empty list today, and writing it creates it.  A menu no template names\
+        \ is marked undeclared, which usually means a menuName is misspelled.\n"
+      operationId: getSfvbMenus
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbMenusResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a storefront's store menus
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/menus/{code}:
+    get:
+      description: "The whole tree, in render order.  Page entries carry the page_path\
+        \ they resolve to and item entries the merchant_item_id, rather than the oids\
+        \ the storage keeps.  Menu item oids are not returned at all because a write\
+        \ regenerates every one of them.  Keep hash_sha256 - it is the If-Match a\
+        \ write needs.\n"
+      operationId: getSfvbMenu
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Menu code, matched without regard to case"
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbMenu'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one store menu and its entries
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A whole menu replace, not a merge - what you send is what the\
+        \ menu holds afterwards, so read it, change the tree and send it back.  Omitting\
+        \ items changes only the title; sending an empty array empties the menu. \
+        \ Writing a code that does not exist creates it.  Every entry is checked before\
+        \ any of it is written, including that a merchant_item_id and a page_path\
+        \ actually resolve, so a tree with one bad entry changes nothing.  Always\
+        \ needs sfvb_publish, because a menu is shared by every theme and there is\
+        \ no dormant copy to change instead.\n"
+      operationId: putSfvbMenu
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Menu code, matched without regard to case"
+        in: path
+        name: code
+        required: true
+        schema:
+          type: string
+      - description: "Content hash from the last read.  Required when the menu already\
+          \ exists; 428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbMenuWriteRequest'
+        description: The menu's replacement contents
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbMenu'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Replace a store menu's entries
+      tags:
+      - sfvb
+      x-codegen-request-body-name: menu_write_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/pages:
     get:
       description: "What the pageattribute and pageimage elements render for this\
@@ -234911,6 +235176,280 @@ components:
           format: int32
           type: integer
       type: object
+    SfvbMenu:
+      example:
+        hash_sha256: hash_sha256
+        item_count: 0
+        undeclared: true
+        code: code
+        unconfigured: true
+        title: title
+        items:
+        - merchant_item_id: merchant_item_id
+          system_page_type: Access Account
+          description: description
+          page_path: page_path
+          catalog_group_oid: 6
+          type: custom
+          items:
+          - null
+          - null
+          url: url
+          open_in_new_window: true
+          social_page_type: Twitter
+        - merchant_item_id: merchant_item_id
+          system_page_type: Access Account
+          description: description
+          page_path: page_path
+          catalog_group_oid: 6
+          type: custom
+          items:
+          - null
+          - null
+          url: url
+          open_in_new_window: true
+          social_page_type: Twitter
+      properties:
+        code:
+          description: "The menu's code, which is the value a menu element's menuName\
+            \ refers to.  Compare case insensitively."
+          type: string
+        hash_sha256:
+          description: Content hash of the menu as stored.  Send it back as If-Match
+            when writing.
+          type: string
+        item_count:
+          description: "How many entries the menu holds in total, counting every level\
+            \ of the tree."
+          format: int32
+          type: integer
+        items:
+          description: "The menu's entries, in the order they render.  Omitted from\
+            \ the list endpoint, which returns each menu's identity and counts only."
+          items:
+            $ref: '#/components/schemas/SfvbMenuItem'
+          type: array
+        title:
+          description: "The menu's own label, shown in the store admin rather than\
+            \ on the storefront.  Trimmed to 250 characters."
+          type: string
+        unconfigured:
+          description: True when a template names this code but no menu has been created
+            for it.  Such a code renders an empty list today.  Write it to create
+            it.
+          type: boolean
+        undeclared:
+          description: "True when no template on the storefront names this code. \
+            \ The menu is stored and editable, but nothing renders it, which usually\
+            \ means a menu element's menuName is misspelled."
+          type: boolean
+      type: object
+    SfvbMenuItem:
+      example:
+        merchant_item_id: merchant_item_id
+        system_page_type: Access Account
+        description: description
+        page_path: page_path
+        catalog_group_oid: 6
+        type: custom
+        items:
+        - null
+        - null
+        url: url
+        open_in_new_window: true
+        social_page_type: Twitter
+      properties:
+        catalog_group_oid:
+          description: "The catalog group page_path resolved to.  Returned for reference\
+            \ and ignored on a write - send page_path, which is the identifier the\
+            \ rest of this API uses."
+          format: int32
+          type: integer
+        description:
+          description: "The link text, and the only field every type needs.  Required."
+          type: string
+        items:
+          description: "This entry's sub menu, in the order it renders.  Omit or send\
+            \ an empty array for a leaf."
+          items:
+            $ref: '#/components/schemas/SfvbMenuItem'
+          type: array
+        merchant_item_id:
+          description: "The item an item entry opens, by merchant item id rather than\
+            \ by oid."
+          type: string
+        open_in_new_window:
+          description: True to open the link in a new window or tab.
+          type: boolean
+        page_path:
+          description: "The page a page entry opens, normalized to begin and end with\
+            \ a slash.  This is the same path the pages endpoints take.  Sent on a\
+            \ write and returned on a read."
+          type: string
+        social_page_type:
+          description: Which social network a social entry opens.  The URL comes from
+            the storefront's social settings.
+          enum:
+          - Twitter
+          - Facebook
+          - Instagram
+          - LinkedIn
+          - Pinterest
+          - Tumblr
+          - YouTube
+          type: string
+        system_page_type:
+          description: "Which built in page a system page entry opens.  The storefront\
+            \ resolves the URL, so these keep working when the checkout or account\
+            \ paths change."
+          enum:
+          - Access Account
+          - Account Login
+          - Account Logout
+          - Affiliate Login
+          - Affiliate Signup
+          - Change Password
+          - My Account Main Page
+          - My Account Orders
+          - My Account Reviews
+          - My Account Settings
+          - My Account Loyalty
+          - Search
+          - Single Page Checkout
+          - View Cart
+          - Wholesale Signup
+          type: string
+        type:
+          description: "What the entry points at, which decides which one of the other\
+            \ fields is required.  custom needs url, item needs merchant_item_id,\
+            \ page needs page_path, social needs social_page_type, and system page\
+            \ needs system_page_type.  The legacy spelling group is accepted and stored\
+            \ as page."
+          enum:
+          - custom
+          - item
+          - page
+          - social
+          - system page
+          type: string
+        url:
+          description: "Where a custom entry goes.  Any URL the storefront can link\
+            \ to, absolute or site relative."
+          type: string
+      type: object
+    SfvbMenusResponse:
+      example:
+        menus:
+        - hash_sha256: hash_sha256
+          item_count: 0
+          undeclared: true
+          code: code
+          unconfigured: true
+          title: title
+          items:
+          - merchant_item_id: merchant_item_id
+            system_page_type: Access Account
+            description: description
+            page_path: page_path
+            catalog_group_oid: 6
+            type: custom
+            items:
+            - null
+            - null
+            url: url
+            open_in_new_window: true
+            social_page_type: Twitter
+          - merchant_item_id: merchant_item_id
+            system_page_type: Access Account
+            description: description
+            page_path: page_path
+            catalog_group_oid: 6
+            type: custom
+            items:
+            - null
+            - null
+            url: url
+            open_in_new_window: true
+            social_page_type: Twitter
+        - hash_sha256: hash_sha256
+          item_count: 0
+          undeclared: true
+          code: code
+          unconfigured: true
+          title: title
+          items:
+          - merchant_item_id: merchant_item_id
+            system_page_type: Access Account
+            description: description
+            page_path: page_path
+            catalog_group_oid: 6
+            type: custom
+            items:
+            - null
+            - null
+            url: url
+            open_in_new_window: true
+            social_page_type: Twitter
+          - merchant_item_id: merchant_item_id
+            system_page_type: Access Account
+            description: description
+            page_path: page_path
+            catalog_group_oid: 6
+            type: custom
+            items:
+            - null
+            - null
+            url: url
+            open_in_new_window: true
+            social_page_type: Twitter
+      properties:
+        menus:
+          description: "The storefront's menus, sorted by code.  Entries are omitted\
+            \ here - read a single menu to get its tree."
+          items:
+            $ref: '#/components/schemas/SfvbMenu'
+          type: array
+      type: object
+    SfvbMenuWriteRequest:
+      example:
+        title: title
+        items:
+        - merchant_item_id: merchant_item_id
+          system_page_type: Access Account
+          description: description
+          page_path: page_path
+          catalog_group_oid: 6
+          type: custom
+          items:
+          - null
+          - null
+          url: url
+          open_in_new_window: true
+          social_page_type: Twitter
+        - merchant_item_id: merchant_item_id
+          system_page_type: Access Account
+          description: description
+          page_path: page_path
+          catalog_group_oid: 6
+          type: custom
+          items:
+          - null
+          - null
+          url: url
+          open_in_new_window: true
+          social_page_type: Twitter
+      properties:
+        items:
+          description: "The entries the menu should hold, in render order.  Omit to\
+            \ leave the entries alone and change only the title."
+          items:
+            $ref: '#/components/schemas/SfvbMenuItem'
+          type: array
+        title:
+          description: The menu's label in the store admin.  Trimmed to 250 characters.  Leave
+            it off to keep the current one.
+          type: string
+      type: object
     SfvbPageAttribute:
       example:
         undeclared: true
@@ -235201,8 +235740,9 @@ components:
         session_lifetime_seconds:
           description: "How long the browser stays in preview once access_url is opened.\
             \  The remaining life of the preview session, or eight hours when none\
-            \ was given.  The user and their storefront permission are checked again\
-            \ on every page, so removing either ends it sooner."
+            \ was given.  Ending the preview session ends preview in that browser\
+            \ at its next page.  The user and their storefront permission are checked\
+            \ again on every page, so removing either ends it sooner."
           format: int32
           type: integer
         single_use:
@@ -236183,21 +236723,23 @@ components:
       type: object
     SfvbVersionResponse:
       example:
-        max_text_read_bytes: 4
-        max_revertable_bytes: 9
+        max_text_read_bytes: 1
+        max_revertable_bytes: 2
         release: ga
         max_directory_entries: 5
         max_library_results_per_page: 2
-        max_template_bytes: 2
+        max_menu_items: 9
+        max_template_bytes: 7
         max_cjson_bytes: 5
         max_widget_ids_per_request: 1
         max_asset_bytes: 1
-        max_search_results: 3
+        max_search_results: 4
         element_count: 6
-        preview_session_ttl_seconds: 1
-        max_preview_session_bytes: 7
+        preview_session_ttl_seconds: 6
+        max_preview_session_bytes: 3
         container_manager_version: container_manager_version
-        max_video_bytes: 7
+        max_menu_depth: 7
+        max_video_bytes: 1
         container_versions_retained: 0
       properties:
         container_manager_version:
@@ -236233,6 +236775,16 @@ components:
             \ more is silently reduced to this, and unlike the directory listing there\
             \ is no truncation flag on the response, so this number is the only way\
             \ to know a larger request was cut."
+          format: int32
+          type: integer
+        max_menu_depth:
+          description: How deeply store menu entries can nest.
+          format: int32
+          type: integer
+        max_menu_items:
+          description: "Most entries one store menu can hold, counting every level\
+            \ of the tree.  A menu is navigation that renders on every page, so this\
+            \ is deliberately far below what the storage would physically accept."
           format: int32
           type: integer
         max_preview_session_bytes:

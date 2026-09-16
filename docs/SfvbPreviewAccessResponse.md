@@ -11,7 +11,7 @@
 |**expiresInSeconds** | **Integer** | Seconds left to open access_url.  It stops working after that, and after its first use. |  [optional] |
 |**path** | **String** | Storefront path the browser lands on, after reserved preview parameters are removed. |  [optional] |
 |**previewSessionId** | **String** | The preview session applied, when one was requested. |  [optional] |
-|**sessionLifetimeSeconds** | **Integer** | How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner. |  [optional] |
+|**sessionLifetimeSeconds** | **Integer** | How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner. |  [optional] |
 |**singleUse** | **Boolean** | Always true.  A second open of access_url returns 410. |  [optional] |
 |**themeOid** | **Integer** | The theme shown, when one was requested. |  [optional] |
 |**usageNote** | **String** | Plain language instructions, safe to show a user. |  [optional] |

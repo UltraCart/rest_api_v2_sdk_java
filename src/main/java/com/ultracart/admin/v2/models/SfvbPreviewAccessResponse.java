@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewAccessResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T11:36:11.089-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-16T10:44:16.889-04:00[America/Indianapolis]")
 public class SfvbPreviewAccessResponse {
   public static final String SERIALIZED_NAME_ACCESS_URL = "access_url";
   @SerializedName(SERIALIZED_NAME_ACCESS_URL)
@@ -183,11 +183,11 @@ public class SfvbPreviewAccessResponse {
   }
 
    /**
-   * How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.
+   * How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.
    * @return sessionLifetimeSeconds
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.")
+  @ApiModelProperty(value = "How long the browser stays in preview once access_url is opened.  The remaining life of the preview session, or eight hours when none was given.  Ending the preview session ends preview in that browser at its next page.  The user and their storefront permission are checked again on every page, so removing either ends it sooner.")
 
   public Integer getSessionLifetimeSeconds() {
     return sessionLifetimeSeconds;
