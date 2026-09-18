@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-18T15:14:49.142-04:00[America/Indianapolis]
+- Build date: 2026-09-18T15:39:17.086-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.160</version>
+    <version>4.1.161</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.160"
+     implementation "com.ultracart:rest-sdk:4.1.161"
   }
 ```
 
@@ -491,6 +491,8 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
+*SfvbApi* | [**addSfvbPageBlogPosts**](docs/SfvbApi.md#addSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
+*SfvbApi* | [**addSfvbPageItems**](docs/SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
@@ -498,17 +500,24 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+*SfvbApi* | [**duplicateSfvbPage**](docs/SfvbApi.md#duplicateSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
+*SfvbApi* | [**endSfvbExperiment**](docs/SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+*SfvbApi* | [**getSfvbExperiment**](docs/SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
+*SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbMenu**](docs/SfvbApi.md#getSfvbMenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 *SfvbApi* | [**getSfvbMenus**](docs/SfvbApi.md#getSfvbMenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
 *SfvbApi* | [**getSfvbPage**](docs/SfvbApi.md#getSfvbPage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
+*SfvbApi* | [**getSfvbPageBlogPosts**](docs/SfvbApi.md#getSfvbPageBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
+*SfvbApi* | [**getSfvbPageItems**](docs/SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
+*SfvbApi* | [**getSfvbPageSelectors**](docs/SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -516,28 +525,39 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
 *SfvbApi* | [**getSfvbVersion**](docs/SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
+*SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
+*SfvbApi* | [**listSfvbBlogPosts**](docs/SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 *SfvbApi* | [**listSfvbContainerVersions**](docs/SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
 *SfvbApi* | [**listSfvbElements**](docs/SfvbApi.md#listSfvbElements) | **GET** /sfvb/elements | List every SFVB element type
+*SfvbApi* | [**listSfvbExperiments**](docs/SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 *SfvbApi* | [**listSfvbFileVersions**](docs/SfvbApi.md#listSfvbFileVersions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+*SfvbApi* | [**listSfvbPages**](docs/SfvbApi.md#listSfvbPages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 *SfvbApi* | [**listSfvbStorefronts**](docs/SfvbApi.md#listSfvbStorefronts) | **GET** /sfvb/storefronts | List storefronts
+*SfvbApi* | [**listSfvbTemplates**](docs/SfvbApi.md#listSfvbTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
 *SfvbApi* | [**listSfvbThemes**](docs/SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
+*SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
 *SfvbApi* | [**putSfvbMenu**](docs/SfvbApi.md#putSfvbMenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 *SfvbApi* | [**putSfvbPageAttributes**](docs/SfvbApi.md#putSfvbPageAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 *SfvbApi* | [**putSfvbPageMultimedia**](docs/SfvbApi.md#putSfvbPageMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
+*SfvbApi* | [**putSfvbPageSelectors**](docs/SfvbApi.md#putSfvbPageSelectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
+*SfvbApi* | [**putSfvbPageSettings**](docs/SfvbApi.md#putSfvbPageSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 *SfvbApi* | [**putSfvbPreviewSession**](docs/SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/SfvbApi.md#putSfvbSiteAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
+*SfvbApi* | [**removeSfvbPageBlogPosts**](docs/SfvbApi.md#removeSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
+*SfvbApi* | [**removeSfvbPageItems**](docs/SfvbApi.md#removeSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbWidgets**](docs/SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
 *SfvbApi* | [**revertSfvbContainer**](docs/SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
+*SfvbApi* | [**startSfvbExperiment**](docs/SfvbApi.md#startSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
 *SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
 *SfvbApi* | [**validateSfvbCjson**](docs/SfvbApi.md#validateSfvbCjson) | **POST** /sfvb/cjson/validate | Validate CJSON
 *SfvbApi* | [**validateSfvbVelocity**](docs/SfvbApi.md#validateSfvbVelocity) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate | Validate a Velocity template against a theme
@@ -1757,6 +1777,8 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingUserProperty](docs/ScreenRecordingUserProperty.md)
  - [ScreenshotsResponse](docs/ScreenshotsResponse.md)
  - [SelfConfig](docs/SelfConfig.md)
+ - [SfvbBlogPost](docs/SfvbBlogPost.md)
+ - [SfvbBlogPostsResponse](docs/SfvbBlogPostsResponse.md)
  - [SfvbCompileRequest](docs/SfvbCompileRequest.md)
  - [SfvbCompileResponse](docs/SfvbCompileResponse.md)
  - [SfvbContainerResponse](docs/SfvbContainerResponse.md)
@@ -1768,6 +1790,14 @@ Class | Method | HTTP request | Description
  - [SfvbElementSchemaResponse](docs/SfvbElementSchemaResponse.md)
  - [SfvbElementsResponse](docs/SfvbElementsResponse.md)
  - [SfvbErrorDetail](docs/SfvbErrorDetail.md)
+ - [SfvbExperiment](docs/SfvbExperiment.md)
+ - [SfvbExperimentEndRequest](docs/SfvbExperimentEndRequest.md)
+ - [SfvbExperimentObjective](docs/SfvbExperimentObjective.md)
+ - [SfvbExperimentObjectivesResponse](docs/SfvbExperimentObjectivesResponse.md)
+ - [SfvbExperimentStartRequest](docs/SfvbExperimentStartRequest.md)
+ - [SfvbExperimentStartVariation](docs/SfvbExperimentStartVariation.md)
+ - [SfvbExperimentVariationUpdateRequest](docs/SfvbExperimentVariationUpdateRequest.md)
+ - [SfvbExperimentsResponse](docs/SfvbExperimentsResponse.md)
  - [SfvbFileContentResponse](docs/SfvbFileContentResponse.md)
  - [SfvbFileEntry](docs/SfvbFileEntry.md)
  - [SfvbFileRevertRequest](docs/SfvbFileRevertRequest.md)
@@ -1790,9 +1820,23 @@ Class | Method | HTTP request | Description
  - [SfvbPageAttribute](docs/SfvbPageAttribute.md)
  - [SfvbPageAttributeUpdate](docs/SfvbPageAttributeUpdate.md)
  - [SfvbPageAttributeUpdateRequest](docs/SfvbPageAttributeUpdateRequest.md)
+ - [SfvbPageBlogPostSelector](docs/SfvbPageBlogPostSelector.md)
+ - [SfvbPageBlogPostsRequest](docs/SfvbPageBlogPostsRequest.md)
+ - [SfvbPageBlogPostsResponse](docs/SfvbPageBlogPostsResponse.md)
+ - [SfvbPageCreateRequest](docs/SfvbPageCreateRequest.md)
+ - [SfvbPageDuplicateRequest](docs/SfvbPageDuplicateRequest.md)
+ - [SfvbPageItem](docs/SfvbPageItem.md)
+ - [SfvbPageItemSelector](docs/SfvbPageItemSelector.md)
+ - [SfvbPageItemsAddRequest](docs/SfvbPageItemsAddRequest.md)
+ - [SfvbPageItemsRemoveRequest](docs/SfvbPageItemsRemoveRequest.md)
+ - [SfvbPageItemsResponse](docs/SfvbPageItemsResponse.md)
+ - [SfvbPageListResponse](docs/SfvbPageListResponse.md)
  - [SfvbPageMultimedia](docs/SfvbPageMultimedia.md)
  - [SfvbPageMultimediaRequest](docs/SfvbPageMultimediaRequest.md)
  - [SfvbPageResponse](docs/SfvbPageResponse.md)
+ - [SfvbPageSelectors](docs/SfvbPageSelectors.md)
+ - [SfvbPageSettingsRequest](docs/SfvbPageSettingsRequest.md)
+ - [SfvbPageSummary](docs/SfvbPageSummary.md)
  - [SfvbPreviewAccessRequest](docs/SfvbPreviewAccessRequest.md)
  - [SfvbPreviewAccessResponse](docs/SfvbPreviewAccessResponse.md)
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
@@ -1806,6 +1850,8 @@ Class | Method | HTTP request | Description
  - [SfvbSiteAttributesResponse](docs/SfvbSiteAttributesResponse.md)
  - [SfvbStorefront](docs/SfvbStorefront.md)
  - [SfvbStorefrontsResponse](docs/SfvbStorefrontsResponse.md)
+ - [SfvbTemplate](docs/SfvbTemplate.md)
+ - [SfvbTemplatesResponse](docs/SfvbTemplatesResponse.md)
  - [SfvbTheme](docs/SfvbTheme.md)
  - [SfvbThemeAttribute](docs/SfvbThemeAttribute.md)
  - [SfvbThemeAttributeUpdate](docs/SfvbThemeAttributeUpdate.md)
@@ -1993,6 +2039,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.161 | 09/18/2026 | sfvb internal testing |
 | 4.1.160 | 09/18/2026 | sdk automation testing |
 | 4.1.159 | 09/18/2026 | build testing - no sdk changes |
 | 4.1.158 | 09/18/2026 | sfvb internal testing |

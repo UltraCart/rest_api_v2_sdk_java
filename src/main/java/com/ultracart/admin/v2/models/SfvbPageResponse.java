@@ -51,11 +51,23 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPageResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T15:14:49.142-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T15:39:17.086-04:00[America/Indianapolis]")
 public class SfvbPageResponse {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private List<SfvbPageAttribute> attributes = null;
+
+  public static final String SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP = "exclude_from_sitemap";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP)
+  private Boolean excludeFromSitemap;
+
+  public static final String SERIALIZED_NAME_GROUP_TEMPLATE = "group_template";
+  @SerializedName(SERIALIZED_NAME_GROUP_TEMPLATE)
+  private String groupTemplate;
+
+  public static final String SERIALIZED_NAME_ITEM_TEMPLATE = "item_template";
+  @SerializedName(SERIALIZED_NAME_ITEM_TEMPLATE)
+  private String itemTemplate;
 
   public static final String SERIALIZED_NAME_MULTIMEDIA = "multimedia";
   @SerializedName(SERIALIZED_NAME_MULTIMEDIA)
@@ -64,6 +76,18 @@ public class SfvbPageResponse {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
+
+  public static final String SERIALIZED_NAME_VISIBLE = "visible";
+  @SerializedName(SERIALIZED_NAME_VISIBLE)
+  private Boolean visible;
+
+  public static final String SERIALIZED_NAME_VISIBLE_DTS = "visible_dts";
+  @SerializedName(SERIALIZED_NAME_VISIBLE_DTS)
+  private String visibleDts;
 
   public SfvbPageResponse() { 
   }
@@ -96,6 +120,75 @@ public class SfvbPageResponse {
 
   public void setAttributes(List<SfvbPageAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public SfvbPageResponse excludeFromSitemap(Boolean excludeFromSitemap) {
+    
+    this.excludeFromSitemap = excludeFromSitemap;
+    return this;
+  }
+
+   /**
+   * True when the page is left out of the sitemap and marked noindex.
+   * @return excludeFromSitemap
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the page is left out of the sitemap and marked noindex.")
+
+  public Boolean getExcludeFromSitemap() {
+    return excludeFromSitemap;
+  }
+
+
+  public void setExcludeFromSitemap(Boolean excludeFromSitemap) {
+    this.excludeFromSitemap = excludeFromSitemap;
+  }
+
+
+  public SfvbPageResponse groupTemplate(String groupTemplate) {
+    
+    this.groupTemplate = groupTemplate;
+    return this;
+  }
+
+   /**
+   * Template file that renders the page itself, a bare .vm name found anywhere in the active theme.
+   * @return groupTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Template file that renders the page itself, a bare .vm name found anywhere in the active theme.")
+
+  public String getGroupTemplate() {
+    return groupTemplate;
+  }
+
+
+  public void setGroupTemplate(String groupTemplate) {
+    this.groupTemplate = groupTemplate;
+  }
+
+
+  public SfvbPageResponse itemTemplate(String itemTemplate) {
+    
+    this.itemTemplate = itemTemplate;
+    return this;
+  }
+
+   /**
+   * Template file that renders the item pages under this page.
+   * @return itemTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Template file that renders the item pages under this page.")
+
+  public String getItemTemplate() {
+    return itemTemplate;
+  }
+
+
+  public void setItemTemplate(String itemTemplate) {
+    this.itemTemplate = itemTemplate;
   }
 
 
@@ -153,6 +246,75 @@ public class SfvbPageResponse {
   }
 
 
+  public SfvbPageResponse title(String title) {
+    
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * The page title.
+   * @return title
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The page title.")
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public SfvbPageResponse visible(Boolean visible) {
+    
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * False when the page is hidden.  A hidden page answers 404 to shoppers.
+   * @return visible
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "False when the page is hidden.  A hidden page answers 404 to shoppers.")
+
+  public Boolean getVisible() {
+    return visible;
+  }
+
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+
+  public SfvbPageResponse visibleDts(String visibleDts) {
+    
+    this.visibleDts = visibleDts;
+    return this;
+  }
+
+   /**
+   * When set, the page stays hidden until this time (ISO 8601, UTC).
+   * @return visibleDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When set, the page stays hidden until this time (ISO 8601, UTC).")
+
+  public String getVisibleDts() {
+    return visibleDts;
+  }
+
+
+  public void setVisibleDts(String visibleDts) {
+    this.visibleDts = visibleDts;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -164,13 +326,19 @@ public class SfvbPageResponse {
     }
     SfvbPageResponse sfvbPageResponse = (SfvbPageResponse) o;
     return Objects.equals(this.attributes, sfvbPageResponse.attributes) &&
+        Objects.equals(this.excludeFromSitemap, sfvbPageResponse.excludeFromSitemap) &&
+        Objects.equals(this.groupTemplate, sfvbPageResponse.groupTemplate) &&
+        Objects.equals(this.itemTemplate, sfvbPageResponse.itemTemplate) &&
         Objects.equals(this.multimedia, sfvbPageResponse.multimedia) &&
-        Objects.equals(this.path, sfvbPageResponse.path);
+        Objects.equals(this.path, sfvbPageResponse.path) &&
+        Objects.equals(this.title, sfvbPageResponse.title) &&
+        Objects.equals(this.visible, sfvbPageResponse.visible) &&
+        Objects.equals(this.visibleDts, sfvbPageResponse.visibleDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, multimedia, path);
+    return Objects.hash(attributes, excludeFromSitemap, groupTemplate, itemTemplate, multimedia, path, title, visible, visibleDts);
   }
 
   @Override
@@ -178,8 +346,14 @@ public class SfvbPageResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbPageResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
+    sb.append("    groupTemplate: ").append(toIndentedString(groupTemplate)).append("\n");
+    sb.append("    itemTemplate: ").append(toIndentedString(itemTemplate)).append("\n");
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
+    sb.append("    visibleDts: ").append(toIndentedString(visibleDts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -203,8 +377,14 @@ public class SfvbPageResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("attributes");
+    openapiFields.add("exclude_from_sitemap");
+    openapiFields.add("group_template");
+    openapiFields.add("item_template");
     openapiFields.add("multimedia");
     openapiFields.add("path");
+    openapiFields.add("title");
+    openapiFields.add("visible");
+    openapiFields.add("visible_dts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -244,6 +424,12 @@ public class SfvbPageResponse {
           SfvbPageAttribute.validateJsonObject(jsonArrayattributes.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("group_template") != null && !jsonObj.get("group_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `group_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_template").toString()));
+      }
+      if (jsonObj.get("item_template") != null && !jsonObj.get("item_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_template").toString()));
+      }
       JsonArray jsonArraymultimedia = jsonObj.getAsJsonArray("multimedia");
       if (jsonArraymultimedia != null) {
         // ensure the json data is an array
@@ -258,6 +444,12 @@ public class SfvbPageResponse {
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if (jsonObj.get("visible_dts") != null && !jsonObj.get("visible_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `visible_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visible_dts").toString()));
       }
   }
 

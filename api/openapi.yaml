@@ -6840,6 +6840,97 @@ paths:
       x-codegen-request-body-name: site_attribute_update_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/blog_posts:
+    get:
+      description: "One page of blog posts, newest first, without their bodies.  search\
+        \ matches the title, body, excerpt, url part or author, or a tag exactly.\
+        \  unassigned marks posts no page shows yet.  Use a post's blog_post_oid to\
+        \ assign it to a page.\n"
+      operationId: listSfvbBlogPosts
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: Text to search for
+        in: query
+        name: search
+        schema:
+          type: string
+      - description: "Page number, starting at 1"
+        in: query
+        name: page
+        schema:
+          format: int32
+          type: integer
+      - description: "Posts per page, 1 to 100, default 50"
+        in: query
+        name: page_size
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the storefront's blog posts
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
       description: "Addressed the same way as the container itself, so owner_type\
@@ -7341,6 +7432,565 @@ paths:
       - sfvb
       x-codegen-request-body-name: container_revert_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/experiments:
+    get:
+      description: "Every experiment that is not deleted, with its variations and\
+        \ their statistics - the same numbers the store admin shows.  Filter by status,\
+        \ by type (page, url, theme, openai), or by the page an experiment runs on.\
+        \  auto_ends_at says when the engine will end an experiment by itself, and\
+        \ p_value is a one-way ANOVA across all variations.  Read one experiment for\
+        \ its daily statistics.\n"
+      operationId: listSfvbExperiments
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: Running or Ended
+        in: query
+        name: status
+        schema:
+          type: string
+      - description: "page, url, theme or openai"
+        in: query
+        name: type
+        schema:
+          type: string
+      - description: "Only experiments on this page, for example /lp/spring-sale/"
+        in: query
+        name: path
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperimentsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the storefront's experiments
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "type page starts an experiment element already saved in a page\
+        \ body - send path, slot and widget_id, and its name, objective, duration\
+        \ and variations are read from the element with the builder's rules (2 to\
+        \ 5 variations numbered 0 up with no gaps, 3 to 90 days, traffic on all or\
+        \ none adding up to 100).  The new id is written into the element and the\
+        \ body is saved, so pull it again before the next edit.  type url splits visitors\
+        \ between existing pages at router_url, and always ends by itself after duration_days.\
+        \  Always needs sfvb_publish, because visitors are split as soon as it starts.\n"
+      operationId: startSfvbExperiment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbExperimentStartRequest'
+        description: The experiment to start
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperiment'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Start an experiment
+      tags:
+      - sfvb
+      x-codegen-request-body-name: experiment_start_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/experiments/objectives:
+    get:
+      description: "Each objective with what is measured per session and compared\
+        \ between variations, the usual optimization type, and whether it needs an\
+        \ event name.\n"
+      operationId: getSfvbExperimentObjectives
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperimentObjectivesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the objectives an experiment can optimize
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}:
+    get:
+      description: "The experiment, its variations and their statistics, and with\
+        \ daily=true each variation's daily rows.  p95_sessions_needed is estimated\
+        \ only after 1000 sessions, and sessions_needed_computed_dts says when.  For\
+        \ a url experiment, router_url is the address visitors must enter through.\n"
+      operationId: getSfvbExperiment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: experiment_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: Include each variation's daily statistics
+        in: query
+        name: daily
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperiment'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one experiment and its statistics
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end:
+    post:
+      description: "Ends a running experiment.  With winner_variation_number the winner\
+        \ gets all new visitors, and a page experiment's winning content is promoted\
+        \ into the page by the completion job on its next run, which also emails the\
+        \ merchant.  Without a winner a page experiment's id is cleared from its page\
+        \ body so the page shows variation 0, and a url experiment sends everyone\
+        \ to variation 0.  Visitors already assigned to a url experiment keep their\
+        \ page for up to 30 days.  Always needs sfvb_publish.\n"
+      operationId: endSfvbExperiment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: experiment_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbExperimentEndRequest'
+        description: "The winner, if any"
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperiment'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: End an experiment
+      tags:
+      - sfvb
+      x-codegen-request-body-name: experiment_end_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number}:
+    put:
+      description: "Stops or resumes sending new visitors to one variation of a running\
+        \ experiment.  Visitors already assigned keep seeing it.  Variation 0 cannot\
+        \ be paused, because the split falls back to it, and the last variation still\
+        \ receiving visitors cannot be paused.  Always needs sfvb_publish.\n"
+      operationId: putSfvbExperimentVariation
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: experiment_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: variation_number
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbExperimentVariationUpdateRequest'
+        description: Pause or resume
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbExperiment'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Pause or resume a variation
+      tags:
+      - sfvb
+      x-codegen-request-body-name: experiment_variation_update_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/files:
     delete:
@@ -8920,6 +9570,107 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    post:
+      description: "Creates the page and its folder, the way the store admin's add\
+        \ page does.  The parent page must already exist, and the last part of the\
+        \ path may only contain letters, digits, hyphens and underscores - it is refused,\
+        \ not cleaned.  A path that already has a page is refused with a 409 and the\
+        \ code sfvb.page_exists.  Without a group_template the page inherits its parent's\
+        \ templates, or catalog_group.vm directly under the root.  Set attributes\
+        \ and images afterwards with the page attribute and image endpoints, and push\
+        \ the body to the page folder.  Always needs sfvb_publish, because the page\
+        \ is live as soon as it exists.  Deleting, moving and renaming pages stay\
+        \ in the store admin.\n"
+      operationId: insertSfvbPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageCreateRequest'
+        description: The page to create
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_create_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/pages/attributes:
     put:
       description: "A partial update.  Only the attributes you name are changed. \
@@ -9020,6 +9771,743 @@ paths:
       - sfvb
       x-codegen-request-body-name: page_attribute_update_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/blog_posts:
+    get:
+      description: |
+        The posts the page shows.  uses_selectors is true when the page's blog post selectors choose them instead.
+      operationId: getSfvbPageBlogPosts
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /blog/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageBlogPostsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the blog posts assigned to a page
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add:
+    post:
+      description: "Adds posts by blog_post_oid, at most 500 at a time.  Every oid\
+        \ must be a post on this storefront, and one that is not changes nothing.\
+        \  Refused on a page whose selectors choose its blog posts.  Always needs\
+        \ sfvb_publish.\n"
+      operationId: addSfvbPageBlogPosts
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /blog/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageBlogPostsRequest'
+        description: Blog posts to assign
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageBlogPostsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Assign blog posts to a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_blog_posts_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove:
+    post:
+      description: "Removes posts by blog_post_oid, at most 500 at a time.  Every\
+        \ oid must be on the page, and one that is not changes nothing.  The posts\
+        \ themselves are not touched.  Always needs sfvb_publish.\n"
+      operationId: removeSfvbPageBlogPosts
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /blog/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageBlogPostsRequest'
+        description: Blog posts to take off the page
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageBlogPostsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Take blog posts off a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_blog_posts_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/duplicate:
+    post:
+      description: "Copies what the store admin's duplicate copies - settings, items,\
+        \ blog posts, permissions, attributes, selectors, images and the page folder\
+        \ with its body.  The copy goes to the path you choose, under any existing\
+        \ page, with the same path rules as creating a page, and a 409 with the code\
+        \ sfvb.page_exists when that path is taken.  The root page and pages with\
+        \ pages under them cannot be copied.  A page whose folder holds a started\
+        \ experiment is refused, because the copy would share the experiment - end\
+        \ it first.  Translated title and description text is not copied.  Always\
+        \ needs sfvb_publish, because the copy is live as soon as it exists.\n"
+      operationId: duplicateSfvbPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageDuplicateRequest'
+        description: The page to copy and where
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Copy a page to a new path
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_duplicate_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/items:
+    get:
+      description: |
+        The items on the page with their sort order and url part.  uses_selectors is true when the page's selectors choose its items instead.
+      operationId: getSfvbPageItems
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageItemsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the items assigned to a page
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/items/add:
+    post:
+      description: "Adds items by item id, at most 500 at a time, or changes the sort\
+        \ order or url part of items already on the page.  Every id is checked first\
+        \ and one unknown id changes nothing.  Refused on a page whose selectors choose\
+        \ its items.  sort_order is refused unless the page sorts its items by a custom\
+        \ order.  Always needs sfvb_publish.\n"
+      operationId: addSfvbPageItems
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageItemsAddRequest'
+        description: Items to assign
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageItemsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Assign items to a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_items_add_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/items/remove:
+    post:
+      description: "Removes items by item id, at most 500 at a time.  Every id must\
+        \ be on the page, and one that is not changes nothing.  The items themselves\
+        \ are not touched.  Refused on a page whose selectors choose its items.  Always\
+        \ needs sfvb_publish.\n"
+      operationId: removeSfvbPageItems
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageItemsRemoveRequest'
+        description: Items to take off the page
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageItemsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Take items off a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_items_remove_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/list:
+    get:
+      description: "Every page with its settings, sorted by path with the root first.\
+        \  Hidden pages are included.  Pass under to list one page and everything\
+        \ below it.  Read from the same cached catalog the admin page tree uses, so\
+        \ a page created a moment ago can take a moment to appear here - read it directly\
+        \ with the single-page read to confirm a write.\n"
+      operationId: listSfvbPages
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Only this page and the pages below it, for example /lp/"
+        in: query
+        name: under
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageListResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the storefront's pages
+      tags:
+      - sfvb
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/pages/multimedia:
     delete:
@@ -9219,6 +10707,286 @@ paths:
       - sfvb
       x-codegen-request-body-name: page_multimedia_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/selectors:
+    get:
+      description: "The conditions that choose the page's items and blog posts, and\
+        \ whether each set must all match.\n"
+      operationId: getSfvbPageSelectors
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageSelectors'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a page's selectors
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Each list you send replaces that whole set, and an empty list\
+        \ clears it.  A list you leave out is not touched.  The page's items or blog\
+        \ posts are recalculated from the new selectors straight away.  While a page\
+        \ has item selectors its items cannot be assigned by hand.  Always needs sfvb_publish.\n"
+      operationId: putSfvbPageSelectors
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageSelectors'
+        description: The selector sets to replace
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageSelectors'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Replace a page's selectors
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_selectors_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/settings:
+    put:
+      description: "A partial update.  Only the fields you send change - title, description,\
+        \ templates, visibility, sitemap exclusion, sort orders, items per page and\
+        \ page type.  Unlike the store admin's page save, the page's attributes, images,\
+        \ items, selectors and permissions are left exactly as they are.  Fields that\
+        \ would move or rename the page, and fields this endpoint does not know, are\
+        \ refused.  The root page cannot be hidden.  Always needs sfvb_publish, because\
+        \ page settings are live.\n"
+      operationId: putSfvbPageSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Page path, for example /lp/spring-sale/"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageSettingsRequest'
+        description: The settings to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a page's settings
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_settings_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_access:
     post:
@@ -9685,6 +11453,86 @@ paths:
         - sfvb_read
       - ultraCartSimpleApiKey: []
       summary: URL that renders a preview session
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/templates:
+    get:
+      description: "Each template with the page type it declares and what it can render\
+        \ - items, sub-pages, blog posts, pagination, visual builder containers. \
+        \ A page's group_template names one of these.  The storefront's fixed templates,\
+        \ such as checkout and my account, are flagged system and must never be assigned\
+        \ to a page.\n"
+      operationId: listSfvbTemplates
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Only templates declaring this page type, for example group"
+        in: query
+        name: page_type
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTemplatesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the active theme's templates
       tags:
       - sfvb
       x-accepts: application/json
@@ -192104,133 +193952,133 @@ components:
     Experiment:
       example:
         p95_sessions_needed: 5
-        p_value: 5.637376656633329
+        p_value: 2.3021358869347655
         notes: notes
-        openai_total_iterations: 1
+        openai_total_iterations: 5
         end_dts: end_dts
         optimization_type: optimization_type
-        storefront_oid: 9
+        storefront_oid: 3
         objective_parameter: objective_parameter
         uri: uri
         experiment_type: experiment_type
         objective: objective
         equal_weighting: true
-        storefront_experiment_oid: 7
+        storefront_experiment_oid: 9
         variations:
         - paused: true
-          initiate_checkout_count: 6
-          order_count: 1
-          add_to_cart_count: 3
-          event_count: 3
+          initiate_checkout_count: 1
+          order_count: 2
+          add_to_cart_count: 2
+          event_count: 6
           variation_name: variation_name
           daily_statistics:
-          - initiate_checkout_count: 4
-            order_count: 5
-            add_to_cart_count: 1
-            event_count: 1
-            sms_opt_in_count: 9
-            duration_seconds_sum: 7
-            bounce_count: 6
+          - initiate_checkout_count: 5
+            order_count: 9
+            add_to_cart_count: 6
+            event_count: 4
+            sms_opt_in_count: 6
+            duration_seconds_sum: 1
+            bounce_count: 7
             order_ids:
             - order_ids
             - order_ids
             order_item_count: 9
-            revenue: 6.683562403749608
-            session_count: 8
+            revenue: 8.762042012749001
+            session_count: 9
             stat_dts: stat_dts
-            page_view_count: 9
-          - initiate_checkout_count: 4
-            order_count: 5
-            add_to_cart_count: 1
-            event_count: 1
-            sms_opt_in_count: 9
-            duration_seconds_sum: 7
-            bounce_count: 6
+            page_view_count: 6
+          - initiate_checkout_count: 5
+            order_count: 9
+            add_to_cart_count: 6
+            event_count: 4
+            sms_opt_in_count: 6
+            duration_seconds_sum: 1
+            bounce_count: 7
             order_ids:
             - order_ids
             - order_ids
             order_item_count: 9
-            revenue: 6.683562403749608
-            session_count: 8
+            revenue: 8.762042012749001
+            session_count: 9
             stat_dts: stat_dts
-            page_view_count: 9
-          duration_seconds_sum: 6
-          original_traffic_percentage: 6.778324963048013
-          average_objective_per_session: 4.145608029883936
+            page_view_count: 6
+          duration_seconds_sum: 3
+          original_traffic_percentage: 6.878052220127876
+          average_objective_per_session: 7.386281948385884
           bounce_count: 1
-          average_duration_seconds: 2
+          average_duration_seconds: 4
           sms_opt_ins: 3
           url: url
-          order_item_count: 2
-          revenue: 5.944895607614016
-          variation_number: 7
+          order_item_count: 6
+          revenue: 6.704019297950036
+          variation_number: 0
           winner: true
-          session_count: 6
-          traffic_percentage: 3.0937452626664474
-          page_view_count: 6
-          average_order_value: 7.386281948385884
-          conversion_rate: 1.0246457001441578
+          session_count: 3
+          traffic_percentage: 7.143538047012306
+          page_view_count: 5
+          average_order_value: 1.2315135367772556
+          conversion_rate: 1.4894159098541704
         - paused: true
-          initiate_checkout_count: 6
-          order_count: 1
-          add_to_cart_count: 3
-          event_count: 3
+          initiate_checkout_count: 1
+          order_count: 2
+          add_to_cart_count: 2
+          event_count: 6
           variation_name: variation_name
           daily_statistics:
-          - initiate_checkout_count: 4
-            order_count: 5
-            add_to_cart_count: 1
-            event_count: 1
-            sms_opt_in_count: 9
-            duration_seconds_sum: 7
-            bounce_count: 6
+          - initiate_checkout_count: 5
+            order_count: 9
+            add_to_cart_count: 6
+            event_count: 4
+            sms_opt_in_count: 6
+            duration_seconds_sum: 1
+            bounce_count: 7
             order_ids:
             - order_ids
             - order_ids
             order_item_count: 9
-            revenue: 6.683562403749608
-            session_count: 8
+            revenue: 8.762042012749001
+            session_count: 9
             stat_dts: stat_dts
-            page_view_count: 9
-          - initiate_checkout_count: 4
-            order_count: 5
-            add_to_cart_count: 1
-            event_count: 1
-            sms_opt_in_count: 9
-            duration_seconds_sum: 7
-            bounce_count: 6
+            page_view_count: 6
+          - initiate_checkout_count: 5
+            order_count: 9
+            add_to_cart_count: 6
+            event_count: 4
+            sms_opt_in_count: 6
+            duration_seconds_sum: 1
+            bounce_count: 7
             order_ids:
             - order_ids
             - order_ids
             order_item_count: 9
-            revenue: 6.683562403749608
-            session_count: 8
+            revenue: 8.762042012749001
+            session_count: 9
             stat_dts: stat_dts
-            page_view_count: 9
-          duration_seconds_sum: 6
-          original_traffic_percentage: 6.778324963048013
-          average_objective_per_session: 4.145608029883936
+            page_view_count: 6
+          duration_seconds_sum: 3
+          original_traffic_percentage: 6.878052220127876
+          average_objective_per_session: 7.386281948385884
           bounce_count: 1
-          average_duration_seconds: 2
+          average_duration_seconds: 4
           sms_opt_ins: 3
           url: url
-          order_item_count: 2
-          revenue: 5.944895607614016
-          variation_number: 7
+          order_item_count: 6
+          revenue: 6.704019297950036
+          variation_number: 0
           winner: true
-          session_count: 6
-          traffic_percentage: 3.0937452626664474
-          page_view_count: 6
-          average_order_value: 7.386281948385884
-          conversion_rate: 1.0246457001441578
-        session_count: 2
-        duration_days: 0
+          session_count: 3
+          traffic_percentage: 7.143538047012306
+          page_view_count: 5
+          average_order_value: 1.2315135367772556
+          conversion_rate: 1.4894159098541704
+        session_count: 7
+        duration_days: 6
         name: name
         openai_model: openai_model
         id: id
         start_dts: start_dts
         container_id: container_id
-        openai_current_iteration: 6
+        openai_current_iteration: 1
         openai_element_type: headline
         status: Running
       properties:
@@ -192340,133 +194188,133 @@ components:
             next_offset: 3
         experiment:
           p95_sessions_needed: 5
-          p_value: 5.637376656633329
+          p_value: 2.3021358869347655
           notes: notes
-          openai_total_iterations: 1
+          openai_total_iterations: 5
           end_dts: end_dts
           optimization_type: optimization_type
-          storefront_oid: 9
+          storefront_oid: 3
           objective_parameter: objective_parameter
           uri: uri
           experiment_type: experiment_type
           objective: objective
           equal_weighting: true
-          storefront_experiment_oid: 7
+          storefront_experiment_oid: 9
           variations:
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
-          session_count: 2
-          duration_days: 0
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
+          session_count: 7
+          duration_days: 6
           name: name
           openai_model: openai_model
           id: id
           start_dts: start_dts
           container_id: container_id
-          openai_current_iteration: 6
+          openai_current_iteration: 1
           openai_element_type: headline
           status: Running
         success: true
@@ -192507,263 +194355,263 @@ components:
         success: true
         experiments:
         - p95_sessions_needed: 5
-          p_value: 5.637376656633329
+          p_value: 2.3021358869347655
           notes: notes
-          openai_total_iterations: 1
+          openai_total_iterations: 5
           end_dts: end_dts
           optimization_type: optimization_type
-          storefront_oid: 9
+          storefront_oid: 3
           objective_parameter: objective_parameter
           uri: uri
           experiment_type: experiment_type
           objective: objective
           equal_weighting: true
-          storefront_experiment_oid: 7
+          storefront_experiment_oid: 9
           variations:
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
-          session_count: 2
-          duration_days: 0
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
+          session_count: 7
+          duration_days: 6
           name: name
           openai_model: openai_model
           id: id
           start_dts: start_dts
           container_id: container_id
-          openai_current_iteration: 6
+          openai_current_iteration: 1
           openai_element_type: headline
           status: Running
         - p95_sessions_needed: 5
-          p_value: 5.637376656633329
+          p_value: 2.3021358869347655
           notes: notes
-          openai_total_iterations: 1
+          openai_total_iterations: 5
           end_dts: end_dts
           optimization_type: optimization_type
-          storefront_oid: 9
+          storefront_oid: 3
           objective_parameter: objective_parameter
           uri: uri
           experiment_type: experiment_type
           objective: objective
           equal_weighting: true
-          storefront_experiment_oid: 7
+          storefront_experiment_oid: 9
           variations:
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
           - paused: true
-            initiate_checkout_count: 6
-            order_count: 1
-            add_to_cart_count: 3
-            event_count: 3
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
             variation_name: variation_name
             daily_statistics:
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            - initiate_checkout_count: 4
-              order_count: 5
-              add_to_cart_count: 1
-              event_count: 1
-              sms_opt_in_count: 9
-              duration_seconds_sum: 7
-              bounce_count: 6
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
               order_ids:
               - order_ids
               - order_ids
               order_item_count: 9
-              revenue: 6.683562403749608
-              session_count: 8
+              revenue: 8.762042012749001
+              session_count: 9
               stat_dts: stat_dts
-              page_view_count: 9
-            duration_seconds_sum: 6
-            original_traffic_percentage: 6.778324963048013
-            average_objective_per_session: 4.145608029883936
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
             bounce_count: 1
-            average_duration_seconds: 2
+            average_duration_seconds: 4
             sms_opt_ins: 3
             url: url
-            order_item_count: 2
-            revenue: 5.944895607614016
-            variation_number: 7
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
             winner: true
-            session_count: 6
-            traffic_percentage: 3.0937452626664474
-            page_view_count: 6
-            average_order_value: 7.386281948385884
-            conversion_rate: 1.0246457001441578
-          session_count: 2
-          duration_days: 0
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
+          session_count: 7
+          duration_days: 6
           name: name
           openai_model: openai_model
           id: id
           start_dts: start_dts
           container_id: container_id
-          openai_current_iteration: 6
+          openai_current_iteration: 1
           openai_element_type: headline
           status: Running
         warning:
@@ -192794,58 +194642,58 @@ components:
     ExperimentVariation:
       example:
         paused: true
-        initiate_checkout_count: 6
-        order_count: 1
-        add_to_cart_count: 3
-        event_count: 3
+        initiate_checkout_count: 1
+        order_count: 2
+        add_to_cart_count: 2
+        event_count: 6
         variation_name: variation_name
         daily_statistics:
-        - initiate_checkout_count: 4
-          order_count: 5
-          add_to_cart_count: 1
-          event_count: 1
-          sms_opt_in_count: 9
-          duration_seconds_sum: 7
-          bounce_count: 6
+        - initiate_checkout_count: 5
+          order_count: 9
+          add_to_cart_count: 6
+          event_count: 4
+          sms_opt_in_count: 6
+          duration_seconds_sum: 1
+          bounce_count: 7
           order_ids:
           - order_ids
           - order_ids
           order_item_count: 9
-          revenue: 6.683562403749608
-          session_count: 8
+          revenue: 8.762042012749001
+          session_count: 9
           stat_dts: stat_dts
-          page_view_count: 9
-        - initiate_checkout_count: 4
-          order_count: 5
-          add_to_cart_count: 1
-          event_count: 1
-          sms_opt_in_count: 9
-          duration_seconds_sum: 7
-          bounce_count: 6
+          page_view_count: 6
+        - initiate_checkout_count: 5
+          order_count: 9
+          add_to_cart_count: 6
+          event_count: 4
+          sms_opt_in_count: 6
+          duration_seconds_sum: 1
+          bounce_count: 7
           order_ids:
           - order_ids
           - order_ids
           order_item_count: 9
-          revenue: 6.683562403749608
-          session_count: 8
+          revenue: 8.762042012749001
+          session_count: 9
           stat_dts: stat_dts
-          page_view_count: 9
-        duration_seconds_sum: 6
-        original_traffic_percentage: 6.778324963048013
-        average_objective_per_session: 4.145608029883936
+          page_view_count: 6
+        duration_seconds_sum: 3
+        original_traffic_percentage: 6.878052220127876
+        average_objective_per_session: 7.386281948385884
         bounce_count: 1
-        average_duration_seconds: 2
+        average_duration_seconds: 4
         sms_opt_ins: 3
         url: url
-        order_item_count: 2
-        revenue: 5.944895607614016
-        variation_number: 7
+        order_item_count: 6
+        revenue: 6.704019297950036
+        variation_number: 0
         winner: true
-        session_count: 6
-        traffic_percentage: 3.0937452626664474
-        page_view_count: 6
-        average_order_value: 7.386281948385884
-        conversion_rate: 1.0246457001441578
+        session_count: 3
+        traffic_percentage: 7.143538047012306
+        page_view_count: 5
+        average_order_value: 1.2315135367772556
+        conversion_rate: 1.4894159098541704
       properties:
         add_to_cart_count:
           description: Total add to cart count for this variation
@@ -192934,21 +194782,21 @@ components:
       type: object
     ExperimentVariationStat:
       example:
-        initiate_checkout_count: 4
-        order_count: 5
-        add_to_cart_count: 1
-        event_count: 1
-        sms_opt_in_count: 9
-        duration_seconds_sum: 7
-        bounce_count: 6
+        initiate_checkout_count: 5
+        order_count: 9
+        add_to_cart_count: 6
+        event_count: 4
+        sms_opt_in_count: 6
+        duration_seconds_sum: 1
+        bounce_count: 7
         order_ids:
         - order_ids
         - order_ids
         order_item_count: 9
-        revenue: 6.683562403749608
-        session_count: 8
+        revenue: 8.762042012749001
+        session_count: 9
         stat_dts: stat_dts
-        page_view_count: 9
+        page_view_count: 6
       properties:
         add_to_cart_count:
           description: Total add to cart count for this variation
@@ -234173,6 +236021,81 @@ components:
             instead of shipping address
           type: boolean
       type: object
+    SfvbBlogPost:
+      example:
+        blog_post_oid: 0
+        publication_dts: publication_dts
+        visibility: visibility
+        author: author
+        url_part: url_part
+        unassigned: true
+        title: title
+      properties:
+        author:
+          description: The post author.
+          type: string
+        blog_post_oid:
+          description: The blog post's oid.  This is what a page's blog post assignment
+            names.
+          format: int32
+          type: integer
+        publication_dts:
+          description: "When the post was published (ISO 8601, UTC), or when it was\
+            \ created if it has no publication time."
+          type: string
+        title:
+          description: The post title.
+          type: string
+        unassigned:
+          description: True when no page shows this post yet.  Only reported by the
+            blog post list.
+          type: boolean
+        url_part:
+          description: The post's name in its URL.
+          type: string
+        visibility:
+          description: "P public, L logged in customers only, D draft."
+          type: string
+      type: object
+    SfvbBlogPostsResponse:
+      example:
+        total: 5
+        page: 6
+        blog_posts:
+        - blog_post_oid: 0
+          publication_dts: publication_dts
+          visibility: visibility
+          author: author
+          url_part: url_part
+          unassigned: true
+          title: title
+        - blog_post_oid: 0
+          publication_dts: publication_dts
+          visibility: visibility
+          author: author
+          url_part: url_part
+          unassigned: true
+          title: title
+        page_size: 1
+      properties:
+        blog_posts:
+          description: "One page of the storefront's blog posts, newest first."
+          items:
+            $ref: '#/components/schemas/SfvbBlogPost'
+          type: array
+        page:
+          description: "The page returned, starting at 1."
+          format: int32
+          type: integer
+        page_size:
+          description: Posts per page.
+          format: int32
+          type: integer
+        total:
+          description: "How many posts match, across all pages."
+          format: int32
+          type: integer
+      type: object
     SfvbCompileRequest:
       example:
         container_name: container_name
@@ -234608,6 +236531,629 @@ components:
           description: "Optional pointer at a known good example, typically a storefront\
             \ library fragment that solves the same problem properly."
           type: string
+      type: object
+    SfvbExperiment:
+      example:
+        router_url: router_url
+        page_body_path: page_body_path
+        auto_ends_at: auto_ends_at
+        experiment:
+          p95_sessions_needed: 5
+          p_value: 2.3021358869347655
+          notes: notes
+          openai_total_iterations: 5
+          end_dts: end_dts
+          optimization_type: optimization_type
+          storefront_oid: 3
+          objective_parameter: objective_parameter
+          uri: uri
+          experiment_type: experiment_type
+          objective: objective
+          equal_weighting: true
+          storefront_experiment_oid: 9
+          variations:
+          - paused: true
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
+            variation_name: variation_name
+            daily_statistics:
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
+              order_ids:
+              - order_ids
+              - order_ids
+              order_item_count: 9
+              revenue: 8.762042012749001
+              session_count: 9
+              stat_dts: stat_dts
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
+              order_ids:
+              - order_ids
+              - order_ids
+              order_item_count: 9
+              revenue: 8.762042012749001
+              session_count: 9
+              stat_dts: stat_dts
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
+            bounce_count: 1
+            average_duration_seconds: 4
+            sms_opt_ins: 3
+            url: url
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
+            winner: true
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
+          - paused: true
+            initiate_checkout_count: 1
+            order_count: 2
+            add_to_cart_count: 2
+            event_count: 6
+            variation_name: variation_name
+            daily_statistics:
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
+              order_ids:
+              - order_ids
+              - order_ids
+              order_item_count: 9
+              revenue: 8.762042012749001
+              session_count: 9
+              stat_dts: stat_dts
+              page_view_count: 6
+            - initiate_checkout_count: 5
+              order_count: 9
+              add_to_cart_count: 6
+              event_count: 4
+              sms_opt_in_count: 6
+              duration_seconds_sum: 1
+              bounce_count: 7
+              order_ids:
+              - order_ids
+              - order_ids
+              order_item_count: 9
+              revenue: 8.762042012749001
+              session_count: 9
+              stat_dts: stat_dts
+              page_view_count: 6
+            duration_seconds_sum: 3
+            original_traffic_percentage: 6.878052220127876
+            average_objective_per_session: 7.386281948385884
+            bounce_count: 1
+            average_duration_seconds: 4
+            sms_opt_ins: 3
+            url: url
+            order_item_count: 6
+            revenue: 6.704019297950036
+            variation_number: 0
+            winner: true
+            session_count: 3
+            traffic_percentage: 7.143538047012306
+            page_view_count: 5
+            average_order_value: 1.2315135367772556
+            conversion_rate: 1.4894159098541704
+          session_count: 7
+          duration_days: 6
+          name: name
+          openai_model: openai_model
+          id: id
+          start_dts: start_dts
+          container_id: container_id
+          openai_current_iteration: 1
+          openai_element_type: headline
+          status: Running
+        page_body_sha256: page_body_sha256
+        days_elapsed: 0
+        sessions_needed_computed_dts: sessions_needed_computed_dts
+        type: type
+        p_value_test: p_value_test
+        notice: notice
+      properties:
+        auto_ends_at:
+          description: "When the experiment engine will end this experiment by itself\
+            \ and declare the variation with the best raw objective per session the\
+            \ winner, without a significance check (ISO 8601, UTC).  Set for running\
+            \ url and theme experiments, and for any running experiment whose traffic\
+            \ shifts toward the leader (equal_weighting false).  Null when only ending\
+            \ it deliberately will stop it."
+          type: string
+        days_elapsed:
+          description: "Whole days the experiment has run, up to now or to when it\
+            \ ended."
+          format: int32
+          type: integer
+        experiment:
+          $ref: '#/components/schemas/Experiment'
+        notice:
+          description: Something the caller should know about what this call did or
+            could not do.
+          type: string
+        p_value_test:
+          description: "The test behind p_value.  one_way_anova across all variations,\
+            \ so a low p_value says some variation differs, not which one is best."
+          type: string
+        page_body_path:
+          description: "Set when this call rewrote a page body - starting a page experiment\
+            \ writes its id there, and ending one without a winner clears it.  Pull\
+            \ the file again before editing it."
+          type: string
+        page_body_sha256:
+          description: "The rewritten page body's new hash, for If-Match on the next\
+            \ write."
+          type: string
+        router_url:
+          description: "For a url experiment, the address visitors must enter through\
+            \ to be split between the pages.  Ads and links must point here, not at\
+            \ the pages."
+          type: string
+        sessions_needed_computed_dts:
+          description: "When p95_sessions_needed was last estimated (ISO 8601, UTC).\
+            \  It is estimated only once the experiment has 1000 sessions, and at\
+            \ most hourly.  Null before then."
+          type: string
+        type:
+          description: "page for an experiment element inside a page, url for a split\
+            \ between pages, theme for a split between themes, openai for a generated\
+            \ headline experiment."
+          type: string
+      type: object
+    SfvbExperimentEndRequest:
+      example:
+        winner_variation_number: 0
+      properties:
+        winner_variation_number:
+          description: "The variation to declare the winner.  Leave it out to end\
+            \ without one - a page experiment then shows variation 0, and a url experiment\
+            \ sends everyone to variation 0."
+          format: int32
+          type: integer
+      type: object
+    SfvbExperimentObjective:
+      example:
+        requires_parameter: true
+        per_session_value: per_session_value
+        usual_optimization_type: usual_optimization_type
+        objective: objective
+      properties:
+        objective:
+          description: The value an experiment's objective holds.
+          type: string
+        per_session_value:
+          description: What is measured in each session and compared between variations.
+          type: string
+        requires_parameter:
+          description: "True when the experiment also needs objective_parameter, the\
+            \ event name."
+          type: boolean
+        usual_optimization_type:
+          description: "MAXIMUM or MINIMUM, whichever is the usual goal for this objective."
+          type: string
+      type: object
+    SfvbExperimentObjectivesResponse:
+      example:
+        objectives:
+        - requires_parameter: true
+          per_session_value: per_session_value
+          usual_optimization_type: usual_optimization_type
+          objective: objective
+        - requires_parameter: true
+          per_session_value: per_session_value
+          usual_optimization_type: usual_optimization_type
+          objective: objective
+      properties:
+        objectives:
+          description: Every objective an experiment can optimize.
+          items:
+            $ref: '#/components/schemas/SfvbExperimentObjective'
+          type: array
+      type: object
+    SfvbExperimentsResponse:
+      example:
+        experiments:
+        - router_url: router_url
+          page_body_path: page_body_path
+          auto_ends_at: auto_ends_at
+          experiment:
+            p95_sessions_needed: 5
+            p_value: 2.3021358869347655
+            notes: notes
+            openai_total_iterations: 5
+            end_dts: end_dts
+            optimization_type: optimization_type
+            storefront_oid: 3
+            objective_parameter: objective_parameter
+            uri: uri
+            experiment_type: experiment_type
+            objective: objective
+            equal_weighting: true
+            storefront_experiment_oid: 9
+            variations:
+            - paused: true
+              initiate_checkout_count: 1
+              order_count: 2
+              add_to_cart_count: 2
+              event_count: 6
+              variation_name: variation_name
+              daily_statistics:
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              duration_seconds_sum: 3
+              original_traffic_percentage: 6.878052220127876
+              average_objective_per_session: 7.386281948385884
+              bounce_count: 1
+              average_duration_seconds: 4
+              sms_opt_ins: 3
+              url: url
+              order_item_count: 6
+              revenue: 6.704019297950036
+              variation_number: 0
+              winner: true
+              session_count: 3
+              traffic_percentage: 7.143538047012306
+              page_view_count: 5
+              average_order_value: 1.2315135367772556
+              conversion_rate: 1.4894159098541704
+            - paused: true
+              initiate_checkout_count: 1
+              order_count: 2
+              add_to_cart_count: 2
+              event_count: 6
+              variation_name: variation_name
+              daily_statistics:
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              duration_seconds_sum: 3
+              original_traffic_percentage: 6.878052220127876
+              average_objective_per_session: 7.386281948385884
+              bounce_count: 1
+              average_duration_seconds: 4
+              sms_opt_ins: 3
+              url: url
+              order_item_count: 6
+              revenue: 6.704019297950036
+              variation_number: 0
+              winner: true
+              session_count: 3
+              traffic_percentage: 7.143538047012306
+              page_view_count: 5
+              average_order_value: 1.2315135367772556
+              conversion_rate: 1.4894159098541704
+            session_count: 7
+            duration_days: 6
+            name: name
+            openai_model: openai_model
+            id: id
+            start_dts: start_dts
+            container_id: container_id
+            openai_current_iteration: 1
+            openai_element_type: headline
+            status: Running
+          page_body_sha256: page_body_sha256
+          days_elapsed: 0
+          sessions_needed_computed_dts: sessions_needed_computed_dts
+          type: type
+          p_value_test: p_value_test
+          notice: notice
+        - router_url: router_url
+          page_body_path: page_body_path
+          auto_ends_at: auto_ends_at
+          experiment:
+            p95_sessions_needed: 5
+            p_value: 2.3021358869347655
+            notes: notes
+            openai_total_iterations: 5
+            end_dts: end_dts
+            optimization_type: optimization_type
+            storefront_oid: 3
+            objective_parameter: objective_parameter
+            uri: uri
+            experiment_type: experiment_type
+            objective: objective
+            equal_weighting: true
+            storefront_experiment_oid: 9
+            variations:
+            - paused: true
+              initiate_checkout_count: 1
+              order_count: 2
+              add_to_cart_count: 2
+              event_count: 6
+              variation_name: variation_name
+              daily_statistics:
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              duration_seconds_sum: 3
+              original_traffic_percentage: 6.878052220127876
+              average_objective_per_session: 7.386281948385884
+              bounce_count: 1
+              average_duration_seconds: 4
+              sms_opt_ins: 3
+              url: url
+              order_item_count: 6
+              revenue: 6.704019297950036
+              variation_number: 0
+              winner: true
+              session_count: 3
+              traffic_percentage: 7.143538047012306
+              page_view_count: 5
+              average_order_value: 1.2315135367772556
+              conversion_rate: 1.4894159098541704
+            - paused: true
+              initiate_checkout_count: 1
+              order_count: 2
+              add_to_cart_count: 2
+              event_count: 6
+              variation_name: variation_name
+              daily_statistics:
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              - initiate_checkout_count: 5
+                order_count: 9
+                add_to_cart_count: 6
+                event_count: 4
+                sms_opt_in_count: 6
+                duration_seconds_sum: 1
+                bounce_count: 7
+                order_ids:
+                - order_ids
+                - order_ids
+                order_item_count: 9
+                revenue: 8.762042012749001
+                session_count: 9
+                stat_dts: stat_dts
+                page_view_count: 6
+              duration_seconds_sum: 3
+              original_traffic_percentage: 6.878052220127876
+              average_objective_per_session: 7.386281948385884
+              bounce_count: 1
+              average_duration_seconds: 4
+              sms_opt_ins: 3
+              url: url
+              order_item_count: 6
+              revenue: 6.704019297950036
+              variation_number: 0
+              winner: true
+              session_count: 3
+              traffic_percentage: 7.143538047012306
+              page_view_count: 5
+              average_order_value: 1.2315135367772556
+              conversion_rate: 1.4894159098541704
+            session_count: 7
+            duration_days: 6
+            name: name
+            openai_model: openai_model
+            id: id
+            start_dts: start_dts
+            container_id: container_id
+            openai_current_iteration: 1
+            openai_element_type: headline
+            status: Running
+          page_body_sha256: page_body_sha256
+          days_elapsed: 0
+          sessions_needed_computed_dts: sessions_needed_computed_dts
+          type: type
+          p_value_test: p_value_test
+          notice: notice
+      properties:
+        experiments:
+          description: "Experiments, running first, then by name.  Deleted experiments\
+            \ are left out.  Daily statistics are only on the single experiment read."
+          items:
+            $ref: '#/components/schemas/SfvbExperiment'
+          type: array
+      type: object
+    SfvbExperimentStartRequest:
+      example:
+        path: path
+        equal_weighting: true
+        notes: notes
+        widget_id: widget_id
+        variations:
+        - path: path
+          traffic_percentage: 6
+          name: name
+        - path: path
+          traffic_percentage: 6
+          name: name
+        optimization_type: optimization_type
+        duration_days: 0
+        name: name
+        slot: slot
+        type: type
+        objective_parameter: objective_parameter
+        objective: objective
+      properties:
+        duration_days:
+          description: url - 3 to 90.  A url experiment always ends by itself after
+            this many days.
+          format: int32
+          type: integer
+        equal_weighting:
+          description: url - true keeps the split fixed.  false shifts traffic toward
+            the leader as the experiment runs.  Defaults to true.
+          type: boolean
+        name:
+          description: url - experiment name.
+          type: string
+        notes:
+          description: "url - notes, such as the hypothesis being tested."
+          type: string
+        objective:
+          description: url - one of the objectives from the objective list.
+          type: string
+        objective_parameter:
+          description: "url - the event name, when the objective is Events."
+          type: string
+        optimization_type:
+          description: url - MAXIMUM or MINIMUM.
+          type: string
+        path:
+          description: page - path of the page whose body holds the experiment element.
+          type: string
+        slot:
+          description: page - the body file's name without .cjson.  Defaults to body.
+          type: string
+        type:
+          description: page or url.
+          type: string
+        variations:
+          description: url - 2 to 5 pages.  The first is the control.
+          items:
+            $ref: '#/components/schemas/SfvbExperimentStartVariation'
+          type: array
+        widget_id:
+          description: page - id of the experiment element in that body.
+          type: string
+      type: object
+    SfvbExperimentStartVariation:
+      example:
+        path: path
+        traffic_percentage: 6
+        name: name
+      properties:
+        name:
+          description: "Variation name, shown in the statistics."
+          type: string
+        path:
+          description: "Path of an existing page on this storefront, for example /lp/spring-sale-b/."
+          type: string
+        traffic_percentage:
+          description: "Starting share of traffic, 1 to 100.  Set it on every variation,\
+            \ adding up to 100, or on none for an even split."
+          format: int32
+          type: integer
+      type: object
+    SfvbExperimentVariationUpdateRequest:
+      example:
+        paused: true
+      properties:
+        paused:
+          description: "true stops sending new visitors to the variation, false resumes\
+            \ it.  Visitors already assigned keep seeing it.  Variation 0 cannot be\
+            \ paused."
+          type: boolean
       type: object
     SfvbFileContentResponse:
       example:
@@ -235772,6 +238318,343 @@ components:
             $ref: '#/components/schemas/SfvbPageAttributeUpdate'
           type: array
       type: object
+    SfvbPageBlogPostSelector:
+      example:
+        author_name: author_name
+        attribute_name: attribute_name
+        attribute_value: attribute_value
+        tag: tag
+        type: type
+      properties:
+        attribute_name:
+          description: attribute - the blog post attribute name.  Required with attribute_value.
+          type: string
+        attribute_value:
+          description: attribute - the value to match.
+          type: string
+        author_name:
+          description: author name - required.
+          type: string
+        tag:
+          description: tag - required.
+          type: string
+        type:
+          description: "One of all, author name, attribute, tag."
+          type: string
+      type: object
+    SfvbPageBlogPostsRequest:
+      example:
+        blog_post_oids:
+        - 0
+        - 0
+      properties:
+        blog_post_oids:
+          description: "Blog post oids from the blog post list, at most 500."
+          items:
+            type: integer
+          type: array
+      type: object
+    SfvbPageBlogPostsResponse:
+      example:
+        path: path
+        uses_selectors: true
+        blog_posts:
+        - blog_post_oid: 0
+          publication_dts: publication_dts
+          visibility: visibility
+          author: author
+          url_part: url_part
+          unassigned: true
+          title: title
+        - blog_post_oid: 0
+          publication_dts: publication_dts
+          visibility: visibility
+          author: author
+          url_part: url_part
+          unassigned: true
+          title: title
+      properties:
+        blog_posts:
+          description: "The blog posts assigned to the page, newest first."
+          items:
+            $ref: '#/components/schemas/SfvbBlogPost'
+          type: array
+        path:
+          description: The page path.
+          type: string
+        uses_selectors:
+          description: "True when selectors choose this page's blog posts.  They are\
+            \ then recalculated from the selectors, and adding or removing posts by\
+            \ hand is refused."
+          type: boolean
+      type: object
+    SfvbPageCreateRequest:
+      example:
+        path: path
+        visible: true
+        exclude_from_sitemap: true
+        page_type: page_type
+        group_template: group_template
+        description: description
+        item_template: item_template
+        visible_dts: visible_dts
+        title: title
+      properties:
+        description:
+          description: "The page description, for templates that show one."
+          type: string
+        exclude_from_sitemap:
+          description: Leave the page out of the sitemap and mark it noindex.  Usual
+            for ad landing pages.
+          type: boolean
+        group_template:
+          description: "Template that renders the page, a name from the template list.\
+            \  When omitted the page inherits its parent's templates, or catalog_group.vm\
+            \ directly under the root."
+          type: string
+        item_template:
+          description: Template that renders the item pages under this page.  Inherited
+            or defaulted like group_template.
+          type: string
+        page_type:
+          description: "S for a static page, D for a dynamic one.  Defaults to D,\
+            \ as in the admin."
+          type: string
+        path:
+          description: "Path of the new page, for example /lp/spring-sale/.  The parent\
+            \ page must already exist, and the last part may only contain letters,\
+            \ digits, hyphens and underscores."
+          type: string
+        title:
+          description: The page title.
+          type: string
+        visible:
+          description: "False creates the page hidden, so it answers 404 to shoppers\
+            \ until it is shown."
+          type: boolean
+        visible_dts:
+          description: Keep the page hidden until this time (ISO 8601).
+          type: string
+      type: object
+    SfvbPageDuplicateRequest:
+      example:
+        path: path
+        source_path: source_path
+        title: title
+      properties:
+        path:
+          description: "Path of the copy, for example /lp/spring-sale-b/.  The same\
+            \ rules as creating a page - the parent must exist, the path must be new,\
+            \ and the last part may only contain letters, digits, hyphens and underscores."
+          type: string
+        source_path:
+          description: "Path of the page to copy.  Not the root, and not a page with\
+            \ pages under it."
+          type: string
+        title:
+          description: Title of the copy.  Defaults to the source page's title.
+          type: string
+      type: object
+    SfvbPageItem:
+      example:
+        default_assignment: true
+        item_id: item_id
+        url_part: url_part
+        sort_order: 6
+        merchant_item_oid: 0
+      properties:
+        default_assignment:
+          description: True when this page is the item's canonical home.  Read only
+            - set in the store admin.
+          type: boolean
+        item_id:
+          description: "The item id, as the merchant knows it."
+          type: string
+        merchant_item_oid:
+          description: The item's internal oid.  Read only.
+          format: int32
+          type: integer
+        sort_order:
+          description: Position on the page.  Used only when the page sorts its items
+            by a custom order (sort_order_child_items C).
+          format: int32
+          type: integer
+        url_part:
+          description: "The item page's name under this page, so the item is shown\
+            \ at the page path plus url_part plus .html.  Letters, digits, hyphens\
+            \ and underscores.  When empty the item id is used."
+          type: string
+      type: object
+    SfvbPageItemsAddRequest:
+      example:
+        items:
+        - default_assignment: true
+          item_id: item_id
+          url_part: url_part
+          sort_order: 6
+          merchant_item_oid: 0
+        - default_assignment: true
+          item_id: item_id
+          url_part: url_part
+          sort_order: 6
+          merchant_item_oid: 0
+      properties:
+        items:
+          description: "Items to assign, at most 500.  An item already on the page\
+            \ keeps its place unless a sort_order or url_part is given, which replaces\
+            \ the stored one."
+          items:
+            $ref: '#/components/schemas/SfvbPageItem'
+          type: array
+      type: object
+    SfvbPageItemSelector:
+      example:
+        variation_name: variation_name
+        manufacturer_name: manufacturer_name
+        type: type
+        retail_cost_low: 1.4658129805029452
+        attribute_name: attribute_name
+        attribute_value: attribute_value
+        tag: tag
+        sale_item: true
+        top_seller_days: 5
+        item_folder_oid: 0
+        variation_value: variation_value
+        retail_cost_high: 6.027456183070403
+        top_seller_count: 5
+      properties:
+        attribute_name:
+          description: attribute - the item attribute name.  Required with attribute_value.
+          type: string
+        attribute_value:
+          description: attribute - the value to match.
+          type: string
+        item_folder_oid:
+          description: "item folder and item folder tree - the item folder, which\
+            \ must exist."
+          format: int32
+          type: integer
+        manufacturer_name:
+          description: manufacturer name - required.
+          type: string
+        retail_cost_high:
+          description: retail cost - the highest price.
+          type: number
+        retail_cost_low:
+          description: retail cost - the lowest price.  At least one of low and high
+            is required.
+          type: number
+        sale_item:
+          description: sale item - match items on sale.
+          type: boolean
+        tag:
+          description: tag - the item tag to match.  Required.
+          type: string
+        top_seller_count:
+          description: "top seller - how many items, 1 to 250.  Required with top_seller_days."
+          format: int32
+          type: integer
+        top_seller_days:
+          description: "top seller - over how many days, 1 to 180."
+          format: int32
+          type: integer
+        type:
+          description: "One of retail cost, attribute, variation, not variation, manufacturer\
+            \ name, exploded diagram, sale item, item folder, item folder tree, top\
+            \ seller, new, pre-order, tag."
+          type: string
+        variation_name:
+          description: variation - the variation name.  Required with variation_value.
+          type: string
+        variation_value:
+          description: variation - the variation value to match.
+          type: string
+      type: object
+    SfvbPageItemsRemoveRequest:
+      example:
+        item_ids:
+        - item_ids
+        - item_ids
+      properties:
+        item_ids:
+          description: "Item ids to take off the page, at most 500.  Every one must\
+            \ be on the page."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbPageItemsResponse:
+      example:
+        path: path
+        uses_selectors: true
+        items:
+        - default_assignment: true
+          item_id: item_id
+          url_part: url_part
+          sort_order: 6
+          merchant_item_oid: 0
+        - default_assignment: true
+          item_id: item_id
+          url_part: url_part
+          sort_order: 6
+          merchant_item_oid: 0
+        sort_order_child_items: sort_order_child_items
+      properties:
+        items:
+          description: The items assigned to the page.
+          items:
+            $ref: '#/components/schemas/SfvbPageItem'
+          type: array
+        path:
+          description: The page path.
+          type: string
+        sort_order_child_items:
+          description: How the page orders its items.  C means by each item's sort_order.
+          type: string
+        uses_selectors:
+          description: "True when selectors choose this page's items.  The items are\
+            \ then recalculated from the selectors, and adding or removing items by\
+            \ hand is refused."
+          type: boolean
+      type: object
+    SfvbPageListResponse:
+      example:
+        pages:
+        - item_count: 6
+          visible: true
+          exclude_from_sitemap: true
+          uses_selectors: true
+          page_type: page_type
+          child_count: 0
+          title: title
+          path: path
+          root: true
+          group_template: group_template
+          item_template: item_template
+          parent_path: parent_path
+          visible_dts: visible_dts
+          sort_order: 1
+        - item_count: 6
+          visible: true
+          exclude_from_sitemap: true
+          uses_selectors: true
+          page_type: page_type
+          child_count: 0
+          title: title
+          path: path
+          root: true
+          group_template: group_template
+          item_template: item_template
+          parent_path: parent_path
+          visible_dts: visible_dts
+          sort_order: 1
+      properties:
+        pages:
+          description: "Pages sorted by path, the root first.  Hidden pages are included."
+          items:
+            $ref: '#/components/schemas/SfvbPageSummary'
+          type: array
+      type: object
     SfvbPageMultimedia:
       example:
         declared: true
@@ -235856,6 +238739,9 @@ components:
           filename: filename
           description: description
           dimensions: dimensions
+        visible: true
+        exclude_from_sitemap: true
+        group_template: group_template
         attributes:
         - undeclared: true
           used_by_current_theme: true
@@ -235873,6 +238759,9 @@ components:
           used_by: used_by
           value: value
           writable: true
+        item_template: item_template
+        visible_dts: visible_dts
+        title: title
       properties:
         attributes:
           description: "Every attribute this page has, including ones a template declares\
@@ -235881,6 +238770,16 @@ components:
           items:
             $ref: '#/components/schemas/SfvbPageAttribute'
           type: array
+        exclude_from_sitemap:
+          description: True when the page is left out of the sitemap and marked noindex.
+          type: boolean
+        group_template:
+          description: "Template file that renders the page itself, a bare .vm name\
+            \ found anywhere in the active theme."
+          type: string
+        item_template:
+          description: Template file that renders the item pages under this page.
+          type: string
         multimedia:
           description: "The page's images, including codes a template declares but\
             \ nothing has attached yet.  These are what the pageimage element renders\
@@ -235891,6 +238790,224 @@ components:
           type: array
         path:
           description: "The page path, normalized to begin and end with a slash."
+          type: string
+        title:
+          description: The page title.
+          type: string
+        visible:
+          description: False when the page is hidden.  A hidden page answers 404 to
+            shoppers.
+          type: boolean
+        visible_dts:
+          description: "When set, the page stays hidden until this time (ISO 8601,\
+            \ UTC)."
+          type: string
+      type: object
+    SfvbPageSelectors:
+      example:
+        path: path
+        blog_post_selectors:
+        - author_name: author_name
+          attribute_name: attribute_name
+          attribute_value: attribute_value
+          tag: tag
+          type: type
+        - author_name: author_name
+          attribute_name: attribute_name
+          attribute_value: attribute_value
+          tag: tag
+          type: type
+        match_all_item_selectors: true
+        match_all_blog_post_selectors: true
+        item_selectors:
+        - variation_name: variation_name
+          manufacturer_name: manufacturer_name
+          type: type
+          retail_cost_low: 1.4658129805029452
+          attribute_name: attribute_name
+          attribute_value: attribute_value
+          tag: tag
+          sale_item: true
+          top_seller_days: 5
+          item_folder_oid: 0
+          variation_value: variation_value
+          retail_cost_high: 6.027456183070403
+          top_seller_count: 5
+        - variation_name: variation_name
+          manufacturer_name: manufacturer_name
+          type: type
+          retail_cost_low: 1.4658129805029452
+          attribute_name: attribute_name
+          attribute_value: attribute_value
+          tag: tag
+          sale_item: true
+          top_seller_days: 5
+          item_folder_oid: 0
+          variation_value: variation_value
+          retail_cost_high: 6.027456183070403
+          top_seller_count: 5
+      properties:
+        blog_post_selectors:
+          description: The conditions that choose the page's blog posts.
+          items:
+            $ref: '#/components/schemas/SfvbPageBlogPostSelector'
+          type: array
+        item_selectors:
+          description: "The conditions that choose the page's items.  While there\
+            \ are any, the page's items are recalculated from them and cannot be assigned\
+            \ by hand."
+          items:
+            $ref: '#/components/schemas/SfvbPageItemSelector'
+          type: array
+        match_all_blog_post_selectors:
+          description: "True when a blog post must meet every blog post selector,\
+            \ false when any one is enough."
+          type: boolean
+        match_all_item_selectors:
+          description: "True when an item must meet every item selector, false when\
+            \ meeting any one is enough."
+          type: boolean
+        path:
+          description: The page path.  Read only.
+          type: string
+      type: object
+    SfvbPageSettingsRequest:
+      example:
+        visible: true
+        exclude_from_sitemap: true
+        page_type: page_type
+        blog_post_template: blog_post_template
+        description: description
+        sort_order_child_groups: sort_order_child_groups
+        title: title
+        sort_order_child_items: sort_order_child_items
+        items_per_page: 0
+        review_template: review_template
+        group_template: group_template
+        item_template: item_template
+        visible_dts: visible_dts
+        sort_order: 6
+      properties:
+        blog_post_template:
+          description: Template that renders the blog posts under this page.
+          type: string
+        description:
+          description: The page description.  Null or empty clears it.
+          type: string
+        exclude_from_sitemap:
+          description: Leave the page out of the sitemap and mark it noindex.
+          type: boolean
+        group_template:
+          description: "Template that renders the page, a name from the template list."
+          type: string
+        item_template:
+          description: Template that renders the item pages under this page.
+          type: string
+        items_per_page:
+          description: Items per page on a template that paginates.  Null returns
+            to the template's default.
+          format: int32
+          type: integer
+        page_type:
+          description: "S for a static page, D for a dynamic one."
+          type: string
+        review_template:
+          description: Template that renders the item review pages under this page.
+          type: string
+        sort_order:
+          description: Position among its siblings when the parent sorts child pages
+            by a custom order.  Null clears it.
+          format: int32
+          type: integer
+        sort_order_child_groups:
+          description: "How the pages under this one are ordered.  TA or TD by title,\
+            \ DA or DD by description, C custom."
+          type: string
+        sort_order_child_items:
+          description: "How the page's items are ordered.  IA or ID by item id, DA\
+            \ or DD by description, SA or SD by manufacturer SKU, PA or PD by price,\
+            \ RA or RD by review, NA or ND by inventory, C custom."
+          type: string
+        title:
+          description: The page title.
+          type: string
+        visible:
+          description: "False hides the page, so it answers 404 to shoppers.  The\
+            \ root page cannot be hidden."
+          type: boolean
+        visible_dts:
+          description: Keep the page hidden until this time (ISO 8601).  Null or empty
+            clears it.
+          type: string
+      type: object
+    SfvbPageSummary:
+      example:
+        item_count: 6
+        visible: true
+        exclude_from_sitemap: true
+        uses_selectors: true
+        page_type: page_type
+        child_count: 0
+        title: title
+        path: path
+        root: true
+        group_template: group_template
+        item_template: item_template
+        parent_path: parent_path
+        visible_dts: visible_dts
+        sort_order: 1
+      properties:
+        child_count:
+          description: Number of pages directly under this one.
+          format: int32
+          type: integer
+        exclude_from_sitemap:
+          description: True when the page is left out of the sitemap and marked noindex.
+          type: boolean
+        group_template:
+          description: "Template file that renders the page itself, a bare .vm name\
+            \ found anywhere in the active theme."
+          type: string
+        item_count:
+          description: Number of items assigned to the page.  The catalog stops counting
+            at its per-page item ceiling.
+          format: int32
+          type: integer
+        item_template:
+          description: Template file that renders the item pages under this page.
+          type: string
+        page_type:
+          description: "S for a static page, D for a dynamic one."
+          type: string
+        parent_path:
+          description: Path of the page this one sits under.  Empty for the root page.
+          type: string
+        path:
+          description: "The page path, beginning and ending with a slash.  The root\
+            \ page is /."
+          type: string
+        root:
+          description: True for the storefront's home page.
+          type: boolean
+        sort_order:
+          description: Position among its siblings when the parent sorts child pages
+            by a custom order.
+          format: int32
+          type: integer
+        title:
+          description: The page title.
+          type: string
+        uses_selectors:
+          description: True when the page's items or blog posts are chosen by selectors
+            rather than assigned by hand.
+          type: boolean
+        visible:
+          description: False when the page is hidden.  A hidden page answers 404 to
+            shoppers.
+          type: boolean
+        visible_dts:
+          description: "When set, the page stays hidden until this time (ISO 8601,\
+            \ UTC)."
           type: string
       type: object
     SfvbPreviewAccessRequest:
@@ -236409,6 +239526,90 @@ components:
           items:
             $ref: '#/components/schemas/SfvbStorefront'
           type: array
+      type: object
+    SfvbTemplate:
+      example:
+        pagination: true
+        system: true
+        display_items: true
+        page_type: page_type
+        metadata_available: true
+        display_blog_posts: true
+        display_subgroups: true
+        name: name
+        theme_relative_path: theme_relative_path
+        visual_builder: true
+      properties:
+        display_blog_posts:
+          description: True when the template shows the page's blog posts.
+          type: boolean
+        display_items:
+          description: True when the template shows the page's items.
+          type: boolean
+        display_subgroups:
+          description: True when the template shows the pages under this one.
+          type: boolean
+        metadata_available:
+          description: "False when the template has no metadata, so the capability\
+            \ flags below are unknown."
+          type: boolean
+        name:
+          description: The bare file name.  This is the value a page's group_template
+            or item_template holds.
+          type: string
+        page_type:
+          description: "The page type the template declares, such as group, item or\
+            \ static.  system for the fixed templates the storefront itself uses,\
+            \ such as checkout and my account.  Null when the template has no metadata."
+          type: string
+        pagination:
+          description: True when the template pages through a long list of items.
+          type: boolean
+        system:
+          description: True for the fixed templates the storefront itself uses.  Never
+            assign one to a page.
+          type: boolean
+        theme_relative_path:
+          description: Where the file sits inside the theme.
+          type: string
+        visual_builder:
+          description: True when the template renders visual builder containers.
+          type: boolean
+      type: object
+    SfvbTemplatesResponse:
+      example:
+        templates:
+        - pagination: true
+          system: true
+          display_items: true
+          page_type: page_type
+          metadata_available: true
+          display_blog_posts: true
+          display_subgroups: true
+          name: name
+          theme_relative_path: theme_relative_path
+          visual_builder: true
+        - pagination: true
+          system: true
+          display_items: true
+          page_type: page_type
+          metadata_available: true
+          display_blog_posts: true
+          display_subgroups: true
+          name: name
+          theme_relative_path: theme_relative_path
+          visual_builder: true
+        theme_oid: 0
+      properties:
+        templates:
+          description: Templates sorted by name.
+          items:
+            $ref: '#/components/schemas/SfvbTemplate'
+          type: array
+        theme_oid:
+          description: The active theme the templates were read from.
+          format: int32
+          type: integer
       type: object
     SfvbTheme:
       example:

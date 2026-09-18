@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbFileEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T15:14:49.142-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T15:39:17.086-04:00[America/Indianapolis]")
 public class SfvbFileEntry {
   public static final String SERIALIZED_NAME_AUTO_COMPILED = "auto_compiled";
   @SerializedName(SERIALIZED_NAME_AUTO_COMPILED)
