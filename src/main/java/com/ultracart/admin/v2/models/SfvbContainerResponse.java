@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbContainerResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-16T10:44:16.889-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T10:02:42.133-04:00[America/Indianapolis]")
 public class SfvbContainerResponse {
   public static final String SERIALIZED_NAME_CJSON = "cjson";
   @SerializedName(SERIALIZED_NAME_CJSON)
@@ -64,6 +64,10 @@ public class SfvbContainerResponse {
   public static final String SERIALIZED_NAME_LAST_MODIFIED = "last_modified";
   @SerializedName(SERIALIZED_NAME_LAST_MODIFIED)
   private String lastModified;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ITEM_ID = "merchant_item_id";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_ID)
+  private String merchantItemId;
 
   public static final String SERIALIZED_NAME_OWNER_OBJECT_ID = "owner_object_id";
   @SerializedName(SERIALIZED_NAME_OWNER_OBJECT_ID)
@@ -223,6 +227,29 @@ public class SfvbContainerResponse {
   }
 
 
+  public SfvbContainerResponse merchantItemId(String merchantItemId) {
+    
+    this.merchantItemId = merchantItemId;
+    return this;
+  }
+
+   /**
+   * The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container&#39;s own id embeds this value, which is what a preview session keys an item container on.
+   * @return merchantItemId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The merchant item id of the owning item, for item containers only and absent for every other owner type.  owner_object_id is the item oid, which appears nowhere on a rendered storefront, so this is how a caller confirms which item an oid actually reached.  It is read fresh on every call and so reflects a renamed item.  A container's own id embeds this value, which is what a preview session keys an item container on.")
+
+  public String getMerchantItemId() {
+    return merchantItemId;
+  }
+
+
+  public void setMerchantItemId(String merchantItemId) {
+    this.merchantItemId = merchantItemId;
+  }
+
+
   public SfvbContainerResponse ownerObjectId(String ownerObjectId) {
     
     this.ownerObjectId = ownerObjectId;
@@ -283,13 +310,14 @@ public class SfvbContainerResponse {
         Objects.equals(this.containerName, sfvbContainerResponse.containerName) &&
         Objects.equals(this.hashSha256, sfvbContainerResponse.hashSha256) &&
         Objects.equals(this.lastModified, sfvbContainerResponse.lastModified) &&
+        Objects.equals(this.merchantItemId, sfvbContainerResponse.merchantItemId) &&
         Objects.equals(this.ownerObjectId, sfvbContainerResponse.ownerObjectId) &&
         Objects.equals(this.ownerType, sfvbContainerResponse.ownerType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cjson, containerName, hashSha256, lastModified, ownerObjectId, ownerType);
+    return Objects.hash(cjson, containerName, hashSha256, lastModified, merchantItemId, ownerObjectId, ownerType);
   }
 
   @Override
@@ -300,6 +328,7 @@ public class SfvbContainerResponse {
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
+    sb.append("    merchantItemId: ").append(toIndentedString(merchantItemId)).append("\n");
     sb.append("    ownerObjectId: ").append(toIndentedString(ownerObjectId)).append("\n");
     sb.append("    ownerType: ").append(toIndentedString(ownerType)).append("\n");
     sb.append("}");
@@ -328,6 +357,7 @@ public class SfvbContainerResponse {
     openapiFields.add("container_name");
     openapiFields.add("hash_sha256");
     openapiFields.add("last_modified");
+    openapiFields.add("merchant_item_id");
     openapiFields.add("owner_object_id");
     openapiFields.add("owner_type");
 
@@ -368,6 +398,9 @@ public class SfvbContainerResponse {
       }
       if (jsonObj.get("last_modified") != null && !jsonObj.get("last_modified").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_modified` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified").toString()));
+      }
+      if (jsonObj.get("merchant_item_id") != null && !jsonObj.get("merchant_item_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_item_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_item_id").toString()));
       }
       if (jsonObj.get("owner_object_id") != null && !jsonObj.get("owner_object_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner_object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_object_id").toString()));

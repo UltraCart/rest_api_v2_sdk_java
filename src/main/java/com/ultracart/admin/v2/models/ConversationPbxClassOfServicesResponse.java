@@ -53,7 +53,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxClassOfServicesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-16T10:44:16.889-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T10:02:42.133-04:00[America/Indianapolis]")
 public class ConversationPbxClassOfServicesResponse {
   public static final String SERIALIZED_NAME_CLASSES_OF_SERVICES = "classes_of_services";
   @SerializedName(SERIALIZED_NAME_CLASSES_OF_SERVICES)

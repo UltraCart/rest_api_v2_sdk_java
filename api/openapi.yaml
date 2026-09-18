@@ -6670,6 +6670,9 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
+      description: "Addressed the same way as the container itself, so owner_type\
+        \ also says how owner_object_id is read and itemid lists the history of the\
+        \ item container that merchant item id names.\n"
       operationId: listSfvbContainerVersions
       parameters:
       - in: path
@@ -6754,7 +6757,9 @@ paths:
     get:
       description: "Inspect or diff an earlier version without reverting to it.  The\
         \ version is addressed through the container that owns it, so a history oid\
-        \ belonging to some other resource cannot be read through this route.\n"
+        \ belonging to some other resource cannot be read through this route.  owner_type\
+        \ also says how owner_object_id is read, and itemid addresses an item container\
+        \ by merchant item id.\n"
       operationId: getSfvbContainerVersion
       parameters:
       - in: path
@@ -6843,9 +6848,13 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}:
     get:
-      description: "owner_type is one of upsell, email, postcardfront, postcardback\
-        \ or item.  Item containers also require container_name.  Theme and page containers\
-        \ are files; read those through files/content.\n"
+      description: "owner_type is one of upsell, email, postcardfront, postcardback,\
+        \ item or itemid.  It also says how owner_object_id is read - item and upsell\
+        \ take an oid, itemid takes a merchant item id, and the rest take an esp uuid.\
+        \  itemid reaches the same containers as item and is the way to address one\
+        \ from a storefront, where data-context-item-id carries the merchant item\
+        \ id and the oid appears nowhere.  Item containers also require container_name.\
+        \  Theme and page containers are files; read those through files/content.\n"
       operationId: getSfvbContainer
       parameters:
       - in: path
@@ -6933,7 +6942,11 @@ paths:
         \ caller validated first.  The previous value is snapshotted before the write,\
         \ so the change can be reverted.  Side effects the visual builder performs\
         \ on save, such as upsell screenshot regeneration and email content review\
-        \ flagging, are applied too.\n"
+        \ flagging, are applied too.  owner_type also says how owner_object_id is\
+        \ read; send itemid to address an item container by merchant item id rather\
+        \ than by oid.  Either way the history records the one canonical address,\
+        \ so a container written under one spelling is listed and reverted under the\
+        \ other.\n"
       operationId: putSfvbContainer
       parameters:
       - in: path
@@ -7042,7 +7055,8 @@ paths:
         \ turn.  Reverting to an entry recorded before the container existed removes\
         \ it again.  Addressed through the owning container and guarded by If-Match,\
         \ because a revert overwrites live content just as much as an ordinary write\
-        \ does.\n"
+        \ does.  owner_type also says how owner_object_id is read, so a version written\
+        \ by oid can be reverted by merchant item id and the other way round.\n"
       operationId: revertSfvbContainer
       parameters:
       - in: path
@@ -10351,6 +10365,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -234099,6 +234125,7 @@ components:
     SfvbContainerResponse:
       example:
         hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
         owner_object_id: owner_object_id
         container_name: container_name
         last_modified: last_modified
@@ -234124,6 +234151,15 @@ components:
             \ that is rewritten with byte identical content keeps its original date\
             \ rather than moving to now, because the timestamp tracks changes to the\
             \ container and not writes to the offer."
+          type: string
+        merchant_item_id:
+          description: "The merchant item id of the owning item, for item containers\
+            \ only and absent for every other owner type.  owner_object_id is the\
+            \ item oid, which appears nowhere on a rendered storefront, so this is\
+            \ how a caller confirms which item an oid actually reached.  It is read\
+            \ fresh on every call and so reflects a renamed item.  A container's own\
+            \ id embeds this value, which is what a preview session keys an item container\
+            \ on."
           type: string
         owner_object_id:
           description: Identifier of the owning object within its store.
