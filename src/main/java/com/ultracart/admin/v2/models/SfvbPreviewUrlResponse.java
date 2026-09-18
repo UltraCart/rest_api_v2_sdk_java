@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPreviewUrlResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T14:49:42.570-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T15:14:49.142-04:00[America/Indianapolis]")
 public class SfvbPreviewUrlResponse {
   public static final String SERIALIZED_NAME_EXPIRES_IN_SECONDS = "expires_in_seconds";
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN_SECONDS)
