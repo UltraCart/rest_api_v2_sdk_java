@@ -1026,6 +1026,10 @@ docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbSiteAttribute.md
+docs/SfvbSiteAttributeUpdate.md
+docs/SfvbSiteAttributeUpdateRequest.md
+docs/SfvbSiteAttributesResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTheme.md
@@ -2178,6 +2182,10 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttribute.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdate.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdateRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefront.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTheme.java

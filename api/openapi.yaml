@@ -6668,6 +6668,178 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/attributes:
+    get:
+      description: "The values the siteattribute element and $site.attr render.  These\
+        \ are not in any file or theme.  Attributes a template declares but nothing\
+        \ has set are included with the template's default, so the response describes\
+        \ what the templates can render rather than only what has been saved.  Credentials\
+        \ stored as site attributes are never included.\n"
+      operationId: getSfvbSiteAttributes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSiteAttributesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a storefront's site attributes
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update.  Only the attributes you name are changed. \
+        \ Every entry is checked before any is written.  List, video list, mailing\
+        \ list and item set attributes are refused, and so are the General screen\
+        \ settings other than the title, the SEO description and keywords and the\
+        \ social account names.  Credentials are refused.  Always needs sfvb_publish,\
+        \ because every theme reads the same attributes and there is no dormant copy\
+        \ to change instead.  The admin General screen saves the whole storefront,\
+        \ so a merchant with it open can still overwrite a change made here.\n"
+      operationId: putSfvbSiteAttributes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbSiteAttributeUpdateRequest'
+        description: Attributes to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSiteAttributesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a storefront's site attributes
+      tags:
+      - sfvb
+      x-codegen-request-body-name: site_attribute_update_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
       description: "Addressed the same way as the container itself, so owner_type\
@@ -236063,6 +236235,145 @@ components:
           description: Quality warnings about the rendered node.
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
+    SfvbSiteAttribute:
+      example:
+        undeclared: true
+        used_by_current_theme: true
+        name: name
+        type: string
+        used_by: used_by
+        value: value
+        writable: true
+      properties:
+        name:
+          description: "Attribute name, as a template's site attribute declaration\
+            \ spells it.  Compare case insensitively.  This is the value siteAttributeName\
+            \ refers to and the name $site.attr takes."
+          type: string
+        type:
+          description: "What kind of attribute this is, taken from the template that\
+            \ declares it rather than from the stored row.  orphan means no template\
+            \ declares it.  reserved covers the settings the StoreFronts General screen\
+            \ owns."
+          enum:
+          - string
+          - multiline
+          - html
+          - color
+          - rgba
+          - boolean
+          - integer
+          - orphan
+          - reserved
+          - simplelist
+          - definitionlist
+          - videolist
+          - mailinglist
+          - itemset
+          type: string
+        undeclared:
+          description: "True when no template declares this name and it is not a reserved\
+            \ setting.  A template can still read it with $site.attr, so this is not\
+            \ proof it is unused, but a name you did not mean to create is most likely\
+            \ a misspelling."
+          type: boolean
+        used_by:
+          description: "The other themes that declare this attribute, when the active\
+            \ theme does not."
+          type: string
+        used_by_current_theme:
+          description: True when a template in the active theme declares this attribute.
+          type: boolean
+        value:
+          description: "The stored value, or the template default when nothing has\
+            \ set it."
+          type: string
+        writable:
+          description: "True when this API will change the value.  List, video list,\
+            \ mailing list and item set values are structured documents and must be\
+            \ edited in the store admin.  Of the reserved settings only the title,\
+            \ the SEO description and keywords and the social account names are writable\
+            \ here."
+          type: boolean
+      type: object
+    SfvbSiteAttributesResponse:
+      example:
+        storefront_oid: 0
+        attributes:
+        - undeclared: true
+          used_by_current_theme: true
+          name: name
+          type: string
+          used_by: used_by
+          value: value
+          writable: true
+        - undeclared: true
+          used_by_current_theme: true
+          name: name
+          type: string
+          used_by: used_by
+          value: value
+          writable: true
+      properties:
+        attributes:
+          description: "Every site attribute, sorted by name.  Credentials stored\
+            \ as site attributes are never included."
+          items:
+            $ref: '#/components/schemas/SfvbSiteAttribute'
+          type: array
+        storefront_oid:
+          description: The storefront these attributes belong to.
+          format: int32
+          type: integer
+      type: object
+    SfvbSiteAttributeUpdate:
+      example:
+        name: name
+        type: string
+        value: value
+      properties:
+        name:
+          description: "Attribute name.  Matched without regard to case against what\
+            \ the storefront already has, so you do not have to reproduce the exact\
+            \ casing.  A name nothing matches creates a new attribute."
+          type: string
+        type:
+          description: "Only consulted when creating an attribute no template declares.\
+            \  For a declared attribute the template's type always wins, because the\
+            \ templates decide it and not the caller."
+          enum:
+          - string
+          - multiline
+          - html
+          - boolean
+          - integer
+          - color
+          - rgba
+          type: string
+        value:
+          description: The value to store.  An empty string clears it.  For html the
+            markup is stored as given and rendered as given.  For boolean send the
+            text true or false.
+          type: string
+      type: object
+    SfvbSiteAttributeUpdateRequest:
+      example:
+        attributes:
+        - name: name
+          type: string
+          value: value
+        - name: name
+          type: string
+          value: value
+      properties:
+        attributes:
+          description: "The attributes to change.  Every entry is checked before any\
+            \ is written, so a request naming one attribute this API will not change\
+            \ writes nothing rather than part of what it asked for."
+          items:
+            $ref: '#/components/schemas/SfvbSiteAttributeUpdate'
           type: array
       type: object
     SfvbStorefront:

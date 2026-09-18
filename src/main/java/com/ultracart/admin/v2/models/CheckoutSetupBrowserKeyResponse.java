@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CheckoutSetupBrowserKeyResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T10:02:42.133-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T12:49:52.990-04:00[America/Indianapolis]")
 public class CheckoutSetupBrowserKeyResponse {
   public static final String SERIALIZED_NAME_BROWSER_KEY = "browser_key";
   @SerializedName(SERIALIZED_NAME_BROWSER_KEY)
