@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * EmailSuppressionSurfaces
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T16:16:50.521-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
 public class EmailSuppressionSurfaces {
   public static final String SERIALIZED_NAME_CENTRAL_SES_SUPPRESSION = "central_ses_suppression";
   @SerializedName(SERIALIZED_NAME_CENTRAL_SES_SUPPRESSION)

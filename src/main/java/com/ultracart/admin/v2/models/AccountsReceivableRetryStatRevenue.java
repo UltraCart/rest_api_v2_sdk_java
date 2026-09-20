@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AccountsReceivableRetryStatRevenue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T16:16:50.521-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
 public class AccountsReceivableRetryStatRevenue {
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)

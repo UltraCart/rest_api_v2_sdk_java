@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-18T16:16:50.521-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;
