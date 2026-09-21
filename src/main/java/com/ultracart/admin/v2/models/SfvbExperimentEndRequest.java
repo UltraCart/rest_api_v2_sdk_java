@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbExperimentEndRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T22:00:11.653-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T00:16:48.649-04:00[America/Indianapolis]")
 public class SfvbExperimentEndRequest {
   public static final String SERIALIZED_NAME_WINNER_VARIATION_NUMBER = "winner_variation_number";
   @SerializedName(SERIALIZED_NAME_WINNER_VARIATION_NUMBER)
