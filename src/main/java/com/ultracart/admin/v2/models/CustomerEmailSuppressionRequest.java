@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomerEmailSuppressionRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T22:00:11.653-04:00[America/Indianapolis]")
 public class CustomerEmailSuppressionRequest {
   public static final String SERIALIZED_NAME_CLEAR_BOUNCE = "clear_bounce";
   @SerializedName(SERIALIZED_NAME_CLEAR_BOUNCE)

@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * AutoOrderPaymentUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T22:00:11.653-04:00[America/Indianapolis]")
 public class AutoOrderPaymentUpdateRequest {
   public static final String SERIALIZED_NAME_ATTEMPT_REBILL = "attempt_rebill";
   @SerializedName(SERIALIZED_NAME_ATTEMPT_REBILL)

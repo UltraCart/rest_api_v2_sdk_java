@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbPageBlogPostsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T22:00:11.653-04:00[America/Indianapolis]")
 public class SfvbPageBlogPostsRequest {
   public static final String SERIALIZED_NAME_BLOG_POST_OIDS = "blog_post_oids";
   @SerializedName(SERIALIZED_NAME_BLOG_POST_OIDS)

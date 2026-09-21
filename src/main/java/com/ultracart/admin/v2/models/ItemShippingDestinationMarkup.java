@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemShippingDestinationMarkup
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T18:02:58.489-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-20T22:00:11.653-04:00[America/Indianapolis]")
 public class ItemShippingDestinationMarkup {
   public static final String SERIALIZED_NAME_ADULT_SIGNATURE_REQUIRED = "adult_signature_required";
   @SerializedName(SERIALIZED_NAME_ADULT_SIGNATURE_REQUIRED)
