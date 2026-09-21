@@ -54,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * WorkflowTask
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
 public class WorkflowTask {
   public static final String SERIALIZED_NAME_ASSIGNED_TO_GROUP = "assigned_to_group";
   @SerializedName(SERIALIZED_NAME_ASSIGNED_TO_GROUP)

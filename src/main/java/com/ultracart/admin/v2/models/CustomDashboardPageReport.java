@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomDashboardPageReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
 public class CustomDashboardPageReport {
   public static final String SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OID = "data_warehouse_report_config_oid";
   @SerializedName(SERIALIZED_NAME_DATA_WAREHOUSE_REPORT_CONFIG_OID)

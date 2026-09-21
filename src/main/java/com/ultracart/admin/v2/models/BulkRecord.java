@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * BulkRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
 public class BulkRecord {
   /**
    * On an upsert success, whether the record was inserted or updated

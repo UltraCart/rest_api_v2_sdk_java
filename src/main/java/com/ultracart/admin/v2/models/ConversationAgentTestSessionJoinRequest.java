@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationAgentTestSessionJoinRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
 public class ConversationAgentTestSessionJoinRequest {
   public static final String SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID = "conversation_webchat_queue_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_WEBCHAT_QUEUE_UUID)
