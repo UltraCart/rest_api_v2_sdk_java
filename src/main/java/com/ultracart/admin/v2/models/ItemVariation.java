@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemVariation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class ItemVariation {
   public static final String SERIALIZED_NAME_DEFAULT_TEXT = "default_text";
   @SerializedName(SERIALIZED_NAME_DEFAULT_TEXT)

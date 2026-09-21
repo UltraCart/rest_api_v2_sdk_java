@@ -49,7 +49,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * OrderPaymentCreditCard
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class OrderPaymentCreditCard {
   public static final String SERIALIZED_NAME_CARD_AUTH_TICKET = "card_auth_ticket";
   @SerializedName(SERIALIZED_NAME_CARD_AUTH_TICKET)

@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CustomDashboardPage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class CustomDashboardPage {
   public static final String SERIALIZED_NAME_PAGE_HEIGHT_INCHES = "page_height_inches";
   @SerializedName(SERIALIZED_NAME_PAGE_HEIGHT_INCHES)

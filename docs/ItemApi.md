@@ -639,8 +639,9 @@ Retrieve a list of item inventories.  This method may be called once every 15 mi
 
 ### Example
 
+```java
 
-(No example for this operation).
+```
 
 
 ### Parameters

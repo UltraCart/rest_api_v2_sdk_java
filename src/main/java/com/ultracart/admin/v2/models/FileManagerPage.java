@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * FileManagerPage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class FileManagerPage {
   public static final String SERIALIZED_NAME_CURRENT_STOREFRONT_FS_DIRECTORY_OID = "current_storefront_fs_directory_oid";
   @SerializedName(SERIALIZED_NAME_CURRENT_STOREFRONT_FS_DIRECTORY_OID)

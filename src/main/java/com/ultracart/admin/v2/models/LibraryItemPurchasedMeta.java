@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * LibraryItemPurchasedMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class LibraryItemPurchasedMeta {
   public static final String SERIALIZED_NAME_MOST_RECENT_VERSION = "most_recent_version";
   @SerializedName(SERIALIZED_NAME_MOST_RECENT_VERSION)

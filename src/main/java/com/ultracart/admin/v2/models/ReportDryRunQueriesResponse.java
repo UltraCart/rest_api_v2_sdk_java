@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ReportDryRunQueriesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:27:52.704894Z[Etc/UTC]")
 public class ReportDryRunQueriesResponse {
   public static final String SERIALIZED_NAME_DRY_RUN_QUERY_RESULTS = "dry_run_query_results";
   @SerializedName(SERIALIZED_NAME_DRY_RUN_QUERY_RESULTS)
