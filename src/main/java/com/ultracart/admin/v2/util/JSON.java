@@ -585,6 +585,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseq.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusesRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailSendTestRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailSendTestResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.EmailCommseqEmailsRequest.CustomTypeAdapterFactory());

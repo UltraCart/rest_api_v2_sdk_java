@@ -43,6 +43,9 @@ import com.ultracart.admin.v2.models.EmailClicksResponse;
 import com.ultracart.admin.v2.models.EmailCommseq;
 import com.ultracart.admin.v2.models.EmailCommseqEmail;
 import com.ultracart.admin.v2.models.EmailCommseqEmailResponse;
+import com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusResponse;
+import com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusesRequest;
+import com.ultracart.admin.v2.models.EmailCommseqEmailReviewStatusesResponse;
 import com.ultracart.admin.v2.models.EmailCommseqEmailSendTestRequest;
 import com.ultracart.admin.v2.models.EmailCommseqEmailSendTestResponse;
 import com.ultracart.admin.v2.models.EmailCommseqEmailsRequest;
@@ -13056,6 +13059,319 @@ public class StorefrontApi {
 
         okhttp3.Call localVarCall = getEmailPostcardsMultipleValidateBeforeCall(storefrontOid, emailCommseqPostcardsRequest, _callback);
         Type localVarReturnType = new TypeToken<EmailCommseqPostcardsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailReviewStatus
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReviewStatusCall(Integer storefrontOid, String commseqEmailUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "commseq_email_uuid" + "\\}", localVarApiClient.escapeString(commseqEmailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailReviewStatusValidateBeforeCall(Integer storefrontOid, String commseqEmailUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailReviewStatus(Async)");
+        }
+        
+        // verify the required parameter 'commseqEmailUuid' is set
+        if (commseqEmailUuid == null) {
+            throw new ApiException("Missing the required parameter 'commseqEmailUuid' when calling getEmailReviewStatus(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailReviewStatusCall(storefrontOid, commseqEmailUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get the review status of an email
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @return EmailCommseqEmailReviewStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailCommseqEmailReviewStatusResponse getEmailReviewStatus(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
+        ApiResponse<EmailCommseqEmailReviewStatusResponse> localVarResp = getEmailReviewStatusWithHttpInfo(storefrontOid, commseqEmailUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the review status of an email
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @return ApiResponse&lt;EmailCommseqEmailReviewStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailCommseqEmailReviewStatusResponse> getEmailReviewStatusWithHttpInfo(Integer storefrontOid, String commseqEmailUuid) throws ApiException {
+        okhttp3.Call localVarCall = getEmailReviewStatusValidateBeforeCall(storefrontOid, commseqEmailUuid, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailReviewStatusResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the review status of an email (asynchronously)
+     * 
+     * @param storefrontOid  (required)
+     * @param commseqEmailUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReviewStatusAsync(Integer storefrontOid, String commseqEmailUuid, final ApiCallback<EmailCommseqEmailReviewStatusResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailReviewStatusValidateBeforeCall(storefrontOid, commseqEmailUuid, _callback);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailReviewStatusResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEmailReviewStatusesMultiple
+     * @param storefrontOid  (required)
+     * @param emailCommseqEmailReviewStatusesRequest Request of email uuids (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReviewStatusesMultipleCall(Integer storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = emailCommseqEmailReviewStatusesRequest;
+
+        // create path and map variables
+        String localVarPath = "/storefront/{storefront_oid}/email/emails/review_status/multiple"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartBrowserApiKey", "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEmailReviewStatusesMultipleValidateBeforeCall(Integer storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getEmailReviewStatusesMultiple(Async)");
+        }
+        
+        // verify the required parameter 'emailCommseqEmailReviewStatusesRequest' is set
+        if (emailCommseqEmailReviewStatusesRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailCommseqEmailReviewStatusesRequest' when calling getEmailReviewStatusesMultiple(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getEmailReviewStatusesMultipleCall(storefrontOid, emailCommseqEmailReviewStatusesRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get the review status of multiple emails
+     * Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+     * @param storefrontOid  (required)
+     * @param emailCommseqEmailReviewStatusesRequest Request of email uuids (required)
+     * @return EmailCommseqEmailReviewStatusesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public EmailCommseqEmailReviewStatusesResponse getEmailReviewStatusesMultiple(Integer storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest) throws ApiException {
+        ApiResponse<EmailCommseqEmailReviewStatusesResponse> localVarResp = getEmailReviewStatusesMultipleWithHttpInfo(storefrontOid, emailCommseqEmailReviewStatusesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the review status of multiple emails
+     * Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+     * @param storefrontOid  (required)
+     * @param emailCommseqEmailReviewStatusesRequest Request of email uuids (required)
+     * @return ApiResponse&lt;EmailCommseqEmailReviewStatusesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmailCommseqEmailReviewStatusesResponse> getEmailReviewStatusesMultipleWithHttpInfo(Integer storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest) throws ApiException {
+        okhttp3.Call localVarCall = getEmailReviewStatusesMultipleValidateBeforeCall(storefrontOid, emailCommseqEmailReviewStatusesRequest, null);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailReviewStatusesResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the review status of multiple emails (asynchronously)
+     * Returns one entry per requested email, in the order requested, so a caller polling a campaign does not have to reconcile a short response. 
+     * @param storefrontOid  (required)
+     * @param emailCommseqEmailReviewStatusesRequest Request of email uuids (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEmailReviewStatusesMultipleAsync(Integer storefrontOid, EmailCommseqEmailReviewStatusesRequest emailCommseqEmailReviewStatusesRequest, final ApiCallback<EmailCommseqEmailReviewStatusesResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEmailReviewStatusesMultipleValidateBeforeCall(storefrontOid, emailCommseqEmailReviewStatusesRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmailCommseqEmailReviewStatusesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

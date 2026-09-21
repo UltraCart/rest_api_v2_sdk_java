@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartMarketing
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T00:16:48.649-04:00[America/Indianapolis]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T12:36:50.800-04:00[America/Indianapolis]")
 public class CartMarketing {
   public static final String SERIALIZED_NAME_ADVERTISING_SOURCE = "advertising_source";
   @SerializedName(SERIALIZED_NAME_ADVERTISING_SOURCE)

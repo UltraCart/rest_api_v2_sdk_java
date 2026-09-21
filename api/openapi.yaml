@@ -38084,6 +38084,101 @@ paths:
       x-codegen-request-body-name: email_commseq_emails_request
       x-content-type: application/json
       x-accepts: application/json
+  /storefront/{storefront_oid}/email/emails/review_status/multiple:
+    post:
+      description: "Returns one entry per requested email, in the order requested,\
+        \ so a caller polling a campaign does not have to reconcile a short response.\n"
+      operationId: getEmailReviewStatusesMultiple
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailCommseqEmailReviewStatusesRequest'
+        description: Request of email uuids
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailCommseqEmailReviewStatusesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: Get the review status of multiple emails
+      tags:
+      - storefront
+      x-codegen-request-body-name: email_commseq_email_review_statuses_request
+      x-content-type: application/json
+      x-accepts: application/json
   /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}:
     delete:
       operationId: deleteEmailEmail
@@ -38549,6 +38644,95 @@ paths:
       - storefront
       x-codegen-request-body-name: email_commseq_email_review_request
       x-content-type: application/json
+      x-accepts: application/json
+  /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status:
+    get:
+      operationId: getEmailReviewStatus
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_email_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailCommseqEmailReviewStatusResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - storefront_read
+      - ultraCartSimpleApiKey: []
+      - ultraCartBrowserApiKey: []
+      summary: Get the review status of an email
+      tags:
+      - storefront
       x-accepts: application/json
   /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test:
     post:
@@ -187716,6 +187900,161 @@ components:
           $ref: '#/components/schemas/Error'
         metadata:
           $ref: '#/components/schemas/ResponseMetadata'
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    EmailCommseqEmailReviewStatus:
+      example:
+        esp_commseq_email_review_uuid: esp_commseq_email_review_uuid
+        requested_dts: requested_dts
+        subject: subject
+        esp_commseq_email_uuid: esp_commseq_email_uuid
+        decided_dts: decided_dts
+        rejection_reason: rejection_reason
+        state: not_submitted
+        esp_commseq_uuid: esp_commseq_uuid
+      properties:
+        decided_dts:
+          description: Date the review was approved or rejected
+          format: dateTime
+          type: string
+        esp_commseq_email_review_uuid:
+          description: Review UUID
+          type: string
+        esp_commseq_email_uuid:
+          description: Email communication sequence email UUID
+          type: string
+        esp_commseq_uuid:
+          description: Email communication sequence UUID
+          type: string
+        rejection_reason:
+          description: "Why the email was rejected, and what to change. Only present\
+            \ when the state is rejected."
+          type: string
+        requested_dts:
+          description: Date the review was requested
+          format: dateTime
+          type: string
+        state:
+          description: State of the review
+          enum:
+          - not_submitted
+          - pending
+          - approved
+          - rejected
+          type: string
+        subject:
+          description: Subject of the email as it was reviewed
+          type: string
+      type: object
+    EmailCommseqEmailReviewStatusesRequest:
+      example:
+        esp_commseq_email_uuids:
+        - esp_commseq_email_uuids
+        - esp_commseq_email_uuids
+      properties:
+        esp_commseq_email_uuids:
+          description: Email communication sequence email UUIDs to return the review
+            status of
+          items:
+            type: string
+          type: array
+      type: object
+    EmailCommseqEmailReviewStatusesResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 2
+            more: true
+            total_records: 4
+            count: 7
+            limit: 9
+            next_offset: 3
+        review_statuses:
+        - esp_commseq_email_review_uuid: esp_commseq_email_review_uuid
+          requested_dts: requested_dts
+          subject: subject
+          esp_commseq_email_uuid: esp_commseq_email_uuid
+          decided_dts: decided_dts
+          rejection_reason: rejection_reason
+          state: not_submitted
+          esp_commseq_uuid: esp_commseq_uuid
+        - esp_commseq_email_review_uuid: esp_commseq_email_review_uuid
+          requested_dts: requested_dts
+          subject: subject
+          esp_commseq_email_uuid: esp_commseq_email_uuid
+          decided_dts: decided_dts
+          rejection_reason: rejection_reason
+          state: not_submitted
+          esp_commseq_uuid: esp_commseq_uuid
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        review_statuses:
+          items:
+            $ref: '#/components/schemas/EmailCommseqEmailReviewStatus'
+          type: array
+        success:
+          description: Indicates if API call was successful
+          type: boolean
+        warning:
+          $ref: '#/components/schemas/Warning'
+      type: object
+    EmailCommseqEmailReviewStatusResponse:
+      example:
+        metadata:
+          payload_name: payload_name
+          result_set:
+            offset: 2
+            more: true
+            total_records: 4
+            count: 7
+            limit: 9
+            next_offset: 3
+        success: true
+        warning:
+          warning_message: warning_message
+          more_info: more_info
+          warning_code: warning_code
+        review_status:
+          esp_commseq_email_review_uuid: esp_commseq_email_review_uuid
+          requested_dts: requested_dts
+          subject: subject
+          esp_commseq_email_uuid: esp_commseq_email_uuid
+          decided_dts: decided_dts
+          rejection_reason: rejection_reason
+          state: not_submitted
+          esp_commseq_uuid: esp_commseq_uuid
+        error:
+          developer_message: developer_message
+          more_info: more_info
+          user_message: user_message
+          error_code: error_code
+          object_id: object_id
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+        metadata:
+          $ref: '#/components/schemas/ResponseMetadata'
+        review_status:
+          $ref: '#/components/schemas/EmailCommseqEmailReviewStatus'
         success:
           description: Indicates if API call was successful
           type: boolean

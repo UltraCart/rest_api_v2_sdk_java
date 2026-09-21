@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-21T00:16:48.649-04:00[America/Indianapolis]
+- Build date: 2026-09-21T12:36:50.800-04:00[America/Indianapolis]
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.165</version>
+    <version>4.1.166</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.165"
+     implementation "com.ultracart:rest-sdk:4.1.166"
   }
 ```
 
@@ -647,6 +647,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailPostcard**](docs/StorefrontApi.md#getEmailPostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
 *StorefrontApi* | [**getEmailPostcards**](docs/StorefrontApi.md#getEmailPostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
 *StorefrontApi* | [**getEmailPostcardsMultiple**](docs/StorefrontApi.md#getEmailPostcardsMultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
+*StorefrontApi* | [**getEmailReviewStatus**](docs/StorefrontApi.md#getEmailReviewStatus) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review_status | Get the review status of an email
+*StorefrontApi* | [**getEmailReviewStatusesMultiple**](docs/StorefrontApi.md#getEmailReviewStatusesMultiple) | **POST** /storefront/{storefront_oid}/email/emails/review_status/multiple | Get the review status of multiple emails
 *StorefrontApi* | [**getEmailSegment**](docs/StorefrontApi.md#getEmailSegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 *StorefrontApi* | [**getEmailSegmentCustomerEditorUrl**](docs/StorefrontApi.md#getEmailSegmentCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 *StorefrontApi* | [**getEmailSegmentCustomers**](docs/StorefrontApi.md#getEmailSegmentCustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
@@ -1308,6 +1310,10 @@ Class | Method | HTTP request | Description
  - [EmailCommseq](docs/EmailCommseq.md)
  - [EmailCommseqEmail](docs/EmailCommseqEmail.md)
  - [EmailCommseqEmailResponse](docs/EmailCommseqEmailResponse.md)
+ - [EmailCommseqEmailReviewStatus](docs/EmailCommseqEmailReviewStatus.md)
+ - [EmailCommseqEmailReviewStatusResponse](docs/EmailCommseqEmailReviewStatusResponse.md)
+ - [EmailCommseqEmailReviewStatusesRequest](docs/EmailCommseqEmailReviewStatusesRequest.md)
+ - [EmailCommseqEmailReviewStatusesResponse](docs/EmailCommseqEmailReviewStatusesResponse.md)
  - [EmailCommseqEmailSendTestRequest](docs/EmailCommseqEmailSendTestRequest.md)
  - [EmailCommseqEmailSendTestResponse](docs/EmailCommseqEmailSendTestResponse.md)
  - [EmailCommseqEmailsRequest](docs/EmailCommseqEmailsRequest.md)
@@ -2039,6 +2045,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.166 | 09/21/2026 | sfvb internal testing |
 | 4.1.165 | 09/21/2026 | automation testing |
 | 4.1.164 | 09/20/2026 | automation testing |
 | 4.1.163 | 09/20/2026 | automation testing |

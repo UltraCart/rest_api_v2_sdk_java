@@ -506,6 +506,10 @@ docs/EmailClicksResponse.md
 docs/EmailCommseq.md
 docs/EmailCommseqEmail.md
 docs/EmailCommseqEmailResponse.md
+docs/EmailCommseqEmailReviewStatus.md
+docs/EmailCommseqEmailReviewStatusResponse.md
+docs/EmailCommseqEmailReviewStatusesRequest.md
+docs/EmailCommseqEmailReviewStatusesResponse.md
 docs/EmailCommseqEmailSendTestRequest.md
 docs/EmailCommseqEmailSendTestResponse.md
 docs/EmailCommseqEmailsRequest.md
@@ -1696,6 +1700,10 @@ src/main/java/com/ultracart/admin/v2/models/EmailClicksResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseq.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmail.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailResponse.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailReviewStatus.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailReviewStatusResponse.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailReviewStatusesRequest.java
+src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailReviewStatusesResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailSendTestRequest.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailSendTestResponse.java
 src/main/java/com/ultracart/admin/v2/models/EmailCommseqEmailsRequest.java
