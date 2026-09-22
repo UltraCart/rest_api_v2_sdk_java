@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ItemAutoOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ItemAutoOrder {
   public static final String SERIALIZED_NAME_AUTH_FUTURE_AMOUNT = "auth_future_amount";
   @SerializedName(SERIALIZED_NAME_AUTH_FUTURE_AMOUNT)

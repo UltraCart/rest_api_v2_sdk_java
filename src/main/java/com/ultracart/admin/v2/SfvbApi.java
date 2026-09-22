@@ -54,6 +54,7 @@ import com.ultracart.admin.v2.models.SfvbFileVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbFileWriteRequest;
 import com.ultracart.admin.v2.models.SfvbFileWriteResponse;
 import com.ultracart.admin.v2.models.SfvbFilesResponse;
+import com.ultracart.admin.v2.models.SfvbItemContainersResponse;
 import com.ultracart.admin.v2.models.SfvbLibraryEntry;
 import com.ultracart.admin.v2.models.SfvbLibraryResponse;
 import com.ultracart.admin.v2.models.SfvbMenu;
@@ -6705,6 +6706,189 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = listSfvbFilesValidateBeforeCall(storefrontOid, path, storefrontFsDirectoryOid, themeOid, maxEntries, _callback);
         Type localVarReturnType = new TypeToken<SfvbFilesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSfvbItemContainers
+     * @param storefrontOid  (required)
+     * @param merchantItemId Restrict to one item, by the merchant item id a storefront carries (optional)
+     * @param merchantItemOid Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)
+     * @param containerName Restrict to one slot name, matched without regard to case (optional)
+     * @param maxResults  (optional)
+     * @param offset  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbItemContainersCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, String containerName, Integer maxResults, Integer offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/item_containers"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        if (containerName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("container_name", containerName));
+        }
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_results", maxResults));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSfvbItemContainersValidateBeforeCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, String containerName, Integer maxResults, Integer offset, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling listSfvbItemContainers(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSfvbItemContainersCall(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List the item containers on the account
+     * An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller&#39;s storefront but does not narrow the result. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId Restrict to one item, by the merchant item id a storefront carries (optional)
+     * @param merchantItemOid Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)
+     * @param containerName Restrict to one slot name, matched without regard to case (optional)
+     * @param maxResults  (optional)
+     * @param offset  (optional)
+     * @return SfvbItemContainersResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemContainersResponse listSfvbItemContainers(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, String containerName, Integer maxResults, Integer offset) throws ApiException {
+        ApiResponse<SfvbItemContainersResponse> localVarResp = listSfvbItemContainersWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List the item containers on the account
+     * An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller&#39;s storefront but does not narrow the result. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId Restrict to one item, by the merchant item id a storefront carries (optional)
+     * @param merchantItemOid Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)
+     * @param containerName Restrict to one slot name, matched without regard to case (optional)
+     * @param maxResults  (optional)
+     * @param offset  (optional)
+     * @return ApiResponse&lt;SfvbItemContainersResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemContainersResponse> listSfvbItemContainersWithHttpInfo(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, String containerName, Integer maxResults, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbItemContainersValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset, null);
+        Type localVarReturnType = new TypeToken<SfvbItemContainersResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List the item containers on the account (asynchronously)
+     * An itemcontainer element renders nothing of its own.  It names a slot, and a separate container is resolved per item for that slot, so a catalog of five hundred products with three slots is fifteen hundred containers.  This says which of them exist.  Filter by container_name to find every item carrying one slot, or by merchant_item_id to see what one item has.  Which items are missing a slot is a set difference against pages/items, because a listing can only report containers that exist.  Each row carries hash_sha256, so a listing is enough to start an If-Match write without reading the container first.  Item containers are stored per account rather than per storefront, so storefront_oid identifies the caller&#39;s storefront but does not narrow the result. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId Restrict to one item, by the merchant item id a storefront carries (optional)
+     * @param merchantItemOid Restrict to one item, by oid.  Send this or merchant_item_id, not both (optional)
+     * @param containerName Restrict to one slot name, matched without regard to case (optional)
+     * @param maxResults  (optional)
+     * @param offset  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbItemContainersAsync(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, String containerName, Integer maxResults, Integer offset, final ApiCallback<SfvbItemContainersResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSfvbItemContainersValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, containerName, maxResults, offset, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemContainersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

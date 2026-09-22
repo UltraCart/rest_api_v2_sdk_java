@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartSettingsPaymentPayPal
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CartSettingsPaymentPayPal {
   public static final String SERIALIZED_NAME_PAYPAL_BUTTON_ALT_TEXT = "paypal_button_alt_text";
   @SerializedName(SERIALIZED_NAME_PAYPAL_BUTTON_ALT_TEXT)

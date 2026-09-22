@@ -8935,6 +8935,114 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/item_containers:
+    get:
+      description: "An itemcontainer element renders nothing of its own.  It names\
+        \ a slot, and a separate container is resolved per item for that slot, so\
+        \ a catalog of five hundred products with three slots is fifteen hundred containers.\
+        \  This says which of them exist.  Filter by container_name to find every\
+        \ item carrying one slot, or by merchant_item_id to see what one item has.\
+        \  Which items are missing a slot is a set difference against pages/items,\
+        \ because a listing can only report containers that exist.  Each row carries\
+        \ hash_sha256, so a listing is enough to start an If-Match write without reading\
+        \ the container first.  Item containers are stored per account rather than\
+        \ per storefront, so storefront_oid identifies the caller's storefront but\
+        \ does not narrow the result.\n"
+      operationId: listSfvbItemContainers
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Restrict to one item, by the merchant item id a storefront carries"
+        in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - description: "Restrict to one item, by oid.  Send this or merchant_item_id,\
+          \ not both"
+        in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "Restrict to one slot name, matched without regard to case"
+        in: query
+        name: container_name
+        schema:
+          type: string
+      - in: query
+        name: max_results
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemContainersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the item containers on the account
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/library:
     get:
       description: "Known-good CJSON fragments a human already built out of real elements.\
@@ -238116,6 +238224,131 @@ components:
           description: New version number.
           format: int32
           type: integer
+      type: object
+    SfvbItemContainer:
+      example:
+        hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
+        owner_object_id: owner_object_id
+        container_name: container_name
+        used_elements:
+        - used_elements
+        - used_elements
+        cjson_size: 0
+        last_modified: last_modified
+        owner_type: item
+      properties:
+        cjson_size:
+          description: "Size of the CJSON in UTF-8 bytes, which is the same unit the\
+            \ container version size and the upsell offer cjson_size use."
+          format: int32
+          type: integer
+        container_name:
+          description: "The slot name.  This is the value an itemcontainer element's\
+            \ itemContainerName setting holds, which is what ties a container to the\
+            \ element that renders it."
+          type: string
+        hash_sha256:
+          description: "SHA-256 of the container's CJSON.  Identical to the value\
+            \ a read of the container returns, so a listing is enough to start an\
+            \ If-Match write without reading first."
+          type: string
+        last_modified:
+          description: "When the container was last written.  Absent for a container\
+            \ untouched since the storage began recording the time, so read an absent\
+            \ value as unknown rather than as never modified."
+          type: string
+        merchant_item_id:
+          description: The owning item's merchant item id.  This is the identifier
+            a storefront carries and a merchant recognizes; the oid appears nowhere
+            on a rendered page.  Send it as owner_type itemid to address the same
+            container without converting it first.
+          type: string
+        owner_object_id:
+          description: "The merchant item oid, spelled the way containers/item/{owner_object_id}\
+            \ takes it."
+          type: string
+        owner_type:
+          description: Always item.  Carried so a row is usable as an address without
+            the caller having to know which listing it came from.
+          enum:
+          - item
+          type: string
+        used_elements:
+          description: "The element types this container uses, recorded by the storage\
+            \ when it was written.  A large cjson_size beside a handful of element\
+            \ types is the signature of markup pasted into a single html element.\
+            \  Absent on a container written before the storage began recording this."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbItemContainersResponse:
+      example:
+        offset: 5
+        total_count: 2
+        item_containers:
+        - hash_sha256: hash_sha256
+          merchant_item_id: merchant_item_id
+          owner_object_id: owner_object_id
+          container_name: container_name
+          used_elements:
+          - used_elements
+          - used_elements
+          cjson_size: 0
+          last_modified: last_modified
+          owner_type: item
+        - hash_sha256: hash_sha256
+          merchant_item_id: merchant_item_id
+          owner_object_id: owner_object_id
+          container_name: container_name
+          used_elements:
+          - used_elements
+          - used_elements
+          cjson_size: 0
+          last_modified: last_modified
+          owner_type: item
+        truncation_advice: truncation_advice
+        max_results: 6
+        truncated: true
+        next_offset: 1
+        result_count: 5
+      properties:
+        item_containers:
+          description: "The containers on this page, ordered by merchant item id then\
+            \ container name."
+          items:
+            $ref: '#/components/schemas/SfvbItemContainer'
+          type: array
+        max_results:
+          description: The cap that was applied.
+          format: int32
+          type: integer
+        next_offset:
+          description: Offset to send for the next page.  Zero when truncated is false.  Never
+            truncates without giving a way to continue.
+          format: int32
+          type: integer
+        offset:
+          description: Containers skipped to produce this page.
+          format: int32
+          type: integer
+        result_count:
+          description: Number of containers returned on this page.
+          format: int32
+          type: integer
+        total_count:
+          description: Total containers matching the filter.  With container_name
+            supplied this is the answer to how many items carry that slot.
+          format: int32
+          type: integer
+        truncated:
+          description: True when containers exist beyond this page.  next_offset is
+            populated when it is.
+          type: boolean
+        truncation_advice:
+          description: Advice for the caller when truncated is true.
+          type: string
       type: object
     SfvbLibraryEntry:
       example:

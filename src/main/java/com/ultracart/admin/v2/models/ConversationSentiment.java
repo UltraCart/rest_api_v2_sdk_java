@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationSentiment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConversationSentiment {
   public static final String SERIALIZED_NAME_LAST_DETECT_SENTIMENT = "last_detect_sentiment";
   @SerializedName(SERIALIZED_NAME_LAST_DETECT_SENTIMENT)

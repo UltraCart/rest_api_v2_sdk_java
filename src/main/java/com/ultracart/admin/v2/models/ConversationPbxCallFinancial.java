@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxCallFinancial
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConversationPbxCallFinancial {
   public static final String SERIALIZED_NAME_AI_AGENT_BILLED_MINUTES = "ai_agent_billed_minutes";
   @SerializedName(SERIALIZED_NAME_AI_AGENT_BILLED_MINUTES)

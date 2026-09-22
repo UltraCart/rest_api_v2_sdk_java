@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * SfvbThemesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbThemesResponse {
   public static final String SERIALIZED_NAME_ACTIVE_THEME_OID = "active_theme_oid";
   @SerializedName(SERIALIZED_NAME_ACTIVE_THEME_OID)

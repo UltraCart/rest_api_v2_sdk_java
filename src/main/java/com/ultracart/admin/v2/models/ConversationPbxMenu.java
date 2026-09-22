@@ -50,7 +50,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * ConversationPbxMenu
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConversationPbxMenu {
   public static final String SERIALIZED_NAME_ALLOW_DIRECT_EXTENSIONS = "allow_direct_extensions";
   @SerializedName(SERIALIZED_NAME_ALLOW_DIRECT_EXTENSIONS)

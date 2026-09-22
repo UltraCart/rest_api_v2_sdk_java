@@ -1020,6 +1020,8 @@ docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
+docs/SfvbItemContainer.md
+docs/SfvbItemContainersResponse.md
 docs/SfvbLibraryEntry.md
 docs/SfvbLibraryFacet.md
 docs/SfvbLibraryResponse.md
@@ -2206,6 +2208,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFileVersionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFilesResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemContainer.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemContainersResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryEntry.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryFacet.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryResponse.java

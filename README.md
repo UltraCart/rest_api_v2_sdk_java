@@ -3,7 +3,7 @@
 UltraCart Rest API V2
 - Every method has a sample.  See https://github.com/UltraCart/sdk_samples
 - API version: 2.0.0
-- Build date: 2026-09-21T20:44:57.098353Z[Etc/UTC]
+
 - For more information, please visit [http://www.ultracart.com/api/](http://www.ultracart.com/api/)
 
 UltraCart REST API Version 2
@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.168</version>
+    <version>4.1.169</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.168"
+     implementation "com.ultracart:rest-sdk:4.1.169"
   }
 ```
 
@@ -533,6 +533,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbExperiments**](docs/SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 *SfvbApi* | [**listSfvbFileVersions**](docs/SfvbApi.md#listSfvbFileVersions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+*SfvbApi* | [**listSfvbItemContainers**](docs/SfvbApi.md#listSfvbItemContainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 *SfvbApi* | [**listSfvbPages**](docs/SfvbApi.md#listSfvbPages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 *SfvbApi* | [**listSfvbStorefronts**](docs/SfvbApi.md#listSfvbStorefronts) | **GET** /sfvb/storefronts | List storefronts
 *SfvbApi* | [**listSfvbTemplates**](docs/SfvbApi.md#listSfvbTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
@@ -1816,6 +1817,8 @@ Class | Method | HTTP request | Description
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
+ - [SfvbItemContainer](docs/SfvbItemContainer.md)
+ - [SfvbItemContainersResponse](docs/SfvbItemContainersResponse.md)
  - [SfvbLibraryEntry](docs/SfvbLibraryEntry.md)
  - [SfvbLibraryFacet](docs/SfvbLibraryFacet.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
@@ -2047,6 +2050,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.169 | 09/22/2026 | sfvb builder |
 | 4.1.168 | 09/21/2026 | further automation testing |
 | 4.1.167 | 09/21/2026 | automation test |
 | 4.1.165 | 09/21/2026 | automation testing |

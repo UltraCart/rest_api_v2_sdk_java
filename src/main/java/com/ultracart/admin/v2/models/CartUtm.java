@@ -48,7 +48,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartUtm
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CartUtm {
   public static final String SERIALIZED_NAME_ATTRIBUTION_FIRST_CLICK_SUBTOTAL = "attribution_first_click_subtotal";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTION_FIRST_CLICK_SUBTOTAL)

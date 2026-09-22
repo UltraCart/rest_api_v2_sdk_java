@@ -51,7 +51,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CouponTieredPercentOffItems
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CouponTieredPercentOffItems {
   public static final String SERIALIZED_NAME_ITEM_TAGS = "item_tags";
   @SerializedName(SERIALIZED_NAME_ITEM_TAGS)

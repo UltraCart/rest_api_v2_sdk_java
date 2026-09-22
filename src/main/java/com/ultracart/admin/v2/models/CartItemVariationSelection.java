@@ -47,7 +47,7 @@ import com.ultracart.admin.v2.util.JSON;
 /**
  * CartItemVariationSelection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-21T20:44:57.098353Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CartItemVariationSelection {
   public static final String SERIALIZED_NAME_VARIATION_NAME = "variation_name";
   @SerializedName(SERIALIZED_NAME_VARIATION_NAME)
