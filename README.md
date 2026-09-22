@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.169</version>
+    <version>4.1.170</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.169"
+     implementation "com.ultracart:rest-sdk:4.1.170"
   }
 ```
 
@@ -497,6 +497,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
+*SfvbApi* | [**deleteSfvbItemMultimedia**](docs/SfvbApi.md#deleteSfvbItemMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
@@ -511,6 +512,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+*SfvbApi* | [**getSfvbItem**](docs/SfvbApi.md#getSfvbItem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbMenu**](docs/SfvbApi.md#getSfvbMenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 *SfvbApi* | [**getSfvbMenus**](docs/SfvbApi.md#getSfvbMenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
@@ -542,6 +544,10 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+*SfvbApi* | [**putSfvbItemAttributes**](docs/SfvbApi.md#putSfvbItemAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
+*SfvbApi* | [**putSfvbItemContent**](docs/SfvbApi.md#putSfvbItemContent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
+*SfvbApi* | [**putSfvbItemMultimedia**](docs/SfvbApi.md#putSfvbItemMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+*SfvbApi* | [**putSfvbItemSeo**](docs/SfvbApi.md#putSfvbItemSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
 *SfvbApi* | [**putSfvbMenu**](docs/SfvbApi.md#putSfvbMenu) | **PUT** /sfvb/storefronts/{storefront_oid}/menus/{code} | Replace a store menu&#39;s entries
 *SfvbApi* | [**putSfvbPageAttributes**](docs/SfvbApi.md#putSfvbPageAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/attributes | Change a page&#39;s attributes
 *SfvbApi* | [**putSfvbPageMultimedia**](docs/SfvbApi.md#putSfvbPageMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Attach an image to a page
@@ -1817,8 +1823,17 @@ Class | Method | HTTP request | Description
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
+ - [SfvbItemAttribute](docs/SfvbItemAttribute.md)
+ - [SfvbItemAttributeUpdate](docs/SfvbItemAttributeUpdate.md)
+ - [SfvbItemAttributeUpdateRequest](docs/SfvbItemAttributeUpdateRequest.md)
  - [SfvbItemContainer](docs/SfvbItemContainer.md)
  - [SfvbItemContainersResponse](docs/SfvbItemContainersResponse.md)
+ - [SfvbItemContentRequest](docs/SfvbItemContentRequest.md)
+ - [SfvbItemMultimedia](docs/SfvbItemMultimedia.md)
+ - [SfvbItemMultimediaRequest](docs/SfvbItemMultimediaRequest.md)
+ - [SfvbItemResponse](docs/SfvbItemResponse.md)
+ - [SfvbItemSeo](docs/SfvbItemSeo.md)
+ - [SfvbItemSeoRequest](docs/SfvbItemSeoRequest.md)
  - [SfvbLibraryEntry](docs/SfvbLibraryEntry.md)
  - [SfvbLibraryFacet](docs/SfvbLibraryFacet.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
@@ -2050,6 +2065,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.170 | 09/22/2026 | sfvb internal testing |
 | 4.1.169 | 09/22/2026 | sfvb builder |
 | 4.1.168 | 09/21/2026 | further automation testing |
 | 4.1.167 | 09/21/2026 | automation test |
