@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.170</version>
+    <version>4.1.171</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.170"
+     implementation "com.ultracart:rest-sdk:4.1.171"
   }
 ```
 
@@ -493,16 +493,22 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 *SfvbApi* | [**addSfvbPageBlogPosts**](docs/SfvbApi.md#addSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
 *SfvbApi* | [**addSfvbPageItems**](docs/SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
+*SfvbApi* | [**archiveSfvbUpsellPath**](docs/SfvbApi.md#archiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
+*SfvbApi* | [**deleteSfvbItemAttribute**](docs/SfvbApi.md#deleteSfvbItemAttribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 *SfvbApi* | [**deleteSfvbItemMultimedia**](docs/SfvbApi.md#deleteSfvbItemMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
+*SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
+*SfvbApi* | [**disableSfvbUpsellPath**](docs/SfvbApi.md#disableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
 *SfvbApi* | [**duplicateSfvbPage**](docs/SfvbApi.md#duplicateSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
+*SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/SfvbApi.md#duplicateSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
+*SfvbApi* | [**duplicateSfvbUpsellPath**](docs/SfvbApi.md#duplicateSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 *SfvbApi* | [**endSfvbExperiment**](docs/SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
@@ -525,9 +531,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbUpsellOffer**](docs/SfvbApi.md#getSfvbUpsellOffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
+*SfvbApi* | [**getSfvbUpsellPath**](docs/SfvbApi.md#getSfvbUpsellPath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
 *SfvbApi* | [**getSfvbVersion**](docs/SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
+*SfvbApi* | [**insertSfvbUpsellOffer**](docs/SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
+*SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 *SfvbApi* | [**listSfvbBlogPosts**](docs/SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 *SfvbApi* | [**listSfvbContainerVersions**](docs/SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
@@ -541,6 +551,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbTemplates**](docs/SfvbApi.md#listSfvbTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
 *SfvbApi* | [**listSfvbThemes**](docs/SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
+*SfvbApi* | [**listSfvbUpsellPaths**](docs/SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
+*SfvbApi* | [**moveSfvbUpsellPath**](docs/SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
@@ -565,6 +577,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
 *SfvbApi* | [**startSfvbExperiment**](docs/SfvbApi.md#startSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
+*SfvbApi* | [**unarchiveSfvbUpsellPath**](docs/SfvbApi.md#unarchiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
+*SfvbApi* | [**updateSfvbUpsellOffer**](docs/SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
+*SfvbApi* | [**updateSfvbUpsellPath**](docs/SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
 *SfvbApi* | [**validateSfvbCjson**](docs/SfvbApi.md#validateSfvbCjson) | **POST** /sfvb/cjson/validate | Validate CJSON
 *SfvbApi* | [**validateSfvbVelocity**](docs/SfvbApi.md#validateSfvbVelocity) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate | Validate a Velocity template against a theme
@@ -1886,8 +1901,19 @@ Class | Method | HTTP request | Description
  - [SfvbThemeFontFamily](docs/SfvbThemeFontFamily.md)
  - [SfvbThemeJobResponse](docs/SfvbThemeJobResponse.md)
  - [SfvbThemesResponse](docs/SfvbThemesResponse.md)
+ - [SfvbUpsellItemLogic](docs/SfvbUpsellItemLogic.md)
+ - [SfvbUpsellItemLogicItem](docs/SfvbUpsellItemLogicItem.md)
  - [SfvbUpsellOffer](docs/SfvbUpsellOffer.md)
  - [SfvbUpsellOffersResponse](docs/SfvbUpsellOffersResponse.md)
+ - [SfvbUpsellPath](docs/SfvbUpsellPath.md)
+ - [SfvbUpsellPathDuplicateRequest](docs/SfvbUpsellPathDuplicateRequest.md)
+ - [SfvbUpsellPathMoveRequest](docs/SfvbUpsellPathMoveRequest.md)
+ - [SfvbUpsellPathsResponse](docs/SfvbUpsellPathsResponse.md)
+ - [SfvbUpsellStats](docs/SfvbUpsellStats.md)
+ - [SfvbUpsellStep](docs/SfvbUpsellStep.md)
+ - [SfvbUpsellStepOffer](docs/SfvbUpsellStepOffer.md)
+ - [SfvbUpsellTowerData](docs/SfvbUpsellTowerData.md)
+ - [SfvbUpsellVariation](docs/SfvbUpsellVariation.md)
  - [SfvbValidateRequest](docs/SfvbValidateRequest.md)
  - [SfvbValidationResponse](docs/SfvbValidationResponse.md)
  - [SfvbVelocityValidateRequest](docs/SfvbVelocityValidateRequest.md)
@@ -2065,6 +2091,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.171 | 09/23/2026 | sfvb internal testing |
 | 4.1.170 | 09/22/2026 | sfvb internal testing |
 | 4.1.169 | 09/22/2026 | sfvb builder |
 | 4.1.168 | 09/21/2026 | further automation testing |

@@ -20,9 +20,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbUpsellItemLogic;
+import com.ultracart.admin.v2.models.SfvbUpsellStats;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,29 +62,249 @@ public class SfvbUpsellOffer {
   @SerializedName(SERIALIZED_NAME_ACTIVE_OVERALL)
   private Boolean activeOverall;
 
+  public static final String SERIALIZED_NAME_ADD_ACCESSORY_ITEM_IDS = "add_accessory_item_ids";
+  @SerializedName(SERIALIZED_NAME_ADD_ACCESSORY_ITEM_IDS)
+  private List<String> addAccessoryItemIds = null;
+
+  public static final String SERIALIZED_NAME_ADJUST_TRIGGER_ITEM_OPTION = "adjust_trigger_item_option";
+  @SerializedName(SERIALIZED_NAME_ADJUST_TRIGGER_ITEM_OPTION)
+  private String adjustTriggerItemOption;
+
+  public static final String SERIALIZED_NAME_ALLOW_UPSELL_ITEM_IN_CART_ALREADY = "allow_upsell_item_in_cart_already";
+  @SerializedName(SERIALIZED_NAME_ALLOW_UPSELL_ITEM_IN_CART_ALREADY)
+  private Boolean allowUpsellItemInCartAlready;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST = "arbitrary_unit_cost";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST)
+  private BigDecimal arbitraryUnitCost;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_FRIDAY = "arbitrary_unit_cost_friday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_FRIDAY)
+  private BigDecimal arbitraryUnitCostFriday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_MONDAY = "arbitrary_unit_cost_monday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_MONDAY)
+  private BigDecimal arbitraryUnitCostMonday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_SATURDAY = "arbitrary_unit_cost_saturday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_SATURDAY)
+  private BigDecimal arbitraryUnitCostSaturday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_SUNDAY = "arbitrary_unit_cost_sunday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_SUNDAY)
+  private BigDecimal arbitraryUnitCostSunday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_THURSDAY = "arbitrary_unit_cost_thursday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_THURSDAY)
+  private BigDecimal arbitraryUnitCostThursday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_TUESDAY = "arbitrary_unit_cost_tuesday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_TUESDAY)
+  private BigDecimal arbitraryUnitCostTuesday;
+
+  public static final String SERIALIZED_NAME_ARBITRARY_UNIT_COST_WEDNESDAY = "arbitrary_unit_cost_wednesday";
+  @SerializedName(SERIALIZED_NAME_ARBITRARY_UNIT_COST_WEDNESDAY)
+  private BigDecimal arbitraryUnitCostWednesday;
+
   public static final String SERIALIZED_NAME_CJSON_SIZE = "cjson_size";
   @SerializedName(SERIALIZED_NAME_CJSON_SIZE)
   private Integer cjsonSize;
+
+  public static final String SERIALIZED_NAME_END_DATE = "end_date";
+  @SerializedName(SERIALIZED_NAME_END_DATE)
+  private String endDate;
+
+  public static final String SERIALIZED_NAME_EVERFLOW_ADVERTISER_EVENT_ID = "everflow_advertiser_event_id";
+  @SerializedName(SERIALIZED_NAME_EVERFLOW_ADVERTISER_EVENT_ID)
+  private String everflowAdvertiserEventId;
+
+  public static final String SERIALIZED_NAME_FIRST_TIME_ITEM = "first_time_item";
+  @SerializedName(SERIALIZED_NAME_FIRST_TIME_ITEM)
+  private Boolean firstTimeItem;
+
+  public static final String SERIALIZED_NAME_FIRST_TIME_STORE = "first_time_store";
+  @SerializedName(SERIALIZED_NAME_FIRST_TIME_STORE)
+  private Boolean firstTimeStore;
+
+  public static final String SERIALIZED_NAME_FREE_SHIPPING = "free_shipping";
+  @SerializedName(SERIALIZED_NAME_FREE_SHIPPING)
+  private Boolean freeShipping;
 
   public static final String SERIALIZED_NAME_HAS_CONTAINER = "has_container";
   @SerializedName(SERIALIZED_NAME_HAS_CONTAINER)
   private Boolean hasContainer;
 
+  public static final String SERIALIZED_NAME_HAS_EVERFLOW_CONFIGURED = "has_everflow_configured";
+  @SerializedName(SERIALIZED_NAME_HAS_EVERFLOW_CONFIGURED)
+  private Boolean hasEverflowConfigured;
+
+  public static final String SERIALIZED_NAME_HAS_LOYALTY_CONFIGURED = "has_loyalty_configured";
+  @SerializedName(SERIALIZED_NAME_HAS_LOYALTY_CONFIGURED)
+  private Boolean hasLoyaltyConfigured;
+
+  public static final String SERIALIZED_NAME_HAS_TOWERDATA_CONFIGURED = "has_towerdata_configured";
+  @SerializedName(SERIALIZED_NAME_HAS_TOWERDATA_CONFIGURED)
+  private Boolean hasTowerdataConfigured;
+
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
+  @SerializedName(SERIALIZED_NAME_HASH_SHA256)
+  private String hashSha256;
+
+  public static final String SERIALIZED_NAME_ITEM_LOGIC_SUPPRESSION = "item_logic_suppression";
+  @SerializedName(SERIALIZED_NAME_ITEM_LOGIC_SUPPRESSION)
+  private SfvbUpsellItemLogic itemLogicSuppression;
+
+  public static final String SERIALIZED_NAME_ITEM_LOGIC_TRIGGER = "item_logic_trigger";
+  @SerializedName(SERIALIZED_NAME_ITEM_LOGIC_TRIGGER)
+  private SfvbUpsellItemLogic itemLogicTrigger;
+
+  public static final String SERIALIZED_NAME_LOCK_SHIPPING = "lock_shipping";
+  @SerializedName(SERIALIZED_NAME_LOCK_SHIPPING)
+  private Boolean lockShipping;
+
+  public static final String SERIALIZED_NAME_MAX_QUANTITY = "max_quantity";
+  @SerializedName(SERIALIZED_NAME_MAX_QUANTITY)
+  private Integer maxQuantity;
+
+  public static final String SERIALIZED_NAME_MIGRATE_ACCESSORY_ITEM_IDS_FROM = "migrate_accessory_item_ids_from";
+  @SerializedName(SERIALIZED_NAME_MIGRATE_ACCESSORY_ITEM_IDS_FROM)
+  private List<String> migrateAccessoryItemIdsFrom = null;
+
+  public static final String SERIALIZED_NAME_MIGRATE_ACCESSORY_ITEM_IDS_TO = "migrate_accessory_item_ids_to";
+  @SerializedName(SERIALIZED_NAME_MIGRATE_ACCESSORY_ITEM_IDS_TO)
+  private List<String> migrateAccessoryItemIdsTo = null;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_OFFSITE_CONTENT_URL = "offsite_content_url";
+  @SerializedName(SERIALIZED_NAME_OFFSITE_CONTENT_URL)
+  private String offsiteContentUrl;
+
+  public static final String SERIALIZED_NAME_OUT_OF_STOCK_UPSELL_ITEM_IDS = "out_of_stock_upsell_item_ids";
+  @SerializedName(SERIALIZED_NAME_OUT_OF_STOCK_UPSELL_ITEM_IDS)
+  private List<String> outOfStockUpsellItemIds = null;
 
   public static final String SERIALIZED_NAME_PATH_NAME = "path_name";
   @SerializedName(SERIALIZED_NAME_PATH_NAME)
   private String pathName;
 
+  public static final String SERIALIZED_NAME_RECORD_AS_REGULAR_ITEM = "record_as_regular_item";
+  @SerializedName(SERIALIZED_NAME_RECORD_AS_REGULAR_ITEM)
+  private Boolean recordAsRegularItem;
+
+  public static final String SERIALIZED_NAME_REFERENCED_BY_PATH_OIDS = "referenced_by_path_oids";
+  @SerializedName(SERIALIZED_NAME_REFERENCED_BY_PATH_OIDS)
+  private List<Integer> referencedByPathOids = null;
+
+  public static final String SERIALIZED_NAME_REMOVABLE_ON_CONFIRMATION = "removable_on_confirmation";
+  @SerializedName(SERIALIZED_NAME_REMOVABLE_ON_CONFIRMATION)
+  private Boolean removableOnConfirmation;
+
+  public static final String SERIALIZED_NAME_REMOVE_ACCESSORY_ITEM_IDS = "remove_accessory_item_ids";
+  @SerializedName(SERIALIZED_NAME_REMOVE_ACCESSORY_ITEM_IDS)
+  private List<String> removeAccessoryItemIds = null;
+
+  public static final String SERIALIZED_NAME_REMOVE_TRIGGER_ITEM = "remove_trigger_item";
+  @SerializedName(SERIALIZED_NAME_REMOVE_TRIGGER_ITEM)
+  private Boolean removeTriggerItem;
+
+  public static final String SERIALIZED_NAME_SKIP_PREVIOUS_CUSTOMERS = "skip_previous_customers";
+  @SerializedName(SERIALIZED_NAME_SKIP_PREVIOUS_CUSTOMERS)
+  private Boolean skipPreviousCustomers;
+
+  public static final String SERIALIZED_NAME_START_DATE = "start_date";
+  @SerializedName(SERIALIZED_NAME_START_DATE)
+  private String startDate;
+
+  public static final String SERIALIZED_NAME_STATS = "stats";
+  @SerializedName(SERIALIZED_NAME_STATS)
+  private SfvbUpsellStats stats;
+
   public static final String SERIALIZED_NAME_STOREFRONT_OID = "storefront_oid";
   @SerializedName(SERIALIZED_NAME_STOREFRONT_OID)
   private Integer storefrontOid;
 
+  public static final String SERIALIZED_NAME_SUPPRESS_LARGE = "suppress_large";
+  @SerializedName(SERIALIZED_NAME_SUPPRESS_LARGE)
+  private Boolean suppressLarge;
+
+  public static final String SERIALIZED_NAME_SUPPRESS_MEDIUM = "suppress_medium";
+  @SerializedName(SERIALIZED_NAME_SUPPRESS_MEDIUM)
+  private Boolean suppressMedium;
+
+  public static final String SERIALIZED_NAME_SUPPRESS_SMALL = "suppress_small";
+  @SerializedName(SERIALIZED_NAME_SUPPRESS_SMALL)
+  private Boolean suppressSmall;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_COUNTRY_CODES = "suppression_country_codes";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_COUNTRY_CODES)
+  private List<String> suppressionCountryCodes = null;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_LOYALTY_TIER_OIDS = "suppression_loyalty_tier_oids";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_LOYALTY_TIER_OIDS)
+  private List<Integer> suppressionLoyaltyTierOids = null;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_PAYMENT_METHODS = "suppression_payment_methods";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_PAYMENT_METHODS)
+  private List<String> suppressionPaymentMethods = null;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_SHIPPING_METHODS = "suppression_shipping_methods";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_SHIPPING_METHODS)
+  private List<String> suppressionShippingMethods = null;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_STATE_CODES = "suppression_state_codes";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_STATE_CODES)
+  private List<String> suppressionStateCodes = null;
+
+  public static final String SERIALIZED_NAME_SUPPRESSION_TAGS = "suppression_tags";
+  @SerializedName(SERIALIZED_NAME_SUPPRESSION_TAGS)
+  private List<String> suppressionTags = null;
+
   public static final String SERIALIZED_NAME_TEST_ONLY = "test_only";
   @SerializedName(SERIALIZED_NAME_TEST_ONLY)
   private Boolean testOnly;
+
+  public static final String SERIALIZED_NAME_TRIGGER_AGES = "trigger_ages";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_AGES)
+  private List<String> triggerAges = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_COUNTRY_CODES = "trigger_country_codes";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_COUNTRY_CODES)
+  private List<String> triggerCountryCodes = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_GENDERS = "trigger_genders";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_GENDERS)
+  private List<String> triggerGenders = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_LOYALTY_TIER_OIDS = "trigger_loyalty_tier_oids";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_LOYALTY_TIER_OIDS)
+  private List<Integer> triggerLoyaltyTierOids = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_PAYMENT_METHODS = "trigger_payment_methods";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_PAYMENT_METHODS)
+  private List<String> triggerPaymentMethods = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_SHIPPING_METHODS = "trigger_shipping_methods";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_SHIPPING_METHODS)
+  private List<String> triggerShippingMethods = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_STATE_CODES = "trigger_state_codes";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_STATE_CODES)
+  private List<String> triggerStateCodes = null;
+
+  public static final String SERIALIZED_NAME_TRIGGER_TAGS = "trigger_tags";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_TAGS)
+  private List<String> triggerTags = null;
+
+  public static final String SERIALIZED_NAME_UPSELL_ITEM_ID_JAVASCRIPT = "upsell_item_id_javascript";
+  @SerializedName(SERIALIZED_NAME_UPSELL_ITEM_ID_JAVASCRIPT)
+  private String upsellItemIdJavascript;
+
+  public static final String SERIALIZED_NAME_UPSELL_ITEM_IDS = "upsell_item_ids";
+  @SerializedName(SERIALIZED_NAME_UPSELL_ITEM_IDS)
+  private List<String> upsellItemIds = null;
 
   public static final String SERIALIZED_NAME_UPSELL_OFFER_OID = "upsell_offer_oid";
   @SerializedName(SERIALIZED_NAME_UPSELL_OFFER_OID)
@@ -95,11 +320,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Whether the offer is switched on.
+   * Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope.
    * @return active
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the offer is switched on.")
+  @ApiModelProperty(value = "Whether the offer is switched on.  Setting it true, or changing an offer that is active overall, needs the sfvb_publish scope.")
 
   public Boolean getActive() {
     return active;
@@ -118,11 +343,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
+   * Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.
    * @return activeOverall
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.")
+  @ApiModelProperty(value = "Read only.  Whether the offer is active once its date window and daily pricing are taken into account.  This is the one that says whether shoppers are actually seeing it.")
 
   public Boolean getActiveOverall() {
     return activeOverall;
@@ -134,6 +359,267 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer addAccessoryItemIds(List<String> addAccessoryItemIds) {
+    
+    this.addAccessoryItemIds = addAccessoryItemIds;
+    return this;
+  }
+
+  public SfvbUpsellOffer addAddAccessoryItemIdsItem(String addAccessoryItemIdsItem) {
+    if (this.addAccessoryItemIds == null) {
+      this.addAccessoryItemIds = new ArrayList<>();
+    }
+    this.addAccessoryItemIds.add(addAccessoryItemIdsItem);
+    return this;
+  }
+
+   /**
+   * Accessory items added when the offer is accepted.
+   * @return addAccessoryItemIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Accessory items added when the offer is accepted.")
+
+  public List<String> getAddAccessoryItemIds() {
+    return addAccessoryItemIds;
+  }
+
+
+  public void setAddAccessoryItemIds(List<String> addAccessoryItemIds) {
+    this.addAccessoryItemIds = addAccessoryItemIds;
+  }
+
+
+  public SfvbUpsellOffer adjustTriggerItemOption(String adjustTriggerItemOption) {
+    
+    this.adjustTriggerItemOption = adjustTriggerItemOption;
+    return this;
+  }
+
+   /**
+   * Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none.
+   * @return adjustTriggerItemOption
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Option on the trigger item to adjust when the offer is accepted.  Omitted or null for none.")
+
+  public String getAdjustTriggerItemOption() {
+    return adjustTriggerItemOption;
+  }
+
+
+  public void setAdjustTriggerItemOption(String adjustTriggerItemOption) {
+    this.adjustTriggerItemOption = adjustTriggerItemOption;
+  }
+
+
+  public SfvbUpsellOffer allowUpsellItemInCartAlready(Boolean allowUpsellItemInCartAlready) {
+    
+    this.allowUpsellItemInCartAlready = allowUpsellItemInCartAlready;
+    return this;
+  }
+
+   /**
+   * Whether to show the offer when the upsell item is already in the cart.
+   * @return allowUpsellItemInCartAlready
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to show the offer when the upsell item is already in the cart.")
+
+  public Boolean getAllowUpsellItemInCartAlready() {
+    return allowUpsellItemInCartAlready;
+  }
+
+
+  public void setAllowUpsellItemInCartAlready(Boolean allowUpsellItemInCartAlready) {
+    this.allowUpsellItemInCartAlready = allowUpsellItemInCartAlready;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCost(BigDecimal arbitraryUnitCost) {
+    
+    this.arbitraryUnitCost = arbitraryUnitCost;
+    return this;
+  }
+
+   /**
+   * Price per unit when the offer is accepted.  Omitted or null to charge the item&#39;s own price.
+   * @return arbitraryUnitCost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price per unit when the offer is accepted.  Omitted or null to charge the item's own price.")
+
+  public BigDecimal getArbitraryUnitCost() {
+    return arbitraryUnitCost;
+  }
+
+
+  public void setArbitraryUnitCost(BigDecimal arbitraryUnitCost) {
+    this.arbitraryUnitCost = arbitraryUnitCost;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostFriday(BigDecimal arbitraryUnitCostFriday) {
+    
+    this.arbitraryUnitCostFriday = arbitraryUnitCostFriday;
+    return this;
+  }
+
+   /**
+   * Price on Fridays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostFriday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Fridays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostFriday() {
+    return arbitraryUnitCostFriday;
+  }
+
+
+  public void setArbitraryUnitCostFriday(BigDecimal arbitraryUnitCostFriday) {
+    this.arbitraryUnitCostFriday = arbitraryUnitCostFriday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostMonday(BigDecimal arbitraryUnitCostMonday) {
+    
+    this.arbitraryUnitCostMonday = arbitraryUnitCostMonday;
+    return this;
+  }
+
+   /**
+   * Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override.
+   * @return arbitraryUnitCostMonday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Mondays, overriding arbitrary_unit_cost.  Omitted or null for no override.")
+
+  public BigDecimal getArbitraryUnitCostMonday() {
+    return arbitraryUnitCostMonday;
+  }
+
+
+  public void setArbitraryUnitCostMonday(BigDecimal arbitraryUnitCostMonday) {
+    this.arbitraryUnitCostMonday = arbitraryUnitCostMonday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostSaturday(BigDecimal arbitraryUnitCostSaturday) {
+    
+    this.arbitraryUnitCostSaturday = arbitraryUnitCostSaturday;
+    return this;
+  }
+
+   /**
+   * Price on Saturdays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostSaturday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Saturdays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostSaturday() {
+    return arbitraryUnitCostSaturday;
+  }
+
+
+  public void setArbitraryUnitCostSaturday(BigDecimal arbitraryUnitCostSaturday) {
+    this.arbitraryUnitCostSaturday = arbitraryUnitCostSaturday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostSunday(BigDecimal arbitraryUnitCostSunday) {
+    
+    this.arbitraryUnitCostSunday = arbitraryUnitCostSunday;
+    return this;
+  }
+
+   /**
+   * Price on Sundays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostSunday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Sundays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostSunday() {
+    return arbitraryUnitCostSunday;
+  }
+
+
+  public void setArbitraryUnitCostSunday(BigDecimal arbitraryUnitCostSunday) {
+    this.arbitraryUnitCostSunday = arbitraryUnitCostSunday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostThursday(BigDecimal arbitraryUnitCostThursday) {
+    
+    this.arbitraryUnitCostThursday = arbitraryUnitCostThursday;
+    return this;
+  }
+
+   /**
+   * Price on Thursdays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostThursday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Thursdays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostThursday() {
+    return arbitraryUnitCostThursday;
+  }
+
+
+  public void setArbitraryUnitCostThursday(BigDecimal arbitraryUnitCostThursday) {
+    this.arbitraryUnitCostThursday = arbitraryUnitCostThursday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostTuesday(BigDecimal arbitraryUnitCostTuesday) {
+    
+    this.arbitraryUnitCostTuesday = arbitraryUnitCostTuesday;
+    return this;
+  }
+
+   /**
+   * Price on Tuesdays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostTuesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Tuesdays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostTuesday() {
+    return arbitraryUnitCostTuesday;
+  }
+
+
+  public void setArbitraryUnitCostTuesday(BigDecimal arbitraryUnitCostTuesday) {
+    this.arbitraryUnitCostTuesday = arbitraryUnitCostTuesday;
+  }
+
+
+  public SfvbUpsellOffer arbitraryUnitCostWednesday(BigDecimal arbitraryUnitCostWednesday) {
+    
+    this.arbitraryUnitCostWednesday = arbitraryUnitCostWednesday;
+    return this;
+  }
+
+   /**
+   * Price on Wednesdays, overriding arbitrary_unit_cost.
+   * @return arbitraryUnitCostWednesday
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Price on Wednesdays, overriding arbitrary_unit_cost.")
+
+  public BigDecimal getArbitraryUnitCostWednesday() {
+    return arbitraryUnitCostWednesday;
+  }
+
+
+  public void setArbitraryUnitCostWednesday(BigDecimal arbitraryUnitCostWednesday) {
+    this.arbitraryUnitCostWednesday = arbitraryUnitCostWednesday;
+  }
+
+
   public SfvbUpsellOffer cjsonSize(Integer cjsonSize) {
     
     this.cjsonSize = cjsonSize;
@@ -141,11 +627,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
+   * Read only.  Size of the offer&#39;s container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.
    * @return cjsonSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size of the offer's container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.")
+  @ApiModelProperty(value = "Read only.  Size of the offer's container JSON in bytes.  A large value here alongside a low element count is the signature of a hand pasted HTML dump.")
 
   public Integer getCjsonSize() {
     return cjsonSize;
@@ -157,6 +643,121 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer endDate(String endDate) {
+    
+    this.endDate = endDate;
+    return this;
+  }
+
+   /**
+   * Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end.
+   * @return endDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last day the offer runs, as YYYY-MM-DD, inclusive.  Omitted or null for no end.")
+
+  public String getEndDate() {
+    return endDate;
+  }
+
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+
+  public SfvbUpsellOffer everflowAdvertiserEventId(String everflowAdvertiserEventId) {
+    
+    this.everflowAdvertiserEventId = everflowAdvertiserEventId;
+    return this;
+  }
+
+   /**
+   * Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none.
+   * @return everflowAdvertiserEventId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Everflow advertiser event id recorded when the offer is accepted.  Omitted or null for none.")
+
+  public String getEverflowAdvertiserEventId() {
+    return everflowAdvertiserEventId;
+  }
+
+
+  public void setEverflowAdvertiserEventId(String everflowAdvertiserEventId) {
+    this.everflowAdvertiserEventId = everflowAdvertiserEventId;
+  }
+
+
+  public SfvbUpsellOffer firstTimeItem(Boolean firstTimeItem) {
+    
+    this.firstTimeItem = firstTimeItem;
+    return this;
+  }
+
+   /**
+   * Show only to shoppers who have not bought the upsell item before.
+   * @return firstTimeItem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Show only to shoppers who have not bought the upsell item before.")
+
+  public Boolean getFirstTimeItem() {
+    return firstTimeItem;
+  }
+
+
+  public void setFirstTimeItem(Boolean firstTimeItem) {
+    this.firstTimeItem = firstTimeItem;
+  }
+
+
+  public SfvbUpsellOffer firstTimeStore(Boolean firstTimeStore) {
+    
+    this.firstTimeStore = firstTimeStore;
+    return this;
+  }
+
+   /**
+   * Show only to shoppers buying from this store for the first time.
+   * @return firstTimeStore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Show only to shoppers buying from this store for the first time.")
+
+  public Boolean getFirstTimeStore() {
+    return firstTimeStore;
+  }
+
+
+  public void setFirstTimeStore(Boolean firstTimeStore) {
+    this.firstTimeStore = firstTimeStore;
+  }
+
+
+  public SfvbUpsellOffer freeShipping(Boolean freeShipping) {
+    
+    this.freeShipping = freeShipping;
+    return this;
+  }
+
+   /**
+   * Whether the upsell item ships free.
+   * @return freeShipping
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the upsell item ships free.")
+
+  public Boolean getFreeShipping() {
+    return freeShipping;
+  }
+
+
+  public void setFreeShipping(Boolean freeShipping) {
+    this.freeShipping = freeShipping;
+  }
+
+
   public SfvbUpsellOffer hasContainer(Boolean hasContainer) {
     
     this.hasContainer = hasContainer;
@@ -164,11 +765,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Whether a container has been authored for this offer.
+   * Read only.  Whether a container has been authored for this offer.
    * @return hasContainer
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether a container has been authored for this offer.")
+  @ApiModelProperty(value = "Read only.  Whether a container has been authored for this offer.")
 
   public Boolean getHasContainer() {
     return hasContainer;
@@ -180,6 +781,252 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer hasEverflowConfigured(Boolean hasEverflowConfigured) {
+    
+    this.hasEverflowConfigured = hasEverflowConfigured;
+    return this;
+  }
+
+   /**
+   * Read only.  Whether the merchant has Everflow set up.
+   * @return hasEverflowConfigured
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  Whether the merchant has Everflow set up.")
+
+  public Boolean getHasEverflowConfigured() {
+    return hasEverflowConfigured;
+  }
+
+
+  public void setHasEverflowConfigured(Boolean hasEverflowConfigured) {
+    this.hasEverflowConfigured = hasEverflowConfigured;
+  }
+
+
+  public SfvbUpsellOffer hasLoyaltyConfigured(Boolean hasLoyaltyConfigured) {
+    
+    this.hasLoyaltyConfigured = hasLoyaltyConfigured;
+    return this;
+  }
+
+   /**
+   * Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply.
+   * @return hasLoyaltyConfigured
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  Whether the merchant has loyalty set up, so the loyalty tier lists apply.")
+
+  public Boolean getHasLoyaltyConfigured() {
+    return hasLoyaltyConfigured;
+  }
+
+
+  public void setHasLoyaltyConfigured(Boolean hasLoyaltyConfigured) {
+    this.hasLoyaltyConfigured = hasLoyaltyConfigured;
+  }
+
+
+  public SfvbUpsellOffer hasTowerdataConfigured(Boolean hasTowerdataConfigured) {
+    
+    this.hasTowerdataConfigured = hasTowerdataConfigured;
+    return this;
+  }
+
+   /**
+   * Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply.
+   * @return hasTowerdataConfigured
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  Whether the merchant has TowerData set up, so the age and gender lists apply.")
+
+  public Boolean getHasTowerdataConfigured() {
+    return hasTowerdataConfigured;
+  }
+
+
+  public void setHasTowerdataConfigured(Boolean hasTowerdataConfigured) {
+    this.hasTowerdataConfigured = hasTowerdataConfigured;
+  }
+
+
+  public SfvbUpsellOffer hashSha256(String hashSha256) {
+    
+    this.hashSha256 = hashSha256;
+    return this;
+  }
+
+   /**
+   * Read only.  Hash of the offer&#39;s writable fields.  Send it in If-Match on an update.
+   * @return hashSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  Hash of the offer's writable fields.  Send it in If-Match on an update.")
+
+  public String getHashSha256() {
+    return hashSha256;
+  }
+
+
+  public void setHashSha256(String hashSha256) {
+    this.hashSha256 = hashSha256;
+  }
+
+
+  public SfvbUpsellOffer itemLogicSuppression(SfvbUpsellItemLogic itemLogicSuppression) {
+    
+    this.itemLogicSuppression = itemLogicSuppression;
+    return this;
+  }
+
+   /**
+   * Get itemLogicSuppression
+   * @return itemLogicSuppression
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbUpsellItemLogic getItemLogicSuppression() {
+    return itemLogicSuppression;
+  }
+
+
+  public void setItemLogicSuppression(SfvbUpsellItemLogic itemLogicSuppression) {
+    this.itemLogicSuppression = itemLogicSuppression;
+  }
+
+
+  public SfvbUpsellOffer itemLogicTrigger(SfvbUpsellItemLogic itemLogicTrigger) {
+    
+    this.itemLogicTrigger = itemLogicTrigger;
+    return this;
+  }
+
+   /**
+   * Get itemLogicTrigger
+   * @return itemLogicTrigger
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbUpsellItemLogic getItemLogicTrigger() {
+    return itemLogicTrigger;
+  }
+
+
+  public void setItemLogicTrigger(SfvbUpsellItemLogic itemLogicTrigger) {
+    this.itemLogicTrigger = itemLogicTrigger;
+  }
+
+
+  public SfvbUpsellOffer lockShipping(Boolean lockShipping) {
+    
+    this.lockShipping = lockShipping;
+    return this;
+  }
+
+   /**
+   * Whether the shipping method is locked once the offer is accepted.
+   * @return lockShipping
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the shipping method is locked once the offer is accepted.")
+
+  public Boolean getLockShipping() {
+    return lockShipping;
+  }
+
+
+  public void setLockShipping(Boolean lockShipping) {
+    this.lockShipping = lockShipping;
+  }
+
+
+  public SfvbUpsellOffer maxQuantity(Integer maxQuantity) {
+    
+    this.maxQuantity = maxQuantity;
+    return this;
+  }
+
+   /**
+   * Most units a shopper can take.  Omitted or null for no limit.
+   * @return maxQuantity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Most units a shopper can take.  Omitted or null for no limit.")
+
+  public Integer getMaxQuantity() {
+    return maxQuantity;
+  }
+
+
+  public void setMaxQuantity(Integer maxQuantity) {
+    this.maxQuantity = maxQuantity;
+  }
+
+
+  public SfvbUpsellOffer migrateAccessoryItemIdsFrom(List<String> migrateAccessoryItemIdsFrom) {
+    
+    this.migrateAccessoryItemIdsFrom = migrateAccessoryItemIdsFrom;
+    return this;
+  }
+
+  public SfvbUpsellOffer addMigrateAccessoryItemIdsFromItem(String migrateAccessoryItemIdsFromItem) {
+    if (this.migrateAccessoryItemIdsFrom == null) {
+      this.migrateAccessoryItemIdsFrom = new ArrayList<>();
+    }
+    this.migrateAccessoryItemIdsFrom.add(migrateAccessoryItemIdsFromItem);
+    return this;
+  }
+
+   /**
+   * Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to.
+   * @return migrateAccessoryItemIdsFrom
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Accessory items to migrate from, paired by position with migrate_accessory_item_ids_to.")
+
+  public List<String> getMigrateAccessoryItemIdsFrom() {
+    return migrateAccessoryItemIdsFrom;
+  }
+
+
+  public void setMigrateAccessoryItemIdsFrom(List<String> migrateAccessoryItemIdsFrom) {
+    this.migrateAccessoryItemIdsFrom = migrateAccessoryItemIdsFrom;
+  }
+
+
+  public SfvbUpsellOffer migrateAccessoryItemIdsTo(List<String> migrateAccessoryItemIdsTo) {
+    
+    this.migrateAccessoryItemIdsTo = migrateAccessoryItemIdsTo;
+    return this;
+  }
+
+  public SfvbUpsellOffer addMigrateAccessoryItemIdsToItem(String migrateAccessoryItemIdsToItem) {
+    if (this.migrateAccessoryItemIdsTo == null) {
+      this.migrateAccessoryItemIdsTo = new ArrayList<>();
+    }
+    this.migrateAccessoryItemIdsTo.add(migrateAccessoryItemIdsToItem);
+    return this;
+  }
+
+   /**
+   * Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from.
+   * @return migrateAccessoryItemIdsTo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Accessory items to migrate to, paired by position with migrate_accessory_item_ids_from.")
+
+  public List<String> getMigrateAccessoryItemIdsTo() {
+    return migrateAccessoryItemIdsTo;
+  }
+
+
+  public void setMigrateAccessoryItemIdsTo(List<String> migrateAccessoryItemIdsTo) {
+    this.migrateAccessoryItemIdsTo = migrateAccessoryItemIdsTo;
+  }
+
+
   public SfvbUpsellOffer name(String name) {
     
     this.name = name;
@@ -187,11 +1034,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Offer name.
+   * Offer name, at most 50 characters.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Offer name.")
+  @ApiModelProperty(value = "Offer name, at most 50 characters.")
 
   public String getName() {
     return name;
@@ -203,6 +1050,60 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer offsiteContentUrl(String offsiteContentUrl) {
+    
+    this.offsiteContentUrl = offsiteContentUrl;
+    return this;
+  }
+
+   /**
+   * URL of offsite content shown instead of the container.  Omitted or null for none.
+   * @return offsiteContentUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "URL of offsite content shown instead of the container.  Omitted or null for none.")
+
+  public String getOffsiteContentUrl() {
+    return offsiteContentUrl;
+  }
+
+
+  public void setOffsiteContentUrl(String offsiteContentUrl) {
+    this.offsiteContentUrl = offsiteContentUrl;
+  }
+
+
+  public SfvbUpsellOffer outOfStockUpsellItemIds(List<String> outOfStockUpsellItemIds) {
+    
+    this.outOfStockUpsellItemIds = outOfStockUpsellItemIds;
+    return this;
+  }
+
+  public SfvbUpsellOffer addOutOfStockUpsellItemIdsItem(String outOfStockUpsellItemIdsItem) {
+    if (this.outOfStockUpsellItemIds == null) {
+      this.outOfStockUpsellItemIds = new ArrayList<>();
+    }
+    this.outOfStockUpsellItemIds.add(outOfStockUpsellItemIdsItem);
+    return this;
+  }
+
+   /**
+   * Read only.  Upsell items that are out of stock now, so the offer would not be shown.
+   * @return outOfStockUpsellItemIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  Upsell items that are out of stock now, so the offer would not be shown.")
+
+  public List<String> getOutOfStockUpsellItemIds() {
+    return outOfStockUpsellItemIds;
+  }
+
+
+  public void setOutOfStockUpsellItemIds(List<String> outOfStockUpsellItemIds) {
+    this.outOfStockUpsellItemIds = outOfStockUpsellItemIds;
+  }
+
+
   public SfvbUpsellOffer pathName(String pathName) {
     
     this.pathName = pathName;
@@ -210,11 +1111,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Name of the upsell path this offer sits on.
+   * Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer.
    * @return pathName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the upsell path this offer sits on.")
+  @ApiModelProperty(value = "Read only.  Name of the upsell path this offer was last served on.  Written by checkout traffic, so it is empty until shoppers have seen the offer and can be stale.  Use referenced_by_path_oids for the configured answer.")
 
   public String getPathName() {
     return pathName;
@@ -226,6 +1127,206 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer recordAsRegularItem(Boolean recordAsRegularItem) {
+    
+    this.recordAsRegularItem = recordAsRegularItem;
+    return this;
+  }
+
+   /**
+   * Whether the accepted item is recorded as a regular item rather than an upsell.
+   * @return recordAsRegularItem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the accepted item is recorded as a regular item rather than an upsell.")
+
+  public Boolean getRecordAsRegularItem() {
+    return recordAsRegularItem;
+  }
+
+
+  public void setRecordAsRegularItem(Boolean recordAsRegularItem) {
+    this.recordAsRegularItem = recordAsRegularItem;
+  }
+
+
+  public SfvbUpsellOffer referencedByPathOids(List<Integer> referencedByPathOids) {
+    
+    this.referencedByPathOids = referencedByPathOids;
+    return this;
+  }
+
+  public SfvbUpsellOffer addReferencedByPathOidsItem(Integer referencedByPathOidsItem) {
+    if (this.referencedByPathOids == null) {
+      this.referencedByPathOids = new ArrayList<>();
+    }
+    this.referencedByPathOids.add(referencedByPathOidsItem);
+    return this;
+  }
+
+   /**
+   * Read only.  The storefront&#39;s upsell paths whose steps use this offer, as an offer or a downsell.
+   * @return referencedByPathOids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Read only.  The storefront's upsell paths whose steps use this offer, as an offer or a downsell.")
+
+  public List<Integer> getReferencedByPathOids() {
+    return referencedByPathOids;
+  }
+
+
+  public void setReferencedByPathOids(List<Integer> referencedByPathOids) {
+    this.referencedByPathOids = referencedByPathOids;
+  }
+
+
+  public SfvbUpsellOffer removableOnConfirmation(Boolean removableOnConfirmation) {
+    
+    this.removableOnConfirmation = removableOnConfirmation;
+    return this;
+  }
+
+   /**
+   * Whether the shopper can remove the accepted item on the confirmation step.
+   * @return removableOnConfirmation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the shopper can remove the accepted item on the confirmation step.")
+
+  public Boolean getRemovableOnConfirmation() {
+    return removableOnConfirmation;
+  }
+
+
+  public void setRemovableOnConfirmation(Boolean removableOnConfirmation) {
+    this.removableOnConfirmation = removableOnConfirmation;
+  }
+
+
+  public SfvbUpsellOffer removeAccessoryItemIds(List<String> removeAccessoryItemIds) {
+    
+    this.removeAccessoryItemIds = removeAccessoryItemIds;
+    return this;
+  }
+
+  public SfvbUpsellOffer addRemoveAccessoryItemIdsItem(String removeAccessoryItemIdsItem) {
+    if (this.removeAccessoryItemIds == null) {
+      this.removeAccessoryItemIds = new ArrayList<>();
+    }
+    this.removeAccessoryItemIds.add(removeAccessoryItemIdsItem);
+    return this;
+  }
+
+   /**
+   * Accessory items removed when the offer is accepted.
+   * @return removeAccessoryItemIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Accessory items removed when the offer is accepted.")
+
+  public List<String> getRemoveAccessoryItemIds() {
+    return removeAccessoryItemIds;
+  }
+
+
+  public void setRemoveAccessoryItemIds(List<String> removeAccessoryItemIds) {
+    this.removeAccessoryItemIds = removeAccessoryItemIds;
+  }
+
+
+  public SfvbUpsellOffer removeTriggerItem(Boolean removeTriggerItem) {
+    
+    this.removeTriggerItem = removeTriggerItem;
+    return this;
+  }
+
+   /**
+   * Whether accepting the offer removes the item that triggered it (a swap rather than an add).
+   * @return removeTriggerItem
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether accepting the offer removes the item that triggered it (a swap rather than an add).")
+
+  public Boolean getRemoveTriggerItem() {
+    return removeTriggerItem;
+  }
+
+
+  public void setRemoveTriggerItem(Boolean removeTriggerItem) {
+    this.removeTriggerItem = removeTriggerItem;
+  }
+
+
+  public SfvbUpsellOffer skipPreviousCustomers(Boolean skipPreviousCustomers) {
+    
+    this.skipPreviousCustomers = skipPreviousCustomers;
+    return this;
+  }
+
+   /**
+   * Do not show to previous customers.
+   * @return skipPreviousCustomers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Do not show to previous customers.")
+
+  public Boolean getSkipPreviousCustomers() {
+    return skipPreviousCustomers;
+  }
+
+
+  public void setSkipPreviousCustomers(Boolean skipPreviousCustomers) {
+    this.skipPreviousCustomers = skipPreviousCustomers;
+  }
+
+
+  public SfvbUpsellOffer startDate(String startDate) {
+    
+    this.startDate = startDate;
+    return this;
+  }
+
+   /**
+   * First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start.
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "First day the offer runs, as YYYY-MM-DD.  Omitted or null for no start.")
+
+  public String getStartDate() {
+    return startDate;
+  }
+
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+
+  public SfvbUpsellOffer stats(SfvbUpsellStats stats) {
+    
+    this.stats = stats;
+    return this;
+  }
+
+   /**
+   * Get stats
+   * @return stats
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbUpsellStats getStats() {
+    return stats;
+  }
+
+
+  public void setStats(SfvbUpsellStats stats) {
+    this.stats = stats;
+  }
+
+
   public SfvbUpsellOffer storefrontOid(Integer storefrontOid) {
     
     this.storefrontOid = storefrontOid;
@@ -233,11 +1334,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Storefront oid.
+   * Read only.  Storefront oid.
    * @return storefrontOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Storefront oid.")
+  @ApiModelProperty(value = "Read only.  Storefront oid.")
 
   public Integer getStorefrontOid() {
     return storefrontOid;
@@ -246,6 +1347,261 @@ public class SfvbUpsellOffer {
 
   public void setStorefrontOid(Integer storefrontOid) {
     this.storefrontOid = storefrontOid;
+  }
+
+
+  public SfvbUpsellOffer suppressLarge(Boolean suppressLarge) {
+    
+    this.suppressLarge = suppressLarge;
+    return this;
+  }
+
+   /**
+   * Do not show on large screens.
+   * @return suppressLarge
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Do not show on large screens.")
+
+  public Boolean getSuppressLarge() {
+    return suppressLarge;
+  }
+
+
+  public void setSuppressLarge(Boolean suppressLarge) {
+    this.suppressLarge = suppressLarge;
+  }
+
+
+  public SfvbUpsellOffer suppressMedium(Boolean suppressMedium) {
+    
+    this.suppressMedium = suppressMedium;
+    return this;
+  }
+
+   /**
+   * Do not show on medium screens.
+   * @return suppressMedium
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Do not show on medium screens.")
+
+  public Boolean getSuppressMedium() {
+    return suppressMedium;
+  }
+
+
+  public void setSuppressMedium(Boolean suppressMedium) {
+    this.suppressMedium = suppressMedium;
+  }
+
+
+  public SfvbUpsellOffer suppressSmall(Boolean suppressSmall) {
+    
+    this.suppressSmall = suppressSmall;
+    return this;
+  }
+
+   /**
+   * Do not show on small screens.
+   * @return suppressSmall
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Do not show on small screens.")
+
+  public Boolean getSuppressSmall() {
+    return suppressSmall;
+  }
+
+
+  public void setSuppressSmall(Boolean suppressSmall) {
+    this.suppressSmall = suppressSmall;
+  }
+
+
+  public SfvbUpsellOffer suppressionCountryCodes(List<String> suppressionCountryCodes) {
+    
+    this.suppressionCountryCodes = suppressionCountryCodes;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionCountryCodesItem(String suppressionCountryCodesItem) {
+    if (this.suppressionCountryCodes == null) {
+      this.suppressionCountryCodes = new ArrayList<>();
+    }
+    this.suppressionCountryCodes.add(suppressionCountryCodesItem);
+    return this;
+  }
+
+   /**
+   * Shipping countries that stop the offer from showing.
+   * @return suppressionCountryCodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping countries that stop the offer from showing.")
+
+  public List<String> getSuppressionCountryCodes() {
+    return suppressionCountryCodes;
+  }
+
+
+  public void setSuppressionCountryCodes(List<String> suppressionCountryCodes) {
+    this.suppressionCountryCodes = suppressionCountryCodes;
+  }
+
+
+  public SfvbUpsellOffer suppressionLoyaltyTierOids(List<Integer> suppressionLoyaltyTierOids) {
+    
+    this.suppressionLoyaltyTierOids = suppressionLoyaltyTierOids;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionLoyaltyTierOidsItem(Integer suppressionLoyaltyTierOidsItem) {
+    if (this.suppressionLoyaltyTierOids == null) {
+      this.suppressionLoyaltyTierOids = new ArrayList<>();
+    }
+    this.suppressionLoyaltyTierOids.add(suppressionLoyaltyTierOidsItem);
+    return this;
+  }
+
+   /**
+   * Loyalty tiers that stop the offer from showing.
+   * @return suppressionLoyaltyTierOids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Loyalty tiers that stop the offer from showing.")
+
+  public List<Integer> getSuppressionLoyaltyTierOids() {
+    return suppressionLoyaltyTierOids;
+  }
+
+
+  public void setSuppressionLoyaltyTierOids(List<Integer> suppressionLoyaltyTierOids) {
+    this.suppressionLoyaltyTierOids = suppressionLoyaltyTierOids;
+  }
+
+
+  public SfvbUpsellOffer suppressionPaymentMethods(List<String> suppressionPaymentMethods) {
+    
+    this.suppressionPaymentMethods = suppressionPaymentMethods;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionPaymentMethodsItem(String suppressionPaymentMethodsItem) {
+    if (this.suppressionPaymentMethods == null) {
+      this.suppressionPaymentMethods = new ArrayList<>();
+    }
+    this.suppressionPaymentMethods.add(suppressionPaymentMethodsItem);
+    return this;
+  }
+
+   /**
+   * Payment methods that stop the offer from showing.
+   * @return suppressionPaymentMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Payment methods that stop the offer from showing.")
+
+  public List<String> getSuppressionPaymentMethods() {
+    return suppressionPaymentMethods;
+  }
+
+
+  public void setSuppressionPaymentMethods(List<String> suppressionPaymentMethods) {
+    this.suppressionPaymentMethods = suppressionPaymentMethods;
+  }
+
+
+  public SfvbUpsellOffer suppressionShippingMethods(List<String> suppressionShippingMethods) {
+    
+    this.suppressionShippingMethods = suppressionShippingMethods;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionShippingMethodsItem(String suppressionShippingMethodsItem) {
+    if (this.suppressionShippingMethods == null) {
+      this.suppressionShippingMethods = new ArrayList<>();
+    }
+    this.suppressionShippingMethods.add(suppressionShippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * Shipping methods that stop the offer from showing.
+   * @return suppressionShippingMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping methods that stop the offer from showing.")
+
+  public List<String> getSuppressionShippingMethods() {
+    return suppressionShippingMethods;
+  }
+
+
+  public void setSuppressionShippingMethods(List<String> suppressionShippingMethods) {
+    this.suppressionShippingMethods = suppressionShippingMethods;
+  }
+
+
+  public SfvbUpsellOffer suppressionStateCodes(List<String> suppressionStateCodes) {
+    
+    this.suppressionStateCodes = suppressionStateCodes;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionStateCodesItem(String suppressionStateCodesItem) {
+    if (this.suppressionStateCodes == null) {
+      this.suppressionStateCodes = new ArrayList<>();
+    }
+    this.suppressionStateCodes.add(suppressionStateCodesItem);
+    return this;
+  }
+
+   /**
+   * Shipping states that stop the offer from showing.
+   * @return suppressionStateCodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping states that stop the offer from showing.")
+
+  public List<String> getSuppressionStateCodes() {
+    return suppressionStateCodes;
+  }
+
+
+  public void setSuppressionStateCodes(List<String> suppressionStateCodes) {
+    this.suppressionStateCodes = suppressionStateCodes;
+  }
+
+
+  public SfvbUpsellOffer suppressionTags(List<String> suppressionTags) {
+    
+    this.suppressionTags = suppressionTags;
+    return this;
+  }
+
+  public SfvbUpsellOffer addSuppressionTagsItem(String suppressionTagsItem) {
+    if (this.suppressionTags == null) {
+      this.suppressionTags = new ArrayList<>();
+    }
+    this.suppressionTags.add(suppressionTagsItem);
+    return this;
+  }
+
+   /**
+   * Customer tags that stop the offer from showing.
+   * @return suppressionTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Customer tags that stop the offer from showing.")
+
+  public List<String> getSuppressionTags() {
+    return suppressionTags;
+  }
+
+
+  public void setSuppressionTags(List<String> suppressionTags) {
+    this.suppressionTags = suppressionTags;
   }
 
 
@@ -272,6 +1628,308 @@ public class SfvbUpsellOffer {
   }
 
 
+  public SfvbUpsellOffer triggerAges(List<String> triggerAges) {
+    
+    this.triggerAges = triggerAges;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerAgesItem(String triggerAgesItem) {
+    if (this.triggerAges == null) {
+      this.triggerAges = new ArrayList<>();
+    }
+    this.triggerAges.add(triggerAgesItem);
+    return this;
+  }
+
+   /**
+   * TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown.
+   * @return triggerAges
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TowerData age bands the offer is shown to.  18-20, 21-24, 25-34, 35-44, 45-54, 55-64, 65+ or Unknown.")
+
+  public List<String> getTriggerAges() {
+    return triggerAges;
+  }
+
+
+  public void setTriggerAges(List<String> triggerAges) {
+    this.triggerAges = triggerAges;
+  }
+
+
+  public SfvbUpsellOffer triggerCountryCodes(List<String> triggerCountryCodes) {
+    
+    this.triggerCountryCodes = triggerCountryCodes;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerCountryCodesItem(String triggerCountryCodesItem) {
+    if (this.triggerCountryCodes == null) {
+      this.triggerCountryCodes = new ArrayList<>();
+    }
+    this.triggerCountryCodes.add(triggerCountryCodesItem);
+    return this;
+  }
+
+   /**
+   * Shipping countries (ISO 3166 two letter codes) that trigger the offer.
+   * @return triggerCountryCodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping countries (ISO 3166 two letter codes) that trigger the offer.")
+
+  public List<String> getTriggerCountryCodes() {
+    return triggerCountryCodes;
+  }
+
+
+  public void setTriggerCountryCodes(List<String> triggerCountryCodes) {
+    this.triggerCountryCodes = triggerCountryCodes;
+  }
+
+
+  public SfvbUpsellOffer triggerGenders(List<String> triggerGenders) {
+    
+    this.triggerGenders = triggerGenders;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerGendersItem(String triggerGendersItem) {
+    if (this.triggerGenders == null) {
+      this.triggerGenders = new ArrayList<>();
+    }
+    this.triggerGenders.add(triggerGendersItem);
+    return this;
+  }
+
+   /**
+   * TowerData genders the offer is shown to.  Male, Female or Unknown.
+   * @return triggerGenders
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TowerData genders the offer is shown to.  Male, Female or Unknown.")
+
+  public List<String> getTriggerGenders() {
+    return triggerGenders;
+  }
+
+
+  public void setTriggerGenders(List<String> triggerGenders) {
+    this.triggerGenders = triggerGenders;
+  }
+
+
+  public SfvbUpsellOffer triggerLoyaltyTierOids(List<Integer> triggerLoyaltyTierOids) {
+    
+    this.triggerLoyaltyTierOids = triggerLoyaltyTierOids;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerLoyaltyTierOidsItem(Integer triggerLoyaltyTierOidsItem) {
+    if (this.triggerLoyaltyTierOids == null) {
+      this.triggerLoyaltyTierOids = new ArrayList<>();
+    }
+    this.triggerLoyaltyTierOids.add(triggerLoyaltyTierOidsItem);
+    return this;
+  }
+
+   /**
+   * Loyalty tiers that trigger the offer.  Each must be one of the merchant&#39;s loyalty tiers.
+   * @return triggerLoyaltyTierOids
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Loyalty tiers that trigger the offer.  Each must be one of the merchant's loyalty tiers.")
+
+  public List<Integer> getTriggerLoyaltyTierOids() {
+    return triggerLoyaltyTierOids;
+  }
+
+
+  public void setTriggerLoyaltyTierOids(List<Integer> triggerLoyaltyTierOids) {
+    this.triggerLoyaltyTierOids = triggerLoyaltyTierOids;
+  }
+
+
+  public SfvbUpsellOffer triggerPaymentMethods(List<String> triggerPaymentMethods) {
+    
+    this.triggerPaymentMethods = triggerPaymentMethods;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerPaymentMethodsItem(String triggerPaymentMethodsItem) {
+    if (this.triggerPaymentMethods == null) {
+      this.triggerPaymentMethods = new ArrayList<>();
+    }
+    this.triggerPaymentMethods.add(triggerPaymentMethodsItem);
+    return this;
+  }
+
+   /**
+   * Payment methods that trigger the offer.  Each must be one of the merchant&#39;s payment methods.
+   * @return triggerPaymentMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Payment methods that trigger the offer.  Each must be one of the merchant's payment methods.")
+
+  public List<String> getTriggerPaymentMethods() {
+    return triggerPaymentMethods;
+  }
+
+
+  public void setTriggerPaymentMethods(List<String> triggerPaymentMethods) {
+    this.triggerPaymentMethods = triggerPaymentMethods;
+  }
+
+
+  public SfvbUpsellOffer triggerShippingMethods(List<String> triggerShippingMethods) {
+    
+    this.triggerShippingMethods = triggerShippingMethods;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerShippingMethodsItem(String triggerShippingMethodsItem) {
+    if (this.triggerShippingMethods == null) {
+      this.triggerShippingMethods = new ArrayList<>();
+    }
+    this.triggerShippingMethods.add(triggerShippingMethodsItem);
+    return this;
+  }
+
+   /**
+   * Shipping methods that trigger the offer.  Each must be one of the merchant&#39;s shipping methods.
+   * @return triggerShippingMethods
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping methods that trigger the offer.  Each must be one of the merchant's shipping methods.")
+
+  public List<String> getTriggerShippingMethods() {
+    return triggerShippingMethods;
+  }
+
+
+  public void setTriggerShippingMethods(List<String> triggerShippingMethods) {
+    this.triggerShippingMethods = triggerShippingMethods;
+  }
+
+
+  public SfvbUpsellOffer triggerStateCodes(List<String> triggerStateCodes) {
+    
+    this.triggerStateCodes = triggerStateCodes;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerStateCodesItem(String triggerStateCodesItem) {
+    if (this.triggerStateCodes == null) {
+      this.triggerStateCodes = new ArrayList<>();
+    }
+    this.triggerStateCodes.add(triggerStateCodesItem);
+    return this;
+  }
+
+   /**
+   * Shipping states that trigger the offer.
+   * @return triggerStateCodes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Shipping states that trigger the offer.")
+
+  public List<String> getTriggerStateCodes() {
+    return triggerStateCodes;
+  }
+
+
+  public void setTriggerStateCodes(List<String> triggerStateCodes) {
+    this.triggerStateCodes = triggerStateCodes;
+  }
+
+
+  public SfvbUpsellOffer triggerTags(List<String> triggerTags) {
+    
+    this.triggerTags = triggerTags;
+    return this;
+  }
+
+  public SfvbUpsellOffer addTriggerTagsItem(String triggerTagsItem) {
+    if (this.triggerTags == null) {
+      this.triggerTags = new ArrayList<>();
+    }
+    this.triggerTags.add(triggerTagsItem);
+    return this;
+  }
+
+   /**
+   * Customer tags that trigger the offer.
+   * @return triggerTags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Customer tags that trigger the offer.")
+
+  public List<String> getTriggerTags() {
+    return triggerTags;
+  }
+
+
+  public void setTriggerTags(List<String> triggerTags) {
+    this.triggerTags = triggerTags;
+  }
+
+
+  public SfvbUpsellOffer upsellItemIdJavascript(String upsellItemIdJavascript) {
+    
+    this.upsellItemIdJavascript = upsellItemIdJavascript;
+    return this;
+  }
+
+   /**
+   * JavaScript that chooses the upsell item at runtime.  Omitted or null for none.
+   * @return upsellItemIdJavascript
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "JavaScript that chooses the upsell item at runtime.  Omitted or null for none.")
+
+  public String getUpsellItemIdJavascript() {
+    return upsellItemIdJavascript;
+  }
+
+
+  public void setUpsellItemIdJavascript(String upsellItemIdJavascript) {
+    this.upsellItemIdJavascript = upsellItemIdJavascript;
+  }
+
+
+  public SfvbUpsellOffer upsellItemIds(List<String> upsellItemIds) {
+    
+    this.upsellItemIds = upsellItemIds;
+    return this;
+  }
+
+  public SfvbUpsellOffer addUpsellItemIdsItem(String upsellItemIdsItem) {
+    if (this.upsellItemIds == null) {
+      this.upsellItemIds = new ArrayList<>();
+    }
+    this.upsellItemIds.add(upsellItemIdsItem);
+    return this;
+  }
+
+   /**
+   * The items offered.  Every item id must exist on the merchant account.
+   * @return upsellItemIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The items offered.  Every item id must exist on the merchant account.")
+
+  public List<String> getUpsellItemIds() {
+    return upsellItemIds;
+  }
+
+
+  public void setUpsellItemIds(List<String> upsellItemIds) {
+    this.upsellItemIds = upsellItemIds;
+  }
+
+
   public SfvbUpsellOffer upsellOfferOid(Integer upsellOfferOid) {
     
     this.upsellOfferOid = upsellOfferOid;
@@ -279,11 +1937,11 @@ public class SfvbUpsellOffer {
   }
 
    /**
-   * Upsell offer oid.
+   * Read only.  Upsell offer oid.
    * @return upsellOfferOid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Upsell offer oid.")
+  @ApiModelProperty(value = "Read only.  Upsell offer oid.")
 
   public Integer getUpsellOfferOid() {
     return upsellOfferOid;
@@ -307,18 +1965,73 @@ public class SfvbUpsellOffer {
     SfvbUpsellOffer sfvbUpsellOffer = (SfvbUpsellOffer) o;
     return Objects.equals(this.active, sfvbUpsellOffer.active) &&
         Objects.equals(this.activeOverall, sfvbUpsellOffer.activeOverall) &&
+        Objects.equals(this.addAccessoryItemIds, sfvbUpsellOffer.addAccessoryItemIds) &&
+        Objects.equals(this.adjustTriggerItemOption, sfvbUpsellOffer.adjustTriggerItemOption) &&
+        Objects.equals(this.allowUpsellItemInCartAlready, sfvbUpsellOffer.allowUpsellItemInCartAlready) &&
+        Objects.equals(this.arbitraryUnitCost, sfvbUpsellOffer.arbitraryUnitCost) &&
+        Objects.equals(this.arbitraryUnitCostFriday, sfvbUpsellOffer.arbitraryUnitCostFriday) &&
+        Objects.equals(this.arbitraryUnitCostMonday, sfvbUpsellOffer.arbitraryUnitCostMonday) &&
+        Objects.equals(this.arbitraryUnitCostSaturday, sfvbUpsellOffer.arbitraryUnitCostSaturday) &&
+        Objects.equals(this.arbitraryUnitCostSunday, sfvbUpsellOffer.arbitraryUnitCostSunday) &&
+        Objects.equals(this.arbitraryUnitCostThursday, sfvbUpsellOffer.arbitraryUnitCostThursday) &&
+        Objects.equals(this.arbitraryUnitCostTuesday, sfvbUpsellOffer.arbitraryUnitCostTuesday) &&
+        Objects.equals(this.arbitraryUnitCostWednesday, sfvbUpsellOffer.arbitraryUnitCostWednesday) &&
         Objects.equals(this.cjsonSize, sfvbUpsellOffer.cjsonSize) &&
+        Objects.equals(this.endDate, sfvbUpsellOffer.endDate) &&
+        Objects.equals(this.everflowAdvertiserEventId, sfvbUpsellOffer.everflowAdvertiserEventId) &&
+        Objects.equals(this.firstTimeItem, sfvbUpsellOffer.firstTimeItem) &&
+        Objects.equals(this.firstTimeStore, sfvbUpsellOffer.firstTimeStore) &&
+        Objects.equals(this.freeShipping, sfvbUpsellOffer.freeShipping) &&
         Objects.equals(this.hasContainer, sfvbUpsellOffer.hasContainer) &&
+        Objects.equals(this.hasEverflowConfigured, sfvbUpsellOffer.hasEverflowConfigured) &&
+        Objects.equals(this.hasLoyaltyConfigured, sfvbUpsellOffer.hasLoyaltyConfigured) &&
+        Objects.equals(this.hasTowerdataConfigured, sfvbUpsellOffer.hasTowerdataConfigured) &&
+        Objects.equals(this.hashSha256, sfvbUpsellOffer.hashSha256) &&
+        Objects.equals(this.itemLogicSuppression, sfvbUpsellOffer.itemLogicSuppression) &&
+        Objects.equals(this.itemLogicTrigger, sfvbUpsellOffer.itemLogicTrigger) &&
+        Objects.equals(this.lockShipping, sfvbUpsellOffer.lockShipping) &&
+        Objects.equals(this.maxQuantity, sfvbUpsellOffer.maxQuantity) &&
+        Objects.equals(this.migrateAccessoryItemIdsFrom, sfvbUpsellOffer.migrateAccessoryItemIdsFrom) &&
+        Objects.equals(this.migrateAccessoryItemIdsTo, sfvbUpsellOffer.migrateAccessoryItemIdsTo) &&
         Objects.equals(this.name, sfvbUpsellOffer.name) &&
+        Objects.equals(this.offsiteContentUrl, sfvbUpsellOffer.offsiteContentUrl) &&
+        Objects.equals(this.outOfStockUpsellItemIds, sfvbUpsellOffer.outOfStockUpsellItemIds) &&
         Objects.equals(this.pathName, sfvbUpsellOffer.pathName) &&
+        Objects.equals(this.recordAsRegularItem, sfvbUpsellOffer.recordAsRegularItem) &&
+        Objects.equals(this.referencedByPathOids, sfvbUpsellOffer.referencedByPathOids) &&
+        Objects.equals(this.removableOnConfirmation, sfvbUpsellOffer.removableOnConfirmation) &&
+        Objects.equals(this.removeAccessoryItemIds, sfvbUpsellOffer.removeAccessoryItemIds) &&
+        Objects.equals(this.removeTriggerItem, sfvbUpsellOffer.removeTriggerItem) &&
+        Objects.equals(this.skipPreviousCustomers, sfvbUpsellOffer.skipPreviousCustomers) &&
+        Objects.equals(this.startDate, sfvbUpsellOffer.startDate) &&
+        Objects.equals(this.stats, sfvbUpsellOffer.stats) &&
         Objects.equals(this.storefrontOid, sfvbUpsellOffer.storefrontOid) &&
+        Objects.equals(this.suppressLarge, sfvbUpsellOffer.suppressLarge) &&
+        Objects.equals(this.suppressMedium, sfvbUpsellOffer.suppressMedium) &&
+        Objects.equals(this.suppressSmall, sfvbUpsellOffer.suppressSmall) &&
+        Objects.equals(this.suppressionCountryCodes, sfvbUpsellOffer.suppressionCountryCodes) &&
+        Objects.equals(this.suppressionLoyaltyTierOids, sfvbUpsellOffer.suppressionLoyaltyTierOids) &&
+        Objects.equals(this.suppressionPaymentMethods, sfvbUpsellOffer.suppressionPaymentMethods) &&
+        Objects.equals(this.suppressionShippingMethods, sfvbUpsellOffer.suppressionShippingMethods) &&
+        Objects.equals(this.suppressionStateCodes, sfvbUpsellOffer.suppressionStateCodes) &&
+        Objects.equals(this.suppressionTags, sfvbUpsellOffer.suppressionTags) &&
         Objects.equals(this.testOnly, sfvbUpsellOffer.testOnly) &&
+        Objects.equals(this.triggerAges, sfvbUpsellOffer.triggerAges) &&
+        Objects.equals(this.triggerCountryCodes, sfvbUpsellOffer.triggerCountryCodes) &&
+        Objects.equals(this.triggerGenders, sfvbUpsellOffer.triggerGenders) &&
+        Objects.equals(this.triggerLoyaltyTierOids, sfvbUpsellOffer.triggerLoyaltyTierOids) &&
+        Objects.equals(this.triggerPaymentMethods, sfvbUpsellOffer.triggerPaymentMethods) &&
+        Objects.equals(this.triggerShippingMethods, sfvbUpsellOffer.triggerShippingMethods) &&
+        Objects.equals(this.triggerStateCodes, sfvbUpsellOffer.triggerStateCodes) &&
+        Objects.equals(this.triggerTags, sfvbUpsellOffer.triggerTags) &&
+        Objects.equals(this.upsellItemIdJavascript, sfvbUpsellOffer.upsellItemIdJavascript) &&
+        Objects.equals(this.upsellItemIds, sfvbUpsellOffer.upsellItemIds) &&
         Objects.equals(this.upsellOfferOid, sfvbUpsellOffer.upsellOfferOid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, activeOverall, cjsonSize, hasContainer, name, pathName, storefrontOid, testOnly, upsellOfferOid);
+    return Objects.hash(active, activeOverall, addAccessoryItemIds, adjustTriggerItemOption, allowUpsellItemInCartAlready, arbitraryUnitCost, arbitraryUnitCostFriday, arbitraryUnitCostMonday, arbitraryUnitCostSaturday, arbitraryUnitCostSunday, arbitraryUnitCostThursday, arbitraryUnitCostTuesday, arbitraryUnitCostWednesday, cjsonSize, endDate, everflowAdvertiserEventId, firstTimeItem, firstTimeStore, freeShipping, hasContainer, hasEverflowConfigured, hasLoyaltyConfigured, hasTowerdataConfigured, hashSha256, itemLogicSuppression, itemLogicTrigger, lockShipping, maxQuantity, migrateAccessoryItemIdsFrom, migrateAccessoryItemIdsTo, name, offsiteContentUrl, outOfStockUpsellItemIds, pathName, recordAsRegularItem, referencedByPathOids, removableOnConfirmation, removeAccessoryItemIds, removeTriggerItem, skipPreviousCustomers, startDate, stats, storefrontOid, suppressLarge, suppressMedium, suppressSmall, suppressionCountryCodes, suppressionLoyaltyTierOids, suppressionPaymentMethods, suppressionShippingMethods, suppressionStateCodes, suppressionTags, testOnly, triggerAges, triggerCountryCodes, triggerGenders, triggerLoyaltyTierOids, triggerPaymentMethods, triggerShippingMethods, triggerStateCodes, triggerTags, upsellItemIdJavascript, upsellItemIds, upsellOfferOid);
   }
 
   @Override
@@ -327,12 +2040,67 @@ public class SfvbUpsellOffer {
     sb.append("class SfvbUpsellOffer {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activeOverall: ").append(toIndentedString(activeOverall)).append("\n");
+    sb.append("    addAccessoryItemIds: ").append(toIndentedString(addAccessoryItemIds)).append("\n");
+    sb.append("    adjustTriggerItemOption: ").append(toIndentedString(adjustTriggerItemOption)).append("\n");
+    sb.append("    allowUpsellItemInCartAlready: ").append(toIndentedString(allowUpsellItemInCartAlready)).append("\n");
+    sb.append("    arbitraryUnitCost: ").append(toIndentedString(arbitraryUnitCost)).append("\n");
+    sb.append("    arbitraryUnitCostFriday: ").append(toIndentedString(arbitraryUnitCostFriday)).append("\n");
+    sb.append("    arbitraryUnitCostMonday: ").append(toIndentedString(arbitraryUnitCostMonday)).append("\n");
+    sb.append("    arbitraryUnitCostSaturday: ").append(toIndentedString(arbitraryUnitCostSaturday)).append("\n");
+    sb.append("    arbitraryUnitCostSunday: ").append(toIndentedString(arbitraryUnitCostSunday)).append("\n");
+    sb.append("    arbitraryUnitCostThursday: ").append(toIndentedString(arbitraryUnitCostThursday)).append("\n");
+    sb.append("    arbitraryUnitCostTuesday: ").append(toIndentedString(arbitraryUnitCostTuesday)).append("\n");
+    sb.append("    arbitraryUnitCostWednesday: ").append(toIndentedString(arbitraryUnitCostWednesday)).append("\n");
     sb.append("    cjsonSize: ").append(toIndentedString(cjsonSize)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    everflowAdvertiserEventId: ").append(toIndentedString(everflowAdvertiserEventId)).append("\n");
+    sb.append("    firstTimeItem: ").append(toIndentedString(firstTimeItem)).append("\n");
+    sb.append("    firstTimeStore: ").append(toIndentedString(firstTimeStore)).append("\n");
+    sb.append("    freeShipping: ").append(toIndentedString(freeShipping)).append("\n");
     sb.append("    hasContainer: ").append(toIndentedString(hasContainer)).append("\n");
+    sb.append("    hasEverflowConfigured: ").append(toIndentedString(hasEverflowConfigured)).append("\n");
+    sb.append("    hasLoyaltyConfigured: ").append(toIndentedString(hasLoyaltyConfigured)).append("\n");
+    sb.append("    hasTowerdataConfigured: ").append(toIndentedString(hasTowerdataConfigured)).append("\n");
+    sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
+    sb.append("    itemLogicSuppression: ").append(toIndentedString(itemLogicSuppression)).append("\n");
+    sb.append("    itemLogicTrigger: ").append(toIndentedString(itemLogicTrigger)).append("\n");
+    sb.append("    lockShipping: ").append(toIndentedString(lockShipping)).append("\n");
+    sb.append("    maxQuantity: ").append(toIndentedString(maxQuantity)).append("\n");
+    sb.append("    migrateAccessoryItemIdsFrom: ").append(toIndentedString(migrateAccessoryItemIdsFrom)).append("\n");
+    sb.append("    migrateAccessoryItemIdsTo: ").append(toIndentedString(migrateAccessoryItemIdsTo)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    offsiteContentUrl: ").append(toIndentedString(offsiteContentUrl)).append("\n");
+    sb.append("    outOfStockUpsellItemIds: ").append(toIndentedString(outOfStockUpsellItemIds)).append("\n");
     sb.append("    pathName: ").append(toIndentedString(pathName)).append("\n");
+    sb.append("    recordAsRegularItem: ").append(toIndentedString(recordAsRegularItem)).append("\n");
+    sb.append("    referencedByPathOids: ").append(toIndentedString(referencedByPathOids)).append("\n");
+    sb.append("    removableOnConfirmation: ").append(toIndentedString(removableOnConfirmation)).append("\n");
+    sb.append("    removeAccessoryItemIds: ").append(toIndentedString(removeAccessoryItemIds)).append("\n");
+    sb.append("    removeTriggerItem: ").append(toIndentedString(removeTriggerItem)).append("\n");
+    sb.append("    skipPreviousCustomers: ").append(toIndentedString(skipPreviousCustomers)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
+    sb.append("    suppressLarge: ").append(toIndentedString(suppressLarge)).append("\n");
+    sb.append("    suppressMedium: ").append(toIndentedString(suppressMedium)).append("\n");
+    sb.append("    suppressSmall: ").append(toIndentedString(suppressSmall)).append("\n");
+    sb.append("    suppressionCountryCodes: ").append(toIndentedString(suppressionCountryCodes)).append("\n");
+    sb.append("    suppressionLoyaltyTierOids: ").append(toIndentedString(suppressionLoyaltyTierOids)).append("\n");
+    sb.append("    suppressionPaymentMethods: ").append(toIndentedString(suppressionPaymentMethods)).append("\n");
+    sb.append("    suppressionShippingMethods: ").append(toIndentedString(suppressionShippingMethods)).append("\n");
+    sb.append("    suppressionStateCodes: ").append(toIndentedString(suppressionStateCodes)).append("\n");
+    sb.append("    suppressionTags: ").append(toIndentedString(suppressionTags)).append("\n");
     sb.append("    testOnly: ").append(toIndentedString(testOnly)).append("\n");
+    sb.append("    triggerAges: ").append(toIndentedString(triggerAges)).append("\n");
+    sb.append("    triggerCountryCodes: ").append(toIndentedString(triggerCountryCodes)).append("\n");
+    sb.append("    triggerGenders: ").append(toIndentedString(triggerGenders)).append("\n");
+    sb.append("    triggerLoyaltyTierOids: ").append(toIndentedString(triggerLoyaltyTierOids)).append("\n");
+    sb.append("    triggerPaymentMethods: ").append(toIndentedString(triggerPaymentMethods)).append("\n");
+    sb.append("    triggerShippingMethods: ").append(toIndentedString(triggerShippingMethods)).append("\n");
+    sb.append("    triggerStateCodes: ").append(toIndentedString(triggerStateCodes)).append("\n");
+    sb.append("    triggerTags: ").append(toIndentedString(triggerTags)).append("\n");
+    sb.append("    upsellItemIdJavascript: ").append(toIndentedString(upsellItemIdJavascript)).append("\n");
+    sb.append("    upsellItemIds: ").append(toIndentedString(upsellItemIds)).append("\n");
     sb.append("    upsellOfferOid: ").append(toIndentedString(upsellOfferOid)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -358,12 +2126,67 @@ public class SfvbUpsellOffer {
     openapiFields = new HashSet<String>();
     openapiFields.add("active");
     openapiFields.add("active_overall");
+    openapiFields.add("add_accessory_item_ids");
+    openapiFields.add("adjust_trigger_item_option");
+    openapiFields.add("allow_upsell_item_in_cart_already");
+    openapiFields.add("arbitrary_unit_cost");
+    openapiFields.add("arbitrary_unit_cost_friday");
+    openapiFields.add("arbitrary_unit_cost_monday");
+    openapiFields.add("arbitrary_unit_cost_saturday");
+    openapiFields.add("arbitrary_unit_cost_sunday");
+    openapiFields.add("arbitrary_unit_cost_thursday");
+    openapiFields.add("arbitrary_unit_cost_tuesday");
+    openapiFields.add("arbitrary_unit_cost_wednesday");
     openapiFields.add("cjson_size");
+    openapiFields.add("end_date");
+    openapiFields.add("everflow_advertiser_event_id");
+    openapiFields.add("first_time_item");
+    openapiFields.add("first_time_store");
+    openapiFields.add("free_shipping");
     openapiFields.add("has_container");
+    openapiFields.add("has_everflow_configured");
+    openapiFields.add("has_loyalty_configured");
+    openapiFields.add("has_towerdata_configured");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("item_logic_suppression");
+    openapiFields.add("item_logic_trigger");
+    openapiFields.add("lock_shipping");
+    openapiFields.add("max_quantity");
+    openapiFields.add("migrate_accessory_item_ids_from");
+    openapiFields.add("migrate_accessory_item_ids_to");
     openapiFields.add("name");
+    openapiFields.add("offsite_content_url");
+    openapiFields.add("out_of_stock_upsell_item_ids");
     openapiFields.add("path_name");
+    openapiFields.add("record_as_regular_item");
+    openapiFields.add("referenced_by_path_oids");
+    openapiFields.add("removable_on_confirmation");
+    openapiFields.add("remove_accessory_item_ids");
+    openapiFields.add("remove_trigger_item");
+    openapiFields.add("skip_previous_customers");
+    openapiFields.add("start_date");
+    openapiFields.add("stats");
     openapiFields.add("storefront_oid");
+    openapiFields.add("suppress_large");
+    openapiFields.add("suppress_medium");
+    openapiFields.add("suppress_small");
+    openapiFields.add("suppression_country_codes");
+    openapiFields.add("suppression_loyalty_tier_oids");
+    openapiFields.add("suppression_payment_methods");
+    openapiFields.add("suppression_shipping_methods");
+    openapiFields.add("suppression_state_codes");
+    openapiFields.add("suppression_tags");
     openapiFields.add("test_only");
+    openapiFields.add("trigger_ages");
+    openapiFields.add("trigger_country_codes");
+    openapiFields.add("trigger_genders");
+    openapiFields.add("trigger_loyalty_tier_oids");
+    openapiFields.add("trigger_payment_methods");
+    openapiFields.add("trigger_shipping_methods");
+    openapiFields.add("trigger_state_codes");
+    openapiFields.add("trigger_tags");
+    openapiFields.add("upsell_item_id_javascript");
+    openapiFields.add("upsell_item_ids");
     openapiFields.add("upsell_offer_oid");
 
     // a set of required properties/fields (JSON key names)
@@ -392,11 +2215,128 @@ public class SfvbUpsellOffer {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbUpsellOffer` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // ensure the json data is an array
+      if (jsonObj.get("add_accessory_item_ids") != null && !jsonObj.get("add_accessory_item_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `add_accessory_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("add_accessory_item_ids").toString()));
+      }
+      if (jsonObj.get("adjust_trigger_item_option") != null && !jsonObj.get("adjust_trigger_item_option").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `adjust_trigger_item_option` to be a primitive type in the JSON string but got `%s`", jsonObj.get("adjust_trigger_item_option").toString()));
+      }
+      if (jsonObj.get("end_date") != null && !jsonObj.get("end_date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `end_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end_date").toString()));
+      }
+      if (jsonObj.get("everflow_advertiser_event_id") != null && !jsonObj.get("everflow_advertiser_event_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `everflow_advertiser_event_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("everflow_advertiser_event_id").toString()));
+      }
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      // validate the optional field `item_logic_suppression`
+      if (jsonObj.getAsJsonObject("item_logic_suppression") != null) {
+        SfvbUpsellItemLogic.validateJsonObject(jsonObj.getAsJsonObject("item_logic_suppression"));
+      }
+      // validate the optional field `item_logic_trigger`
+      if (jsonObj.getAsJsonObject("item_logic_trigger") != null) {
+        SfvbUpsellItemLogic.validateJsonObject(jsonObj.getAsJsonObject("item_logic_trigger"));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("migrate_accessory_item_ids_from") != null && !jsonObj.get("migrate_accessory_item_ids_from").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `migrate_accessory_item_ids_from` to be an array in the JSON string but got `%s`", jsonObj.get("migrate_accessory_item_ids_from").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("migrate_accessory_item_ids_to") != null && !jsonObj.get("migrate_accessory_item_ids_to").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `migrate_accessory_item_ids_to` to be an array in the JSON string but got `%s`", jsonObj.get("migrate_accessory_item_ids_to").toString()));
+      }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if (jsonObj.get("offsite_content_url") != null && !jsonObj.get("offsite_content_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `offsite_content_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("offsite_content_url").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("out_of_stock_upsell_item_ids") != null && !jsonObj.get("out_of_stock_upsell_item_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `out_of_stock_upsell_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("out_of_stock_upsell_item_ids").toString()));
+      }
       if (jsonObj.get("path_name") != null && !jsonObj.get("path_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path_name").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("referenced_by_path_oids") != null && !jsonObj.get("referenced_by_path_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referenced_by_path_oids` to be an array in the JSON string but got `%s`", jsonObj.get("referenced_by_path_oids").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("remove_accessory_item_ids") != null && !jsonObj.get("remove_accessory_item_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remove_accessory_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("remove_accessory_item_ids").toString()));
+      }
+      if (jsonObj.get("start_date") != null && !jsonObj.get("start_date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_date").toString()));
+      }
+      // validate the optional field `stats`
+      if (jsonObj.getAsJsonObject("stats") != null) {
+        SfvbUpsellStats.validateJsonObject(jsonObj.getAsJsonObject("stats"));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_country_codes") != null && !jsonObj.get("suppression_country_codes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_country_codes` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_country_codes").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_loyalty_tier_oids") != null && !jsonObj.get("suppression_loyalty_tier_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_loyalty_tier_oids` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_loyalty_tier_oids").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_payment_methods") != null && !jsonObj.get("suppression_payment_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_payment_methods` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_payment_methods").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_shipping_methods") != null && !jsonObj.get("suppression_shipping_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_shipping_methods` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_shipping_methods").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_state_codes") != null && !jsonObj.get("suppression_state_codes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_state_codes` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_state_codes").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("suppression_tags") != null && !jsonObj.get("suppression_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `suppression_tags` to be an array in the JSON string but got `%s`", jsonObj.get("suppression_tags").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_ages") != null && !jsonObj.get("trigger_ages").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_ages` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_ages").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_country_codes") != null && !jsonObj.get("trigger_country_codes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_country_codes` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_country_codes").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_genders") != null && !jsonObj.get("trigger_genders").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_genders` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_genders").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_loyalty_tier_oids") != null && !jsonObj.get("trigger_loyalty_tier_oids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_loyalty_tier_oids` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_loyalty_tier_oids").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_payment_methods") != null && !jsonObj.get("trigger_payment_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_payment_methods` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_payment_methods").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_shipping_methods") != null && !jsonObj.get("trigger_shipping_methods").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_shipping_methods` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_shipping_methods").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_state_codes") != null && !jsonObj.get("trigger_state_codes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_state_codes` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_state_codes").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("trigger_tags") != null && !jsonObj.get("trigger_tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_tags` to be an array in the JSON string but got `%s`", jsonObj.get("trigger_tags").toString()));
+      }
+      if (jsonObj.get("upsell_item_id_javascript") != null && !jsonObj.get("upsell_item_id_javascript").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upsell_item_id_javascript` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_item_id_javascript").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("upsell_item_ids") != null && !jsonObj.get("upsell_item_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upsell_item_ids` to be an array in the JSON string but got `%s`", jsonObj.get("upsell_item_ids").toString()));
       }
   }
 

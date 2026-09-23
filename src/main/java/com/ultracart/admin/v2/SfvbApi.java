@@ -95,7 +95,12 @@ import com.ultracart.admin.v2.models.SfvbThemeAttributesResponse;
 import com.ultracart.admin.v2.models.SfvbThemeDuplicateRequest;
 import com.ultracart.admin.v2.models.SfvbThemeJobResponse;
 import com.ultracart.admin.v2.models.SfvbThemesResponse;
+import com.ultracart.admin.v2.models.SfvbUpsellOffer;
 import com.ultracart.admin.v2.models.SfvbUpsellOffersResponse;
+import com.ultracart.admin.v2.models.SfvbUpsellPath;
+import com.ultracart.admin.v2.models.SfvbUpsellPathDuplicateRequest;
+import com.ultracart.admin.v2.models.SfvbUpsellPathMoveRequest;
+import com.ultracart.admin.v2.models.SfvbUpsellPathsResponse;
 import com.ultracart.admin.v2.models.SfvbValidateRequest;
 import com.ultracart.admin.v2.models.SfvbValidationResponse;
 import com.ultracart.admin.v2.models.SfvbVelocityValidateRequest;
@@ -508,6 +513,163 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = addSfvbPageItemsValidateBeforeCall(storefrontOid, path, pageItemsAddRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbPageItemsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for archiveSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call archiveSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call archiveSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling archiveSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling archiveSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = archiveSfvbUpsellPathCall(storefrontOid, upsellPathOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Archive an upsell path
+     * Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath archiveSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = archiveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Archive an upsell path
+     * Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> archiveSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        okhttp3.Call localVarCall = archiveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Archive an upsell path (asynchronously)
+     * Files the path out of the default list.  An archived path does not run.  Archiving one that is switched on is a live change and needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call archiveSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = archiveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1124,6 +1286,182 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteSfvbItemAttribute
+     * @param storefrontOid  (required)
+     * @param name The attribute name, matched without regard to case (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbItemAttributeCall(Integer storefrontOid, String name, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/items/attributes"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSfvbItemAttributeValidateBeforeCall(Integer storefrontOid, String name, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteSfvbItemAttribute(Async)");
+        }
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deleteSfvbItemAttribute(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSfvbItemAttributeCall(storefrontOid, name, merchantItemId, merchantItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete an attribute from an item
+     * Removes one attribute that no template on the item&#39;s pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+     * @param storefrontOid  (required)
+     * @param name The attribute name, matched without regard to case (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return SfvbItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemResponse deleteSfvbItemAttribute(Integer storefrontOid, String name, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        ApiResponse<SfvbItemResponse> localVarResp = deleteSfvbItemAttributeWithHttpInfo(storefrontOid, name, merchantItemId, merchantItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete an attribute from an item
+     * Removes one attribute that no template on the item&#39;s pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+     * @param storefrontOid  (required)
+     * @param name The attribute name, matched without regard to case (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return ApiResponse&lt;SfvbItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemResponse> deleteSfvbItemAttributeWithHttpInfo(Integer storefrontOid, String name, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        okhttp3.Call localVarCall = deleteSfvbItemAttributeValidateBeforeCall(storefrontOid, name, merchantItemId, merchantItemOid, null);
+        Type localVarReturnType = new TypeToken<SfvbItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete an attribute from an item (asynchronously)
+     * Removes one attribute that no template on the item&#39;s pages declares - a test name, a misspelling, one a retired template used.  A declared attribute is refused, because the template would list it again, empty; send an empty value through the attributes update to clear one of those instead. 
+     * @param storefrontOid  (required)
+     * @param name The attribute name, matched without regard to case (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbItemAttributeAsync(Integer storefrontOid, String name, String merchantItemId, Integer merchantItemOid, final ApiCallback<SfvbItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSfvbItemAttributeValidateBeforeCall(storefrontOid, name, merchantItemId, merchantItemOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteSfvbItemMultimedia
      * @param storefrontOid  (required)
      * @param merchantItemId  (optional)
@@ -1628,6 +1966,320 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for disableSfvbUpsellOffer
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call disableSfvbUpsellOfferCall(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_offer_oid" + "\\}", localVarApiClient.escapeString(upsellOfferOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call disableSfvbUpsellOfferValidateBeforeCall(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling disableSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOfferOid' is set
+        if (upsellOfferOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellOfferOid' when calling disableSfvbUpsellOffer(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = disableSfvbUpsellOfferCall(storefrontOid, upsellOfferOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Disable an upsell offer
+     * Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @return SfvbUpsellOffer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellOffer disableSfvbUpsellOffer(Integer storefrontOid, Integer upsellOfferOid) throws ApiException {
+        ApiResponse<SfvbUpsellOffer> localVarResp = disableSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Disable an upsell offer
+     * Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @return ApiResponse&lt;SfvbUpsellOffer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellOffer> disableSfvbUpsellOfferWithHttpInfo(Integer storefrontOid, Integer upsellOfferOid) throws ApiException {
+        okhttp3.Call localVarCall = disableSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Disable an upsell offer (asynchronously)
+     * Switches the offer off.  Disabling one that is switched on is a live change and needs sfvb_publish.  An offer that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call disableSfvbUpsellOfferAsync(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback<SfvbUpsellOffer> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = disableSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for disableSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call disableSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call disableSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling disableSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling disableSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = disableSfvbUpsellPathCall(storefrontOid, upsellPathOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Disable an upsell path
+     * Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath disableSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = disableSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Disable an upsell path
+     * Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> disableSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        okhttp3.Call localVarCall = disableSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Disable an upsell path (asynchronously)
+     * Switches the path off.  Disabling a running path is a live change and needs sfvb_publish.  A path that is already off is returned unchanged.  There is no delete. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call disableSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = disableSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for downloadSfvbFile
      * @param storefrontOid  (required)
      * @param path  (optional)
@@ -2097,6 +2749,328 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = duplicateSfvbThemeValidateBeforeCall(storefrontOid, themeOid, duplicateRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbThemeJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for duplicateSfvbUpsellOffer
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateSfvbUpsellOfferCall(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_offer_oid" + "\\}", localVarApiClient.escapeString(upsellOfferOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call duplicateSfvbUpsellOfferValidateBeforeCall(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling duplicateSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOfferOid' is set
+        if (upsellOfferOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellOfferOid' when calling duplicateSfvbUpsellOffer(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = duplicateSfvbUpsellOfferCall(storefrontOid, upsellOfferOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Duplicate an upsell offer
+     * A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @return SfvbUpsellOffer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellOffer duplicateSfvbUpsellOffer(Integer storefrontOid, Integer upsellOfferOid) throws ApiException {
+        ApiResponse<SfvbUpsellOffer> localVarResp = duplicateSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Duplicate an upsell offer
+     * A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @return ApiResponse&lt;SfvbUpsellOffer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellOffer> duplicateSfvbUpsellOfferWithHttpInfo(Integer storefrontOid, Integer upsellOfferOid) throws ApiException {
+        okhttp3.Call localVarCall = duplicateSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Duplicate an upsell offer (asynchronously)
+     * A copy named Copy of, switched off, with its own copy of the container.  Put it on a path with a path update to have it shown. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateSfvbUpsellOfferAsync(Integer storefrontOid, Integer upsellOfferOid, final ApiCallback<SfvbUpsellOffer> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = duplicateSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for duplicateSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param duplicateRequest What to duplicate (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = duplicateRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call duplicateSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling duplicateSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling duplicateSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = duplicateSfvbUpsellPathCall(storefrontOid, upsellPathOid, duplicateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Duplicate an upsell path or one of its variations
+     * Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param duplicateRequest What to duplicate (optional)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath duplicateSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = duplicateSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, duplicateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Duplicate an upsell path or one of its variations
+     * Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param duplicateRequest What to duplicate (optional)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> duplicateSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest) throws ApiException {
+        okhttp3.Call localVarCall = duplicateSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, duplicateRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Duplicate an upsell path or one of its variations (asynchronously)
+     * Without a variation, copies the whole path right after it, switched off.  With a variation, appends a copy of that variation to the same path, which needs sfvb_publish when the path is running.  Every offer the copy uses is copied too and switched off.  Within this storefront only. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param duplicateRequest What to duplicate (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call duplicateSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathDuplicateRequest duplicateRequest, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = duplicateSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, duplicateRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5522,6 +6496,376 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for getSfvbUpsellOffer
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbUpsellOfferCall(Integer storefrontOid, Integer upsellOfferOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_offer_oid" + "\\}", localVarApiClient.escapeString(upsellOfferOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (stats != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats", stats));
+        }
+
+        if (statsStart != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_start", statsStart));
+        }
+
+        if (statsEnd != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_end", statsEnd));
+        }
+
+        if (statsWeekdays != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_weekdays", statsWeekdays));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbUpsellOfferValidateBeforeCall(Integer storefrontOid, Integer upsellOfferOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOfferOid' is set
+        if (upsellOfferOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellOfferOid' when calling getSfvbUpsellOffer(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbUpsellOfferCall(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get an upsell offer
+     * The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @return SfvbUpsellOffer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellOffer getSfvbUpsellOffer(Integer storefrontOid, Integer upsellOfferOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        ApiResponse<SfvbUpsellOffer> localVarResp = getSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get an upsell offer
+     * The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @return ApiResponse&lt;SfvbUpsellOffer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellOffer> getSfvbUpsellOfferWithHttpInfo(Integer storefrontOid, Integer upsellOfferOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get an upsell offer (asynchronously)
+     * The whole offer, with the hash an update sends back in If-Match, which upsell items are out of stock now, and whether loyalty, TowerData and Everflow are set up.  Stats as on the path list. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbUpsellOfferAsync(Integer storefrontOid, Integer upsellOfferOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback<SfvbUpsellOffer> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (stats != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats", stats));
+        }
+
+        if (statsStart != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_start", statsStart));
+        }
+
+        if (statsEnd != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_end", statsEnd));
+        }
+
+        if (statsWeekdays != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_weekdays", statsWeekdays));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling getSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbUpsellPathCall(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get an upsell path
+     * The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath getSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = getSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get an upsell path
+     * The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> getSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get an upsell path (asynchronously)
+     * The whole path, with the hash an update sends back in If-Match.  Stats as on the list. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSfvbVersion
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5936,6 +7280,326 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = insertSfvbPageValidateBeforeCall(storefrontOid, pageCreateRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbPageResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbUpsellOffer
+     * @param storefrontOid  (required)
+     * @param upsellOffer The offer to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbUpsellOfferCall(Integer storefrontOid, SfvbUpsellOffer upsellOffer, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = upsellOffer;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbUpsellOfferValidateBeforeCall(Integer storefrontOid, SfvbUpsellOffer upsellOffer, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOffer' is set
+        if (upsellOffer == null) {
+            throw new ApiException("Missing the required parameter 'upsellOffer' when calling insertSfvbUpsellOffer(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertSfvbUpsellOfferCall(storefrontOid, upsellOffer, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create an upsell offer
+     * Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+     * @param storefrontOid  (required)
+     * @param upsellOffer The offer to create (required)
+     * @return SfvbUpsellOffer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellOffer insertSfvbUpsellOffer(Integer storefrontOid, SfvbUpsellOffer upsellOffer) throws ApiException {
+        ApiResponse<SfvbUpsellOffer> localVarResp = insertSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOffer);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an upsell offer
+     * Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+     * @param storefrontOid  (required)
+     * @param upsellOffer The offer to create (required)
+     * @return ApiResponse&lt;SfvbUpsellOffer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellOffer> insertSfvbUpsellOfferWithHttpInfo(Integer storefrontOid, SfvbUpsellOffer upsellOffer) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOffer, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an upsell offer (asynchronously)
+     * Every item it names must exist, and every shipping method, payment method and loyalty tier must be one the merchant has.  Put it on a path with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  Its page content is its container, written with the container endpoints and owner type upsell. 
+     * @param storefrontOid  (required)
+     * @param upsellOffer The offer to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbUpsellOfferAsync(Integer storefrontOid, SfvbUpsellOffer upsellOffer, final ApiCallback<SfvbUpsellOffer> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOffer, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPath The path to create (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbUpsellPathCall(Integer storefrontOid, SfvbUpsellPath upsellPath, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = upsellPath;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, SfvbUpsellPath upsellPath, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPath' is set
+        if (upsellPath == null) {
+            throw new ApiException("Missing the required parameter 'upsellPath' when calling insertSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertSfvbUpsellPathCall(storefrontOid, upsellPath, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create an upsell path
+     * Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+     * @param storefrontOid  (required)
+     * @param upsellPath The path to create (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath insertSfvbUpsellPath(Integer storefrontOid, SfvbUpsellPath upsellPath) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = insertSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPath);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an upsell path
+     * Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+     * @param storefrontOid  (required)
+     * @param upsellPath The path to create (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> insertSfvbUpsellPathWithHttpInfo(Integer storefrontOid, SfvbUpsellPath upsellPath) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPath, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an upsell path (asynchronously)
+     * Placed last in path order.  Every offer a step names must be an offer of this storefront, and every item in the item logic must exist.  Creating it switched on needs sfvb_publish; create it with active false to build it without that scope. 
+     * @param storefrontOid  (required)
+     * @param upsellPath The path to create (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbUpsellPathAsync(Integer storefrontOid, SfvbUpsellPath upsellPath, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPath, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7808,6 +9472,10 @@ public class SfvbApi {
     /**
      * Build call for listSfvbUpsellOffers
      * @param storefrontOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7821,7 +9489,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call listSfvbUpsellOffersCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listSfvbUpsellOffersCall(Integer storefrontOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7847,6 +9515,22 @@ public class SfvbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (stats != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats", stats));
+        }
+
+        if (statsStart != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_start", statsStart));
+        }
+
+        if (statsEnd != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_end", statsEnd));
+        }
+
+        if (statsWeekdays != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_weekdays", statsWeekdays));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -7868,7 +9552,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSfvbUpsellOffersValidateBeforeCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSfvbUpsellOffersValidateBeforeCall(Integer storefrontOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7876,15 +9560,19 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = listSfvbUpsellOffersCall(storefrontOid, _callback);
+        okhttp3.Call localVarCall = listSfvbUpsellOffersCall(storefrontOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
         return localVarCall;
 
     }
 
     /**
      * List upsell offers
-     * Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+     * Every offer on one of this storefront&#39;s paths that are not archived, the same list the admin shows, with each offer&#39;s full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
      * @param storefrontOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
      * @return SfvbUpsellOffersResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7897,15 +9585,19 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbUpsellOffersResponse listSfvbUpsellOffers(Integer storefrontOid) throws ApiException {
-        ApiResponse<SfvbUpsellOffersResponse> localVarResp = listSfvbUpsellOffersWithHttpInfo(storefrontOid);
+    public SfvbUpsellOffersResponse listSfvbUpsellOffers(Integer storefrontOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        ApiResponse<SfvbUpsellOffersResponse> localVarResp = listSfvbUpsellOffersWithHttpInfo(storefrontOid, stats, statsStart, statsEnd, statsWeekdays);
         return localVarResp.getData();
     }
 
     /**
      * List upsell offers
-     * Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+     * Every offer on one of this storefront&#39;s paths that are not archived, the same list the admin shows, with each offer&#39;s full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
      * @param storefrontOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
      * @return ApiResponse&lt;SfvbUpsellOffersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7918,16 +9610,20 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbUpsellOffersResponse> listSfvbUpsellOffersWithHttpInfo(Integer storefrontOid) throws ApiException {
-        okhttp3.Call localVarCall = listSfvbUpsellOffersValidateBeforeCall(storefrontOid, null);
+    public ApiResponse<SfvbUpsellOffersResponse> listSfvbUpsellOffersWithHttpInfo(Integer storefrontOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbUpsellOffersValidateBeforeCall(storefrontOid, stats, statsStart, statsEnd, statsWeekdays, null);
         Type localVarReturnType = new TypeToken<SfvbUpsellOffersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List upsell offers (asynchronously)
-     * Without container JSON, so the funnel can be surveyed cheaply.  A large container size alongside a small element count is the signature of markup pasted into a single html element. 
+     * Every offer on one of this storefront&#39;s paths that are not archived, the same list the admin shows, with each offer&#39;s full settings but not its container JSON.  An offer on no path yet is still read by oid.  A large container size alongside a small element count is the signature of markup pasted into a single html element.  Stats as on the path list. 
      * @param storefrontOid  (required)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7941,10 +9637,391 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call listSfvbUpsellOffersAsync(Integer storefrontOid, final ApiCallback<SfvbUpsellOffersResponse> _callback) throws ApiException {
+    public okhttp3.Call listSfvbUpsellOffersAsync(Integer storefrontOid, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, final ApiCallback<SfvbUpsellOffersResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSfvbUpsellOffersValidateBeforeCall(storefrontOid, _callback);
+        okhttp3.Call localVarCall = listSfvbUpsellOffersValidateBeforeCall(storefrontOid, stats, statsStart, statsEnd, statsWeekdays, _callback);
         Type localVarReturnType = new TypeToken<SfvbUpsellOffersResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSfvbUpsellPaths
+     * @param storefrontOid  (required)
+     * @param status current, archived or all (optional)
+     * @param location pre checkout or post checkout (optional)
+     * @param search Only paths whose name contains this (optional)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param maxResults Page size, 1 to 500, default 100 (optional)
+     * @param offset Offset of the first path returned (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbUpsellPathsCall(Integer storefrontOid, String status, String location, String search, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, Integer maxResults, Integer offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
+
+        if (location != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("location", location));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (stats != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats", stats));
+        }
+
+        if (statsStart != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_start", statsStart));
+        }
+
+        if (statsEnd != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_end", statsEnd));
+        }
+
+        if (statsWeekdays != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("stats_weekdays", statsWeekdays));
+        }
+
+        if (maxResults != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_results", maxResults));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSfvbUpsellPathsValidateBeforeCall(Integer storefrontOid, String status, String location, String search, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, Integer maxResults, Integer offset, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling listSfvbUpsellPaths(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSfvbUpsellPathsCall(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List upsell paths
+     * In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats&#x3D;true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+     * @param storefrontOid  (required)
+     * @param status current, archived or all (optional)
+     * @param location pre checkout or post checkout (optional)
+     * @param search Only paths whose name contains this (optional)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param maxResults Page size, 1 to 500, default 100 (optional)
+     * @param offset Offset of the first path returned (optional)
+     * @return SfvbUpsellPathsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPathsResponse listSfvbUpsellPaths(Integer storefrontOid, String status, String location, String search, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, Integer maxResults, Integer offset) throws ApiException {
+        ApiResponse<SfvbUpsellPathsResponse> localVarResp = listSfvbUpsellPathsWithHttpInfo(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List upsell paths
+     * In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats&#x3D;true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+     * @param storefrontOid  (required)
+     * @param status current, archived or all (optional)
+     * @param location pre checkout or post checkout (optional)
+     * @param search Only paths whose name contains this (optional)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param maxResults Page size, 1 to 500, default 100 (optional)
+     * @param offset Offset of the first path returned (optional)
+     * @return ApiResponse&lt;SfvbUpsellPathsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPathsResponse> listSfvbUpsellPathsWithHttpInfo(Integer storefrontOid, String status, String location, String search, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, Integer maxResults, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbUpsellPathsValidateBeforeCall(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPathsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List upsell paths (asynchronously)
+     * In path order, first to last.  status current (the default) leaves out archived paths.  Stats are computed only with stats&#x3D;true, over stats_start to stats_end (YYYY-MM-DD, the last 30 days when both are omitted, at most 366 days), because they are the expensive part of the read. 
+     * @param storefrontOid  (required)
+     * @param status current, archived or all (optional)
+     * @param location pre checkout or post checkout (optional)
+     * @param search Only paths whose name contains this (optional)
+     * @param stats Include stats (optional)
+     * @param statsStart Stats window start, YYYY-MM-DD (optional)
+     * @param statsEnd Stats window end, YYYY-MM-DD (optional)
+     * @param statsWeekdays Only these weekdays, comma separated mon to sun (optional)
+     * @param maxResults Page size, 1 to 500, default 100 (optional)
+     * @param offset Offset of the first path returned (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbUpsellPathsAsync(Integer storefrontOid, String status, String location, String search, Boolean stats, String statsStart, String statsEnd, String statsWeekdays, Integer maxResults, Integer offset, final ApiCallback<SfvbUpsellPathsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSfvbUpsellPathsValidateBeforeCall(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPathsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for moveSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param moveRequest Where to move it (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call moveSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = moveRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call moveSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling moveSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling moveSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'moveRequest' is set
+        if (moveRequest == null) {
+            throw new ApiException("Missing the required parameter 'moveRequest' when calling moveSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = moveSfvbUpsellPathCall(storefrontOid, upsellPathOid, moveRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Move an upsell path
+     * Up, down, to the top or to the bottom of the storefront&#39;s paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param moveRequest Where to move it (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath moveSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathMoveRequest moveRequest) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = moveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, moveRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Move an upsell path
+     * Up, down, to the top or to the bottom of the storefront&#39;s paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param moveRequest Where to move it (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> moveSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathMoveRequest moveRequest) throws ApiException {
+        okhttp3.Call localVarCall = moveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, moveRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Move an upsell path (asynchronously)
+     * Up, down, to the top or to the bottom of the storefront&#39;s paths.  Order decides which running path a shopper meets first, so moving a running path needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param moveRequest Where to move it (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call moveSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, SfvbUpsellPathMoveRequest moveRequest, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = moveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, moveRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8609,7 +10686,7 @@ public class SfvbApi {
 
     /**
      * Change some of an item&#39;s attributes
-     * Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+     * Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
      * @param storefrontOid  (required)
      * @param itemAttributeUpdateRequest Attributes to change (required)
      * @param merchantItemId  (optional)
@@ -8634,7 +10711,7 @@ public class SfvbApi {
 
     /**
      * Change some of an item&#39;s attributes
-     * Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+     * Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
      * @param storefrontOid  (required)
      * @param itemAttributeUpdateRequest Attributes to change (required)
      * @param merchantItemId  (optional)
@@ -8660,7 +10737,7 @@ public class SfvbApi {
 
     /**
      * Change some of an item&#39;s attributes (asynchronously)
-     * Partial - only the attributes named change, and an empty value clears one.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
+     * Partial - only the attributes named change, and an empty value empties one but keeps it on the item.  To remove an attribute no template declares, use the attribute DELETE.  Every entry is validated before any is written, so a refusal leaves the item untouched.  The list types are checked against the shape their renderer actually parses, which matters more than it sounds: a definition list is a bare array with one letter keys, a video list is a wrapper object with keys spelled out, and an item set is comma separated text rather than JSON.  A shape the renderer cannot read is not reported at render time - it renders exactly like an attribute nobody ever set. 
      * @param storefrontOid  (required)
      * @param itemAttributeUpdateRequest Attributes to change (required)
      * @param merchantItemId  (optional)
@@ -12085,6 +14162,537 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = startSfvbExperimentValidateBeforeCall(storefrontOid, experimentStartRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbExperiment>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for unarchiveSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call unarchiveSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call unarchiveSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling unarchiveSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling unarchiveSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = unarchiveSfvbUpsellPathCall(storefrontOid, upsellPathOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Unarchive an upsell path
+     * Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath unarchiveSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = unarchiveSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Unarchive an upsell path
+     * Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> unarchiveSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid) throws ApiException {
+        okhttp3.Call localVarCall = unarchiveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Unarchive an upsell path (asynchronously)
+     * Brings the path back into the default list.  Unarchiving one that is switched on starts it, so that needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call unarchiveSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = unarchiveSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSfvbUpsellOffer
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellOffer The whole offer (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbUpsellOfferCall(Integer storefrontOid, Integer upsellOfferOid, String ifMatch, SfvbUpsellOffer upsellOffer, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = upsellOffer;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_offer_oid" + "\\}", localVarApiClient.escapeString(upsellOfferOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSfvbUpsellOfferValidateBeforeCall(Integer storefrontOid, Integer upsellOfferOid, String ifMatch, SfvbUpsellOffer upsellOffer, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOfferOid' is set
+        if (upsellOfferOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellOfferOid' when calling updateSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling updateSfvbUpsellOffer(Async)");
+        }
+        
+        // verify the required parameter 'upsellOffer' is set
+        if (upsellOffer == null) {
+            throw new ApiException("Missing the required parameter 'upsellOffer' when calling updateSfvbUpsellOffer(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSfvbUpsellOfferCall(storefrontOid, upsellOfferOid, ifMatch, upsellOffer, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update an upsell offer
+     * A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer&#39;s screenshots, are kept. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellOffer The whole offer (required)
+     * @return SfvbUpsellOffer
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellOffer updateSfvbUpsellOffer(Integer storefrontOid, Integer upsellOfferOid, String ifMatch, SfvbUpsellOffer upsellOffer) throws ApiException {
+        ApiResponse<SfvbUpsellOffer> localVarResp = updateSfvbUpsellOfferWithHttpInfo(storefrontOid, upsellOfferOid, ifMatch, upsellOffer);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update an upsell offer
+     * A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer&#39;s screenshots, are kept. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellOffer The whole offer (required)
+     * @return ApiResponse&lt;SfvbUpsellOffer&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellOffer> updateSfvbUpsellOfferWithHttpInfo(Integer storefrontOid, Integer upsellOfferOid, String ifMatch, SfvbUpsellOffer upsellOffer) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, ifMatch, upsellOffer, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update an upsell offer (asynchronously)
+     * A full replace.  Send back the whole offer you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Changing an offer that is switched on, switching one on, or changing upsell_item_id_javascript or offsite_content_url needs sfvb_publish.  Settings the API does not show, such as the offer&#39;s screenshots, are kept. 
+     * @param storefrontOid  (required)
+     * @param upsellOfferOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellOffer The whole offer (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbUpsellOfferAsync(Integer storefrontOid, Integer upsellOfferOid, String ifMatch, SfvbUpsellOffer upsellOffer, final ApiCallback<SfvbUpsellOffer> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSfvbUpsellOfferValidateBeforeCall(storefrontOid, upsellOfferOid, ifMatch, upsellOffer, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellOffer>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSfvbUpsellPath
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellPath The whole path (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbUpsellPathCall(Integer storefrontOid, Integer upsellPathOid, String ifMatch, SfvbUpsellPath upsellPath, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = upsellPath;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "upsell_path_oid" + "\\}", localVarApiClient.escapeString(upsellPathOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSfvbUpsellPathValidateBeforeCall(Integer storefrontOid, Integer upsellPathOid, String ifMatch, SfvbUpsellPath upsellPath, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPathOid' is set
+        if (upsellPathOid == null) {
+            throw new ApiException("Missing the required parameter 'upsellPathOid' when calling updateSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling updateSfvbUpsellPath(Async)");
+        }
+        
+        // verify the required parameter 'upsellPath' is set
+        if (upsellPath == null) {
+            throw new ApiException("Missing the required parameter 'upsellPath' when calling updateSfvbUpsellPath(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSfvbUpsellPathCall(storefrontOid, upsellPathOid, ifMatch, upsellPath, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update an upsell path
+     * A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellPath The whole path (required)
+     * @return SfvbUpsellPath
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbUpsellPath updateSfvbUpsellPath(Integer storefrontOid, Integer upsellPathOid, String ifMatch, SfvbUpsellPath upsellPath) throws ApiException {
+        ApiResponse<SfvbUpsellPath> localVarResp = updateSfvbUpsellPathWithHttpInfo(storefrontOid, upsellPathOid, ifMatch, upsellPath);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update an upsell path
+     * A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellPath The whole path (required)
+     * @return ApiResponse&lt;SfvbUpsellPath&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbUpsellPath> updateSfvbUpsellPathWithHttpInfo(Integer storefrontOid, Integer upsellPathOid, String ifMatch, SfvbUpsellPath upsellPath) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, ifMatch, upsellPath, null);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update an upsell path (asynchronously)
+     * A full replace.  Send back the whole path you read, changed, with its hash_sha256 in If-Match.  Read only fields are ignored and a writable field left out is cleared.  Order and archived keep their stored values; change them with the move, archive and unarchive calls.  Changing a running path, or switching one on, needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param upsellPathOid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param upsellPath The whole path (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbUpsellPathAsync(Integer storefrontOid, Integer upsellPathOid, String ifMatch, SfvbUpsellPath upsellPath, final ApiCallback<SfvbUpsellPath> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSfvbUpsellPathValidateBeforeCall(storefrontOid, upsellPathOid, ifMatch, upsellPath, _callback);
+        Type localVarReturnType = new TypeToken<SfvbUpsellPath>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

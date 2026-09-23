@@ -57,6 +57,10 @@ public class SfvbPageResponse {
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private List<SfvbPageAttribute> attributes = null;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public static final String SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP = "exclude_from_sitemap";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP)
   private Boolean excludeFromSitemap;
@@ -120,6 +124,29 @@ public class SfvbPageResponse {
 
   public void setAttributes(List<SfvbPageAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public SfvbPageResponse description(String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * The page description, the text a page template renders as the page&#39;s description.  Omitted when empty.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The page description, the text a page template renders as the page's description.  Omitted when empty.")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -326,6 +353,7 @@ public class SfvbPageResponse {
     }
     SfvbPageResponse sfvbPageResponse = (SfvbPageResponse) o;
     return Objects.equals(this.attributes, sfvbPageResponse.attributes) &&
+        Objects.equals(this.description, sfvbPageResponse.description) &&
         Objects.equals(this.excludeFromSitemap, sfvbPageResponse.excludeFromSitemap) &&
         Objects.equals(this.groupTemplate, sfvbPageResponse.groupTemplate) &&
         Objects.equals(this.itemTemplate, sfvbPageResponse.itemTemplate) &&
@@ -338,7 +366,7 @@ public class SfvbPageResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, excludeFromSitemap, groupTemplate, itemTemplate, multimedia, path, title, visible, visibleDts);
+    return Objects.hash(attributes, description, excludeFromSitemap, groupTemplate, itemTemplate, multimedia, path, title, visible, visibleDts);
   }
 
   @Override
@@ -346,6 +374,7 @@ public class SfvbPageResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbPageResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    groupTemplate: ").append(toIndentedString(groupTemplate)).append("\n");
     sb.append("    itemTemplate: ").append(toIndentedString(itemTemplate)).append("\n");
@@ -377,6 +406,7 @@ public class SfvbPageResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("attributes");
+    openapiFields.add("description");
     openapiFields.add("exclude_from_sitemap");
     openapiFields.add("group_template");
     openapiFields.add("item_template");
@@ -423,6 +453,9 @@ public class SfvbPageResponse {
         for (int i = 0; i < jsonArrayattributes.size(); i++) {
           SfvbPageAttribute.validateJsonObject(jsonArrayattributes.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (jsonObj.get("group_template") != null && !jsonObj.get("group_template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `group_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_template").toString()));
