@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.171</version>
+    <version>4.1.172</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.171"
+     implementation "com.ultracart:rest-sdk:4.1.172"
   }
 ```
 
@@ -2091,6 +2091,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.172 | 09/24/2026 | storefront communications flow re-entry setting |
 | 4.1.171 | 09/23/2026 | sfvb internal testing |
 | 4.1.170 | 09/22/2026 | sfvb internal testing |
 | 4.1.169 | 09/22/2026 | sfvb builder |
