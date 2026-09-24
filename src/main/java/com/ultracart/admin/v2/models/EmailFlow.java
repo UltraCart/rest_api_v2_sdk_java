@@ -129,6 +129,63 @@ public class EmailFlow {
   @SerializedName(SERIALIZED_NAME_OPEN_RATE_FORMATTED)
   private String openRateFormatted;
 
+  public static final String SERIALIZED_NAME_REENTRY_DELAY_DAYS = "reentry_delay_days";
+  @SerializedName(SERIALIZED_NAME_REENTRY_DELAY_DAYS)
+  private Integer reentryDelayDays;
+
+  /**
+   * Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.
+   */
+  @JsonAdapter(ReentryPolicyEnum.Adapter.class)
+  public enum ReentryPolicyEnum {
+    ANYTIME("anytime"),
+    
+    AFTER_DAYS("after_days"),
+    
+    NEVER("never");
+
+    private String value;
+
+    ReentryPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ReentryPolicyEnum fromValue(String value) {
+      for (ReentryPolicyEnum b : ReentryPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ReentryPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ReentryPolicyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ReentryPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ReentryPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REENTRY_POLICY = "reentry_policy";
+  @SerializedName(SERIALIZED_NAME_REENTRY_POLICY)
+  private ReentryPolicyEnum reentryPolicy;
+
   public static final String SERIALIZED_NAME_REVENUE_FORMATTED = "revenue_formatted";
   @SerializedName(SERIALIZED_NAME_REVENUE_FORMATTED)
   private String revenueFormatted;
@@ -636,6 +693,52 @@ public class EmailFlow {
   }
 
 
+  public EmailFlow reentryDelayDays(Integer reentryDelayDays) {
+    
+    this.reentryDelayDays = reentryDelayDays;
+    return this;
+  }
+
+   /**
+   * Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.
+   * @return reentryDelayDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of days after the last enrollment before a customer may enter this flow again.  Only used when reentry_policy is after_days.  Maximum 1095.")
+
+  public Integer getReentryDelayDays() {
+    return reentryDelayDays;
+  }
+
+
+  public void setReentryDelayDays(Integer reentryDelayDays) {
+    this.reentryDelayDays = reentryDelayDays;
+  }
+
+
+  public EmailFlow reentryPolicy(ReentryPolicyEnum reentryPolicy) {
+    
+    this.reentryPolicy = reentryPolicy;
+    return this;
+  }
+
+   /**
+   * Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.
+   * @return reentryPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether a customer may enter this flow again after a previous enrollment.  anytime (default), after_days (see reentry_delay_days), or never.  Enrollment history is kept for 3 years, so never means not within 3 years of the last enrollment.")
+
+  public ReentryPolicyEnum getReentryPolicy() {
+    return reentryPolicy;
+  }
+
+
+  public void setReentryPolicy(ReentryPolicyEnum reentryPolicy) {
+    this.reentryPolicy = reentryPolicy;
+  }
+
+
   public EmailFlow revenueFormatted(String revenueFormatted) {
     
     this.revenueFormatted = revenueFormatted;
@@ -919,6 +1022,8 @@ public class EmailFlow {
         Objects.equals(this.merchantId, emailFlow.merchantId) &&
         Objects.equals(this.name, emailFlow.name) &&
         Objects.equals(this.openRateFormatted, emailFlow.openRateFormatted) &&
+        Objects.equals(this.reentryDelayDays, emailFlow.reentryDelayDays) &&
+        Objects.equals(this.reentryPolicy, emailFlow.reentryPolicy) &&
         Objects.equals(this.revenueFormatted, emailFlow.revenueFormatted) &&
         Objects.equals(this.revenuePerCustomerFormatted, emailFlow.revenuePerCustomerFormatted) &&
         Objects.equals(this.screenshotLargeFullUrl, emailFlow.screenshotLargeFullUrl) &&
@@ -934,7 +1039,7 @@ public class EmailFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, maximumEnrolled, merchantId, name, openRateFormatted, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, backPopulating, clickRateFormatted, createdDts, deleted, emailCommunicationSequenceUuid, emailFlowUuid, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, enrolledCustomers, espDomainUser, espDomainUuid, espFlowFolderUuid, espFriendlyName, filterProfileEquationJson, libraryItemOid, maximumEnrolled, merchantId, name, openRateFormatted, reentryDelayDays, reentryPolicy, revenueFormatted, revenuePerCustomerFormatted, screenshotLargeFullUrl, smsEspTwilioUuid, smsPhoneNumber, status, statusDts, storefrontOid, triggerParameter, triggerParameterName, triggerType);
   }
 
   @Override
@@ -961,6 +1066,8 @@ public class EmailFlow {
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    openRateFormatted: ").append(toIndentedString(openRateFormatted)).append("\n");
+    sb.append("    reentryDelayDays: ").append(toIndentedString(reentryDelayDays)).append("\n");
+    sb.append("    reentryPolicy: ").append(toIndentedString(reentryPolicy)).append("\n");
     sb.append("    revenueFormatted: ").append(toIndentedString(revenueFormatted)).append("\n");
     sb.append("    revenuePerCustomerFormatted: ").append(toIndentedString(revenuePerCustomerFormatted)).append("\n");
     sb.append("    screenshotLargeFullUrl: ").append(toIndentedString(screenshotLargeFullUrl)).append("\n");
@@ -1014,6 +1121,8 @@ public class EmailFlow {
     openapiFields.add("merchant_id");
     openapiFields.add("name");
     openapiFields.add("open_rate_formatted");
+    openapiFields.add("reentry_delay_days");
+    openapiFields.add("reentry_policy");
     openapiFields.add("revenue_formatted");
     openapiFields.add("revenue_per_customer_formatted");
     openapiFields.add("screenshot_large_full_url");
@@ -1087,6 +1196,9 @@ public class EmailFlow {
       }
       if (jsonObj.get("open_rate_formatted") != null && !jsonObj.get("open_rate_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `open_rate_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("open_rate_formatted").toString()));
+      }
+      if (jsonObj.get("reentry_policy") != null && !jsonObj.get("reentry_policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reentry_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reentry_policy").toString()));
       }
       if (jsonObj.get("revenue_formatted") != null && !jsonObj.get("revenue_formatted").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `revenue_formatted` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revenue_formatted").toString()));

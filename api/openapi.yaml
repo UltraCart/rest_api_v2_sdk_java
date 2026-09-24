@@ -192280,10 +192280,11 @@ components:
         open_rate_formatted: open_rate_formatted
         end_once_customer_purchases_anywhere: true
         trigger_type: trigger_type
-        storefront_oid: 1
+        storefront_oid: 5
         back_populating: true
         merchant_id: merchant_id
         sms_esp_twilio_uuid: sms_esp_twilio_uuid
+        reentry_policy: anytime
         trigger_parameter_name: trigger_parameter_name
         revenue_formatted: revenue_formatted
         sms_phone_number: sms_phone_number
@@ -192305,6 +192306,7 @@ components:
         name: name
         revenue_per_customer_formatted: revenue_per_customer_formatted
         allow_multiple_concurrent_enrollments: true
+        reentry_delay_days: 1
         status: status
       properties:
         allow_multiple_concurrent_enrollments:
@@ -192375,6 +192377,22 @@ components:
           type: string
         open_rate_formatted:
           description: "Open rate of emails, formatted"
+          type: string
+        reentry_delay_days:
+          description: Number of days after the last enrollment before a customer
+            may enter this flow again.  Only used when reentry_policy is after_days.  Maximum
+            1095.
+          format: int32
+          type: integer
+        reentry_policy:
+          description: "Whether a customer may enter this flow again after a previous\
+            \ enrollment.  anytime (default), after_days (see reentry_delay_days),\
+            \ or never.  Enrollment history is kept for 3 years, so never means not\
+            \ within 3 years of the last enrollment."
+          enum:
+          - anytime
+          - after_days
+          - never
           type: string
         revenue_formatted:
           description: "Revenue, formatted"
@@ -192602,10 +192620,11 @@ components:
           open_rate_formatted: open_rate_formatted
           end_once_customer_purchases_anywhere: true
           trigger_type: trigger_type
-          storefront_oid: 1
+          storefront_oid: 5
           back_populating: true
           merchant_id: merchant_id
           sms_esp_twilio_uuid: sms_esp_twilio_uuid
+          reentry_policy: anytime
           trigger_parameter_name: trigger_parameter_name
           revenue_formatted: revenue_formatted
           sms_phone_number: sms_phone_number
@@ -192627,6 +192646,7 @@ components:
           name: name
           revenue_per_customer_formatted: revenue_per_customer_formatted
           allow_multiple_concurrent_enrollments: true
+          reentry_delay_days: 1
           status: status
       properties:
         error:
@@ -192658,10 +192678,11 @@ components:
           open_rate_formatted: open_rate_formatted
           end_once_customer_purchases_anywhere: true
           trigger_type: trigger_type
-          storefront_oid: 1
+          storefront_oid: 5
           back_populating: true
           merchant_id: merchant_id
           sms_esp_twilio_uuid: sms_esp_twilio_uuid
+          reentry_policy: anytime
           trigger_parameter_name: trigger_parameter_name
           revenue_formatted: revenue_formatted
           sms_phone_number: sms_phone_number
@@ -192683,16 +192704,18 @@ components:
           name: name
           revenue_per_customer_formatted: revenue_per_customer_formatted
           allow_multiple_concurrent_enrollments: true
+          reentry_delay_days: 1
           status: status
         - esp_domain_user: esp_domain_user
           email_communication_sequence_uuid: email_communication_sequence_uuid
           open_rate_formatted: open_rate_formatted
           end_once_customer_purchases_anywhere: true
           trigger_type: trigger_type
-          storefront_oid: 1
+          storefront_oid: 5
           back_populating: true
           merchant_id: merchant_id
           sms_esp_twilio_uuid: sms_esp_twilio_uuid
+          reentry_policy: anytime
           trigger_parameter_name: trigger_parameter_name
           revenue_formatted: revenue_formatted
           sms_phone_number: sms_phone_number
@@ -192714,6 +192737,7 @@ components:
           name: name
           revenue_per_customer_formatted: revenue_per_customer_formatted
           allow_multiple_concurrent_enrollments: true
+          reentry_delay_days: 1
           status: status
         success: true
         warning:
