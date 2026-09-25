@@ -1072,6 +1072,9 @@ docs/SfvbSiteAttributesResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTemplate.md
+docs/SfvbTemplateResolveCandidate.md
+docs/SfvbTemplateResolvePath.md
+docs/SfvbTemplateResolveResponse.md
 docs/SfvbTemplatesResponse.md
 docs/SfvbTheme.md
 docs/SfvbThemeAttribute.md
@@ -2280,6 +2283,9 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefront.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTemplate.java
+src/main/java/com/ultracart/admin/v2/models/SfvbTemplateResolveCandidate.java
+src/main/java/com/ultracart/admin/v2/models/SfvbTemplateResolvePath.java
+src/main/java/com/ultracart/admin/v2/models/SfvbTemplateResolveResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTemplatesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTheme.java
 src/main/java/com/ultracart/admin/v2/models/SfvbThemeAttribute.java

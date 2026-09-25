@@ -7786,12 +7786,12 @@ paths:
   /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end:
     post:
       description: "Ends a running experiment.  With winner_variation_number the winner\
-        \ gets all new visitors, and a page experiment's winning content is promoted\
-        \ into the page by the completion job on its next run, which also emails the\
-        \ merchant.  Without a winner a page experiment's id is cleared from its page\
-        \ body so the page shows variation 0, and a url experiment sends everyone\
-        \ to variation 0.  Visitors already assigned to a url experiment keep their\
-        \ page for up to 30 days.  Always needs sfvb_publish.\n"
+        \ gets every visitor, including visitors already assigned to another variation,\
+        \ and a page experiment's winning content is promoted into the page by the\
+        \ completion job on its next run, which also emails the merchant.  Without\
+        \ a winner a page experiment's id is cleared from its page body so the page\
+        \ shows variation 0, and a url experiment sends everyone to variation 0. \
+        \ Always needs sfvb_publish.\n"
       operationId: endSfvbExperiment
       parameters:
       - in: path
@@ -12359,6 +12359,95 @@ paths:
         - sfvb_read
       - ultraCartSimpleApiKey: []
       summary: List the active theme's templates
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/templates/resolve:
+    get:
+      description: "A page stores only its template's file name.  This runs the storefront's\
+        \ own template search for that name and returns the file a page naming it\
+        \ renders, relative to the theme.  It also lists the theme's resource paths\
+        \ in search order with every file of that name below each, so a theme copy\
+        \ overriding a shared core copy, or a copy in a snippets folder that is never\
+        \ used, is visible.  exists is false when a page naming the template cannot\
+        \ render.\n"
+      operationId: resolveSfvbTemplate
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The template file name, such as catalog.vm"
+        in: query
+        name: name
+        required: true
+        schema:
+          type: string
+      - description: Resolve in this theme instead of the active theme
+        in: query
+        name: theme_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTemplateResolveResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Resolve a template name to the file a page renders
       tags:
       - sfvb
       x-accepts: application/json
@@ -242696,6 +242785,106 @@ components:
         visual_builder:
           description: True when the template renders visual builder containers.
           type: boolean
+      type: object
+    SfvbTemplateResolveCandidate:
+      example:
+        theme_relative_path: theme_relative_path
+        skipped: skipped
+      properties:
+        skipped:
+          description: "Why the storefront never uses this file for a page, or null.\
+            \  snippets means it sits in the resource path's own snippets folder."
+          type: string
+        theme_relative_path:
+          description: Where the file sits inside the theme.
+          type: string
+      type: object
+    SfvbTemplateResolvePath:
+      example:
+        candidates:
+        - theme_relative_path: theme_relative_path
+          skipped: skipped
+        - theme_relative_path: theme_relative_path
+          skipped: skipped
+        directory_found: true
+        resource_path: resource_path
+        match: match
+      properties:
+        candidates:
+          description: "Every file of that name below this path, in the order the\
+            \ storefront searches."
+          items:
+            $ref: '#/components/schemas/SfvbTemplateResolveCandidate'
+          type: array
+        directory_found:
+          description: "False when the theme has no such directory, so the storefront\
+            \ skips this path."
+          type: boolean
+        match:
+          description: "The candidate this path supplies, relative to the theme root,\
+            \ or null.  It is the first candidate that is not skipped."
+          type: string
+        resource_path:
+          description: "The resource path, relative to the theme root.  / is the theme\
+            \ root itself."
+          type: string
+      type: object
+    SfvbTemplateResolveResponse:
+      example:
+        theme_path: theme_path
+        name: name
+        exists: true
+        resource_paths:
+        - candidates:
+          - theme_relative_path: theme_relative_path
+            skipped: skipped
+          - theme_relative_path: theme_relative_path
+            skipped: skipped
+          directory_found: true
+          resource_path: resource_path
+          match: match
+        - candidates:
+          - theme_relative_path: theme_relative_path
+            skipped: skipped
+          - theme_relative_path: theme_relative_path
+            skipped: skipped
+          directory_found: true
+          resource_path: resource_path
+          match: match
+        resolved_path: resolved_path
+        theme_oid: 0
+        fallback: true
+      properties:
+        exists:
+          description: Whether resolved_path is a file.  False means a page naming
+            this template cannot render.
+          type: boolean
+        fallback:
+          description: "True when no resource path held the name, so the storefront\
+            \ fell back to the name at the theme root."
+          type: boolean
+        name:
+          description: "The template file name that was resolved, as a page's group_template\
+            \ or item_template holds it."
+          type: string
+        resolved_path:
+          description: "The file a page naming this template renders, relative to\
+            \ theme_path.  This is the storefront's own answer."
+          type: string
+        resource_paths:
+          description: "The theme's resource paths in search order, each with the\
+            \ files of that name found below it.  The first path with a match wins,\
+            \ which is how a theme copy overrides a shared core copy."
+          items:
+            $ref: '#/components/schemas/SfvbTemplateResolvePath'
+          type: array
+        theme_oid:
+          description: The theme the name was resolved in.
+          format: int32
+          type: integer
+        theme_path:
+          description: "The theme's path in the file manager, such as /themes/Elements/."
+          type: string
       type: object
     SfvbTemplatesResponse:
       example:
