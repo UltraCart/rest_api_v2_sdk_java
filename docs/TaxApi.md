@@ -19,6 +19,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getTaxProviderSelfRegionsByCountryCode**](TaxApi.md#getTaxProviderSelfRegionsByCountryCode) | **GET** /tax/providers/self/regions/{countryCode} | Retrieve the Self tax provider regions for a given country code |
 | [**getTaxProviderSovos**](TaxApi.md#getTaxProviderSovos) | **GET** /tax/providers/sovos | Retrieve the Sovos tax provider |
 | [**getTaxProviderSovosTest**](TaxApi.md#getTaxProviderSovosTest) | **GET** /tax/providers/sovos/test | Attempts to connect to Sovos and returns back the response |
+| [**getTaxProviderTaxCloud**](TaxApi.md#getTaxProviderTaxCloud) | **GET** /tax/providers/taxcloud | Retrieve the TaxCloud tax provider |
+| [**getTaxProviderTaxCloudTest**](TaxApi.md#getTaxProviderTaxCloudTest) | **GET** /tax/providers/taxcloud/test | Attempts to connect to TaxCloud and returns back the response |
 | [**getTaxProviderTaxJar**](TaxApi.md#getTaxProviderTaxJar) | **GET** /tax/providers/taxjar | Retrieve the TaxJar tax provider |
 | [**getTaxProviderTaxJarTest**](TaxApi.md#getTaxProviderTaxJarTest) | **GET** /tax/providers/taxjar/test | Attempts to connect to TaxJar and returns back the response |
 | [**getTaxProviderUltraCart**](TaxApi.md#getTaxProviderUltraCart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider |
@@ -33,6 +35,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateTaxProviderSelfPostalCode**](TaxApi.md#updateTaxProviderSelfPostalCode) | **POST** /tax/providers/self/postalCode/{postal_code} | Updates a Self tax provider postalCode |
 | [**updateTaxProviderSelfState**](TaxApi.md#updateTaxProviderSelfState) | **POST** /tax/providers/self/state/{stateCode} | Updates a Self tax provider state |
 | [**updateTaxProviderSovos**](TaxApi.md#updateTaxProviderSovos) | **POST** /tax/providers/sovos | Update the Sovos tax provider |
+| [**updateTaxProviderTaxCloud**](TaxApi.md#updateTaxProviderTaxCloud) | **POST** /tax/providers/taxcloud | Update the TaxCloud tax provider |
 | [**updateTaxProviderTaxJar**](TaxApi.md#updateTaxProviderTaxJar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider |
 | [**updateTaxProviderUltraCart**](TaxApi.md#updateTaxProviderUltraCart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider |
 
@@ -299,11 +302,11 @@ This endpoint does not need any parameter.
 
 <a name="getTaxProviderAnrokTest"></a>
 # **getTaxProviderAnrokTest**
-> TaxProviderTestResult getTaxProviderAnrokTest()
+> TaxProviderAnrokTestResult getTaxProviderAnrokTest()
 
 Attempts to connect to Anrok and returns back the response
 
-Attempts to connect to Anrok and returns back the response. 
+Attempts to connect to Anrok and returns back the response, including the products configured on the merchant&#39;s Anrok account. 
 
 ### Example
 
@@ -316,7 +319,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**TaxProviderTestResult**](TaxProviderTestResult.md)
+[**TaxProviderAnrokTestResult**](TaxProviderAnrokTestResult.md)
 
 ### Authorization
 
@@ -643,6 +646,86 @@ Attempts to connect to Sovos and returns back the response.
 ```java
 // (Internal API).  No sample for this method as a merchant will never need call it.
 ```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TaxProviderTestResult**](TaxProviderTestResult.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getTaxProviderTaxCloud"></a>
+# **getTaxProviderTaxCloud**
+> TaxProviderTaxCloud getTaxProviderTaxCloud()
+
+Retrieve the TaxCloud tax provider
+
+Retrieves the TaxCloud tax provider. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TaxProviderTaxCloud**](TaxProviderTaxCloud.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getTaxProviderTaxCloudTest"></a>
+# **getTaxProviderTaxCloudTest**
+> TaxProviderTestResult getTaxProviderTaxCloudTest()
+
+Attempts to connect to TaxCloud and returns back the response
+
+Attempts to connect to TaxCloud with the saved API key and Connection ID and returns back the response. 
+
+### Example
+
+
+(No example for this operation).
 
 
 ### Parameters
@@ -1264,6 +1347,49 @@ Update the Sovos tax provider.
 ### Return type
 
 [**TaxProviderSovos**](TaxProviderSovos.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateTaxProviderTaxCloud"></a>
+# **updateTaxProviderTaxCloud**
+> TaxProviderTaxCloud updateTaxProviderTaxCloud(taxProviderTaxcloud)
+
+Update the TaxCloud tax provider
+
+Update the TaxCloud tax provider. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taxProviderTaxcloud** | [**TaxProviderTaxCloud**](TaxProviderTaxCloud.md)| TaxProviderTaxCloud object | |
+
+### Return type
+
+[**TaxProviderTaxCloud**](TaxProviderTaxCloud.md)
 
 ### Authorization
 

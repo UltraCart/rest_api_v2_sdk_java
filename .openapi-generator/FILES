@@ -1122,6 +1122,7 @@ docs/StoreFrontsResponse.md
 docs/StorefrontApi.md
 docs/TaxApi.md
 docs/TaxCity.md
+docs/TaxCloudConfig.md
 docs/TaxCountry.md
 docs/TaxCountryCode.md
 docs/TaxCounty.md
@@ -1129,6 +1130,8 @@ docs/TaxJarConfig.md
 docs/TaxPostalCode.md
 docs/TaxProviderActivateResult.md
 docs/TaxProviderAnrok.md
+docs/TaxProviderAnrokProduct.md
+docs/TaxProviderAnrokTestResult.md
 docs/TaxProviderAvalara.md
 docs/TaxProviderAvalaraCompaniesResult.md
 docs/TaxProviderAvalaraCompany.md
@@ -1136,6 +1139,7 @@ docs/TaxProviderSelf.md
 docs/TaxProviderSelfCountriesResponse.md
 docs/TaxProviderSelfRegionsResponse.md
 docs/TaxProviderSovos.md
+docs/TaxProviderTaxCloud.md
 docs/TaxProviderTaxJar.md
 docs/TaxProviderTestResult.md
 docs/TaxProviderUltraCart.md
@@ -2332,6 +2336,7 @@ src/main/java/com/ultracart/admin/v2/models/StoreFront.java
 src/main/java/com/ultracart/admin/v2/models/StoreFrontPageContentAttribute.java
 src/main/java/com/ultracart/admin/v2/models/StoreFrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/TaxCity.java
+src/main/java/com/ultracart/admin/v2/models/TaxCloudConfig.java
 src/main/java/com/ultracart/admin/v2/models/TaxCountry.java
 src/main/java/com/ultracart/admin/v2/models/TaxCountryCode.java
 src/main/java/com/ultracart/admin/v2/models/TaxCounty.java
@@ -2339,6 +2344,8 @@ src/main/java/com/ultracart/admin/v2/models/TaxJarConfig.java
 src/main/java/com/ultracart/admin/v2/models/TaxPostalCode.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderActivateResult.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderAnrok.java
+src/main/java/com/ultracart/admin/v2/models/TaxProviderAnrokProduct.java
+src/main/java/com/ultracart/admin/v2/models/TaxProviderAnrokTestResult.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderAvalara.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderAvalaraCompaniesResult.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderAvalaraCompany.java
@@ -2346,6 +2353,7 @@ src/main/java/com/ultracart/admin/v2/models/TaxProviderSelf.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderSelfCountriesResponse.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderSelfRegionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderSovos.java
+src/main/java/com/ultracart/admin/v2/models/TaxProviderTaxCloud.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderTaxJar.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderTestResult.java
 src/main/java/com/ultracart/admin/v2/models/TaxProviderUltraCart.java

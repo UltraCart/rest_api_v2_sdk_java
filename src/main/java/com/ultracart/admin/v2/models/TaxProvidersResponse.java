@@ -26,6 +26,7 @@ import com.ultracart.admin.v2.models.TaxProviderAnrok;
 import com.ultracart.admin.v2.models.TaxProviderAvalara;
 import com.ultracart.admin.v2.models.TaxProviderSelf;
 import com.ultracart.admin.v2.models.TaxProviderSovos;
+import com.ultracart.admin.v2.models.TaxProviderTaxCloud;
 import com.ultracart.admin.v2.models.TaxProviderTaxJar;
 import com.ultracart.admin.v2.models.TaxProviderUltraCart;
 import com.ultracart.admin.v2.models.Warning;
@@ -85,6 +86,10 @@ public class TaxProvidersResponse {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   private Boolean success;
+
+  public static final String SERIALIZED_NAME_TAXCLOUD = "taxcloud";
+  @SerializedName(SERIALIZED_NAME_TAXCLOUD)
+  private TaxProviderTaxCloud taxcloud;
 
   public static final String SERIALIZED_NAME_TAXJAR = "taxjar";
   @SerializedName(SERIALIZED_NAME_TAXJAR)
@@ -262,6 +267,29 @@ public class TaxProvidersResponse {
   }
 
 
+  public TaxProvidersResponse taxcloud(TaxProviderTaxCloud taxcloud) {
+    
+    this.taxcloud = taxcloud;
+    return this;
+  }
+
+   /**
+   * Get taxcloud
+   * @return taxcloud
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TaxProviderTaxCloud getTaxcloud() {
+    return taxcloud;
+  }
+
+
+  public void setTaxcloud(TaxProviderTaxCloud taxcloud) {
+    this.taxcloud = taxcloud;
+  }
+
+
   public TaxProvidersResponse taxjar(TaxProviderTaxJar taxjar) {
     
     this.taxjar = taxjar;
@@ -348,6 +376,7 @@ public class TaxProvidersResponse {
         Objects.equals(this.self, taxProvidersResponse.self) &&
         Objects.equals(this.sovos, taxProvidersResponse.sovos) &&
         Objects.equals(this.success, taxProvidersResponse.success) &&
+        Objects.equals(this.taxcloud, taxProvidersResponse.taxcloud) &&
         Objects.equals(this.taxjar, taxProvidersResponse.taxjar) &&
         Objects.equals(this.ultracart, taxProvidersResponse.ultracart) &&
         Objects.equals(this.warning, taxProvidersResponse.warning);
@@ -355,7 +384,7 @@ public class TaxProvidersResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(anrok, avalara, error, metadata, self, sovos, success, taxjar, ultracart, warning);
+    return Objects.hash(anrok, avalara, error, metadata, self, sovos, success, taxcloud, taxjar, ultracart, warning);
   }
 
   @Override
@@ -369,6 +398,7 @@ public class TaxProvidersResponse {
     sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    sovos: ").append(toIndentedString(sovos)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    taxcloud: ").append(toIndentedString(taxcloud)).append("\n");
     sb.append("    taxjar: ").append(toIndentedString(taxjar)).append("\n");
     sb.append("    ultracart: ").append(toIndentedString(ultracart)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
@@ -401,6 +431,7 @@ public class TaxProvidersResponse {
     openapiFields.add("self");
     openapiFields.add("sovos");
     openapiFields.add("success");
+    openapiFields.add("taxcloud");
     openapiFields.add("taxjar");
     openapiFields.add("ultracart");
     openapiFields.add("warning");
@@ -454,6 +485,10 @@ public class TaxProvidersResponse {
       // validate the optional field `sovos`
       if (jsonObj.getAsJsonObject("sovos") != null) {
         TaxProviderSovos.validateJsonObject(jsonObj.getAsJsonObject("sovos"));
+      }
+      // validate the optional field `taxcloud`
+      if (jsonObj.getAsJsonObject("taxcloud") != null) {
+        TaxProviderTaxCloud.validateJsonObject(jsonObj.getAsJsonObject("taxcloud"));
       }
       // validate the optional field `taxjar`
       if (jsonObj.getAsJsonObject("taxjar") != null) {
