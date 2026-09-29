@@ -1054,6 +1054,8 @@ docs/SfvbPageItemsResponse.md
 docs/SfvbPageListResponse.md
 docs/SfvbPageMultimedia.md
 docs/SfvbPageMultimediaRequest.md
+docs/SfvbPageRefreshRequest.md
+docs/SfvbPageRefreshResponse.md
 docs/SfvbPageResponse.md
 docs/SfvbPageSelectors.md
 docs/SfvbPageSettingsRequest.md
@@ -2265,6 +2267,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPageItemsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageListResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageMultimedia.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageMultimediaRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPageRefreshRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPageRefreshResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageSelectors.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageSettingsRequest.java

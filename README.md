@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.174</version>
+    <version>4.1.175</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.174"
+     implementation "com.ultracart:rest-sdk:4.1.175"
   }
 ```
 
@@ -568,6 +568,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPreviewSession**](docs/SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/SfvbApi.md#putSfvbSiteAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
+*SfvbApi* | [**refreshSfvbPage**](docs/SfvbApi.md#refreshSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
 *SfvbApi* | [**removeSfvbPageBlogPosts**](docs/SfvbApi.md#removeSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/remove | Take blog posts off a page
 *SfvbApi* | [**removeSfvbPageItems**](docs/SfvbApi.md#removeSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbWidgets**](docs/SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
@@ -1873,6 +1874,8 @@ Class | Method | HTTP request | Description
  - [SfvbPageListResponse](docs/SfvbPageListResponse.md)
  - [SfvbPageMultimedia](docs/SfvbPageMultimedia.md)
  - [SfvbPageMultimediaRequest](docs/SfvbPageMultimediaRequest.md)
+ - [SfvbPageRefreshRequest](docs/SfvbPageRefreshRequest.md)
+ - [SfvbPageRefreshResponse](docs/SfvbPageRefreshResponse.md)
  - [SfvbPageResponse](docs/SfvbPageResponse.md)
  - [SfvbPageSelectors](docs/SfvbPageSelectors.md)
  - [SfvbPageSettingsRequest](docs/SfvbPageSettingsRequest.md)
@@ -2095,6 +2098,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.175 | 09/29/2026 | sfvb internal testing |
 | 4.1.174 | 09/25/2026 | sfvb internal testing |
 | 4.1.173 | 09/24/2026 | storefront communications flow re-entry setting |
 | 4.1.172 | 09/24/2026 | storefront communications flow re-entry setting |
