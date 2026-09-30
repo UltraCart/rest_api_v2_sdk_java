@@ -174,11 +174,11 @@ public class SfvbPageAttributeUpdate {
   }
 
    /**
-   * The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.
+   * The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped.
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.")
+  @ApiModelProperty(value = "The value to store.  An empty string clears it.  For html the markup is stored as given and rendered as given.  For boolean send the text true or false.  For itemset send a comma separated list of merchant item ids in display order, not JSON.  An id that does not resolve is dropped.")
 
   public String getValue() {
     return value;

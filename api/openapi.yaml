@@ -6931,6 +6931,570 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    post:
+      description: "title and url_part are required.  The post is a draft unless visibility\
+        \ says otherwise, and anything but a draft needs sfvb_publish.  The body and\
+        \ excerpt are refused with sfvb.unsafe_html if they could run script, and\
+        \ a url_part another post uses is refused with a 409 and sfvb.blog_post_exists.\
+        \  Assign the post to a page with pages/blog_posts/add, or let the page's\
+        \ selectors choose it.\n"
+      operationId: insertSfvbBlogPost
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbBlogPostRequest'
+        description: The blog post to create
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostDetail'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a blog post
+      tags:
+      - sfvb
+      x-codegen-request-body-name: blog_post_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}:
+    delete:
+      description: |
+        Takes the post off every page and deletes it.  There is no undo.  A post that is not a draft needs sfvb_publish.
+      operationId: deleteSfvbBlogPost
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: blog_post_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a blog post
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The whole post - body, excerpt, tags, images and where it is shown.\
+        \  An image's url is the address to use for it in the body.\n"
+      operationId: getSfvbBlogPost
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: blog_post_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostDetail'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a blog post
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Only the fields sent change; tags, when sent, replaces every tag.\
+        \  The post's images and attributes are left alone.  Publish or unpublish\
+        \ with visibility.  A post that is not a draft before or after the change\
+        \ needs sfvb_publish.  The same content rules as create apply.\n"
+      operationId: updateSfvbBlogPost
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: blog_post_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbBlogPostRequest'
+        description: The fields to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostDetail'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a blog post
+      tags:
+      - sfvb
+      x-codegen-request-body-name: blog_post_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach:
+    post:
+      description: "Three calls, like the admin blog editor's upload.  Request an\
+        \ upload URL with files/upload_url, send the bytes to it, then attach with\
+        \ the key and a filename.  No storefront file is created, and the key is redeemed,\
+        \ so it cannot be used twice.  default_image replaces the post's default image\
+        \ and code replaces the image with that code; with neither, the image is added\
+        \ for use in the body at the url the response reports.  JPEG, PNG, GIF or\
+        \ WebP, checked by content.  A post that is not a draft needs sfvb_publish.\n"
+      operationId: attachSfvbBlogPostImage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: blog_post_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbBlogPostImageRequest'
+        description: Image to attach
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostDetail'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Attach an image to a blog post
+      tags:
+      - sfvb
+      x-codegen-request-body-name: blog_post_image_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach:
+    post:
+      description: "Name exactly one of default_image, code or blog_post_multimedia_oid.\
+        \  Removes the image from the post and deletes its stored copy.  Take it out\
+        \ of the body too, or the body keeps a broken image.  A post that is not a\
+        \ draft needs sfvb_publish.\n"
+      operationId: detachSfvbBlogPostImage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: blog_post_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbBlogPostImageRequest'
+        description: Image to detach
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbBlogPostDetail'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Detach an image from a blog post
+      tags:
+      - sfvb
+      x-codegen-request-body-name: blog_post_image_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
       description: "Addressed the same way as the container itself, so owner_type\
@@ -239065,6 +239629,244 @@ components:
           description: "P public, L logged in customers only, D draft."
           type: string
       type: object
+    SfvbBlogPostDetail:
+      example:
+        images:
+        - code: code
+          filename: filename
+          width: 5
+          description: description
+          default_image: true
+          blog_post_multimedia_oid: 6
+          url: url
+          height: 1
+        - code: code
+          filename: filename
+          width: 5
+          description: description
+          default_image: true
+          blog_post_multimedia_oid: 6
+          url: url
+          height: 1
+        publication_dts: publication_dts
+        visibility: visibility
+        allow_comments: true
+        author: author
+        url_part: url_part
+        unassigned: true
+        body: body
+        last_modified_dts: last_modified_dts
+        title: title
+        tags:
+        - tags
+        - tags
+        blog_post_oid: 0
+        view_url: view_url
+        excerpt: excerpt
+        created_dts: created_dts
+      properties:
+        allow_comments:
+          description: Whether shoppers may comment.
+          type: boolean
+        author:
+          description: The post author.
+          type: string
+        blog_post_oid:
+          description: The blog post's oid.  This is what a page's blog post assignment
+            names.
+          format: int32
+          type: integer
+        body:
+          description: "The post body as HTML, exactly as stored."
+          type: string
+        created_dts:
+          description: "When the post was created (ISO 8601, UTC)."
+          type: string
+        excerpt:
+          description: "The post excerpt as HTML, exactly as stored."
+          type: string
+        images:
+          description: "The post's images, the default image first."
+          items:
+            $ref: '#/components/schemas/SfvbBlogPostImage'
+          type: array
+        last_modified_dts:
+          description: "When the post was last changed (ISO 8601, UTC), or null if\
+            \ it never was."
+          type: string
+        publication_dts:
+          description: "When the post is published (ISO 8601, UTC), or null for a\
+            \ draft."
+          type: string
+        tags:
+          description: The post's tags.
+          items:
+            type: string
+          type: array
+        title:
+          description: The post title.
+          type: string
+        unassigned:
+          description: True when no page shows this post yet.
+          type: boolean
+        url_part:
+          description: The post's name in its URL.
+          type: string
+        view_url:
+          description: "The post's address on the storefront, or null until a page\
+            \ shows it."
+          type: string
+        visibility:
+          description: "P public, L logged in customers only, D draft."
+          type: string
+      type: object
+    SfvbBlogPostImage:
+      example:
+        code: code
+        filename: filename
+        width: 5
+        description: description
+        default_image: true
+        blog_post_multimedia_oid: 6
+        url: url
+        height: 1
+      properties:
+        blog_post_multimedia_oid:
+          description: The image's oid.  Detach names it this way.
+          format: int32
+          type: integer
+        code:
+          description: "The image code, or null for the default image and for an image\
+            \ used only in the body."
+          type: string
+        default_image:
+          description: "True for the post's default image, which a blogpostimage element\
+            \ and og image use."
+          type: boolean
+        description:
+          description: "The description stored with the image, used as its alt text."
+          type: string
+        filename:
+          description: The image's file name.
+          type: string
+        height:
+          description: "Height in pixels, when it could be measured."
+          format: int32
+          type: integer
+        url:
+          description: "The address to use in the post body, for example in an img\
+            \ src.  The storefront serves it from its image CDN once the image has\
+            \ been copied there."
+          type: string
+        width:
+          description: "Width in pixels, when it could be measured."
+          format: int32
+          type: integer
+      type: object
+    SfvbBlogPostImageRequest:
+      example:
+        code: code
+        filename: filename
+        description: description
+        default_image: true
+        blog_post_multimedia_oid: 0
+        key: key
+      properties:
+        blog_post_multimedia_oid:
+          description: "Detach only.  The oid of the image to remove, as the post's\
+            \ images report it."
+          format: int32
+          type: integer
+        code:
+          description: An image code.  On attach it replaces any image with that code.  Leave
+            out both code and default_image on attach to add an image used only in
+            the body.
+          type: string
+        default_image:
+          description: "True for the post's default image, which a blogpostimage element\
+            \ and og image use.  On attach it replaces any existing default."
+          type: boolean
+        description:
+          description: "Attach only.  Stored with the image and used as its alt text,\
+            \ as plain text."
+          type: string
+        filename:
+          description: "Attach only.  The image's name in its address, for example\
+            \ hero.png, with the same extension the upload was requested with.  Letters,\
+            \ digits, dots, hyphens, underscores and parentheses, and not already\
+            \ used by another image on the post."
+          type: string
+        key:
+          description: "Attach only.  The key files/upload_url returned for the image's\
+            \ bytes.  A JPEG, PNG, GIF or WebP image.  Attaching redeems the key,\
+            \ so it cannot be used again."
+          type: string
+      type: object
+    SfvbBlogPostRequest:
+      example:
+        publication_dts: publication_dts
+        visibility: P
+        allow_comments: true
+        author: author
+        url_part: url_part
+        body: body
+        excerpt: excerpt
+        title: title
+        tags:
+        - tags
+        - tags
+      properties:
+        allow_comments:
+          description: Whether shoppers may comment.  Defaults to false on create.
+          type: boolean
+        author:
+          description: "The author's name as plain text, up to 100 characters, with\
+            \ no quotes or angle brackets."
+          type: string
+        body:
+          description: "The post body as HTML, up to 1 MB, rendered exactly as stored.\
+            \  Refused with sfvb.unsafe_html if it could run script - script and other\
+            \ executable tags, on attributes, links that are not http, https, mailto,\
+            \ tel or relative, and iframes other than YouTube or Vimeo players.  Reference\
+            \ an attached image by the url the post's images report."
+          type: string
+        excerpt:
+          description: "The post excerpt as HTML, up to 256 KB.  Held to the same\
+            \ rule as body."
+          type: string
+        publication_dts:
+          description: "When the post is published, as an ISO 8601 UTC time in the\
+            \ same form publication_dts reads back.  Refused on a draft.  A post made\
+            \ public without one is published now."
+          type: string
+        tags:
+          description: "The post's tags as plain text, up to 100 characters each,\
+            \ with no quotes or angle brackets and no repeats.  On an update the list\
+            \ replaces every tag, and an empty list clears them."
+          items:
+            type: string
+          type: array
+        title:
+          description: "The post title, up to 1000 characters.  Required on create."
+          type: string
+        url_part:
+          description: "The post's name in its URL, which is the page path followed\
+            \ by this and .html.  Letters, digits, hyphens and underscores, up to\
+            \ 150.  Must not be used by another post on the storefront, compared without\
+            \ regard to case, and must not be an item id or an item's url part, because\
+            \ the storefront checks blog posts first and the post would replace the\
+            \ item's page.  index and index-N are reserved.  Required on create."
+          type: string
+        visibility:
+          description: "P public, L logged in customers only, D draft.  Defaults to\
+            \ D on create.  Anything but D needs sfvb_publish, and so does any change\
+            \ to a post that is not a draft."
+          enum:
+          - P
+          - L
+          - D
+          type: string
+      type: object
     SfvbBlogPostsResponse:
       example:
         total: 5
@@ -241839,9 +242641,11 @@ components:
           - rgba
           type: string
         value:
-          description: The value to store.  An empty string clears it.  For html the
-            markup is stored as given and rendered as given.  For boolean send the
-            text true or false.
+          description: "The value to store.  An empty string clears it.  For html\
+            \ the markup is stored as given and rendered as given.  For boolean send\
+            \ the text true or false.  For itemset send a comma separated list of\
+            \ merchant item ids in display order, not JSON.  An id that does not resolve\
+            \ is dropped."
           type: string
       type: object
     SfvbPageAttributeUpdateRequest:
