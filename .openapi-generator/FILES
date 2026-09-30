@@ -1071,6 +1071,10 @@ docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbServerLog.md
+docs/SfvbServerLogDetail.md
+docs/SfvbServerLogEntry.md
+docs/SfvbServerLogsResponse.md
 docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
@@ -2292,6 +2296,10 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java
+src/main/java/com/ultracart/admin/v2/models/SfvbServerLogDetail.java
+src/main/java/com/ultracart/admin/v2/models/SfvbServerLogEntry.java
+src/main/java/com/ultracart/admin/v2/models/SfvbServerLogsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttribute.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdate.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdateRequest.java

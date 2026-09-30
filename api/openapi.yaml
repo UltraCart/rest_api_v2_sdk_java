@@ -10614,6 +10614,186 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/logs:
+    get:
+      description: "The server log the storefront Developer Tools panel shows, one\
+        \ per page render, newest first and without the log text.  Each carries counts\
+        \ of error and warning lines, including Velocity problems such as a null #set,\
+        \ so a failing render stands out without reading every log.  Filter by uri\
+        \ (a case insensitive contains match on the rendered address) and errors_only.\
+        \  since is 15m, 2h or 1d, or an ISO-8601 time, default 1h; logs are kept\
+        \ for seven days and only the newest 1000.  With a filter the newest 200 logs\
+        \ in the window are searched, and more_available says whether older ones were\
+        \ left unread.\n"
+      operationId: listSfvbServerLogs
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: uri
+        schema:
+          type: string
+      - in: query
+        name: since
+        schema:
+          type: string
+      - in: query
+        name: errors_only
+        schema:
+          type: boolean
+      - in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbServerLogsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List recent storefront render logs
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/logs/{log_id}:
+    get:
+      description: "One render's server log with its lines, each with a level, a category\
+        \ such as VELOCITY or FLOW, and the message.  log_id comes from the list,\
+        \ or from the X-UltraCart-Storefront-Log-Id header a page sends inside an\
+        \ SFVB preview session.  min_level is debug, info, warn or error, default\
+        \ debug.\n"
+      operationId: getSfvbServerLog
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: log_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: min_level
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbServerLogDetail'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Get one storefront render log
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/menus:
     get:
       description: "The menus a menu element's menuName can name, sorted by code and\
@@ -243741,6 +243921,187 @@ components:
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
           type: array
+      type: object
+    SfvbServerLog:
+      example:
+        duration_ms: 6
+        log_id: log_id
+        line_count: 5
+        app_error: true
+        stop_date: stop_date
+        warning_count: 5
+        error_count: 1
+        request_template: request_template
+        request_url: request_url
+        start_date: start_date
+        status: status
+      properties:
+        app_error:
+          description: True when the render itself failed and the page could not be
+            produced.
+          type: boolean
+        duration_ms:
+          description: How long the render took in milliseconds.
+          format: int32
+          type: integer
+        error_count:
+          description: "Error lines in the log, including Velocity problems such as\
+            \ a null"
+          format: int32
+          type: integer
+        line_count:
+          description: Lines in the full log text.
+          format: int32
+          type: integer
+        log_id:
+          description: Opaque id of this log.  Pass it to the get endpoint.  Preview
+            pages send the same id in the X-UltraCart-Storefront-Log-Id response header.
+          type: string
+        request_template:
+          description: "The template the page rendered with, when known."
+          type: string
+        request_url:
+          description: "The address that was rendered, as the server recorded it."
+          type: string
+        start_date:
+          description: "When the render started, ISO-8601 in UTC."
+          type: string
+        status:
+          description: "ERROR when the render logged any error line or failed, otherwise\
+            \ SUCCESS."
+          type: string
+        stop_date:
+          description: "When the render finished, ISO-8601 in UTC."
+          type: string
+        warning_count:
+          description: Warning lines in the log.
+          format: int32
+          type: integer
+      type: object
+    SfvbServerLogDetail:
+      example:
+        entries:
+        - logged_at: logged_at
+          level: level
+          category: category
+          message: message
+        - logged_at: logged_at
+          level: level
+          category: category
+          message: message
+        remote_ip: remote_ip
+        log:
+          duration_ms: 6
+          log_id: log_id
+          line_count: 5
+          app_error: true
+          stop_date: stop_date
+          warning_count: 5
+          error_count: 1
+          request_template: request_template
+          request_url: request_url
+          start_date: start_date
+          status: status
+        min_level: min_level
+        user_agent: user_agent
+      properties:
+        entries:
+          description: "The log's lines in the order they were written, at or above\
+            \ min_level."
+          items:
+            $ref: '#/components/schemas/SfvbServerLogEntry'
+          type: array
+        log:
+          $ref: '#/components/schemas/SfvbServerLog'
+        min_level:
+          description: The lowest level included in entries.
+          type: string
+        remote_ip:
+          description: "The address of the browser that asked for the page, as the\
+            \ backend log viewer shows it."
+          type: string
+        user_agent:
+          description: "The browser's user agent, as the backend log viewer shows\
+            \ it."
+          type: string
+      type: object
+    SfvbServerLogEntry:
+      example:
+        logged_at: logged_at
+        level: level
+        category: category
+        message: message
+      properties:
+        category:
+          description: "The area that wrote the line, such as VELOCITY, FLOW, CACHE\
+            \ or RUNTIME.  Empty for SYSERR lines."
+          type: string
+        level:
+          description: "DEBUG, INFO, WARN, ERROR or SYSERR.  SYSERR is an internal\
+            \ logging failure and counts as an error."
+          type: string
+        logged_at:
+          description: "The line's own time as the log wrote it, yyyy/MM/dd hh.mm.ss\
+            \ on a 12 hour clock without AM or PM.  Use the log start_date and the\
+            \ entry order for real timing."
+          type: string
+        message:
+          description: The line's text.  A message that spanned several lines keeps
+            its line breaks.
+          type: string
+      type: object
+    SfvbServerLogsResponse:
+      example:
+        searched: 2
+        limit: 0
+        more_available: true
+        logs:
+        - duration_ms: 6
+          log_id: log_id
+          line_count: 5
+          app_error: true
+          stop_date: stop_date
+          warning_count: 5
+          error_count: 1
+          request_template: request_template
+          request_url: request_url
+          start_date: start_date
+          status: status
+        - duration_ms: 6
+          log_id: log_id
+          line_count: 5
+          app_error: true
+          stop_date: stop_date
+          warning_count: 5
+          error_count: 1
+          request_template: request_template
+          request_url: request_url
+          start_date: start_date
+          status: status
+        since: since
+      properties:
+        limit:
+          description: The most logs returned.
+          format: int32
+          type: integer
+        logs:
+          description: "Matching logs, newest first, without their text."
+          items:
+            $ref: '#/components/schemas/SfvbServerLog'
+          type: array
+        more_available:
+          description: "True when older logs in the window were not read.  Narrow\
+            \ since, or page by moving since back."
+          type: boolean
+        searched:
+          description: How many of the newest logs in the window were read to find
+            these.
+          format: int32
+          type: integer
+        since:
+          description: "The start of the window searched, ISO-8601 in UTC.  Logs are\
+            \ kept for seven days."
+          type: string
       type: object
     SfvbSiteAttribute:
       example:

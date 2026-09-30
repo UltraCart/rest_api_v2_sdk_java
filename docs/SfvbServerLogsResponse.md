@@ -1,0 +1,17 @@
+
+
+# SfvbServerLogsResponse
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**limit** | **Integer** | The most logs returned. |  [optional] |
+|**logs** | [**List&lt;SfvbServerLog&gt;**](SfvbServerLog.md) | Matching logs, newest first, without their text. |  [optional] |
+|**moreAvailable** | **Boolean** | True when older logs in the window were not read.  Narrow since, or page by moving since back. |  [optional] |
+|**searched** | **Integer** | How many of the newest logs in the window were read to find these. |  [optional] |
+|**since** | **String** | The start of the window searched, ISO-8601 in UTC.  Logs are kept for seven days. |  [optional] |
+
+
+

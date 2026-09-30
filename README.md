@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.177</version>
+    <version>4.1.178</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.177"
+     implementation "com.ultracart:rest-sdk:4.1.178"
   }
 ```
 
@@ -531,6 +531,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbPageItems**](docs/SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 *SfvbApi* | [**getSfvbPageSelectors**](docs/SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
+*SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
@@ -552,6 +553,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
 *SfvbApi* | [**listSfvbItemContainers**](docs/SfvbApi.md#listSfvbItemContainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 *SfvbApi* | [**listSfvbPages**](docs/SfvbApi.md#listSfvbPages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
+*SfvbApi* | [**listSfvbServerLogs**](docs/SfvbApi.md#listSfvbServerLogs) | **GET** /sfvb/storefronts/{storefront_oid}/logs | List recent storefront render logs
 *SfvbApi* | [**listSfvbStorefronts**](docs/SfvbApi.md#listSfvbStorefronts) | **GET** /sfvb/storefronts | List storefronts
 *SfvbApi* | [**listSfvbTemplates**](docs/SfvbApi.md#listSfvbTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/templates | List the active theme&#39;s templates
 *SfvbApi* | [**listSfvbThemes**](docs/SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
@@ -1900,6 +1902,10 @@ Class | Method | HTTP request | Description
  - [SfvbPreviewUrlResponse](docs/SfvbPreviewUrlResponse.md)
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
+ - [SfvbServerLog](docs/SfvbServerLog.md)
+ - [SfvbServerLogDetail](docs/SfvbServerLogDetail.md)
+ - [SfvbServerLogEntry](docs/SfvbServerLogEntry.md)
+ - [SfvbServerLogsResponse](docs/SfvbServerLogsResponse.md)
  - [SfvbSiteAttribute](docs/SfvbSiteAttribute.md)
  - [SfvbSiteAttributeUpdate](docs/SfvbSiteAttributeUpdate.md)
  - [SfvbSiteAttributeUpdateRequest](docs/SfvbSiteAttributeUpdateRequest.md)
@@ -2115,6 +2121,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.178 | 09/30/2026 | sfvb internal testing |
 | 4.1.177 | 09/30/2026 | sfvb internal testing |
 | 4.1.176 | 09/29/2026 | taxcloud tax provider testing |
 | 4.1.175 | 09/29/2026 | sfvb internal testing |
