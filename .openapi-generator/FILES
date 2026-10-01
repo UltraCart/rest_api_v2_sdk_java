@@ -1069,6 +1069,12 @@ docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
 docs/SfvbPreviewSessionResponse.md
 docs/SfvbPreviewUrlResponse.md
+docs/SfvbRecording.md
+docs/SfvbRecordingEvent.md
+docs/SfvbRecordingEventsResponse.md
+docs/SfvbRecordingPageView.md
+docs/SfvbRecordingParameter.md
+docs/SfvbRecordingResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbServerLog.md
@@ -2294,6 +2300,12 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewUrlResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecording.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingEvent.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingEventsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingPageView.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingParameter.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java

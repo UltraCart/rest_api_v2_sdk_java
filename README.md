@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.178</version>
+    <version>4.1.179</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.178"
+     implementation "com.ultracart:rest-sdk:4.1.179"
   }
 ```
 
@@ -531,6 +531,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbPageItems**](docs/SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 *SfvbApi* | [**getSfvbPageSelectors**](docs/SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
+*SfvbApi* | [**getSfvbRecording**](docs/SfvbApi.md#getSfvbRecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
+*SfvbApi* | [**getSfvbRecordingPageViewEvents**](docs/SfvbApi.md#getSfvbRecordingPageViewEvents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -1900,6 +1902,12 @@ Class | Method | HTTP request | Description
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
  - [SfvbPreviewSessionResponse](docs/SfvbPreviewSessionResponse.md)
  - [SfvbPreviewUrlResponse](docs/SfvbPreviewUrlResponse.md)
+ - [SfvbRecording](docs/SfvbRecording.md)
+ - [SfvbRecordingEvent](docs/SfvbRecordingEvent.md)
+ - [SfvbRecordingEventsResponse](docs/SfvbRecordingEventsResponse.md)
+ - [SfvbRecordingPageView](docs/SfvbRecordingPageView.md)
+ - [SfvbRecordingParameter](docs/SfvbRecordingParameter.md)
+ - [SfvbRecordingResponse](docs/SfvbRecordingResponse.md)
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
@@ -2121,6 +2129,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.179 | 10/01/2026 | sfvb internal testing |
 | 4.1.178 | 09/30/2026 | sfvb internal testing |
 | 4.1.177 | 09/30/2026 | sfvb internal testing |
 | 4.1.176 | 09/29/2026 | taxcloud tax provider testing |

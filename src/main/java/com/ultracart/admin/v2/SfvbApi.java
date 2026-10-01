@@ -88,6 +88,8 @@ import com.ultracart.admin.v2.models.SfvbPreviewAccessResponse;
 import com.ultracart.admin.v2.models.SfvbPreviewSessionRequest;
 import com.ultracart.admin.v2.models.SfvbPreviewSessionResponse;
 import com.ultracart.admin.v2.models.SfvbPreviewUrlResponse;
+import com.ultracart.admin.v2.models.SfvbRecordingEventsResponse;
+import com.ultracart.admin.v2.models.SfvbRecordingResponse;
 import com.ultracart.admin.v2.models.SfvbRenderRequest;
 import com.ultracart.admin.v2.models.SfvbRenderResponse;
 import com.ultracart.admin.v2.models.SfvbServerLogDetail;
@@ -6536,6 +6538,326 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbPreviewUrlValidateBeforeCall(storefrontOid, previewSessionId, path, _callback);
         Type localVarReturnType = new TypeToken<SfvbPreviewUrlResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbRecording
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbRecordingCall(Integer storefrontOid, String screenRecordingUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "screen_recording_uuid" + "\\}", localVarApiClient.escapeString(screenRecordingUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbRecordingValidateBeforeCall(Integer storefrontOid, String screenRecordingUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbRecording(Async)");
+        }
+        
+        // verify the required parameter 'screenRecordingUuid' is set
+        if (screenRecordingUuid == null) {
+            throw new ApiException("Missing the required parameter 'screenRecordingUuid' when calling getSfvbRecording(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbRecordingCall(storefrontOid, screenRecordingUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a screen recording
+     * One recorded visitor session and its page views, with each page view&#39;s named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view&#39;s replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor&#39;s email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @return SfvbRecordingResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbRecordingResponse getSfvbRecording(Integer storefrontOid, String screenRecordingUuid) throws ApiException {
+        ApiResponse<SfvbRecordingResponse> localVarResp = getSfvbRecordingWithHttpInfo(storefrontOid, screenRecordingUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a screen recording
+     * One recorded visitor session and its page views, with each page view&#39;s named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view&#39;s replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor&#39;s email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @return ApiResponse&lt;SfvbRecordingResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbRecordingResponse> getSfvbRecordingWithHttpInfo(Integer storefrontOid, String screenRecordingUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbRecordingValidateBeforeCall(storefrontOid, screenRecordingUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbRecordingResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a screen recording (asynchronously)
+     * One recorded visitor session and its page views, with each page view&#39;s named events such as rage clicks, script errors and checkout errors, but without the replay data.  Fetch a page view&#39;s replay events separately.  Find recordings to look at from the heatmaps or the analytics warehouse.  The visitor&#39;s email, IP address and visitor id are not returned, nor what they typed into form fields.  Reading a recording does not mark it watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbRecordingAsync(Integer storefrontOid, String screenRecordingUuid, final ApiCallback<SfvbRecordingResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbRecordingValidateBeforeCall(storefrontOid, screenRecordingUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbRecordingResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbRecordingPageViewEvents
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param screenRecordingPageViewUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbRecordingPageViewEventsCall(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "screen_recording_uuid" + "\\}", localVarApiClient.escapeString(screenRecordingUuid.toString()))
+            .replaceAll("\\{" + "screen_recording_page_view_uuid" + "\\}", localVarApiClient.escapeString(screenRecordingPageViewUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbRecordingPageViewEventsValidateBeforeCall(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbRecordingPageViewEvents(Async)");
+        }
+        
+        // verify the required parameter 'screenRecordingUuid' is set
+        if (screenRecordingUuid == null) {
+            throw new ApiException("Missing the required parameter 'screenRecordingUuid' when calling getSfvbRecordingPageViewEvents(Async)");
+        }
+        
+        // verify the required parameter 'screenRecordingPageViewUuid' is set
+        if (screenRecordingPageViewUuid == null) {
+            throw new ApiException("Missing the required parameter 'screenRecordingPageViewUuid' when calling getSfvbRecordingPageViewEvents(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbRecordingPageViewEventsCall(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get one recorded page view&#39;s replay events
+     * The rrweb events for one page view, as a JSON array in a string, for replaying on the caller&#39;s own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param screenRecordingPageViewUuid  (required)
+     * @return SfvbRecordingEventsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbRecordingEventsResponse getSfvbRecordingPageViewEvents(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
+        ApiResponse<SfvbRecordingEventsResponse> localVarResp = getSfvbRecordingPageViewEventsWithHttpInfo(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get one recorded page view&#39;s replay events
+     * The rrweb events for one page view, as a JSON array in a string, for replaying on the caller&#39;s own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param screenRecordingPageViewUuid  (required)
+     * @return ApiResponse&lt;SfvbRecordingEventsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbRecordingEventsResponse> getSfvbRecordingPageViewEventsWithHttpInfo(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbRecordingPageViewEventsValidateBeforeCall(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbRecordingEventsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get one recorded page view&#39;s replay events (asynchronously)
+     * The rrweb events for one page view, as a JSON array in a string, for replaying on the caller&#39;s own machine.  Card fields are masked by the recorder, but other text the visitor typed can appear.  Limited per account to 30 page views a minute, 300 an hour and 1000 a day.  Reading the events does not mark the recording watched. 
+     * @param storefrontOid  (required)
+     * @param screenRecordingUuid  (required)
+     * @param screenRecordingPageViewUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbRecordingPageViewEventsAsync(Integer storefrontOid, String screenRecordingUuid, String screenRecordingPageViewUuid, final ApiCallback<SfvbRecordingEventsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbRecordingPageViewEventsValidateBeforeCall(storefrontOid, screenRecordingUuid, screenRecordingPageViewUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbRecordingEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
