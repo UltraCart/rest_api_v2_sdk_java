@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.180</version>
+    <version>4.1.181</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.180"
+     implementation "com.ultracart:rest-sdk:4.1.181"
   }
 ```
 
@@ -537,6 +537,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbRecording**](docs/SfvbApi.md#getSfvbRecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
 *SfvbApi* | [**getSfvbRecordingPageViewEvents**](docs/SfvbApi.md#getSfvbRecordingPageViewEvents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
+*SfvbApi* | [**getSfvbRecordingSettings**](docs/SfvbApi.md#getSfvbRecordingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -579,6 +580,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbPageSelectors**](docs/SfvbApi.md#putSfvbPageSelectors) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/selectors | Replace a page&#39;s selectors
 *SfvbApi* | [**putSfvbPageSettings**](docs/SfvbApi.md#putSfvbPageSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/pages/settings | Change a page&#39;s settings
 *SfvbApi* | [**putSfvbPreviewSession**](docs/SfvbApi.md#putSfvbPreviewSession) | **PUT** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Push containers into a preview session
+*SfvbApi* | [**putSfvbRecordingSettings**](docs/SfvbApi.md#putSfvbRecordingSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/recording_settings | Turn the storefront&#39;s screen recording on or off
 *SfvbApi* | [**putSfvbSiteAttributes**](docs/SfvbApi.md#putSfvbSiteAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/attributes | Change a storefront&#39;s site attributes
 *SfvbApi* | [**putSfvbThemeAttributes**](docs/SfvbApi.md#putSfvbThemeAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Change a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**refreshSfvbPage**](docs/SfvbApi.md#refreshSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/refresh | Drop one page&#39;s cached copy
@@ -1914,6 +1916,9 @@ Class | Method | HTTP request | Description
  - [SfvbRecordingPageView](docs/SfvbRecordingPageView.md)
  - [SfvbRecordingParameter](docs/SfvbRecordingParameter.md)
  - [SfvbRecordingResponse](docs/SfvbRecordingResponse.md)
+ - [SfvbRecordingSettings](docs/SfvbRecordingSettings.md)
+ - [SfvbRecordingSettingsRequest](docs/SfvbRecordingSettingsRequest.md)
+ - [SfvbRecordingSettingsResponse](docs/SfvbRecordingSettingsResponse.md)
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
@@ -2135,6 +2140,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.181 | 10/02/2026 | sfvb internal testing |
 | 4.1.180 | 10/02/2026 | sfvb internal builder |
 | 4.1.179 | 10/01/2026 | sfvb internal testing |
 | 4.1.178 | 09/30/2026 | sfvb internal testing |

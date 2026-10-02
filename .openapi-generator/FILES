@@ -1077,6 +1077,9 @@ docs/SfvbRecordingEventsResponse.md
 docs/SfvbRecordingPageView.md
 docs/SfvbRecordingParameter.md
 docs/SfvbRecordingResponse.md
+docs/SfvbRecordingSettings.md
+docs/SfvbRecordingSettingsRequest.md
+docs/SfvbRecordingSettingsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
 docs/SfvbServerLog.md
@@ -2310,6 +2313,9 @@ src/main/java/com/ultracart/admin/v2/models/SfvbRecordingEventsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRecordingPageView.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRecordingParameter.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRecordingResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingSettings.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingSettingsRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRecordingSettingsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java

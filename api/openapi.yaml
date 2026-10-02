@@ -13123,6 +13123,190 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/recording_settings:
+    get:
+      description: "Whether real shoppers' sessions on this storefront are being recorded,\
+        \ what recording costs per 1,000 sessions after the 14 day free trial, how\
+        \ long recordings are kept, and how many sessions were recorded in the current\
+        \ and last billing periods.  Recording only collects from the moment it is\
+        \ turned on, so when it is on but was turned on recently, check the analytics\
+        \ warehouse for rows before reporting that there is no data.\n"
+      operationId: getSfvbRecordingSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRecordingSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Get the storefront's screen recording settings
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Turning it on records real shoppers' sessions from that moment,\
+        \ with no history before it.  The first time starts a 14 day free trial, after\
+        \ which recorded sessions are billed per 1,000.  Only change it when the merchant\
+        \ has asked for it.  Asking for the state it is already in changes nothing,\
+        \ and changed comes back false.  Always needs sfvb_publish, in both directions,\
+        \ because it decides whether live shoppers are recorded.  Limited per storefront\
+        \ to 5 changes a minute, 20 an hour and 50 a day.\n"
+      operationId: putSfvbRecordingSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRecordingSettingsRequest'
+        description: Whether to record
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRecordingSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Turn the storefront's screen recording on or off
+      tags:
+      - sfvb
+      x-codegen-request-body-name: recording_settings_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}:
     get:
       description: "One recorded visitor session and its page views, with each page\
@@ -244832,6 +245016,82 @@ components:
       properties:
         recording:
           $ref: '#/components/schemas/SfvbRecording'
+      type: object
+    SfvbRecordingSettings:
+      example:
+        sessions_current_billing_period: 6
+        trial_expiration: trial_expiration
+        sessions_last_billing_period: 1
+        sessions_trial_billing_period: 5
+        retention_interval: retention_interval
+        trial_expired: true
+        trial_started: true
+        cost_per_thousand: 0.8008281904610115
+        enabled: true
+      properties:
+        cost_per_thousand:
+          description: "What 1,000 recorded sessions cost after the trial, in US dollars."
+          type: number
+        enabled:
+          description: True when real shoppers' sessions on this storefront are being
+            recorded.
+          type: boolean
+        retention_interval:
+          description: "How long recordings are kept, such as 1 year."
+          type: string
+        sessions_current_billing_period:
+          description: Sessions recorded so far in the current billing period.
+          format: int32
+          type: integer
+        sessions_last_billing_period:
+          description: Sessions recorded in the previous billing period.
+          format: int32
+          type: integer
+        sessions_trial_billing_period:
+          description: Sessions recorded during the free trial.
+          format: int32
+          type: integer
+        trial_expiration:
+          description: "When the free trial ends, as an ISO-8601 time.  Absent until\
+            \ the trial has started."
+          type: string
+        trial_expired:
+          description: True when the free trial is over and recorded sessions are
+            billed.
+          type: boolean
+        trial_started:
+          description: "True once recording has been turned on at least once, which\
+            \ starts a 14 day free trial."
+          type: boolean
+      type: object
+    SfvbRecordingSettingsRequest:
+      example:
+        enabled: true
+      properties:
+        enabled:
+          description: "True to record real shoppers' sessions, false to stop."
+          type: boolean
+      type: object
+    SfvbRecordingSettingsResponse:
+      example:
+        settings:
+          sessions_current_billing_period: 6
+          trial_expiration: trial_expiration
+          sessions_last_billing_period: 1
+          sessions_trial_billing_period: 5
+          retention_interval: retention_interval
+          trial_expired: true
+          trial_started: true
+          cost_per_thousand: 0.8008281904610115
+          enabled: true
+        changed: true
+      properties:
+        changed:
+          description: "On a change only.  False when recording was already in the\
+            \ requested state, so nothing was saved."
+          type: boolean
+        settings:
+          $ref: '#/components/schemas/SfvbRecordingSettings'
       type: object
     SfvbRenderRequest:
       example:
