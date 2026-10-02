@@ -14191,7 +14191,10 @@ paths:
         \ compile this is stateful.  Rendering resolves merchant data, so an element\
         \ bound to an item renders wrongly, and silently, without a context item id.\
         \  One node per call, so a node that fails to render fails on its own rather\
-        \ than taking a batch with it, and a failure says why.\n"
+        \ than taking a batch with it, and a failure says why.  By default the node\
+        \ renders as a shopper sees it, with conditions, prices and sale state evaluated\
+        \ against the context item.  Set edit_mode to render every branch the way\
+        \ the builder shows it, for styling content a shopper only sometimes sees.\n"
       operationId: renderSfvbWidgets
       parameters:
       - in: path
@@ -245097,15 +245100,16 @@ components:
       example:
         context_blog_post_oid: 6
         context_order_id: context_order_id
-        context_group_path: context_group_path
         child_containers_json: child_containers_json
+        language_iso_code: language_iso_code
+        uri: uri
+        cjson: cjson
+        context_group_path: context_group_path
         context_upsell_offer_oid: 1
         ancestors_cjson: ancestors_cjson
         context_affiliate_oid: 0
         context_item_id: context_item_id
-        language_iso_code: language_iso_code
-        uri: uri
-        cjson: cjson
+        edit_mode: true
         context_page_number: context_page_number
       properties:
         ancestors_cjson:
@@ -245147,6 +245151,12 @@ components:
           description: Upsell offer oid for the rendering context.
           format: int32
           type: integer
+        edit_mode:
+          description: "True renders every branch the way the builder shows it, for\
+            \ styling content a shopper only sometimes sees.  Omitted or false renders\
+            \ what a shopper sees, with conditions, prices and sale state evaluated\
+            \ against the context item."
+          type: boolean
         language_iso_code:
           description: Language ISO code.  Defaults to ENG.
           type: string

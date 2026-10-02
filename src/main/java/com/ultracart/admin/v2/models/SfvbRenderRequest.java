@@ -89,6 +89,10 @@ public class SfvbRenderRequest {
   @SerializedName(SERIALIZED_NAME_CONTEXT_UPSELL_OFFER_OID)
   private Integer contextUpsellOfferOid;
 
+  public static final String SERIALIZED_NAME_EDIT_MODE = "edit_mode";
+  @SerializedName(SERIALIZED_NAME_EDIT_MODE)
+  private Boolean editMode;
+
   public static final String SERIALIZED_NAME_LANGUAGE_ISO_CODE = "language_iso_code";
   @SerializedName(SERIALIZED_NAME_LANGUAGE_ISO_CODE)
   private String languageIsoCode;
@@ -330,6 +334,29 @@ public class SfvbRenderRequest {
   }
 
 
+  public SfvbRenderRequest editMode(Boolean editMode) {
+    
+    this.editMode = editMode;
+    return this;
+  }
+
+   /**
+   * True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.
+   * @return editMode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item.")
+
+  public Boolean getEditMode() {
+    return editMode;
+  }
+
+
+  public void setEditMode(Boolean editMode) {
+    this.editMode = editMode;
+  }
+
+
   public SfvbRenderRequest languageIsoCode(String languageIsoCode) {
     
     this.languageIsoCode = languageIsoCode;
@@ -396,13 +423,14 @@ public class SfvbRenderRequest {
         Objects.equals(this.contextOrderId, sfvbRenderRequest.contextOrderId) &&
         Objects.equals(this.contextPageNumber, sfvbRenderRequest.contextPageNumber) &&
         Objects.equals(this.contextUpsellOfferOid, sfvbRenderRequest.contextUpsellOfferOid) &&
+        Objects.equals(this.editMode, sfvbRenderRequest.editMode) &&
         Objects.equals(this.languageIsoCode, sfvbRenderRequest.languageIsoCode) &&
         Objects.equals(this.uri, sfvbRenderRequest.uri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ancestorsCjson, childContainersJson, cjson, contextAffiliateOid, contextBlogPostOid, contextGroupPath, contextItemId, contextOrderId, contextPageNumber, contextUpsellOfferOid, languageIsoCode, uri);
+    return Objects.hash(ancestorsCjson, childContainersJson, cjson, contextAffiliateOid, contextBlogPostOid, contextGroupPath, contextItemId, contextOrderId, contextPageNumber, contextUpsellOfferOid, editMode, languageIsoCode, uri);
   }
 
   @Override
@@ -419,6 +447,7 @@ public class SfvbRenderRequest {
     sb.append("    contextOrderId: ").append(toIndentedString(contextOrderId)).append("\n");
     sb.append("    contextPageNumber: ").append(toIndentedString(contextPageNumber)).append("\n");
     sb.append("    contextUpsellOfferOid: ").append(toIndentedString(contextUpsellOfferOid)).append("\n");
+    sb.append("    editMode: ").append(toIndentedString(editMode)).append("\n");
     sb.append("    languageIsoCode: ").append(toIndentedString(languageIsoCode)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("}");
@@ -453,6 +482,7 @@ public class SfvbRenderRequest {
     openapiFields.add("context_order_id");
     openapiFields.add("context_page_number");
     openapiFields.add("context_upsell_offer_oid");
+    openapiFields.add("edit_mode");
     openapiFields.add("language_iso_code");
     openapiFields.add("uri");
 
