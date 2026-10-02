@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.179</version>
+    <version>4.1.180</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.179"
+     implementation "com.ultracart:rest-sdk:4.1.180"
   }
 ```
 
@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 *AutoOrderApi* | [**getAutoOrderCancelReasons**](docs/AutoOrderApi.md#getAutoOrderCancelReasons) | **GET** /auto_order/auto_orders/cancel_reasons | Retrieve auto order cancel reasons.
 *AutoOrderApi* | [**getAutoOrderEmails**](docs/AutoOrderApi.md#getAutoOrderEmails) | **GET** /auto_order/auto_orders/{auto_order_oid}/emails | Retrieve email delivery information for this auto order.
+*AutoOrderApi* | [**getAutoOrderUpdateBillingUrl**](docs/AutoOrderApi.md#getAutoOrderUpdateBillingUrl) | **GET** /auto_order/auto_orders/{auto_order_oid}/update_billing_url | Generate an auto order update billing url
 *AutoOrderApi* | [**getAutoOrders**](docs/AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
@@ -453,6 +454,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthMe**](docs/OauthApi.md#oauthMe) | **GET** /oauth/me | Identify the merchant account this access token belongs to.
 *OauthApi* | [**oauthRevoke**](docs/OauthApi.md#oauthRevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**adjustOrderTotal**](docs/OrderApi.md#adjustOrderTotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
+*OrderApi* | [**assignRma**](docs/OrderApi.md#assignRma) | **POST** /order/orders/{order_id}/rma | Associates an RMA with an order
 *OrderApi* | [**assignToAffiliate**](docs/OrderApi.md#assignToAffiliate) | **POST** /order/orders/{order_id}/assignToAffiliate | Assigns an order to an affiliate
 *OrderApi* | [**blockRefundOnOrder**](docs/OrderApi.md#blockRefundOnOrder) | **GET** /order/orders/{order_id}/refund_block | Set a refund block on an order
 *OrderApi* | [**cancelOrder**](docs/OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
@@ -477,6 +479,8 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrders**](docs/OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
+*OrderApi* | [**getOrdersByRma**](docs/OrderApi.md#getOrdersByRma) | **GET** /order/orders/rma/{rma} | Retrieve orders by RMA
+*OrderApi* | [**getUpdateBillingUrl**](docs/OrderApi.md#getUpdateBillingUrl) | **GET** /order/orders/{order_id}/auto_order_update_billing_url | Generate an auto order update billing url
 *OrderApi* | [**heldOrderAddItemsAndRelease**](docs/OrderApi.md#heldOrderAddItemsAndRelease) | **PUT** /order/orders/{order_id}/hold/add_items_and_release | Add items and release a held order
 *OrderApi* | [**heldOrderRelease**](docs/OrderApi.md#heldOrderRelease) | **PUT** /order/orders/{order_id}/hold/release | Release a held order
 *OrderApi* | [**insertOrder**](docs/OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
@@ -1645,8 +1649,10 @@ Class | Method | HTTP request | Description
  - [OrderAddItemsAndReleaseRequest](docs/OrderAddItemsAndReleaseRequest.md)
  - [OrderAffiliate](docs/OrderAffiliate.md)
  - [OrderAffiliateLedger](docs/OrderAffiliateLedger.md)
+ - [OrderAssignRmaRequest](docs/OrderAssignRmaRequest.md)
  - [OrderAssignToAffiliateRequest](docs/OrderAssignToAffiliateRequest.md)
  - [OrderAutoOrder](docs/OrderAutoOrder.md)
+ - [OrderAutoOrderUpdateBillingUrlResponse](docs/OrderAutoOrderUpdateBillingUrlResponse.md)
  - [OrderBilling](docs/OrderBilling.md)
  - [OrderBuysafe](docs/OrderBuysafe.md)
  - [OrderByTokenQuery](docs/OrderByTokenQuery.md)
@@ -2129,6 +2135,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.180 | 10/02/2026 | sfvb internal builder |
 | 4.1.179 | 10/01/2026 | sfvb internal testing |
 | 4.1.178 | 09/30/2026 | sfvb internal testing |
 | 4.1.177 | 09/30/2026 | sfvb internal testing |

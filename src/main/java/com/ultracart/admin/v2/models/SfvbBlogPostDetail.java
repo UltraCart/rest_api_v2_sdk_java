@@ -88,6 +88,18 @@ public class SfvbBlogPostDetail {
   @SerializedName(SERIALIZED_NAME_PUBLICATION_DTS)
   private String publicationDts;
 
+  public static final String SERIALIZED_NAME_SEO_DESCRIPTION = "seo_description";
+  @SerializedName(SERIALIZED_NAME_SEO_DESCRIPTION)
+  private String seoDescription;
+
+  public static final String SERIALIZED_NAME_SEO_KEYWORDS = "seo_keywords";
+  @SerializedName(SERIALIZED_NAME_SEO_KEYWORDS)
+  private String seoKeywords;
+
+  public static final String SERIALIZED_NAME_SEO_TITLE = "seo_title";
+  @SerializedName(SERIALIZED_NAME_SEO_TITLE)
+  private String seoTitle;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags = null;
@@ -122,11 +134,11 @@ public class SfvbBlogPostDetail {
   }
 
    /**
-   * Whether shoppers may comment.
+   * Whether shoppers may comment.  Like every false value here, false is left out of the response.
    * @return allowComments
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether shoppers may comment.")
+  @ApiModelProperty(value = "Whether shoppers may comment.  Like every false value here, false is left out of the response.")
 
   public Boolean getAllowComments() {
     return allowComments;
@@ -330,6 +342,75 @@ public class SfvbBlogPostDetail {
   }
 
 
+  public SfvbBlogPostDetail seoDescription(String seoDescription) {
+    
+    this.seoDescription = seoDescription;
+    return this;
+  }
+
+   /**
+   * The meta description (storefrontSEODescription).  Absent when not set.
+   * @return seoDescription
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The meta description (storefrontSEODescription).  Absent when not set.")
+
+  public String getSeoDescription() {
+    return seoDescription;
+  }
+
+
+  public void setSeoDescription(String seoDescription) {
+    this.seoDescription = seoDescription;
+  }
+
+
+  public SfvbBlogPostDetail seoKeywords(String seoKeywords) {
+    
+    this.seoKeywords = seoKeywords;
+    return this;
+  }
+
+   /**
+   * The meta keywords (storefrontSEOKeywords).  Absent when not set.
+   * @return seoKeywords
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The meta keywords (storefrontSEOKeywords).  Absent when not set.")
+
+  public String getSeoKeywords() {
+    return seoKeywords;
+  }
+
+
+  public void setSeoKeywords(String seoKeywords) {
+    this.seoKeywords = seoKeywords;
+  }
+
+
+  public SfvbBlogPostDetail seoTitle(String seoTitle) {
+    
+    this.seoTitle = seoTitle;
+    return this;
+  }
+
+   /**
+   * The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title.
+   * @return seoTitle
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The page head title (storefrontSEOTitle).  Absent when not set, and the head then uses the post title.")
+
+  public String getSeoTitle() {
+    return seoTitle;
+  }
+
+
+  public void setSeoTitle(String seoTitle) {
+    this.seoTitle = seoTitle;
+  }
+
+
   public SfvbBlogPostDetail tags(List<String> tags) {
     
     this.tags = tags;
@@ -345,11 +426,11 @@ public class SfvbBlogPostDetail {
   }
 
    /**
-   * The post&#39;s tags.
+   * The post&#39;s tags, in alphabetical order.  The order they were sent in is not kept.
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The post's tags.")
+  @ApiModelProperty(value = "The post's tags, in alphabetical order.  The order they were sent in is not kept.")
 
   public List<String> getTags() {
     return tags;
@@ -495,6 +576,9 @@ public class SfvbBlogPostDetail {
         Objects.equals(this.images, sfvbBlogPostDetail.images) &&
         Objects.equals(this.lastModifiedDts, sfvbBlogPostDetail.lastModifiedDts) &&
         Objects.equals(this.publicationDts, sfvbBlogPostDetail.publicationDts) &&
+        Objects.equals(this.seoDescription, sfvbBlogPostDetail.seoDescription) &&
+        Objects.equals(this.seoKeywords, sfvbBlogPostDetail.seoKeywords) &&
+        Objects.equals(this.seoTitle, sfvbBlogPostDetail.seoTitle) &&
         Objects.equals(this.tags, sfvbBlogPostDetail.tags) &&
         Objects.equals(this.title, sfvbBlogPostDetail.title) &&
         Objects.equals(this.unassigned, sfvbBlogPostDetail.unassigned) &&
@@ -505,7 +589,7 @@ public class SfvbBlogPostDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowComments, author, blogPostOid, body, createdDts, excerpt, images, lastModifiedDts, publicationDts, tags, title, unassigned, urlPart, viewUrl, visibility);
+    return Objects.hash(allowComments, author, blogPostOid, body, createdDts, excerpt, images, lastModifiedDts, publicationDts, seoDescription, seoKeywords, seoTitle, tags, title, unassigned, urlPart, viewUrl, visibility);
   }
 
   @Override
@@ -521,6 +605,9 @@ public class SfvbBlogPostDetail {
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
     sb.append("    publicationDts: ").append(toIndentedString(publicationDts)).append("\n");
+    sb.append("    seoDescription: ").append(toIndentedString(seoDescription)).append("\n");
+    sb.append("    seoKeywords: ").append(toIndentedString(seoKeywords)).append("\n");
+    sb.append("    seoTitle: ").append(toIndentedString(seoTitle)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    unassigned: ").append(toIndentedString(unassigned)).append("\n");
@@ -558,6 +645,9 @@ public class SfvbBlogPostDetail {
     openapiFields.add("images");
     openapiFields.add("last_modified_dts");
     openapiFields.add("publication_dts");
+    openapiFields.add("seo_description");
+    openapiFields.add("seo_keywords");
+    openapiFields.add("seo_title");
     openapiFields.add("tags");
     openapiFields.add("title");
     openapiFields.add("unassigned");
@@ -620,6 +710,15 @@ public class SfvbBlogPostDetail {
       }
       if (jsonObj.get("publication_dts") != null && !jsonObj.get("publication_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `publication_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("publication_dts").toString()));
+      }
+      if (jsonObj.get("seo_description") != null && !jsonObj.get("seo_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `seo_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("seo_description").toString()));
+      }
+      if (jsonObj.get("seo_keywords") != null && !jsonObj.get("seo_keywords").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `seo_keywords` to be a primitive type in the JSON string but got `%s`", jsonObj.get("seo_keywords").toString()));
+      }
+      if (jsonObj.get("seo_title") != null && !jsonObj.get("seo_title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `seo_title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("seo_title").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
