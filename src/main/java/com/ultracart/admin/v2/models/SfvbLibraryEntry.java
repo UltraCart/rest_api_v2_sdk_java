@@ -20,6 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbLibraryContentManifest;
+import com.ultracart.admin.v2.models.SfvbLibraryParameter;
+import com.ultracart.admin.v2.models.SfvbLibraryShareTarget;
+import com.ultracart.admin.v2.models.SfvbLibraryTaxonomy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -59,9 +63,21 @@ public class SfvbLibraryEntry {
   @SerializedName(SERIALIZED_NAME_CJSON)
   private String cjson;
 
+  public static final String SERIALIZED_NAME_CONTENT_MANIFEST = "content_manifest";
+  @SerializedName(SERIALIZED_NAME_CONTENT_MANIFEST)
+  private SfvbLibraryContentManifest contentManifest;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
+  @SerializedName(SERIALIZED_NAME_HASH_SHA256)
+  private String hashSha256;
+
+  public static final String SERIALIZED_NAME_LAST_MODIFIED_DTS = "last_modified_dts";
+  @SerializedName(SERIALIZED_NAME_LAST_MODIFIED_DTS)
+  private String lastModifiedDts;
 
   public static final String SERIALIZED_NAME_LIBRARY_OID = "library_oid";
   @SerializedName(SERIALIZED_NAME_LIBRARY_OID)
@@ -75,21 +91,114 @@ public class SfvbLibraryEntry {
   @SerializedName(SERIALIZED_NAME_OWNED)
   private Boolean owned;
 
+  public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+  @SerializedName(SERIALIZED_NAME_PARAMETERS)
+  private List<SfvbLibraryParameter> parameters = null;
+
+  public static final String SERIALIZED_NAME_PUBLISHED_REVISION_NUMBER = "published_revision_number";
+  @SerializedName(SERIALIZED_NAME_PUBLISHED_REVISION_NUMBER)
+  private Integer publishedRevisionNumber;
+
   public static final String SERIALIZED_NAME_REFERENCED_FILES = "referenced_files";
   @SerializedName(SERIALIZED_NAME_REFERENCED_FILES)
   private List<String> referencedFiles = null;
+
+  public static final String SERIALIZED_NAME_RETIRED = "retired";
+  @SerializedName(SERIALIZED_NAME_RETIRED)
+  private Boolean retired;
+
+  public static final String SERIALIZED_NAME_REVISION_NUMBER = "revision_number";
+  @SerializedName(SERIALIZED_NAME_REVISION_NUMBER)
+  private Integer revisionNumber;
+
+  public static final String SERIALIZED_NAME_SCREENSHOT_HEIGHT = "screenshot_height";
+  @SerializedName(SERIALIZED_NAME_SCREENSHOT_HEIGHT)
+  private Integer screenshotHeight;
 
   public static final String SERIALIZED_NAME_SCREENSHOT_KEY = "screenshot_key";
   @SerializedName(SERIALIZED_NAME_SCREENSHOT_KEY)
   private String screenshotKey;
 
+  public static final String SERIALIZED_NAME_SCREENSHOT_SHA256 = "screenshot_sha256";
+  @SerializedName(SERIALIZED_NAME_SCREENSHOT_SHA256)
+  private String screenshotSha256;
+
+  public static final String SERIALIZED_NAME_SCREENSHOT_STALE = "screenshot_stale";
+  @SerializedName(SERIALIZED_NAME_SCREENSHOT_STALE)
+  private Boolean screenshotStale;
+
+  public static final String SERIALIZED_NAME_SCREENSHOT_WIDTH = "screenshot_width";
+  @SerializedName(SERIALIZED_NAME_SCREENSHOT_WIDTH)
+  private Integer screenshotWidth;
+
   public static final String SERIALIZED_NAME_SHARE_WITH_ACCOUNT = "share_with_account";
   @SerializedName(SERIALIZED_NAME_SHARE_WITH_ACCOUNT)
   private Boolean shareWithAccount;
 
+  public static final String SERIALIZED_NAME_SHARED_WITH = "shared_with";
+  @SerializedName(SERIALIZED_NAME_SHARED_WITH)
+  private List<SfvbLibraryShareTarget> sharedWith = null;
+
+  public static final String SERIALIZED_NAME_TAXONOMY = "taxonomy";
+  @SerializedName(SERIALIZED_NAME_TAXONOMY)
+  private SfvbLibraryTaxonomy taxonomy;
+
   public static final String SERIALIZED_NAME_THUMBNAIL_KEY = "thumbnail_key";
   @SerializedName(SERIALIZED_NAME_THUMBNAIL_KEY)
   private String thumbnailKey;
+
+  /**
+   * private, shared or public.
+   */
+  @JsonAdapter(VisibilityEnum.Adapter.class)
+  public enum VisibilityEnum {
+    PRIVATE("private"),
+    
+    SHARED("shared"),
+    
+    PUBLIC("public");
+
+    private String value;
+
+    VisibilityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static VisibilityEnum fromValue(String value) {
+      for (VisibilityEnum b : VisibilityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<VisibilityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final VisibilityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public VisibilityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return VisibilityEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
+  @SerializedName(SERIALIZED_NAME_VISIBILITY)
+  private VisibilityEnum visibility;
 
   public static final String SERIALIZED_NAME_WIDGET_TYPE = "widget_type";
   @SerializedName(SERIALIZED_NAME_WIDGET_TYPE)
@@ -144,6 +253,29 @@ public class SfvbLibraryEntry {
   }
 
 
+  public SfvbLibraryEntry contentManifest(SfvbLibraryContentManifest contentManifest) {
+    
+    this.contentManifest = contentManifest;
+    return this;
+  }
+
+   /**
+   * Get contentManifest
+   * @return contentManifest
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbLibraryContentManifest getContentManifest() {
+    return contentManifest;
+  }
+
+
+  public void setContentManifest(SfvbLibraryContentManifest contentManifest) {
+    this.contentManifest = contentManifest;
+  }
+
+
   public SfvbLibraryEntry description(String description) {
     
     this.description = description;
@@ -164,6 +296,52 @@ public class SfvbLibraryEntry {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public SfvbLibraryEntry hashSha256(String hashSha256) {
+    
+    this.hashSha256 = hashSha256;
+    return this;
+  }
+
+   /**
+   * Hash of the draft&#39;s writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner.
+   * @return hashSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Hash of the draft's writable fields.  Send it back as If-Match to update, delete or publish.  Present only for the owner.")
+
+  public String getHashSha256() {
+    return hashSha256;
+  }
+
+
+  public void setHashSha256(String hashSha256) {
+    this.hashSha256 = hashSha256;
+  }
+
+
+  public SfvbLibraryEntry lastModifiedDts(String lastModifiedDts) {
+    
+    this.lastModifiedDts = lastModifiedDts;
+    return this;
+  }
+
+   /**
+   * When the draft was last saved, ISO 8601.
+   * @return lastModifiedDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When the draft was last saved, ISO 8601.")
+
+  public String getLastModifiedDts() {
+    return lastModifiedDts;
+  }
+
+
+  public void setLastModifiedDts(String lastModifiedDts) {
+    this.lastModifiedDts = lastModifiedDts;
   }
 
 
@@ -236,6 +414,60 @@ public class SfvbLibraryEntry {
   }
 
 
+  public SfvbLibraryEntry parameters(List<SfvbLibraryParameter> parameters) {
+    
+    this.parameters = parameters;
+    return this;
+  }
+
+  public SfvbLibraryEntry addParametersItem(SfvbLibraryParameter parametersItem) {
+    if (this.parameters == null) {
+      this.parameters = new ArrayList<>();
+    }
+    this.parameters.add(parametersItem);
+    return this;
+  }
+
+   /**
+   * Named values the fragment expects the installer to supply.
+   * @return parameters
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Named values the fragment expects the installer to supply.")
+
+  public List<SfvbLibraryParameter> getParameters() {
+    return parameters;
+  }
+
+
+  public void setParameters(List<SfvbLibraryParameter> parameters) {
+    this.parameters = parameters;
+  }
+
+
+  public SfvbLibraryEntry publishedRevisionNumber(Integer publishedRevisionNumber) {
+    
+    this.publishedRevisionNumber = publishedRevisionNumber;
+    return this;
+  }
+
+   /**
+   * The latest published revision, or null when the entry has never been published.
+   * @return publishedRevisionNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The latest published revision, or null when the entry has never been published.")
+
+  public Integer getPublishedRevisionNumber() {
+    return publishedRevisionNumber;
+  }
+
+
+  public void setPublishedRevisionNumber(Integer publishedRevisionNumber) {
+    this.publishedRevisionNumber = publishedRevisionNumber;
+  }
+
+
   public SfvbLibraryEntry referencedFiles(List<String> referencedFiles) {
     
     this.referencedFiles = referencedFiles;
@@ -267,6 +499,75 @@ public class SfvbLibraryEntry {
   }
 
 
+  public SfvbLibraryEntry retired(Boolean retired) {
+    
+    this.retired = retired;
+    return this;
+  }
+
+   /**
+   * True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search.
+   * @return retired
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the owner deleted an entry that had been published or installed.  It is kept so existing installs still resolve, and it leaves search.")
+
+  public Boolean getRetired() {
+    return retired;
+  }
+
+
+  public void setRetired(Boolean retired) {
+    this.retired = retired;
+  }
+
+
+  public SfvbLibraryEntry revisionNumber(Integer revisionNumber) {
+    
+    this.revisionNumber = revisionNumber;
+    return this;
+  }
+
+   /**
+   * The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision.
+   * @return revisionNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The revision returned.  For the owner this is the draft, which every save increments.  For anyone else it is the published revision.")
+
+  public Integer getRevisionNumber() {
+    return revisionNumber;
+  }
+
+
+  public void setRevisionNumber(Integer revisionNumber) {
+    this.revisionNumber = revisionNumber;
+  }
+
+
+  public SfvbLibraryEntry screenshotHeight(Integer screenshotHeight) {
+    
+    this.screenshotHeight = screenshotHeight;
+    return this;
+  }
+
+   /**
+   * Screenshot height in pixels.
+   * @return screenshotHeight
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Screenshot height in pixels.")
+
+  public Integer getScreenshotHeight() {
+    return screenshotHeight;
+  }
+
+
+  public void setScreenshotHeight(Integer screenshotHeight) {
+    this.screenshotHeight = screenshotHeight;
+  }
+
+
   public SfvbLibraryEntry screenshotKey(String screenshotKey) {
     
     this.screenshotKey = screenshotKey;
@@ -287,6 +588,75 @@ public class SfvbLibraryEntry {
 
   public void setScreenshotKey(String screenshotKey) {
     this.screenshotKey = screenshotKey;
+  }
+
+
+  public SfvbLibraryEntry screenshotSha256(String screenshotSha256) {
+    
+    this.screenshotSha256 = screenshotSha256;
+    return this;
+  }
+
+   /**
+   * Hash of the uploaded screenshot.
+   * @return screenshotSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Hash of the uploaded screenshot.")
+
+  public String getScreenshotSha256() {
+    return screenshotSha256;
+  }
+
+
+  public void setScreenshotSha256(String screenshotSha256) {
+    this.screenshotSha256 = screenshotSha256;
+  }
+
+
+  public SfvbLibraryEntry screenshotStale(Boolean screenshotStale) {
+    
+    this.screenshotStale = screenshotStale;
+    return this;
+  }
+
+   /**
+   * True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint.
+   * @return screenshotStale
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True on an update that changed the fragment of an entry with a screenshot.  Retake it and set it again with the library screenshot endpoint.")
+
+  public Boolean getScreenshotStale() {
+    return screenshotStale;
+  }
+
+
+  public void setScreenshotStale(Boolean screenshotStale) {
+    this.screenshotStale = screenshotStale;
+  }
+
+
+  public SfvbLibraryEntry screenshotWidth(Integer screenshotWidth) {
+    
+    this.screenshotWidth = screenshotWidth;
+    return this;
+  }
+
+   /**
+   * Screenshot width in pixels.
+   * @return screenshotWidth
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Screenshot width in pixels.")
+
+  public Integer getScreenshotWidth() {
+    return screenshotWidth;
+  }
+
+
+  public void setScreenshotWidth(Integer screenshotWidth) {
+    this.screenshotWidth = screenshotWidth;
   }
 
 
@@ -313,6 +683,60 @@ public class SfvbLibraryEntry {
   }
 
 
+  public SfvbLibraryEntry sharedWith(List<SfvbLibraryShareTarget> sharedWith) {
+    
+    this.sharedWith = sharedWith;
+    return this;
+  }
+
+  public SfvbLibraryEntry addSharedWithItem(SfvbLibraryShareTarget sharedWithItem) {
+    if (this.sharedWith == null) {
+      this.sharedWith = new ArrayList<>();
+    }
+    this.sharedWith.add(sharedWithItem);
+    return this;
+  }
+
+   /**
+   * Linked accounts the entry is shared with.  Present only for the owner.
+   * @return sharedWith
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Linked accounts the entry is shared with.  Present only for the owner.")
+
+  public List<SfvbLibraryShareTarget> getSharedWith() {
+    return sharedWith;
+  }
+
+
+  public void setSharedWith(List<SfvbLibraryShareTarget> sharedWith) {
+    this.sharedWith = sharedWith;
+  }
+
+
+  public SfvbLibraryEntry taxonomy(SfvbLibraryTaxonomy taxonomy) {
+    
+    this.taxonomy = taxonomy;
+    return this;
+  }
+
+   /**
+   * Get taxonomy
+   * @return taxonomy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbLibraryTaxonomy getTaxonomy() {
+    return taxonomy;
+  }
+
+
+  public void setTaxonomy(SfvbLibraryTaxonomy taxonomy) {
+    this.taxonomy = taxonomy;
+  }
+
+
   public SfvbLibraryEntry thumbnailKey(String thumbnailKey) {
     
     this.thumbnailKey = thumbnailKey;
@@ -333,6 +757,29 @@ public class SfvbLibraryEntry {
 
   public void setThumbnailKey(String thumbnailKey) {
     this.thumbnailKey = thumbnailKey;
+  }
+
+
+  public SfvbLibraryEntry visibility(VisibilityEnum visibility) {
+    
+    this.visibility = visibility;
+    return this;
+  }
+
+   /**
+   * private, shared or public.
+   * @return visibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "private, shared or public.")
+
+  public VisibilityEnum getVisibility() {
+    return visibility;
+  }
+
+
+  public void setVisibility(VisibilityEnum visibility) {
+    this.visibility = visibility;
   }
 
 
@@ -371,20 +818,34 @@ public class SfvbLibraryEntry {
     SfvbLibraryEntry sfvbLibraryEntry = (SfvbLibraryEntry) o;
     return Objects.equals(this.bookmarked, sfvbLibraryEntry.bookmarked) &&
         Objects.equals(this.cjson, sfvbLibraryEntry.cjson) &&
+        Objects.equals(this.contentManifest, sfvbLibraryEntry.contentManifest) &&
         Objects.equals(this.description, sfvbLibraryEntry.description) &&
+        Objects.equals(this.hashSha256, sfvbLibraryEntry.hashSha256) &&
+        Objects.equals(this.lastModifiedDts, sfvbLibraryEntry.lastModifiedDts) &&
         Objects.equals(this.libraryOid, sfvbLibraryEntry.libraryOid) &&
         Objects.equals(this.name, sfvbLibraryEntry.name) &&
         Objects.equals(this.owned, sfvbLibraryEntry.owned) &&
+        Objects.equals(this.parameters, sfvbLibraryEntry.parameters) &&
+        Objects.equals(this.publishedRevisionNumber, sfvbLibraryEntry.publishedRevisionNumber) &&
         Objects.equals(this.referencedFiles, sfvbLibraryEntry.referencedFiles) &&
+        Objects.equals(this.retired, sfvbLibraryEntry.retired) &&
+        Objects.equals(this.revisionNumber, sfvbLibraryEntry.revisionNumber) &&
+        Objects.equals(this.screenshotHeight, sfvbLibraryEntry.screenshotHeight) &&
         Objects.equals(this.screenshotKey, sfvbLibraryEntry.screenshotKey) &&
+        Objects.equals(this.screenshotSha256, sfvbLibraryEntry.screenshotSha256) &&
+        Objects.equals(this.screenshotStale, sfvbLibraryEntry.screenshotStale) &&
+        Objects.equals(this.screenshotWidth, sfvbLibraryEntry.screenshotWidth) &&
         Objects.equals(this.shareWithAccount, sfvbLibraryEntry.shareWithAccount) &&
+        Objects.equals(this.sharedWith, sfvbLibraryEntry.sharedWith) &&
+        Objects.equals(this.taxonomy, sfvbLibraryEntry.taxonomy) &&
         Objects.equals(this.thumbnailKey, sfvbLibraryEntry.thumbnailKey) &&
+        Objects.equals(this.visibility, sfvbLibraryEntry.visibility) &&
         Objects.equals(this.widgetType, sfvbLibraryEntry.widgetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bookmarked, cjson, description, libraryOid, name, owned, referencedFiles, screenshotKey, shareWithAccount, thumbnailKey, widgetType);
+    return Objects.hash(bookmarked, cjson, contentManifest, description, hashSha256, lastModifiedDts, libraryOid, name, owned, parameters, publishedRevisionNumber, referencedFiles, retired, revisionNumber, screenshotHeight, screenshotKey, screenshotSha256, screenshotStale, screenshotWidth, shareWithAccount, sharedWith, taxonomy, thumbnailKey, visibility, widgetType);
   }
 
   @Override
@@ -393,14 +854,28 @@ public class SfvbLibraryEntry {
     sb.append("class SfvbLibraryEntry {\n");
     sb.append("    bookmarked: ").append(toIndentedString(bookmarked)).append("\n");
     sb.append("    cjson: ").append(toIndentedString(cjson)).append("\n");
+    sb.append("    contentManifest: ").append(toIndentedString(contentManifest)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
+    sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
     sb.append("    libraryOid: ").append(toIndentedString(libraryOid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owned: ").append(toIndentedString(owned)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    publishedRevisionNumber: ").append(toIndentedString(publishedRevisionNumber)).append("\n");
     sb.append("    referencedFiles: ").append(toIndentedString(referencedFiles)).append("\n");
+    sb.append("    retired: ").append(toIndentedString(retired)).append("\n");
+    sb.append("    revisionNumber: ").append(toIndentedString(revisionNumber)).append("\n");
+    sb.append("    screenshotHeight: ").append(toIndentedString(screenshotHeight)).append("\n");
     sb.append("    screenshotKey: ").append(toIndentedString(screenshotKey)).append("\n");
+    sb.append("    screenshotSha256: ").append(toIndentedString(screenshotSha256)).append("\n");
+    sb.append("    screenshotStale: ").append(toIndentedString(screenshotStale)).append("\n");
+    sb.append("    screenshotWidth: ").append(toIndentedString(screenshotWidth)).append("\n");
     sb.append("    shareWithAccount: ").append(toIndentedString(shareWithAccount)).append("\n");
+    sb.append("    sharedWith: ").append(toIndentedString(sharedWith)).append("\n");
+    sb.append("    taxonomy: ").append(toIndentedString(taxonomy)).append("\n");
     sb.append("    thumbnailKey: ").append(toIndentedString(thumbnailKey)).append("\n");
+    sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    widgetType: ").append(toIndentedString(widgetType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -426,14 +901,28 @@ public class SfvbLibraryEntry {
     openapiFields = new HashSet<String>();
     openapiFields.add("bookmarked");
     openapiFields.add("cjson");
+    openapiFields.add("content_manifest");
     openapiFields.add("description");
+    openapiFields.add("hash_sha256");
+    openapiFields.add("last_modified_dts");
     openapiFields.add("library_oid");
     openapiFields.add("name");
     openapiFields.add("owned");
+    openapiFields.add("parameters");
+    openapiFields.add("published_revision_number");
     openapiFields.add("referenced_files");
+    openapiFields.add("retired");
+    openapiFields.add("revision_number");
+    openapiFields.add("screenshot_height");
     openapiFields.add("screenshot_key");
+    openapiFields.add("screenshot_sha256");
+    openapiFields.add("screenshot_stale");
+    openapiFields.add("screenshot_width");
     openapiFields.add("share_with_account");
+    openapiFields.add("shared_with");
+    openapiFields.add("taxonomy");
     openapiFields.add("thumbnail_key");
+    openapiFields.add("visibility");
     openapiFields.add("widget_type");
 
     // a set of required properties/fields (JSON key names)
@@ -465,11 +954,33 @@ public class SfvbLibraryEntry {
       if (jsonObj.get("cjson") != null && !jsonObj.get("cjson").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cjson` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cjson").toString()));
       }
+      // validate the optional field `content_manifest`
+      if (jsonObj.getAsJsonObject("content_manifest") != null) {
+        SfvbLibraryContentManifest.validateJsonObject(jsonObj.getAsJsonObject("content_manifest"));
+      }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      if (jsonObj.get("last_modified_dts") != null && !jsonObj.get("last_modified_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_modified_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_modified_dts").toString()));
+      }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
+      if (jsonArrayparameters != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("parameters").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
+        }
+
+        // validate the optional field `parameters` (array)
+        for (int i = 0; i < jsonArrayparameters.size(); i++) {
+          SfvbLibraryParameter.validateJsonObject(jsonArrayparameters.get(i).getAsJsonObject());
+        };
       }
       // ensure the json data is an array
       if (jsonObj.get("referenced_files") != null && !jsonObj.get("referenced_files").isJsonArray()) {
@@ -478,8 +989,30 @@ public class SfvbLibraryEntry {
       if (jsonObj.get("screenshot_key") != null && !jsonObj.get("screenshot_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `screenshot_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenshot_key").toString()));
       }
+      if (jsonObj.get("screenshot_sha256") != null && !jsonObj.get("screenshot_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `screenshot_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("screenshot_sha256").toString()));
+      }
+      JsonArray jsonArraysharedWith = jsonObj.getAsJsonArray("shared_with");
+      if (jsonArraysharedWith != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("shared_with").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `shared_with` to be an array in the JSON string but got `%s`", jsonObj.get("shared_with").toString()));
+        }
+
+        // validate the optional field `shared_with` (array)
+        for (int i = 0; i < jsonArraysharedWith.size(); i++) {
+          SfvbLibraryShareTarget.validateJsonObject(jsonArraysharedWith.get(i).getAsJsonObject());
+        };
+      }
+      // validate the optional field `taxonomy`
+      if (jsonObj.getAsJsonObject("taxonomy") != null) {
+        SfvbLibraryTaxonomy.validateJsonObject(jsonObj.getAsJsonObject("taxonomy"));
+      }
       if (jsonObj.get("thumbnail_key") != null && !jsonObj.get("thumbnail_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `thumbnail_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbnail_key").toString()));
+      }
+      if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `visibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visibility").toString()));
       }
       if (jsonObj.get("widget_type") != null && !jsonObj.get("widget_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `widget_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widget_type").toString()));

@@ -10331,7 +10331,12 @@ paths:
         \  This is what a lint warning about a monolithic html element should point\
         \ at - a warning that names a fragment solving the same problem is an instruction,\
         \ where a warning on its own is only criticism.  Results are terse; fetch\
-        \ a single entry for its CJSON.  Narrow with facet_{name}={option} query parameters.\n"
+        \ a single entry for its CJSON.  Narrow with a query parameter named after\
+        \ a facet, such as facet_purpose, whose value is the facet name, a colon and\
+        \ one of its options.  Besides element type and author, the facets include\
+        \ purpose, section, industry and style from library/taxonomy, and the search\
+        \ text matches those tags too.  Results follow the same rules as reading one\
+        \ entry, so others see published revisions only.\n"
       operationId: searchSfvbLibrary
       parameters:
       - in: path
@@ -10409,6 +10414,18 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -10429,9 +10446,445 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
-  /sfvb/storefronts/{storefront_oid}/library/{library_oid}:
+    post:
+      description: "Creates a private draft owned by the calling user.  The fragment\
+        \ is one widget and its children, and it must validate.  Images it references\
+        \ on this storefront are copied into the entry before this returns, so it\
+        \ installs anywhere with its images.  The fragment is scanned; card skimming\
+        \ or obfuscation signals are refused outright.  Nothing other merchants or\
+        \ shoppers see changes, so sfvb_write is enough.  Publish it to share it.\
+        \  An optional screenshot takes a staged PNG key, exactly as the library screenshot\
+        \ endpoint does; a refused screenshot refuses the whole create.\n"
+      operationId: createSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryEntryRequest'
+        description: The entry
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Save a fragment to the library
+      tags:
+      - sfvb
+      x-codegen-request-body-name: library_entry
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/installs:
     get:
-      description: "Returns the fragment as authored.  If it references images or\
+      description: "Each entry's most recently installed revision, its latest published\
+        \ revision and update_available.  Nothing updates automatically.  An entry\
+        \ this account can no longer see is listed without its name.\n"
+      operationId: listSfvbLibraryInstalls
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryInstallRecord'
+          description: Successful response
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the library entries installed on a storefront
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/share_targets:
+    get:
+      description: "The calling account's linked accounts, each with its merchant\
+        \ id and company.  These are the only merchants a share can name.\n"
+      operationId: getSfvbLibraryShareTargets
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryShareTarget'
+          description: Successful response
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the accounts a library entry can be shared with
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/taxonomy:
+    get:
+      description: "The fixed tag list for purpose, section, industry and style, each\
+        \ tag with a one line description.  Saving an entry refuses any tag not on\
+        \ it with sfvb.library_taxonomy_unknown, naming the closest one.  The same\
+        \ tags are the facet_purpose, facet_section, facet_industry and facet_style\
+        \ search facets.\n"
+      operationId: getSfvbLibraryTaxonomy
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryTaxonomyCatalog'
+          description: Successful response
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the allowed library tags
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}:
+    delete:
+      description: "Owner only, with the draft's hash_sha256 as If-Match.  An entry\
+        \ that was never published, installed or shared is deleted.  Anything else\
+        \ is retired - kept so the storefronts that installed it still resolve, but\
+        \ out of search and refusing new installs and publishes.  The result says\
+        \ which happened.\n"
+      operationId: deleteSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryDeleteResult'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete or retire a library entry
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The owner gets the draft with its hash_sha256, which an update,\
+        \ delete or publish sends back as If-Match.  Everyone else gets the latest\
+        \ published revision.  Pin a published revision with revision_number.  Read\
+        \ content_manifest before installing.  If the fragment references images or\
         \ other storefront files those paths will not resolve on this storefront until\
         \ the entry is installed, so use install rather than this when the intent\
         \ is to place the fragment.\n"
@@ -10446,6 +10899,12 @@ paths:
       - in: path
         name: library_oid
         required: true
+        schema:
+          format: int32
+          type: integer
+      - description: A published revision to read instead of the default.
+        in: query
+        name: revision_number
         schema:
           format: int32
           type: integer
@@ -10520,15 +10979,489 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    put:
+      description: "A full replace of the draft's fields.  Owner only.  Send the hash_sha256\
+        \ you read as If-Match.  Every save increments revision_number; nothing other\
+        \ merchants see changes until the draft is published.  A changed fragment\
+        \ is re-scanned and its images copied again, and screenshot_stale tells you\
+        \ to retake the screenshot.\n"
+      operationId: updateSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryEntryRequest'
+        description: The whole entry
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Update a library entry's draft
+      tags:
+      - sfvb
+      x-codegen-request-body-name: library_entry
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate:
+    post:
+      description: "The copy is owned by the calling user and private.  From an entry\
+        \ you own it copies the draft; from one shared with you it copies the published\
+        \ revision.  It is scanned on its own and inherits nothing but content, its\
+        \ images and its screenshot.\n"
+      operationId: duplicateSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: Name for the copy.  Defaults to Copy of and the source name.
+        in: query
+        name: name
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Copy a library entry into a new private entry
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite:
+    delete:
+      description: |
+        Removes the calling user's bookmark.  Idempotent.
+      operationId: unfavoriteSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Remove a library entry from favorites
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: |
+        Bookmarks the entry for the calling user.  Idempotent.  Owner or anyone the entry is shared with.
+      operationId: favoriteSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Favorite a library entry
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history:
+    get:
+      description: "Newest first, each with its release notes and hash.  Read one\
+        \ with getSfvbLibraryEntry and revision_number.  The owner and anyone the\
+        \ entry is shared with can list it.\n"
+      operationId: getSfvbLibraryHistory
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryHistoryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a library entry's published revisions
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install:
     post:
-      description: "Copies the fragment's referenced assets into the storefront file\
-        \ system and returns the CJSON with its paths resolved, ready to place.  This\
-        \ writes, which is why it is a POST rather than the GET the internal admin\
-        \ endpoint uses.  It also requires sfvb_publish, because the assets land in\
-        \ the shared storefront file system, which is served to shoppers regardless\
-        \ of which theme is active, so no amount of working inside a duplicate theme\
-        \ isolates them.\n"
+      description: "Copies the fragment's referenced files into the storefront file\
+        \ system and returns a receipt with the CJSON's paths resolved, ready to place.\
+        \  It never places the CJSON.  Read content_manifest first; executable content\
+        \ needs acknowledge_executable true.  A file that already exists with different\
+        \ content is a conflict - on_conflict fail (the default) refuses with 409\
+        \ and writes nothing, skip keeps the existing file, overwrite replaces it.\
+        \  A recipient installs a published revision.  This writes, which is why it\
+        \ is a POST, and it requires sfvb_publish because the files land in the shared\
+        \ storefront file system, which is served to shoppers whichever theme is active.\n"
       operationId: installSfvbLibraryEntry
       parameters:
       - in: path
@@ -10543,6 +11476,691 @@ paths:
         schema:
           format: int32
           type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryInstallRequest'
+        description: "Revision, conflict handling and acknowledgement"
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryInstallReceipt'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Install a library entry into a storefront
+      tags:
+      - sfvb
+      x-codegen-request-body-name: install_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish:
+    post:
+      description: "Freezes the draft as a published revision at its revision_number\
+        \ and sets who can see it.  Owner only, with the draft's hash_sha256 as If-Match.\
+        \  Always needs sfvb_publish, because it changes what other merchants can\
+        \ install.  Images, fonts, stylesheets and media must be relative paths, and\
+        \ credential shaped strings are refused.  Public also needs the library publisher\
+        \ property on the account and no executable content at all - no script, html,\
+        \ embed, css or velocity elements.  After those checks an automated AI review\
+        \ reads the fragment, which can take up to about a minute.  A clear violation\
+        \ both of its models agree on refuses any publish with sfvb.library_ai_review_blocked.\
+        \  A public publish also needs its approval, otherwise sfvb.library_ai_review_inconclusive.\
+        \  The result is in content_manifest.ai_review.\n"
+      operationId: publishSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryPublishRequest'
+        description: Visibility and release notes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Publish a library entry's draft
+      tags:
+      - sfvb
+      x-codegen-request-body-name: publish_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot:
+    delete:
+      description: "Owner only, with the draft's hash_sha256 as If-Match.  Clears\
+        \ the screenshot and thumbnail.  Published revisions and copies that used\
+        \ the image keep it.\n"
+      operationId: clearSfvbLibraryScreenshot
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Remove a library entry's screenshot
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Three calls, like the other uploads.  Request an upload URL with\
+        \ files/upload_url/png, PUT the PNG bytes to it, then call this with the key,\
+        \ the sha256 of those bytes and where the image came from.  Owner only, with\
+        \ the draft's hash_sha256 as If-Match.  The PNG must be at most 5 MB and 4096\
+        \ pixels a side; it is re-encoded, which drops any metadata, and a thumbnail\
+        \ is made from it before this returns.  Capture it with test data only.  A\
+        \ refused image leaves the previous screenshot in place.  Other merchants\
+        \ see a new screenshot only after the next publish, whose review checks it.\n"
+      operationId: setSfvbLibraryScreenshot
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryScreenshotRequest'
+        description: The staged PNG
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Set a library entry's screenshot
+      tags:
+      - sfvb
+      x-codegen-request-body-name: screenshot_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares:
+    post:
+      description: "Owner only, and always needs sfvb_publish.  The merchant must\
+        \ be one share_targets lists, and the entry must have a published revision,\
+        \ which is what the recipient sees.  The published revision is checked again\
+        \ for absolute asset URLs and credentials.  Idempotent.\n"
+      operationId: shareSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryShareRequest'
+        description: The linked account
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Share a published library entry with a linked account
+      tags:
+      - sfvb
+      x-codegen-request-body-name: share_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id}:
+    delete:
+      description: "Owner only, and always needs sfvb_publish.  Stops further installs\
+        \ by that account.  Its existing installs keep their copies and are listed\
+        \ in the result.  Idempotent, and still works while the library is turned\
+        \ off.\n"
+      operationId: unshareSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: merchant_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbLibraryUnshareResult'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Stop sharing a library entry with an account
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish:
+    post:
+      description: "Sets visibility to shared or private.  Owner only, and always\
+        \ needs sfvb_publish.  Published revisions are kept and storefronts that already\
+        \ installed the entry keep their copies.\n"
+      operationId: unpublishSfvbLibraryEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbLibraryPublishRequest'
+        description: The narrower visibility
+        required: true
       responses:
         "200":
           content:
@@ -10610,9 +12228,11 @@ paths:
       - ultraCartOauth:
         - sfvb_write
       - ultraCartSimpleApiKey: []
-      summary: Install a library entry into a storefront
+      summary: Narrow who can see a library entry
       tags:
       - sfvb
+      x-codegen-request-body-name: unpublish_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/logs:
     get:
@@ -243117,21 +244737,163 @@ components:
             \ or twitter:title, which render the item description either way."
           type: string
       type: object
+    SfvbLibraryAiReview:
+      example:
+        summary: summary
+        findings: "{}"
+        verdict: approve
+        prompt_version: prompt_version
+        reviewed_dts: reviewed_dts
+        screenshot_sha256: screenshot_sha256
+      properties:
+        findings:
+          description: What the reviewers found.  detail is the category followed
+            by the quoted evidence.
+          type: object
+        prompt_version:
+          description: Version of the review policy that produced this verdict.
+          type: string
+        reviewed_dts:
+          description: "When the review ran, ISO 8601."
+          type: string
+        screenshot_sha256:
+          description: "The screenshot the review looked at, or absent when there\
+            \ was none."
+          type: string
+        summary:
+          description: One or two sentences explaining the verdict.
+          type: string
+        verdict:
+          description: "approve, block, human or error.  block refuses any publish.\
+            \  human or error refuses a public publish and is recorded on a shared\
+            \ one."
+          enum:
+          - approve
+          - block
+          - human
+          - error
+          type: string
+      type: object
+    SfvbLibraryContentManifest:
+      example:
+        absolute_asset_urls: "{}"
+        rejected: "{}"
+        ai_review:
+          summary: summary
+          findings: "{}"
+          verdict: approve
+          prompt_version: prompt_version
+          reviewed_dts: reviewed_dts
+          screenshot_sha256: screenshot_sha256
+        secrets: "{}"
+        executable: "{}"
+      properties:
+        absolute_asset_urls:
+          description: "Images, fonts, stylesheets, scripts or media loaded from an\
+            \ absolute URL.  A shared or public entry must use relative paths so it\
+            \ never pulls files from another storefront or site."
+          type: object
+        ai_review:
+          $ref: '#/components/schemas/SfvbLibraryAiReview'
+        executable:
+          description: "Content that runs in a shopper's browser or on the server.\
+            \  Script, html, embed, css and velocity elements, script in markup, Velocity,\
+            \ script bearing CSS and unsafe URL schemes.  An entry with any of these\
+            \ cannot be made public, and installing it needs an explicit acknowledgement."
+          type: object
+        rejected:
+          description: "Card skimming and obfuscation signals.  An entry with any\
+            \ is refused outright, whoever owns it."
+          type: object
+        secrets:
+          description: "Strings shaped like credentials, by kind only.  An entry with\
+            \ any cannot be shared or made public."
+          type: object
+      type: object
+    SfvbLibraryDeleteResult:
+      example:
+        result: deleted
+        library_oid: 0
+      properties:
+        library_oid:
+          description: The entry.
+          format: int32
+          type: integer
+        result:
+          description: "deleted when the entry was private and never published or\
+            \ installed, so it is gone.  retired when it had been published or installed,\
+            \ so it was kept for the storefronts that use it and taken out of search."
+          enum:
+          - deleted
+          - retired
+          type: string
+      type: object
     SfvbLibraryEntry:
       example:
+        screenshot_height: 2
+        description: description
+        taxonomy:
+          purpose:
+          - purpose
+          - purpose
+          industry:
+          - industry
+          - industry
+          section:
+          - section
+          - section
+          style:
+          - style
+          - style
+        shared_with:
+        - company: company
+          merchant_id: merchant_id
+        - company: company
+          merchant_id: merchant_id
         referenced_files:
         - referenced_files
         - referenced_files
+        screenshot_stale: true
+        retired: true
+        thumbnail_key: thumbnail_key
+        revision_number: 5
+        visibility: private
         bookmarked: true
-        owned: true
+        published_revision_number: 5
+        screenshot_width: 7
         library_oid: 1
-        name: name
-        description: description
         share_with_account: true
         screenshot_key: screenshot_key
-        thumbnail_key: thumbnail_key
+        last_modified_dts: last_modified_dts
         cjson: cjson
+        screenshot_sha256: screenshot_sha256
         widget_type: widget_type
+        hash_sha256: hash_sha256
+        owned: true
+        name: name
+        content_manifest:
+          absolute_asset_urls: "{}"
+          rejected: "{}"
+          ai_review:
+            summary: summary
+            findings: "{}"
+            verdict: approve
+            prompt_version: prompt_version
+            reviewed_dts: reviewed_dts
+            screenshot_sha256: screenshot_sha256
+          secrets: "{}"
+          executable: "{}"
+        parameters:
+        - default: default
+          name: name
+          description: description
+          type: type
+          required: true
+        - default: default
+          name: name
+          description: description
+          type: type
+          required: true
       properties:
         bookmarked:
           description: True when the calling user has bookmarked this entry.
@@ -243140,8 +244902,17 @@ components:
           description: The fragment's CJSON.  Omitted from search results to keep
             them terse; fetch a single entry to get it.
           type: string
+        content_manifest:
+          $ref: '#/components/schemas/SfvbLibraryContentManifest'
         description:
           description: What this fragment is for.
+          type: string
+        hash_sha256:
+          description: "Hash of the draft's writable fields.  Send it back as If-Match\
+            \ to update, delete or publish.  Present only for the owner."
+          type: string
+        last_modified_dts:
+          description: "When the draft was last saved, ISO 8601."
           type: string
         library_oid:
           description: Library entry oid.
@@ -243153,27 +244924,136 @@ components:
         owned:
           description: True when the calling user owns this entry.
           type: boolean
+        parameters:
+          description: Named values the fragment expects the installer to supply.
+          items:
+            $ref: '#/components/schemas/SfvbLibraryParameter'
+          type: array
+        published_revision_number:
+          description: "The latest published revision, or null when the entry has\
+            \ never been published."
+          format: int32
+          type: integer
         referenced_files:
           description: Storefront file paths this fragment references.  Installing
             the fragment copies them into the storefront; reading it does not.
           items:
             type: string
           type: array
+        retired:
+          description: "True when the owner deleted an entry that had been published\
+            \ or installed.  It is kept so existing installs still resolve, and it\
+            \ leaves search."
+          type: boolean
+        revision_number:
+          description: "The revision returned.  For the owner this is the draft, which\
+            \ every save increments.  For anyone else it is the published revision."
+          format: int32
+          type: integer
+        screenshot_height:
+          description: Screenshot height in pixels.
+          format: int32
+          type: integer
         screenshot_key:
           description: "S3 listing key for the large screenshot, when one has been\
             \ generated."
           type: string
+        screenshot_sha256:
+          description: Hash of the uploaded screenshot.
+          type: string
+        screenshot_stale:
+          description: True on an update that changed the fragment of an entry with
+            a screenshot.  Retake it and set it again with the library screenshot
+            endpoint.
+          type: boolean
+        screenshot_width:
+          description: Screenshot width in pixels.
+          format: int32
+          type: integer
         share_with_account:
           description: True when the entry is shared across the merchant account.
           type: boolean
+        shared_with:
+          description: Linked accounts the entry is shared with.  Present only for
+            the owner.
+          items:
+            $ref: '#/components/schemas/SfvbLibraryShareTarget'
+          type: array
+        taxonomy:
+          $ref: '#/components/schemas/SfvbLibraryTaxonomy'
         thumbnail_key:
           description: "S3 listing key for the medium thumbnail, when one has been\
             \ generated.  Thumbnails are produced asynchronously and can lag a save\
             \ by a minute or two."
           type: string
+        visibility:
+          description: "private, shared or public."
+          enum:
+          - private
+          - shared
+          - public
+          type: string
         widget_type:
           description: Element type at the root of the fragment.
           type: string
+      type: object
+    SfvbLibraryEntryRequest:
+      example:
+        name: name
+        description: description
+        share_with_account: true
+        screenshot:
+          sha256: sha256
+          source: own
+          key: key
+        taxonomy:
+          purpose:
+          - purpose
+          - purpose
+          industry:
+          - industry
+          - industry
+          section:
+          - section
+          - section
+          style:
+          - style
+          - style
+        parameters:
+        - default: default
+          name: name
+          description: description
+          type: type
+          required: true
+        - default: default
+          name: name
+          description: description
+          type: type
+          required: true
+        cjson: cjson
+      properties:
+        cjson:
+          description: "The fragment, one widget and its children.  Not a whole container."
+          type: string
+        description:
+          description: "What the fragment is for, at most 1024 characters."
+          type: string
+        name:
+          description: "Entry name, at most 100 characters."
+          type: string
+        parameters:
+          description: Named values the fragment expects its installer to supply.
+          items:
+            $ref: '#/components/schemas/SfvbLibraryParameter'
+          type: array
+        screenshot:
+          $ref: '#/components/schemas/SfvbLibraryScreenshotRequest'
+        share_with_account:
+          description: True to let the other users on this merchant account see the
+            published revision.
+          type: boolean
+        taxonomy:
+          $ref: '#/components/schemas/SfvbLibraryTaxonomy'
       type: object
     SfvbLibraryFacet:
       example:
@@ -243187,46 +245067,371 @@ components:
           description: Human readable facet name.
           type: string
         name:
-          description: "Facet key.  Pass a chosen option back as facet_{name}={option}."
+          description: "Facet key, such as facet_purpose.  To select an option, add\
+            \ a query parameter named after the key whose value is the key, a colon\
+            \ and the option."
           type: string
         options:
-          description: Available values for this facet.
+          description: Values present in the results.  A facet with only one value
+            is left out unless it is selected.
           items:
             type: string
           type: array
+      type: object
+    SfvbLibraryHistoryEntry:
+      example:
+        hash_sha256: hash_sha256
+        published_dts: published_dts
+        release_notes: release_notes
+        revision_number: 0
+      properties:
+        hash_sha256:
+          description: Hash of the published revision.
+          type: string
+        published_dts:
+          description: "When it was published, ISO 8601."
+          type: string
+        release_notes:
+          description: "What changed, as the publisher described it."
+          type: string
+        revision_number:
+          description: The revision that was published.
+          format: int32
+          type: integer
+      type: object
+    SfvbLibraryInstallConflict:
+      example:
+        path: path
+        snapshot_sha256: snapshot_sha256
+        existing_sha256: existing_sha256
+      properties:
+        existing_sha256:
+          description: Hash of the file already at that path.
+          type: string
+        path:
+          description: The storefront path.
+          type: string
+        snapshot_sha256:
+          description: Hash of the file the entry would install.
+          type: string
+      type: object
+    SfvbLibraryInstallReceipt:
+      example:
+        revision_number: 6
+        library_oid: 0
+        conflicts:
+        - path: path
+          snapshot_sha256: snapshot_sha256
+          existing_sha256: existing_sha256
+        - path: path
+          snapshot_sha256: snapshot_sha256
+          existing_sha256: existing_sha256
+        files_skipped:
+        - files_skipped
+        - files_skipped
+        content_manifest:
+          absolute_asset_urls: "{}"
+          rejected: "{}"
+          ai_review:
+            summary: summary
+            findings: "{}"
+            verdict: approve
+            prompt_version: prompt_version
+            reviewed_dts: reviewed_dts
+            screenshot_sha256: screenshot_sha256
+          secrets: "{}"
+          executable: "{}"
+        cjson: cjson
+        unresolved_parameters:
+        - unresolved_parameters
+        - unresolved_parameters
+        files_written:
+        - files_written
+        - files_written
+      properties:
+        cjson:
+          description: "The fragment, with its file paths rewritten to where they\
+            \ were installed.  Ready to place."
+          type: string
+        conflicts:
+          description: Paths that already held a different file.  With on_conflict
+            fail these refuse the install.
+          items:
+            $ref: '#/components/schemas/SfvbLibraryInstallConflict'
+          type: array
+        content_manifest:
+          $ref: '#/components/schemas/SfvbLibraryContentManifest'
+        files_skipped:
+          description: "Paths not written, because an identical or chosen existing\
+            \ file was kept, or the file could not be fetched."
+          items:
+            type: string
+          type: array
+        files_written:
+          description: Storefront paths this install wrote.
+          items:
+            type: string
+          type: array
+        library_oid:
+          description: The entry.
+          format: int32
+          type: integer
+        revision_number:
+          description: The revision installed.
+          format: int32
+          type: integer
+        unresolved_parameters:
+          description: Required parameters with no default.  Replace them in the cjson
+            before placing it.
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbLibraryInstallRecord:
+      example:
+        installed_revision_number: 0
+        installed_dts: installed_dts
+        library_oid: 1
+        name: name
+        storefront_oid: 5
+        retired: true
+        latest_revision_number: 6
+        update_available: true
+      properties:
+        installed_dts:
+          description: "When it was installed, ISO 8601."
+          type: string
+        installed_revision_number:
+          description: The revision installed most recently on this storefront.
+          format: int32
+          type: integer
+        latest_revision_number:
+          description: "The latest published revision, or null when it can no longer\
+            \ be read."
+          format: int32
+          type: integer
+        library_oid:
+          description: The entry.
+          format: int32
+          type: integer
+        name:
+          description: "The entry name, when the entry is still visible to this account."
+          type: string
+        retired:
+          description: True when the owner retired the entry.  The installed copy
+            keeps working.
+          type: boolean
+        storefront_oid:
+          description: The storefront it was installed on.
+          format: int32
+          type: integer
+        update_available:
+          description: True when a newer revision has been published.  Nothing updates
+            automatically.
+          type: boolean
+      type: object
+    SfvbLibraryInstallRequest:
+      example:
+        revision_number: 0
+        on_conflict: fail
+        acknowledge_executable: true
+      properties:
+        acknowledge_executable:
+          description: Must be true to install an entry whose content_manifest lists
+            executable content.  Read the manifest first.
+          type: boolean
+        on_conflict:
+          description: "What to do when a file the entry installs already exists with\
+            \ different content.  fail refuses and writes nothing, skip keeps the\
+            \ existing file, overwrite replaces it."
+          enum:
+          - fail
+          - skip
+          - overwrite
+          type: string
+        revision_number:
+          description: "A published revision to install.  Defaults to the latest one,\
+            \ or the draft for the owner."
+          format: int32
+          type: integer
+      type: object
+    SfvbLibraryParameter:
+      example:
+        default: default
+        name: name
+        description: description
+        type: type
+        required: true
+      properties:
+        default:
+          description: The value used when none is supplied.
+          type: string
+        description:
+          description: What the value is used for.
+          type: string
+        name:
+          description: "Parameter name, letters, digits, hyphens and underscores."
+          type: string
+        required:
+          description: True when the fragment cannot be used without it.
+          type: boolean
+        type:
+          description: "What kind of value it takes, such as string, url, color or\
+            \ item."
+          type: string
+      type: object
+    SfvbLibraryPublishRequest:
+      example:
+        release_notes: release_notes
+        visibility: private
+      properties:
+        release_notes:
+          description: "What changed in this revision, at most 4000 characters.  Publish\
+            \ only."
+          type: string
+        visibility:
+          description: "On publish, shared or public.  On unpublish, shared or private.\
+            \  Public needs the library publisher property on the account."
+          enum:
+          - private
+          - shared
+          - public
+          type: string
       type: object
     SfvbLibraryResponse:
       example:
         first_result_number: 0
         last_result_number: 6
-        total_pages: 5
+        total_pages: 9
         results:
-        - referenced_files:
-          - referenced_files
-          - referenced_files
-          bookmarked: true
-          owned: true
-          library_oid: 1
-          name: name
+        - screenshot_height: 2
           description: description
+          taxonomy:
+            purpose:
+            - purpose
+            - purpose
+            industry:
+            - industry
+            - industry
+            section:
+            - section
+            - section
+            style:
+            - style
+            - style
+          shared_with:
+          - company: company
+            merchant_id: merchant_id
+          - company: company
+            merchant_id: merchant_id
+          referenced_files:
+          - referenced_files
+          - referenced_files
+          screenshot_stale: true
+          retired: true
+          thumbnail_key: thumbnail_key
+          revision_number: 5
+          visibility: private
+          bookmarked: true
+          published_revision_number: 5
+          screenshot_width: 7
+          library_oid: 1
           share_with_account: true
           screenshot_key: screenshot_key
-          thumbnail_key: thumbnail_key
+          last_modified_dts: last_modified_dts
           cjson: cjson
+          screenshot_sha256: screenshot_sha256
           widget_type: widget_type
-        - referenced_files:
-          - referenced_files
-          - referenced_files
-          bookmarked: true
+          hash_sha256: hash_sha256
           owned: true
-          library_oid: 1
           name: name
+          content_manifest:
+            absolute_asset_urls: "{}"
+            rejected: "{}"
+            ai_review:
+              summary: summary
+              findings: "{}"
+              verdict: approve
+              prompt_version: prompt_version
+              reviewed_dts: reviewed_dts
+              screenshot_sha256: screenshot_sha256
+            secrets: "{}"
+            executable: "{}"
+          parameters:
+          - default: default
+            name: name
+            description: description
+            type: type
+            required: true
+          - default: default
+            name: name
+            description: description
+            type: type
+            required: true
+        - screenshot_height: 2
           description: description
+          taxonomy:
+            purpose:
+            - purpose
+            - purpose
+            industry:
+            - industry
+            - industry
+            section:
+            - section
+            - section
+            style:
+            - style
+            - style
+          shared_with:
+          - company: company
+            merchant_id: merchant_id
+          - company: company
+            merchant_id: merchant_id
+          referenced_files:
+          - referenced_files
+          - referenced_files
+          screenshot_stale: true
+          retired: true
+          thumbnail_key: thumbnail_key
+          revision_number: 5
+          visibility: private
+          bookmarked: true
+          published_revision_number: 5
+          screenshot_width: 7
+          library_oid: 1
           share_with_account: true
           screenshot_key: screenshot_key
-          thumbnail_key: thumbnail_key
+          last_modified_dts: last_modified_dts
           cjson: cjson
+          screenshot_sha256: screenshot_sha256
           widget_type: widget_type
+          hash_sha256: hash_sha256
+          owned: true
+          name: name
+          content_manifest:
+            absolute_asset_urls: "{}"
+            rejected: "{}"
+            ai_review:
+              summary: summary
+              findings: "{}"
+              verdict: approve
+              prompt_version: prompt_version
+              reviewed_dts: reviewed_dts
+              screenshot_sha256: screenshot_sha256
+            secrets: "{}"
+            executable: "{}"
+          parameters:
+          - default: default
+            name: name
+            description: description
+            type: type
+            required: true
+          - default: default
+            name: name
+            description: description
+            type: type
+            required: true
         facets:
         - name: name
           options:
@@ -243238,7 +245443,7 @@ components:
           - options
           - options
           display_name: display_name
-        total_results: 5
+        total_results: 3
       properties:
         facets:
           description: "Available narrowing dimensions.  Send a chosen option back\
@@ -243268,6 +245473,131 @@ components:
           description: Total matches across all pages.
           format: int32
           type: integer
+      type: object
+    SfvbLibraryScreenshotRequest:
+      example:
+        sha256: sha256
+        source: own
+        key: key
+      properties:
+        key:
+          description: "The staging key files/upload_url/png returned, after the PNG\
+            \ was PUT to its URL.  Redeemed once."
+          type: string
+        sha256:
+          description: "SHA-256 of the PNG bytes uploaded, lower case hex.  The upload\
+            \ is refused if it does not match."
+          type: string
+        source:
+          description: "Where the image came from.  own for a screenshot you took,\
+            \ licensed or stock otherwise.  Needed before the entry can be made public."
+          enum:
+          - own
+          - licensed
+          - stock
+          type: string
+      type: object
+    SfvbLibraryShareRequest:
+      example:
+        merchant_id: merchant_id
+      properties:
+        merchant_id:
+          description: One of the merchant ids share_targets lists.
+          type: string
+      type: object
+    SfvbLibraryShareTarget:
+      example:
+        company: company
+        merchant_id: merchant_id
+      properties:
+        company:
+          description: The linked account's company name.
+          type: string
+        merchant_id:
+          description: The linked account's merchant id.
+          type: string
+      type: object
+    SfvbLibraryTaxonomy:
+      example:
+        purpose:
+        - purpose
+        - purpose
+        industry:
+        - industry
+        - industry
+        section:
+        - section
+        - section
+        style:
+        - style
+        - style
+      properties:
+        industry:
+          description: Industries the fragment suits.
+          items:
+            type: string
+          type: array
+        purpose:
+          description: "What the fragment is for, such as hero, social-proof or faq.\
+            \  At least one is required."
+          items:
+            type: string
+          type: array
+        section:
+          description: "Where the fragment goes, such as header, footer or product-detail."
+          items:
+            type: string
+          type: array
+        style:
+          description: Visual styles the fragment has.
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbLibraryTaxonomyCatalog:
+      example:
+        dimensions: "{}"
+      properties:
+        dimensions:
+          description: "purpose, section, industry and style, each with its allowed\
+            \ tags."
+          type: object
+      type: object
+    SfvbLibraryUnshareResult:
+      example:
+        existing_installs:
+        - installed_revision_number: 0
+          installed_dts: installed_dts
+          library_oid: 1
+          name: name
+          storefront_oid: 5
+          retired: true
+          latest_revision_number: 6
+          update_available: true
+        - installed_revision_number: 0
+          installed_dts: installed_dts
+          library_oid: 1
+          name: name
+          storefront_oid: 5
+          retired: true
+          latest_revision_number: 6
+          update_available: true
+        library_oid: 0
+        merchant_id: merchant_id
+      properties:
+        existing_installs:
+          description: "That account's installs, which keep their copies.  Unsharing\
+            \ never reaches into a storefront."
+          items:
+            $ref: '#/components/schemas/SfvbLibraryInstallRecord'
+          type: array
+        library_oid:
+          description: The entry.
+          format: int32
+          type: integer
+        merchant_id:
+          description: The account the entry is no longer shared with.
+          type: string
       type: object
     SfvbMenu:
       example:
@@ -250000,6 +252330,7 @@ components:
       type: object
     SfvbWhoamiResponse:
       example:
+        can_publish_public: true
         can_write: true
         storefronts_withheld: true
         user_name: user_name
@@ -250040,6 +252371,10 @@ components:
             \ live - an active upsell offer, an email on a delivering flow, the active\
             \ theme, the storefront root.  Never infer this; it is the difference\
             \ between a draft edit and a shopper visible change."
+          type: boolean
+        can_publish_public:
+          description: True when this account may publish library entries to the public
+            library.  Set by UltraCart staff only.
           type: boolean
         can_read:
           description: True when this token may read.  Do not infer this from the

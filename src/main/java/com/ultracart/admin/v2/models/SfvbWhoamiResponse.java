@@ -68,6 +68,10 @@ public class SfvbWhoamiResponse {
   @SerializedName(SERIALIZED_NAME_CAN_PUBLISH)
   private Boolean canPublish;
 
+  public static final String SERIALIZED_NAME_CAN_PUBLISH_PUBLIC = "can_publish_public";
+  @SerializedName(SERIALIZED_NAME_CAN_PUBLISH_PUBLIC)
+  private Boolean canPublishPublic;
+
   public static final String SERIALIZED_NAME_CAN_READ = "can_read";
   @SerializedName(SERIALIZED_NAME_CAN_READ)
   private Boolean canRead;
@@ -196,6 +200,29 @@ public class SfvbWhoamiResponse {
 
   public void setCanPublish(Boolean canPublish) {
     this.canPublish = canPublish;
+  }
+
+
+  public SfvbWhoamiResponse canPublishPublic(Boolean canPublishPublic) {
+    
+    this.canPublishPublic = canPublishPublic;
+    return this;
+  }
+
+   /**
+   * True when this account may publish library entries to the public library.  Set by UltraCart staff only.
+   * @return canPublishPublic
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this account may publish library entries to the public library.  Set by UltraCart staff only.")
+
+  public Boolean getCanPublishPublic() {
+    return canPublishPublic;
+  }
+
+
+  public void setCanPublishPublic(Boolean canPublishPublic) {
+    this.canPublishPublic = canPublishPublic;
   }
 
 
@@ -436,6 +463,7 @@ public class SfvbWhoamiResponse {
         Objects.equals(this.applicationName, sfvbWhoamiResponse.applicationName) &&
         Objects.equals(this.authenticationType, sfvbWhoamiResponse.authenticationType) &&
         Objects.equals(this.canPublish, sfvbWhoamiResponse.canPublish) &&
+        Objects.equals(this.canPublishPublic, sfvbWhoamiResponse.canPublishPublic) &&
         Objects.equals(this.canRead, sfvbWhoamiResponse.canRead) &&
         Objects.equals(this.canWrite, sfvbWhoamiResponse.canWrite) &&
         Objects.equals(this.deviceScope, sfvbWhoamiResponse.deviceScope) &&
@@ -449,7 +477,7 @@ public class SfvbWhoamiResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actingAsUser, applicationName, authenticationType, canPublish, canRead, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
+    return Objects.hash(actingAsUser, applicationName, authenticationType, canPublish, canPublishPublic, canRead, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
   }
 
   @Override
@@ -460,6 +488,7 @@ public class SfvbWhoamiResponse {
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    canPublish: ").append(toIndentedString(canPublish)).append("\n");
+    sb.append("    canPublishPublic: ").append(toIndentedString(canPublishPublic)).append("\n");
     sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
     sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
     sb.append("    deviceScope: ").append(toIndentedString(deviceScope)).append("\n");
@@ -495,6 +524,7 @@ public class SfvbWhoamiResponse {
     openapiFields.add("application_name");
     openapiFields.add("authentication_type");
     openapiFields.add("can_publish");
+    openapiFields.add("can_publish_public");
     openapiFields.add("can_read");
     openapiFields.add("can_write");
     openapiFields.add("device_scope");

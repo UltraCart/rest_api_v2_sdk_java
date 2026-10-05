@@ -136,8 +136,51 @@ Associates an RMA number with an order.  Any existing RMA on the order is replac
 
 ### Example
 
+```java
+package order;
 
-(No example for this operation).
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.models.*;
+import com.ultracart.admin.v2.util.ApiException;
+
+public class AssignRma {
+   /*
+       OrderApi.assignRma() assigns an RMA (return merchandise authorization) number to an order.
+
+       The rma value is required, is trimmed, and may be at most 30 characters.  Any RMA already on the
+       order is replaced, and a merchant note is added to the order recording the change.
+
+       The optional expansion parameter controls how much of the updated order is returned.
+       Requires the order_write scope.
+
+       Note: getOrdersByRma is backed by a search index, so a freshly assigned RMA may take a short time
+       before it can be found with that call.
+    */
+   public static void execute() throws ApiException {
+       OrderApi orderApi = new OrderApi(common.Constants.API_KEY);
+
+       String orderId = "DEMO-0009104390";
+       String expansion = "item,summary,billing,shipping"; // see www.ultracart.com/api/ for all expansion fields
+
+       OrderAssignRmaRequest rmaRequest = new OrderAssignRmaRequest();
+       rmaRequest.setRma("RMA-12345");
+
+       OrderResponse apiResponse = orderApi.assignRma(orderId, rmaRequest, expansion);
+
+       if (apiResponse.getError() != null) {
+           System.err.println(apiResponse.getError().getDeveloperMessage());
+           System.err.println(apiResponse.getError().getUserMessage());
+           System.exit(1);
+       }
+
+       Order order = apiResponse.getOrder();
+       Gson gson = new GsonBuilder().setPrettyPrinting().create();
+       System.out.println(gson.toJson(order));
+   }
+}
+```
 
 
 ### Parameters
@@ -2211,8 +2254,57 @@ Retrieves the orders associated with the specified RMA number.  The RMA must be 
 
 ### Example
 
+```java
+package order;
 
-(No example for this operation).
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.models.*;
+import com.ultracart.admin.v2.util.ApiException;
+import java.util.List;
+
+public class GetOrdersByRma {
+   /*
+       OrderApi.getOrdersByRma() returns all orders that carry a given RMA number.
+
+       The match is exact only.  Wildcards such as * are rejected with a 400 error.
+       More than one order may share the same RMA, so a list of orders is returned.
+
+       The lookup is backed by a search index, so an RMA that was just assigned with assignRma may take
+       a short time before it appears here.
+
+       The REST endpoint also accepts _limit (max 1000), _offset and _sort, but the Java SDK method only
+       exposes the rma and the optional expansion parameter.
+       Requires the order_read scope.
+    */
+   public static void execute() throws ApiException {
+       OrderApi orderApi = new OrderApi(common.Constants.API_KEY);
+
+       String rma = "RMA-12345";
+       String expansion = "item,summary,billing,shipping"; // see www.ultracart.com/api/ for all expansion fields
+
+       OrdersResponse apiResponse = orderApi.getOrdersByRma(rma, expansion);
+
+       if (apiResponse.getError() != null) {
+           System.err.println(apiResponse.getError().getDeveloperMessage());
+           System.err.println(apiResponse.getError().getUserMessage());
+           System.exit(1);
+       }
+
+       List<Order> orders = apiResponse.getOrders();
+       if (orders == null || orders.isEmpty()) {
+           System.out.println("No orders found for this RMA.");
+           return;
+       }
+
+       Gson gson = new GsonBuilder().setPrettyPrinting().create();
+       for (Order order : orders) {
+           System.out.println(gson.toJson(order));
+       }
+   }
+}
+```
 
 
 ### Parameters
@@ -2255,8 +2347,42 @@ Generates the url a customer can use to update the billing information on the au
 
 ### Example
 
+```java
+package order;
 
-(No example for this operation).
+import com.ultracart.admin.v2.OrderApi;
+import com.ultracart.admin.v2.models.*;
+import com.ultracart.admin.v2.util.ApiException;
+
+public class GetUpdateBillingUrl {
+   /*
+       OrderApi.getUpdateBillingUrl() returns the url a customer can use to update the billing information
+       on the auto order associated with an order.  This is the same url sent in the auto order update
+       billing email.
+
+       The order must belong to an auto order, otherwise a 400 error is returned.  Either the original
+       order or any rebill order of the auto order may be used.
+
+       Requires the order_write scope because the url carries a customer access token.
+    */
+   public static void execute() throws ApiException {
+       OrderApi orderApi = new OrderApi(common.Constants.API_KEY);
+
+       String orderId = "DEMO-0009104390";
+       OrderAutoOrderUpdateBillingUrlResponse apiResponse = orderApi.getUpdateBillingUrl(orderId);
+
+       if (apiResponse.getError() != null) {
+           System.err.println(apiResponse.getError().getDeveloperMessage());
+           System.err.println(apiResponse.getError().getUserMessage());
+           System.exit(1);
+       }
+
+       // WARNING: this url grants access to the customer's billing information.  Do not log it or expose it
+       // publicly in production.  It is printed here only for demonstration.
+       System.out.println(apiResponse.getUpdateBillingUrl());
+   }
+}
+```
 
 
 ### Parameters

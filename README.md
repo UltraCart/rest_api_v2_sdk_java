@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.183</version>
+    <version>4.1.184</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.183"
+     implementation "com.ultracart:rest-sdk:4.1.184"
   }
 ```
 
@@ -499,24 +499,29 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**addSfvbPageItems**](docs/SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
 *SfvbApi* | [**archiveSfvbUpsellPath**](docs/SfvbApi.md#archiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 *SfvbApi* | [**attachSfvbBlogPostImage**](docs/SfvbApi.md#attachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
+*SfvbApi* | [**clearSfvbLibraryScreenshot**](docs/SfvbApi.md#clearSfvbLibraryScreenshot) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Remove a library entry&#39;s screenshot
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+*SfvbApi* | [**createSfvbLibraryEntry**](docs/SfvbApi.md#createSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
 *SfvbApi* | [**deleteSfvbBlogPost**](docs/SfvbApi.md#deleteSfvbBlogPost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 *SfvbApi* | [**deleteSfvbFile**](docs/SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file
 *SfvbApi* | [**deleteSfvbItemAttribute**](docs/SfvbApi.md#deleteSfvbItemAttribute) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/attributes | Delete an attribute from an item
 *SfvbApi* | [**deleteSfvbItemMultimedia**](docs/SfvbApi.md#deleteSfvbItemMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/items/multimedia | Detach an image from an item
+*SfvbApi* | [**deleteSfvbLibraryEntry**](docs/SfvbApi.md#deleteSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Delete or retire a library entry
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/SfvbApi.md#disableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+*SfvbApi* | [**duplicateSfvbLibraryEntry**](docs/SfvbApi.md#duplicateSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
 *SfvbApi* | [**duplicateSfvbPage**](docs/SfvbApi.md#duplicateSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
 *SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/SfvbApi.md#duplicateSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 *SfvbApi* | [**duplicateSfvbUpsellPath**](docs/SfvbApi.md#duplicateSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 *SfvbApi* | [**endSfvbExperiment**](docs/SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
+*SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
@@ -528,6 +533,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbItem**](docs/SfvbApi.md#getSfvbItem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
+*SfvbApi* | [**getSfvbLibraryHistory**](docs/SfvbApi.md#getSfvbLibraryHistory) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
+*SfvbApi* | [**getSfvbLibraryShareTargets**](docs/SfvbApi.md#getSfvbLibraryShareTargets) | **GET** /sfvb/storefronts/{storefront_oid}/library/share_targets | List the accounts a library entry can be shared with
+*SfvbApi* | [**getSfvbLibraryTaxonomy**](docs/SfvbApi.md#getSfvbLibraryTaxonomy) | **GET** /sfvb/storefronts/{storefront_oid}/library/taxonomy | List the allowed library tags
 *SfvbApi* | [**getSfvbMenu**](docs/SfvbApi.md#getSfvbMenu) | **GET** /sfvb/storefronts/{storefront_oid}/menus/{code} | Read one store menu and its entries
 *SfvbApi* | [**getSfvbMenus**](docs/SfvbApi.md#getSfvbMenus) | **GET** /sfvb/storefronts/{storefront_oid}/menus | List a storefront&#39;s store menus
 *SfvbApi* | [**getSfvbPage**](docs/SfvbApi.md#getSfvbPage) | **GET** /sfvb/storefronts/{storefront_oid}/pages | Read a page&#39;s attributes and images
@@ -559,6 +567,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbFileVersions**](docs/SfvbApi.md#listSfvbFileVersions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
 *SfvbApi* | [**listSfvbItemContainers**](docs/SfvbApi.md#listSfvbItemContainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
+*SfvbApi* | [**listSfvbLibraryInstalls**](docs/SfvbApi.md#listSfvbLibraryInstalls) | **GET** /sfvb/storefronts/{storefront_oid}/library/installs | List the library entries installed on a storefront
 *SfvbApi* | [**listSfvbPages**](docs/SfvbApi.md#listSfvbPages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
 *SfvbApi* | [**listSfvbServerLogs**](docs/SfvbApi.md#listSfvbServerLogs) | **GET** /sfvb/storefronts/{storefront_oid}/logs | List recent storefront render logs
 *SfvbApi* | [**listSfvbStorefronts**](docs/SfvbApi.md#listSfvbStorefronts) | **GET** /sfvb/storefronts | List storefronts
@@ -567,6 +576,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**listSfvbUpsellPaths**](docs/SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
 *SfvbApi* | [**moveSfvbUpsellPath**](docs/SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
+*SfvbApi* | [**publishSfvbLibraryEntry**](docs/SfvbApi.md#publishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
@@ -593,9 +603,15 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
+*SfvbApi* | [**setSfvbLibraryScreenshot**](docs/SfvbApi.md#setSfvbLibraryScreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
+*SfvbApi* | [**shareSfvbLibraryEntry**](docs/SfvbApi.md#shareSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares | Share a published library entry with a linked account
 *SfvbApi* | [**startSfvbExperiment**](docs/SfvbApi.md#startSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
 *SfvbApi* | [**unarchiveSfvbUpsellPath**](docs/SfvbApi.md#unarchiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
+*SfvbApi* | [**unfavoriteSfvbLibraryEntry**](docs/SfvbApi.md#unfavoriteSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Remove a library entry from favorites
+*SfvbApi* | [**unpublishSfvbLibraryEntry**](docs/SfvbApi.md#unpublishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
+*SfvbApi* | [**unshareSfvbLibraryEntry**](docs/SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 *SfvbApi* | [**updateSfvbBlogPost**](docs/SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+*SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
@@ -1876,9 +1892,26 @@ Class | Method | HTTP request | Description
  - [SfvbItemResponse](docs/SfvbItemResponse.md)
  - [SfvbItemSeo](docs/SfvbItemSeo.md)
  - [SfvbItemSeoRequest](docs/SfvbItemSeoRequest.md)
+ - [SfvbLibraryAiReview](docs/SfvbLibraryAiReview.md)
+ - [SfvbLibraryContentManifest](docs/SfvbLibraryContentManifest.md)
+ - [SfvbLibraryDeleteResult](docs/SfvbLibraryDeleteResult.md)
  - [SfvbLibraryEntry](docs/SfvbLibraryEntry.md)
+ - [SfvbLibraryEntryRequest](docs/SfvbLibraryEntryRequest.md)
  - [SfvbLibraryFacet](docs/SfvbLibraryFacet.md)
+ - [SfvbLibraryHistoryEntry](docs/SfvbLibraryHistoryEntry.md)
+ - [SfvbLibraryInstallConflict](docs/SfvbLibraryInstallConflict.md)
+ - [SfvbLibraryInstallReceipt](docs/SfvbLibraryInstallReceipt.md)
+ - [SfvbLibraryInstallRecord](docs/SfvbLibraryInstallRecord.md)
+ - [SfvbLibraryInstallRequest](docs/SfvbLibraryInstallRequest.md)
+ - [SfvbLibraryParameter](docs/SfvbLibraryParameter.md)
+ - [SfvbLibraryPublishRequest](docs/SfvbLibraryPublishRequest.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
+ - [SfvbLibraryScreenshotRequest](docs/SfvbLibraryScreenshotRequest.md)
+ - [SfvbLibraryShareRequest](docs/SfvbLibraryShareRequest.md)
+ - [SfvbLibraryShareTarget](docs/SfvbLibraryShareTarget.md)
+ - [SfvbLibraryTaxonomy](docs/SfvbLibraryTaxonomy.md)
+ - [SfvbLibraryTaxonomyCatalog](docs/SfvbLibraryTaxonomyCatalog.md)
+ - [SfvbLibraryUnshareResult](docs/SfvbLibraryUnshareResult.md)
  - [SfvbMenu](docs/SfvbMenu.md)
  - [SfvbMenuItem](docs/SfvbMenuItem.md)
  - [SfvbMenuWriteRequest](docs/SfvbMenuWriteRequest.md)
@@ -2140,6 +2173,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.184 | 10/05/2026 | sfvb internal testing |
 | 4.1.183 | 10/05/2026 | OrderApi rma endpoints |
 | 4.1.182 | 10/02/2026 | sfvb internal testing |
 | 4.1.181 | 10/02/2026 | sfvb internal testing |

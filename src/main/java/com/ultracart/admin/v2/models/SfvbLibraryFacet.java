@@ -96,11 +96,11 @@ public class SfvbLibraryFacet {
   }
 
    /**
-   * Facet key.  Pass a chosen option back as facet_{name}&#x3D;{option}.
+   * Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Facet key.  Pass a chosen option back as facet_{name}={option}.")
+  @ApiModelProperty(value = "Facet key, such as facet_purpose.  To select an option, add a query parameter named after the key whose value is the key, a colon and the option.")
 
   public String getName() {
     return name;
@@ -127,11 +127,11 @@ public class SfvbLibraryFacet {
   }
 
    /**
-   * Available values for this facet.
+   * Values present in the results.  A facet with only one value is left out unless it is selected.
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Available values for this facet.")
+  @ApiModelProperty(value = "Values present in the results.  A facet with only one value is left out unless it is selected.")
 
   public List<String> getOptions() {
     return options;
