@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbLibraryTaxonomyDimension;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,14 +54,22 @@ import com.ultracart.admin.v2.util.JSON;
 public class SfvbLibraryTaxonomyCatalog {
   public static final String SERIALIZED_NAME_DIMENSIONS = "dimensions";
   @SerializedName(SERIALIZED_NAME_DIMENSIONS)
-  private Object dimensions;
+  private List<SfvbLibraryTaxonomyDimension> dimensions = null;
 
   public SfvbLibraryTaxonomyCatalog() { 
   }
 
-  public SfvbLibraryTaxonomyCatalog dimensions(Object dimensions) {
+  public SfvbLibraryTaxonomyCatalog dimensions(List<SfvbLibraryTaxonomyDimension> dimensions) {
     
     this.dimensions = dimensions;
+    return this;
+  }
+
+  public SfvbLibraryTaxonomyCatalog addDimensionsItem(SfvbLibraryTaxonomyDimension dimensionsItem) {
+    if (this.dimensions == null) {
+      this.dimensions = new ArrayList<>();
+    }
+    this.dimensions.add(dimensionsItem);
     return this;
   }
 
@@ -69,12 +80,12 @@ public class SfvbLibraryTaxonomyCatalog {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "purpose, section, industry and style, each with its allowed tags.")
 
-  public Object getDimensions() {
+  public List<SfvbLibraryTaxonomyDimension> getDimensions() {
     return dimensions;
   }
 
 
-  public void setDimensions(Object dimensions) {
+  public void setDimensions(List<SfvbLibraryTaxonomyDimension> dimensions) {
     this.dimensions = dimensions;
   }
 
@@ -151,6 +162,18 @@ public class SfvbLibraryTaxonomyCatalog {
         if (!SfvbLibraryTaxonomyCatalog.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbLibraryTaxonomyCatalog` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArraydimensions = jsonObj.getAsJsonArray("dimensions");
+      if (jsonArraydimensions != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("dimensions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `dimensions` to be an array in the JSON string but got `%s`", jsonObj.get("dimensions").toString()));
+        }
+
+        // validate the optional field `dimensions` (array)
+        for (int i = 0; i < jsonArraydimensions.size(); i++) {
+          SfvbLibraryTaxonomyDimension.validateJsonObject(jsonArraydimensions.get(i).getAsJsonObject());
+        };
       }
   }
 

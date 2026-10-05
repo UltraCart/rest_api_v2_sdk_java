@@ -1050,6 +1050,7 @@ docs/SfvbLibraryInstallReceipt.md
 docs/SfvbLibraryInstallRecord.md
 docs/SfvbLibraryInstallRequest.md
 docs/SfvbLibraryInstallsResponse.md
+docs/SfvbLibraryManifestFinding.md
 docs/SfvbLibraryParameter.md
 docs/SfvbLibraryPublishRequest.md
 docs/SfvbLibraryResponse.md
@@ -1059,6 +1060,8 @@ docs/SfvbLibraryShareTarget.md
 docs/SfvbLibraryShareTargetsResponse.md
 docs/SfvbLibraryTaxonomy.md
 docs/SfvbLibraryTaxonomyCatalog.md
+docs/SfvbLibraryTaxonomyDimension.md
+docs/SfvbLibraryTaxonomyTag.md
 docs/SfvbLibraryUnshareResult.md
 docs/SfvbMenu.md
 docs/SfvbMenuItem.md
@@ -2306,6 +2309,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbLibraryInstallReceipt.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryInstallRecord.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryInstallRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryInstallsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbLibraryManifestFinding.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryParameter.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryPublishRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryResponse.java
@@ -2315,6 +2319,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbLibraryShareTarget.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryShareTargetsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryTaxonomy.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryTaxonomyCatalog.java
+src/main/java/com/ultracart/admin/v2/models/SfvbLibraryTaxonomyDimension.java
+src/main/java/com/ultracart/admin/v2/models/SfvbLibraryTaxonomyTag.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryUnshareResult.java
 src/main/java/com/ultracart/admin/v2/models/SfvbMenu.java
 src/main/java/com/ultracart/admin/v2/models/SfvbMenuItem.java

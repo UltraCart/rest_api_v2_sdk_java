@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.185</version>
+    <version>4.1.186</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.185"
+     implementation "com.ultracart:rest-sdk:4.1.186"
   }
 ```
 
@@ -1905,6 +1905,7 @@ Class | Method | HTTP request | Description
  - [SfvbLibraryInstallRecord](docs/SfvbLibraryInstallRecord.md)
  - [SfvbLibraryInstallRequest](docs/SfvbLibraryInstallRequest.md)
  - [SfvbLibraryInstallsResponse](docs/SfvbLibraryInstallsResponse.md)
+ - [SfvbLibraryManifestFinding](docs/SfvbLibraryManifestFinding.md)
  - [SfvbLibraryParameter](docs/SfvbLibraryParameter.md)
  - [SfvbLibraryPublishRequest](docs/SfvbLibraryPublishRequest.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
@@ -1914,6 +1915,8 @@ Class | Method | HTTP request | Description
  - [SfvbLibraryShareTargetsResponse](docs/SfvbLibraryShareTargetsResponse.md)
  - [SfvbLibraryTaxonomy](docs/SfvbLibraryTaxonomy.md)
  - [SfvbLibraryTaxonomyCatalog](docs/SfvbLibraryTaxonomyCatalog.md)
+ - [SfvbLibraryTaxonomyDimension](docs/SfvbLibraryTaxonomyDimension.md)
+ - [SfvbLibraryTaxonomyTag](docs/SfvbLibraryTaxonomyTag.md)
  - [SfvbLibraryUnshareResult](docs/SfvbLibraryUnshareResult.md)
  - [SfvbMenu](docs/SfvbMenu.md)
  - [SfvbMenuItem](docs/SfvbMenuItem.md)
@@ -2176,6 +2179,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.186 | 10/05/2026 | sfvb internal testing |
 | 4.1.185 | 10/05/2026 | sfvb internal testing |
 | 4.1.184 | 10/05/2026 | sfvb internal testing |
 | 4.1.183 | 10/05/2026 | OrderApi rma endpoints |

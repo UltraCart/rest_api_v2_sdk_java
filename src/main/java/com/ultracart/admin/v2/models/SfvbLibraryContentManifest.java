@@ -21,9 +21,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbLibraryAiReview;
+import com.ultracart.admin.v2.models.SfvbLibraryManifestFinding;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +55,7 @@ import com.ultracart.admin.v2.util.JSON;
 public class SfvbLibraryContentManifest {
   public static final String SERIALIZED_NAME_ABSOLUTE_ASSET_URLS = "absolute_asset_urls";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_ASSET_URLS)
-  private Object absoluteAssetUrls;
+  private List<SfvbLibraryManifestFinding> absoluteAssetUrls = null;
 
   public static final String SERIALIZED_NAME_AI_REVIEW = "ai_review";
   @SerializedName(SERIALIZED_NAME_AI_REVIEW)
@@ -60,22 +63,30 @@ public class SfvbLibraryContentManifest {
 
   public static final String SERIALIZED_NAME_EXECUTABLE = "executable";
   @SerializedName(SERIALIZED_NAME_EXECUTABLE)
-  private Object executable;
+  private List<SfvbLibraryManifestFinding> executable = null;
 
   public static final String SERIALIZED_NAME_REJECTED = "rejected";
   @SerializedName(SERIALIZED_NAME_REJECTED)
-  private Object rejected;
+  private List<SfvbLibraryManifestFinding> rejected = null;
 
   public static final String SERIALIZED_NAME_SECRETS = "secrets";
   @SerializedName(SERIALIZED_NAME_SECRETS)
-  private Object secrets;
+  private List<SfvbLibraryManifestFinding> secrets = null;
 
   public SfvbLibraryContentManifest() { 
   }
 
-  public SfvbLibraryContentManifest absoluteAssetUrls(Object absoluteAssetUrls) {
+  public SfvbLibraryContentManifest absoluteAssetUrls(List<SfvbLibraryManifestFinding> absoluteAssetUrls) {
     
     this.absoluteAssetUrls = absoluteAssetUrls;
+    return this;
+  }
+
+  public SfvbLibraryContentManifest addAbsoluteAssetUrlsItem(SfvbLibraryManifestFinding absoluteAssetUrlsItem) {
+    if (this.absoluteAssetUrls == null) {
+      this.absoluteAssetUrls = new ArrayList<>();
+    }
+    this.absoluteAssetUrls.add(absoluteAssetUrlsItem);
     return this;
   }
 
@@ -86,12 +97,12 @@ public class SfvbLibraryContentManifest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Images, fonts, stylesheets, scripts or media loaded from an absolute URL.  A shared or public entry must use relative paths so it never pulls files from another storefront or site.")
 
-  public Object getAbsoluteAssetUrls() {
+  public List<SfvbLibraryManifestFinding> getAbsoluteAssetUrls() {
     return absoluteAssetUrls;
   }
 
 
-  public void setAbsoluteAssetUrls(Object absoluteAssetUrls) {
+  public void setAbsoluteAssetUrls(List<SfvbLibraryManifestFinding> absoluteAssetUrls) {
     this.absoluteAssetUrls = absoluteAssetUrls;
   }
 
@@ -119,9 +130,17 @@ public class SfvbLibraryContentManifest {
   }
 
 
-  public SfvbLibraryContentManifest executable(Object executable) {
+  public SfvbLibraryContentManifest executable(List<SfvbLibraryManifestFinding> executable) {
     
     this.executable = executable;
+    return this;
+  }
+
+  public SfvbLibraryContentManifest addExecutableItem(SfvbLibraryManifestFinding executableItem) {
+    if (this.executable == null) {
+      this.executable = new ArrayList<>();
+    }
+    this.executable.add(executableItem);
     return this;
   }
 
@@ -132,19 +151,27 @@ public class SfvbLibraryContentManifest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Content that runs in a shopper's browser or on the server.  Script, html, embed, css and velocity elements, script in markup, Velocity, script bearing CSS and unsafe URL schemes.  An entry with any of these cannot be made public, and installing it needs an explicit acknowledgement.")
 
-  public Object getExecutable() {
+  public List<SfvbLibraryManifestFinding> getExecutable() {
     return executable;
   }
 
 
-  public void setExecutable(Object executable) {
+  public void setExecutable(List<SfvbLibraryManifestFinding> executable) {
     this.executable = executable;
   }
 
 
-  public SfvbLibraryContentManifest rejected(Object rejected) {
+  public SfvbLibraryContentManifest rejected(List<SfvbLibraryManifestFinding> rejected) {
     
     this.rejected = rejected;
+    return this;
+  }
+
+  public SfvbLibraryContentManifest addRejectedItem(SfvbLibraryManifestFinding rejectedItem) {
+    if (this.rejected == null) {
+      this.rejected = new ArrayList<>();
+    }
+    this.rejected.add(rejectedItem);
     return this;
   }
 
@@ -155,19 +182,27 @@ public class SfvbLibraryContentManifest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Card skimming and obfuscation signals.  An entry with any is refused outright, whoever owns it.")
 
-  public Object getRejected() {
+  public List<SfvbLibraryManifestFinding> getRejected() {
     return rejected;
   }
 
 
-  public void setRejected(Object rejected) {
+  public void setRejected(List<SfvbLibraryManifestFinding> rejected) {
     this.rejected = rejected;
   }
 
 
-  public SfvbLibraryContentManifest secrets(Object secrets) {
+  public SfvbLibraryContentManifest secrets(List<SfvbLibraryManifestFinding> secrets) {
     
     this.secrets = secrets;
+    return this;
+  }
+
+  public SfvbLibraryContentManifest addSecretsItem(SfvbLibraryManifestFinding secretsItem) {
+    if (this.secrets == null) {
+      this.secrets = new ArrayList<>();
+    }
+    this.secrets.add(secretsItem);
     return this;
   }
 
@@ -178,12 +213,12 @@ public class SfvbLibraryContentManifest {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Strings shaped like credentials, by kind only.  An entry with any cannot be shared or made public.")
 
-  public Object getSecrets() {
+  public List<SfvbLibraryManifestFinding> getSecrets() {
     return secrets;
   }
 
 
-  public void setSecrets(Object secrets) {
+  public void setSecrets(List<SfvbLibraryManifestFinding> secrets) {
     this.secrets = secrets;
   }
 
@@ -273,9 +308,57 @@ public class SfvbLibraryContentManifest {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbLibraryContentManifest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      JsonArray jsonArrayabsoluteAssetUrls = jsonObj.getAsJsonArray("absolute_asset_urls");
+      if (jsonArrayabsoluteAssetUrls != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("absolute_asset_urls").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `absolute_asset_urls` to be an array in the JSON string but got `%s`", jsonObj.get("absolute_asset_urls").toString()));
+        }
+
+        // validate the optional field `absolute_asset_urls` (array)
+        for (int i = 0; i < jsonArrayabsoluteAssetUrls.size(); i++) {
+          SfvbLibraryManifestFinding.validateJsonObject(jsonArrayabsoluteAssetUrls.get(i).getAsJsonObject());
+        };
+      }
       // validate the optional field `ai_review`
       if (jsonObj.getAsJsonObject("ai_review") != null) {
         SfvbLibraryAiReview.validateJsonObject(jsonObj.getAsJsonObject("ai_review"));
+      }
+      JsonArray jsonArrayexecutable = jsonObj.getAsJsonArray("executable");
+      if (jsonArrayexecutable != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("executable").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `executable` to be an array in the JSON string but got `%s`", jsonObj.get("executable").toString()));
+        }
+
+        // validate the optional field `executable` (array)
+        for (int i = 0; i < jsonArrayexecutable.size(); i++) {
+          SfvbLibraryManifestFinding.validateJsonObject(jsonArrayexecutable.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArrayrejected = jsonObj.getAsJsonArray("rejected");
+      if (jsonArrayrejected != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("rejected").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `rejected` to be an array in the JSON string but got `%s`", jsonObj.get("rejected").toString()));
+        }
+
+        // validate the optional field `rejected` (array)
+        for (int i = 0; i < jsonArrayrejected.size(); i++) {
+          SfvbLibraryManifestFinding.validateJsonObject(jsonArrayrejected.get(i).getAsJsonObject());
+        };
+      }
+      JsonArray jsonArraysecrets = jsonObj.getAsJsonArray("secrets");
+      if (jsonArraysecrets != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("secrets").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `secrets` to be an array in the JSON string but got `%s`", jsonObj.get("secrets").toString()));
+        }
+
+        // validate the optional field `secrets` (array)
+        for (int i = 0; i < jsonArraysecrets.size(); i++) {
+          SfvbLibraryManifestFinding.validateJsonObject(jsonArraysecrets.get(i).getAsJsonObject());
+        };
       }
   }
 

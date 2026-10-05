@@ -244740,7 +244740,13 @@ components:
     SfvbLibraryAiReview:
       example:
         summary: summary
-        findings: "{}"
+        findings:
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
         verdict: approve
         prompt_version: prompt_version
         reviewed_dts: reviewed_dts
@@ -244749,7 +244755,9 @@ components:
         findings:
           description: What the reviewers found.  detail is the category followed
             by the quoted evidence.
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryManifestFinding'
+          type: array
         prompt_version:
           description: Version of the review policy that produced this verdict.
           type: string
@@ -244776,23 +244784,55 @@ components:
       type: object
     SfvbLibraryContentManifest:
       example:
-        absolute_asset_urls: "{}"
-        rejected: "{}"
+        absolute_asset_urls:
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        rejected:
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
         ai_review:
           summary: summary
-          findings: "{}"
+          findings:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
           verdict: approve
           prompt_version: prompt_version
           reviewed_dts: reviewed_dts
           screenshot_sha256: screenshot_sha256
-        secrets: "{}"
-        executable: "{}"
+        secrets:
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        executable:
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
+        - widget_id: widget_id
+          detail: detail
+          widget_type: widget_type
       properties:
         absolute_asset_urls:
           description: "Images, fonts, stylesheets, scripts or media loaded from an\
             \ absolute URL.  A shared or public entry must use relative paths so it\
             \ never pulls files from another storefront or site."
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryManifestFinding'
+          type: array
         ai_review:
           $ref: '#/components/schemas/SfvbLibraryAiReview'
         executable:
@@ -244800,15 +244840,21 @@ components:
             \  Script, html, embed, css and velocity elements, script in markup, Velocity,\
             \ script bearing CSS and unsafe URL schemes.  An entry with any of these\
             \ cannot be made public, and installing it needs an explicit acknowledgement."
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryManifestFinding'
+          type: array
         rejected:
           description: "Card skimming and obfuscation signals.  An entry with any\
             \ is refused outright, whoever owns it."
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryManifestFinding'
+          type: array
         secrets:
           description: "Strings shaped like credentials, by kind only.  An entry with\
             \ any cannot be shared or made public."
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryManifestFinding'
+          type: array
       type: object
     SfvbLibraryDeleteResult:
       example:
@@ -244872,17 +244918,47 @@ components:
         owned: true
         name: name
         content_manifest:
-          absolute_asset_urls: "{}"
-          rejected: "{}"
+          absolute_asset_urls:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          rejected:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
           ai_review:
             summary: summary
-            findings: "{}"
+            findings:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
             verdict: approve
             prompt_version: prompt_version
             reviewed_dts: reviewed_dts
             screenshot_sha256: screenshot_sha256
-          secrets: "{}"
-          executable: "{}"
+          secrets:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          executable:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
         parameters:
         - default: default
           name: name
@@ -245148,17 +245224,47 @@ components:
         - files_skipped
         - files_skipped
         content_manifest:
-          absolute_asset_urls: "{}"
-          rejected: "{}"
+          absolute_asset_urls:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          rejected:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
           ai_review:
             summary: summary
-            findings: "{}"
+            findings:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
             verdict: approve
             prompt_version: prompt_version
             reviewed_dts: reviewed_dts
             screenshot_sha256: screenshot_sha256
-          secrets: "{}"
-          executable: "{}"
+          secrets:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          executable:
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
+          - widget_id: widget_id
+            detail: detail
+            widget_type: widget_type
         cjson: cjson
         unresolved_parameters:
         - unresolved_parameters
@@ -245299,6 +245405,23 @@ components:
             $ref: '#/components/schemas/SfvbLibraryInstallRecord'
           type: array
       type: object
+    SfvbLibraryManifestFinding:
+      example:
+        widget_id: widget_id
+        detail: detail
+        widget_type: widget_type
+      properties:
+        detail:
+          description: "What was found.  For an absolute asset URL this is the URL.\
+            \  For a credential it is only the kind of credential, never its value."
+          type: string
+        widget_id:
+          description: Id of the widget the finding is in.
+          type: string
+        widget_type:
+          description: Element type of that widget.
+          type: string
+      type: object
     SfvbLibraryParameter:
       example:
         default: default
@@ -245390,17 +245513,47 @@ components:
           owned: true
           name: name
           content_manifest:
-            absolute_asset_urls: "{}"
-            rejected: "{}"
+            absolute_asset_urls:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            rejected:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
             ai_review:
               summary: summary
-              findings: "{}"
+              findings:
+              - widget_id: widget_id
+                detail: detail
+                widget_type: widget_type
+              - widget_id: widget_id
+                detail: detail
+                widget_type: widget_type
               verdict: approve
               prompt_version: prompt_version
               reviewed_dts: reviewed_dts
               screenshot_sha256: screenshot_sha256
-            secrets: "{}"
-            executable: "{}"
+            secrets:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            executable:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
           parameters:
           - default: default
             name: name
@@ -245454,17 +245607,47 @@ components:
           owned: true
           name: name
           content_manifest:
-            absolute_asset_urls: "{}"
-            rejected: "{}"
+            absolute_asset_urls:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            rejected:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
             ai_review:
               summary: summary
-              findings: "{}"
+              findings:
+              - widget_id: widget_id
+                detail: detail
+                widget_type: widget_type
+              - widget_id: widget_id
+                detail: detail
+                widget_type: widget_type
               verdict: approve
               prompt_version: prompt_version
               reviewed_dts: reviewed_dts
               screenshot_sha256: screenshot_sha256
-            secrets: "{}"
-            executable: "{}"
+            secrets:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            executable:
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
+            - widget_id: widget_id
+              detail: detail
+              widget_type: widget_type
           parameters:
           - default: default
             name: name
@@ -245615,12 +245798,67 @@ components:
       type: object
     SfvbLibraryTaxonomyCatalog:
       example:
-        dimensions: "{}"
+        dimensions:
+        - name: purpose
+          description: description
+          tags:
+          - description: description
+            slug: slug
+          - description: description
+            slug: slug
+        - name: purpose
+          description: description
+          tags:
+          - description: description
+            slug: slug
+          - description: description
+            slug: slug
       properties:
         dimensions:
           description: "purpose, section, industry and style, each with its allowed\
             \ tags."
-          type: object
+          items:
+            $ref: '#/components/schemas/SfvbLibraryTaxonomyDimension'
+          type: array
+      type: object
+    SfvbLibraryTaxonomyDimension:
+      example:
+        name: purpose
+        description: description
+        tags:
+        - description: description
+          slug: slug
+        - description: description
+          slug: slug
+      properties:
+        description:
+          description: What the dimension describes.
+          type: string
+        name:
+          description: The taxonomy field this list applies to.
+          enum:
+          - purpose
+          - section
+          - industry
+          - style
+          type: string
+        tags:
+          description: "The allowed tags, in display order."
+          items:
+            $ref: '#/components/schemas/SfvbLibraryTaxonomyTag'
+          type: array
+      type: object
+    SfvbLibraryTaxonomyTag:
+      example:
+        description: description
+        slug: slug
+      properties:
+        description:
+          description: When to use it.
+          type: string
+        slug:
+          description: The value to send in the entry's taxonomy.
+          type: string
       type: object
     SfvbLibraryUnshareResult:
       example:

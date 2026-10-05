@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbLibraryManifestFinding;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +54,7 @@ import com.ultracart.admin.v2.util.JSON;
 public class SfvbLibraryAiReview {
   public static final String SERIALIZED_NAME_FINDINGS = "findings";
   @SerializedName(SERIALIZED_NAME_FINDINGS)
-  private Object findings;
+  private List<SfvbLibraryManifestFinding> findings = null;
 
   public static final String SERIALIZED_NAME_PROMPT_VERSION = "prompt_version";
   @SerializedName(SERIALIZED_NAME_PROMPT_VERSION)
@@ -127,9 +130,17 @@ public class SfvbLibraryAiReview {
   public SfvbLibraryAiReview() { 
   }
 
-  public SfvbLibraryAiReview findings(Object findings) {
+  public SfvbLibraryAiReview findings(List<SfvbLibraryManifestFinding> findings) {
     
     this.findings = findings;
+    return this;
+  }
+
+  public SfvbLibraryAiReview addFindingsItem(SfvbLibraryManifestFinding findingsItem) {
+    if (this.findings == null) {
+      this.findings = new ArrayList<>();
+    }
+    this.findings.add(findingsItem);
     return this;
   }
 
@@ -140,12 +151,12 @@ public class SfvbLibraryAiReview {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "What the reviewers found.  detail is the category followed by the quoted evidence.")
 
-  public Object getFindings() {
+  public List<SfvbLibraryManifestFinding> getFindings() {
     return findings;
   }
 
 
-  public void setFindings(Object findings) {
+  public void setFindings(List<SfvbLibraryManifestFinding> findings) {
     this.findings = findings;
   }
 
@@ -352,6 +363,18 @@ public class SfvbLibraryAiReview {
         if (!SfvbLibraryAiReview.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbLibraryAiReview` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      JsonArray jsonArrayfindings = jsonObj.getAsJsonArray("findings");
+      if (jsonArrayfindings != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("findings").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `findings` to be an array in the JSON string but got `%s`", jsonObj.get("findings").toString()));
+        }
+
+        // validate the optional field `findings` (array)
+        for (int i = 0; i < jsonArrayfindings.size(); i++) {
+          SfvbLibraryManifestFinding.validateJsonObject(jsonArrayfindings.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("prompt_version") != null && !jsonObj.get("prompt_version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `prompt_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prompt_version").toString()));

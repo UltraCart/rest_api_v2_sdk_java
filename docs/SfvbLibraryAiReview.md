@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**findings** | **Object** | What the reviewers found.  detail is the category followed by the quoted evidence. |  [optional] |
+|**findings** | [**List&lt;SfvbLibraryManifestFinding&gt;**](SfvbLibraryManifestFinding.md) | What the reviewers found.  detail is the category followed by the quoted evidence. |  [optional] |
 |**promptVersion** | **String** | Version of the review policy that produced this verdict. |  [optional] |
 |**reviewedDts** | **String** | When the review ran, ISO 8601. |  [optional] |
 |**screenshotSha256** | **String** | The screenshot the review looked at, or absent when there was none. |  [optional] |
