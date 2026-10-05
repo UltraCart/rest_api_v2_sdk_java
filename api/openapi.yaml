@@ -10575,7 +10575,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SfvbLibraryInstallRecord'
+                $ref: '#/components/schemas/SfvbLibraryInstallsResponse'
           description: Successful response
         "401":
           content:
@@ -10647,7 +10647,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SfvbLibraryShareTarget'
+                $ref: '#/components/schemas/SfvbLibraryShareTargetsResponse'
           description: Successful response
         "401":
           content:
@@ -11385,7 +11385,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SfvbLibraryHistoryEntry'
+                $ref: '#/components/schemas/SfvbLibraryHistoryResponse'
           description: Successful response
         "400":
           content:
@@ -245099,6 +245099,24 @@ components:
           format: int32
           type: integer
       type: object
+    SfvbLibraryHistoryResponse:
+      example:
+        revisions:
+        - hash_sha256: hash_sha256
+          published_dts: published_dts
+          release_notes: release_notes
+          revision_number: 0
+        - hash_sha256: hash_sha256
+          published_dts: published_dts
+          release_notes: release_notes
+          revision_number: 0
+      properties:
+        revisions:
+          description: "The published revisions, newest first."
+          items:
+            $ref: '#/components/schemas/SfvbLibraryHistoryEntry'
+          type: array
+      type: object
     SfvbLibraryInstallConflict:
       example:
         path: path
@@ -245254,6 +245272,32 @@ components:
             \ or the draft for the owner."
           format: int32
           type: integer
+      type: object
+    SfvbLibraryInstallsResponse:
+      example:
+        installs:
+        - installed_revision_number: 0
+          installed_dts: installed_dts
+          library_oid: 1
+          name: name
+          storefront_oid: 5
+          retired: true
+          latest_revision_number: 6
+          update_available: true
+        - installed_revision_number: 0
+          installed_dts: installed_dts
+          library_oid: 1
+          name: name
+          storefront_oid: 5
+          retired: true
+          latest_revision_number: 6
+          update_available: true
+      properties:
+        installs:
+          description: The newest install of each entry on the storefront.
+          items:
+            $ref: '#/components/schemas/SfvbLibraryInstallRecord'
+          type: array
       type: object
     SfvbLibraryParameter:
       example:
@@ -245516,6 +245560,21 @@ components:
         merchant_id:
           description: The linked account's merchant id.
           type: string
+      type: object
+    SfvbLibraryShareTargetsResponse:
+      example:
+        share_targets:
+        - company: company
+          merchant_id: merchant_id
+        - company: company
+          merchant_id: merchant_id
+      properties:
+        share_targets:
+          description: "The calling account's linked accounts, each with its merchant\
+            \ id and company."
+          items:
+            $ref: '#/components/schemas/SfvbLibraryShareTarget'
+          type: array
       type: object
     SfvbLibraryTaxonomy:
       example:

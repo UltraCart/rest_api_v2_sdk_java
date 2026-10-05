@@ -1821,7 +1821,7 @@ The owner gets the draft with its hash_sha256, which an update, delete or publis
 
 <a name="getSfvbLibraryHistory"></a>
 # **getSfvbLibraryHistory**
-> SfvbLibraryHistoryEntry getSfvbLibraryHistory(storefrontOid, libraryOid)
+> SfvbLibraryHistoryResponse getSfvbLibraryHistory(storefrontOid, libraryOid)
 
 List a library entry&#39;s published revisions
 
@@ -1842,7 +1842,7 @@ Newest first, each with its release notes and hash.  Read one with getSfvbLibrar
 
 ### Return type
 
-[**SfvbLibraryHistoryEntry**](SfvbLibraryHistoryEntry.md)
+[**SfvbLibraryHistoryResponse**](SfvbLibraryHistoryResponse.md)
 
 ### Authorization
 
@@ -1865,7 +1865,7 @@ Newest first, each with its release notes and hash.  Read one with getSfvbLibrar
 
 <a name="getSfvbLibraryShareTargets"></a>
 # **getSfvbLibraryShareTargets**
-> SfvbLibraryShareTarget getSfvbLibraryShareTargets(storefrontOid)
+> SfvbLibraryShareTargetsResponse getSfvbLibraryShareTargets(storefrontOid)
 
 List the accounts a library entry can be shared with
 
@@ -1885,7 +1885,7 @@ The calling account&#39;s linked accounts, each with its merchant id and company
 
 ### Return type
 
-[**SfvbLibraryShareTarget**](SfvbLibraryShareTarget.md)
+[**SfvbLibraryShareTargetsResponse**](SfvbLibraryShareTargetsResponse.md)
 
 ### Authorization
 
@@ -3300,7 +3300,7 @@ An itemcontainer element renders nothing of its own.  It names a slot, and a sep
 
 <a name="listSfvbLibraryInstalls"></a>
 # **listSfvbLibraryInstalls**
-> SfvbLibraryInstallRecord listSfvbLibraryInstalls(storefrontOid)
+> SfvbLibraryInstallsResponse listSfvbLibraryInstalls(storefrontOid)
 
 List the library entries installed on a storefront
 
@@ -3320,7 +3320,7 @@ Each entry&#39;s most recently installed revision, its latest published revision
 
 ### Return type
 
-[**SfvbLibraryInstallRecord**](SfvbLibraryInstallRecord.md)
+[**SfvbLibraryInstallsResponse**](SfvbLibraryInstallsResponse.md)
 
 ### Authorization
 

@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.184</version>
+    <version>4.1.185</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.184"
+     implementation "com.ultracart:rest-sdk:4.1.185"
   }
 ```
 
@@ -1899,16 +1899,19 @@ Class | Method | HTTP request | Description
  - [SfvbLibraryEntryRequest](docs/SfvbLibraryEntryRequest.md)
  - [SfvbLibraryFacet](docs/SfvbLibraryFacet.md)
  - [SfvbLibraryHistoryEntry](docs/SfvbLibraryHistoryEntry.md)
+ - [SfvbLibraryHistoryResponse](docs/SfvbLibraryHistoryResponse.md)
  - [SfvbLibraryInstallConflict](docs/SfvbLibraryInstallConflict.md)
  - [SfvbLibraryInstallReceipt](docs/SfvbLibraryInstallReceipt.md)
  - [SfvbLibraryInstallRecord](docs/SfvbLibraryInstallRecord.md)
  - [SfvbLibraryInstallRequest](docs/SfvbLibraryInstallRequest.md)
+ - [SfvbLibraryInstallsResponse](docs/SfvbLibraryInstallsResponse.md)
  - [SfvbLibraryParameter](docs/SfvbLibraryParameter.md)
  - [SfvbLibraryPublishRequest](docs/SfvbLibraryPublishRequest.md)
  - [SfvbLibraryResponse](docs/SfvbLibraryResponse.md)
  - [SfvbLibraryScreenshotRequest](docs/SfvbLibraryScreenshotRequest.md)
  - [SfvbLibraryShareRequest](docs/SfvbLibraryShareRequest.md)
  - [SfvbLibraryShareTarget](docs/SfvbLibraryShareTarget.md)
+ - [SfvbLibraryShareTargetsResponse](docs/SfvbLibraryShareTargetsResponse.md)
  - [SfvbLibraryTaxonomy](docs/SfvbLibraryTaxonomy.md)
  - [SfvbLibraryTaxonomyCatalog](docs/SfvbLibraryTaxonomyCatalog.md)
  - [SfvbLibraryUnshareResult](docs/SfvbLibraryUnshareResult.md)
@@ -2173,6 +2176,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.185 | 10/05/2026 | sfvb internal testing |
 | 4.1.184 | 10/05/2026 | sfvb internal testing |
 | 4.1.183 | 10/05/2026 | OrderApi rma endpoints |
 | 4.1.182 | 10/02/2026 | sfvb internal testing |

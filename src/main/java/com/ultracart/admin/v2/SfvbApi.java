@@ -66,15 +66,15 @@ import com.ultracart.admin.v2.models.SfvbItemSeoRequest;
 import com.ultracart.admin.v2.models.SfvbLibraryDeleteResult;
 import com.ultracart.admin.v2.models.SfvbLibraryEntry;
 import com.ultracart.admin.v2.models.SfvbLibraryEntryRequest;
-import com.ultracart.admin.v2.models.SfvbLibraryHistoryEntry;
+import com.ultracart.admin.v2.models.SfvbLibraryHistoryResponse;
 import com.ultracart.admin.v2.models.SfvbLibraryInstallReceipt;
-import com.ultracart.admin.v2.models.SfvbLibraryInstallRecord;
 import com.ultracart.admin.v2.models.SfvbLibraryInstallRequest;
+import com.ultracart.admin.v2.models.SfvbLibraryInstallsResponse;
 import com.ultracart.admin.v2.models.SfvbLibraryPublishRequest;
 import com.ultracart.admin.v2.models.SfvbLibraryResponse;
 import com.ultracart.admin.v2.models.SfvbLibraryScreenshotRequest;
 import com.ultracart.admin.v2.models.SfvbLibraryShareRequest;
-import com.ultracart.admin.v2.models.SfvbLibraryShareTarget;
+import com.ultracart.admin.v2.models.SfvbLibraryShareTargetsResponse;
 import com.ultracart.admin.v2.models.SfvbLibraryTaxonomyCatalog;
 import com.ultracart.admin.v2.models.SfvbLibraryUnshareResult;
 import com.ultracart.admin.v2.models.SfvbMenu;
@@ -6405,7 +6405,7 @@ public class SfvbApi {
      * Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
      * @param storefrontOid  (required)
      * @param libraryOid  (required)
-     * @return SfvbLibraryHistoryEntry
+     * @return SfvbLibraryHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6418,8 +6418,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbLibraryHistoryEntry getSfvbLibraryHistory(Integer storefrontOid, Integer libraryOid) throws ApiException {
-        ApiResponse<SfvbLibraryHistoryEntry> localVarResp = getSfvbLibraryHistoryWithHttpInfo(storefrontOid, libraryOid);
+    public SfvbLibraryHistoryResponse getSfvbLibraryHistory(Integer storefrontOid, Integer libraryOid) throws ApiException {
+        ApiResponse<SfvbLibraryHistoryResponse> localVarResp = getSfvbLibraryHistoryWithHttpInfo(storefrontOid, libraryOid);
         return localVarResp.getData();
     }
 
@@ -6428,7 +6428,7 @@ public class SfvbApi {
      * Newest first, each with its release notes and hash.  Read one with getSfvbLibraryEntry and revision_number.  The owner and anyone the entry is shared with can list it. 
      * @param storefrontOid  (required)
      * @param libraryOid  (required)
-     * @return ApiResponse&lt;SfvbLibraryHistoryEntry&gt;
+     * @return ApiResponse&lt;SfvbLibraryHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6441,9 +6441,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbLibraryHistoryEntry> getSfvbLibraryHistoryWithHttpInfo(Integer storefrontOid, Integer libraryOid) throws ApiException {
+    public ApiResponse<SfvbLibraryHistoryResponse> getSfvbLibraryHistoryWithHttpInfo(Integer storefrontOid, Integer libraryOid) throws ApiException {
         okhttp3.Call localVarCall = getSfvbLibraryHistoryValidateBeforeCall(storefrontOid, libraryOid, null);
-        Type localVarReturnType = new TypeToken<SfvbLibraryHistoryEntry>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryHistoryResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -6466,10 +6466,10 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbLibraryHistoryAsync(Integer storefrontOid, Integer libraryOid, final ApiCallback<SfvbLibraryHistoryEntry> _callback) throws ApiException {
+    public okhttp3.Call getSfvbLibraryHistoryAsync(Integer storefrontOid, Integer libraryOid, final ApiCallback<SfvbLibraryHistoryResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSfvbLibraryHistoryValidateBeforeCall(storefrontOid, libraryOid, _callback);
-        Type localVarReturnType = new TypeToken<SfvbLibraryHistoryEntry>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryHistoryResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6553,7 +6553,7 @@ public class SfvbApi {
      * List the accounts a library entry can be shared with
      * The calling account&#39;s linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
      * @param storefrontOid  (required)
-     * @return SfvbLibraryShareTarget
+     * @return SfvbLibraryShareTargetsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6565,8 +6565,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbLibraryShareTarget getSfvbLibraryShareTargets(Integer storefrontOid) throws ApiException {
-        ApiResponse<SfvbLibraryShareTarget> localVarResp = getSfvbLibraryShareTargetsWithHttpInfo(storefrontOid);
+    public SfvbLibraryShareTargetsResponse getSfvbLibraryShareTargets(Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbLibraryShareTargetsResponse> localVarResp = getSfvbLibraryShareTargetsWithHttpInfo(storefrontOid);
         return localVarResp.getData();
     }
 
@@ -6574,7 +6574,7 @@ public class SfvbApi {
      * List the accounts a library entry can be shared with
      * The calling account&#39;s linked accounts, each with its merchant id and company.  These are the only merchants a share can name. 
      * @param storefrontOid  (required)
-     * @return ApiResponse&lt;SfvbLibraryShareTarget&gt;
+     * @return ApiResponse&lt;SfvbLibraryShareTargetsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -6586,9 +6586,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbLibraryShareTarget> getSfvbLibraryShareTargetsWithHttpInfo(Integer storefrontOid) throws ApiException {
+    public ApiResponse<SfvbLibraryShareTargetsResponse> getSfvbLibraryShareTargetsWithHttpInfo(Integer storefrontOid) throws ApiException {
         okhttp3.Call localVarCall = getSfvbLibraryShareTargetsValidateBeforeCall(storefrontOid, null);
-        Type localVarReturnType = new TypeToken<SfvbLibraryShareTarget>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryShareTargetsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -6609,10 +6609,10 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbLibraryShareTargetsAsync(Integer storefrontOid, final ApiCallback<SfvbLibraryShareTarget> _callback) throws ApiException {
+    public okhttp3.Call getSfvbLibraryShareTargetsAsync(Integer storefrontOid, final ApiCallback<SfvbLibraryShareTargetsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSfvbLibraryShareTargetsValidateBeforeCall(storefrontOid, _callback);
-        Type localVarReturnType = new TypeToken<SfvbLibraryShareTarget>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryShareTargetsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -11726,7 +11726,7 @@ public class SfvbApi {
      * List the library entries installed on a storefront
      * Each entry&#39;s most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
      * @param storefrontOid  (required)
-     * @return SfvbLibraryInstallRecord
+     * @return SfvbLibraryInstallsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11738,8 +11738,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbLibraryInstallRecord listSfvbLibraryInstalls(Integer storefrontOid) throws ApiException {
-        ApiResponse<SfvbLibraryInstallRecord> localVarResp = listSfvbLibraryInstallsWithHttpInfo(storefrontOid);
+    public SfvbLibraryInstallsResponse listSfvbLibraryInstalls(Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbLibraryInstallsResponse> localVarResp = listSfvbLibraryInstallsWithHttpInfo(storefrontOid);
         return localVarResp.getData();
     }
 
@@ -11747,7 +11747,7 @@ public class SfvbApi {
      * List the library entries installed on a storefront
      * Each entry&#39;s most recently installed revision, its latest published revision and update_available.  Nothing updates automatically.  An entry this account can no longer see is listed without its name. 
      * @param storefrontOid  (required)
-     * @return ApiResponse&lt;SfvbLibraryInstallRecord&gt;
+     * @return ApiResponse&lt;SfvbLibraryInstallsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11759,9 +11759,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbLibraryInstallRecord> listSfvbLibraryInstallsWithHttpInfo(Integer storefrontOid) throws ApiException {
+    public ApiResponse<SfvbLibraryInstallsResponse> listSfvbLibraryInstallsWithHttpInfo(Integer storefrontOid) throws ApiException {
         okhttp3.Call localVarCall = listSfvbLibraryInstallsValidateBeforeCall(storefrontOid, null);
-        Type localVarReturnType = new TypeToken<SfvbLibraryInstallRecord>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryInstallsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -11782,10 +11782,10 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call listSfvbLibraryInstallsAsync(Integer storefrontOid, final ApiCallback<SfvbLibraryInstallRecord> _callback) throws ApiException {
+    public okhttp3.Call listSfvbLibraryInstallsAsync(Integer storefrontOid, final ApiCallback<SfvbLibraryInstallsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listSfvbLibraryInstallsValidateBeforeCall(storefrontOid, _callback);
-        Type localVarReturnType = new TypeToken<SfvbLibraryInstallRecord>(){}.getType();
+        Type localVarReturnType = new TypeToken<SfvbLibraryInstallsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
