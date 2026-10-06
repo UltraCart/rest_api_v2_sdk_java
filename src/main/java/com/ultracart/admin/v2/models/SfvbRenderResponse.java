@@ -72,6 +72,10 @@ public class SfvbRenderResponse {
   @SerializedName(SERIALIZED_NAME_TRUNCATED)
   private Boolean truncated;
 
+  public static final String SERIALIZED_NAME_UNTRANSLATED_COUNT = "untranslated_count";
+  @SerializedName(SERIALIZED_NAME_UNTRANSLATED_COUNT)
+  private Integer untranslatedCount;
+
   public static final String SERIALIZED_NAME_WARNINGS = "warnings";
   @SerializedName(SERIALIZED_NAME_WARNINGS)
   private List<SfvbErrorDetail> warnings = null;
@@ -202,6 +206,29 @@ public class SfvbRenderResponse {
   }
 
 
+  public SfvbRenderResponse untranslatedCount(Integer untranslatedCount) {
+    
+    this.untranslatedCount = untranslatedCount;
+    return this;
+  }
+
+   /**
+   * Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.
+   * @return untranslatedCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Strings rendered in English because no translation is stored for the requested language yet.  A render never translates, so re-rendering does not change this.  Push the page to store its hand translations; machine translations are made when shoppers first view it in that language.")
+
+  public Integer getUntranslatedCount() {
+    return untranslatedCount;
+  }
+
+
+  public void setUntranslatedCount(Integer untranslatedCount) {
+    this.untranslatedCount = untranslatedCount;
+  }
+
+
   public SfvbRenderResponse warnings(List<SfvbErrorDetail> warnings) {
     
     this.warnings = warnings;
@@ -248,12 +275,13 @@ public class SfvbRenderResponse {
         Objects.equals(this.pendingTranslationCount, sfvbRenderResponse.pendingTranslationCount) &&
         Objects.equals(this.success, sfvbRenderResponse.success) &&
         Objects.equals(this.truncated, sfvbRenderResponse.truncated) &&
+        Objects.equals(this.untranslatedCount, sfvbRenderResponse.untranslatedCount) &&
         Objects.equals(this.warnings, sfvbRenderResponse.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors, html, pendingTranslationCount, success, truncated, warnings);
+    return Objects.hash(errors, html, pendingTranslationCount, success, truncated, untranslatedCount, warnings);
   }
 
   @Override
@@ -265,6 +293,7 @@ public class SfvbRenderResponse {
     sb.append("    pendingTranslationCount: ").append(toIndentedString(pendingTranslationCount)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    truncated: ").append(toIndentedString(truncated)).append("\n");
+    sb.append("    untranslatedCount: ").append(toIndentedString(untranslatedCount)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -293,6 +322,7 @@ public class SfvbRenderResponse {
     openapiFields.add("pending_translation_count");
     openapiFields.add("success");
     openapiFields.add("truncated");
+    openapiFields.add("untranslated_count");
     openapiFields.add("warnings");
 
     // a set of required properties/fields (JSON key names)

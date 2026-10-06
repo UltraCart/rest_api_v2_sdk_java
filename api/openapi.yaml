@@ -251538,6 +251538,7 @@ components:
           message: message
         pending_translation_count: 0
         truncated: true
+        untranslated_count: 6
         html: html
         errors:
         - severity: error
@@ -251584,6 +251585,13 @@ components:
         truncated:
           description: True when the HTML was cut short.
           type: boolean
+        untranslated_count:
+          description: "Strings rendered in English because no translation is stored\
+            \ for the requested language yet.  A render never translates, so re-rendering\
+            \ does not change this.  Push the page to store its hand translations;\
+            \ machine translations are made when shoppers first view it in that language."
+          format: int32
+          type: integer
         warnings:
           description: Quality warnings about the rendered node.
           items:
