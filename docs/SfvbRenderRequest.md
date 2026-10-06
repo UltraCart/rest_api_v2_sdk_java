@@ -18,7 +18,7 @@
 |**contextPageNumber** | **String** | Page number for paginated elements.  Defaults to 1. |  [optional] |
 |**contextUpsellOfferOid** | **Integer** | Upsell offer oid for the rendering context. |  [optional] |
 |**editMode** | **Boolean** | True renders every branch the way the builder shows it, for styling content a shopper only sometimes sees.  Omitted or false renders what a shopper sees, with conditions, prices and sale state evaluated against the context item. |  [optional] |
-|**languageIsoCode** | **String** | UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG. |  [optional] |
+|**languageIsoCode** | **String** | Three-letter ISO 639-2 language code in the bibliographic form (GER, FRE, CHI), with UltraCart exceptions such as ESP for Spanish.  Must be enabled on the storefront.  Defaults to ENG. |  [optional] |
 |**uri** | **String** | Storefront URI the node would appear on.  Affects rendering of anything page relative. |  [optional] |
 
 

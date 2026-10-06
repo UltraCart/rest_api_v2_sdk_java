@@ -25578,6 +25578,516 @@ paths:
       x-codegen-request-body-name: menu_write_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/not_found:
+    get:
+      description: "The paths shoppers asked for that answered 404, most hits first\
+        \ or by last_seen.  Paths only, never query strings.  Bots are left out unless\
+        \ include_bots.  Token-like path segments show as {token} unless include_tokens.\
+        \  limit is 1 to 100, default 50.\n"
+      operationId: getSfvbNotFound
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: since
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: string
+      - in: query
+        name: include_bots
+        schema:
+          type: boolean
+      - in: query
+        name: include_tokens
+        schema:
+          type: boolean
+      - in: query
+        name: q
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbNotFoundResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the paths that answered 404
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}:
+    get:
+      description: "One entry with up to 100 recent hits, each with its time, the\
+        \ linking host, the user agent and whether it was a bot.  Client IP addresses\
+        \ are never returned.\n"
+      operationId: getSfvbNotFoundEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: not_found_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include_tokens
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbNotFoundEntryResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one 404 path with its recent hits
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore:
+    delete:
+      description: |
+        The path lists and counts hits again.
+      operationId: unignoreSfvbNotFoundEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: not_found_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbNotFoundEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Stop ignoring a 404 path
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "Hides one path from the list and stops counting its hits, for\
+        \ example scanner noise.  Reversible.\n"
+      operationId: ignoreSfvbNotFoundEntry
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: not_found_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbNotFoundEntry'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Ignore a 404 path
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/not_found_page:
+    get:
+      description: "The site_404.vm the active theme renders for a 404, found the\
+        \ way the storefront finds it, and whether it exists.  Without it the storefront\
+        \ serves a plain fallback.  Edit it with the file endpoints.\n"
+      operationId: getSfvbNotFoundPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbNotFoundPage'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: What renders the storefront's 404 page
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/pages:
     get:
       description: "What the pageattribute and pageimage elements render for this\
@@ -28003,6 +28513,929 @@ paths:
       summary: Get one recorded page view's replay events
       tags:
       - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects:
+    get:
+      description: "Every redirect rule, exact and pattern.  Filter with q (searches\
+        \ source, target and note), type (exact or pattern) and status (301, 302 or\
+        \ rewrite).  count and limit say how close the storefront is to its rule limit.\n"
+      operationId: getSfvbRedirects
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: q
+        schema:
+          type: string
+      - in: query
+        name: type
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the storefront's redirect rules
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "Creates one permanent (301) redirect, live for shoppers at once.\
+        \  Refused for a loop, a chain longer than the storefront follows, a duplicate\
+        \ source, a target that is missing or on another site, a system path, a live\
+        \ page (unless over_live_page) and a full storefront.  A chain is allowed\
+        \ with a warning naming the final target.  Always needs sfvb_publish.\n"
+      operationId: insertSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRedirectRequest'
+        description: The request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a 301 redirect rule
+      tags:
+      - sfvb
+      x-codegen-request-body-name: redirect_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects/check:
+    post:
+      description: "Runs every check a create runs (loops, chains, duplicates, missing\
+        \ or external targets, system paths, live pages, the rule limit) and returns\
+        \ the findings.  Writes nothing.\n"
+      operationId: checkSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRedirectRequest'
+        description: The request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectCheckResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Check a redirect rule without creating it
+      tags:
+      - sfvb
+      x-codegen-request-body-name: redirect_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects/import:
+    post:
+      description: "Applies exactly the rows of a dry run, given its plan_hash, in\
+        \ one transaction.  Refused with 412 when the rows or the storefront's rules\
+        \ changed since the dry run, and refused when any row has a blocking finding.\
+        \  Always needs sfvb_publish.\n"
+      operationId: importSfvbRedirects
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRedirectImportRequest'
+        description: The request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectImportResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Apply a reviewed redirect import
+      tags:
+      - sfvb
+      x-codegen-request-body-name: redirect_import_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run:
+    post:
+      description: "Checks up to 5,000 rows against the existing rules and each other,\
+        \ and returns the findings per row with a plan_hash.  Writes nothing.  Rows\
+        \ are merged with the existing rules; nothing is ever deleted.\n"
+      operationId: dryRunSfvbRedirectImport
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRedirectImportRequest'
+        description: The request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectImportResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Check a redirect import without writing it
+      tags:
+      - sfvb
+      x-codegen-request-body-name: redirect_import_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects/resolve:
+    get:
+      description: "Follows the redirect rules for a path exactly as the storefront\
+        \ does and reports each step, the final path, its status and what it lands\
+        \ on (a live page, a hidden page, an item, a 404 or something else).  Read\
+        \ only.  Use it to check every change.\n"
+      operationId: resolveSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: path
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectResolveResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: What a shopper gets for a path
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id}:
+    delete:
+      description: |
+        Deletes one rule.  The source path answers again as it would without the rule.  Send the hash_sha256 you read as If-Match.  Always needs sfvb_publish.
+      operationId: deleteSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: redirect_id
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a redirect rule
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "One rule, with the hash_sha256 to send as If-Match when updating\
+        \ or deleting it.\n"
+      operationId: getSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: redirect_id
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirect'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one redirect rule
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Changes the source, target or note, and can turn an admin rule\
+        \ into a 301.  Fields left out keep their value.  A changed source or target\
+        \ is checked like a new rule.  Send the hash_sha256 you read as If-Match.\
+        \  Always needs sfvb_publish.\n"
+      operationId: updateSfvbRedirect
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: redirect_id
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbRedirectRequest'
+        description: The request
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbRedirectResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a redirect rule
+      tags:
+      - sfvb
+      x-codegen-request-body-name: redirect_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/templates:
     get:
@@ -247686,6 +249119,191 @@ components:
             it off to keep the current one.
           type: string
       type: object
+    SfvbNotFoundEntry:
+      example:
+        hits: 1
+        ignored: true
+        path: path
+        redirected_to: redirected_to
+        counted_hits: 6
+        last_seen_dts: last_seen_dts
+        referrer_hosts:
+        - referrer_hosts
+        - referrer_hosts
+        bot_hits: 0
+        bot_share: "{}"
+        not_found_id: not_found_id
+        first_seen_dts: first_seen_dts
+      properties:
+        bot_hits:
+          description: Bot hits since bot counting began on this entry.  Empty when
+            not yet counted.
+          format: int32
+          type: integer
+        bot_share:
+          description: "bot_hits divided by counted_hits, 0 to 1.  Empty when not\
+            \ yet counted."
+          type: object
+        counted_hits:
+          description: "Hits since bot counting began, the base for bot_share."
+          format: int32
+          type: integer
+        first_seen_dts:
+          description: "First hit, ISO 8601."
+          type: string
+        hits:
+          description: "Every recorded hit, bots included."
+          format: int32
+          type: integer
+        ignored:
+          description: True when the entry is ignored and no longer counts.
+          type: boolean
+        last_seen_dts:
+          description: "Latest hit, ISO 8601."
+          type: string
+        not_found_id:
+          description: The entry's id.
+          type: string
+        path:
+          description: "The path, without its query string.  Token-like segments show\
+            \ as {token} unless asked for."
+          type: string
+        redirected_to:
+          description: "Where a redirect rule now sends this path, when one does."
+          type: string
+        referrer_hosts:
+          description: Hosts of the pages that linked to it.
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbNotFoundEntryResponse:
+      example:
+        hits:
+        - request_dts: request_dts
+          bot: true
+          referrer_host: referrer_host
+          user_agent: user_agent
+        - request_dts: request_dts
+          bot: true
+          referrer_host: referrer_host
+          user_agent: user_agent
+        entry:
+          hits: 1
+          ignored: true
+          path: path
+          redirected_to: redirected_to
+          counted_hits: 6
+          last_seen_dts: last_seen_dts
+          referrer_hosts:
+          - referrer_hosts
+          - referrer_hosts
+          bot_hits: 0
+          bot_share: "{}"
+          not_found_id: not_found_id
+          first_seen_dts: first_seen_dts
+      properties:
+        entry:
+          $ref: '#/components/schemas/SfvbNotFoundEntry'
+        hits:
+          description: "The most recent hits, up to 100."
+          items:
+            $ref: '#/components/schemas/SfvbNotFoundHit'
+          type: array
+      type: object
+    SfvbNotFoundHit:
+      example:
+        request_dts: request_dts
+        bot: true
+        referrer_host: referrer_host
+        user_agent: user_agent
+      properties:
+        bot:
+          description: True when the hit was from a bot.
+          type: boolean
+        referrer_host:
+          description: Host of the linking page.
+          type: string
+        request_dts:
+          description: "When, ISO 8601."
+          type: string
+        user_agent:
+          description: The browser or bot.
+          type: string
+      type: object
+    SfvbNotFoundPage:
+      example:
+        theme_path: theme_path
+        exists: true
+        template_path: template_path
+        theme_oid: 6
+        fallback: fallback
+        status: 0
+      properties:
+        exists:
+          description: False when the theme has no site_404.vm and the plain fallback
+            is served.
+          type: boolean
+        fallback:
+          description: What is served when the template is missing.
+          type: string
+        status:
+          description: "The HTTP status the page is served with, always 404."
+          format: int32
+          type: integer
+        template_path:
+          description: "The site_404.vm the storefront uses, relative to the theme."
+          type: string
+        theme_oid:
+          description: The active theme.
+          format: int32
+          type: integer
+        theme_path:
+          description: The theme's folder.
+          type: string
+      type: object
+    SfvbNotFoundResponse:
+      example:
+        entries:
+        - hits: 1
+          ignored: true
+          path: path
+          redirected_to: redirected_to
+          counted_hits: 6
+          last_seen_dts: last_seen_dts
+          referrer_hosts:
+          - referrer_hosts
+          - referrer_hosts
+          bot_hits: 0
+          bot_share: "{}"
+          not_found_id: not_found_id
+          first_seen_dts: first_seen_dts
+        - hits: 1
+          ignored: true
+          path: path
+          redirected_to: redirected_to
+          counted_hits: 6
+          last_seen_dts: last_seen_dts
+          referrer_hosts:
+          - referrer_hosts
+          - referrer_hosts
+          bot_hits: 0
+          bot_share: "{}"
+          not_found_id: not_found_id
+          first_seen_dts: first_seen_dts
+        scanned: 5
+      properties:
+        entries:
+          description: "The entries, most hits first unless sorted otherwise."
+          items:
+            $ref: '#/components/schemas/SfvbNotFoundEntry'
+          type: array
+        scanned:
+          description: How many entries were read to build the list.  Filters apply
+            within them.
+          format: int32
+          type: integer
+      type: object
     SfvbPageAttribute:
       example:
         undeclared: true
@@ -249239,6 +250857,586 @@ components:
         settings:
           $ref: '#/components/schemas/SfvbRecordingSettings'
       type: object
+    SfvbRedirect:
+      example:
+        note: note
+        exclude_from_sitemap: true
+        source: source
+        type: type
+        pinned_page_path: pinned_page_path
+        redirect_id: 1
+        target: target
+        hash_sha256: hash_sha256
+        modified_dts: modified_dts
+        target_invalid_message: target_invalid_message
+        target_invalid: true
+        created_dts: created_dts
+        status: status
+      properties:
+        created_dts:
+          description: "When SFVB created the rule, ISO 8601.  Empty for rules created\
+            \ in the admin."
+          type: string
+        exclude_from_sitemap:
+          description: Whether the source is left out of the generated sitemap.
+          type: boolean
+        hash_sha256:
+          description: Send back as If-Match to update or delete the rule.
+          type: string
+        modified_dts:
+          description: "When SFVB last changed the rule, ISO 8601."
+          type: string
+        note:
+          description: Why the rule exists.
+          type: string
+        pinned_page_path:
+          description: "When the rule is pinned to a page, that page's current path.\
+            \  The target follows the page."
+          type: string
+        redirect_id:
+          description: The rule's id.
+          format: int32
+          type: integer
+        source:
+          description: "The path the rule catches, as stored.  A trailing /* catches\
+            \ everything below it."
+          type: string
+        status:
+          description: "301, 302 (to another site, admin rules only) or rewrite (an\
+            \ admin rule serving the target at the source with a 200).  Rules written\
+            \ through SFVB are always 301."
+          type: string
+        target:
+          description: Where the rule sends the shopper.
+          type: string
+        target_invalid:
+          description: True when the target is a page or item that does not exist.
+          type: boolean
+        target_invalid_message:
+          description: Why the target is invalid.
+          type: string
+        type:
+          description: exact or pattern.
+          type: string
+      type: object
+    SfvbRedirectCheckResponse:
+      example:
+        valid: true
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        source: source
+        type: type
+        errors:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+      properties:
+        errors:
+          description: Findings that block the rule.
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+        source:
+          description: "The source as it matches, lower case without a trailing index.html."
+          type: string
+        type:
+          description: exact or pattern.
+          type: string
+        valid:
+          description: True when nothing blocks the rule.
+          type: boolean
+        warnings:
+          description: Findings that do not block it.  A chain carries the final target
+            as its suggestion.
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
+    SfvbRedirectImportRequest:
+      example:
+        plan_hash: plan_hash
+        rows:
+        - note: note
+          source: source
+          target: target
+        - note: note
+          source: source
+          target: target
+      properties:
+        plan_hash:
+          description: From the dry run.  Required to apply.
+          type: string
+        rows:
+          description: "The rows, up to 5,000."
+          items:
+            $ref: '#/components/schemas/SfvbRedirectImportRow'
+          type: array
+      type: object
+    SfvbRedirectImportResponse:
+      example:
+        total: 2
+        blocked: 0
+        flagged: 6
+        applied: true
+        limit: 1
+        plan_hash: plan_hash
+        rows:
+        - warnings:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          row: 5
+          source: source
+          errors:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          target: target
+        - warnings:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          row: 5
+          source: source
+          errors:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          target: target
+        rule_count: 5
+      properties:
+        applied:
+          description: True when the rows were written.
+          type: boolean
+        blocked:
+          description: How many rows have a blocking finding.  Any blocked row means
+            nothing is applied.
+          format: int32
+          type: integer
+        flagged:
+          description: How many rows have only warnings.
+          format: int32
+          type: integer
+        limit:
+          description: The most rules a storefront may have through SFVB.
+          format: int32
+          type: integer
+        plan_hash:
+          description: Send back with the same rows to apply exactly this plan.
+          type: string
+        rows:
+          description: The rows with findings.
+          items:
+            $ref: '#/components/schemas/SfvbRedirectImportRowResult'
+          type: array
+        rule_count:
+          description: "How many rules the storefront has, or would have after applying."
+          format: int32
+          type: integer
+        total:
+          description: How many rows were sent.
+          format: int32
+          type: integer
+      type: object
+    SfvbRedirectImportRow:
+      example:
+        note: note
+        source: source
+        target: target
+      properties:
+        note:
+          description: Why the rule exists.
+          type: string
+        source:
+          description: The path to catch.
+          type: string
+        target:
+          description: Where to send it.
+          type: string
+      type: object
+    SfvbRedirectImportRowResult:
+      example:
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        row: 5
+        source: source
+        errors:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        target: target
+      properties:
+        errors:
+          description: Findings that block the import.
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+        row:
+          description: "The row's position, starting at 1."
+          format: int32
+          type: integer
+        source:
+          description: The row's source.
+          type: string
+        target:
+          description: The row's target.
+          type: string
+        warnings:
+          description: Findings that do not block it.
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
+    SfvbRedirectRequest:
+      example:
+        note: note
+        over_live_page: true
+        source: source
+        status: status
+        target: target
+      properties:
+        note:
+          description: "Why the rule exists, up to 500 characters."
+          type: string
+        over_live_page:
+          description: "Allow a source that is a live, visible page or item, which\
+            \ the rule then hides."
+          type: boolean
+        source:
+          description: "The path to catch, starting with /.  End it with /* to catch\
+            \ everything below."
+          type: string
+        status:
+          description: Updates only.  301 turns an admin rule into a permanent redirect.  Leave
+            empty to keep the rule's status.  New rules are always 301.
+          type: string
+        target:
+          description: "A path on the storefront, or a URL on one of its own hosts."
+          type: string
+      type: object
+    SfvbRedirectResolveResponse:
+      example:
+        lands_on: lands_on
+        path: path
+        final_path: final_path
+        too_long: true
+        final_status: final_status
+        steps:
+        - from: from
+          to: to
+          status: status
+        - from: from
+          to: to
+          status: status
+      properties:
+        final_path:
+          description: Where the shopper ends up.  The storefront sends them straight
+            there in one redirect.
+          type: string
+        final_status:
+          description: "The status the shopper gets, 301, 302, rewrite, or none when\
+            \ no rule matches."
+          type: string
+        lands_on:
+          description: "live_page, hidden_page, item, not_found or other (a file or\
+            \ system path)."
+          type: string
+        path:
+          description: The path asked about.
+          type: string
+        steps:
+          description: "Each redirect followed, in order.  Empty when no rule matches."
+          items:
+            $ref: '#/components/schemas/SfvbRedirectResolveStep'
+          type: array
+        too_long:
+          description: True when the chain is longer than the storefront follows.
+          type: boolean
+      type: object
+    SfvbRedirectResolveStep:
+      example:
+        from: from
+        to: to
+        status: status
+      properties:
+        from:
+          description: The path requested.
+          type: string
+        status:
+          description: "301, 302 or rewrite."
+          type: string
+        to:
+          description: Where the rule sends it.
+          type: string
+      type: object
+    SfvbRedirectResponse:
+      example:
+        redirect:
+          note: note
+          exclude_from_sitemap: true
+          source: source
+          type: type
+          pinned_page_path: pinned_page_path
+          redirect_id: 1
+          target: target
+          hash_sha256: hash_sha256
+          modified_dts: modified_dts
+          target_invalid_message: target_invalid_message
+          target_invalid: true
+          created_dts: created_dts
+          status: status
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+      properties:
+        redirect:
+          $ref: '#/components/schemas/SfvbRedirect'
+        warnings:
+          description: "Findings that did not block the write, such as a chain."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
+    SfvbRedirectsResponse:
+      example:
+        redirects:
+        - note: note
+          exclude_from_sitemap: true
+          source: source
+          type: type
+          pinned_page_path: pinned_page_path
+          redirect_id: 1
+          target: target
+          hash_sha256: hash_sha256
+          modified_dts: modified_dts
+          target_invalid_message: target_invalid_message
+          target_invalid: true
+          created_dts: created_dts
+          status: status
+        - note: note
+          exclude_from_sitemap: true
+          source: source
+          type: type
+          pinned_page_path: pinned_page_path
+          redirect_id: 1
+          target: target
+          hash_sha256: hash_sha256
+          modified_dts: modified_dts
+          target_invalid_message: target_invalid_message
+          target_invalid: true
+          created_dts: created_dts
+          status: status
+        count: 0
+        limit: 6
+      properties:
+        count:
+          description: How many rules the storefront has.
+          format: int32
+          type: integer
+        limit:
+          description: The most rules a storefront may have through SFVB.
+          format: int32
+          type: integer
+        redirects:
+          description: The rules.
+          items:
+            $ref: '#/components/schemas/SfvbRedirect'
+          type: array
+      type: object
     SfvbRenderRequest:
       example:
         context_blog_post_oid: 6
@@ -249301,8 +251499,9 @@ components:
             \ against the context item."
           type: boolean
         language_iso_code:
-          description: "UltraCart language code such as ESP, enabled on the storefront.\
-            \  Two-letter codes and English names are accepted.  Defaults to ENG."
+          description: "Three-letter ISO 639-2 language code in the bibliographic\
+            \ form (GER, FRE, CHI), with UltraCart exceptions such as ESP for Spanish.\
+            \  Must be enabled on the storefront.  Defaults to ENG."
           type: string
         uri:
           description: Storefront URI the node would appear on.  Affects rendering
