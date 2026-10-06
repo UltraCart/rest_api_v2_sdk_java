@@ -364,11 +364,11 @@ public class SfvbRenderRequest {
   }
 
    /**
-   * Language ISO code.  Defaults to ENG.
+   * UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.
    * @return languageIsoCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Language ISO code.  Defaults to ENG.")
+  @ApiModelProperty(value = "UltraCart language code such as ESP, enabled on the storefront.  Two-letter codes and English names are accepted.  Defaults to ENG.")
 
   public String getLanguageIsoCode() {
     return languageIsoCode;

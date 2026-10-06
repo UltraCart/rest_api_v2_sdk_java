@@ -249301,7 +249301,8 @@ components:
             \ against the context item."
           type: boolean
         language_iso_code:
-          description: Language ISO code.  Defaults to ENG.
+          description: "UltraCart language code such as ESP, enabled on the storefront.\
+            \  Two-letter codes and English names are accepted.  Defaults to ENG."
           type: string
         uri:
           description: Storefront URI the node would appear on.  Affects rendering
