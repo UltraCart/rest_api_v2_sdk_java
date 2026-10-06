@@ -49,9 +49,9 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbLibraryParameter {
-  public static final String SERIALIZED_NAME_DEFAULT = "default";
-  @SerializedName(SERIALIZED_NAME_DEFAULT)
-  private String _default;
+  public static final String SERIALIZED_NAME_DEFAULT_VALUE = "default_value";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
+  private String defaultValue;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -72,26 +72,26 @@ public class SfvbLibraryParameter {
   public SfvbLibraryParameter() { 
   }
 
-  public SfvbLibraryParameter _default(String _default) {
+  public SfvbLibraryParameter defaultValue(String defaultValue) {
     
-    this._default = _default;
+    this.defaultValue = defaultValue;
     return this;
   }
 
    /**
    * The value used when none is supplied.
-   * @return _default
+   * @return defaultValue
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The value used when none is supplied.")
 
-  public String getDefault() {
-    return _default;
+  public String getDefaultValue() {
+    return defaultValue;
   }
 
 
-  public void setDefault(String _default) {
-    this._default = _default;
+  public void setDefaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
   }
 
 
@@ -197,7 +197,7 @@ public class SfvbLibraryParameter {
       return false;
     }
     SfvbLibraryParameter sfvbLibraryParameter = (SfvbLibraryParameter) o;
-    return Objects.equals(this._default, sfvbLibraryParameter._default) &&
+    return Objects.equals(this.defaultValue, sfvbLibraryParameter.defaultValue) &&
         Objects.equals(this.description, sfvbLibraryParameter.description) &&
         Objects.equals(this.name, sfvbLibraryParameter.name) &&
         Objects.equals(this.required, sfvbLibraryParameter.required) &&
@@ -206,14 +206,14 @@ public class SfvbLibraryParameter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default, description, name, required, type);
+    return Objects.hash(defaultValue, description, name, required, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbLibraryParameter {\n");
-    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    defaultValue: ").append(toIndentedString(defaultValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
@@ -240,7 +240,7 @@ public class SfvbLibraryParameter {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("default");
+    openapiFields.add("default_value");
     openapiFields.add("description");
     openapiFields.add("name");
     openapiFields.add("required");
@@ -272,8 +272,8 @@ public class SfvbLibraryParameter {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbLibraryParameter` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if (jsonObj.get("default") != null && !jsonObj.get("default").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default").toString()));
+      if (jsonObj.get("default_value") != null && !jsonObj.get("default_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_value").toString()));
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

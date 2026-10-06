@@ -244960,14 +244960,14 @@ components:
             detail: detail
             widget_type: widget_type
         parameters:
-        - default: default
-          name: name
+        - name: name
           description: description
+          default_value: default_value
           type: type
           required: true
-        - default: default
-          name: name
+        - name: name
           description: description
+          default_value: default_value
           type: type
           required: true
       properties:
@@ -245096,14 +245096,14 @@ components:
           - style
           - style
         parameters:
-        - default: default
-          name: name
+        - name: name
           description: description
+          default_value: default_value
           type: type
           required: true
-        - default: default
-          name: name
+        - name: name
           description: description
+          default_value: default_value
           type: type
           required: true
         cjson: cjson
@@ -245424,13 +245424,13 @@ components:
       type: object
     SfvbLibraryParameter:
       example:
-        default: default
         name: name
         description: description
+        default_value: default_value
         type: type
         required: true
       properties:
-        default:
+        default_value:
           description: The value used when none is supplied.
           type: string
         description:
@@ -245555,14 +245555,14 @@ components:
               detail: detail
               widget_type: widget_type
           parameters:
-          - default: default
-            name: name
+          - name: name
             description: description
+            default_value: default_value
             type: type
             required: true
-          - default: default
-            name: name
+          - name: name
             description: description
+            default_value: default_value
             type: type
             required: true
         - screenshot_height: 2
@@ -245649,14 +245649,14 @@ components:
               detail: detail
               widget_type: widget_type
           parameters:
-          - default: default
-            name: name
+          - name: name
             description: description
+            default_value: default_value
             type: type
             required: true
-          - default: default
-            name: name
+          - name: name
             description: description
+            default_value: default_value
             type: type
             required: true
         facets:
