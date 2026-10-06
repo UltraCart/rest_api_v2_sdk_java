@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.189</version>
+    <version>4.1.190</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.189"
+     implementation "com.ultracart:rest-sdk:4.1.190"
   }
 ```
 
@@ -512,6 +512,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
+*SfvbApi* | [**disableSfvbI18nLanguage**](docs/SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/SfvbApi.md#disableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
@@ -520,6 +521,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**duplicateSfvbTheme**](docs/SfvbApi.md#duplicateSfvbTheme) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/duplicate | Duplicate a theme
 *SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/SfvbApi.md#duplicateSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 *SfvbApi* | [**duplicateSfvbUpsellPath**](docs/SfvbApi.md#duplicateSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
+*SfvbApi* | [**enableSfvbI18nLanguage**](docs/SfvbApi.md#enableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable | Enable a language
 *SfvbApi* | [**endSfvbExperiment**](docs/SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
@@ -531,6 +533,11 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+*SfvbApi* | [**getSfvbI18nGlossary**](docs/SfvbApi.md#getSfvbI18nGlossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
+*SfvbApi* | [**getSfvbI18nLanguages**](docs/SfvbApi.md#getSfvbI18nLanguages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/languages | List a storefront&#39;s languages
+*SfvbApi* | [**getSfvbI18nMachineTranslations**](docs/SfvbApi.md#getSfvbI18nMachineTranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/machine_translations | Read where a widget setting&#39;s translations come from
+*SfvbApi* | [**getSfvbI18nMessage**](docs/SfvbApi.md#getSfvbI18nMessage) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Read one built-in message
+*SfvbApi* | [**getSfvbI18nMessageMachineTranslations**](docs/SfvbApi.md#getSfvbI18nMessageMachineTranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key}/machine_translations | Read where a message&#39;s translations come from
 *SfvbApi* | [**getSfvbItem**](docs/SfvbApi.md#getSfvbItem) | **GET** /sfvb/storefronts/{storefront_oid}/items | Read an item&#39;s storefront facing content
 *SfvbApi* | [**getSfvbLibraryEntry**](docs/SfvbApi.md#getSfvbLibraryEntry) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Read one library entry including its CJSON
 *SfvbApi* | [**getSfvbLibraryHistory**](docs/SfvbApi.md#getSfvbLibraryHistory) | **GET** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/history | List a library entry&#39;s published revisions
@@ -566,6 +573,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbExperiments**](docs/SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 *SfvbApi* | [**listSfvbFileVersions**](docs/SfvbApi.md#listSfvbFileVersions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+*SfvbApi* | [**listSfvbI18nMessages**](docs/SfvbApi.md#listSfvbI18nMessages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages | List built-in messages
 *SfvbApi* | [**listSfvbItemContainers**](docs/SfvbApi.md#listSfvbItemContainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 *SfvbApi* | [**listSfvbLibraryInstalls**](docs/SfvbApi.md#listSfvbLibraryInstalls) | **GET** /sfvb/storefronts/{storefront_oid}/library/installs | List the library entries installed on a storefront
 *SfvbApi* | [**listSfvbPages**](docs/SfvbApi.md#listSfvbPages) | **GET** /sfvb/storefronts/{storefront_oid}/pages/list | List the storefront&#39;s pages
@@ -580,6 +588,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
 *SfvbApi* | [**putSfvbFileContent**](docs/SfvbApi.md#putSfvbFileContent) | **PUT** /sfvb/storefronts/{storefront_oid}/files/content | Write a storefront file
+*SfvbApi* | [**putSfvbI18nGlossary**](docs/SfvbApi.md#putSfvbI18nGlossary) | **PUT** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Replace the storefront&#39;s translation glossary
+*SfvbApi* | [**putSfvbI18nMessage**](docs/SfvbApi.md#putSfvbI18nMessage) | **PUT** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Change one built-in message
 *SfvbApi* | [**putSfvbItemAttributes**](docs/SfvbApi.md#putSfvbItemAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
 *SfvbApi* | [**putSfvbItemContent**](docs/SfvbApi.md#putSfvbItemContent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 *SfvbApi* | [**putSfvbItemMultimedia**](docs/SfvbApi.md#putSfvbItemMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
@@ -598,6 +608,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**removeSfvbPageItems**](docs/SfvbApi.md#removeSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/remove | Take items off a page
 *SfvbApi* | [**renderSfvbWidgets**](docs/SfvbApi.md#renderSfvbWidgets) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/render | Render a CJSON node to HTML
 *SfvbApi* | [**reserveSfvbWidgetIds**](docs/SfvbApi.md#reserveSfvbWidgetIds) | **POST** /sfvb/storefronts/{storefront_oid}/widget_ids | Reserve a block of widget ids
+*SfvbApi* | [**resetSfvbI18nMessage**](docs/SfvbApi.md#resetSfvbI18nMessage) | **DELETE** /sfvb/storefronts/{storefront_oid}/i18n/messages/{key} | Reset one built-in message
 *SfvbApi* | [**resolveSfvbTemplate**](docs/SfvbApi.md#resolveSfvbTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
@@ -1881,6 +1892,18 @@ Class | Method | HTTP request | Description
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
+ - [SfvbI18nGlossary](docs/SfvbI18nGlossary.md)
+ - [SfvbI18nGlossaryRequest](docs/SfvbI18nGlossaryRequest.md)
+ - [SfvbI18nLanguage](docs/SfvbI18nLanguage.md)
+ - [SfvbI18nLanguageEnableRequest](docs/SfvbI18nLanguageEnableRequest.md)
+ - [SfvbI18nLanguagesResponse](docs/SfvbI18nLanguagesResponse.md)
+ - [SfvbI18nMachineTranslationsResponse](docs/SfvbI18nMachineTranslationsResponse.md)
+ - [SfvbI18nMessage](docs/SfvbI18nMessage.md)
+ - [SfvbI18nMessageValue](docs/SfvbI18nMessageValue.md)
+ - [SfvbI18nMessageWriteRequest](docs/SfvbI18nMessageWriteRequest.md)
+ - [SfvbI18nMessagesResponse](docs/SfvbI18nMessagesResponse.md)
+ - [SfvbI18nResetResponse](docs/SfvbI18nResetResponse.md)
+ - [SfvbI18nTranslation](docs/SfvbI18nTranslation.md)
  - [SfvbItemAttribute](docs/SfvbItemAttribute.md)
  - [SfvbItemAttributeUpdate](docs/SfvbItemAttributeUpdate.md)
  - [SfvbItemAttributeUpdateRequest](docs/SfvbItemAttributeUpdateRequest.md)
@@ -2179,6 +2202,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.190 | 10/06/2026 | sfvb internal testing |
 | 4.1.189 | 10/06/2026 | sfvb internal testing |
 | 4.1.188 | 10/05/2026 | sfvb internal testing |
 | 4.1.187 | 10/05/2026 | sfvb internal testing |
