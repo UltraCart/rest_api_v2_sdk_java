@@ -29606,6 +29606,96 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/test_orders:
+    get:
+      description: "Test orders on this account only, newest first, with no customer\
+        \ details, so an agent can render the order pages (receipt, order tracking,\
+        \ digital downloads, auto order pages) with one.  Use an order_id as a render's\
+        \ context_order_id; a real customer's order is refused there.  The last 7\
+        \ days are searched, widening to 30 and then 90 until enough are found.  digital_items\
+        \ and auto_order keep only orders with downloads or an auto order.  limit\
+        \ is 1 to 25, default 10.\n"
+      operationId: getSfvbTestOrders
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: digital_items
+        schema:
+          type: boolean
+      - in: query
+        name: auto_order
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTestOrdersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List recent test orders
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id}:
     get:
       description: "Poll until complete is true, then check success.  Note that the\
@@ -252135,6 +252225,89 @@ components:
           description: The active theme the templates were read from.
           format: int32
           type: integer
+      type: object
+    SfvbTestOrder:
+      example:
+        item_count: 6
+        total: total
+        stage: stage
+        created: created
+        digital_items: true
+        auto_order: true
+        order_id: order_id
+        currency_code: currency_code
+        payment_method: payment_method
+      properties:
+        auto_order:
+          description: "True when the order started an auto order, for working on\
+            \ the subscription pages."
+          type: boolean
+        created:
+          description: "When the order was placed, ISO-8601 in UTC."
+          type: string
+        currency_code:
+          description: The currency of the total.
+          type: string
+        digital_items:
+          description: "True when the order has digital downloads, for working on\
+            \ the digital download page."
+          type: boolean
+        item_count:
+          description: How many item lines the order has.
+          format: int32
+          type: integer
+        order_id:
+          description: The order id.  Pass it as a render's context_order_id.
+          type: string
+        payment_method:
+          description: "How the order was paid, such as Credit Card or PayPal."
+          type: string
+        stage:
+          description: "The order's current stage code, such as CO (completed), SD\
+            \ (shipping department) or AR (accounts receivable)."
+          type: string
+        total:
+          description: The order total as a decimal string.
+          type: string
+      type: object
+    SfvbTestOrdersResponse:
+      example:
+        test_orders:
+        - item_count: 6
+          total: total
+          stage: stage
+          created: created
+          digital_items: true
+          auto_order: true
+          order_id: order_id
+          currency_code: currency_code
+          payment_method: payment_method
+        - item_count: 6
+          total: total
+          stage: stage
+          created: created
+          digital_items: true
+          auto_order: true
+          order_id: order_id
+          currency_code: currency_code
+          payment_method: payment_method
+        hint: hint
+        searched_days: 0
+      properties:
+        hint:
+          description: Present when nothing matched.  Says how to place a test order.
+          type: string
+        searched_days:
+          description: "How many days back were searched, 7, 30 or 90, widening until\
+            \ enough test orders were found."
+          format: int32
+          type: integer
+        test_orders:
+          description: "Test orders, newest first.  Only orders marked as test orders\
+            \ are ever listed."
+          items:
+            $ref: '#/components/schemas/SfvbTestOrder'
+          type: array
       type: object
     SfvbTheme:
       example:

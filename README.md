@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.193</version>
+    <version>4.1.194</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.193"
+     implementation "com.ultracart:rest-sdk:4.1.194"
   }
 ```
 
@@ -563,6 +563,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbRedirects**](docs/SfvbApi.md#getSfvbRedirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbTestOrders**](docs/SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
@@ -2028,6 +2029,8 @@ Class | Method | HTTP request | Description
  - [SfvbTemplateResolvePath](docs/SfvbTemplateResolvePath.md)
  - [SfvbTemplateResolveResponse](docs/SfvbTemplateResolveResponse.md)
  - [SfvbTemplatesResponse](docs/SfvbTemplatesResponse.md)
+ - [SfvbTestOrder](docs/SfvbTestOrder.md)
+ - [SfvbTestOrdersResponse](docs/SfvbTestOrdersResponse.md)
  - [SfvbTheme](docs/SfvbTheme.md)
  - [SfvbThemeAttribute](docs/SfvbThemeAttribute.md)
  - [SfvbThemeAttributeUpdate](docs/SfvbThemeAttributeUpdate.md)
@@ -2232,6 +2235,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.194 | 10/07/2026 | sfvb internal testing |
 | 4.1.193 | 10/06/2026 | sfvb internal testing |
 | 4.1.192 | 10/06/2026 | sfvb internal testing |
 | 4.1.191 | 10/06/2026 | sfvb internal testing |
