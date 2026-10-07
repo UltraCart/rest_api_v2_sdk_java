@@ -252228,7 +252228,7 @@ components:
       type: object
     SfvbTestOrder:
       example:
-        item_count: 6
+        item_count: 0
         total: total
         stage: stage
         created: created
@@ -252273,7 +252273,7 @@ components:
     SfvbTestOrdersResponse:
       example:
         test_orders:
-        - item_count: 6
+        - item_count: 0
           total: total
           stage: stage
           created: created
@@ -252282,7 +252282,7 @@ components:
           order_id: order_id
           currency_code: currency_code
           payment_method: payment_method
-        - item_count: 6
+        - item_count: 0
           total: total
           stage: stage
           created: created
@@ -252292,16 +252292,10 @@ components:
           currency_code: currency_code
           payment_method: payment_method
         hint: hint
-        searched_days: 0
       properties:
         hint:
-          description: Present when nothing matched.  Says how to place a test order.
+          description: Present when nothing matched.
           type: string
-        searched_days:
-          description: "How many days back were searched, 7, 30 or 90, widening until\
-            \ enough test orders were found."
-          format: int32
-          type: integer
         test_orders:
           description: "Test orders, newest first.  Only orders marked as test orders\
             \ are ever listed."

@@ -56,10 +56,6 @@ public class SfvbTestOrdersResponse {
   @SerializedName(SERIALIZED_NAME_HINT)
   private String hint;
 
-  public static final String SERIALIZED_NAME_SEARCHED_DAYS = "searched_days";
-  @SerializedName(SERIALIZED_NAME_SEARCHED_DAYS)
-  private Integer searchedDays;
-
   public static final String SERIALIZED_NAME_TEST_ORDERS = "test_orders";
   @SerializedName(SERIALIZED_NAME_TEST_ORDERS)
   private List<SfvbTestOrder> testOrders = null;
@@ -74,11 +70,11 @@ public class SfvbTestOrdersResponse {
   }
 
    /**
-   * Present when nothing matched.  Says how to place a test order.
+   * Present when nothing matched.
    * @return hint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Present when nothing matched.  Says how to place a test order.")
+  @ApiModelProperty(value = "Present when nothing matched.")
 
   public String getHint() {
     return hint;
@@ -87,29 +83,6 @@ public class SfvbTestOrdersResponse {
 
   public void setHint(String hint) {
     this.hint = hint;
-  }
-
-
-  public SfvbTestOrdersResponse searchedDays(Integer searchedDays) {
-    
-    this.searchedDays = searchedDays;
-    return this;
-  }
-
-   /**
-   * How many days back were searched, 7, 30 or 90, widening until enough test orders were found.
-   * @return searchedDays
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "How many days back were searched, 7, 30 or 90, widening until enough test orders were found.")
-
-  public Integer getSearchedDays() {
-    return searchedDays;
-  }
-
-
-  public void setSearchedDays(Integer searchedDays) {
-    this.searchedDays = searchedDays;
   }
 
 
@@ -155,13 +128,12 @@ public class SfvbTestOrdersResponse {
     }
     SfvbTestOrdersResponse sfvbTestOrdersResponse = (SfvbTestOrdersResponse) o;
     return Objects.equals(this.hint, sfvbTestOrdersResponse.hint) &&
-        Objects.equals(this.searchedDays, sfvbTestOrdersResponse.searchedDays) &&
         Objects.equals(this.testOrders, sfvbTestOrdersResponse.testOrders);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hint, searchedDays, testOrders);
+    return Objects.hash(hint, testOrders);
   }
 
   @Override
@@ -169,7 +141,6 @@ public class SfvbTestOrdersResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTestOrdersResponse {\n");
     sb.append("    hint: ").append(toIndentedString(hint)).append("\n");
-    sb.append("    searchedDays: ").append(toIndentedString(searchedDays)).append("\n");
     sb.append("    testOrders: ").append(toIndentedString(testOrders)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,7 +165,6 @@ public class SfvbTestOrdersResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("hint");
-    openapiFields.add("searched_days");
     openapiFields.add("test_orders");
 
     // a set of required properties/fields (JSON key names)
