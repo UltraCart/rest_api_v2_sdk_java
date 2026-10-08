@@ -13217,7 +13217,7 @@ public class SfvbApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -13295,11 +13295,12 @@ public class SfvbApi {
      * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
+     * @return SfvbApproval
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -13309,8 +13310,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public void insertSfvbApproval(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid) throws ApiException {
-        insertSfvbApprovalWithHttpInfo(approvalRequest, storefrontOid);
+    public SfvbApproval insertSfvbApproval(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbApproval> localVarResp = insertSfvbApprovalWithHttpInfo(approvalRequest, storefrontOid);
+        return localVarResp.getData();
     }
 
     /**
@@ -13318,12 +13320,12 @@ public class SfvbApi {
      * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;SfvbApproval&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -13333,9 +13335,10 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<Void> insertSfvbApprovalWithHttpInfo(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid) throws ApiException {
+    public ApiResponse<SfvbApproval> insertSfvbApprovalWithHttpInfo(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid) throws ApiException {
         okhttp3.Call localVarCall = insertSfvbApprovalValidateBeforeCall(approvalRequest, storefrontOid, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<SfvbApproval>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -13349,7 +13352,7 @@ public class SfvbApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
@@ -13359,10 +13362,11 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call insertSfvbApprovalAsync(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call insertSfvbApprovalAsync(SfvbApprovalCreateRequest approvalRequest, Integer storefrontOid, final ApiCallback<SfvbApproval> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = insertSfvbApprovalValidateBeforeCall(approvalRequest, storefrontOid, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<SfvbApproval>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

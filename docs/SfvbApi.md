@@ -3754,7 +3754,7 @@ Applies exactly the rows of a dry run, given its plan_hash, in one transaction. 
 
 <a name="insertSfvbApproval"></a>
 # **insertSfvbApproval**
-> insertSfvbApproval(approvalRequest, storefrontOid)
+> SfvbApproval insertSfvbApproval(approvalRequest, storefrontOid)
 
 Request a human approval
 
@@ -3775,7 +3775,7 @@ Asks the person who signed in the CLI to approve one gated action on one exact t
 
 ### Return type
 
-null (empty response body)
+[**SfvbApproval**](SfvbApproval.md)
 
 ### Authorization
 
@@ -3789,7 +3789,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | Successful response |  -  |
 | **201** |  |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |

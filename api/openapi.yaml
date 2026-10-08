@@ -18133,7 +18133,11 @@ paths:
         required: true
       responses:
         "200":
-          $ref: '#/components/responses/'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbApproval'
+          description: Successful response
         "201":
           $ref: '#/components/responses/'
         "400":
