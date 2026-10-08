@@ -989,6 +989,10 @@ docs/ScreenRecordingUserProperty.md
 docs/ScreenshotsResponse.md
 docs/SelfConfig.md
 docs/SfvbApi.md
+docs/SfvbApproval.md
+docs/SfvbApprovalCreateRequest.md
+docs/SfvbApprovalParams.md
+docs/SfvbApprovalsResponse.md
 docs/SfvbBlogPost.md
 docs/SfvbBlogPostDetail.md
 docs/SfvbBlogPostImage.md
@@ -2278,6 +2282,10 @@ src/main/java/com/ultracart/admin/v2/models/ScreenRecordingUserAgentOS.java
 src/main/java/com/ultracart/admin/v2/models/ScreenRecordingUserProperty.java
 src/main/java/com/ultracart/admin/v2/models/ScreenshotsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SelfConfig.java
+src/main/java/com/ultracart/admin/v2/models/SfvbApproval.java
+src/main/java/com/ultracart/admin/v2/models/SfvbApprovalCreateRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbApprovalParams.java
+src/main/java/com/ultracart/admin/v2/models/SfvbApprovalsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPost.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostDetail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostImage.java
