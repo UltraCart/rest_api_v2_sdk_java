@@ -53,9 +53,25 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_BLOG_POST_OID)
   private Integer blogPostOid;
 
+  public static final String SERIALIZED_NAME_CONTENT_SHA256 = "content_sha256";
+  @SerializedName(SERIALIZED_NAME_CONTENT_SHA256)
+  private String contentSha256;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_ROWS_SHA256 = "rows_sha256";
+  @SerializedName(SERIALIZED_NAME_ROWS_SHA256)
+  private String rowsSha256;
+
+  public static final String SERIALIZED_NAME_RULE_COUNT = "rule_count";
+  @SerializedName(SERIALIZED_NAME_RULE_COUNT)
+  private Integer ruleCount;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private Integer version;
 
   public SfvbApprovalParams() { 
   }
@@ -83,6 +99,29 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams contentSha256(String contentSha256) {
+    
+    this.contentSha256 = contentSha256;
+    return this;
+  }
+
+   /**
+   * For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+   * @return contentSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.")
+
+  public String getContentSha256() {
+    return contentSha256;
+  }
+
+
+  public void setContentSha256(String contentSha256) {
+    this.contentSha256 = contentSha256;
+  }
+
+
   public SfvbApprovalParams path(String path) {
     
     this.path = path;
@@ -90,11 +129,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The file path, for file.delete.  Exactly as the delete call will send it.
+   * The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The file path, for file.delete.  Exactly as the delete call will send it.")
+  @ApiModelProperty(value = "The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.")
 
   public String getPath() {
     return path;
@@ -103,6 +142,75 @@ public class SfvbApprovalParams {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+
+  public SfvbApprovalParams rowsSha256(String rowsSha256) {
+    
+    this.rowsSha256 = rowsSha256;
+    return this;
+  }
+
+   /**
+   * For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+   * @return rowsSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.")
+
+  public String getRowsSha256() {
+    return rowsSha256;
+  }
+
+
+  public void setRowsSha256(String rowsSha256) {
+    this.rowsSha256 = rowsSha256;
+  }
+
+
+  public SfvbApprovalParams ruleCount(Integer ruleCount) {
+    
+    this.ruleCount = ruleCount;
+    return this;
+  }
+
+   /**
+   * For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.
+   * @return ruleCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server.")
+
+  public Integer getRuleCount() {
+    return ruleCount;
+  }
+
+
+  public void setRuleCount(Integer ruleCount) {
+    this.ruleCount = ruleCount;
+  }
+
+
+  public SfvbApprovalParams version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.")
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(Integer version) {
+    this.version = version;
   }
 
 
@@ -117,12 +225,16 @@ public class SfvbApprovalParams {
     }
     SfvbApprovalParams sfvbApprovalParams = (SfvbApprovalParams) o;
     return Objects.equals(this.blogPostOid, sfvbApprovalParams.blogPostOid) &&
-        Objects.equals(this.path, sfvbApprovalParams.path);
+        Objects.equals(this.contentSha256, sfvbApprovalParams.contentSha256) &&
+        Objects.equals(this.path, sfvbApprovalParams.path) &&
+        Objects.equals(this.rowsSha256, sfvbApprovalParams.rowsSha256) &&
+        Objects.equals(this.ruleCount, sfvbApprovalParams.ruleCount) &&
+        Objects.equals(this.version, sfvbApprovalParams.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blogPostOid, path);
+    return Objects.hash(blogPostOid, contentSha256, path, rowsSha256, ruleCount, version);
   }
 
   @Override
@@ -130,7 +242,11 @@ public class SfvbApprovalParams {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbApprovalParams {\n");
     sb.append("    blogPostOid: ").append(toIndentedString(blogPostOid)).append("\n");
+    sb.append("    contentSha256: ").append(toIndentedString(contentSha256)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    rowsSha256: ").append(toIndentedString(rowsSha256)).append("\n");
+    sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,7 +270,11 @@ public class SfvbApprovalParams {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("blog_post_oid");
+    openapiFields.add("content_sha256");
     openapiFields.add("path");
+    openapiFields.add("rows_sha256");
+    openapiFields.add("rule_count");
+    openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -182,8 +302,14 @@ public class SfvbApprovalParams {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbApprovalParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("content_sha256") != null && !jsonObj.get("content_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_sha256").toString()));
+      }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      if (jsonObj.get("rows_sha256") != null && !jsonObj.get("rows_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rows_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rows_sha256").toString()));
       }
   }
 

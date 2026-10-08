@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.198</version>
+    <version>4.1.199</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.198"
+     implementation "com.ultracart:rest-sdk:4.1.199"
   }
 ```
 
@@ -514,11 +514,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbPageMultimedia**](docs/SfvbApi.md#deleteSfvbPageMultimedia) | **DELETE** /sfvb/storefronts/{storefront_oid}/pages/multimedia | Detach an image from a page
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**deleteSfvbRedirect**](docs/SfvbApi.md#deleteSfvbRedirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
+*SfvbApi* | [**deleteSfvbRedirects**](docs/SfvbApi.md#deleteSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
 *SfvbApi* | [**disableSfvbUpsellPath**](docs/SfvbApi.md#disableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/disable | Disable an upsell path
 *SfvbApi* | [**downloadSfvbFile**](docs/SfvbApi.md#downloadSfvbFile) | **GET** /sfvb/storefronts/{storefront_oid}/files/download | Read a storefront file&#39;s raw bytes
+*SfvbApi* | [**dryRunSfvbRedirectDelete**](docs/SfvbApi.md#dryRunSfvbRedirectDelete) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run | Check a batch delete of redirect rules without writing it
 *SfvbApi* | [**dryRunSfvbRedirectImport**](docs/SfvbApi.md#dryRunSfvbRedirectImport) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import/dry_run | Check a redirect import without writing it
 *SfvbApi* | [**duplicateSfvbLibraryEntry**](docs/SfvbApi.md#duplicateSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/duplicate | Copy a library entry into a new private entry
 *SfvbApi* | [**duplicateSfvbPage**](docs/SfvbApi.md#duplicateSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/duplicate | Copy a page to a new path
@@ -1877,6 +1879,8 @@ Class | Method | HTTP request | Description
  - [SfvbApproval](docs/SfvbApproval.md)
  - [SfvbApprovalCreateRequest](docs/SfvbApprovalCreateRequest.md)
  - [SfvbApprovalParams](docs/SfvbApprovalParams.md)
+ - [SfvbApprovalReview](docs/SfvbApprovalReview.md)
+ - [SfvbApprovalReviewFinding](docs/SfvbApprovalReviewFinding.md)
  - [SfvbApprovalsResponse](docs/SfvbApprovalsResponse.md)
  - [SfvbBlogPost](docs/SfvbBlogPost.md)
  - [SfvbBlogPostDetail](docs/SfvbBlogPostDetail.md)
@@ -2011,6 +2015,10 @@ Class | Method | HTTP request | Description
  - [SfvbRecordingSettingsResponse](docs/SfvbRecordingSettingsResponse.md)
  - [SfvbRedirect](docs/SfvbRedirect.md)
  - [SfvbRedirectCheckResponse](docs/SfvbRedirectCheckResponse.md)
+ - [SfvbRedirectDeleteRequest](docs/SfvbRedirectDeleteRequest.md)
+ - [SfvbRedirectDeleteResponse](docs/SfvbRedirectDeleteResponse.md)
+ - [SfvbRedirectDeleteRow](docs/SfvbRedirectDeleteRow.md)
+ - [SfvbRedirectDeleteRowResult](docs/SfvbRedirectDeleteRowResult.md)
  - [SfvbRedirectImportRequest](docs/SfvbRedirectImportRequest.md)
  - [SfvbRedirectImportResponse](docs/SfvbRedirectImportResponse.md)
  - [SfvbRedirectImportRow](docs/SfvbRedirectImportRow.md)
@@ -2243,6 +2251,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.199 | 10/08/2026 | sfvb internal testing |
 | 4.1.198 | 10/08/2026 | sfvb internal testing |
 | 4.1.197 | 10/08/2026 | sfvb internal testing |
 | 4.1.196 | 10/08/2026 | sfvb internal testing |

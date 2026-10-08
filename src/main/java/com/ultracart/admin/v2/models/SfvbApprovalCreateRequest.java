@@ -21,9 +21,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
+import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,7 +60,11 @@ public class SfvbApprovalCreateRequest {
   public enum ActionEnum {
     FILE_DELETE("file.delete"),
     
-    BLOG_POST_DELETE("blog_post.delete");
+    BLOG_POST_DELETE("blog_post.delete"),
+    
+    FILE_PUT_SCRIPT("file.put_script"),
+    
+    REDIRECT_DELETE_BATCH("redirect.delete_batch");
 
     private String value;
 
@@ -101,6 +108,10 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_ACTION)
   private ActionEnum action;
 
+  public static final String SERIALIZED_NAME_CONTENT = "content";
+  @SerializedName(SERIALIZED_NAME_CONTENT)
+  private String content;
+
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
   private SfvbApprovalParams params;
@@ -108,6 +119,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
+  public static final String SERIALIZED_NAME_REDIRECT_ROWS = "redirect_rows";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_ROWS)
+  private List<SfvbRedirectDeleteRow> redirectRows = null;
 
   public SfvbApprovalCreateRequest() { 
   }
@@ -132,6 +147,29 @@ public class SfvbApprovalCreateRequest {
 
   public void setAction(ActionEnum action) {
     this.action = action;
+  }
+
+
+  public SfvbApprovalCreateRequest content(String content) {
+    
+    this.content = content;
+    return this;
+  }
+
+   /**
+   * For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+   * @return content
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.")
+
+  public String getContent() {
+    return content;
+  }
+
+
+  public void setContent(String content) {
+    this.content = content;
   }
 
 
@@ -181,6 +219,37 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest redirectRows(List<SfvbRedirectDeleteRow> redirectRows) {
+    
+    this.redirectRows = redirectRows;
+    return this;
+  }
+
+  public SfvbApprovalCreateRequest addRedirectRowsItem(SfvbRedirectDeleteRow redirectRowsItem) {
+    if (this.redirectRows == null) {
+      this.redirectRows = new ArrayList<>();
+    }
+    this.redirectRows.add(redirectRowsItem);
+    return this;
+  }
+
+   /**
+   * For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.
+   * @return redirectRows
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash.")
+
+  public List<SfvbRedirectDeleteRow> getRedirectRows() {
+    return redirectRows;
+  }
+
+
+  public void setRedirectRows(List<SfvbRedirectDeleteRow> redirectRows) {
+    this.redirectRows = redirectRows;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -192,13 +261,15 @@ public class SfvbApprovalCreateRequest {
     }
     SfvbApprovalCreateRequest sfvbApprovalCreateRequest = (SfvbApprovalCreateRequest) o;
     return Objects.equals(this.action, sfvbApprovalCreateRequest.action) &&
+        Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
-        Objects.equals(this.reason, sfvbApprovalCreateRequest.reason);
+        Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
+        Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, params, reason);
+    return Objects.hash(action, content, params, reason, redirectRows);
   }
 
   @Override
@@ -206,8 +277,10 @@ public class SfvbApprovalCreateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbApprovalCreateRequest {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -231,8 +304,10 @@ public class SfvbApprovalCreateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
+    openapiFields.add("content");
     openapiFields.add("params");
     openapiFields.add("reason");
+    openapiFields.add("redirect_rows");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -263,12 +338,27 @@ public class SfvbApprovalCreateRequest {
       if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
       }
+      if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
+      }
       // validate the optional field `params`
       if (jsonObj.getAsJsonObject("params") != null) {
         SfvbApprovalParams.validateJsonObject(jsonObj.getAsJsonObject("params"));
       }
       if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      JsonArray jsonArrayredirectRows = jsonObj.getAsJsonArray("redirect_rows");
+      if (jsonArrayredirectRows != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("redirect_rows").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `redirect_rows` to be an array in the JSON string but got `%s`", jsonObj.get("redirect_rows").toString()));
+        }
+
+        // validate the optional field `redirect_rows` (array)
+        for (int i = 0; i < jsonArrayredirectRows.size(); i++) {
+          SfvbRedirectDeleteRow.validateJsonObject(jsonArrayredirectRows.get(i).getAsJsonObject());
+        };
       }
   }
 

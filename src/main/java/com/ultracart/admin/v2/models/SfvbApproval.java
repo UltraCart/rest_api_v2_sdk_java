@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
+import com.ultracart.admin.v2.models.SfvbApprovalReview;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -153,15 +154,21 @@ public class SfvbApproval {
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
+  public static final String SERIALIZED_NAME_REVIEW = "review";
+  @SerializedName(SERIALIZED_NAME_REVIEW)
+  private SfvbApprovalReview review;
+
   public static final String SERIALIZED_NAME_SCOPE = "scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
   private String scope;
 
   /**
-   * pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.
+   * reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    REVIEWING("reviewing"),
+    
     PENDING("pending"),
     
     APPROVED("approved"),
@@ -172,7 +179,9 @@ public class SfvbApproval {
     
     EXPIRED("expired"),
     
-    USED("used");
+    USED("used"),
+    
+    REFUSED("refused");
 
     private String value;
 
@@ -553,6 +562,29 @@ public class SfvbApproval {
   }
 
 
+  public SfvbApproval review(SfvbApprovalReview review) {
+    
+    this.review = review;
+    return this;
+  }
+
+   /**
+   * Get review
+   * @return review
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbApprovalReview getReview() {
+    return review;
+  }
+
+
+  public void setReview(SfvbApprovalReview review) {
+    this.review = review;
+  }
+
+
   public SfvbApproval scope(String scope) {
     
     this.scope = scope;
@@ -583,11 +615,11 @@ public class SfvbApproval {
   }
 
    /**
-   * pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.
+   * reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "pending, approved, denied, cancelled, expired or used.  Only approved may be sent with the gated call.")
+  @ApiModelProperty(value = "reviewing, pending, approved, denied, cancelled, expired, used or refused.  Only approved may be sent with the gated call.  A script write starts as reviewing while UltraCart reviews it; keep polling, and show approval_url only once it is pending.  refused means the review refused the script; outcome_code and review say why.")
 
   public StatusEnum getStatus() {
     return status;
@@ -692,6 +724,7 @@ public class SfvbApproval {
         Objects.equals(this.outcomeHttpStatus, sfvbApproval.outcomeHttpStatus) &&
         Objects.equals(this.params, sfvbApproval.params) &&
         Objects.equals(this.reason, sfvbApproval.reason) &&
+        Objects.equals(this.review, sfvbApproval.review) &&
         Objects.equals(this.scope, sfvbApproval.scope) &&
         Objects.equals(this.status, sfvbApproval.status) &&
         Objects.equals(this.storefrontOid, sfvbApproval.storefrontOid) &&
@@ -701,7 +734,7 @@ public class SfvbApproval {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, approvalId, approvalUrl, createdAt, description, expiresAt, expiresInSeconds, freshCodeRequired, intervalSeconds, outcome, outcomeCode, outcomeHttpStatus, params, reason, scope, status, storefrontOid, usedAt, userCode);
+    return Objects.hash(action, approvalId, approvalUrl, createdAt, description, expiresAt, expiresInSeconds, freshCodeRequired, intervalSeconds, outcome, outcomeCode, outcomeHttpStatus, params, reason, review, scope, status, storefrontOid, usedAt, userCode);
   }
 
   @Override
@@ -722,6 +755,7 @@ public class SfvbApproval {
     sb.append("    outcomeHttpStatus: ").append(toIndentedString(outcomeHttpStatus)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    review: ").append(toIndentedString(review)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
@@ -763,6 +797,7 @@ public class SfvbApproval {
     openapiFields.add("outcome_http_status");
     openapiFields.add("params");
     openapiFields.add("reason");
+    openapiFields.add("review");
     openapiFields.add("scope");
     openapiFields.add("status");
     openapiFields.add("storefront_oid");
@@ -825,6 +860,10 @@ public class SfvbApproval {
       }
       if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      // validate the optional field `review`
+      if (jsonObj.getAsJsonObject("review") != null) {
+        SfvbApprovalReview.validateJsonObject(jsonObj.getAsJsonObject("review"));
       }
       if (jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));

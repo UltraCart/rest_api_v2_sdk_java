@@ -122,6 +122,8 @@ import com.ultracart.admin.v2.models.SfvbRecordingSettingsRequest;
 import com.ultracart.admin.v2.models.SfvbRecordingSettingsResponse;
 import com.ultracart.admin.v2.models.SfvbRedirect;
 import com.ultracart.admin.v2.models.SfvbRedirectCheckResponse;
+import com.ultracart.admin.v2.models.SfvbRedirectDeleteRequest;
+import com.ultracart.admin.v2.models.SfvbRedirectDeleteResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectImportRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectImportResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectRequest;
@@ -3371,6 +3373,190 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteSfvbRedirects
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param approvalId The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbRedirectsCall(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = redirectDeleteRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSfvbRedirectsValidateBeforeCall(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteSfvbRedirects(Async)");
+        }
+        
+        // verify the required parameter 'redirectDeleteRequest' is set
+        if (redirectDeleteRequest == null) {
+            throw new ApiException("Missing the required parameter 'redirectDeleteRequest' when calling deleteSfvbRedirects(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSfvbRedirectsCall(storefrontOid, redirectDeleteRequest, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete up to 5,000 redirect rules in one call
+     * Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param approvalId The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)
+     * @return SfvbRedirectDeleteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbRedirectDeleteResponse deleteSfvbRedirects(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbRedirectDeleteResponse> localVarResp = deleteSfvbRedirectsWithHttpInfo(storefrontOid, redirectDeleteRequest, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete up to 5,000 redirect rules in one call
+     * Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param approvalId The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbRedirectDeleteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbRedirectDeleteResponse> deleteSfvbRedirectsWithHttpInfo(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSfvbRedirectsValidateBeforeCall(storefrontOid, redirectDeleteRequest, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbRedirectDeleteResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete up to 5,000 redirect rules in one call (asynchronously)
+     * Deletes exactly the rows of a dry run, given its plan_hash, in one transaction.  Every row needs its hash_sha256.  A rule changed since its hash was read is skipped and reported as stale, and a missing one as not_found; the other rows still go through.  Needs the approval of the person who signed in the CLI, as an approved redirect.delete_batch request for exactly these rows in the Approval-Id header, and sfvb_publish.  Deleting rules lets add and import work again once the storefront is back under 5,000 rules. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param approvalId The approval_id of an approved redirect.delete_batch request for exactly these rows.  Required.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbRedirectsAsync(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, String approvalId, final ApiCallback<SfvbRedirectDeleteResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSfvbRedirectsValidateBeforeCall(storefrontOid, redirectDeleteRequest, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbRedirectDeleteResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for detachSfvbBlogPostImage
      * @param storefrontOid  (required)
      * @param blogPostOid  (required)
@@ -4173,6 +4359,170 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = downloadSfvbFileValidateBeforeCall(storefrontOid, path, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for dryRunSfvbRedirectDelete
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dryRunSfvbRedirectDeleteCall(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = redirectDeleteRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/delete/dry_run"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call dryRunSfvbRedirectDeleteValidateBeforeCall(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling dryRunSfvbRedirectDelete(Async)");
+        }
+        
+        // verify the required parameter 'redirectDeleteRequest' is set
+        if (redirectDeleteRequest == null) {
+            throw new ApiException("Missing the required parameter 'redirectDeleteRequest' when calling dryRunSfvbRedirectDelete(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = dryRunSfvbRedirectDeleteCall(storefrontOid, redirectDeleteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Check a batch delete of redirect rules without writing it
+     * Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @return SfvbRedirectDeleteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbRedirectDeleteResponse dryRunSfvbRedirectDelete(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest) throws ApiException {
+        ApiResponse<SfvbRedirectDeleteResponse> localVarResp = dryRunSfvbRedirectDeleteWithHttpInfo(storefrontOid, redirectDeleteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check a batch delete of redirect rules without writing it
+     * Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @return ApiResponse&lt;SfvbRedirectDeleteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbRedirectDeleteResponse> dryRunSfvbRedirectDeleteWithHttpInfo(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest) throws ApiException {
+        okhttp3.Call localVarCall = dryRunSfvbRedirectDeleteValidateBeforeCall(storefrontOid, redirectDeleteRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbRedirectDeleteResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check a batch delete of redirect rules without writing it (asynchronously)
+     * Checks up to 5,000 rules by redirect_id and returns each one as deletable, stale (its hash_sha256 differs from the one sent) or not_found, with its current hash, source, target, status, type and note, and a plan_hash.  Writes nothing.  Rows may leave out hash_sha256; the result carries the current one to send when deleting. 
+     * @param storefrontOid  (required)
+     * @param redirectDeleteRequest The request (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dryRunSfvbRedirectDeleteAsync(Integer storefrontOid, SfvbRedirectDeleteRequest redirectDeleteRequest, final ApiCallback<SfvbRedirectDeleteResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = dryRunSfvbRedirectDeleteValidateBeforeCall(storefrontOid, redirectDeleteRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbRedirectDeleteResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -13292,7 +13642,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart&#39;s scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @return SfvbApproval
@@ -13317,7 +13667,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart&#39;s scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @return ApiResponse&lt;SfvbApproval&gt;
@@ -13343,7 +13693,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval (asynchronously)
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert.  The request starts as reviewing while UltraCart&#39;s scanner and two AI models read it, then becomes pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same bytes. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -17690,6 +18040,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -17707,7 +18058,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call putSfvbFileContentCall(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call putSfvbFileContentCall(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, String approvalId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17741,6 +18092,10 @@ public class SfvbApi {
             localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
         }
 
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -17762,7 +18117,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putSfvbFileContentValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putSfvbFileContentValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, String approvalId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -17780,7 +18135,7 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = putSfvbFileContentCall(storefrontOid, ifMatch, fileWriteRequest, path, _callback);
+        okhttp3.Call localVarCall = putSfvbFileContentCall(storefrontOid, ifMatch, fileWriteRequest, path, approvalId, _callback);
         return localVarCall;
 
     }
@@ -17792,6 +18147,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @return SfvbFileWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -17808,8 +18164,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbFileWriteResponse putSfvbFileContent(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path) throws ApiException {
-        ApiResponse<SfvbFileWriteResponse> localVarResp = putSfvbFileContentWithHttpInfo(storefrontOid, ifMatch, fileWriteRequest, path);
+    public SfvbFileWriteResponse putSfvbFileContent(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, String approvalId) throws ApiException {
+        ApiResponse<SfvbFileWriteResponse> localVarResp = putSfvbFileContentWithHttpInfo(storefrontOid, ifMatch, fileWriteRequest, path, approvalId);
         return localVarResp.getData();
     }
 
@@ -17820,6 +18176,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbFileWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -17836,8 +18193,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbFileWriteResponse> putSfvbFileContentWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path) throws ApiException {
-        okhttp3.Call localVarCall = putSfvbFileContentValidateBeforeCall(storefrontOid, ifMatch, fileWriteRequest, path, null);
+    public ApiResponse<SfvbFileWriteResponse> putSfvbFileContentWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = putSfvbFileContentValidateBeforeCall(storefrontOid, ifMatch, fileWriteRequest, path, approvalId, null);
         Type localVarReturnType = new TypeToken<SfvbFileWriteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -17849,6 +18206,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -17866,9 +18224,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call putSfvbFileContentAsync(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, final ApiCallback<SfvbFileWriteResponse> _callback) throws ApiException {
+    public okhttp3.Call putSfvbFileContentAsync(Integer storefrontOid, String ifMatch, SfvbFileWriteRequest fileWriteRequest, String path, String approvalId, final ApiCallback<SfvbFileWriteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putSfvbFileContentValidateBeforeCall(storefrontOid, ifMatch, fileWriteRequest, path, _callback);
+        okhttp3.Call localVarCall = putSfvbFileContentValidateBeforeCall(storefrontOid, ifMatch, fileWriteRequest, path, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbFileWriteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -21980,6 +22338,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -21996,7 +22355,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call revertSfvbFileCall(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call revertSfvbFileCall(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, String approvalId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -22026,6 +22385,10 @@ public class SfvbApi {
             localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
         }
 
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -22047,7 +22410,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call revertSfvbFileValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call revertSfvbFileValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, String approvalId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -22065,7 +22428,7 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = revertSfvbFileCall(storefrontOid, ifMatch, fileRevertRequest, _callback);
+        okhttp3.Call localVarCall = revertSfvbFileCall(storefrontOid, ifMatch, fileRevertRequest, approvalId, _callback);
         return localVarCall;
 
     }
@@ -22076,6 +22439,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @return SfvbFileWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -22091,8 +22455,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbFileWriteResponse revertSfvbFile(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest) throws ApiException {
-        ApiResponse<SfvbFileWriteResponse> localVarResp = revertSfvbFileWithHttpInfo(storefrontOid, ifMatch, fileRevertRequest);
+    public SfvbFileWriteResponse revertSfvbFile(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbFileWriteResponse> localVarResp = revertSfvbFileWithHttpInfo(storefrontOid, ifMatch, fileRevertRequest, approvalId);
         return localVarResp.getData();
     }
 
@@ -22102,6 +22466,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbFileWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -22117,8 +22482,8 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbFileWriteResponse> revertSfvbFileWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest) throws ApiException {
-        okhttp3.Call localVarCall = revertSfvbFileValidateBeforeCall(storefrontOid, ifMatch, fileRevertRequest, null);
+    public ApiResponse<SfvbFileWriteResponse> revertSfvbFileWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = revertSfvbFileValidateBeforeCall(storefrontOid, ifMatch, fileRevertRequest, approvalId, null);
         Type localVarReturnType = new TypeToken<SfvbFileWriteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -22129,6 +22494,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -22145,9 +22511,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call revertSfvbFileAsync(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, final ApiCallback<SfvbFileWriteResponse> _callback) throws ApiException {
+    public okhttp3.Call revertSfvbFileAsync(Integer storefrontOid, String ifMatch, SfvbFileRevertRequest fileRevertRequest, String approvalId, final ApiCallback<SfvbFileWriteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = revertSfvbFileValidateBeforeCall(storefrontOid, ifMatch, fileRevertRequest, _callback);
+        okhttp3.Call localVarCall = revertSfvbFileValidateBeforeCall(storefrontOid, ifMatch, fileRevertRequest, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbFileWriteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
