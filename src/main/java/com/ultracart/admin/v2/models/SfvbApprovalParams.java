@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,6 +51,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbApprovalParams {
+  public static final String SERIALIZED_NAME_ATTRIBUTE_NAMES = "attribute_names";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTE_NAMES)
+  private List<String> attributeNames = null;
+
   public static final String SERIALIZED_NAME_BLOG_POST_OID = "blog_post_oid";
   @SerializedName(SERIALIZED_NAME_BLOG_POST_OID)
   private Integer blogPostOid;
@@ -57,9 +63,25 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_CONTENT_SHA256)
   private String contentSha256;
 
+  public static final String SERIALIZED_NAME_EXPERIMENT_OID = "experiment_oid";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT_OID)
+  private Integer experimentOid;
+
+  public static final String SERIALIZED_NAME_ITEM_COUNT = "item_count";
+  @SerializedName(SERIALIZED_NAME_ITEM_COUNT)
+  private Integer itemCount;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ITEM_OID = "merchant_item_oid";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_OID)
+  private Integer merchantItemOid;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_REQUEST_SHA256 = "request_sha256";
+  @SerializedName(SERIALIZED_NAME_REQUEST_SHA256)
+  private String requestSha256;
 
   public static final String SERIALIZED_NAME_ROWS_SHA256 = "rows_sha256";
   @SerializedName(SERIALIZED_NAME_ROWS_SHA256)
@@ -69,12 +91,110 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_RULE_COUNT)
   private Integer ruleCount;
 
+  public static final String SERIALIZED_NAME_SLOT = "slot";
+  @SerializedName(SERIALIZED_NAME_SLOT)
+  private String slot;
+
+  /**
+   * For upsell.enable, what to switch on.
+   */
+  @JsonAdapter(UpsellKindEnum.Adapter.class)
+  public enum UpsellKindEnum {
+    OFFER("offer"),
+    
+    PATH("path");
+
+    private String value;
+
+    UpsellKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UpsellKindEnum fromValue(String value) {
+      for (UpsellKindEnum b : UpsellKindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UpsellKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UpsellKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UpsellKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UpsellKindEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_UPSELL_KIND = "upsell_kind";
+  @SerializedName(SERIALIZED_NAME_UPSELL_KIND)
+  private UpsellKindEnum upsellKind;
+
+  public static final String SERIALIZED_NAME_UPSELL_OID = "upsell_oid";
+  @SerializedName(SERIALIZED_NAME_UPSELL_OID)
+  private Integer upsellOid;
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   private Integer version;
 
+  public static final String SERIALIZED_NAME_WIDGET_ID = "widget_id";
+  @SerializedName(SERIALIZED_NAME_WIDGET_ID)
+  private String widgetId;
+
+  public static final String SERIALIZED_NAME_WINNER_VARIATION_NUMBER = "winner_variation_number";
+  @SerializedName(SERIALIZED_NAME_WINNER_VARIATION_NUMBER)
+  private Integer winnerVariationNumber;
+
   public SfvbApprovalParams() { 
   }
+
+  public SfvbApprovalParams attributeNames(List<String> attributeNames) {
+    
+    this.attributeNames = attributeNames;
+    return this;
+  }
+
+  public SfvbApprovalParams addAttributeNamesItem(String attributeNamesItem) {
+    if (this.attributeNames == null) {
+      this.attributeNames = new ArrayList<>();
+    }
+    this.attributeNames.add(attributeNamesItem);
+    return this;
+  }
+
+   /**
+   * For item.attribute_batch, the attributes the batch would change.  Set by the server.
+   * @return attributeNames
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For item.attribute_batch, the attributes the batch would change.  Set by the server.")
+
+  public List<String> getAttributeNames() {
+    return attributeNames;
+  }
+
+
+  public void setAttributeNames(List<String> attributeNames) {
+    this.attributeNames = attributeNames;
+  }
+
 
   public SfvbApprovalParams blogPostOid(Integer blogPostOid) {
     
@@ -122,6 +242,75 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams experimentOid(Integer experimentOid) {
+    
+    this.experimentOid = experimentOid;
+    return this;
+  }
+
+   /**
+   * For experiment.end, the experiment to end.
+   * @return experimentOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For experiment.end, the experiment to end.")
+
+  public Integer getExperimentOid() {
+    return experimentOid;
+  }
+
+
+  public void setExperimentOid(Integer experimentOid) {
+    this.experimentOid = experimentOid;
+  }
+
+
+  public SfvbApprovalParams itemCount(Integer itemCount) {
+    
+    this.itemCount = itemCount;
+    return this;
+  }
+
+   /**
+   * For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.
+   * @return itemCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server.")
+
+  public Integer getItemCount() {
+    return itemCount;
+  }
+
+
+  public void setItemCount(Integer itemCount) {
+    this.itemCount = itemCount;
+  }
+
+
+  public SfvbApprovalParams merchantItemOid(Integer merchantItemOid) {
+    
+    this.merchantItemOid = merchantItemOid;
+    return this;
+  }
+
+   /**
+   * For item.pricing, the item whose pricing changes.
+   * @return merchantItemOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For item.pricing, the item whose pricing changes.")
+
+  public Integer getMerchantItemOid() {
+    return merchantItemOid;
+  }
+
+
+  public void setMerchantItemOid(Integer merchantItemOid) {
+    this.merchantItemOid = merchantItemOid;
+  }
+
+
   public SfvbApprovalParams path(String path) {
     
     this.path = path;
@@ -129,11 +318,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.
+   * The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The file path, for file.delete and file.put_script.  Exactly as the gated call will send it.")
+  @ApiModelProperty(value = "The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.")
 
   public String getPath() {
     return path;
@@ -145,6 +334,29 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams requestSha256(String requestSha256) {
+    
+    this.requestSha256 = requestSha256;
+    return this;
+  }
+
+   /**
+   * For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
+   * @return requestSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.")
+
+  public String getRequestSha256() {
+    return requestSha256;
+  }
+
+
+  public void setRequestSha256(String requestSha256) {
+    this.requestSha256 = requestSha256;
+  }
+
+
   public SfvbApprovalParams rowsSha256(String rowsSha256) {
     
     this.rowsSha256 = rowsSha256;
@@ -152,11 +364,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.
+   * For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.
    * @return rowsSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For redirect.delete_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch delete must send rows with this hash.")
+  @ApiModelProperty(value = "For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash.")
 
   public String getRowsSha256() {
     return rowsSha256;
@@ -191,6 +403,75 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams slot(String slot) {
+    
+    this.slot = slot;
+    return this;
+  }
+
+   /**
+   * For experiment.start of a page experiment, the page body name.  Defaults to body.
+   * @return slot
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For experiment.start of a page experiment, the page body name.  Defaults to body.")
+
+  public String getSlot() {
+    return slot;
+  }
+
+
+  public void setSlot(String slot) {
+    this.slot = slot;
+  }
+
+
+  public SfvbApprovalParams upsellKind(UpsellKindEnum upsellKind) {
+    
+    this.upsellKind = upsellKind;
+    return this;
+  }
+
+   /**
+   * For upsell.enable, what to switch on.
+   * @return upsellKind
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For upsell.enable, what to switch on.")
+
+  public UpsellKindEnum getUpsellKind() {
+    return upsellKind;
+  }
+
+
+  public void setUpsellKind(UpsellKindEnum upsellKind) {
+    this.upsellKind = upsellKind;
+  }
+
+
+  public SfvbApprovalParams upsellOid(Integer upsellOid) {
+    
+    this.upsellOid = upsellOid;
+    return this;
+  }
+
+   /**
+   * For upsell.enable, the oid of the offer or path to switch on.
+   * @return upsellOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For upsell.enable, the oid of the offer or path to switch on.")
+
+  public Integer getUpsellOid() {
+    return upsellOid;
+  }
+
+
+  public void setUpsellOid(Integer upsellOid) {
+    this.upsellOid = upsellOid;
+  }
+
+
   public SfvbApprovalParams version(Integer version) {
     
     this.version = version;
@@ -214,6 +495,52 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams widgetId(String widgetId) {
+    
+    this.widgetId = widgetId;
+    return this;
+  }
+
+   /**
+   * For experiment.start of a page experiment, the id of the experiment element.
+   * @return widgetId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For experiment.start of a page experiment, the id of the experiment element.")
+
+  public String getWidgetId() {
+    return widgetId;
+  }
+
+
+  public void setWidgetId(String widgetId) {
+    this.widgetId = widgetId;
+  }
+
+
+  public SfvbApprovalParams winnerVariationNumber(Integer winnerVariationNumber) {
+    
+    this.winnerVariationNumber = winnerVariationNumber;
+    return this;
+  }
+
+   /**
+   * For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too.
+   * @return winnerVariationNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For experiment.end, the winning variation.  Leave it out to end without a winner, and leave it out of the end call too.")
+
+  public Integer getWinnerVariationNumber() {
+    return winnerVariationNumber;
+  }
+
+
+  public void setWinnerVariationNumber(Integer winnerVariationNumber) {
+    this.winnerVariationNumber = winnerVariationNumber;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -224,29 +551,49 @@ public class SfvbApprovalParams {
       return false;
     }
     SfvbApprovalParams sfvbApprovalParams = (SfvbApprovalParams) o;
-    return Objects.equals(this.blogPostOid, sfvbApprovalParams.blogPostOid) &&
+    return Objects.equals(this.attributeNames, sfvbApprovalParams.attributeNames) &&
+        Objects.equals(this.blogPostOid, sfvbApprovalParams.blogPostOid) &&
         Objects.equals(this.contentSha256, sfvbApprovalParams.contentSha256) &&
+        Objects.equals(this.experimentOid, sfvbApprovalParams.experimentOid) &&
+        Objects.equals(this.itemCount, sfvbApprovalParams.itemCount) &&
+        Objects.equals(this.merchantItemOid, sfvbApprovalParams.merchantItemOid) &&
         Objects.equals(this.path, sfvbApprovalParams.path) &&
+        Objects.equals(this.requestSha256, sfvbApprovalParams.requestSha256) &&
         Objects.equals(this.rowsSha256, sfvbApprovalParams.rowsSha256) &&
         Objects.equals(this.ruleCount, sfvbApprovalParams.ruleCount) &&
-        Objects.equals(this.version, sfvbApprovalParams.version);
+        Objects.equals(this.slot, sfvbApprovalParams.slot) &&
+        Objects.equals(this.upsellKind, sfvbApprovalParams.upsellKind) &&
+        Objects.equals(this.upsellOid, sfvbApprovalParams.upsellOid) &&
+        Objects.equals(this.version, sfvbApprovalParams.version) &&
+        Objects.equals(this.widgetId, sfvbApprovalParams.widgetId) &&
+        Objects.equals(this.winnerVariationNumber, sfvbApprovalParams.winnerVariationNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blogPostOid, contentSha256, path, rowsSha256, ruleCount, version);
+    return Objects.hash(attributeNames, blogPostOid, contentSha256, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, slot, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbApprovalParams {\n");
+    sb.append("    attributeNames: ").append(toIndentedString(attributeNames)).append("\n");
     sb.append("    blogPostOid: ").append(toIndentedString(blogPostOid)).append("\n");
     sb.append("    contentSha256: ").append(toIndentedString(contentSha256)).append("\n");
+    sb.append("    experimentOid: ").append(toIndentedString(experimentOid)).append("\n");
+    sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
+    sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    requestSha256: ").append(toIndentedString(requestSha256)).append("\n");
     sb.append("    rowsSha256: ").append(toIndentedString(rowsSha256)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
+    sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
+    sb.append("    upsellKind: ").append(toIndentedString(upsellKind)).append("\n");
+    sb.append("    upsellOid: ").append(toIndentedString(upsellOid)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    widgetId: ").append(toIndentedString(widgetId)).append("\n");
+    sb.append("    winnerVariationNumber: ").append(toIndentedString(winnerVariationNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -269,12 +616,22 @@ public class SfvbApprovalParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("attribute_names");
     openapiFields.add("blog_post_oid");
     openapiFields.add("content_sha256");
+    openapiFields.add("experiment_oid");
+    openapiFields.add("item_count");
+    openapiFields.add("merchant_item_oid");
     openapiFields.add("path");
+    openapiFields.add("request_sha256");
     openapiFields.add("rows_sha256");
     openapiFields.add("rule_count");
+    openapiFields.add("slot");
+    openapiFields.add("upsell_kind");
+    openapiFields.add("upsell_oid");
     openapiFields.add("version");
+    openapiFields.add("widget_id");
+    openapiFields.add("winner_variation_number");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -302,14 +659,30 @@ public class SfvbApprovalParams {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbApprovalParams` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      // ensure the json data is an array
+      if (jsonObj.get("attribute_names") != null && !jsonObj.get("attribute_names").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attribute_names` to be an array in the JSON string but got `%s`", jsonObj.get("attribute_names").toString()));
+      }
       if (jsonObj.get("content_sha256") != null && !jsonObj.get("content_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_sha256").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
+      if (jsonObj.get("request_sha256") != null && !jsonObj.get("request_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_sha256").toString()));
+      }
       if (jsonObj.get("rows_sha256") != null && !jsonObj.get("rows_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rows_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rows_sha256").toString()));
+      }
+      if (jsonObj.get("slot") != null && !jsonObj.get("slot").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `slot` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slot").toString()));
+      }
+      if (jsonObj.get("upsell_kind") != null && !jsonObj.get("upsell_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upsell_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_kind").toString()));
+      }
+      if (jsonObj.get("widget_id") != null && !jsonObj.get("widget_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `widget_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widget_id").toString()));
       }
   }
 

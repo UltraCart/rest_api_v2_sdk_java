@@ -21,6 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
+import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
+import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
+import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -64,7 +67,17 @@ public class SfvbApprovalCreateRequest {
     
     FILE_PUT_SCRIPT("file.put_script"),
     
-    REDIRECT_DELETE_BATCH("redirect.delete_batch");
+    REDIRECT_DELETE_BATCH("redirect.delete_batch"),
+    
+    EXPERIMENT_START("experiment.start"),
+    
+    EXPERIMENT_END("experiment.end"),
+    
+    UPSELL_ENABLE("upsell.enable"),
+    
+    ITEM_ATTRIBUTE_BATCH("item.attribute_batch"),
+    
+    ITEM_PRICING("item.pricing");
 
     private String value;
 
@@ -111,6 +124,18 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
+
+  public static final String SERIALIZED_NAME_EXPERIMENT_START = "experiment_start";
+  @SerializedName(SERIALIZED_NAME_EXPERIMENT_START)
+  private SfvbExperimentStartRequest experimentStart;
+
+  public static final String SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS = "item_attribute_rows";
+  @SerializedName(SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS)
+  private List<SfvbItemAttributeBatchRow> itemAttributeRows = null;
+
+  public static final String SERIALIZED_NAME_ITEM_PRICING = "item_pricing";
+  @SerializedName(SERIALIZED_NAME_ITEM_PRICING)
+  private SfvbItemPricingRequest itemPricing;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -170,6 +195,83 @@ public class SfvbApprovalCreateRequest {
 
   public void setContent(String content) {
     this.content = content;
+  }
+
+
+  public SfvbApprovalCreateRequest experimentStart(SfvbExperimentStartRequest experimentStart) {
+    
+    this.experimentStart = experimentStart;
+    return this;
+  }
+
+   /**
+   * Get experimentStart
+   * @return experimentStart
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbExperimentStartRequest getExperimentStart() {
+    return experimentStart;
+  }
+
+
+  public void setExperimentStart(SfvbExperimentStartRequest experimentStart) {
+    this.experimentStart = experimentStart;
+  }
+
+
+  public SfvbApprovalCreateRequest itemAttributeRows(List<SfvbItemAttributeBatchRow> itemAttributeRows) {
+    
+    this.itemAttributeRows = itemAttributeRows;
+    return this;
+  }
+
+  public SfvbApprovalCreateRequest addItemAttributeRowsItem(SfvbItemAttributeBatchRow itemAttributeRowsItem) {
+    if (this.itemAttributeRows == null) {
+      this.itemAttributeRows = new ArrayList<>();
+    }
+    this.itemAttributeRows.add(itemAttributeRowsItem);
+    return this;
+  }
+
+   /**
+   * For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.
+   * @return itemAttributeRows
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For item.attribute_batch, exactly the rows the batch will send - the dry run's change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash.")
+
+  public List<SfvbItemAttributeBatchRow> getItemAttributeRows() {
+    return itemAttributeRows;
+  }
+
+
+  public void setItemAttributeRows(List<SfvbItemAttributeBatchRow> itemAttributeRows) {
+    this.itemAttributeRows = itemAttributeRows;
+  }
+
+
+  public SfvbApprovalCreateRequest itemPricing(SfvbItemPricingRequest itemPricing) {
+    
+    this.itemPricing = itemPricing;
+    return this;
+  }
+
+   /**
+   * Get itemPricing
+   * @return itemPricing
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbItemPricingRequest getItemPricing() {
+    return itemPricing;
+  }
+
+
+  public void setItemPricing(SfvbItemPricingRequest itemPricing) {
+    this.itemPricing = itemPricing;
   }
 
 
@@ -262,6 +364,9 @@ public class SfvbApprovalCreateRequest {
     SfvbApprovalCreateRequest sfvbApprovalCreateRequest = (SfvbApprovalCreateRequest) o;
     return Objects.equals(this.action, sfvbApprovalCreateRequest.action) &&
         Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
+        Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
+        Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
+        Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
         Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows);
@@ -269,7 +374,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, content, params, reason, redirectRows);
+    return Objects.hash(action, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows);
   }
 
   @Override
@@ -278,6 +383,9 @@ public class SfvbApprovalCreateRequest {
     sb.append("class SfvbApprovalCreateRequest {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
+    sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
+    sb.append("    itemPricing: ").append(toIndentedString(itemPricing)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
@@ -305,6 +413,9 @@ public class SfvbApprovalCreateRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
     openapiFields.add("content");
+    openapiFields.add("experiment_start");
+    openapiFields.add("item_attribute_rows");
+    openapiFields.add("item_pricing");
     openapiFields.add("params");
     openapiFields.add("reason");
     openapiFields.add("redirect_rows");
@@ -340,6 +451,26 @@ public class SfvbApprovalCreateRequest {
       }
       if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
+      }
+      // validate the optional field `experiment_start`
+      if (jsonObj.getAsJsonObject("experiment_start") != null) {
+        SfvbExperimentStartRequest.validateJsonObject(jsonObj.getAsJsonObject("experiment_start"));
+      }
+      JsonArray jsonArrayitemAttributeRows = jsonObj.getAsJsonArray("item_attribute_rows");
+      if (jsonArrayitemAttributeRows != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("item_attribute_rows").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `item_attribute_rows` to be an array in the JSON string but got `%s`", jsonObj.get("item_attribute_rows").toString()));
+        }
+
+        // validate the optional field `item_attribute_rows` (array)
+        for (int i = 0; i < jsonArrayitemAttributeRows.size(); i++) {
+          SfvbItemAttributeBatchRow.validateJsonObject(jsonArrayitemAttributeRows.get(i).getAsJsonObject());
+        };
+      }
+      // validate the optional field `item_pricing`
+      if (jsonObj.getAsJsonObject("item_pricing") != null) {
+        SfvbItemPricingRequest.validateJsonObject(jsonObj.getAsJsonObject("item_pricing"));
       }
       // validate the optional field `params`
       if (jsonObj.getAsJsonObject("params") != null) {

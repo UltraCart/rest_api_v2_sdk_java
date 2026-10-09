@@ -20236,7 +20236,9 @@ paths:
         \ none adding up to 100).  The new id is written into the element and the\
         \ body is saved, so pull it again before the next edit.  type url splits visitors\
         \ between existing pages at router_url, and always ends by itself after duration_days.\
-        \  Always needs sfvb_publish, because visitors are split as soon as it starts.\n"
+        \  Always needs sfvb_publish, because visitors are split as soon as it starts,\
+        \ and the approval of the person who signed in the CLI - an approved experiment.start\
+        \ request for exactly this start (see POST /sfvb/approvals).\n"
       operationId: startSfvbExperiment
       parameters:
       - in: path
@@ -20245,6 +20247,12 @@ paths:
         schema:
           format: int32
           type: integer
+      - description: The approval_id of an approved experiment.start request for exactly
+          this start.  Required.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
       requestBody:
         content:
           application/json; charset=UTF-8:
@@ -20300,6 +20308,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -20495,7 +20517,9 @@ paths:
         \ completion job on its next run, which also emails the merchant.  Without\
         \ a winner a page experiment's id is cleared from its page body so the page\
         \ shows variation 0, and a url experiment sends everyone to variation 0. \
-        \ Always needs sfvb_publish.\n"
+        \ Always needs sfvb_publish, and the approval of the person who signed in\
+        \ the CLI - an approved experiment.end request for this experiment and winner,\
+        \ which always needs a fresh authenticator code (see POST /sfvb/approvals).\n"
       operationId: endSfvbExperiment
       parameters:
       - in: path
@@ -20510,6 +20534,12 @@ paths:
         schema:
           format: int32
           type: integer
+      - description: The approval_id of an approved experiment.end request for this
+          experiment and winner.  Required.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
       requestBody:
         content:
           application/json; charset=UTF-8:
@@ -20563,6 +20593,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -22951,10 +22995,10 @@ paths:
         \ a StoreFront element can render, reconciled against the templates behind\
         \ the pages this item sits on.  An attribute a template declares but nothing\
         \ has set comes back present with an empty value, which is how you discover\
-        \ what the page is asking for.  Pricing, shipping, inventory, tax, variants\
-        \ and kit structure are not here because no element reads them; use the item\
-        \ API for those.  Address by merchant_item_id, the value data-context-item-id\
-        \ carries, or by merchant_item_oid.\n"
+        \ what the page is asking for.  Pricing and related items have their own calls,\
+        \ items/pricing and items/related.  Shipping, inventory, tax, variants and\
+        \ kit structure stay with the item API.  Address by merchant_item_id, the\
+        \ value data-context-item-id carries, or by merchant_item_oid.\n"
       operationId: getSfvbItem
       parameters:
       - in: path
@@ -23241,6 +23285,249 @@ paths:
       - sfvb
       x-codegen-request-body-name: item_attribute_update_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/attributes/batch:
+    post:
+      description: "Applies exactly the change rows of a dry run, given its plan_hash,\
+        \ each with its merchant_item_oid and current_sha256.  Each item is saved\
+        \ once with all of its rows; a row whose value changed since the dry run is\
+        \ skipped as stale and never overwritten, and an item that cannot be saved\
+        \ does not stop the others.  Only the named attributes change.  Needs sfvb_publish\
+        \ and the approval of the person who signed in the CLI, an approved item.attribute_batch\
+        \ request for exactly these rows in the Approval-Id header.\n"
+      operationId: updateSfvbItemAttributeBatch
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved item.attribute_batch request for
+          exactly these rows.  Required.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemAttributeBatchRequest'
+        description: The dry run's change rows and plan_hash
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemAttributeBatchResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change attributes across many items in one call
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_attribute_batch_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/attributes/batch/dry_run:
+    post:
+      description: "Checks up to 2,000 rows on up to 200 items, each with the single\
+        \ attribute update's checks, and answers every row as change, unchanged, stale\
+        \ (expected_value differs from the current value), not_found or invalid, with\
+        \ the current value and its current_sha256, plus a plan_hash over the change\
+        \ rows.  Writes nothing.  SEO attributes are refused; a batch never touches\
+        \ them or any attribute it does not name.\n"
+      operationId: dryRunSfvbItemAttributeBatch
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemAttributeBatchRequest'
+        description: The rows
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemAttributeBatchResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Check attribute changes across many items without writing them
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_attribute_batch_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/content:
     put:
@@ -23555,6 +23842,422 @@ paths:
       - sfvb
       x-codegen-request-body-name: item_multimedia_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/pricing:
+    get:
+      description: "Price, sale (with whether it applies now), MSRP and retail volume\
+        \ pricing - what itemprice, itemsale, itemmsrp, itemsavings and itemvolumediscounts\
+        \ render - with a hash_sha256 to send as If-Match when changing it.  Wholesale\
+        \ pricing tiers are not shown.  Address by merchant_item_id or merchant_item_oid.\n"
+      operationId: getSfvbItemPricing
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPricing'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read what an item charges
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Partial - a field left out is untouched.  A sale needs sale_cost,\
+        \ sale_start and sale_end together, the end after the start; clear_sale removes\
+        \ it.  msrp must be more than 0 (0 only when the price is 0); clear_msrp removes\
+        \ it.  volume_discounts replaces the retail quantity breaks.  Shoppers pay\
+        \ the new price at once, so this needs sfvb_publish, If-Match with the pricing\
+        \ hash_sha256, and the approval of the person who signed in the CLI - an approved\
+        \ item.pricing request for this item and exactly this change.  A change that\
+        \ sets every field to what it already is returns the pricing unchanged and\
+        \ uses no approval.\n"
+      operationId: putSfvbItemPricing
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the pricing read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved item.pricing request for this
+          item and change.  Required.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemPricingRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPricing'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change what an item charges
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_pricing_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/related:
+    get:
+      description: "What itemrelateditemslist lists - the merchant's own related items\
+        \ (user, addon, complementary) and the ones UltraCart calculates (system),\
+        \ with a hash_sha256 to send as If-Match when changing them.\n"
+      operationId: getSfvbItemRelated
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemRelated'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read an item's related items
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Replaces the merchant's own related items, in order, and keeps\
+        \ the ones UltraCart calculates.  Each must be an item of this account and\
+        \ not the item itself, named once, up to 50.  No link back is added to the\
+        \ other items.  Needs sfvb_publish and If-Match with the related hash_sha256.\n"
+      operationId: putSfvbItemRelated
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the related read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemRelatedRequest'
+        description: The related items
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemRelated'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Replace an item's related items
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_related_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/seo:
     put:
@@ -31200,8 +31903,9 @@ paths:
     post:
       description: "Every item it names must exist, and every shipping method, payment\
         \ method and loyalty tier must be one the merchant has.  Put it on a path\
-        \ with a path update to have it shown.  Creating it switched on, or with upsell_item_id_javascript\
-        \ or offsite_content_url, needs sfvb_publish.  Its page content is its container,\
+        \ with a path update to have it shown.  It must be created with active false,\
+        \ and switched on with the enable call, which needs approval.  upsell_item_id_javascript\
+        \ or offsite_content_url needs sfvb_publish.  Its page content is its container,\
         \ written with the container endpoints and owner type upsell.\n"
       operationId: insertSfvbUpsellOffer
       parameters:
@@ -31395,10 +32099,10 @@ paths:
     put:
       description: "A full replace.  Send back the whole offer you read, changed,\
         \ with its hash_sha256 in If-Match.  Read only fields are ignored and a writable\
-        \ field left out is cleared.  Changing an offer that is switched on, switching\
-        \ one on, or changing upsell_item_id_javascript or offsite_content_url needs\
-        \ sfvb_publish.  Settings the API does not show, such as the offer's screenshots,\
-        \ are kept.\n"
+        \ field left out is cleared.  Changing an offer that is switched on, or changing\
+        \ upsell_item_id_javascript or offsite_content_url, needs sfvb_publish.  An\
+        \ update cannot switch an offer on; that is the enable call, which needs approval.\
+        \  Settings the API does not show, such as the offer's screenshots, are kept.\n"
       operationId: updateSfvbUpsellOffer
       parameters:
       - in: path
@@ -31673,6 +32377,118 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable:
+    post:
+      description: "Switches the offer on.  The only way to switch one on - create\
+        \ and update refuse active true on an offer that is off.  Needs sfvb_publish\
+        \ and the approval of the person who signed in the CLI, an approved upsell.enable\
+        \ request for this offer (see POST /sfvb/approvals).  An offer that is already\
+        \ on is returned unchanged, and no approval is used.\n"
+      operationId: enableSfvbUpsellOffer
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: upsell_offer_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved upsell.enable request for this
+          offer.  Required when the offer is off.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUpsellOffer'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Enable an upsell offer
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/upsell_paths:
     get:
       description: "In path order, first to last.  status current (the default) leaves\
@@ -31797,8 +32613,8 @@ paths:
     post:
       description: "Placed last in path order.  Every offer a step names must be an\
         \ offer of this storefront, and every item in the item logic must exist. \
-        \ Creating it switched on needs sfvb_publish; create it with active false\
-        \ to build it without that scope.\n"
+        \ It must be created with active false, and switched on with the enable call,\
+        \ which needs approval.\n"
       operationId: insertSfvbUpsellPath
       parameters:
       - in: path
@@ -31992,7 +32808,8 @@ paths:
         \ its hash_sha256 in If-Match.  Read only fields are ignored and a writable\
         \ field left out is cleared.  Order and archived keep their stored values;\
         \ change them with the move, archive and unarchive calls.  Changing a running\
-        \ path, or switching one on, needs sfvb_publish.\n"
+        \ path needs sfvb_publish.  An update cannot switch a path on; that is the\
+        \ enable call, which needs approval.\n"
       operationId: updateSfvbUpsellPath
       parameters:
       - in: path
@@ -32378,6 +33195,119 @@ paths:
       x-codegen-request-body-name: duplicate_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable:
+    post:
+      description: "Switches the path on, so it starts running.  The only way to switch\
+        \ one on - create, update and unarchive refuse to.  An archived path is refused;\
+        \ unarchive it first.  Needs sfvb_publish and the approval of the person who\
+        \ signed in the CLI, an approved upsell.enable request for this path (see\
+        \ POST /sfvb/approvals).  A path that is already on is returned unchanged,\
+        \ and no approval is used.\n"
+      operationId: enableSfvbUpsellPath
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: upsell_path_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved upsell.enable request for this
+          path.  Required when the path is off.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUpsellPath'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Enable an upsell path
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move:
     post:
       description: "Up, down, to the top or to the bottom of the storefront's paths.\
@@ -32479,8 +33409,9 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive:
     post:
-      description: "Brings the path back into the default list.  Unarchiving one that\
-        \ is switched on starts it, so that needs sfvb_publish.\n"
+      description: "Brings the path back into the default list.  A path that is switched\
+        \ on is refused, because unarchiving it would start it without approval -\
+        \ disable it, unarchive it, then enable it.\n"
       operationId: unarchiveSfvbUpsellPath
       parameters:
       - in: path
@@ -245545,15 +246476,27 @@ components:
         interval_seconds: 6
         created_at: created_at
         description: description
-        storefront_oid: 3
+        storefront_oid: 1
         approval_url: approval_url
         params:
+          item_count: 2
+          attribute_names:
+          - attribute_names
+          - attribute_names
+          content_sha256: content_sha256
+          slot: slot
+          version: 2
+          request_sha256: request_sha256
           blog_post_oid: 5
           path: path
-          content_sha256: content_sha256
+          upsell_kind: offer
+          widget_id: widget_id
+          experiment_oid: 5
           rows_sha256: rows_sha256
-          version: 2
-          rule_count: 5
+          winner_variation_number: 4
+          merchant_item_oid: 7
+          rule_count: 9
+          upsell_oid: 3
         fresh_code_required: true
         outcome_code: outcome_code
         outcome_http_status: 1
@@ -245566,7 +246509,7 @@ components:
           signals:
           - signals
           - signals
-          size_bytes: 9
+          size_bytes: 1
           apis:
           - apis
           - apis
@@ -245689,17 +246632,76 @@ components:
         reason: reason
         redirect_rows:
         - hash_sha256: hash_sha256
-          redirect_id: 0
+          redirect_id: 3
         - hash_sha256: hash_sha256
-          redirect_id: 0
+          redirect_id: 3
+        item_attribute_rows:
+        - merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          expected_value: expected_value
+          type: type
+          value: value
+          merchant_item_oid: 1
+        - merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          expected_value: expected_value
+          type: type
+          value: value
+          merchant_item_oid: 1
+        item_pricing:
+          cost: 5.962133916683182
+          sale_cost: 2.3021358869347655
+          msrp: 5.637376656633329
+          clear_sale: true
+          clear_msrp: true
+          sale_end: sale_end
+          volume_discounts:
+          - cost: 7.061401241503109
+            quantity: 9
+          - cost: 7.061401241503109
+            quantity: 9
+          sale_start: sale_start
         action: file.delete
+        experiment_start:
+          path: path
+          equal_weighting: true
+          notes: notes
+          widget_id: widget_id
+          variations:
+          - path: path
+            traffic_percentage: 6
+            name: name
+          - path: path
+            traffic_percentage: 6
+            name: name
+          optimization_type: optimization_type
+          duration_days: 0
+          name: name
+          slot: slot
+          type: type
+          objective_parameter: objective_parameter
+          objective: objective
         params:
+          item_count: 2
+          attribute_names:
+          - attribute_names
+          - attribute_names
+          content_sha256: content_sha256
+          slot: slot
+          version: 2
+          request_sha256: request_sha256
           blog_post_oid: 5
           path: path
-          content_sha256: content_sha256
+          upsell_kind: offer
+          widget_id: widget_id
+          experiment_oid: 5
           rows_sha256: rows_sha256
-          version: 2
-          rule_count: 5
+          winner_variation_number: 4
+          merchant_item_oid: 7
+          rule_count: 9
+          upsell_oid: 3
         content: content
       properties:
         action:
@@ -245709,6 +246711,11 @@ components:
           - blog_post.delete
           - file.put_script
           - redirect.delete_batch
+          - experiment.start
+          - experiment.end
+          - upsell.enable
+          - item.attribute_batch
+          - item.pricing
           type: string
         content:
           description: "For a file.put_script write, the exact script to be written,\
@@ -245716,6 +246723,17 @@ components:
             \ the same bytes again on the write.  Leave it out for a revert, which\
             \ names params.version."
           type: string
+        experiment_start:
+          $ref: '#/components/schemas/SfvbExperimentStartRequest'
+        item_attribute_rows:
+          description: "For item.attribute_batch, exactly the rows the batch will\
+            \ send - the dry run's change rows, each with merchant_item_oid and current_sha256.\
+            \  UltraCart keeps only their hash."
+          items:
+            $ref: '#/components/schemas/SfvbItemAttributeBatchRow'
+          type: array
+        item_pricing:
+          $ref: '#/components/schemas/SfvbItemPricingRequest'
         params:
           $ref: '#/components/schemas/SfvbApprovalParams'
         reason:
@@ -245732,13 +246750,31 @@ components:
       type: object
     SfvbApprovalParams:
       example:
+        item_count: 2
+        attribute_names:
+        - attribute_names
+        - attribute_names
+        content_sha256: content_sha256
+        slot: slot
+        version: 2
+        request_sha256: request_sha256
         blog_post_oid: 5
         path: path
-        content_sha256: content_sha256
+        upsell_kind: offer
+        widget_id: widget_id
+        experiment_oid: 5
         rows_sha256: rows_sha256
-        version: 2
-        rule_count: 5
+        winner_variation_number: 4
+        merchant_item_oid: 7
+        rule_count: 9
+        upsell_oid: 3
       properties:
+        attribute_names:
+          description: "For item.attribute_batch, the attributes the batch would change.\
+            \  Set by the server."
+          items:
+            type: string
+          type: array
         blog_post_oid:
           description: "The blog post, for blog_post.delete."
           format: int32
@@ -245748,23 +246784,66 @@ components:
             \  Set by the server, never by the caller.  The write must send bytes\
             \ with this hash."
           type: string
+        experiment_oid:
+          description: "For experiment.end, the experiment to end."
+          format: int32
+          type: integer
+        item_count:
+          description: "For item.attribute_batch, how many items the batch would change\
+            \ when it was requested.  Set by the server."
+          format: int32
+          type: integer
+        merchant_item_oid:
+          description: "For item.pricing, the item whose pricing changes."
+          format: int32
+          type: integer
         path:
-          description: "The file path, for file.delete and file.put_script.  Exactly\
-            \ as the gated call will send it."
+          description: "The file path, for file.delete and file.put_script, or the\
+            \ page path for experiment.start of a page experiment.  Exactly as the\
+            \ gated call will send it."
+          type: string
+        request_sha256:
+          description: "For experiment.start of a url experiment, the hash of the\
+            \ checked experiment approved, and for item.pricing the hash of the change.\
+            \  Set by the server.  The gated call must send the same."
           type: string
         rows_sha256:
-          description: "For redirect.delete_batch, the plan_hash of the exact rows\
-            \ approved.  Set by the server.  The batch delete must send rows with\
-            \ this hash."
+          description: "For redirect.delete_batch and item.attribute_batch, the plan_hash\
+            \ of the exact rows approved.  Set by the server.  The batch must send\
+            \ rows with this hash."
           type: string
         rule_count:
           description: "For redirect.delete_batch, how many rules the batch would\
             \ delete when it was requested.  Set by the server."
           format: int32
           type: integer
+        slot:
+          description: "For experiment.start of a page experiment, the page body name.\
+            \  Defaults to body."
+          type: string
+        upsell_kind:
+          description: "For upsell.enable, what to switch on."
+          enum:
+          - offer
+          - path
+          type: string
+        upsell_oid:
+          description: "For upsell.enable, the oid of the offer or path to switch\
+            \ on."
+          format: int32
+          type: integer
         version:
           description: "For file.put_script, the history version a revert restores.\
             \  Leave it out, and send content instead, for a write."
+          format: int32
+          type: integer
+        widget_id:
+          description: "For experiment.start of a page experiment, the id of the experiment\
+            \ element."
+          type: string
+        winner_variation_number:
+          description: "For experiment.end, the winning variation.  Leave it out to\
+            \ end without a winner, and leave it out of the end call too."
           format: int32
           type: integer
       type: object
@@ -245774,7 +246853,7 @@ components:
         signals:
         - signals
         - signals
-        size_bytes: 9
+        size_bytes: 1
         apis:
         - apis
         - apis
@@ -245881,15 +246960,27 @@ components:
           interval_seconds: 6
           created_at: created_at
           description: description
-          storefront_oid: 3
+          storefront_oid: 1
           approval_url: approval_url
           params:
+            item_count: 2
+            attribute_names:
+            - attribute_names
+            - attribute_names
+            content_sha256: content_sha256
+            slot: slot
+            version: 2
+            request_sha256: request_sha256
             blog_post_oid: 5
             path: path
-            content_sha256: content_sha256
+            upsell_kind: offer
+            widget_id: widget_id
+            experiment_oid: 5
             rows_sha256: rows_sha256
-            version: 2
-            rule_count: 5
+            winner_variation_number: 4
+            merchant_item_oid: 7
+            rule_count: 9
+            upsell_oid: 3
           fresh_code_required: true
           outcome_code: outcome_code
           outcome_http_status: 1
@@ -245902,7 +246993,7 @@ components:
             signals:
             - signals
             - signals
-            size_bytes: 9
+            size_bytes: 1
             apis:
             - apis
             - apis
@@ -245933,15 +247024,27 @@ components:
           interval_seconds: 6
           created_at: created_at
           description: description
-          storefront_oid: 3
+          storefront_oid: 1
           approval_url: approval_url
           params:
+            item_count: 2
+            attribute_names:
+            - attribute_names
+            - attribute_names
+            content_sha256: content_sha256
+            slot: slot
+            version: 2
+            request_sha256: request_sha256
             blog_post_oid: 5
             path: path
-            content_sha256: content_sha256
+            upsell_kind: offer
+            widget_id: widget_id
+            experiment_oid: 5
             rows_sha256: rows_sha256
-            version: 2
-            rule_count: 5
+            winner_variation_number: 4
+            merchant_item_oid: 7
+            rule_count: 9
+            upsell_oid: 3
           fresh_code_required: true
           outcome_code: outcome_code
           outcome_http_status: 1
@@ -245954,7 +247057,7 @@ components:
             signals:
             - signals
             - signals
-            size_bytes: 9
+            size_bytes: 1
             apis:
             - apis
             - apis
@@ -248448,6 +249551,218 @@ components:
             \ read rather than stored with the value."
           type: boolean
       type: object
+    SfvbItemAttributeBatchRequest:
+      example:
+        plan_hash: plan_hash
+        rows:
+        - merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          expected_value: expected_value
+          type: type
+          value: value
+          merchant_item_oid: 1
+        - merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          expected_value: expected_value
+          type: type
+          value: value
+          merchant_item_oid: 1
+      properties:
+        plan_hash:
+          description: "From the dry run.  Required to apply, with exactly the rows\
+            \ the dry run answered as change."
+          type: string
+        rows:
+          description: "The changes, up to 5,000 rows on up to 500 items.  Each item\
+            \ and name at most once."
+          items:
+            $ref: '#/components/schemas/SfvbItemAttributeBatchRow'
+          type: array
+      type: object
+    SfvbItemAttributeBatchResponse:
+      example:
+        item_count: 5
+        total: 3
+        stale: 9
+        applied: true
+        change: 0
+        invalid: 1
+        plan_hash: plan_hash
+        unchanged: 2
+        error: 6
+        not_found: 5
+        rows:
+        - result: change
+          merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          current_present: true
+          row: 7
+          message: message
+          type: type
+          current_value: current_value
+          merchant_item_oid: 2
+        - result: change
+          merchant_item_id: merchant_item_id
+          name: name
+          current_sha256: current_sha256
+          current_present: true
+          row: 7
+          message: message
+          type: type
+          current_value: current_value
+          merchant_item_oid: 2
+        updated: 4
+      properties:
+        applied:
+          description: True after an apply.
+          type: boolean
+        change:
+          description: "Rows that would change, from a dry run."
+          format: int32
+          type: integer
+        error:
+          description: "Rows on an item that could not be saved, after an apply."
+          format: int32
+          type: integer
+        invalid:
+          description: Rows refused by the attribute checks.
+          format: int32
+          type: integer
+        item_count:
+          description: "Distinct items with at least one row that would change, or\
+            \ did."
+          format: int32
+          type: integer
+        not_found:
+          description: Rows naming an item that does not exist.
+          format: int32
+          type: integer
+        plan_hash:
+          description: "The hash of the rows answered as change, with their current_sha256.\
+            \  Apply exactly those rows with this hash."
+          type: string
+        rows:
+          description: "One result per row, in request order."
+          items:
+            $ref: '#/components/schemas/SfvbItemAttributeBatchRowResult'
+          type: array
+        stale:
+          description: Rows skipped because the value is not the one expected.
+          format: int32
+          type: integer
+        total:
+          description: Rows checked.
+          format: int32
+          type: integer
+        unchanged:
+          description: Rows whose value is already the new one.
+          format: int32
+          type: integer
+        updated:
+          description: "Rows written, after an apply."
+          format: int32
+          type: integer
+      type: object
+    SfvbItemAttributeBatchRow:
+      example:
+        merchant_item_id: merchant_item_id
+        name: name
+        current_sha256: current_sha256
+        expected_value: expected_value
+        type: type
+        value: value
+        merchant_item_oid: 1
+      properties:
+        current_sha256:
+          description: The current_sha256 the dry run answered for this row.  Required
+            to apply; a row whose value changed since is skipped as stale.
+          type: string
+        expected_value:
+          description: "For a dry run, the value the caller believes the item holds\
+            \ now.  A different current value makes the row stale."
+          type: string
+        merchant_item_id:
+          description: "The item by its merchant item id, for a dry run.  Send this\
+            \ or merchant_item_oid, not both."
+          type: string
+        merchant_item_oid:
+          description: The item.  Required to apply; the dry run answers it for a
+            row that named merchant_item_id.
+          format: int32
+          type: integer
+        name:
+          description: "The attribute name, matched without regard to case."
+          type: string
+        type:
+          description: "The attribute type, used only when no template on the item's\
+            \ pages declares the name."
+          type: string
+        value:
+          description: The new value.  An empty string clears the attribute.
+          type: string
+      type: object
+    SfvbItemAttributeBatchRowResult:
+      example:
+        result: change
+        merchant_item_id: merchant_item_id
+        name: name
+        current_sha256: current_sha256
+        current_present: true
+        row: 7
+        message: message
+        type: type
+        current_value: current_value
+        merchant_item_oid: 2
+      properties:
+        current_present:
+          description: Whether the item had the attribute before this batch.
+          type: boolean
+        current_sha256:
+          description: The hash of the value before this batch.  Send it back with
+            the row to apply.
+          type: string
+        current_value:
+          description: "The value before this batch, for a backup.  Empty when the\
+            \ item has no such attribute."
+          type: string
+        merchant_item_id:
+          description: The item's merchant item id.  Absent when not_found.
+          type: string
+        merchant_item_oid:
+          description: The item.  Absent when not_found.
+          format: int32
+          type: integer
+        message:
+          description: "Why a row is invalid, stale or error."
+          type: string
+        name:
+          description: The attribute name as sent.
+          type: string
+        result:
+          description: "change or unchanged from a dry run, updated after an apply,\
+            \ stale (the value differs from expected_value or changed since the dry\
+            \ run), not_found, invalid, or error when the item could not be saved."
+          enum:
+          - change
+          - unchanged
+          - updated
+          - stale
+          - not_found
+          - invalid
+          - error
+          type: string
+        row:
+          description: "The row's position in the request, from 1."
+          format: int32
+          type: integer
+        type:
+          description: "The type the value is checked and stored as - the declaring\
+            \ template's, else the one sent."
+          type: string
+      type: object
     SfvbItemAttributeUpdate:
       example:
         name: name
@@ -248724,6 +250039,203 @@ components:
             \ own storage on attach."
           type: string
       type: object
+    SfvbItemPricing:
+      example:
+        hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
+        cost: 0.8008281904610115
+        sale_cost: 5.962133916683182
+        msrp: 1.4658129805029452
+        sale_end: sale_end
+        volume_discounts:
+        - cost: 7.061401241503109
+          quantity: 9
+        - cost: 7.061401241503109
+          quantity: 9
+        sale_active: true
+        sale_start: sale_start
+        currency_code: currency_code
+        merchant_item_oid: 6
+      properties:
+        cost:
+          description: The price.
+          type: number
+        currency_code:
+          description: The currency every amount is in.  Read only here.
+          type: string
+        hash_sha256:
+          description: The hash of the pricing above.  Send it as If-Match to change
+            it.
+          type: string
+        merchant_item_id:
+          description: The item's merchant item id.
+          type: string
+        merchant_item_oid:
+          description: The item.
+          format: int32
+          type: integer
+        msrp:
+          description: "The manufacturer suggested retail price, when set."
+          type: number
+        sale_active:
+          description: Whether the sale price applies right now.
+          type: boolean
+        sale_cost:
+          description: "The sale price, when a sale is set."
+          type: number
+        sale_end:
+          description: "When the sale ends, ISO 8601."
+          format: dateTime
+          type: string
+        sale_start:
+          description: "When the sale starts, ISO 8601."
+          format: dateTime
+          type: string
+        volume_discounts:
+          description: "Retail quantity breaks, lowest quantity first.  Wholesale\
+            \ pricing tiers are not shown or changed here."
+          items:
+            $ref: '#/components/schemas/SfvbItemVolumeDiscount'
+          type: array
+      type: object
+    SfvbItemPricingRequest:
+      example:
+        cost: 5.962133916683182
+        sale_cost: 2.3021358869347655
+        msrp: 5.637376656633329
+        clear_sale: true
+        clear_msrp: true
+        sale_end: sale_end
+        volume_discounts:
+        - cost: 7.061401241503109
+          quantity: 9
+        - cost: 7.061401241503109
+          quantity: 9
+        sale_start: sale_start
+      properties:
+        clear_msrp:
+          description: True to remove the MSRP.  Not with msrp.
+          type: boolean
+        clear_sale:
+          description: True to remove the sale.  Not with sale_cost.
+          type: boolean
+        cost:
+          description: "The new price, 0 or more."
+          type: number
+        msrp:
+          description: "The manufacturer suggested retail price, more than 0 (or 0\
+            \ when the price is 0)."
+          type: number
+        sale_cost:
+          description: "The sale price, 0 or more.  Sent with sale_start and sale_end,\
+            \ all three or none."
+          type: number
+        sale_end:
+          description: "When the sale ends, ISO 8601 with an offset, after sale_start.\
+            \  Required with sale_cost."
+          format: dateTime
+          type: string
+        sale_start:
+          description: "When the sale starts, ISO 8601 with an offset.  Required with\
+            \ sale_cost."
+          format: dateTime
+          type: string
+        volume_discounts:
+          description: "Replaces the retail quantity breaks.  An empty list removes\
+            \ them all.  Up to 20, each quantity 2 or more and named once."
+          items:
+            $ref: '#/components/schemas/SfvbItemVolumeDiscount'
+          type: array
+      type: object
+    SfvbItemRelated:
+      example:
+        hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
+        not_relatable: true
+        related_items:
+        - merchant_item_id: merchant_item_id
+          type: user
+          merchant_item_oid: 6
+        - merchant_item_id: merchant_item_id
+          type: user
+          merchant_item_oid: 6
+        merchant_item_oid: 0
+        no_system_calculated_related_items: true
+      properties:
+        hash_sha256:
+          description: The hash of the above.  Send it as If-Match to change them.
+          type: string
+        merchant_item_id:
+          description: The item's merchant item id.
+          type: string
+        merchant_item_oid:
+          description: The item.
+          format: int32
+          type: integer
+        no_system_calculated_related_items:
+          description: True when UltraCart does not calculate related items for this
+            item.
+          type: boolean
+        not_relatable:
+          description: True when this item is never shown as related to another.
+          type: boolean
+        related_items:
+          description: "In stored order - the merchant's own (user, addon, complementary)\
+            \ and UltraCart's calculated ones (system)."
+          items:
+            $ref: '#/components/schemas/SfvbItemRelatedItem'
+          type: array
+      type: object
+    SfvbItemRelatedItem:
+      example:
+        merchant_item_id: merchant_item_id
+        type: user
+        merchant_item_oid: 6
+      properties:
+        merchant_item_id:
+          description: "The related item.  On a write, send this or merchant_item_oid."
+          type: string
+        merchant_item_oid:
+          description: The related item's oid.
+          format: int32
+          type: integer
+        type:
+          description: "user (the default on a write), addon or complementary.  system\
+            \ marks one UltraCart calculated and other a kind this API does not change.\
+            \  Both are read only and kept by a write."
+          enum:
+          - user
+          - addon
+          - complementary
+          - system
+          - other
+          type: string
+      type: object
+    SfvbItemRelatedRequest:
+      example:
+        not_relatable: true
+        related_items:
+        - merchant_item_id: merchant_item_id
+          type: user
+          merchant_item_oid: 6
+        - merchant_item_id: merchant_item_id
+          type: user
+          merchant_item_oid: 6
+        no_system_calculated_related_items: true
+      properties:
+        no_system_calculated_related_items:
+          description: Left out keeps the stored value.
+          type: boolean
+        not_relatable:
+          description: Left out keeps the stored value.
+          type: boolean
+        related_items:
+          description: "The merchant's related items, in order, up to 50.  An empty\
+            \ list removes them all.  The calculated (system) ones are kept."
+          items:
+            $ref: '#/components/schemas/SfvbItemRelatedItem'
+          type: array
+      type: object
     SfvbItemResponse:
       example:
         merchant_item_id: merchant_item_id
@@ -248908,6 +250420,19 @@ components:
             \ falls back to the item's own description.  This does not reach og:title\
             \ or twitter:title, which render the item description either way."
           type: string
+      type: object
+    SfvbItemVolumeDiscount:
+      example:
+        cost: 7.061401241503109
+        quantity: 9
+      properties:
+        cost:
+          description: "The unit price at that quantity, in the item's currency."
+          type: number
+        quantity:
+          description: The quantity from which this unit price applies.  2 or more.
+          format: int32
+          type: integer
       type: object
     SfvbLibraryAiReview:
       example:
@@ -252224,9 +253749,9 @@ components:
         plan_hash: plan_hash
         rows:
         - hash_sha256: hash_sha256
-          redirect_id: 0
+          redirect_id: 3
         - hash_sha256: hash_sha256
-          redirect_id: 0
+          redirect_id: 3
       properties:
         plan_hash:
           description: From the dry run of exactly these rows.  Required to delete.
@@ -252312,7 +253837,7 @@ components:
     SfvbRedirectDeleteRow:
       example:
         hash_sha256: hash_sha256
-        redirect_id: 0
+        redirect_id: 3
       properties:
         hash_sha256:
           description: "The hash_sha256 you read.  Optional on a dry run, which reports\
