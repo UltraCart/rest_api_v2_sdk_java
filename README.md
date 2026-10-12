@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.200</version>
+    <version>4.1.201</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.200"
+     implementation "com.ultracart:rest-sdk:4.1.201"
   }
 ```
 
@@ -540,6 +540,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+*SfvbApi* | [**getSfvbEvents**](docs/SfvbApi.md#getSfvbEvents) | **GET** /sfvb/events | Replay events
+*SfvbApi* | [**getSfvbEventsAuthorization**](docs/SfvbApi.md#getSfvbEventsAuthorization) | **PUT** /sfvb/events/auth | Open the event stream
 *SfvbApi* | [**getSfvbExperiment**](docs/SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
@@ -1907,6 +1909,10 @@ Class | Method | HTTP request | Description
  - [SfvbElementSchemaResponse](docs/SfvbElementSchemaResponse.md)
  - [SfvbElementsResponse](docs/SfvbElementsResponse.md)
  - [SfvbErrorDetail](docs/SfvbErrorDetail.md)
+ - [SfvbEvent](docs/SfvbEvent.md)
+ - [SfvbEventsAuthRequest](docs/SfvbEventsAuthRequest.md)
+ - [SfvbEventsAuthResponse](docs/SfvbEventsAuthResponse.md)
+ - [SfvbEventsResponse](docs/SfvbEventsResponse.md)
  - [SfvbExperiment](docs/SfvbExperiment.md)
  - [SfvbExperimentEndRequest](docs/SfvbExperimentEndRequest.md)
  - [SfvbExperimentObjective](docs/SfvbExperimentObjective.md)
@@ -2269,6 +2275,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.201 | 10/12/2026 | sfvb internal testing |
 | 4.1.200 | 10/09/2026 | sfvb internal testing |
 | 4.1.199 | 10/08/2026 | sfvb internal testing |
 | 4.1.198 | 10/08/2026 | sfvb internal testing |

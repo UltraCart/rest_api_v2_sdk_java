@@ -229,11 +229,11 @@ public class SfvbThemeJobResponse {
   }
 
    /**
-   * When the job stopped.  Null until it does.
+   * When the job stopped, ISO 8601 UTC.  Null until it does.
    * @return finishedDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the job stopped.  Null until it does.")
+  @ApiModelProperty(value = "When the job stopped, ISO 8601 UTC.  Null until it does.")
 
   public String getFinishedDts() {
     return finishedDts;
@@ -321,11 +321,11 @@ public class SfvbThemeJobResponse {
   }
 
    /**
-   * When the job started running.  Null until it does.
+   * When the job started running, ISO 8601 UTC.  Null until it does.
    * @return startedDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the job started running.  Null until it does.")
+  @ApiModelProperty(value = "When the job started running, ISO 8601 UTC.  Null until it does.")
 
   public String getStartedDts() {
     return startedDts;
@@ -367,11 +367,11 @@ public class SfvbThemeJobResponse {
   }
 
    /**
-   * When the job was queued.
+   * When the job was queued, ISO 8601 UTC.
    * @return submittedDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the job was queued.")
+  @ApiModelProperty(value = "When the job was queued, ISO 8601 UTC.")
 
   public String getSubmittedDts() {
     return submittedDts;

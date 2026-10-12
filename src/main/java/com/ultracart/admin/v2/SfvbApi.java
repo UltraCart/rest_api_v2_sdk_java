@@ -44,6 +44,9 @@ import com.ultracart.admin.v2.models.SfvbContainerVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbContainerWriteRequest;
 import com.ultracart.admin.v2.models.SfvbElementSchemaResponse;
 import com.ultracart.admin.v2.models.SfvbElementsResponse;
+import com.ultracart.admin.v2.models.SfvbEventsAuthRequest;
+import com.ultracart.admin.v2.models.SfvbEventsAuthResponse;
+import com.ultracart.admin.v2.models.SfvbEventsResponse;
 import com.ultracart.admin.v2.models.SfvbExperiment;
 import com.ultracart.admin.v2.models.SfvbExperimentEndRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentObjectivesResponse;
@@ -6315,7 +6318,7 @@ public class SfvbApi {
 
     /**
      * End an experiment
-     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person&#39;s approval session (see POST /sfvb/approvals). 
      * @param storefrontOid  (required)
      * @param experimentOid  (required)
      * @param approvalId The approval_id of an approved experiment.end request for this experiment and winner.  Required.  See POST /sfvb/approvals. (optional)
@@ -6342,7 +6345,7 @@ public class SfvbApi {
 
     /**
      * End an experiment
-     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person&#39;s approval session (see POST /sfvb/approvals). 
      * @param storefrontOid  (required)
      * @param experimentOid  (required)
      * @param approvalId The approval_id of an approved experiment.end request for this experiment and winner.  Required.  See POST /sfvb/approvals. (optional)
@@ -6370,7 +6373,7 @@ public class SfvbApi {
 
     /**
      * End an experiment (asynchronously)
-     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner, which always needs a fresh authenticator code (see POST /sfvb/approvals). 
+     * Ends a running experiment.  With winner_variation_number the winner gets every visitor, including visitors already assigned to another variation, and a page experiment&#39;s winning content is promoted into the page by the completion job on its next run, which also emails the merchant.  Without a winner a page experiment&#39;s id is cleared from its page body so the page shows variation 0, and a url experiment sends everyone to variation 0.  Always needs sfvb_publish, and the approval of the person who signed in the CLI - an approved experiment.end request for this experiment and winner.  An end with a winner always needs a fresh authenticator code; an end without a winner can be covered by the person&#39;s approval session (see POST /sfvb/approvals). 
      * @param storefrontOid  (required)
      * @param experimentOid  (required)
      * @param approvalId The approval_id of an approved experiment.end request for this experiment and winner.  Required.  See POST /sfvb/approvals. (optional)
@@ -7614,6 +7617,316 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbElementValidateBeforeCall(elementType, _callback);
         Type localVarReturnType = new TypeToken<SfvbElementSchemaResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbEvents
+     * @param after Return events after this event_id.  Leave it out for every event kept. (optional)
+     * @param storefrontOid Only events about this storefront, plus merchant-level ones. (optional)
+     * @param limit At most this many events, 1 to 500. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEventsCall(String after, Integer storefrontOid, Integer limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/events";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        if (storefrontOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("storefront_oid", storefrontOid));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbEventsValidateBeforeCall(String after, Integer storefrontOid, Integer limit, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getSfvbEventsCall(after, storefrontOid, limit, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Replay events
+     * The signed-in person&#39;s events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in&#39;s requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+     * @param after Return events after this event_id.  Leave it out for every event kept. (optional)
+     * @param storefrontOid Only events about this storefront, plus merchant-level ones. (optional)
+     * @param limit At most this many events, 1 to 500. (optional)
+     * @return SfvbEventsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbEventsResponse getSfvbEvents(String after, Integer storefrontOid, Integer limit) throws ApiException {
+        ApiResponse<SfvbEventsResponse> localVarResp = getSfvbEventsWithHttpInfo(after, storefrontOid, limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replay events
+     * The signed-in person&#39;s events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in&#39;s requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+     * @param after Return events after this event_id.  Leave it out for every event kept. (optional)
+     * @param storefrontOid Only events about this storefront, plus merchant-level ones. (optional)
+     * @param limit At most this many events, 1 to 500. (optional)
+     * @return ApiResponse&lt;SfvbEventsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbEventsResponse> getSfvbEventsWithHttpInfo(String after, Integer storefrontOid, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbEventsValidateBeforeCall(after, storefrontOid, limit, null);
+        Type localVarReturnType = new TypeToken<SfvbEventsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replay events (asynchronously)
+     * The signed-in person&#39;s events after the cursor, oldest first.  Events are kept 72 hours; an older cursor returns resync_required, and then the caller re-lists what it was waiting on.  Events about one sign-in&#39;s requests, such as approvals, are only returned to that sign-in.  limit is 1 to 500, default 100. 
+     * @param after Return events after this event_id.  Leave it out for every event kept. (optional)
+     * @param storefrontOid Only events about this storefront, plus merchant-level ones. (optional)
+     * @param limit At most this many events, 1 to 500. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEventsAsync(String after, Integer storefrontOid, Integer limit, final ApiCallback<SfvbEventsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbEventsValidateBeforeCall(after, storefrontOid, limit, _callback);
+        Type localVarReturnType = new TypeToken<SfvbEventsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbEventsAuthorization
+     * @param eventsAuthRequest Optional storefront filter (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEventsAuthorizationCall(SfvbEventsAuthRequest eventsAuthRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = eventsAuthRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/events/auth";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbEventsAuthorizationValidateBeforeCall(SfvbEventsAuthRequest eventsAuthRequest, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getSfvbEventsAuthorizationCall(eventsAuthRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Open the event stream
+     * Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person&#39;s event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param eventsAuthRequest Optional storefront filter (optional)
+     * @return SfvbEventsAuthResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbEventsAuthResponse getSfvbEventsAuthorization(SfvbEventsAuthRequest eventsAuthRequest) throws ApiException {
+        ApiResponse<SfvbEventsAuthResponse> localVarResp = getSfvbEventsAuthorizationWithHttpInfo(eventsAuthRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Open the event stream
+     * Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person&#39;s event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param eventsAuthRequest Optional storefront filter (optional)
+     * @return ApiResponse&lt;SfvbEventsAuthResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbEventsAuthResponse> getSfvbEventsAuthorizationWithHttpInfo(SfvbEventsAuthRequest eventsAuthRequest) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbEventsAuthorizationValidateBeforeCall(eventsAuthRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbEventsAuthResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Open the event stream (asynchronously)
+     * Returns a websocket URL and a single-use token, valid for 5 minutes, for the signed-in person&#39;s event stream.  Events are thin hints, type and ids only, and the stream is at most once.  Re-read the object before acting, and after every reconnect replay from the last event_id with GET events.  Send ping messages to keep the connection open, and reconnect with a new token before two hours.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param eventsAuthRequest Optional storefront filter (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEventsAuthorizationAsync(SfvbEventsAuthRequest eventsAuthRequest, final ApiCallback<SfvbEventsAuthResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbEventsAuthorizationValidateBeforeCall(eventsAuthRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbEventsAuthResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10426,6 +10739,7 @@ public class SfvbApi {
      * @param includeTokens  (optional)
      * @param q  (optional)
      * @param limit  (optional)
+     * @param redirected  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10441,7 +10755,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbNotFoundCall(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSfvbNotFoundCall(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, Boolean redirected, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10491,6 +10805,10 @@ public class SfvbApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
+        if (redirected != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("redirected", redirected));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -10512,7 +10830,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSfvbNotFoundValidateBeforeCall(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSfvbNotFoundValidateBeforeCall(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, Boolean redirected, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -10520,14 +10838,14 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = getSfvbNotFoundCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, _callback);
+        okhttp3.Call localVarCall = getSfvbNotFoundCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected, _callback);
         return localVarCall;
 
     }
 
     /**
      * List the paths that answered 404
-     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected&#x3D;false lists only paths no rule catches yet, and redirected&#x3D;true only those one does.  limit is 1 to 100, default 50. 
      * @param storefrontOid  (required)
      * @param since  (optional)
      * @param sort  (optional)
@@ -10535,6 +10853,7 @@ public class SfvbApi {
      * @param includeTokens  (optional)
      * @param q  (optional)
      * @param limit  (optional)
+     * @param redirected  (optional)
      * @return SfvbNotFoundResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10549,14 +10868,14 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbNotFoundResponse getSfvbNotFound(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit) throws ApiException {
-        ApiResponse<SfvbNotFoundResponse> localVarResp = getSfvbNotFoundWithHttpInfo(storefrontOid, since, sort, includeBots, includeTokens, q, limit);
+    public SfvbNotFoundResponse getSfvbNotFound(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, Boolean redirected) throws ApiException {
+        ApiResponse<SfvbNotFoundResponse> localVarResp = getSfvbNotFoundWithHttpInfo(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected);
         return localVarResp.getData();
     }
 
     /**
      * List the paths that answered 404
-     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected&#x3D;false lists only paths no rule catches yet, and redirected&#x3D;true only those one does.  limit is 1 to 100, default 50. 
      * @param storefrontOid  (required)
      * @param since  (optional)
      * @param sort  (optional)
@@ -10564,6 +10883,7 @@ public class SfvbApi {
      * @param includeTokens  (optional)
      * @param q  (optional)
      * @param limit  (optional)
+     * @param redirected  (optional)
      * @return ApiResponse&lt;SfvbNotFoundResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10578,15 +10898,15 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbNotFoundResponse> getSfvbNotFoundWithHttpInfo(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getSfvbNotFoundValidateBeforeCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, null);
+    public ApiResponse<SfvbNotFoundResponse> getSfvbNotFoundWithHttpInfo(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, Boolean redirected) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbNotFoundValidateBeforeCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected, null);
         Type localVarReturnType = new TypeToken<SfvbNotFoundResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List the paths that answered 404 (asynchronously)
-     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  limit is 1 to 100, default 50. 
+     * The paths shoppers asked for that answered 404, most hits first or by last_seen.  Paths only, never query strings.  Bots are left out unless include_bots.  Token-like path segments show as {token} unless include_tokens.  A path stays listed after a redirect rule catches it, with redirected_to set.  redirected&#x3D;false lists only paths no rule catches yet, and redirected&#x3D;true only those one does.  limit is 1 to 100, default 50. 
      * @param storefrontOid  (required)
      * @param since  (optional)
      * @param sort  (optional)
@@ -10594,6 +10914,7 @@ public class SfvbApi {
      * @param includeTokens  (optional)
      * @param q  (optional)
      * @param limit  (optional)
+     * @param redirected  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10609,9 +10930,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbNotFoundAsync(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, final ApiCallback<SfvbNotFoundResponse> _callback) throws ApiException {
+    public okhttp3.Call getSfvbNotFoundAsync(Integer storefrontOid, String since, String sort, Boolean includeBots, Boolean includeTokens, String q, Integer limit, Boolean redirected, final ApiCallback<SfvbNotFoundResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSfvbNotFoundValidateBeforeCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, _callback);
+        okhttp3.Call localVarCall = getSfvbNotFoundValidateBeforeCall(storefrontOid, since, sort, includeBots, includeTokens, q, limit, redirected, _callback);
         Type localVarReturnType = new TypeToken<SfvbNotFoundResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -19371,7 +19692,7 @@ public class SfvbApi {
 
     /**
      * Change one built-in message
-     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language&#39;s translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can&#39;t be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param key  (required)
      * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
@@ -19400,7 +19721,7 @@ public class SfvbApi {
 
     /**
      * Change one built-in message
-     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language&#39;s translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can&#39;t be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param key  (required)
      * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
@@ -19430,7 +19751,7 @@ public class SfvbApi {
 
     /**
      * Change one built-in message (asynchronously)
-     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone; empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish. 
+     * Sets one message in any number of languages.  ENG replaces the English, which drops its machine translations so they regenerate.  Any other language becomes a hand translation.  Languages not named are left alone.  Empty text removes that language&#39;s translation so machine translation fills it again (not allowed for ENG); it is the undo for an imported message, which can&#39;t be reset.  Shoppers see it at once.  Always needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param key  (required)
      * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)

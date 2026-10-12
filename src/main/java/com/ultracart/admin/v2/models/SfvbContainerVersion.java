@@ -299,11 +299,11 @@ public class SfvbContainerVersion {
   }
 
    /**
-   * When this snapshot was taken.
+   * When this snapshot was taken, ISO 8601 UTC.
    * @return createdDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When this snapshot was taken.")
+  @ApiModelProperty(value = "When this snapshot was taken, ISO 8601 UTC.")
 
   public String getCreatedDts() {
     return createdDts;

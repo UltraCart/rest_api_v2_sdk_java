@@ -18745,6 +18745,218 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/events:
+    get:
+      description: "The signed-in person's events after the cursor, oldest first.\
+        \  Events are kept 72 hours; an older cursor returns resync_required, and\
+        \ then the caller re-lists what it was waiting on.  Events about one sign-in's\
+        \ requests, such as approvals, are only returned to that sign-in.  limit is\
+        \ 1 to 500, default 100.\n"
+      operationId: getSfvbEvents
+      parameters:
+      - description: Return events after this event_id.  Leave it out for every event
+          kept.
+        in: query
+        name: after
+        schema:
+          type: string
+      - description: "Only events about this storefront, plus merchant-level ones."
+        in: query
+        name: storefront_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "At most this many events, 1 to 500."
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbEventsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Replay events
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/events/auth:
+    put:
+      description: "Returns a websocket URL and a single-use token, valid for 5 minutes,\
+        \ for the signed-in person's event stream.  Events are thin hints, type and\
+        \ ids only, and the stream is at most once.  Re-read the object before acting,\
+        \ and after every reconnect replay from the last event_id with GET events.\
+        \  Send ping messages to keep the connection open, and reconnect with a new\
+        \ token before two hours.  Requires a token that resolves to a user, so use\
+        \ the device authorization flow.\n"
+      operationId: getSfvbEventsAuthorization
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbEventsAuthRequest'
+        description: Optional storefront filter
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbEventsAuthResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Open the event stream
+      tags:
+      - sfvb
+      x-codegen-request-body-name: events_auth_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts:
     get:
       operationId: listSfvbStorefronts
@@ -20518,8 +20730,9 @@ paths:
         \ a winner a page experiment's id is cleared from its page body so the page\
         \ shows variation 0, and a url experiment sends everyone to variation 0. \
         \ Always needs sfvb_publish, and the approval of the person who signed in\
-        \ the CLI - an approved experiment.end request for this experiment and winner,\
-        \ which always needs a fresh authenticator code (see POST /sfvb/approvals).\n"
+        \ the CLI - an approved experiment.end request for this experiment and winner.\
+        \  An end with a winner always needs a fresh authenticator code; an end without\
+        \ a winner can be covered by the person's approval session (see POST /sfvb/approvals).\n"
       operationId: endSfvbExperiment
       parameters:
       - in: path
@@ -22664,8 +22877,10 @@ paths:
     put:
       description: "Sets one message in any number of languages.  ENG replaces the\
         \ English, which drops its machine translations so they regenerate.  Any other\
-        \ language becomes a hand translation.  Languages not named are left alone;\
-        \ empty text is refused.  Shoppers see it at once.  Always needs sfvb_publish.\n"
+        \ language becomes a hand translation.  Languages not named are left alone.\
+        \  Empty text removes that language's translation so machine translation fills\
+        \ it again (not allowed for ENG); it is the undo for an imported message,\
+        \ which can't be reset.  Shoppers see it at once.  Always needs sfvb_publish.\n"
       operationId: putSfvbI18nMessage
       parameters:
       - in: path
@@ -26725,7 +26940,9 @@ paths:
       description: "The paths shoppers asked for that answered 404, most hits first\
         \ or by last_seen.  Paths only, never query strings.  Bots are left out unless\
         \ include_bots.  Token-like path segments show as {token} unless include_tokens.\
-        \  limit is 1 to 100, default 50.\n"
+        \  A path stays listed after a redirect rule catches it, with redirected_to\
+        \ set.  redirected=false lists only paths no rule catches yet, and redirected=true\
+        \ only those one does.  limit is 1 to 100, default 50.\n"
       operationId: getSfvbNotFound
       parameters:
       - in: path
@@ -26759,6 +26976,10 @@ paths:
         schema:
           format: int32
           type: integer
+      - in: query
+        name: redirected
+        schema:
+          type: boolean
       responses:
         "200":
           content:
@@ -246549,6 +246770,7 @@ components:
           type: string
         created_at:
           description: "When the request was made, ISO 8601 UTC."
+          format: dateTime
           type: string
         description:
           description: "The sentence the person reads before approving.  Written by\
@@ -246558,6 +246780,7 @@ components:
           description: "When this approval stops being usable, ISO 8601 UTC.  For\
             \ a pending request, when it lapses undecided.  For an approved one, when\
             \ it must have been used by."
+          format: dateTime
           type: string
         expires_in_seconds:
           description: Seconds until expires_at.  Zero once passed.
@@ -246621,6 +246844,7 @@ components:
           type: integer
         used_at:
           description: "When the gated call used this approval, ISO 8601 UTC."
+          format: dateTime
           type: string
         user_code:
           description: Short matching code.  Print it next to approval_url so the
@@ -246904,6 +247128,7 @@ components:
           type: string
         reviewed_at:
           description: "When the review ran, ISO 8601 UTC."
+          format: dateTime
           type: string
         signals:
           description: "Obfuscation, card field and credential signals the scanner\
@@ -247113,6 +247338,7 @@ components:
         publication_dts:
           description: "When the post was published (ISO 8601, UTC), or when it was\
             \ created if it has no publication time."
+          format: dateTime
           type: string
         title:
           description: The post title.
@@ -247184,6 +247410,7 @@ components:
           type: string
         created_dts:
           description: "When the post was created (ISO 8601, UTC)."
+          format: dateTime
           type: string
         excerpt:
           description: "The post excerpt as HTML, exactly as stored."
@@ -247196,10 +247423,12 @@ components:
         last_modified_dts:
           description: "When the post was last changed (ISO 8601, UTC), or null if\
             \ it never was."
+          format: dateTime
           type: string
         publication_dts:
           description: "When the post is published (ISO 8601, UTC), or null for a\
             \ draft."
+          format: dateTime
           type: string
         seo_description:
           description: The meta description (storefrontSEODescription).  Absent when
@@ -247357,6 +247586,7 @@ components:
           description: "When the post is published, as an ISO 8601 UTC time in the\
             \ same form publication_dts reads back.  Refused on a draft.  A post made\
             \ public without one is published now."
+          format: dateTime
           type: string
         seo_description:
           description: "The meta description (storefrontSEODescription), the search\
@@ -247666,7 +247896,8 @@ components:
           description: "Container name, where the owner has more than one container."
           type: string
         created_dts:
-          description: When this snapshot was taken.
+          description: "When this snapshot was taken, ISO 8601 UTC."
+          format: dateTime
           type: string
         current:
           description: True for the value currently stored.
@@ -247880,6 +248111,103 @@ components:
             \ library fragment that solves the same problem properly."
           type: string
       type: object
+    SfvbEvent:
+      example:
+        event_id: event_id
+        object_type: object_type
+        storefront_oid: 0
+        event_dts: event_dts
+        type: type
+        object_id: object_id
+      properties:
+        event_dts:
+          description: "When it happened, ISO 8601."
+          format: dateTime
+          type: string
+        event_id:
+          description: Time-ordered id.  Pass the last one seen as after to replay
+            what came since.
+          type: string
+        object_id:
+          description: "The id of what changed, such as the approval_id."
+          type: string
+        object_type:
+          description: "What changed, such as approval."
+          type: string
+        storefront_oid:
+          description: The storefront it concerns.  Empty for merchant-level objects.
+          format: int32
+          type: integer
+        type:
+          description: "approval.decided (approved, denied, cancelled or refused by\
+            \ the script review) or approval.ready (the review finished and the person\
+            \ can decide)."
+          type: string
+      type: object
+    SfvbEventsAuthRequest:
+      example:
+        storefront_oids:
+        - 0
+        - 0
+      properties:
+        storefront_oids:
+          description: "Only events about these storefronts, plus merchant-level ones.\
+            \  Leave it out for every storefront."
+          items:
+            type: integer
+          type: array
+      type: object
+    SfvbEventsAuthResponse:
+      example:
+        jwt: jwt
+        websocket_url: websocket_url
+        expires_dts: expires_dts
+      properties:
+        expires_dts:
+          description: "When the token stops working, ISO 8601.  Ask for a new one\
+            \ to reconnect."
+          format: dateTime
+          type: string
+        jwt:
+          description: The connect token on its own.
+          type: string
+        websocket_url:
+          description: "The websocket URL to open, with the token on it.  Open it\
+            \ before expires_dts; each token opens one connection."
+          type: string
+      type: object
+    SfvbEventsResponse:
+      example:
+        more: true
+        resync_required: true
+        events:
+        - event_id: event_id
+          object_type: object_type
+          storefront_oid: 0
+          event_dts: event_dts
+          type: type
+          object_id: object_id
+        - event_id: event_id
+          object_type: object_type
+          storefront_oid: 0
+          event_dts: event_dts
+          type: type
+          object_id: object_id
+      properties:
+        events:
+          description: Oldest first.
+          items:
+            $ref: '#/components/schemas/SfvbEvent'
+          type: array
+        more:
+          description: True when more events follow.  Ask again with after set to
+            the last event_id.
+          type: boolean
+        resync_required:
+          description: True when the cursor is older than the 72 hours of events kept.  Re-list
+            what you were waiting on instead of replaying.
+          type: boolean
+      type: object
     SfvbExperiment:
       example:
         router_url: router_url
@@ -248030,6 +248358,7 @@ components:
             \ url and theme experiments, and for any running experiment whose traffic\
             \ shifts toward the leader (equal_weighting false).  Null when only ending\
             \ it deliberately will stop it."
+          format: dateTime
           type: string
         days_elapsed:
           description: "Whole days the experiment has run, up to now or to when it\
@@ -248064,6 +248393,7 @@ components:
           description: "When p95_sessions_needed was last estimated (ISO 8601, UTC).\
             \  It is estimated only once the experiment has 1000 sessions, and at\
             \ most hourly.  Null before then."
+          format: dateTime
           type: string
         type:
           description: "page for an experiment element inside a page, url for a split\
@@ -248699,9 +249029,11 @@ components:
           type: string
         modified_max:
           description: Only files modified at or before this ISO-8601 timestamp.
+          format: dateTime
           type: string
         modified_min:
           description: Only files modified at or after this ISO-8601 timestamp.
+          format: dateTime
           type: string
         offset:
           description: "Results to skip.  Send the next_offset from a truncated response\
@@ -249142,6 +249474,7 @@ components:
           type: string
         modified_dts:
           description: "When it was last saved, ISO 8601."
+          format: dateTime
           type: string
         storefront_oid:
           description: The storefront.
@@ -249423,7 +249756,8 @@ components:
             \ clears its machine translations."
           type: string
         text:
-          description: The new text.  Empty text is refused; reset the message instead.
+          description: "The new text.  Empty text removes this language's translation,\
+            \ so it goes back to machine translation.  Empty English text is refused."
           type: string
       type: object
     SfvbI18nMessageWriteRequest:
@@ -250460,6 +250794,7 @@ components:
           type: string
         reviewed_dts:
           description: "When the review ran, ISO 8601."
+          format: dateTime
           type: string
         screenshot_sha256:
           description: "The screenshot the review looked at, or absent when there\
@@ -250686,6 +251021,7 @@ components:
           type: string
         last_modified_dts:
           description: "When the draft was last saved, ISO 8601."
+          format: dateTime
           type: string
         library_oid:
           description: Library entry oid.
@@ -250863,6 +251199,7 @@ components:
           type: string
         published_dts:
           description: "When it was published, ISO 8601."
+          format: dateTime
           type: string
         release_notes:
           description: "What changed, as the publisher described it."
@@ -251021,6 +251358,7 @@ components:
       properties:
         installed_dts:
           description: "When it was installed, ISO 8601."
+          format: dateTime
           type: string
         installed_revision_number:
           description: The revision installed most recently on this storefront.
@@ -251898,6 +252236,7 @@ components:
           type: integer
         first_seen_dts:
           description: "First hit, ISO 8601."
+          format: dateTime
           type: string
         hits:
           description: "Every recorded hit, bots included."
@@ -251908,6 +252247,7 @@ components:
           type: boolean
         last_seen_dts:
           description: "Latest hit, ISO 8601."
+          format: dateTime
           type: string
         not_found_id:
           description: The entry's id.
@@ -251974,6 +252314,7 @@ components:
           type: string
         request_dts:
           description: "When, ISO 8601."
+          format: dateTime
           type: string
         user_agent:
           description: The browser or bot.
@@ -252284,6 +252625,7 @@ components:
           type: boolean
         visible_dts:
           description: Keep the page hidden until this time (ISO 8601).
+          format: dateTime
           type: string
       type: object
     SfvbPageDuplicateRequest:
@@ -252691,6 +253033,7 @@ components:
         visible_dts:
           description: "When set, the page stays hidden until this time (ISO 8601,\
             \ UTC)."
+          format: dateTime
           type: string
       type: object
     SfvbPageSelectors:
@@ -252828,6 +253171,7 @@ components:
         visible_dts:
           description: Keep the page hidden until this time (ISO 8601).  Null or empty
             clears it.
+          format: dateTime
           type: string
       type: object
     SfvbPageSummary:
@@ -252898,6 +253242,7 @@ components:
         visible_dts:
           description: "When set, the page stays hidden until this time (ISO 8601,\
             \ UTC)."
+          format: dateTime
           type: string
       type: object
     SfvbPreviewAccessRequest:
@@ -253566,6 +253911,7 @@ components:
         trial_expiration:
           description: "When the free trial ends, as an ISO-8601 time.  Absent until\
             \ the trial has started."
+          format: dateTime
           type: string
         trial_expired:
           description: True when the free trial is over and recorded sessions are
@@ -253624,6 +253970,7 @@ components:
         created_dts:
           description: "When SFVB created the rule, ISO 8601.  Empty for rules created\
             \ in the admin."
+          format: dateTime
           type: string
         exclude_from_sitemap:
           description: Whether the source is left out of the generated sitemap.
@@ -253633,6 +253980,7 @@ components:
           type: string
         modified_dts:
           description: "When SFVB last changed the rule, ISO 8601."
+          format: dateTime
           type: string
         note:
           description: Why the rule exists.
@@ -254536,6 +254884,7 @@ components:
           type: string
         start_date:
           description: "When the render started, ISO-8601 in UTC."
+          format: dateTime
           type: string
         status:
           description: "ERROR when the render logged any error line or failed, otherwise\
@@ -254543,6 +254892,7 @@ components:
           type: string
         stop_date:
           description: "When the render finished, ISO-8601 in UTC."
+          format: dateTime
           type: string
         warning_count:
           description: Warning lines in the log.
@@ -254672,6 +255022,7 @@ components:
         since:
           description: "The start of the window searched, ISO-8601 in UTC.  Logs are\
             \ kept for seven days."
+          format: dateTime
           type: string
       type: object
     SfvbSiteAttribute:
@@ -255049,6 +255400,7 @@ components:
           type: boolean
         created:
           description: "When the order was placed, ISO-8601 in UTC."
+          format: dateTime
           type: string
         currency_code:
           description: The currency of the total.
@@ -255486,7 +255838,8 @@ components:
             server log.
           type: string
         finished_dts:
-          description: When the job stopped.  Null until it does.
+          description: "When the job stopped, ISO 8601 UTC.  Null until it does."
+          format: dateTime
           type: string
         job_id:
           description: Job handle.  Poll getSfvbThemeJob with this.
@@ -255501,7 +255854,9 @@ components:
             \ locale text'."
           type: string
         started_dts:
-          description: When the job started running.  Null until it does.
+          description: "When the job started running, ISO 8601 UTC.  Null until it\
+            \ does."
+          format: dateTime
           type: string
         status:
           description: Raw job status.
@@ -255513,7 +255868,8 @@ components:
           - error
           type: string
         submitted_dts:
-          description: When the job was queued.
+          description: "When the job was queued, ISO 8601 UTC."
+          format: dateTime
           type: string
         success:
           description: True only when the job finished successfully.  Check complete

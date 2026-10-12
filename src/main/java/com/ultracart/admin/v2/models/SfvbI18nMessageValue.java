@@ -90,11 +90,11 @@ public class SfvbI18nMessageValue {
   }
 
    /**
-   * The new text.  Empty text is refused; reset the message instead.
+   * The new text.  Empty text removes this language&#39;s translation, so it goes back to machine translation.  Empty English text is refused.
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new text.  Empty text is refused; reset the message instead.")
+  @ApiModelProperty(value = "The new text.  Empty text removes this language's translation, so it goes back to machine translation.  Empty English text is refused.")
 
   public String getText() {
     return text;
