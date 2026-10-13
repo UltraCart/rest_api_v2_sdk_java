@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.201</version>
+    <version>4.1.202</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.201"
+     implementation "com.ultracart:rest-sdk:4.1.202"
   }
 ```
 
@@ -618,6 +618,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**putSfvbItemAttributes**](docs/SfvbApi.md#putSfvbItemAttributes) | **PUT** /sfvb/storefronts/{storefront_oid}/items/attributes | Change some of an item&#39;s attributes
 *SfvbApi* | [**putSfvbItemContent**](docs/SfvbApi.md#putSfvbItemContent) | **PUT** /sfvb/storefronts/{storefront_oid}/items/content | Change an item&#39;s title or long description
 *SfvbApi* | [**putSfvbItemMultimedia**](docs/SfvbApi.md#putSfvbItemMultimedia) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia | Attach an image to an item
+*SfvbApi* | [**putSfvbItemMultimediaDescription**](docs/SfvbApi.md#putSfvbItemMultimediaDescription) | **PUT** /sfvb/storefronts/{storefront_oid}/items/multimedia/description | Change an item image&#39;s description
 *SfvbApi* | [**putSfvbItemPricing**](docs/SfvbApi.md#putSfvbItemPricing) | **PUT** /sfvb/storefronts/{storefront_oid}/items/pricing | Change what an item charges
 *SfvbApi* | [**putSfvbItemRelated**](docs/SfvbApi.md#putSfvbItemRelated) | **PUT** /sfvb/storefronts/{storefront_oid}/items/related | Replace an item&#39;s related items
 *SfvbApi* | [**putSfvbItemSeo**](docs/SfvbApi.md#putSfvbItemSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/items/seo | Change an item&#39;s search metadata
@@ -1956,6 +1957,7 @@ Class | Method | HTTP request | Description
  - [SfvbItemContainersResponse](docs/SfvbItemContainersResponse.md)
  - [SfvbItemContentRequest](docs/SfvbItemContentRequest.md)
  - [SfvbItemMultimedia](docs/SfvbItemMultimedia.md)
+ - [SfvbItemMultimediaDescriptionRequest](docs/SfvbItemMultimediaDescriptionRequest.md)
  - [SfvbItemMultimediaRequest](docs/SfvbItemMultimediaRequest.md)
  - [SfvbItemPricing](docs/SfvbItemPricing.md)
  - [SfvbItemPricingRequest](docs/SfvbItemPricingRequest.md)
@@ -2275,6 +2277,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.202 | 10/13/2026 | sfvb internal testing |
 | 4.1.201 | 10/12/2026 | sfvb internal testing |
 | 4.1.200 | 10/09/2026 | sfvb internal testing |
 | 4.1.199 | 10/08/2026 | sfvb internal testing |

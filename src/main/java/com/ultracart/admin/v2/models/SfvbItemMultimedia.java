@@ -65,6 +65,63 @@ public class SfvbItemMultimedia {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION_SHA256 = "description_sha256";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION_SHA256)
+  private String descriptionSha256;
+
+  /**
+   * Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.
+   */
+  @JsonAdapter(DescriptionSourceEnum.Adapter.class)
+  public enum DescriptionSourceEnum {
+    MERCHANT("merchant"),
+    
+    REKOGNITION("rekognition"),
+    
+    NONE("none");
+
+    private String value;
+
+    DescriptionSourceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DescriptionSourceEnum fromValue(String value) {
+      for (DescriptionSourceEnum b : DescriptionSourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DescriptionSourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DescriptionSourceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DescriptionSourceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DescriptionSourceEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DESCRIPTION_SOURCE = "description_source";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION_SOURCE)
+  private DescriptionSourceEnum descriptionSource;
+
   public static final String SERIALIZED_NAME_DIMENSIONS = "dimensions";
   @SerializedName(SERIALIZED_NAME_DIMENSIONS)
   private String dimensions;
@@ -76,6 +133,14 @@ public class SfvbItemMultimedia {
   public static final String SERIALIZED_NAME_FILENAME = "filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
   private String filename;
+
+  public static final String SERIALIZED_NAME_MERCHANT_ITEM_MULTIMEDIA_OID = "merchant_item_multimedia_oid";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_MULTIMEDIA_OID)
+  private Integer merchantItemMultimediaOid;
+
+  public static final String SERIALIZED_NAME_REKOGNITION_DESCRIPTION = "rekognition_description";
+  @SerializedName(SERIALIZED_NAME_REKOGNITION_DESCRIPTION)
+  private String rekognitionDescription;
 
   /**
    * The media type the storage recorded.
@@ -217,11 +282,11 @@ public class SfvbItemMultimedia {
   }
 
    /**
-   * Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item&#39;s own description, so an empty value here is not an empty alt attribute.
+   * The merchant&#39;s description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item&#39;s title, depending on the element, so an empty value here is not an empty alt attribute.
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Stored with the image and rendered as its alt text.  When it is empty the render falls back to the item's own description, so an empty value here is not an empty alt attribute.")
+  @ApiModelProperty(value = "The merchant's description, stored with the image and rendered as its alt text.  When it is empty the render falls back to rekognition_description or to text built from the item's title, depending on the element, so an empty value here is not an empty alt attribute.")
 
   public String getDescription() {
     return description;
@@ -230,6 +295,52 @@ public class SfvbItemMultimedia {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public SfvbItemMultimedia descriptionSha256(String descriptionSha256) {
+    
+    this.descriptionSha256 = descriptionSha256;
+    return this;
+  }
+
+   /**
+   * SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.
+   * @return descriptionSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SHA-256 of description (empty when there is none).  Send it as current_sha256 when changing the description so a change made since you read it is not overwritten.")
+
+  public String getDescriptionSha256() {
+    return descriptionSha256;
+  }
+
+
+  public void setDescriptionSha256(String descriptionSha256) {
+    this.descriptionSha256 = descriptionSha256;
+  }
+
+
+  public SfvbItemMultimedia descriptionSource(DescriptionSourceEnum descriptionSource) {
+    
+    this.descriptionSource = descriptionSource;
+    return this;
+  }
+
+   /**
+   * Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.
+   * @return descriptionSource
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Where the alt text comes from now.  merchant when description is set, rekognition when only rekognition_description is, none otherwise.")
+
+  public DescriptionSourceEnum getDescriptionSource() {
+    return descriptionSource;
+  }
+
+
+  public void setDescriptionSource(DescriptionSourceEnum descriptionSource) {
+    this.descriptionSource = descriptionSource;
   }
 
 
@@ -302,6 +413,52 @@ public class SfvbItemMultimedia {
   }
 
 
+  public SfvbItemMultimedia merchantItemMultimediaOid(Integer merchantItemMultimediaOid) {
+    
+    this.merchantItemMultimediaOid = merchantItemMultimediaOid;
+    return this;
+  }
+
+   /**
+   * The stored image&#39;s id.  Name it to change this image&#39;s description when it has no code.
+   * @return merchantItemMultimediaOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The stored image's id.  Name it to change this image's description when it has no code.")
+
+  public Integer getMerchantItemMultimediaOid() {
+    return merchantItemMultimediaOid;
+  }
+
+
+  public void setMerchantItemMultimediaOid(Integer merchantItemMultimediaOid) {
+    this.merchantItemMultimediaOid = merchantItemMultimediaOid;
+  }
+
+
+  public SfvbItemMultimedia rekognitionDescription(String rekognitionDescription) {
+    
+    this.rekognitionDescription = rekognitionDescription;
+    return this;
+  }
+
+   /**
+   * The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.
+   * @return rekognitionDescription
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The machine description image recognition produced for the stored image, if any.  It is used only while description is empty, and a description written here or in the admin always takes its place.")
+
+  public String getRekognitionDescription() {
+    return rekognitionDescription;
+  }
+
+
+  public void setRekognitionDescription(String rekognitionDescription) {
+    this.rekognitionDescription = rekognitionDescription;
+  }
+
+
   public SfvbItemMultimedia type(TypeEnum type) {
     
     this.type = type;
@@ -362,16 +519,20 @@ public class SfvbItemMultimedia {
         Objects.equals(this.declared, sfvbItemMultimedia.declared) &&
         Objects.equals(this._default, sfvbItemMultimedia._default) &&
         Objects.equals(this.description, sfvbItemMultimedia.description) &&
+        Objects.equals(this.descriptionSha256, sfvbItemMultimedia.descriptionSha256) &&
+        Objects.equals(this.descriptionSource, sfvbItemMultimedia.descriptionSource) &&
         Objects.equals(this.dimensions, sfvbItemMultimedia.dimensions) &&
         Objects.equals(this.excludeFromGallery, sfvbItemMultimedia.excludeFromGallery) &&
         Objects.equals(this.filename, sfvbItemMultimedia.filename) &&
+        Objects.equals(this.merchantItemMultimediaOid, sfvbItemMultimedia.merchantItemMultimediaOid) &&
+        Objects.equals(this.rekognitionDescription, sfvbItemMultimedia.rekognitionDescription) &&
         Objects.equals(this.type, sfvbItemMultimedia.type) &&
         Objects.equals(this.viewUrl, sfvbItemMultimedia.viewUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, declared, _default, description, dimensions, excludeFromGallery, filename, type, viewUrl);
+    return Objects.hash(code, declared, _default, description, descriptionSha256, descriptionSource, dimensions, excludeFromGallery, filename, merchantItemMultimediaOid, rekognitionDescription, type, viewUrl);
   }
 
   @Override
@@ -382,9 +543,13 @@ public class SfvbItemMultimedia {
     sb.append("    declared: ").append(toIndentedString(declared)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    descriptionSha256: ").append(toIndentedString(descriptionSha256)).append("\n");
+    sb.append("    descriptionSource: ").append(toIndentedString(descriptionSource)).append("\n");
     sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
     sb.append("    excludeFromGallery: ").append(toIndentedString(excludeFromGallery)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    merchantItemMultimediaOid: ").append(toIndentedString(merchantItemMultimediaOid)).append("\n");
+    sb.append("    rekognitionDescription: ").append(toIndentedString(rekognitionDescription)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    viewUrl: ").append(toIndentedString(viewUrl)).append("\n");
     sb.append("}");
@@ -413,9 +578,13 @@ public class SfvbItemMultimedia {
     openapiFields.add("declared");
     openapiFields.add("default");
     openapiFields.add("description");
+    openapiFields.add("description_sha256");
+    openapiFields.add("description_source");
     openapiFields.add("dimensions");
     openapiFields.add("exclude_from_gallery");
     openapiFields.add("filename");
+    openapiFields.add("merchant_item_multimedia_oid");
+    openapiFields.add("rekognition_description");
     openapiFields.add("type");
     openapiFields.add("view_url");
 
@@ -451,11 +620,20 @@ public class SfvbItemMultimedia {
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (jsonObj.get("description_sha256") != null && !jsonObj.get("description_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description_sha256").toString()));
+      }
+      if (jsonObj.get("description_source") != null && !jsonObj.get("description_source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description_source").toString()));
+      }
       if (jsonObj.get("dimensions") != null && !jsonObj.get("dimensions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dimensions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dimensions").toString()));
       }
       if (jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      }
+      if (jsonObj.get("rekognition_description") != null && !jsonObj.get("rekognition_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rekognition_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rekognition_description").toString()));
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
