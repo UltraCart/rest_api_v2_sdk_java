@@ -21853,6 +21853,109 @@ paths:
       x-codegen-request-body-name: container_revert_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/render:
+    post:
+      description: "Renders a flow or campaign email exactly as its send would, and\
+        \ returns the subject, preview text, HTML and text.  Nothing is sent, saved\
+        \ or created.  A unique coupon code, click id and magic link token are placeholders.\
+        \  A missing footer token, which a send skips the email for, is a warning.\
+        \  Give cjson to render an unsaved draft of the email container in place of\
+        \ the saved one.  An order must be a test order.  cart_item_ids fills the\
+        \ cart a cart flow email shows.\n"
+      operationId: renderSfvbEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: email_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbEmailRenderRequest'
+        description: What to render the email with
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbEmailRenderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Render a flow or campaign email without sending it
+      tags:
+      - sfvb
+      x-codegen-request-body-name: email_render_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/experiments:
     get:
       description: "Every experiment that is not deleted, with its variations and\
@@ -33637,6 +33740,194 @@ paths:
       tags:
       - sfvb
       x-codegen-request-body-name: velocity_validate_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/transactional_emails:
+    get:
+      description: "The order, shipment, auto order and other transactional emails\
+        \ this storefront sends, with their template files and the body container\
+        \ a draft replaces.  Forgot password and chat verification are not listed,\
+        \ because they have no preview.\n"
+      operationId: getSfvbTransactionalEmails
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTransactionalEmailsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the transactional emails a storefront sends
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render:
+    post:
+      description: "Renders a transactional email, such as the order receipt, exactly\
+        \ as it is sent, and returns the subject, HTML and text.  Nothing is sent\
+        \ or saved.  file_name is the template file, such as receipt_html.vm, or the\
+        \ display name.  Give cjson to render an unsaved draft of the email's body\
+        \ container in place of the saved one.  The order must be a test order.  Without\
+        \ one the email renders with a made up order.\n"
+      operationId: renderSfvbTransactionalEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: file_name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbEmailRenderRequest'
+        description: What to render the email with
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbEmailRenderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Render a transactional email without sending it
+      tags:
+      - sfvb
+      x-codegen-request-body-name: email_render_request
       x-content-type: application/json
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/upsell_offers:
@@ -249951,6 +250242,158 @@ components:
           description: Container manager version this vocabulary belongs to.
           type: string
       type: object
+    SfvbEmailRenderRequest:
+      example:
+        cart_item_ids:
+        - cart_item_ids
+        - cart_item_ids
+        customer_name: customer_name
+        order_id: order_id
+        cjson: cjson
+      properties:
+        cart_item_ids:
+          description: "Item ids for the cart the email renders with.  For a cart\
+            \ flow email, or the transactional email this cart and email this item\
+            \ templates."
+          items:
+            type: string
+          type: array
+        cjson:
+          description: "An unsaved draft to render in place of the saved content.\
+            \  For a flow or campaign email, the email container.  For a transactional\
+            \ email, the body container (the theme file core/emails/<name>_body.cjson)."
+          type: string
+        customer_name:
+          description: The customer name a flow or campaign email greets.  Defaults
+            to the signed in user.
+          type: string
+        order_id:
+          description: "A test order to render the email with.  Real orders are refused.\
+            \  Without one, an order email renders with a made up order."
+          type: string
+      type: object
+    SfvbEmailRenderResponse:
+      example:
+        preview_text: preview_text
+        subject: subject
+        draft: true
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        order_source: order_source
+        html: html
+        text: text
+        order_id: order_id
+        validation:
+          valid: true
+          used_elements:
+          - used_elements
+          - used_elements
+          warnings:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          errors:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+      properties:
+        draft:
+          description: True when an unsaved draft was rendered.
+          type: boolean
+        html:
+          description: The HTML body.
+          type: string
+        order_id:
+          description: "The order the email rendered with, when it used one."
+          type: string
+        order_source:
+          description: "Where that order came from.  test (the order given), dummy\
+            \ (made up) or none."
+          type: string
+        preview_text:
+          description: "The preview text an inbox shows after the subject, when the\
+            \ email has one."
+          type: string
+        subject:
+          description: The subject line.
+          type: string
+        text:
+          description: The plain text body.
+          type: string
+        validation:
+          $ref: '#/components/schemas/SfvbValidationResponse'
+        warnings:
+          description: "Problems a real send would hit, such as a missing required\
+            \ footer token, and placeholders used in place of values a send creates."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
     SfvbErrorDetail:
       example:
         severity: error
@@ -258295,6 +258738,44 @@ components:
             active.
           items:
             $ref: '#/components/schemas/SfvbTheme'
+          type: array
+      type: object
+    SfvbTransactionalEmail:
+      example:
+        file_name: file_name
+        name: name
+        body_file_name: body_file_name
+        text_file_name: text_file_name
+      properties:
+        body_file_name:
+          description: "The body container a draft replaces, such as receipt_body.cjson."
+          type: string
+        file_name:
+          description: "The HTML template file, such as receipt_html.vm."
+          type: string
+        name:
+          description: "The display name, such as Order - Receipt."
+          type: string
+        text_file_name:
+          description: "The plain text template file, when the email has one."
+          type: string
+      type: object
+    SfvbTransactionalEmailsResponse:
+      example:
+        emails:
+        - file_name: file_name
+          name: name
+          body_file_name: body_file_name
+          text_file_name: text_file_name
+        - file_name: file_name
+          name: name
+          body_file_name: body_file_name
+          text_file_name: text_file_name
+      properties:
+        emails:
+          description: "The emails, sorted by name."
+          items:
+            $ref: '#/components/schemas/SfvbTransactionalEmail'
           type: array
       type: object
     SfvbUpsellItemLogic:
