@@ -1158,6 +1158,13 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbSecretHandle.md
+docs/SfvbSecretKind.md
+docs/SfvbSecretKindsResponse.md
+docs/SfvbSecretRequest.md
+docs/SfvbSecretRequestCreate.md
+docs/SfvbSecretRequestsResponse.md
+docs/SfvbSecretSink.md
 docs/SfvbServerLog.md
 docs/SfvbServerLogDetail.md
 docs/SfvbServerLogEntry.md
@@ -2472,6 +2479,13 @@ src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretHandle.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretKind.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretKindsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretRequestCreate.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretRequestsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSecretSink.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLogDetail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLogEntry.java

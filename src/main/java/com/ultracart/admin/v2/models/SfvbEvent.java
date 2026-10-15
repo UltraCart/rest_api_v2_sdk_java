@@ -152,11 +152,11 @@ public class SfvbEvent {
   }
 
    /**
-   * What changed, such as approval.
+   * What changed, such as approval or secret_sink.
    * @return objectType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "What changed, such as approval.")
+  @ApiModelProperty(value = "What changed, such as approval or secret_sink.")
 
   public String getObjectType() {
     return objectType;
@@ -198,11 +198,11 @@ public class SfvbEvent {
   }
 
    /**
-   * approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).
+   * approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "approval.decided (approved, denied, cancelled or refused by the script review) or approval.ready (the review finished and the person can decide).")
+  @ApiModelProperty(value = "approval.decided (approved, denied, cancelled or refused by the script review), approval.ready (the review finished and the person can decide) or secret_sink.completed (a person entered the values of a secret request; object_id is the request id).")
 
   public String getType() {
     return type;

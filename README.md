@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.202</version>
+    <version>4.1.203</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.202"
+     implementation "com.ultracart:rest-sdk:4.1.203"
   }
 ```
 
@@ -515,6 +515,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbPreviewSession**](docs/SfvbApi.md#deleteSfvbPreviewSession) | **DELETE** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id} | Delete a preview session
 *SfvbApi* | [**deleteSfvbRedirect**](docs/SfvbApi.md#deleteSfvbRedirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
 *SfvbApi* | [**deleteSfvbRedirects**](docs/SfvbApi.md#deleteSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
+*SfvbApi* | [**deleteSfvbSecretRequest**](docs/SfvbApi.md#deleteSfvbSecretRequest) | **DELETE** /sfvb/secrets/{request_id} | Cancel a pending secret request
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
@@ -573,6 +574,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbRecordingSettings**](docs/SfvbApi.md#getSfvbRecordingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings
 *SfvbApi* | [**getSfvbRedirect**](docs/SfvbApi.md#getSfvbRedirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Read one redirect rule
 *SfvbApi* | [**getSfvbRedirects**](docs/SfvbApi.md#getSfvbRedirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules
+*SfvbApi* | [**getSfvbSecretKinds**](docs/SfvbApi.md#getSfvbSecretKinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects
+*SfvbApi* | [**getSfvbSecretRequest**](docs/SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
+*SfvbApi* | [**getSfvbSecretRequests**](docs/SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTestOrders**](docs/SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -589,6 +593,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbBlogPost**](docs/SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
+*SfvbApi* | [**insertSfvbSecretRequest**](docs/SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
@@ -641,6 +646,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**resolveSfvbTemplate**](docs/SfvbApi.md#resolveSfvbTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
+*SfvbApi* | [**revokeSfvbSecretRequest**](docs/SfvbApi.md#revokeSfvbSecretRequest) | **POST** /sfvb/secrets/{request_id}/revoke | Revoke a fulfilled request&#39;s unused handles
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
 *SfvbApi* | [**setSfvbLibraryScreenshot**](docs/SfvbApi.md#setSfvbLibraryScreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
@@ -2056,6 +2062,13 @@ Class | Method | HTTP request | Description
  - [SfvbRedirectsResponse](docs/SfvbRedirectsResponse.md)
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
+ - [SfvbSecretHandle](docs/SfvbSecretHandle.md)
+ - [SfvbSecretKind](docs/SfvbSecretKind.md)
+ - [SfvbSecretKindsResponse](docs/SfvbSecretKindsResponse.md)
+ - [SfvbSecretRequest](docs/SfvbSecretRequest.md)
+ - [SfvbSecretRequestCreate](docs/SfvbSecretRequestCreate.md)
+ - [SfvbSecretRequestsResponse](docs/SfvbSecretRequestsResponse.md)
+ - [SfvbSecretSink](docs/SfvbSecretSink.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
  - [SfvbServerLogDetail](docs/SfvbServerLogDetail.md)
  - [SfvbServerLogEntry](docs/SfvbServerLogEntry.md)
@@ -2277,6 +2290,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.203 | 10/15/2026 | sfvb internal testing |
 | 4.1.202 | 10/13/2026 | sfvb internal testing |
 | 4.1.201 | 10/12/2026 | sfvb internal testing |
 | 4.1.200 | 10/09/2026 | sfvb internal testing |
