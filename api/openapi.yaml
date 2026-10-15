@@ -18626,6 +18626,971 @@ paths:
       x-codegen-request-body-name: validate_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/comms/sending_domains:
+    get:
+      description: "Every domain the account sends email from, with its provider,\
+        \ verification status and the DNS records an amazon domain needs.  mailgun_api_key\
+        \ is always a mask.\n"
+      operationId: getSfvbCommsSendingDomains
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSendingDomainsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the sending domains
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "Adds a domain to send email from.  An amazon domain starts verification\
+        \ with Amazon SES and returns the DNS records to publish; the person signed\
+        \ in also gets them by email.  A mailgun domain needs mailgun_api_key as a\
+        \ secret handle made for the domain (POST secrets, sink mailgun.domain.api_key),\
+        \ never the key itself.  UltraCart sets up its webhooks on the Mailgun domain\
+        \ with the key; if Mailgun refuses, nothing is saved and the handle is given\
+        \ back unused.\n"
+      operationId: insertSfvbCommsSendingDomain
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsSendingDomain'
+        description: The sending domain
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Add a sending domain
+      tags:
+      - sfvb
+      x-codegen-request-body-name: sending_domain
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/comms/sending_domains/{domain}:
+    delete:
+      description: "Removes the domain from UltraCart and from Amazon SES.  Needs\
+        \ an approved sending_domain.delete request for it (POST approvals, params.domain).\n"
+      operationId: deleteSfvbCommsSendingDomain
+      parameters:
+      - in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved sending_domain.delete request
+          for this domain.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Remove a sending domain
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "One sending domain as stored.  To check an amazon domain's DNS\
+        \ again, use the status call.\n"
+      operationId: getSfvbCommsSendingDomain
+      parameters:
+      - in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a sending domain
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Only a mailgun domain's mailgun_api_key can change.  Send it as\
+        \ a secret handle made for the domain to replace it, or as the mask it was\
+        \ read with to keep it.  A new key sets up UltraCart's webhooks again with\
+        \ it; if Mailgun refuses, nothing is saved and the handle is given back unused.\n"
+      operationId: updateSfvbCommsSendingDomain
+      parameters:
+      - in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsSendingDomain'
+        description: The changes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Update a sending domain
+      tags:
+      - sfvb
+      x-codegen-request-body-name: sending_domain
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/comms/sending_domains/{domain}/status:
+    post:
+      description: "Asks Amazon SES again whether an amazon domain's DNS records are\
+        \ in place, and restarts a verification that failed (its records then change).\
+        \  A mailgun domain comes back as it is; Mailgun checks its own records.\n"
+      operationId: refreshSfvbCommsSendingDomainStatus
+      parameters:
+      - in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Check a sending domain's verification
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/comms/twilio_account:
+    delete:
+      description: "Removes the account's Twilio account and its credentials from\
+        \ UltraCart.  The account stays at Twilio.  Needs an approved twilio_account.delete\
+        \ request for it (POST approvals, params.esp_twilio_uuid).\n"
+      operationId: deleteSfvbCommsTwilioAccount
+      parameters:
+      - description: The approval_id of an approved twilio_account.delete request
+          for this account.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Remove the Twilio account
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The account's Twilio account, used for SMS and the phone system,\
+        \ or none.  An account has at most one.  auth_token is always a mask.\n"
+      operationId: getSfvbCommsTwilioAccount
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTwilioAccountResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the Twilio account
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "Connects the account's Twilio account with account_sid and auth_token.\
+        \  Send auth_token as a secret handle made for that account SID (POST secrets,\
+        \ sink twilio.account.auth_token), never the token itself.  UltraCart checks\
+        \ the token with Twilio, then makes its API key, TwiML apps and voice encryption\
+        \ key on the account, as the admin does.  If Twilio refuses, nothing is saved\
+        \ and the handle is given back unused.  An account has at most one Twilio\
+        \ account, so this is refused when one exists; update it instead.\n"
+      operationId: insertSfvbCommsTwilioAccount
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsTwilioAccount'
+        description: The Twilio account
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTwilioAccountResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Connect the Twilio account
+      tags:
+      - sfvb
+      x-codegen-request-body-name: twilio_account
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+    put:
+      description: "Changes the account's Twilio account.  Leave a field out to keep\
+        \ it.  Send auth_token as the mask it was read with to keep it, or as a secret\
+        \ handle made for the account SID to replace it.  A new account_sid needs\
+        \ a new auth_token with it.  A new token is checked with Twilio and UltraCart's\
+        \ API key, TwiML apps and voice encryption key are made again; if Twilio refuses,\
+        \ nothing is saved and the handle is given back unused.  phone_numbers, when\
+        \ sent, replaces the list.\n"
+      operationId: updateSfvbCommsTwilioAccount
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsTwilioAccount'
+        description: The changes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTwilioAccountResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Update the Twilio account
+      tags:
+      - sfvb
+      x-codegen-request-body-name: twilio_account
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/elements:
     get:
       description: "The authoritative vocabulary, taken from the same lookup the compiler\
@@ -247352,6 +248317,7 @@ components:
           attribute_names:
           - attribute_names
           - attribute_names
+          esp_twilio_uuid: esp_twilio_uuid
           content_sha256: content_sha256
           slot: slot
           version: 2
@@ -247361,6 +248327,7 @@ components:
           upsell_kind: offer
           widget_id: widget_id
           experiment_oid: 5
+          domain: domain
           rows_sha256: rows_sha256
           winner_variation_number: 4
           merchant_item_oid: 7
@@ -247560,6 +248527,7 @@ components:
           attribute_names:
           - attribute_names
           - attribute_names
+          esp_twilio_uuid: esp_twilio_uuid
           content_sha256: content_sha256
           slot: slot
           version: 2
@@ -247569,6 +248537,7 @@ components:
           upsell_kind: offer
           widget_id: widget_id
           experiment_oid: 5
+          domain: domain
           rows_sha256: rows_sha256
           winner_variation_number: 4
           merchant_item_oid: 7
@@ -247626,6 +248595,7 @@ components:
         attribute_names:
         - attribute_names
         - attribute_names
+        esp_twilio_uuid: esp_twilio_uuid
         content_sha256: content_sha256
         slot: slot
         version: 2
@@ -247635,6 +248605,7 @@ components:
         upsell_kind: offer
         widget_id: widget_id
         experiment_oid: 5
+        domain: domain
         rows_sha256: rows_sha256
         winner_variation_number: 4
         merchant_item_oid: 7
@@ -247655,6 +248626,13 @@ components:
           description: "For file.put_script, the SHA-256 of the exact bytes approved.\
             \  Set by the server, never by the caller.  The write must send bytes\
             \ with this hash."
+          type: string
+        domain:
+          description: "For sending_domain.delete, the sending domain."
+          type: string
+        esp_twilio_uuid:
+          description: "For twilio_account.delete, the Twilio account's esp_twilio_uuid,\
+            \ as GET comms/twilio_account returns it."
           type: string
         experiment_oid:
           description: "For experiment.end, the experiment to end."
@@ -247840,6 +248818,7 @@ components:
             attribute_names:
             - attribute_names
             - attribute_names
+            esp_twilio_uuid: esp_twilio_uuid
             content_sha256: content_sha256
             slot: slot
             version: 2
@@ -247849,6 +248828,7 @@ components:
             upsell_kind: offer
             widget_id: widget_id
             experiment_oid: 5
+            domain: domain
             rows_sha256: rows_sha256
             winner_variation_number: 4
             merchant_item_oid: 7
@@ -247904,6 +248884,7 @@ components:
             attribute_names:
             - attribute_names
             - attribute_names
+            esp_twilio_uuid: esp_twilio_uuid
             content_sha256: content_sha256
             slot: slot
             version: 2
@@ -247913,6 +248894,7 @@ components:
             upsell_kind: offer
             widget_id: widget_id
             experiment_oid: 5
+            domain: domain
             rows_sha256: rows_sha256
             winner_variation_number: 4
             merchant_item_oid: 7
@@ -248321,6 +249303,275 @@ components:
           description: "How many posts match, across all pages."
           format: int32
           type: integer
+      type: object
+    SfvbCommsDnsRecord:
+      example:
+        purpose: verification
+        name: name
+        type: TXT
+        value: value
+      properties:
+        name:
+          description: "The host name, relative to the domain.  @ is the domain itself."
+          type: string
+        purpose:
+          description: "What the record is for.  verification proves the domain is\
+            \ yours, spf lists who may send for it, and dkim signs its mail."
+          enum:
+          - verification
+          - spf
+          - dkim
+          type: string
+        type:
+          description: The record type.
+          enum:
+          - TXT
+          - CNAME
+          type: string
+        value:
+          description: The value to publish.
+          type: string
+      type: object
+    SfvbCommsSendingDomain:
+      example:
+        esp_domain_uuid: esp_domain_uuid
+        dkim_status: dkim_status
+        start_dkim_dts: start_dkim_dts
+        start_identity_dts: start_identity_dts
+        mailgun_api_key: mailgun_api_key
+        dns_records:
+        - purpose: verification
+          name: name
+          type: TXT
+          value: value
+        - purpose: verification
+          name: name
+          type: TXT
+          value: value
+        identity_status: identity_status
+        provider: amazon
+        domain: domain
+        verified: true
+        comment: comment
+      properties:
+        comment:
+          description: "For an amazon domain, what UltraCart did last, such as restarting\
+            \ a verification that failed."
+          type: string
+        dkim_status:
+          description: "For an amazon domain, whether the DKIM records were found.\
+            \  Pending, Success or Failed."
+          type: string
+        dns_records:
+          description: "For an amazon domain, the DNS records to publish.  Empty for\
+            \ a mailgun domain, whose records are in Mailgun."
+          items:
+            $ref: '#/components/schemas/SfvbCommsDnsRecord'
+          type: array
+        domain:
+          description: The domain mail is sent from.  A leading www. or secure. is
+            dropped.  Required to create.
+          type: string
+        esp_domain_uuid:
+          description: UltraCart's id for the sending domain.  Set by the server.
+          type: string
+        identity_status:
+          description: "For an amazon domain, whether the verification record was\
+            \ found.  Pending until it is, then Success, or Failed after 72 hours."
+          type: string
+        mailgun_api_key:
+          description: "For a mailgun domain, the Mailgun account's private API key.\
+            \  A secret field.  Reads return a mask.  To set it, send a secret handle\
+            \ (sec_...) made for this domain by POST secrets with sink mailgun.domain.api_key.\
+            \  Send the mask back, or leave it out, to keep it.  Required to create\
+            \ a mailgun domain."
+          type: string
+        provider:
+          description: "Who sends the mail.  amazon sends through UltraCart after\
+            \ the DNS records are published.  mailgun sends through the merchant's\
+            \ own Mailgun account.  Required to create, and fixed after."
+          enum:
+          - amazon
+          - mailgun
+          type: string
+        start_dkim_dts:
+          description: "For an amazon domain, when the current DKIM check started."
+          format: dateTime
+          type: string
+        start_identity_dts:
+          description: "For an amazon domain, when the current verification started."
+          format: dateTime
+          type: string
+        verified:
+          description: "True when an amazon domain's verification and DKIM records\
+            \ have both been found, so it can send."
+          type: boolean
+      type: object
+    SfvbCommsSendingDomainsResponse:
+      example:
+        sending_domains:
+        - esp_domain_uuid: esp_domain_uuid
+          dkim_status: dkim_status
+          start_dkim_dts: start_dkim_dts
+          start_identity_dts: start_identity_dts
+          mailgun_api_key: mailgun_api_key
+          dns_records:
+          - purpose: verification
+            name: name
+            type: TXT
+            value: value
+          - purpose: verification
+            name: name
+            type: TXT
+            value: value
+          identity_status: identity_status
+          provider: amazon
+          domain: domain
+          verified: true
+          comment: comment
+        - esp_domain_uuid: esp_domain_uuid
+          dkim_status: dkim_status
+          start_dkim_dts: start_dkim_dts
+          start_identity_dts: start_identity_dts
+          mailgun_api_key: mailgun_api_key
+          dns_records:
+          - purpose: verification
+            name: name
+            type: TXT
+            value: value
+          - purpose: verification
+            name: name
+            type: TXT
+            value: value
+          identity_status: identity_status
+          provider: amazon
+          domain: domain
+          verified: true
+          comment: comment
+      properties:
+        sending_domains:
+          description: "Every sending domain on the account, in domain order.  Mailgun\
+            \ API keys are masked."
+          items:
+            $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          type: array
+      type: object
+    SfvbCommsTwilioAccount:
+      example:
+        esp_twilio_uuid: esp_twilio_uuid
+        phone_numbers:
+        - phone_numbers
+        - phone_numbers
+        ai_twiml_app_sid: ai_twiml_app_sid
+        account_sid: account_sid
+        inbound_twiml_app_sid: inbound_twiml_app_sid
+        outbound_twiml_app_sid: outbound_twiml_app_sid
+        auth_token: auth_token
+        api_key_id: api_key_id
+        api_key_name: api_key_name
+        twilio_workspace_sid: twilio_workspace_sid
+        public_key_sid: public_key_sid
+      properties:
+        account_sid:
+          description: "The Twilio account SID, AC followed by 32 hex digits.  It\
+            \ names the account, so it is also the target_id of a secret request for\
+            \ its auth token.  Required to create."
+          type: string
+        ai_twiml_app_sid:
+          description: The SID of the TwiML app UltraCart made for the AI agent.  Set
+            by the server.
+          type: string
+        api_key_id:
+          description: The SID of the Twilio API key UltraCart made for this account.  Set
+            by the server.  Its secret is never returned.
+          type: string
+        api_key_name:
+          description: The name of the Twilio API key UltraCart made for this account.  Set
+            by the server.
+          type: string
+        auth_token:
+          description: "The Twilio auth token.  A secret field.  Reads return a mask.\
+            \  To set it, send a secret handle (sec_...) made for this account SID\
+            \ by POST secrets with sink twilio.account.auth_token.  Send the mask\
+            \ back, or leave it out, to keep it.  Required to create."
+          type: string
+        esp_twilio_uuid:
+          description: UltraCart's id for the Twilio account.  Set by the server.
+          type: string
+        inbound_twiml_app_sid:
+          description: The SID of the TwiML app UltraCart made for inbound calls and
+            SMS.  Set by the server.
+          type: string
+        outbound_twiml_app_sid:
+          description: The SID of the TwiML app UltraCart made for outbound calls.  Set
+            by the server.
+          type: string
+        phone_numbers:
+          description: "The account's phone numbers UltraCart uses, in E.164 format.\
+            \  Leave it out of an update to keep them; an update that sends it replaces\
+            \ them all."
+          items:
+            type: string
+          type: array
+        public_key_sid:
+          description: The SID of the voice encryption public key UltraCart registered
+            with Twilio.  Set by the server.  The keys themselves are never returned.
+          type: string
+        twilio_workspace_sid:
+          description: "The SID of the TaskRouter workspace the phone system uses,\
+            \ when it has one.  Set by the server."
+          type: string
+      type: object
+    SfvbCommsTwilioAccountResponse:
+      example:
+        twilio_account:
+          esp_twilio_uuid: esp_twilio_uuid
+          phone_numbers:
+          - phone_numbers
+          - phone_numbers
+          ai_twiml_app_sid: ai_twiml_app_sid
+          account_sid: account_sid
+          inbound_twiml_app_sid: inbound_twiml_app_sid
+          outbound_twiml_app_sid: outbound_twiml_app_sid
+          auth_token: auth_token
+          api_key_id: api_key_id
+          api_key_name: api_key_name
+          twilio_workspace_sid: twilio_workspace_sid
+          public_key_sid: public_key_sid
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+      properties:
+        twilio_account:
+          $ref: '#/components/schemas/SfvbCommsTwilioAccount'
+        warnings:
+          description: "Anything worth knowing that did not stop the call, such as\
+            \ a second Twilio account left from before the admin allowed only one."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
       type: object
     SfvbCompileRequest:
       example:
@@ -255840,9 +257091,11 @@ components:
             type: string
           type: array
         target_id:
-          description: "The object the values are for, such as a Twilio account uuid.\
-            \  Required for sinks that need an authenticator code, unless keys names\
-            \ the targets.  Leave it out when keys is sent."
+          description: "The object the values are for.  A Twilio account by its account\
+            \ SID (AC followed by 32 hex digits), and a sending domain by the domain\
+            \ name, which may be one not added yet.  Required for sinks that need\
+            \ an authenticator code, unless keys names the targets.  Leave it out\
+            \ when keys is sent."
           type: string
         ttl_seconds:
           description: "How long each handle stays usable once the values are entered.\

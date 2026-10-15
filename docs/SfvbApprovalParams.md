@@ -10,6 +10,8 @@
 |**attributeNames** | **List&lt;String&gt;** | For item.attribute_batch, the attributes the batch would change.  Set by the server. |  [optional] |
 |**blogPostOid** | **Integer** | The blog post, for blog_post.delete. |  [optional] |
 |**contentSha256** | **String** | For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash. |  [optional] |
+|**domain** | **String** | For sending_domain.delete, the sending domain. |  [optional] |
+|**espTwilioUuid** | **String** | For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it. |  [optional] |
 |**experimentOid** | **Integer** | For experiment.end, the experiment to end. |  [optional] |
 |**itemCount** | **Integer** | For item.attribute_batch, how many items the batch would change when it was requested.  Set by the server. |  [optional] |
 |**merchantItemOid** | **Integer** | For item.pricing, the item whose pricing changes. |  [optional] |

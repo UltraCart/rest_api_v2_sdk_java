@@ -63,6 +63,14 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_CONTENT_SHA256)
   private String contentSha256;
 
+  public static final String SERIALIZED_NAME_DOMAIN = "domain";
+  @SerializedName(SERIALIZED_NAME_DOMAIN)
+  private String domain;
+
+  public static final String SERIALIZED_NAME_ESP_TWILIO_UUID = "esp_twilio_uuid";
+  @SerializedName(SERIALIZED_NAME_ESP_TWILIO_UUID)
+  private String espTwilioUuid;
+
   public static final String SERIALIZED_NAME_EXPERIMENT_OID = "experiment_oid";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_OID)
   private Integer experimentOid;
@@ -239,6 +247,52 @@ public class SfvbApprovalParams {
 
   public void setContentSha256(String contentSha256) {
     this.contentSha256 = contentSha256;
+  }
+
+
+  public SfvbApprovalParams domain(String domain) {
+    
+    this.domain = domain;
+    return this;
+  }
+
+   /**
+   * For sending_domain.delete, the sending domain.
+   * @return domain
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For sending_domain.delete, the sending domain.")
+
+  public String getDomain() {
+    return domain;
+  }
+
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+
+  public SfvbApprovalParams espTwilioUuid(String espTwilioUuid) {
+    
+    this.espTwilioUuid = espTwilioUuid;
+    return this;
+  }
+
+   /**
+   * For twilio_account.delete, the Twilio account&#39;s esp_twilio_uuid, as GET comms/twilio_account returns it.
+   * @return espTwilioUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For twilio_account.delete, the Twilio account's esp_twilio_uuid, as GET comms/twilio_account returns it.")
+
+  public String getEspTwilioUuid() {
+    return espTwilioUuid;
+  }
+
+
+  public void setEspTwilioUuid(String espTwilioUuid) {
+    this.espTwilioUuid = espTwilioUuid;
   }
 
 
@@ -554,6 +608,8 @@ public class SfvbApprovalParams {
     return Objects.equals(this.attributeNames, sfvbApprovalParams.attributeNames) &&
         Objects.equals(this.blogPostOid, sfvbApprovalParams.blogPostOid) &&
         Objects.equals(this.contentSha256, sfvbApprovalParams.contentSha256) &&
+        Objects.equals(this.domain, sfvbApprovalParams.domain) &&
+        Objects.equals(this.espTwilioUuid, sfvbApprovalParams.espTwilioUuid) &&
         Objects.equals(this.experimentOid, sfvbApprovalParams.experimentOid) &&
         Objects.equals(this.itemCount, sfvbApprovalParams.itemCount) &&
         Objects.equals(this.merchantItemOid, sfvbApprovalParams.merchantItemOid) &&
@@ -571,7 +627,7 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeNames, blogPostOid, contentSha256, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, slot, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(attributeNames, blogPostOid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, slot, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
@@ -581,6 +637,8 @@ public class SfvbApprovalParams {
     sb.append("    attributeNames: ").append(toIndentedString(attributeNames)).append("\n");
     sb.append("    blogPostOid: ").append(toIndentedString(blogPostOid)).append("\n");
     sb.append("    contentSha256: ").append(toIndentedString(contentSha256)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    espTwilioUuid: ").append(toIndentedString(espTwilioUuid)).append("\n");
     sb.append("    experimentOid: ").append(toIndentedString(experimentOid)).append("\n");
     sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
     sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
@@ -619,6 +677,8 @@ public class SfvbApprovalParams {
     openapiFields.add("attribute_names");
     openapiFields.add("blog_post_oid");
     openapiFields.add("content_sha256");
+    openapiFields.add("domain");
+    openapiFields.add("esp_twilio_uuid");
     openapiFields.add("experiment_oid");
     openapiFields.add("item_count");
     openapiFields.add("merchant_item_oid");
@@ -665,6 +725,12 @@ public class SfvbApprovalParams {
       }
       if (jsonObj.get("content_sha256") != null && !jsonObj.get("content_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_sha256").toString()));
+      }
+      if (jsonObj.get("domain") != null && !jsonObj.get("domain").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));
+      }
+      if (jsonObj.get("esp_twilio_uuid") != null && !jsonObj.get("esp_twilio_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `esp_twilio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("esp_twilio_uuid").toString()));
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
