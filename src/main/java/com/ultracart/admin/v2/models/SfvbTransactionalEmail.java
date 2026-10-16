@@ -53,6 +53,10 @@ public class SfvbTransactionalEmail {
   @SerializedName(SERIALIZED_NAME_BODY_FILE_NAME)
   private String bodyFileName;
 
+  public static final String SERIALIZED_NAME_BODY_PATH = "body_path";
+  @SerializedName(SERIALIZED_NAME_BODY_PATH)
+  private String bodyPath;
+
   public static final String SERIALIZED_NAME_FILE_NAME = "file_name";
   @SerializedName(SERIALIZED_NAME_FILE_NAME)
   private String fileName;
@@ -75,11 +79,11 @@ public class SfvbTransactionalEmail {
   }
 
    /**
-   * The body container a draft replaces, such as receipt_body.cjson.
+   * The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.
    * @return bodyFileName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The body container a draft replaces, such as receipt_body.cjson.")
+  @ApiModelProperty(value = "The body container a draft replaces, such as receipt_body.cjson.  Present only when the theme has the file.")
 
   public String getBodyFileName() {
     return bodyFileName;
@@ -88,6 +92,29 @@ public class SfvbTransactionalEmail {
 
   public void setBodyFileName(String bodyFileName) {
     this.bodyFileName = bodyFileName;
+  }
+
+
+  public SfvbTransactionalEmail bodyPath(String bodyPath) {
+    
+    this.bodyPath = bodyPath;
+    return this;
+  }
+
+   /**
+   * The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.
+   * @return bodyPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The full theme file path of the body container, such as /themes/Elements/core/emails/receipt_body.cjson.  Read it with the files endpoint.  Present only when the theme has the file.")
+
+  public String getBodyPath() {
+    return bodyPath;
+  }
+
+
+  public void setBodyPath(String bodyPath) {
+    this.bodyPath = bodyPath;
   }
 
 
@@ -171,6 +198,7 @@ public class SfvbTransactionalEmail {
     }
     SfvbTransactionalEmail sfvbTransactionalEmail = (SfvbTransactionalEmail) o;
     return Objects.equals(this.bodyFileName, sfvbTransactionalEmail.bodyFileName) &&
+        Objects.equals(this.bodyPath, sfvbTransactionalEmail.bodyPath) &&
         Objects.equals(this.fileName, sfvbTransactionalEmail.fileName) &&
         Objects.equals(this.name, sfvbTransactionalEmail.name) &&
         Objects.equals(this.textFileName, sfvbTransactionalEmail.textFileName);
@@ -178,7 +206,7 @@ public class SfvbTransactionalEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bodyFileName, fileName, name, textFileName);
+    return Objects.hash(bodyFileName, bodyPath, fileName, name, textFileName);
   }
 
   @Override
@@ -186,6 +214,7 @@ public class SfvbTransactionalEmail {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTransactionalEmail {\n");
     sb.append("    bodyFileName: ").append(toIndentedString(bodyFileName)).append("\n");
+    sb.append("    bodyPath: ").append(toIndentedString(bodyPath)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    textFileName: ").append(toIndentedString(textFileName)).append("\n");
@@ -212,6 +241,7 @@ public class SfvbTransactionalEmail {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("body_file_name");
+    openapiFields.add("body_path");
     openapiFields.add("file_name");
     openapiFields.add("name");
     openapiFields.add("text_file_name");
@@ -244,6 +274,9 @@ public class SfvbTransactionalEmail {
       }
       if (jsonObj.get("body_file_name") != null && !jsonObj.get("body_file_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `body_file_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body_file_name").toString()));
+      }
+      if (jsonObj.get("body_path") != null && !jsonObj.get("body_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `body_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body_path").toString()));
       }
       if (jsonObj.get("file_name") != null && !jsonObj.get("file_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `file_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_name").toString()));
