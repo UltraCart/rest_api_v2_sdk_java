@@ -1001,7 +1001,11 @@ docs/SfvbBlogPostImage.md
 docs/SfvbBlogPostImageRequest.md
 docs/SfvbBlogPostRequest.md
 docs/SfvbBlogPostsResponse.md
+docs/SfvbCampaign.md
+docs/SfvbCampaignsResponse.md
 docs/SfvbCommsDnsRecord.md
+docs/SfvbCommsEmail.md
+docs/SfvbCommsPostcard.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
 docs/SfvbCommsTwilioAccount.md
@@ -1043,6 +1047,8 @@ docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
+docs/SfvbFlow.md
+docs/SfvbFlowsResponse.md
 docs/SfvbI18nGlossary.md
 docs/SfvbI18nGlossaryRequest.md
 docs/SfvbI18nLanguage.md
@@ -2331,7 +2337,11 @@ src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostImage.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostImageRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCampaign.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCampaignsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsDnsRecord.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsEmail.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsPostcard.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomain.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomainsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsTwilioAccount.java
@@ -2373,6 +2383,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFileVersionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFilesResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFlow.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFlowsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbI18nGlossary.java
 src/main/java/com/ultracart/admin/v2/models/SfvbI18nGlossaryRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbI18nLanguage.java

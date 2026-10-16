@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.206</version>
+    <version>4.1.207</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.206"
+     implementation "com.ultracart:rest-sdk:4.1.207"
   }
 ```
 
@@ -539,6 +539,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbApproval**](docs/SfvbApi.md#getSfvbApproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
 *SfvbApi* | [**getSfvbApprovals**](docs/SfvbApi.md#getSfvbApprovals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
+*SfvbApi* | [**getSfvbCampaign**](docs/SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
 *SfvbApi* | [**getSfvbCommsSendingDomain**](docs/SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 *SfvbApi* | [**getSfvbCommsSendingDomains**](docs/SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
@@ -552,6 +553,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
+*SfvbApi* | [**getSfvbFlow**](docs/SfvbApi.md#getSfvbFlow) | **GET** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Get a flow
 *SfvbApi* | [**getSfvbI18nGlossary**](docs/SfvbApi.md#getSfvbI18nGlossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
 *SfvbApi* | [**getSfvbI18nLanguages**](docs/SfvbApi.md#getSfvbI18nLanguages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/languages | List a storefront&#39;s languages
 *SfvbApi* | [**getSfvbI18nMachineTranslations**](docs/SfvbApi.md#getSfvbI18nMachineTranslations) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/machine_translations | Read where a widget setting&#39;s translations come from
@@ -606,11 +608,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 *SfvbApi* | [**listSfvbBlogPosts**](docs/SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
+*SfvbApi* | [**listSfvbCampaigns**](docs/SfvbApi.md#listSfvbCampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
 *SfvbApi* | [**listSfvbContainerVersions**](docs/SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
 *SfvbApi* | [**listSfvbElements**](docs/SfvbApi.md#listSfvbElements) | **GET** /sfvb/elements | List every SFVB element type
 *SfvbApi* | [**listSfvbExperiments**](docs/SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
 *SfvbApi* | [**listSfvbFileVersions**](docs/SfvbApi.md#listSfvbFileVersions) | **GET** /sfvb/storefronts/{storefront_oid}/files/versions | Version history for a storefront file
 *SfvbApi* | [**listSfvbFiles**](docs/SfvbApi.md#listSfvbFiles) | **GET** /sfvb/storefronts/{storefront_oid}/files | List a storefront directory
+*SfvbApi* | [**listSfvbFlows**](docs/SfvbApi.md#listSfvbFlows) | **GET** /sfvb/storefronts/{storefront_oid}/flows | List the storefront&#39;s flows
 *SfvbApi* | [**listSfvbI18nMessages**](docs/SfvbApi.md#listSfvbI18nMessages) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/messages | List built-in messages
 *SfvbApi* | [**listSfvbItemContainers**](docs/SfvbApi.md#listSfvbItemContainers) | **GET** /sfvb/storefronts/{storefront_oid}/item_containers | List the item containers on the account
 *SfvbApi* | [**listSfvbLibraryInstalls**](docs/SfvbApi.md#listSfvbLibraryInstalls) | **GET** /sfvb/storefronts/{storefront_oid}/library/installs | List the library entries installed on a storefront
@@ -1918,7 +1922,11 @@ Class | Method | HTTP request | Description
  - [SfvbBlogPostImageRequest](docs/SfvbBlogPostImageRequest.md)
  - [SfvbBlogPostRequest](docs/SfvbBlogPostRequest.md)
  - [SfvbBlogPostsResponse](docs/SfvbBlogPostsResponse.md)
+ - [SfvbCampaign](docs/SfvbCampaign.md)
+ - [SfvbCampaignsResponse](docs/SfvbCampaignsResponse.md)
  - [SfvbCommsDnsRecord](docs/SfvbCommsDnsRecord.md)
+ - [SfvbCommsEmail](docs/SfvbCommsEmail.md)
+ - [SfvbCommsPostcard](docs/SfvbCommsPostcard.md)
  - [SfvbCommsSendingDomain](docs/SfvbCommsSendingDomain.md)
  - [SfvbCommsSendingDomainsResponse](docs/SfvbCommsSendingDomainsResponse.md)
  - [SfvbCommsTwilioAccount](docs/SfvbCommsTwilioAccount.md)
@@ -1960,6 +1968,8 @@ Class | Method | HTTP request | Description
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
+ - [SfvbFlow](docs/SfvbFlow.md)
+ - [SfvbFlowsResponse](docs/SfvbFlowsResponse.md)
  - [SfvbI18nGlossary](docs/SfvbI18nGlossary.md)
  - [SfvbI18nGlossaryRequest](docs/SfvbI18nGlossaryRequest.md)
  - [SfvbI18nLanguage](docs/SfvbI18nLanguage.md)
@@ -2312,6 +2322,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.207 | 10/16/2026 | sfvb internal testing |
 | 4.1.206 | 10/16/2026 | sfvb internal testing |
 | 4.1.205 | 10/15/2026 | sfvb internal testing |
 | 4.1.204 | 10/15/2026 | sfvb internal testing |

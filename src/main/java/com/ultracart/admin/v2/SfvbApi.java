@@ -35,6 +35,8 @@ import com.ultracart.admin.v2.models.SfvbBlogPostDetail;
 import com.ultracart.admin.v2.models.SfvbBlogPostImageRequest;
 import com.ultracart.admin.v2.models.SfvbBlogPostRequest;
 import com.ultracart.admin.v2.models.SfvbBlogPostsResponse;
+import com.ultracart.admin.v2.models.SfvbCampaign;
+import com.ultracart.admin.v2.models.SfvbCampaignsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsSendingDomain;
 import com.ultracart.admin.v2.models.SfvbCommsSendingDomainsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsTwilioAccount;
@@ -69,6 +71,8 @@ import com.ultracart.admin.v2.models.SfvbFileVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbFileWriteRequest;
 import com.ultracart.admin.v2.models.SfvbFileWriteResponse;
 import com.ultracart.admin.v2.models.SfvbFilesResponse;
+import com.ultracart.admin.v2.models.SfvbFlow;
+import com.ultracart.admin.v2.models.SfvbFlowsResponse;
 import com.ultracart.admin.v2.models.SfvbI18nGlossary;
 import com.ultracart.admin.v2.models.SfvbI18nGlossaryRequest;
 import com.ultracart.admin.v2.models.SfvbI18nLanguageEnableRequest;
@@ -7475,6 +7479,159 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for getSfvbCampaign
+     * @param storefrontOid  (required)
+     * @param campaignUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbCampaignCall(Integer storefrontOid, String campaignUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "campaign_uuid" + "\\}", localVarApiClient.escapeString(campaignUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbCampaignValidateBeforeCall(Integer storefrontOid, String campaignUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbCampaign(Async)");
+        }
+        
+        // verify the required parameter 'campaignUuid' is set
+        if (campaignUuid == null) {
+            throw new ApiException("Missing the required parameter 'campaignUuid' when calling getSfvbCampaign(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbCampaignCall(storefrontOid, campaignUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a campaign
+     * One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param campaignUuid  (required)
+     * @return SfvbCampaign
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCampaign getSfvbCampaign(Integer storefrontOid, String campaignUuid) throws ApiException {
+        ApiResponse<SfvbCampaign> localVarResp = getSfvbCampaignWithHttpInfo(storefrontOid, campaignUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a campaign
+     * One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param campaignUuid  (required)
+     * @return ApiResponse&lt;SfvbCampaign&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCampaign> getSfvbCampaignWithHttpInfo(Integer storefrontOid, String campaignUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbCampaignValidateBeforeCall(storefrontOid, campaignUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbCampaign>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a campaign (asynchronously)
+     * One campaign, the same object as its list entry, with its emails and postcards in step order.  A deleted campaign is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param campaignUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbCampaignAsync(Integer storefrontOid, String campaignUuid, final ApiCallback<SfvbCampaign> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbCampaignValidateBeforeCall(storefrontOid, campaignUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCampaign>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSfvbCjsonUsedElements
      * @param compileRequest CJSON to inspect (required)
      * @param _callback Callback for upload/download progress
@@ -9459,6 +9616,159 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbFileUploadUrlValidateBeforeCall(storefrontOid, extension, _callback);
         Type localVarReturnType = new TypeToken<SfvbFileUploadUrlResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbFlow
+     * @param storefrontOid  (required)
+     * @param flowUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbFlowCall(Integer storefrontOid, String flowUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "flow_uuid" + "\\}", localVarApiClient.escapeString(flowUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbFlowValidateBeforeCall(Integer storefrontOid, String flowUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbFlow(Async)");
+        }
+        
+        // verify the required parameter 'flowUuid' is set
+        if (flowUuid == null) {
+            throw new ApiException("Missing the required parameter 'flowUuid' when calling getSfvbFlow(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbFlowCall(storefrontOid, flowUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a flow
+     * One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param flowUuid  (required)
+     * @return SfvbFlow
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbFlow getSfvbFlow(Integer storefrontOid, String flowUuid) throws ApiException {
+        ApiResponse<SfvbFlow> localVarResp = getSfvbFlowWithHttpInfo(storefrontOid, flowUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a flow
+     * One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param flowUuid  (required)
+     * @return ApiResponse&lt;SfvbFlow&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbFlow> getSfvbFlowWithHttpInfo(Integer storefrontOid, String flowUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbFlowValidateBeforeCall(storefrontOid, flowUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbFlow>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a flow (asynchronously)
+     * One flow, the same object as its list entry, with its emails and postcards in step order.  A deleted flow is returned with deleted true. 
+     * @param storefrontOid  (required)
+     * @param flowUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbFlowAsync(Integer storefrontOid, String flowUuid, final ApiCallback<SfvbFlow> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbFlowValidateBeforeCall(storefrontOid, flowUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbFlow>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -17965,6 +18275,181 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for listSfvbCampaigns
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Campaigns per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted campaigns (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbCampaignsCall(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/campaigns"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (includeDeleted != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted", includeDeleted));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSfvbCampaignsValidateBeforeCall(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling listSfvbCampaigns(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSfvbCampaignsCall(storefrontOid, search, page, pageSize, includeDeleted, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List the storefront&#39;s campaigns
+     * One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Campaigns per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted campaigns (optional)
+     * @return SfvbCampaignsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCampaignsResponse listSfvbCampaigns(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted) throws ApiException {
+        ApiResponse<SfvbCampaignsResponse> localVarResp = listSfvbCampaignsWithHttpInfo(storefrontOid, search, page, pageSize, includeDeleted);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List the storefront&#39;s campaigns
+     * One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Campaigns per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted campaigns (optional)
+     * @return ApiResponse&lt;SfvbCampaignsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCampaignsResponse> listSfvbCampaignsWithHttpInfo(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbCampaignsValidateBeforeCall(storefrontOid, search, page, pageSize, includeDeleted, null);
+        Type localVarReturnType = new TypeToken<SfvbCampaignsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List the storefront&#39;s campaigns (asynchronously)
+     * One page of campaigns, newest first, each with its emails and postcards in step order, without their container JSON.  search matches the campaign name.  Deleted campaigns are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or archived), so a change to one of its emails reaches customers at once. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Campaigns per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted campaigns (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbCampaignsAsync(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback<SfvbCampaignsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSfvbCampaignsValidateBeforeCall(storefrontOid, search, page, pageSize, includeDeleted, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCampaignsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listSfvbContainerVersions
      * @param storefrontOid  (required)
      * @param ownerType  (optional)
@@ -18750,6 +19235,181 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = listSfvbFilesValidateBeforeCall(storefrontOid, path, storefrontFsDirectoryOid, themeOid, maxEntries, _callback);
         Type localVarReturnType = new TypeToken<SfvbFilesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSfvbFlows
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Flows per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted flows (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbFlowsCall(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/flows"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (includeDeleted != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_deleted", includeDeleted));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSfvbFlowsValidateBeforeCall(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling listSfvbFlows(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSfvbFlowsCall(storefrontOid, search, page, pageSize, includeDeleted, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List the storefront&#39;s flows
+     * One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Flows per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted flows (optional)
+     * @return SfvbFlowsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbFlowsResponse listSfvbFlows(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted) throws ApiException {
+        ApiResponse<SfvbFlowsResponse> localVarResp = listSfvbFlowsWithHttpInfo(storefrontOid, search, page, pageSize, includeDeleted);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List the storefront&#39;s flows
+     * One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Flows per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted flows (optional)
+     * @return ApiResponse&lt;SfvbFlowsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbFlowsResponse> listSfvbFlowsWithHttpInfo(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbFlowsValidateBeforeCall(storefrontOid, search, page, pageSize, includeDeleted, null);
+        Type localVarReturnType = new TypeToken<SfvbFlowsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List the storefront&#39;s flows (asynchronously)
+     * One page of flows, newest first, each with its trigger and its emails and postcards in step order, without their container JSON.  search matches the flow name.  Deleted flows are left out unless include_deleted is true.  live is true unless the status sends nothing (draft or inactive); a paused flow still holds enrolled customers, so it counts as live. 
+     * @param storefrontOid  (required)
+     * @param search Text to search for in the name (optional)
+     * @param page Page number, starting at 1 (optional)
+     * @param pageSize Flows per page, 1 to 100, default 50 (optional)
+     * @param includeDeleted Include deleted flows (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbFlowsAsync(Integer storefrontOid, String search, Integer page, Integer pageSize, Boolean includeDeleted, final ApiCallback<SfvbFlowsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSfvbFlowsValidateBeforeCall(storefrontOid, search, page, pageSize, includeDeleted, _callback);
+        Type localVarReturnType = new TypeToken<SfvbFlowsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
