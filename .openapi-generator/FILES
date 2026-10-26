@@ -1020,8 +1020,10 @@ docs/SfvbContainerWriteRequest.md
 docs/SfvbElement.md
 docs/SfvbElementSchemaResponse.md
 docs/SfvbElementsResponse.md
+docs/SfvbEmail.md
 docs/SfvbEmailRenderRequest.md
 docs/SfvbEmailRenderResponse.md
+docs/SfvbEmailUpdateRequest.md
 docs/SfvbErrorDetail.md
 docs/SfvbEvent.md
 docs/SfvbEventsAuthRequest.md
@@ -2356,8 +2358,10 @@ src/main/java/com/ultracart/admin/v2/models/SfvbContainerWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbElement.java
 src/main/java/com/ultracart/admin/v2/models/SfvbElementSchemaResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbElementsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbEmail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmailRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmailRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbEmailUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbErrorDetail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEvent.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEventsAuthRequest.java

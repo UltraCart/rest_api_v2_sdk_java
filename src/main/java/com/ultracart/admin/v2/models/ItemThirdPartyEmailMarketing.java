@@ -76,10 +76,6 @@ public class ItemThirdPartyEmailMarketing {
     
     KLAVIYO("Klaviyo"),
     
-    LYRIS("Lyris"),
-    
-    LYRISHQ("LyrisHQ"),
-    
     MAILCHIMP("MailChimp");
 
     private String value;

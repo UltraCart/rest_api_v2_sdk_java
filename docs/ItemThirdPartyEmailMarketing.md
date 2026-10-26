@@ -27,8 +27,6 @@
 | GETRESPONSE | &quot;GetResponse&quot; |
 | ICONTACT | &quot;iContact&quot; |
 | KLAVIYO | &quot;Klaviyo&quot; |
-| LYRIS | &quot;Lyris&quot; |
-| LYRISHQ | &quot;LyrisHQ&quot; |
 | MAILCHIMP | &quot;MailChimp&quot; |
 
 

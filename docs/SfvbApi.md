@@ -56,6 +56,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getSfvbContainer**](SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system |
 | [**getSfvbContainerVersion**](SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry |
 | [**getSfvbElement**](SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type |
+| [**getSfvbEmail**](SfvbApi.md#getSfvbEmail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text |
 | [**getSfvbEvents**](SfvbApi.md#getSfvbEvents) | **GET** /sfvb/events | Replay events |
 | [**getSfvbEventsAuthorization**](SfvbApi.md#getSfvbEventsAuthorization) | **PUT** /sfvb/events/auth | Open the event stream |
 | [**getSfvbExperiment**](SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics |
@@ -184,6 +185,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateSfvbBlogPost**](SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post |
 | [**updateSfvbCommsSendingDomain**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain |
 | [**updateSfvbCommsTwilioAccount**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account |
+| [**updateSfvbEmail**](SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text |
 | [**updateSfvbItemAttributeBatch**](SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call |
 | [**updateSfvbLibraryEntry**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft |
 | [**updateSfvbRedirect**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule |
@@ -2516,6 +2518,49 @@ schema is the draft-07 JSON schema for the element config object and doc is the 
 ### Return type
 
 [**SfvbElementSchemaResponse**](SfvbElementSchemaResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getSfvbEmail"></a>
+# **getSfvbEmail**
+> SfvbEmail getSfvbEmail(storefrontOid, emailUuid)
+
+Get a flow or campaign email&#39;s subject and preview text
+
+The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront&#39;s campaigns and flows. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **emailUuid** | **String**|  | |
+
+### Return type
+
+[**SfvbEmail**](SfvbEmail.md)
 
 ### Authorization
 
@@ -8280,6 +8325,55 @@ Changes the account&#39;s Twilio account.  Leave a field out to keep it.  Send a
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **502** |  |  -  |
+
+<a name="updateSfvbEmail"></a>
+# **updateSfvbEmail**
+> SfvbEmail updateSfvbEmail(storefrontOid, emailUuid, ifMatch, emailUpdateRequest)
+
+Change a flow or campaign email&#39;s subject or preview text
+
+A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant&#39;s content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **emailUuid** | **String**|  | |
+| **ifMatch** | **String**| hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+| **emailUpdateRequest** | [**SfvbEmailUpdateRequest**](SfvbEmailUpdateRequest.md)| The subject or preview text to change | |
+
+### Return type
+
+[**SfvbEmail**](SfvbEmail.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="updateSfvbItemAttributeBatch"></a>
 # **updateSfvbItemAttributeBatch**

@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.207</version>
+    <version>4.1.208</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.207"
+     implementation "com.ultracart:rest-sdk:4.1.208"
   }
 ```
 
@@ -547,6 +547,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
 *SfvbApi* | [**getSfvbElement**](docs/SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
+*SfvbApi* | [**getSfvbEmail**](docs/SfvbApi.md#getSfvbEmail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 *SfvbApi* | [**getSfvbEvents**](docs/SfvbApi.md#getSfvbEvents) | **GET** /sfvb/events | Replay events
 *SfvbApi* | [**getSfvbEventsAuthorization**](docs/SfvbApi.md#getSfvbEventsAuthorization) | **PUT** /sfvb/events/auth | Open the event stream
 *SfvbApi* | [**getSfvbExperiment**](docs/SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
@@ -675,6 +676,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbBlogPost**](docs/SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
+*SfvbApi* | [**updateSfvbEmail**](docs/SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -1941,8 +1943,10 @@ Class | Method | HTTP request | Description
  - [SfvbElement](docs/SfvbElement.md)
  - [SfvbElementSchemaResponse](docs/SfvbElementSchemaResponse.md)
  - [SfvbElementsResponse](docs/SfvbElementsResponse.md)
+ - [SfvbEmail](docs/SfvbEmail.md)
  - [SfvbEmailRenderRequest](docs/SfvbEmailRenderRequest.md)
  - [SfvbEmailRenderResponse](docs/SfvbEmailRenderResponse.md)
+ - [SfvbEmailUpdateRequest](docs/SfvbEmailUpdateRequest.md)
  - [SfvbErrorDetail](docs/SfvbErrorDetail.md)
  - [SfvbEvent](docs/SfvbEvent.md)
  - [SfvbEventsAuthRequest](docs/SfvbEventsAuthRequest.md)
@@ -2322,6 +2326,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.208 | 10/26/2026 | sfvb internal testing |
 | 4.1.207 | 10/16/2026 | sfvb internal testing |
 | 4.1.206 | 10/16/2026 | sfvb internal testing |
 | 4.1.205 | 10/15/2026 | sfvb internal testing |

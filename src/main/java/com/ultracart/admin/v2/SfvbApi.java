@@ -50,8 +50,10 @@ import com.ultracart.admin.v2.models.SfvbContainerVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbContainerWriteRequest;
 import com.ultracart.admin.v2.models.SfvbElementSchemaResponse;
 import com.ultracart.admin.v2.models.SfvbElementsResponse;
+import com.ultracart.admin.v2.models.SfvbEmail;
 import com.ultracart.admin.v2.models.SfvbEmailRenderRequest;
 import com.ultracart.admin.v2.models.SfvbEmailRenderResponse;
+import com.ultracart.admin.v2.models.SfvbEmailUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbEventsAuthRequest;
 import com.ultracart.admin.v2.models.SfvbEventsAuthResponse;
 import com.ultracart.admin.v2.models.SfvbEventsResponse;
@@ -8682,6 +8684,159 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbElementValidateBeforeCall(elementType, _callback);
         Type localVarReturnType = new TypeToken<SfvbElementSchemaResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbEmail
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEmailCall(Integer storefrontOid, String emailUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_uuid" + "\\}", localVarApiClient.escapeString(emailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbEmailValidateBeforeCall(Integer storefrontOid, String emailUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailUuid' is set
+        if (emailUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailUuid' when calling getSfvbEmail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbEmailCall(storefrontOid, emailUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a flow or campaign email&#39;s subject and preview text
+     * The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront&#39;s campaigns and flows. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @return SfvbEmail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbEmail getSfvbEmail(Integer storefrontOid, String emailUuid) throws ApiException {
+        ApiResponse<SfvbEmail> localVarResp = getSfvbEmailWithHttpInfo(storefrontOid, emailUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a flow or campaign email&#39;s subject and preview text
+     * The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront&#39;s campaigns and flows. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @return ApiResponse&lt;SfvbEmail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbEmail> getSfvbEmailWithHttpInfo(Integer storefrontOid, String emailUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a flow or campaign email&#39;s subject and preview text (asynchronously)
+     * The subject, preview text and hash_sha256 to send as If-Match when updating them, with whether the email is live and its review state.  The body is the email container (owner type email).  Find the uuid in the storefront&#39;s campaigns and flows. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbEmailAsync(Integer storefrontOid, String emailUuid, final ApiCallback<SfvbEmail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -29676,6 +29831,197 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = updateSfvbCommsTwilioAccountValidateBeforeCall(twilioAccount, _callback);
         Type localVarReturnType = new TypeToken<SfvbCommsTwilioAccountResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSfvbEmail
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param emailUpdateRequest The subject or preview text to change (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbEmailCall(Integer storefrontOid, String emailUuid, String ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = emailUpdateRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_uuid" + "\\}", localVarApiClient.escapeString(emailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSfvbEmailValidateBeforeCall(Integer storefrontOid, String emailUuid, String ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailUuid' is set
+        if (emailUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailUuid' when calling updateSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling updateSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailUpdateRequest' is set
+        if (emailUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailUpdateRequest' when calling updateSfvbEmail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSfvbEmailCall(storefrontOid, emailUuid, ifMatch, emailUpdateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Change a flow or campaign email&#39;s subject or preview text
+     * A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant&#39;s content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param emailUpdateRequest The subject or preview text to change (required)
+     * @return SfvbEmail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbEmail updateSfvbEmail(Integer storefrontOid, String emailUuid, String ifMatch, SfvbEmailUpdateRequest emailUpdateRequest) throws ApiException {
+        ApiResponse<SfvbEmail> localVarResp = updateSfvbEmailWithHttpInfo(storefrontOid, emailUuid, ifMatch, emailUpdateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Change a flow or campaign email&#39;s subject or preview text
+     * A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant&#39;s content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param emailUpdateRequest The subject or preview text to change (required)
+     * @return ApiResponse&lt;SfvbEmail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbEmail> updateSfvbEmailWithHttpInfo(Integer storefrontOid, String emailUuid, String ifMatch, SfvbEmailUpdateRequest emailUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, ifMatch, emailUpdateRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Change a flow or campaign email&#39;s subject or preview text (asynchronously)
+     * A field left out keeps its value.  Each is 5 to 150 characters on one line.  Send the hash_sha256 you read as If-Match.  An email in a sending flow or campaign needs sfvb_publish, as a body push does.  The merchant&#39;s content review rule applies, so an email waiting for review or rejected goes back to needing review.  An email suspended for spam is refused with sfvb.email_suspended. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param ifMatch hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param emailUpdateRequest The subject or preview text to change (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbEmailAsync(Integer storefrontOid, String emailUuid, String ifMatch, SfvbEmailUpdateRequest emailUpdateRequest, final ApiCallback<SfvbEmail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, ifMatch, emailUpdateRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
