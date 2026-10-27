@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.208</version>
+    <version>4.1.209</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.208"
+     implementation "com.ultracart:rest-sdk:4.1.209"
   }
 ```
 
@@ -497,11 +497,17 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**validateOrder**](docs/OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 *SfvbApi* | [**addSfvbPageBlogPosts**](docs/SfvbApi.md#addSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page
 *SfvbApi* | [**addSfvbPageItems**](docs/SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page
+*SfvbApi* | [**archiveSfvbCampaign**](docs/SfvbApi.md#archiveSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive | Archive or unarchive a campaign
+*SfvbApi* | [**archiveSfvbFlow**](docs/SfvbApi.md#archiveSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive | Archive or unarchive a flow
 *SfvbApi* | [**archiveSfvbUpsellPath**](docs/SfvbApi.md#archiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path
 *SfvbApi* | [**attachSfvbBlogPostImage**](docs/SfvbApi.md#attachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post
 *SfvbApi* | [**checkSfvbRedirect**](docs/SfvbApi.md#checkSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/check | Check a redirect rule without creating it
 *SfvbApi* | [**clearSfvbLibraryScreenshot**](docs/SfvbApi.md#clearSfvbLibraryScreenshot) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Remove a library entry&#39;s screenshot
+*SfvbApi* | [**cloneSfvbCampaign**](docs/SfvbApi.md#cloneSfvbCampaign) | **POST** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/clone | Copy a campaign on the same storefront
+*SfvbApi* | [**cloneSfvbFlow**](docs/SfvbApi.md#cloneSfvbFlow) | **POST** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/clone | Copy a flow on the same storefront
 *SfvbApi* | [**compileSfvbCjson**](docs/SfvbApi.md#compileSfvbCjson) | **POST** /sfvb/cjson/compile | Compile CJSON to Velocity
+*SfvbApi* | [**createSfvbCampaign**](docs/SfvbApi.md#createSfvbCampaign) | **POST** /sfvb/storefronts/{storefront_oid}/campaigns | Create a draft campaign
+*SfvbApi* | [**createSfvbFlow**](docs/SfvbApi.md#createSfvbFlow) | **POST** /sfvb/storefronts/{storefront_oid}/flows | Create a draft flow
 *SfvbApi* | [**createSfvbLibraryEntry**](docs/SfvbApi.md#createSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
@@ -610,6 +616,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 *SfvbApi* | [**listSfvbBlogPosts**](docs/SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 *SfvbApi* | [**listSfvbCampaigns**](docs/SfvbApi.md#listSfvbCampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
+*SfvbApi* | [**listSfvbCommsLists**](docs/SfvbApi.md#listSfvbCommsLists) | **GET** /sfvb/storefronts/{storefront_oid}/lists | List the storefront&#39;s email lists
+*SfvbApi* | [**listSfvbCommsSegments**](docs/SfvbApi.md#listSfvbCommsSegments) | **GET** /sfvb/storefronts/{storefront_oid}/segments | List the storefront&#39;s segments
 *SfvbApi* | [**listSfvbContainerVersions**](docs/SfvbApi.md#listSfvbContainerVersions) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions | Version history for a container stored outside the file system
 *SfvbApi* | [**listSfvbElements**](docs/SfvbApi.md#listSfvbElements) | **GET** /sfvb/elements | List every SFVB element type
 *SfvbApi* | [**listSfvbExperiments**](docs/SfvbApi.md#listSfvbExperiments) | **GET** /sfvb/storefronts/{storefront_oid}/experiments | List the storefront&#39;s experiments
@@ -674,9 +682,12 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**unpublishSfvbLibraryEntry**](docs/SfvbApi.md#unpublishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
 *SfvbApi* | [**unshareSfvbLibraryEntry**](docs/SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 *SfvbApi* | [**updateSfvbBlogPost**](docs/SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
+*SfvbApi* | [**updateSfvbCampaign**](docs/SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 *SfvbApi* | [**updateSfvbEmail**](docs/SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
+*SfvbApi* | [**updateSfvbFlow**](docs/SfvbApi.md#updateSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
+*SfvbApi* | [**updateSfvbFlowStatus**](docs/SfvbApi.md#updateSfvbFlowStatus) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/status | Turn a flow on or off
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
@@ -1918,6 +1929,7 @@ Class | Method | HTTP request | Description
  - [SfvbApprovalReview](docs/SfvbApprovalReview.md)
  - [SfvbApprovalReviewFinding](docs/SfvbApprovalReviewFinding.md)
  - [SfvbApprovalsResponse](docs/SfvbApprovalsResponse.md)
+ - [SfvbArchiveRequest](docs/SfvbArchiveRequest.md)
  - [SfvbBlogPost](docs/SfvbBlogPost.md)
  - [SfvbBlogPostDetail](docs/SfvbBlogPostDetail.md)
  - [SfvbBlogPostImage](docs/SfvbBlogPostImage.md)
@@ -1925,10 +1937,16 @@ Class | Method | HTTP request | Description
  - [SfvbBlogPostRequest](docs/SfvbBlogPostRequest.md)
  - [SfvbBlogPostsResponse](docs/SfvbBlogPostsResponse.md)
  - [SfvbCampaign](docs/SfvbCampaign.md)
+ - [SfvbCampaignMembership](docs/SfvbCampaignMembership.md)
+ - [SfvbCampaignWriteRequest](docs/SfvbCampaignWriteRequest.md)
  - [SfvbCampaignsResponse](docs/SfvbCampaignsResponse.md)
  - [SfvbCommsDnsRecord](docs/SfvbCommsDnsRecord.md)
  - [SfvbCommsEmail](docs/SfvbCommsEmail.md)
+ - [SfvbCommsList](docs/SfvbCommsList.md)
+ - [SfvbCommsListsResponse](docs/SfvbCommsListsResponse.md)
  - [SfvbCommsPostcard](docs/SfvbCommsPostcard.md)
+ - [SfvbCommsSegment](docs/SfvbCommsSegment.md)
+ - [SfvbCommsSegmentsResponse](docs/SfvbCommsSegmentsResponse.md)
  - [SfvbCommsSendingDomain](docs/SfvbCommsSendingDomain.md)
  - [SfvbCommsSendingDomainsResponse](docs/SfvbCommsSendingDomainsResponse.md)
  - [SfvbCommsTwilioAccount](docs/SfvbCommsTwilioAccount.md)
@@ -1973,6 +1991,8 @@ Class | Method | HTTP request | Description
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
  - [SfvbFlow](docs/SfvbFlow.md)
+ - [SfvbFlowStatusRequest](docs/SfvbFlowStatusRequest.md)
+ - [SfvbFlowWriteRequest](docs/SfvbFlowWriteRequest.md)
  - [SfvbFlowsResponse](docs/SfvbFlowsResponse.md)
  - [SfvbI18nGlossary](docs/SfvbI18nGlossary.md)
  - [SfvbI18nGlossaryRequest](docs/SfvbI18nGlossaryRequest.md)
@@ -2326,6 +2346,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.209 | 10/27/2026 | sfvb internal testing |
 | 4.1.208 | 10/26/2026 | sfvb internal testing |
 | 4.1.207 | 10/16/2026 | sfvb internal testing |
 | 4.1.206 | 10/16/2026 | sfvb internal testing |

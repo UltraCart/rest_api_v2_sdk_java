@@ -53,6 +53,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbFlow {
+  public static final String SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS = "allow_multiple_concurrent_enrollments";
+  @SerializedName(SERIALIZED_NAME_ALLOW_MULTIPLE_CONCURRENT_ENROLLMENTS)
+  private Boolean allowMultipleConcurrentEnrollments;
+
   public static final String SERIALIZED_NAME_COMMUNICATION_SEQUENCE_UUID = "communication_sequence_uuid";
   @SerializedName(SERIALIZED_NAME_COMMUNICATION_SEQUENCE_UUID)
   private String communicationSequenceUuid;
@@ -69,9 +73,21 @@ public class SfvbFlow {
   @SerializedName(SERIALIZED_NAME_EMAILS)
   private List<SfvbCommsEmail> emails = null;
 
+  public static final String SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES = "end_once_customer_purchases";
+  @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES)
+  private Boolean endOnceCustomerPurchases;
+
+  public static final String SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE = "end_once_customer_purchases_anywhere";
+  @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE)
+  private Boolean endOnceCustomerPurchasesAnywhere;
+
   public static final String SERIALIZED_NAME_FLOW_UUID = "flow_uuid";
   @SerializedName(SERIALIZED_NAME_FLOW_UUID)
   private String flowUuid;
+
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
+  @SerializedName(SERIALIZED_NAME_HASH_SHA256)
+  private String hashSha256;
 
   public static final String SERIALIZED_NAME_LIVE = "live";
   @SerializedName(SERIALIZED_NAME_LIVE)
@@ -81,9 +97,33 @@ public class SfvbFlow {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private List<String> notes = null;
+
   public static final String SERIALIZED_NAME_POSTCARDS = "postcards";
   @SerializedName(SERIALIZED_NAME_POSTCARDS)
   private List<SfvbCommsPostcard> postcards = null;
+
+  public static final String SERIALIZED_NAME_REENTRY_DELAY_DAYS = "reentry_delay_days";
+  @SerializedName(SERIALIZED_NAME_REENTRY_DELAY_DAYS)
+  private Integer reentryDelayDays;
+
+  public static final String SERIALIZED_NAME_REENTRY_POLICY = "reentry_policy";
+  @SerializedName(SERIALIZED_NAME_REENTRY_POLICY)
+  private String reentryPolicy;
+
+  public static final String SERIALIZED_NAME_SENDING_DOMAIN_UUID = "sending_domain_uuid";
+  @SerializedName(SERIALIZED_NAME_SENDING_DOMAIN_UUID)
+  private String sendingDomainUuid;
+
+  public static final String SERIALIZED_NAME_SENDING_NAME = "sending_name";
+  @SerializedName(SERIALIZED_NAME_SENDING_NAME)
+  private String sendingName;
+
+  public static final String SERIALIZED_NAME_SENDING_USER = "sending_user";
+  @SerializedName(SERIALIZED_NAME_SENDING_USER)
+  private String sendingUser;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -92,6 +132,10 @@ public class SfvbFlow {
   public static final String SERIALIZED_NAME_STATUS_DTS = "status_dts";
   @SerializedName(SERIALIZED_NAME_STATUS_DTS)
   private String statusDts;
+
+  public static final String SERIALIZED_NAME_TRIGGER_PARAMETER = "trigger_parameter";
+  @SerializedName(SERIALIZED_NAME_TRIGGER_PARAMETER)
+  private String triggerParameter;
 
   public static final String SERIALIZED_NAME_TRIGGER_PARAMETER_NAME = "trigger_parameter_name";
   @SerializedName(SERIALIZED_NAME_TRIGGER_PARAMETER_NAME)
@@ -103,6 +147,29 @@ public class SfvbFlow {
 
   public SfvbFlow() { 
   }
+
+  public SfvbFlow allowMultipleConcurrentEnrollments(Boolean allowMultipleConcurrentEnrollments) {
+    
+    this.allowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
+    return this;
+  }
+
+   /**
+   * True when a customer may be in this flow more than once at a time.
+   * @return allowMultipleConcurrentEnrollments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a customer may be in this flow more than once at a time.")
+
+  public Boolean getAllowMultipleConcurrentEnrollments() {
+    return allowMultipleConcurrentEnrollments;
+  }
+
+
+  public void setAllowMultipleConcurrentEnrollments(Boolean allowMultipleConcurrentEnrollments) {
+    this.allowMultipleConcurrentEnrollments = allowMultipleConcurrentEnrollments;
+  }
+
 
   public SfvbFlow communicationSequenceUuid(String communicationSequenceUuid) {
     
@@ -204,6 +271,52 @@ public class SfvbFlow {
   }
 
 
+  public SfvbFlow endOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+    return this;
+  }
+
+   /**
+   * True when a customer leaves the flow once they buy from one of its emails.
+   * @return endOnceCustomerPurchases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a customer leaves the flow once they buy from one of its emails.")
+
+  public Boolean getEndOnceCustomerPurchases() {
+    return endOnceCustomerPurchases;
+  }
+
+
+  public void setEndOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+  }
+
+
+  public SfvbFlow endOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+    return this;
+  }
+
+   /**
+   * True when a customer leaves the flow once they buy from any source.
+   * @return endOnceCustomerPurchasesAnywhere
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a customer leaves the flow once they buy from any source.")
+
+  public Boolean getEndOnceCustomerPurchasesAnywhere() {
+    return endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+  }
+
+
   public SfvbFlow flowUuid(String flowUuid) {
     
     this.flowUuid = flowUuid;
@@ -224,6 +337,29 @@ public class SfvbFlow {
 
   public void setFlowUuid(String flowUuid) {
     this.flowUuid = flowUuid;
+  }
+
+
+  public SfvbFlow hashSha256(String hashSha256) {
+    
+    this.hashSha256 = hashSha256;
+    return this;
+  }
+
+   /**
+   * Send this as If-Match when changing, archiving or turning the flow on or off.
+   * @return hashSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send this as If-Match when changing, archiving or turning the flow on or off.")
+
+  public String getHashSha256() {
+    return hashSha256;
+  }
+
+
+  public void setHashSha256(String hashSha256) {
+    this.hashSha256 = hashSha256;
   }
 
 
@@ -273,6 +409,37 @@ public class SfvbFlow {
   }
 
 
+  public SfvbFlow notes(List<String> notes) {
+    
+    this.notes = notes;
+    return this;
+  }
+
+  public SfvbFlow addNotesItem(String notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+   /**
+   * What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.")
+
+  public List<String> getNotes() {
+    return notes;
+  }
+
+
+  public void setNotes(List<String> notes) {
+    this.notes = notes;
+  }
+
+
   public SfvbFlow postcards(List<SfvbCommsPostcard> postcards) {
     
     this.postcards = postcards;
@@ -301,6 +468,121 @@ public class SfvbFlow {
 
   public void setPostcards(List<SfvbCommsPostcard> postcards) {
     this.postcards = postcards;
+  }
+
+
+  public SfvbFlow reentryDelayDays(Integer reentryDelayDays) {
+    
+    this.reentryDelayDays = reentryDelayDays;
+    return this;
+  }
+
+   /**
+   * Days before a customer may enter again, with after_days.
+   * @return reentryDelayDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Days before a customer may enter again, with after_days.")
+
+  public Integer getReentryDelayDays() {
+    return reentryDelayDays;
+  }
+
+
+  public void setReentryDelayDays(Integer reentryDelayDays) {
+    this.reentryDelayDays = reentryDelayDays;
+  }
+
+
+  public SfvbFlow reentryPolicy(String reentryPolicy) {
+    
+    this.reentryPolicy = reentryPolicy;
+    return this;
+  }
+
+   /**
+   * Whether a customer may enter again, anytime, after_days or never.
+   * @return reentryPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether a customer may enter again, anytime, after_days or never.")
+
+  public String getReentryPolicy() {
+    return reentryPolicy;
+  }
+
+
+  public void setReentryPolicy(String reentryPolicy) {
+    this.reentryPolicy = reentryPolicy;
+  }
+
+
+  public SfvbFlow sendingDomainUuid(String sendingDomainUuid) {
+    
+    this.sendingDomainUuid = sendingDomainUuid;
+    return this;
+  }
+
+   /**
+   * The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.
+   * @return sendingDomainUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The sending domain uuid.  Defaults to the storefront's marketing sending domain.")
+
+  public String getSendingDomainUuid() {
+    return sendingDomainUuid;
+  }
+
+
+  public void setSendingDomainUuid(String sendingDomainUuid) {
+    this.sendingDomainUuid = sendingDomainUuid;
+  }
+
+
+  public SfvbFlow sendingName(String sendingName) {
+    
+    this.sendingName = sendingName;
+    return this;
+  }
+
+   /**
+   * The from name.  Defaults to the storefront&#39;s marketing setting.
+   * @return sendingName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The from name.  Defaults to the storefront's marketing setting.")
+
+  public String getSendingName() {
+    return sendingName;
+  }
+
+
+  public void setSendingName(String sendingName) {
+    this.sendingName = sendingName;
+  }
+
+
+  public SfvbFlow sendingUser(String sendingUser) {
+    
+    this.sendingUser = sendingUser;
+    return this;
+  }
+
+   /**
+   * The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.
+   * @return sendingUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The part of the from address before the at sign.  Defaults to the storefront's marketing setting.")
+
+  public String getSendingUser() {
+    return sendingUser;
+  }
+
+
+  public void setSendingUser(String sendingUser) {
+    this.sendingUser = sendingUser;
   }
 
 
@@ -347,6 +629,29 @@ public class SfvbFlow {
 
   public void setStatusDts(String statusDts) {
     this.statusDts = statusDts;
+  }
+
+
+  public SfvbFlow triggerParameter(String triggerParameter) {
+    
+    this.triggerParameter = triggerParameter;
+    return this;
+  }
+
+   /**
+   * The list or segment uuid, or other value, the trigger is limited to.
+   * @return triggerParameter
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list or segment uuid, or other value, the trigger is limited to.")
+
+  public String getTriggerParameter() {
+    return triggerParameter;
+  }
+
+
+  public void setTriggerParameter(String triggerParameter) {
+    this.triggerParameter = triggerParameter;
   }
 
 
@@ -406,39 +711,61 @@ public class SfvbFlow {
       return false;
     }
     SfvbFlow sfvbFlow = (SfvbFlow) o;
-    return Objects.equals(this.communicationSequenceUuid, sfvbFlow.communicationSequenceUuid) &&
+    return Objects.equals(this.allowMultipleConcurrentEnrollments, sfvbFlow.allowMultipleConcurrentEnrollments) &&
+        Objects.equals(this.communicationSequenceUuid, sfvbFlow.communicationSequenceUuid) &&
         Objects.equals(this.createdDts, sfvbFlow.createdDts) &&
         Objects.equals(this.deleted, sfvbFlow.deleted) &&
         Objects.equals(this.emails, sfvbFlow.emails) &&
+        Objects.equals(this.endOnceCustomerPurchases, sfvbFlow.endOnceCustomerPurchases) &&
+        Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbFlow.endOnceCustomerPurchasesAnywhere) &&
         Objects.equals(this.flowUuid, sfvbFlow.flowUuid) &&
+        Objects.equals(this.hashSha256, sfvbFlow.hashSha256) &&
         Objects.equals(this.live, sfvbFlow.live) &&
         Objects.equals(this.name, sfvbFlow.name) &&
+        Objects.equals(this.notes, sfvbFlow.notes) &&
         Objects.equals(this.postcards, sfvbFlow.postcards) &&
+        Objects.equals(this.reentryDelayDays, sfvbFlow.reentryDelayDays) &&
+        Objects.equals(this.reentryPolicy, sfvbFlow.reentryPolicy) &&
+        Objects.equals(this.sendingDomainUuid, sfvbFlow.sendingDomainUuid) &&
+        Objects.equals(this.sendingName, sfvbFlow.sendingName) &&
+        Objects.equals(this.sendingUser, sfvbFlow.sendingUser) &&
         Objects.equals(this.status, sfvbFlow.status) &&
         Objects.equals(this.statusDts, sfvbFlow.statusDts) &&
+        Objects.equals(this.triggerParameter, sfvbFlow.triggerParameter) &&
         Objects.equals(this.triggerParameterName, sfvbFlow.triggerParameterName) &&
         Objects.equals(this.triggerType, sfvbFlow.triggerType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationSequenceUuid, createdDts, deleted, emails, flowUuid, live, name, postcards, status, statusDts, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, flowUuid, hashSha256, live, name, notes, postcards, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, status, statusDts, triggerParameter, triggerParameterName, triggerType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbFlow {\n");
+    sb.append("    allowMultipleConcurrentEnrollments: ").append(toIndentedString(allowMultipleConcurrentEnrollments)).append("\n");
     sb.append("    communicationSequenceUuid: ").append(toIndentedString(communicationSequenceUuid)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
+    sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
     sb.append("    flowUuid: ").append(toIndentedString(flowUuid)).append("\n");
+    sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    postcards: ").append(toIndentedString(postcards)).append("\n");
+    sb.append("    reentryDelayDays: ").append(toIndentedString(reentryDelayDays)).append("\n");
+    sb.append("    reentryPolicy: ").append(toIndentedString(reentryPolicy)).append("\n");
+    sb.append("    sendingDomainUuid: ").append(toIndentedString(sendingDomainUuid)).append("\n");
+    sb.append("    sendingName: ").append(toIndentedString(sendingName)).append("\n");
+    sb.append("    sendingUser: ").append(toIndentedString(sendingUser)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
+    sb.append("    triggerParameter: ").append(toIndentedString(triggerParameter)).append("\n");
     sb.append("    triggerParameterName: ").append(toIndentedString(triggerParameterName)).append("\n");
     sb.append("    triggerType: ").append(toIndentedString(triggerType)).append("\n");
     sb.append("}");
@@ -463,16 +790,27 @@ public class SfvbFlow {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("allow_multiple_concurrent_enrollments");
     openapiFields.add("communication_sequence_uuid");
     openapiFields.add("created_dts");
     openapiFields.add("deleted");
     openapiFields.add("emails");
+    openapiFields.add("end_once_customer_purchases");
+    openapiFields.add("end_once_customer_purchases_anywhere");
     openapiFields.add("flow_uuid");
+    openapiFields.add("hash_sha256");
     openapiFields.add("live");
     openapiFields.add("name");
+    openapiFields.add("notes");
     openapiFields.add("postcards");
+    openapiFields.add("reentry_delay_days");
+    openapiFields.add("reentry_policy");
+    openapiFields.add("sending_domain_uuid");
+    openapiFields.add("sending_name");
+    openapiFields.add("sending_user");
     openapiFields.add("status");
     openapiFields.add("status_dts");
+    openapiFields.add("trigger_parameter");
     openapiFields.add("trigger_parameter_name");
     openapiFields.add("trigger_type");
 
@@ -523,8 +861,15 @@ public class SfvbFlow {
       if (jsonObj.get("flow_uuid") != null && !jsonObj.get("flow_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_uuid").toString()));
       }
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
       JsonArray jsonArraypostcards = jsonObj.getAsJsonArray("postcards");
       if (jsonArraypostcards != null) {
@@ -538,11 +883,26 @@ public class SfvbFlow {
           SfvbCommsPostcard.validateJsonObject(jsonArraypostcards.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("reentry_policy") != null && !jsonObj.get("reentry_policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reentry_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reentry_policy").toString()));
+      }
+      if (jsonObj.get("sending_domain_uuid") != null && !jsonObj.get("sending_domain_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_domain_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_domain_uuid").toString()));
+      }
+      if (jsonObj.get("sending_name") != null && !jsonObj.get("sending_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_name").toString()));
+      }
+      if (jsonObj.get("sending_user") != null && !jsonObj.get("sending_user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_user").toString()));
+      }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (jsonObj.get("status_dts") != null && !jsonObj.get("status_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status_dts").toString()));
+      }
+      if (jsonObj.get("trigger_parameter") != null && !jsonObj.get("trigger_parameter").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trigger_parameter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trigger_parameter").toString()));
       }
       if (jsonObj.get("trigger_parameter_name") != null && !jsonObj.get("trigger_parameter_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `trigger_parameter_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trigger_parameter_name").toString()));

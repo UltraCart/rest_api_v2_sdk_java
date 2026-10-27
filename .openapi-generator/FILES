@@ -995,6 +995,7 @@ docs/SfvbApprovalParams.md
 docs/SfvbApprovalReview.md
 docs/SfvbApprovalReviewFinding.md
 docs/SfvbApprovalsResponse.md
+docs/SfvbArchiveRequest.md
 docs/SfvbBlogPost.md
 docs/SfvbBlogPostDetail.md
 docs/SfvbBlogPostImage.md
@@ -1002,10 +1003,16 @@ docs/SfvbBlogPostImageRequest.md
 docs/SfvbBlogPostRequest.md
 docs/SfvbBlogPostsResponse.md
 docs/SfvbCampaign.md
+docs/SfvbCampaignMembership.md
+docs/SfvbCampaignWriteRequest.md
 docs/SfvbCampaignsResponse.md
 docs/SfvbCommsDnsRecord.md
 docs/SfvbCommsEmail.md
+docs/SfvbCommsList.md
+docs/SfvbCommsListsResponse.md
 docs/SfvbCommsPostcard.md
+docs/SfvbCommsSegment.md
+docs/SfvbCommsSegmentsResponse.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
 docs/SfvbCommsTwilioAccount.md
@@ -1050,6 +1057,8 @@ docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
+docs/SfvbFlowStatusRequest.md
+docs/SfvbFlowWriteRequest.md
 docs/SfvbFlowsResponse.md
 docs/SfvbI18nGlossary.md
 docs/SfvbI18nGlossaryRequest.md
@@ -2333,6 +2342,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbApprovalParams.java
 src/main/java/com/ultracart/admin/v2/models/SfvbApprovalReview.java
 src/main/java/com/ultracart/admin/v2/models/SfvbApprovalReviewFinding.java
 src/main/java/com/ultracart/admin/v2/models/SfvbApprovalsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbArchiveRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPost.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostDetail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostImage.java
@@ -2340,10 +2350,16 @@ src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostImageRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbBlogPostsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaign.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCampaignMembership.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCampaignWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsDnsRecord.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsEmail.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsList.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsListsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsPostcard.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegment.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomain.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomainsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsTwilioAccount.java
@@ -2388,6 +2404,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFilesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFlow.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFlowStatusRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFlowWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFlowsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbI18nGlossary.java
 src/main/java/com/ultracart/admin/v2/models/SfvbI18nGlossaryRequest.java

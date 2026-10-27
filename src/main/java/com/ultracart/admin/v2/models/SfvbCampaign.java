@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbCampaignMembership;
 import com.ultracart.admin.v2.models.SfvbCommsEmail;
 import com.ultracart.admin.v2.models.SfvbCommsPostcard;
 import io.swagger.annotations.ApiModel;
@@ -73,13 +74,33 @@ public class SfvbCampaign {
   @SerializedName(SERIALIZED_NAME_EMAILS)
   private List<SfvbCommsEmail> emails = null;
 
+  public static final String SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES = "end_once_customer_purchases";
+  @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES)
+  private Boolean endOnceCustomerPurchases;
+
+  public static final String SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE = "end_once_customer_purchases_anywhere";
+  @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE)
+  private Boolean endOnceCustomerPurchasesAnywhere;
+
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
+  @SerializedName(SERIALIZED_NAME_HASH_SHA256)
+  private String hashSha256;
+
   public static final String SERIALIZED_NAME_LIVE = "live";
   @SerializedName(SERIALIZED_NAME_LIVE)
   private Boolean live;
 
+  public static final String SERIALIZED_NAME_MEMBERSHIPS = "memberships";
+  @SerializedName(SERIALIZED_NAME_MEMBERSHIPS)
+  private List<SfvbCampaignMembership> memberships = null;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private List<String> notes = null;
 
   public static final String SERIALIZED_NAME_POSTCARDS = "postcards";
   @SerializedName(SERIALIZED_NAME_POSTCARDS)
@@ -88,6 +109,18 @@ public class SfvbCampaign {
   public static final String SERIALIZED_NAME_SCHEDULED_DTS = "scheduled_dts";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_DTS)
   private String scheduledDts;
+
+  public static final String SERIALIZED_NAME_SENDING_DOMAIN_UUID = "sending_domain_uuid";
+  @SerializedName(SERIALIZED_NAME_SENDING_DOMAIN_UUID)
+  private String sendingDomainUuid;
+
+  public static final String SERIALIZED_NAME_SENDING_NAME = "sending_name";
+  @SerializedName(SERIALIZED_NAME_SENDING_NAME)
+  private String sendingName;
+
+  public static final String SERIALIZED_NAME_SENDING_USER = "sending_user";
+  @SerializedName(SERIALIZED_NAME_SENDING_USER)
+  private String sendingUser;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -223,6 +256,75 @@ public class SfvbCampaign {
   }
 
 
+  public SfvbCampaign endOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+    return this;
+  }
+
+   /**
+   * True when a customer leaves the campaign once they buy from one of its emails.
+   * @return endOnceCustomerPurchases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a customer leaves the campaign once they buy from one of its emails.")
+
+  public Boolean getEndOnceCustomerPurchases() {
+    return endOnceCustomerPurchases;
+  }
+
+
+  public void setEndOnceCustomerPurchases(Boolean endOnceCustomerPurchases) {
+    this.endOnceCustomerPurchases = endOnceCustomerPurchases;
+  }
+
+
+  public SfvbCampaign endOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+    return this;
+  }
+
+   /**
+   * True when a customer leaves the campaign once they buy from any source.
+   * @return endOnceCustomerPurchasesAnywhere
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a customer leaves the campaign once they buy from any source.")
+
+  public Boolean getEndOnceCustomerPurchasesAnywhere() {
+    return endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
+    this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public SfvbCampaign hashSha256(String hashSha256) {
+    
+    this.hashSha256 = hashSha256;
+    return this;
+  }
+
+   /**
+   * Send this as If-Match when changing or archiving the campaign.
+   * @return hashSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send this as If-Match when changing or archiving the campaign.")
+
+  public String getHashSha256() {
+    return hashSha256;
+  }
+
+
+  public void setHashSha256(String hashSha256) {
+    this.hashSha256 = hashSha256;
+  }
+
+
   public SfvbCampaign live(Boolean live) {
     
     this.live = live;
@@ -246,6 +348,37 @@ public class SfvbCampaign {
   }
 
 
+  public SfvbCampaign memberships(List<SfvbCampaignMembership> memberships) {
+    
+    this.memberships = memberships;
+    return this;
+  }
+
+  public SfvbCampaign addMembershipsItem(SfvbCampaignMembership membershipsItem) {
+    if (this.memberships == null) {
+      this.memberships = new ArrayList<>();
+    }
+    this.memberships.add(membershipsItem);
+    return this;
+  }
+
+   /**
+   * The lists and segments it sends to or leaves out.
+   * @return memberships
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The lists and segments it sends to or leaves out.")
+
+  public List<SfvbCampaignMembership> getMemberships() {
+    return memberships;
+  }
+
+
+  public void setMemberships(List<SfvbCampaignMembership> memberships) {
+    this.memberships = memberships;
+  }
+
+
   public SfvbCampaign name(String name) {
     
     this.name = name;
@@ -266,6 +399,37 @@ public class SfvbCampaign {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public SfvbCampaign notes(List<String> notes) {
+    
+    this.notes = notes;
+    return this;
+  }
+
+  public SfvbCampaign addNotesItem(String notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+   /**
+   * What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "What a write did beyond the fields it was asked to change, such as putting emails back to needing review or setting a scheduled campaign back to draft.  Only on a write.")
+
+  public List<String> getNotes() {
+    return notes;
+  }
+
+
+  public void setNotes(List<String> notes) {
+    this.notes = notes;
   }
 
 
@@ -320,6 +484,75 @@ public class SfvbCampaign {
 
   public void setScheduledDts(String scheduledDts) {
     this.scheduledDts = scheduledDts;
+  }
+
+
+  public SfvbCampaign sendingDomainUuid(String sendingDomainUuid) {
+    
+    this.sendingDomainUuid = sendingDomainUuid;
+    return this;
+  }
+
+   /**
+   * The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain.
+   * @return sendingDomainUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The sending domain uuid.  Defaults to the storefront's marketing sending domain.")
+
+  public String getSendingDomainUuid() {
+    return sendingDomainUuid;
+  }
+
+
+  public void setSendingDomainUuid(String sendingDomainUuid) {
+    this.sendingDomainUuid = sendingDomainUuid;
+  }
+
+
+  public SfvbCampaign sendingName(String sendingName) {
+    
+    this.sendingName = sendingName;
+    return this;
+  }
+
+   /**
+   * The from name.  Defaults to the storefront&#39;s marketing setting.
+   * @return sendingName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The from name.  Defaults to the storefront's marketing setting.")
+
+  public String getSendingName() {
+    return sendingName;
+  }
+
+
+  public void setSendingName(String sendingName) {
+    this.sendingName = sendingName;
+  }
+
+
+  public SfvbCampaign sendingUser(String sendingUser) {
+    
+    this.sendingUser = sendingUser;
+    return this;
+  }
+
+   /**
+   * The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting.
+   * @return sendingUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The part of the from address before the at sign.  Defaults to the storefront's marketing setting.")
+
+  public String getSendingUser() {
+    return sendingUser;
+  }
+
+
+  public void setSendingUser(String sendingUser) {
+    this.sendingUser = sendingUser;
   }
 
 
@@ -384,17 +617,25 @@ public class SfvbCampaign {
         Objects.equals(this.createdDts, sfvbCampaign.createdDts) &&
         Objects.equals(this.deleted, sfvbCampaign.deleted) &&
         Objects.equals(this.emails, sfvbCampaign.emails) &&
+        Objects.equals(this.endOnceCustomerPurchases, sfvbCampaign.endOnceCustomerPurchases) &&
+        Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbCampaign.endOnceCustomerPurchasesAnywhere) &&
+        Objects.equals(this.hashSha256, sfvbCampaign.hashSha256) &&
         Objects.equals(this.live, sfvbCampaign.live) &&
+        Objects.equals(this.memberships, sfvbCampaign.memberships) &&
         Objects.equals(this.name, sfvbCampaign.name) &&
+        Objects.equals(this.notes, sfvbCampaign.notes) &&
         Objects.equals(this.postcards, sfvbCampaign.postcards) &&
         Objects.equals(this.scheduledDts, sfvbCampaign.scheduledDts) &&
+        Objects.equals(this.sendingDomainUuid, sfvbCampaign.sendingDomainUuid) &&
+        Objects.equals(this.sendingName, sfvbCampaign.sendingName) &&
+        Objects.equals(this.sendingUser, sfvbCampaign.sendingUser) &&
         Objects.equals(this.status, sfvbCampaign.status) &&
         Objects.equals(this.statusDts, sfvbCampaign.statusDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, live, name, postcards, scheduledDts, status, statusDts);
+    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, hashSha256, live, memberships, name, notes, postcards, scheduledDts, sendingDomainUuid, sendingName, sendingUser, status, statusDts);
   }
 
   @Override
@@ -406,10 +647,18 @@ public class SfvbCampaign {
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
+    sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
+    sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
+    sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    postcards: ").append(toIndentedString(postcards)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
+    sb.append("    sendingDomainUuid: ").append(toIndentedString(sendingDomainUuid)).append("\n");
+    sb.append("    sendingName: ").append(toIndentedString(sendingName)).append("\n");
+    sb.append("    sendingUser: ").append(toIndentedString(sendingUser)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("}");
@@ -439,10 +688,18 @@ public class SfvbCampaign {
     openapiFields.add("created_dts");
     openapiFields.add("deleted");
     openapiFields.add("emails");
+    openapiFields.add("end_once_customer_purchases");
+    openapiFields.add("end_once_customer_purchases_anywhere");
+    openapiFields.add("hash_sha256");
     openapiFields.add("live");
+    openapiFields.add("memberships");
     openapiFields.add("name");
+    openapiFields.add("notes");
     openapiFields.add("postcards");
     openapiFields.add("scheduled_dts");
+    openapiFields.add("sending_domain_uuid");
+    openapiFields.add("sending_name");
+    openapiFields.add("sending_user");
     openapiFields.add("status");
     openapiFields.add("status_dts");
 
@@ -493,8 +750,27 @@ public class SfvbCampaign {
           SfvbCommsEmail.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      JsonArray jsonArraymemberships = jsonObj.getAsJsonArray("memberships");
+      if (jsonArraymemberships != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("memberships").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `memberships` to be an array in the JSON string but got `%s`", jsonObj.get("memberships").toString()));
+        }
+
+        // validate the optional field `memberships` (array)
+        for (int i = 0; i < jsonArraymemberships.size(); i++) {
+          SfvbCampaignMembership.validateJsonObject(jsonArraymemberships.get(i).getAsJsonObject());
+        };
+      }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
       JsonArray jsonArraypostcards = jsonObj.getAsJsonArray("postcards");
       if (jsonArraypostcards != null) {
@@ -510,6 +786,15 @@ public class SfvbCampaign {
       }
       if (jsonObj.get("scheduled_dts") != null && !jsonObj.get("scheduled_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scheduled_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scheduled_dts").toString()));
+      }
+      if (jsonObj.get("sending_domain_uuid") != null && !jsonObj.get("sending_domain_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_domain_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_domain_uuid").toString()));
+      }
+      if (jsonObj.get("sending_name") != null && !jsonObj.get("sending_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_name").toString()));
+      }
+      if (jsonObj.get("sending_user") != null && !jsonObj.get("sending_user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sending_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_user").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

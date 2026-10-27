@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -88,6 +89,18 @@ public class SfvbCommsEmail {
   public static final String SERIALIZED_NAME_TRANSACTIONAL = "transactional";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONAL)
   private Boolean transactional;
+
+  public static final String SERIALIZED_NAME_VARIANT_NAME = "variant_name";
+  @SerializedName(SERIALIZED_NAME_VARIANT_NAME)
+  private String variantName;
+
+  public static final String SERIALIZED_NAME_VARIANT_PERCENTAGE = "variant_percentage";
+  @SerializedName(SERIALIZED_NAME_VARIANT_PERCENTAGE)
+  private BigDecimal variantPercentage;
+
+  public static final String SERIALIZED_NAME_VARIANT_WINNER = "variant_winner";
+  @SerializedName(SERIALIZED_NAME_VARIANT_WINNER)
+  private Boolean variantWinner;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -326,6 +339,75 @@ public class SfvbCommsEmail {
   }
 
 
+  public SfvbCommsEmail variantName(String variantName) {
+    
+    this.variantName = variantName;
+    return this;
+  }
+
+   /**
+   * For an email in an experiment step, the variant name.  Absent otherwise.
+   * @return variantName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For an email in an experiment step, the variant name.  Absent otherwise.")
+
+  public String getVariantName() {
+    return variantName;
+  }
+
+
+  public void setVariantName(String variantName) {
+    this.variantName = variantName;
+  }
+
+
+  public SfvbCommsEmail variantPercentage(BigDecimal variantPercentage) {
+    
+    this.variantPercentage = variantPercentage;
+    return this;
+  }
+
+   /**
+   * For an email in an experiment step, the share of customers it is sent to.
+   * @return variantPercentage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For an email in an experiment step, the share of customers it is sent to.")
+
+  public BigDecimal getVariantPercentage() {
+    return variantPercentage;
+  }
+
+
+  public void setVariantPercentage(BigDecimal variantPercentage) {
+    this.variantPercentage = variantPercentage;
+  }
+
+
+  public SfvbCommsEmail variantWinner(Boolean variantWinner) {
+    
+    this.variantWinner = variantWinner;
+    return this;
+  }
+
+   /**
+   * For an email in an experiment step, true when the experiment chose it as the winner.
+   * @return variantWinner
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For an email in an experiment step, true when the experiment chose it as the winner.")
+
+  public Boolean getVariantWinner() {
+    return variantWinner;
+  }
+
+
+  public void setVariantWinner(Boolean variantWinner) {
+    this.variantWinner = variantWinner;
+  }
+
+
   public SfvbCommsEmail version(Integer version) {
     
     this.version = version;
@@ -369,12 +451,15 @@ public class SfvbCommsEmail {
         Objects.equals(this.stepUuid, sfvbCommsEmail.stepUuid) &&
         Objects.equals(this.subject, sfvbCommsEmail.subject) &&
         Objects.equals(this.transactional, sfvbCommsEmail.transactional) &&
+        Objects.equals(this.variantName, sfvbCommsEmail.variantName) &&
+        Objects.equals(this.variantPercentage, sfvbCommsEmail.variantPercentage) &&
+        Objects.equals(this.variantWinner, sfvbCommsEmail.variantWinner) &&
         Objects.equals(this.version, sfvbCommsEmail.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerLastModifiedDts, deleted, emailUuid, pendingReview, previewText, rejected, requiresReview, stepUuid, subject, transactional, version);
+    return Objects.hash(containerLastModifiedDts, deleted, emailUuid, pendingReview, previewText, rejected, requiresReview, stepUuid, subject, transactional, variantName, variantPercentage, variantWinner, version);
   }
 
   @Override
@@ -391,6 +476,9 @@ public class SfvbCommsEmail {
     sb.append("    stepUuid: ").append(toIndentedString(stepUuid)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    transactional: ").append(toIndentedString(transactional)).append("\n");
+    sb.append("    variantName: ").append(toIndentedString(variantName)).append("\n");
+    sb.append("    variantPercentage: ").append(toIndentedString(variantPercentage)).append("\n");
+    sb.append("    variantWinner: ").append(toIndentedString(variantWinner)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -424,6 +512,9 @@ public class SfvbCommsEmail {
     openapiFields.add("step_uuid");
     openapiFields.add("subject");
     openapiFields.add("transactional");
+    openapiFields.add("variant_name");
+    openapiFields.add("variant_percentage");
+    openapiFields.add("variant_winner");
     openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
@@ -466,6 +557,9 @@ public class SfvbCommsEmail {
       }
       if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
+      }
+      if (jsonObj.get("variant_name") != null && !jsonObj.get("variant_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `variant_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("variant_name").toString()));
       }
   }
 
