@@ -160,6 +160,57 @@ public class ConversationPbxAgent {
   @SerializedName(SERIALIZED_NAME_SHARED_CONVERSATION_PBX_VOICEMAIL_MAILBOX_UUID)
   private String sharedConversationPbxVoicemailMailboxUuid;
 
+  /**
+   * Status the agent starts in when the CRM loads. Missing means available.
+   */
+  @JsonAdapter(StartupActivityEnum.Adapter.class)
+  public enum StartupActivityEnum {
+    AVAILABLE("available"),
+    
+    UNAVAILABLE("unavailable");
+
+    private String value;
+
+    StartupActivityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StartupActivityEnum fromValue(String value) {
+      for (StartupActivityEnum b : StartupActivityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StartupActivityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StartupActivityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StartupActivityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StartupActivityEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STARTUP_ACTIVITY = "startup_activity";
+  @SerializedName(SERIALIZED_NAME_STARTUP_ACTIVITY)
+  private StartupActivityEnum startupActivity;
+
   public static final String SERIALIZED_NAME_TWILIO_TASKROUTER_WORKER_ID = "twilio_taskrouter_worker_id";
   @SerializedName(SERIALIZED_NAME_TWILIO_TASKROUTER_WORKER_ID)
   private String twilioTaskrouterWorkerId;
@@ -595,6 +646,29 @@ public class ConversationPbxAgent {
   }
 
 
+  public ConversationPbxAgent startupActivity(StartupActivityEnum startupActivity) {
+    
+    this.startupActivity = startupActivity;
+    return this;
+  }
+
+   /**
+   * Status the agent starts in when the CRM loads. Missing means available.
+   * @return startupActivity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Status the agent starts in when the CRM loads. Missing means available.")
+
+  public StartupActivityEnum getStartupActivity() {
+    return startupActivity;
+  }
+
+
+  public void setStartupActivity(StartupActivityEnum startupActivity) {
+    this.startupActivity = startupActivity;
+  }
+
+
   public ConversationPbxAgent twilioTaskrouterWorkerId(String twilioTaskrouterWorkerId) {
     
     this.twilioTaskrouterWorkerId = twilioTaskrouterWorkerId;
@@ -804,6 +878,7 @@ public class ConversationPbxAgent {
         Objects.equals(this.preferredHardwarePhoneUuid, conversationPbxAgent.preferredHardwarePhoneUuid) &&
         Objects.equals(this.recordOutgoingAutomatically, conversationPbxAgent.recordOutgoingAutomatically) &&
         Objects.equals(this.sharedConversationPbxVoicemailMailboxUuid, conversationPbxAgent.sharedConversationPbxVoicemailMailboxUuid) &&
+        Objects.equals(this.startupActivity, conversationPbxAgent.startupActivity) &&
         Objects.equals(this.twilioTaskrouterWorkerId, conversationPbxAgent.twilioTaskrouterWorkerId) &&
         Objects.equals(this.unavailablePlayAudioUuid, conversationPbxAgent.unavailablePlayAudioUuid) &&
         Objects.equals(this.unavailableSay, conversationPbxAgent.unavailableSay) &&
@@ -816,7 +891,7 @@ public class ConversationPbxAgent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail, zohoDeskOutboundDepartmentId, zohoDeskOutboundTicketEnabled);
+    return Objects.hash(ai, callRoutingPreference, cellphone, conversationPbxAgentUuid, cosUuid, defaultPhoneNumberUuid, extension, fullName, hardwarePhoneUuids, login, merchantId, personalConversationPbxVoicemailMailboxUuid, preferredHardwarePhoneUuid, recordOutgoingAutomatically, sharedConversationPbxVoicemailMailboxUuid, startupActivity, twilioTaskrouterWorkerId, unavailablePlayAudioUuid, unavailableSay, unavailableSayVoice, userId, voicemail, zohoDeskOutboundDepartmentId, zohoDeskOutboundTicketEnabled);
   }
 
   @Override
@@ -838,6 +913,7 @@ public class ConversationPbxAgent {
     sb.append("    preferredHardwarePhoneUuid: ").append(toIndentedString(preferredHardwarePhoneUuid)).append("\n");
     sb.append("    recordOutgoingAutomatically: ").append(toIndentedString(recordOutgoingAutomatically)).append("\n");
     sb.append("    sharedConversationPbxVoicemailMailboxUuid: ").append(toIndentedString(sharedConversationPbxVoicemailMailboxUuid)).append("\n");
+    sb.append("    startupActivity: ").append(toIndentedString(startupActivity)).append("\n");
     sb.append("    twilioTaskrouterWorkerId: ").append(toIndentedString(twilioTaskrouterWorkerId)).append("\n");
     sb.append("    unavailablePlayAudioUuid: ").append(toIndentedString(unavailablePlayAudioUuid)).append("\n");
     sb.append("    unavailableSay: ").append(toIndentedString(unavailableSay)).append("\n");
@@ -883,6 +959,7 @@ public class ConversationPbxAgent {
     openapiFields.add("preferred_hardware_phone_uuid");
     openapiFields.add("record_outgoing_automatically");
     openapiFields.add("shared_conversation_pbx_voicemail_mailbox_uuid");
+    openapiFields.add("startup_activity");
     openapiFields.add("twilio_taskrouter_worker_id");
     openapiFields.add("unavailable_play_audio_uuid");
     openapiFields.add("unavailable_say");
@@ -954,6 +1031,9 @@ public class ConversationPbxAgent {
       }
       if (jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid") != null && !jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `shared_conversation_pbx_voicemail_mailbox_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shared_conversation_pbx_voicemail_mailbox_uuid").toString()));
+      }
+      if (jsonObj.get("startup_activity") != null && !jsonObj.get("startup_activity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `startup_activity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startup_activity").toString()));
       }
       if (jsonObj.get("twilio_taskrouter_worker_id") != null && !jsonObj.get("twilio_taskrouter_worker_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `twilio_taskrouter_worker_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("twilio_taskrouter_worker_id").toString()));

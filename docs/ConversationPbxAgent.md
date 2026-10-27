@@ -22,6 +22,7 @@
 |**preferredHardwarePhoneUuid** | **String** | The hardware phone that will be dialed on an incoming call if routing preference is hardware_phone |  [optional] |
 |**recordOutgoingAutomatically** | **Boolean** | True if outgoing calls should be automatically recorded |  [optional] |
 |**sharedConversationPbxVoicemailMailboxUuid** | **String** | Shared Conversation Pbx Voicemail Mailbox UUID |  [optional] |
+|**startupActivity** | [**StartupActivityEnum**](#StartupActivityEnum) | Status the agent starts in when the CRM loads. Missing means available. |  [optional] |
 |**twilioTaskrouterWorkerId** | **String** | Twilio taskrouter worker Id |  [optional] |
 |**unavailablePlayAudioUuid** | **String** | Unavailable play audio UUID |  [optional] |
 |**unavailableSay** | **String** | Unavailable say |  [optional] |
@@ -40,6 +41,15 @@
 | SOFTPHONE | &quot;softphone&quot; |
 | HARDWARE_PHONE | &quot;hardware_phone&quot; |
 | CELLPHONE | &quot;cellphone&quot; |
+
+
+
+## Enum: StartupActivityEnum
+
+| Name | Value |
+|---- | -----|
+| AVAILABLE | &quot;available&quot; |
+| UNAVAILABLE | &quot;unavailable&quot; |
 
 
 

@@ -105,6 +105,57 @@ public class ConversationAgentAuth {
   @SerializedName(SERIALIZED_NAME_PBX_JWT)
   private String pbxJwt;
 
+  /**
+   * Status the agent starts in when the CRM loads
+   */
+  @JsonAdapter(PbxStartupActivityEnum.Adapter.class)
+  public enum PbxStartupActivityEnum {
+    AVAILABLE("available"),
+    
+    UNAVAILABLE("unavailable");
+
+    private String value;
+
+    PbxStartupActivityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PbxStartupActivityEnum fromValue(String value) {
+      for (PbxStartupActivityEnum b : PbxStartupActivityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PbxStartupActivityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PbxStartupActivityEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PbxStartupActivityEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PbxStartupActivityEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PBX_STARTUP_ACTIVITY = "pbx_startup_activity";
+  @SerializedName(SERIALIZED_NAME_PBX_STARTUP_ACTIVITY)
+  private PbxStartupActivityEnum pbxStartupActivity;
+
   public static final String SERIALIZED_NAME_PBX_SUPERVISOR = "pbx_supervisor";
   @SerializedName(SERIALIZED_NAME_PBX_SUPERVISOR)
   private Boolean pbxSupervisor;
@@ -459,6 +510,29 @@ public class ConversationAgentAuth {
   }
 
 
+  public ConversationAgentAuth pbxStartupActivity(PbxStartupActivityEnum pbxStartupActivity) {
+    
+    this.pbxStartupActivity = pbxStartupActivity;
+    return this;
+  }
+
+   /**
+   * Status the agent starts in when the CRM loads
+   * @return pbxStartupActivity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Status the agent starts in when the CRM loads")
+
+  public PbxStartupActivityEnum getPbxStartupActivity() {
+    return pbxStartupActivity;
+  }
+
+
+  public void setPbxStartupActivity(PbxStartupActivityEnum pbxStartupActivity) {
+    this.pbxStartupActivity = pbxStartupActivity;
+  }
+
+
   public ConversationAgentAuth pbxSupervisor(Boolean pbxSupervisor) {
     
     this.pbxSupervisor = pbxSupervisor;
@@ -697,6 +771,7 @@ public class ConversationAgentAuth {
         Objects.equals(this.parentMerchantId, conversationAgentAuth.parentMerchantId) &&
         Objects.equals(this.pbxAdmin, conversationAgentAuth.pbxAdmin) &&
         Objects.equals(this.pbxJwt, conversationAgentAuth.pbxJwt) &&
+        Objects.equals(this.pbxStartupActivity, conversationAgentAuth.pbxStartupActivity) &&
         Objects.equals(this.pbxSupervisor, conversationAgentAuth.pbxSupervisor) &&
         Objects.equals(this.pbxUser, conversationAgentAuth.pbxUser) &&
         Objects.equals(this.pbxVoiceIdentity, conversationAgentAuth.pbxVoiceIdentity) &&
@@ -710,7 +785,7 @@ public class ConversationAgentAuth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, merchants, parentMerchantId, pbxAdmin, pbxJwt, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
+    return Objects.hash(chatAdmin, chatUser, conversationParticipantArn, conversationParticipantName, customerProfile, defaultPhoneNumber, groupIds, jwt, merchantId, merchants, parentMerchantId, pbxAdmin, pbxJwt, pbxStartupActivity, pbxSupervisor, pbxUser, pbxVoiceIdentity, pbxVoiceToken, pbxWorkerToken, pbxWorkerTokenV2, twilioAccounts, userId, websocketUrl);
   }
 
   @Override
@@ -730,6 +805,7 @@ public class ConversationAgentAuth {
     sb.append("    parentMerchantId: ").append(toIndentedString(parentMerchantId)).append("\n");
     sb.append("    pbxAdmin: ").append(toIndentedString(pbxAdmin)).append("\n");
     sb.append("    pbxJwt: ").append(toIndentedString(pbxJwt)).append("\n");
+    sb.append("    pbxStartupActivity: ").append(toIndentedString(pbxStartupActivity)).append("\n");
     sb.append("    pbxSupervisor: ").append(toIndentedString(pbxSupervisor)).append("\n");
     sb.append("    pbxUser: ").append(toIndentedString(pbxUser)).append("\n");
     sb.append("    pbxVoiceIdentity: ").append(toIndentedString(pbxVoiceIdentity)).append("\n");
@@ -774,6 +850,7 @@ public class ConversationAgentAuth {
     openapiFields.add("parent_merchant_id");
     openapiFields.add("pbx_admin");
     openapiFields.add("pbx_jwt");
+    openapiFields.add("pbx_startup_activity");
     openapiFields.add("pbx_supervisor");
     openapiFields.add("pbx_user");
     openapiFields.add("pbx_voice_identity");
@@ -846,6 +923,9 @@ public class ConversationAgentAuth {
       }
       if (jsonObj.get("pbx_jwt") != null && !jsonObj.get("pbx_jwt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pbx_jwt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_jwt").toString()));
+      }
+      if (jsonObj.get("pbx_startup_activity") != null && !jsonObj.get("pbx_startup_activity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pbx_startup_activity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_startup_activity").toString()));
       }
       if (jsonObj.get("pbx_voice_identity") != null && !jsonObj.get("pbx_voice_identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pbx_voice_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pbx_voice_identity").toString()));

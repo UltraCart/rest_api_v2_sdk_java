@@ -148094,6 +148094,7 @@ components:
         pbx_jwt: pbx_jwt
         chat_admin: true
         pbx_worker_token: pbx_worker_token
+        pbx_startup_activity: available
         user_id: 6
         group_ids:
         - 0
@@ -148146,6 +148147,12 @@ components:
         pbx_admin:
           type: boolean
         pbx_jwt:
+          type: string
+        pbx_startup_activity:
+          description: Status the agent starts in when the CRM loads
+          enum:
+          - available
+          - unavailable
           type: string
         pbx_supervisor:
           type: boolean
@@ -148222,6 +148229,7 @@ components:
           pbx_jwt: pbx_jwt
           chat_admin: true
           pbx_worker_token: pbx_worker_token
+          pbx_startup_activity: available
           user_id: 6
           group_ids:
           - 0
@@ -151717,6 +151725,7 @@ components:
         cellphone: cellphone
         call_routing_preference: softphone
         zoho_desk_outbound_department_id: zoho_desk_outbound_department_id
+        startup_activity: available
         unavailable_say_voice: man
         record_outgoing_automatically: true
       properties:
@@ -151777,6 +151786,13 @@ components:
         shared_conversation_pbx_voicemail_mailbox_uuid:
           description: Shared Conversation Pbx Voicemail Mailbox UUID
           maxLength: 50
+          type: string
+        startup_activity:
+          description: Status the agent starts in when the CRM loads. Missing means
+            available.
+          enum:
+          - available
+          - unavailable
           type: string
         twilio_taskrouter_worker_id:
           description: Twilio taskrouter worker Id
@@ -151839,6 +151855,7 @@ components:
           cellphone: cellphone
           call_routing_preference: softphone
           zoho_desk_outbound_department_id: zoho_desk_outbound_department_id
+          startup_activity: available
           unavailable_say_voice: man
           record_outgoing_automatically: true
         metadata:
@@ -151920,6 +151937,7 @@ components:
           cellphone: cellphone
           call_routing_preference: softphone
           zoho_desk_outbound_department_id: zoho_desk_outbound_department_id
+          startup_activity: available
           unavailable_say_voice: man
           record_outgoing_automatically: true
         - unavailable_play_audio_uuid: unavailable_play_audio_uuid
@@ -151945,6 +151963,7 @@ components:
           cellphone: cellphone
           call_routing_preference: softphone
           zoho_desk_outbound_department_id: zoho_desk_outbound_department_id
+          startup_activity: available
           unavailable_say_voice: man
           record_outgoing_automatically: true
       properties:
