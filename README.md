@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.210</version>
+    <version>4.1.211</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.210"
+     implementation "com.ultracart:rest-sdk:4.1.211"
   }
 ```
 
@@ -591,6 +591,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSecretKinds**](docs/SfvbApi.md#getSfvbSecretKinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects
 *SfvbApi* | [**getSfvbSecretRequest**](docs/SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 *SfvbApi* | [**getSfvbSecretRequests**](docs/SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
+*SfvbApi* | [**getSfvbSequence**](docs/SfvbApi.md#getSfvbSequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbTestOrders**](docs/SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
@@ -2125,6 +2126,9 @@ Class | Method | HTTP request | Description
  - [SfvbSecretRequestCreate](docs/SfvbSecretRequestCreate.md)
  - [SfvbSecretRequestsResponse](docs/SfvbSecretRequestsResponse.md)
  - [SfvbSecretSink](docs/SfvbSecretSink.md)
+ - [SfvbSequence](docs/SfvbSequence.md)
+ - [SfvbSequenceBranch](docs/SfvbSequenceBranch.md)
+ - [SfvbSequenceStep](docs/SfvbSequenceStep.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
  - [SfvbServerLogDetail](docs/SfvbServerLogDetail.md)
  - [SfvbServerLogEntry](docs/SfvbServerLogEntry.md)
@@ -2348,6 +2352,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.211 | 10/27/2026 | sfvb internal testing |
 | 4.1.210 | 10/27/2026 | sfvb internal testing |
 | 4.1.209 | 10/27/2026 | sfvb internal testing |
 | 4.1.208 | 10/26/2026 | sfvb internal testing |

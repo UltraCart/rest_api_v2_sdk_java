@@ -165,6 +165,7 @@ import com.ultracart.admin.v2.models.SfvbSecretKindsResponse;
 import com.ultracart.admin.v2.models.SfvbSecretRequest;
 import com.ultracart.admin.v2.models.SfvbSecretRequestCreate;
 import com.ultracart.admin.v2.models.SfvbSecretRequestsResponse;
+import com.ultracart.admin.v2.models.SfvbSequence;
 import com.ultracart.admin.v2.models.SfvbServerLogDetail;
 import com.ultracart.admin.v2.models.SfvbServerLogsResponse;
 import com.ultracart.admin.v2.models.SfvbSiteAttributeUpdateRequest;
@@ -15691,6 +15692,167 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbSecretRequestsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<SfvbSecretRequestsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbSequence
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param waiting Include how many customers are waiting on each step (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSequenceCall(Integer storefrontOid, String sequenceUuid, Boolean waiting, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "sequence_uuid" + "\\}", localVarApiClient.escapeString(sequenceUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (waiting != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("waiting", waiting));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbSequenceValidateBeforeCall(Integer storefrontOid, String sequenceUuid, Boolean waiting, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbSequence(Async)");
+        }
+        
+        // verify the required parameter 'sequenceUuid' is set
+        if (sequenceUuid == null) {
+            throw new ApiException("Missing the required parameter 'sequenceUuid' when calling getSfvbSequence(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbSequenceCall(storefrontOid, sequenceUuid, waiting, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a campaign&#39;s or flow&#39;s steps as a tree
+     * The communication sequence named by a campaign&#39;s or flow&#39;s communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin&#39;s label, its settings (a webhook&#39;s header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param waiting Include how many customers are waiting on each step (optional)
+     * @return SfvbSequence
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSequence getSfvbSequence(Integer storefrontOid, String sequenceUuid, Boolean waiting) throws ApiException {
+        ApiResponse<SfvbSequence> localVarResp = getSfvbSequenceWithHttpInfo(storefrontOid, sequenceUuid, waiting);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a campaign&#39;s or flow&#39;s steps as a tree
+     * The communication sequence named by a campaign&#39;s or flow&#39;s communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin&#39;s label, its settings (a webhook&#39;s header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param waiting Include how many customers are waiting on each step (optional)
+     * @return ApiResponse&lt;SfvbSequence&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSequence> getSfvbSequenceWithHttpInfo(Integer storefrontOid, String sequenceUuid, Boolean waiting) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbSequenceValidateBeforeCall(storefrontOid, sequenceUuid, waiting, null);
+        Type localVarReturnType = new TypeToken<SfvbSequence>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a campaign&#39;s or flow&#39;s steps as a tree (asynchronously)
+     * The communication sequence named by a campaign&#39;s or flow&#39;s communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin&#39;s label, its settings (a webhook&#39;s header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param waiting Include how many customers are waiting on each step (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSequenceAsync(Integer storefrontOid, String sequenceUuid, Boolean waiting, final ApiCallback<SfvbSequence> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbSequenceValidateBeforeCall(storefrontOid, sequenceUuid, waiting, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSequence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

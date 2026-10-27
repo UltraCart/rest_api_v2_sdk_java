@@ -16523,6 +16523,93 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}:
+    get:
+      description: "The communication sequence named by a campaign's or flow's communication_sequence_uuid,\
+        \ with its steps from the start in order.  Only condition, split and InboxGeek\
+        \ steps branch, and each holds its two sides in branches.  Each step has its\
+        \ type, the admin's label, its settings (a webhook's header and parameter\
+        \ values masked), its audience filter, and the emails, postcard, lists or\
+        \ items it names.  waiting adds how many customers are waiting on each step\
+        \ now.  Read only.\n"
+      operationId: getSfvbSequence
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: sequence_uuid
+        required: true
+        schema:
+          type: string
+      - description: Include how many customers are waiting on each step
+        in: query
+        name: waiting
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSequence'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Get a campaign's or flow's steps as a tree
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/templates:
     get:
       description: "Each template with the page type it declares and what it can render\
@@ -260452,6 +260539,235 @@ components:
         target_type:
           description: What a request names as its target_id or keys.
           type: string
+      type: object
+    SfvbSequence:
+      example:
+        waiting_included: true
+        notes:
+        - notes
+        - notes
+        owner_name: owner_name
+        communication_sequence_uuid: communication_sequence_uuid
+        owner_status: owner_status
+        steps:
+        - step_uuid: step_uuid
+          config_json: config_json
+          unreachable: true
+          config_error: true
+          postcard_uuid: postcard_uuid
+          label: label
+          branches:
+          - label: label
+            steps:
+            - null
+            - null
+          - label: label
+            steps:
+            - null
+            - null
+          type: type
+          merchant_notes: merchant_notes
+          config_merchant_notes: config_merchant_notes
+          filter_profile_equation_json: filter_profile_equation_json
+          item_ids:
+          - item_ids
+          - item_ids
+          name: name
+          disabled: true
+          email_uuids:
+          - email_uuids
+          - email_uuids
+          list_uuids:
+          - list_uuids
+          - list_uuids
+          number_waiting: 0
+        - step_uuid: step_uuid
+          config_json: config_json
+          unreachable: true
+          config_error: true
+          postcard_uuid: postcard_uuid
+          label: label
+          branches:
+          - label: label
+            steps:
+            - null
+            - null
+          - label: label
+            steps:
+            - null
+            - null
+          type: type
+          merchant_notes: merchant_notes
+          config_merchant_notes: config_merchant_notes
+          filter_profile_equation_json: filter_profile_equation_json
+          item_ids:
+          - item_ids
+          - item_ids
+          name: name
+          disabled: true
+          email_uuids:
+          - email_uuids
+          - email_uuids
+          list_uuids:
+          - list_uuids
+          - list_uuids
+          number_waiting: 0
+        live: true
+        owner_type: owner_type
+        owner_uuid: owner_uuid
+      properties:
+        communication_sequence_uuid:
+          description: The sequence uuid.
+          type: string
+        live:
+          description: True when its emails and postcards reach customers now.
+          type: boolean
+        notes:
+          description: "Anything the read could not do, such as waiting counts that\
+            \ were unavailable."
+          items:
+            type: string
+          type: array
+        owner_name:
+          description: The campaign or flow name.
+          type: string
+        owner_status:
+          description: The campaign or flow status.
+          type: string
+        owner_type:
+          description: campaign or flow.
+          type: string
+        owner_uuid:
+          description: The campaign or flow uuid.
+          type: string
+        steps:
+          description: "The steps from the start, in order.  A branching step holds\
+            \ its sides in branches."
+          items:
+            $ref: '#/components/schemas/SfvbSequenceStep'
+          type: array
+        waiting_included:
+          description: True when number_waiting was filled in.
+          type: boolean
+      type: object
+    SfvbSequenceBranch:
+      example:
+        label: label
+        steps:
+        - null
+        - null
+      properties:
+        label:
+          description: "yes or no for a condition, left or right for a split or an\
+            \ InboxGeek step."
+          type: string
+        steps:
+          description: "The steps on this side, in order."
+          items:
+            $ref: '#/components/schemas/SfvbSequenceStep'
+          type: array
+      type: object
+    SfvbSequenceStep:
+      example:
+        step_uuid: step_uuid
+        config_json: config_json
+        unreachable: true
+        config_error: true
+        postcard_uuid: postcard_uuid
+        label: label
+        branches:
+        - label: label
+          steps:
+          - null
+          - null
+        - label: label
+          steps:
+          - null
+          - null
+        type: type
+        merchant_notes: merchant_notes
+        config_merchant_notes: config_merchant_notes
+        filter_profile_equation_json: filter_profile_equation_json
+        item_ids:
+        - item_ids
+        - item_ids
+        name: name
+        disabled: true
+        email_uuids:
+        - email_uuids
+        - email_uuids
+        list_uuids:
+        - list_uuids
+        - list_uuids
+        number_waiting: 0
+      properties:
+        branches:
+          description: "Its two sides, for a condition, split or InboxGeek step. \
+            \ Absent for every other type."
+          items:
+            $ref: '#/components/schemas/SfvbSequenceBranch'
+          type: array
+        config_error:
+          description: True when the step's settings could not be read.
+          type: boolean
+        config_json:
+          description: The step's settings as the admin stores them.  A webhook's
+            header and parameter values are masked.
+          type: string
+        config_merchant_notes:
+          description: "A note stored inside the step's settings, when there is one."
+          type: string
+        disabled:
+          description: True when the step is switched off in its settings.
+          type: boolean
+        email_uuids:
+          description: "The emails it sends.  One for an email step, one per variant\
+            \ for an experiment."
+          items:
+            type: string
+          type: array
+        filter_profile_equation_json:
+          description: "The step's audience filter as stored, when it has one."
+          type: string
+        item_ids:
+          description: "The items it names, for a cart or rate limiter step."
+          items:
+            type: string
+          type: array
+        label:
+          description: "The type as the admin names it, such as Time Delay.  The type\
+            \ itself for one it doesn't know."
+          type: string
+        list_uuids:
+          description: "The lists it subscribes or unsubscribes, for a list step."
+          items:
+            type: string
+          type: array
+        merchant_notes:
+          description: The note stored on the step.
+          type: string
+        name:
+          description: "The step's own display name from its settings, when it has\
+            \ one."
+          type: string
+        number_waiting:
+          description: How many customers are waiting on this step now.  Only when
+            waiting counts were asked for.
+          format: int32
+          type: integer
+        postcard_uuid:
+          description: "The postcard it sends, for a postcard step."
+          type: string
+        step_uuid:
+          description: The step uuid.
+          type: string
+        type:
+          description: "The step type, such as email, wait, condition or webhook."
+          type: string
+        unreachable:
+          description: True for a step no branch leads to.  Listed at the end so nothing
+            is hidden.
+          type: boolean
       type: object
     SfvbServerLog:
       example:
