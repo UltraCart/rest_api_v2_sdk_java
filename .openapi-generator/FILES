@@ -1030,6 +1030,7 @@ docs/SfvbElementsResponse.md
 docs/SfvbEmail.md
 docs/SfvbEmailRenderRequest.md
 docs/SfvbEmailRenderResponse.md
+docs/SfvbEmailReviewRequest.md
 docs/SfvbEmailUpdateRequest.md
 docs/SfvbErrorDetail.md
 docs/SfvbEvent.md
@@ -2377,6 +2378,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbElementsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmailRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmailRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbEmailReviewRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEmailUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbErrorDetail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbEvent.java

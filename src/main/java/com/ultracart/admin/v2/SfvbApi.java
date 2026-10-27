@@ -57,6 +57,7 @@ import com.ultracart.admin.v2.models.SfvbElementsResponse;
 import com.ultracart.admin.v2.models.SfvbEmail;
 import com.ultracart.admin.v2.models.SfvbEmailRenderRequest;
 import com.ultracart.admin.v2.models.SfvbEmailRenderResponse;
+import com.ultracart.admin.v2.models.SfvbEmailReviewRequest;
 import com.ultracart.admin.v2.models.SfvbEmailUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbEventsAuthRequest;
 import com.ultracart.admin.v2.models.SfvbEventsAuthResponse;
@@ -28852,6 +28853,176 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = revertSfvbFileValidateBeforeCall(storefrontOid, ifMatch, fileRevertRequest, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbFileWriteResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for reviewSfvbEmail
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param emailReviewRequest The test order, for an email in an order-triggered flow (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call reviewSfvbEmailCall(Integer storefrontOid, String emailUuid, SfvbEmailReviewRequest emailReviewRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = emailReviewRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "email_uuid" + "\\}", localVarApiClient.escapeString(emailUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call reviewSfvbEmailValidateBeforeCall(Integer storefrontOid, String emailUuid, SfvbEmailReviewRequest emailReviewRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling reviewSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailUuid' is set
+        if (emailUuid == null) {
+            throw new ApiException("Missing the required parameter 'emailUuid' when calling reviewSfvbEmail(Async)");
+        }
+        
+        // verify the required parameter 'emailReviewRequest' is set
+        if (emailReviewRequest == null) {
+            throw new ApiException("Missing the required parameter 'emailReviewRequest' when calling reviewSfvbEmail(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = reviewSfvbEmailCall(storefrontOid, emailUuid, emailReviewRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Request a content review of a flow or campaign email
+     * Starts a review the way the admin&#39;s Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn&#39;t need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param emailReviewRequest The test order, for an email in an order-triggered flow (required)
+     * @return SfvbEmail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbEmail reviewSfvbEmail(Integer storefrontOid, String emailUuid, SfvbEmailReviewRequest emailReviewRequest) throws ApiException {
+        ApiResponse<SfvbEmail> localVarResp = reviewSfvbEmailWithHttpInfo(storefrontOid, emailUuid, emailReviewRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Request a content review of a flow or campaign email
+     * Starts a review the way the admin&#39;s Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn&#39;t need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param emailReviewRequest The test order, for an email in an order-triggered flow (required)
+     * @return ApiResponse&lt;SfvbEmail&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbEmail> reviewSfvbEmailWithHttpInfo(Integer storefrontOid, String emailUuid, SfvbEmailReviewRequest emailReviewRequest) throws ApiException {
+        okhttp3.Call localVarCall = reviewSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, emailReviewRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Request a content review of a flow or campaign email (asynchronously)
+     * Starts a review the way the admin&#39;s Request Review does.  One test copy of the email goes to the signed-in user, and to no one else, and the review runs in the background, so read the email again for pending_review and then the ruling.  Refused with sfvb.review_not_needed when it doesn&#39;t need review, is already waiting for one, or was rejected and not changed since.  An email in a flow triggered by an order or an auto order needs order_id, a test order.  Needs a signed-in user, not an API key alone. 
+     * @param storefrontOid  (required)
+     * @param emailUuid  (required)
+     * @param emailReviewRequest The test order, for an email in an order-triggered flow (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call reviewSfvbEmailAsync(Integer storefrontOid, String emailUuid, SfvbEmailReviewRequest emailReviewRequest, final ApiCallback<SfvbEmail> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = reviewSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, emailReviewRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbEmail>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

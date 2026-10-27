@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.209</version>
+    <version>4.1.210</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.209"
+     implementation "com.ultracart:rest-sdk:4.1.210"
   }
 ```
 
@@ -670,6 +670,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**resolveSfvbTemplate**](docs/SfvbApi.md#resolveSfvbTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/templates/resolve | Resolve a template name to the file a page renders
 *SfvbApi* | [**revertSfvbContainer**](docs/SfvbApi.md#revertSfvbContainer) | **POST** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id}/revert | Revert a container stored outside the file system
 *SfvbApi* | [**revertSfvbFile**](docs/SfvbApi.md#revertSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/revert | Revert a storefront file to an earlier version
+*SfvbApi* | [**reviewSfvbEmail**](docs/SfvbApi.md#reviewSfvbEmail) | **POST** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid}/review | Request a content review of a flow or campaign email
 *SfvbApi* | [**revokeSfvbSecretRequest**](docs/SfvbApi.md#revokeSfvbSecretRequest) | **POST** /sfvb/secrets/{request_id}/revoke | Revoke a fulfilled request&#39;s unused handles
 *SfvbApi* | [**searchSfvbFiles**](docs/SfvbApi.md#searchSfvbFiles) | **POST** /sfvb/storefronts/{storefront_oid}/files/search | Search storefront files
 *SfvbApi* | [**searchSfvbLibrary**](docs/SfvbApi.md#searchSfvbLibrary) | **GET** /sfvb/storefronts/{storefront_oid}/library | Search the element library
@@ -1964,6 +1965,7 @@ Class | Method | HTTP request | Description
  - [SfvbEmail](docs/SfvbEmail.md)
  - [SfvbEmailRenderRequest](docs/SfvbEmailRenderRequest.md)
  - [SfvbEmailRenderResponse](docs/SfvbEmailRenderResponse.md)
+ - [SfvbEmailReviewRequest](docs/SfvbEmailReviewRequest.md)
  - [SfvbEmailUpdateRequest](docs/SfvbEmailUpdateRequest.md)
  - [SfvbErrorDetail](docs/SfvbErrorDetail.md)
  - [SfvbEvent](docs/SfvbEvent.md)
@@ -2346,6 +2348,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.210 | 10/27/2026 | sfvb internal testing |
 | 4.1.209 | 10/27/2026 | sfvb internal testing |
 | 4.1.208 | 10/26/2026 | sfvb internal testing |
 | 4.1.207 | 10/16/2026 | sfvb internal testing |

@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -64,6 +66,10 @@ public class SfvbEmail {
   public static final String SERIALIZED_NAME_LIVE = "live";
   @SerializedName(SERIALIZED_NAME_LIVE)
   private Boolean live;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  private List<String> notes = null;
 
   public static final String SERIALIZED_NAME_PENDING_REVIEW = "pending_review";
   @SerializedName(SERIALIZED_NAME_PENDING_REVIEW)
@@ -189,6 +195,37 @@ public class SfvbEmail {
 
   public void setLive(Boolean live) {
     this.live = live;
+  }
+
+
+  public SfvbEmail notes(List<String> notes) {
+    
+    this.notes = notes;
+    return this;
+  }
+
+  public SfvbEmail addNotesItem(String notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+   /**
+   * What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.
+   * @return notes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "What a write did beyond the fields asked for, such as a step label it could not refresh.  Only on a write.")
+
+  public List<String> getNotes() {
+    return notes;
+  }
+
+
+  public void setNotes(List<String> notes) {
+    this.notes = notes;
   }
 
 
@@ -390,6 +427,7 @@ public class SfvbEmail {
         Objects.equals(this.emailUuid, sfvbEmail.emailUuid) &&
         Objects.equals(this.hashSha256, sfvbEmail.hashSha256) &&
         Objects.equals(this.live, sfvbEmail.live) &&
+        Objects.equals(this.notes, sfvbEmail.notes) &&
         Objects.equals(this.pendingReview, sfvbEmail.pendingReview) &&
         Objects.equals(this.previewText, sfvbEmail.previewText) &&
         Objects.equals(this.rejected, sfvbEmail.rejected) &&
@@ -402,7 +440,7 @@ public class SfvbEmail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerLastModifiedDts, emailUuid, hashSha256, live, pendingReview, previewText, rejected, requiresReview, subject, suspendedForSpam, transactional, version);
+    return Objects.hash(containerLastModifiedDts, emailUuid, hashSha256, live, notes, pendingReview, previewText, rejected, requiresReview, subject, suspendedForSpam, transactional, version);
   }
 
   @Override
@@ -413,6 +451,7 @@ public class SfvbEmail {
     sb.append("    emailUuid: ").append(toIndentedString(emailUuid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    pendingReview: ").append(toIndentedString(pendingReview)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");
     sb.append("    rejected: ").append(toIndentedString(rejected)).append("\n");
@@ -447,6 +486,7 @@ public class SfvbEmail {
     openapiFields.add("email_uuid");
     openapiFields.add("hash_sha256");
     openapiFields.add("live");
+    openapiFields.add("notes");
     openapiFields.add("pending_review");
     openapiFields.add("preview_text");
     openapiFields.add("rejected");
@@ -490,6 +530,10 @@ public class SfvbEmail {
       }
       if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
       if (jsonObj.get("preview_text") != null && !jsonObj.get("preview_text").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `preview_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preview_text").toString()));
