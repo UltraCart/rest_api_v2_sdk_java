@@ -349,11 +349,11 @@ public class AutoOrderItem {
   }
 
    /**
-   * Arbitrary quantity to rebill
+   * Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.
    * @return arbitraryQuantity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arbitrary quantity to rebill")
+  @ApiModelProperty(value = "Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity.")
 
   public BigDecimal getArbitraryQuantity() {
     return arbitraryQuantity;
@@ -395,11 +395,11 @@ public class AutoOrderItem {
   }
 
    /**
-   * Arbitrary unit cost that rebills of this item should occur at
+   * Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).
    * @return arbitraryUnitCost
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arbitrary unit cost that rebills of this item should occur at")
+  @ApiModelProperty(value = "Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null).")
 
   public BigDecimal getArbitraryUnitCost() {
     return arbitraryUnitCost;
@@ -825,11 +825,11 @@ public class AutoOrderItem {
   }
 
    /**
-   * The original quantity purchased
+   * The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.
    * @return originalQuantity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The original quantity purchased")
+  @ApiModelProperty(value = "The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead.")
 
   public BigDecimal getOriginalQuantity() {
     return originalQuantity;

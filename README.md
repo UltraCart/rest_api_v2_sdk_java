@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.212</version>
+    <version>4.1.213</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.212"
+     implementation "com.ultracart:rest-sdk:4.1.213"
   }
 ```
 
@@ -2352,6 +2352,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |
 | 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |
 | 4.1.211 | 10/27/2026 | sfvb internal testing |
 | 4.1.210 | 10/27/2026 | sfvb internal testing |

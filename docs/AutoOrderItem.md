@@ -10,9 +10,9 @@
 |**addOns** | [**List&lt;AutoOrderAddonItem&gt;**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. |  [optional] |
 |**arbitraryItemId** | **String** | Arbitrary item id that should be rebilled instead of the normal schedule |  [optional] |
 |**arbitraryPercentageDiscount** | **BigDecimal** | An arbitrary percentage discount to provide on future rebills |  [optional] |
-|**arbitraryQuantity** | **BigDecimal** | Arbitrary quantity to rebill |  [optional] |
+|**arbitraryQuantity** | **BigDecimal** | Quantity to rebill.  When set, every rebill uses this quantity instead of original_quantity.  Set this field to change the quantity on an active auto order; the merchant auto order editor updates this same field.  Each rebill charges the unit price multiplied by this quantity. |  [optional] |
 |**arbitraryScheduleDays** | **Integer** | The number of days to rebill if the frequency is set to an arbitrary number of days |  [optional] |
-|**arbitraryUnitCost** | **BigDecimal** | Arbitrary unit cost that rebills of this item should occur at |  [optional] |
+|**arbitraryUnitCost** | **BigDecimal** | Arbitrary unit cost that rebills of this item should occur at.  This is a price per unit.  Each rebill charges it multiplied by the rebill quantity (arbitrary_quantity, or original_quantity when arbitrary_quantity is null). |  [optional] |
 |**arbitraryUnitCostRemainingOrders** | **Integer** | The number of rebills to give the arbitrary unit cost on before reverting to normal pricing. |  [optional] |
 |**autoOrderItemOid** | **Integer** | Primary key of AutoOrderItem |  [optional] |
 |**calculatedNextShipmentDts** | **String** | Calculated Date/time that this item is scheduled to rebill.  Will be null if no more shipments are going to occur on this item |  [optional] |
@@ -30,7 +30,7 @@
 |**numberOfRebills** | **Integer** | The number of times this item has rebilled |  [optional] |
 |**options** | [**List&lt;AutoOrderItemOption&gt;**](AutoOrderItemOption.md) | Options associated with this item |  [optional] |
 |**originalItemId** | **String** | The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date. |  [optional] |
-|**originalQuantity** | **BigDecimal** | The original quantity purchased |  [optional] |
+|**originalQuantity** | **BigDecimal** | The quantity purchased on the original order.  Rebills use this quantity only when arbitrary_quantity is null.  To change the quantity on future rebills, set arbitrary_quantity instead. |  [optional] |
 |**paused** | **Boolean** | True if paused.  This field is an object instead of a primitive for backwards compatibility. |  [optional] |
 |**paypalPayerId** | **String** | The PayPal Payer ID tied to this item |  [optional] |
 |**paypalRecurringPaymentProfileId** | **String** | The PayPal Profile ID tied to this item |  [optional] |
