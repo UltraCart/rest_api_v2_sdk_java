@@ -202,6 +202,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateSfvbItemAttributeBatch**](SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call |
 | [**updateSfvbLibraryEntry**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft |
 | [**updateSfvbRedirect**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule |
+| [**updateSfvbSequenceStep**](SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter |
 | [**updateSfvbUpsellOffer**](SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer |
 | [**updateSfvbUpsellPath**](SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path |
 | [**uploadSfvbFile**](SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded |
@@ -4506,7 +4507,7 @@ This endpoint does not need any parameter.
 
 Get a campaign&#39;s or flow&#39;s steps as a tree
 
-The communication sequence named by a campaign&#39;s or flow&#39;s communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin&#39;s label, its settings (a webhook&#39;s header and parameter values masked), its audience filter, and the emails, postcard, lists or items it names.  waiting adds how many customers are waiting on each step now.  Read only. 
+The communication sequence named by a campaign&#39;s or flow&#39;s communication_sequence_uuid, with its steps from the start in order.  Only condition, split and InboxGeek steps branch, and each holds its two sides in branches.  Each step has its type, the admin&#39;s label, its settings (a webhook&#39;s header and parameter values masked), its audience filter, the emails, postcard, lists or items it names, and the hash_sha256 to send as If-Match when changing it.  waiting adds how many customers are waiting on each step now.  Read only. 
 
 ### Example
 
@@ -9143,6 +9144,55 @@ Changes the source, target or note, and can turn an admin rule into a 301.  Fiel
 | **412** |  |  -  |
 | **428** |  |  -  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateSfvbSequenceStep"></a>
+# **updateSfvbSequenceStep**
+> SfvbSequenceStepUpdateResponse updateSfvbSequenceStep(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest)
+
+Change one step&#39;s settings or audience filter
+
+Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **sequenceUuid** | **String**|  | |
+| **stepUuid** | **String**|  | |
+| **ifMatch** | **String**| The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+| **sequenceStepUpdateRequest** | [**SfvbSequenceStepUpdateRequest**](SfvbSequenceStepUpdateRequest.md)| The settings, the filter, or both | |
+
+### Return type
+
+[**SfvbSequenceStepUpdateResponse**](SfvbSequenceStepUpdateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **428** |  |  -  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="updateSfvbUpsellOffer"></a>

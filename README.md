@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.213</version>
+    <version>4.1.214</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.213"
+     implementation "com.ultracart:rest-sdk:4.1.214"
   }
 ```
 
@@ -693,6 +693,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbItemAttributeBatch**](docs/SfvbApi.md#updateSfvbItemAttributeBatch) | **POST** /sfvb/storefronts/{storefront_oid}/items/attributes/batch | Change attributes across many items in one call
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
+*SfvbApi* | [**updateSfvbSequenceStep**](docs/SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
@@ -2129,6 +2130,8 @@ Class | Method | HTTP request | Description
  - [SfvbSequence](docs/SfvbSequence.md)
  - [SfvbSequenceBranch](docs/SfvbSequenceBranch.md)
  - [SfvbSequenceStep](docs/SfvbSequenceStep.md)
+ - [SfvbSequenceStepUpdateRequest](docs/SfvbSequenceStepUpdateRequest.md)
+ - [SfvbSequenceStepUpdateResponse](docs/SfvbSequenceStepUpdateResponse.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
  - [SfvbServerLogDetail](docs/SfvbServerLogDetail.md)
  - [SfvbServerLogEntry](docs/SfvbServerLogEntry.md)
@@ -2352,6 +2355,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |
 | 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |
 | 4.1.211 | 10/27/2026 | sfvb internal testing |

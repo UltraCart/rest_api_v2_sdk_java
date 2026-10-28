@@ -80,6 +80,10 @@ public class SfvbSequenceStep {
   @SerializedName(SERIALIZED_NAME_FILTER_PROFILE_EQUATION_JSON)
   private String filterProfileEquationJson;
 
+  public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
+  @SerializedName(SERIALIZED_NAME_HASH_SHA256)
+  private String hashSha256;
+
   public static final String SERIALIZED_NAME_ITEM_IDS = "item_ids";
   @SerializedName(SERIALIZED_NAME_ITEM_IDS)
   private List<String> itemIds = null;
@@ -297,6 +301,29 @@ public class SfvbSequenceStep {
 
   public void setFilterProfileEquationJson(String filterProfileEquationJson) {
     this.filterProfileEquationJson = filterProfileEquationJson;
+  }
+
+
+  public SfvbSequenceStep hashSha256(String hashSha256) {
+    
+    this.hashSha256 = hashSha256;
+    return this;
+  }
+
+   /**
+   * The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.
+   * @return hashSha256
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.")
+
+  public String getHashSha256() {
+    return hashSha256;
+  }
+
+
+  public void setHashSha256(String hashSha256) {
+    this.hashSha256 = hashSha256;
   }
 
 
@@ -563,6 +590,7 @@ public class SfvbSequenceStep {
         Objects.equals(this.disabled, sfvbSequenceStep.disabled) &&
         Objects.equals(this.emailUuids, sfvbSequenceStep.emailUuids) &&
         Objects.equals(this.filterProfileEquationJson, sfvbSequenceStep.filterProfileEquationJson) &&
+        Objects.equals(this.hashSha256, sfvbSequenceStep.hashSha256) &&
         Objects.equals(this.itemIds, sfvbSequenceStep.itemIds) &&
         Objects.equals(this.label, sfvbSequenceStep.label) &&
         Objects.equals(this.listUuids, sfvbSequenceStep.listUuids) &&
@@ -577,7 +605,7 @@ public class SfvbSequenceStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(branches, configError, configJson, configMerchantNotes, disabled, emailUuids, filterProfileEquationJson, itemIds, label, listUuids, merchantNotes, name, numberWaiting, postcardUuid, stepUuid, type, unreachable);
+    return Objects.hash(branches, configError, configJson, configMerchantNotes, disabled, emailUuids, filterProfileEquationJson, hashSha256, itemIds, label, listUuids, merchantNotes, name, numberWaiting, postcardUuid, stepUuid, type, unreachable);
   }
 
   @Override
@@ -591,6 +619,7 @@ public class SfvbSequenceStep {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    emailUuids: ").append(toIndentedString(emailUuids)).append("\n");
     sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
+    sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    itemIds: ").append(toIndentedString(itemIds)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    listUuids: ").append(toIndentedString(listUuids)).append("\n");
@@ -630,6 +659,7 @@ public class SfvbSequenceStep {
     openapiFields.add("disabled");
     openapiFields.add("email_uuids");
     openapiFields.add("filter_profile_equation_json");
+    openapiFields.add("hash_sha256");
     openapiFields.add("item_ids");
     openapiFields.add("label");
     openapiFields.add("list_uuids");
@@ -691,6 +721,9 @@ public class SfvbSequenceStep {
       }
       if (jsonObj.get("filter_profile_equation_json") != null && !jsonObj.get("filter_profile_equation_json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `filter_profile_equation_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter_profile_equation_json").toString()));
+      }
+      if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("item_ids") != null && !jsonObj.get("item_ids").isJsonArray()) {
