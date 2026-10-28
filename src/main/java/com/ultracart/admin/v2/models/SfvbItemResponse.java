@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbItemAttribute;
 import com.ultracart.admin.v2.models.SfvbItemMultimedia;
 import com.ultracart.admin.v2.models.SfvbItemSeo;
+import com.ultracart.admin.v2.models.SfvbItemTags;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -81,6 +82,10 @@ public class SfvbItemResponse {
   public static final String SERIALIZED_NAME_SEO = "seo";
   @SerializedName(SERIALIZED_NAME_SEO)
   private SfvbItemSeo seo;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private SfvbItemTags tags;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -274,6 +279,29 @@ public class SfvbItemResponse {
   }
 
 
+  public SfvbItemResponse tags(SfvbItemTags tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbItemTags getTags() {
+    return tags;
+  }
+
+
+  public void setTags(SfvbItemTags tags) {
+    this.tags = tags;
+  }
+
+
   public SfvbItemResponse title(String title) {
     
     this.title = title;
@@ -314,12 +342,13 @@ public class SfvbItemResponse {
         Objects.equals(this.merchantItemOid, sfvbItemResponse.merchantItemOid) &&
         Objects.equals(this.multimedia, sfvbItemResponse.multimedia) &&
         Objects.equals(this.seo, sfvbItemResponse.seo) &&
+        Objects.equals(this.tags, sfvbItemResponse.tags) &&
         Objects.equals(this.title, sfvbItemResponse.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, description, groups, merchantItemId, merchantItemOid, multimedia, seo, title);
+    return Objects.hash(attributes, description, groups, merchantItemId, merchantItemOid, multimedia, seo, tags, title);
   }
 
   @Override
@@ -333,6 +362,7 @@ public class SfvbItemResponse {
     sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
     sb.append("    seo: ").append(toIndentedString(seo)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -363,6 +393,7 @@ public class SfvbItemResponse {
     openapiFields.add("merchant_item_oid");
     openapiFields.add("multimedia");
     openapiFields.add("seo");
+    openapiFields.add("tags");
     openapiFields.add("title");
 
     // a set of required properties/fields (JSON key names)
@@ -428,6 +459,10 @@ public class SfvbItemResponse {
       // validate the optional field `seo`
       if (jsonObj.getAsJsonObject("seo") != null) {
         SfvbItemSeo.validateJsonObject(jsonObj.getAsJsonObject("seo"));
+      }
+      // validate the optional field `tags`
+      if (jsonObj.getAsJsonObject("tags") != null) {
+        SfvbItemTags.validateJsonObject(jsonObj.getAsJsonObject("tags"));
       }
       if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));

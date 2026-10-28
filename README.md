@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.214</version>
+    <version>4.1.215</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.214"
+     implementation "com.ultracart:rest-sdk:4.1.215"
   }
 ```
 
@@ -2031,6 +2031,7 @@ Class | Method | HTTP request | Description
  - [SfvbItemResponse](docs/SfvbItemResponse.md)
  - [SfvbItemSeo](docs/SfvbItemSeo.md)
  - [SfvbItemSeoRequest](docs/SfvbItemSeoRequest.md)
+ - [SfvbItemTags](docs/SfvbItemTags.md)
  - [SfvbItemVolumeDiscount](docs/SfvbItemVolumeDiscount.md)
  - [SfvbLibraryAiReview](docs/SfvbLibraryAiReview.md)
  - [SfvbLibraryContentManifest](docs/SfvbLibraryContentManifest.md)
@@ -2355,6 +2356,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |
 | 4.1.212 | 10/27/2026 | conversation - pbx agent startup activity |

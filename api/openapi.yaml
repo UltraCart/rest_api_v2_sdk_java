@@ -256066,6 +256066,16 @@ components:
           effective_description: effective_description
         title: title
         merchant_item_oid: 0
+        tags:
+          item:
+          - item
+          - item
+          customer:
+          - customer
+          - customer
+          order:
+          - order
+          - order
       properties:
         attributes:
           description: "Every attribute a template declares for this item plus every\
@@ -256104,6 +256114,8 @@ components:
           type: array
         seo:
           $ref: '#/components/schemas/SfvbItemSeo'
+        tags:
+          $ref: '#/components/schemas/SfvbItemTags'
         title:
           description: "What an itemtitle element renders.  This is the item's short\
             \ description in the catalog, not a storefront only field, so changing\
@@ -256189,6 +256201,37 @@ components:
             \ falls back to the item's own description.  This does not reach og:title\
             \ or twitter:title, which render the item description either way."
           type: string
+      type: object
+    SfvbItemTags:
+      example:
+        item:
+        - item
+        - item
+        customer:
+        - customer
+        - customer
+        order:
+        - order
+        - order
+      properties:
+        customer:
+          description: "Tags put on the customer when this item is bought, in stored\
+            \ order."
+          items:
+            type: string
+          type: array
+        item:
+          description: "The item's own tags, in stored order.  These are what the\
+            \ item in cart with tag conditions and itemcondition check."
+          items:
+            type: string
+          type: array
+        order:
+          description: "Tags put on the order when this item is bought, in stored\
+            \ order."
+          items:
+            type: string
+          type: array
       type: object
     SfvbItemVolumeDiscount:
       example:

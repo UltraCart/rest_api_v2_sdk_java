@@ -1094,6 +1094,7 @@ docs/SfvbItemRelatedRequest.md
 docs/SfvbItemResponse.md
 docs/SfvbItemSeo.md
 docs/SfvbItemSeoRequest.md
+docs/SfvbItemTags.md
 docs/SfvbItemVolumeDiscount.md
 docs/SfvbLibraryAiReview.md
 docs/SfvbLibraryContentManifest.md
@@ -2447,6 +2448,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbItemRelatedRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemSeo.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemSeoRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemTags.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemVolumeDiscount.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryAiReview.java
 src/main/java/com/ultracart/admin/v2/models/SfvbLibraryContentManifest.java
