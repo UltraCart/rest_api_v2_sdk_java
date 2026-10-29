@@ -146,6 +146,8 @@ public class OrderPayment {
     
     SEZZLE("Sezzle"),
     
+    TRUEMED("Truemed"),
+    
     VENMO("Venmo"),
     
     APPLE_PAY("Apple Pay"),

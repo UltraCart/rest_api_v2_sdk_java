@@ -1194,6 +1194,8 @@ docs/SfvbSecretSink.md
 docs/SfvbSequence.md
 docs/SfvbSequenceBranch.md
 docs/SfvbSequenceStep.md
+docs/SfvbSequenceStepCreateRequest.md
+docs/SfvbSequenceStepCreateResponse.md
 docs/SfvbSequenceStepUpdateRequest.md
 docs/SfvbSequenceStepUpdateResponse.md
 docs/SfvbServerLog.md
@@ -2548,6 +2550,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSecretSink.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequence.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceBranch.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStep.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepCreateRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepCreateResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepUpdateResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java

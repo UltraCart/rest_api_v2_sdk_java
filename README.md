@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.215</version>
+    <version>4.1.216</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.215"
+     implementation "com.ultracart:rest-sdk:4.1.216"
   }
 ```
 
@@ -612,6 +612,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
+*SfvbApi* | [**insertSfvbSequenceStep**](docs/SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
@@ -2131,6 +2132,8 @@ Class | Method | HTTP request | Description
  - [SfvbSequence](docs/SfvbSequence.md)
  - [SfvbSequenceBranch](docs/SfvbSequenceBranch.md)
  - [SfvbSequenceStep](docs/SfvbSequenceStep.md)
+ - [SfvbSequenceStepCreateRequest](docs/SfvbSequenceStepCreateRequest.md)
+ - [SfvbSequenceStepCreateResponse](docs/SfvbSequenceStepCreateResponse.md)
  - [SfvbSequenceStepUpdateRequest](docs/SfvbSequenceStepUpdateRequest.md)
  - [SfvbSequenceStepUpdateResponse](docs/SfvbSequenceStepUpdateResponse.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
@@ -2356,6 +2359,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.216 | 10/29/2026 | sfvb internal testing |
 | 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |
 | 4.1.213 | 10/28/2026 | auto order - improve item field descriptions |

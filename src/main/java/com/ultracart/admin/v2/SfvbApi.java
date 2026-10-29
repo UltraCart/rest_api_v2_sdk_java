@@ -166,6 +166,8 @@ import com.ultracart.admin.v2.models.SfvbSecretRequest;
 import com.ultracart.admin.v2.models.SfvbSecretRequestCreate;
 import com.ultracart.admin.v2.models.SfvbSecretRequestsResponse;
 import com.ultracart.admin.v2.models.SfvbSequence;
+import com.ultracart.admin.v2.models.SfvbSequenceStepCreateRequest;
+import com.ultracart.admin.v2.models.SfvbSequenceStepCreateResponse;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateResponse;
 import com.ultracart.admin.v2.models.SfvbServerLogDetail;
@@ -19001,6 +19003,193 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = insertSfvbSecretRequestValidateBeforeCall(secretRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbSecretRequest>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbSequenceStep
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbSequenceStepCall(Integer storefrontOid, String sequenceUuid, String ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = sequenceStepCreateRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "sequence_uuid" + "\\}", localVarApiClient.escapeString(sequenceUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbSequenceStepValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'sequenceUuid' is set
+        if (sequenceUuid == null) {
+            throw new ApiException("Missing the required parameter 'sequenceUuid' when calling insertSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling insertSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'sequenceStepCreateRequest' is set
+        if (sequenceStepCreateRequest == null) {
+            throw new ApiException("Missing the required parameter 'sequenceStepCreateRequest' when calling insertSfvbSequenceStep(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertSfvbSequenceStepCall(storefrontOid, sequenceUuid, ifMatch, sequenceStepCreateRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add an email step, with its new email
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @return SfvbSequenceStepCreateResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSequenceStepCreateResponse insertSfvbSequenceStep(Integer storefrontOid, String sequenceUuid, String ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest) throws ApiException {
+        ApiResponse<SfvbSequenceStepCreateResponse> localVarResp = insertSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, ifMatch, sequenceStepCreateRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add an email step, with its new email
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @return ApiResponse&lt;SfvbSequenceStepCreateResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSequenceStepCreateResponse> insertSfvbSequenceStepWithHttpInfo(Integer storefrontOid, String sequenceUuid, String ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, ifMatch, sequenceStepCreateRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepCreateResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add an email step, with its new email (asynchronously)
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbSequenceStepAsync(Integer storefrontOid, String sequenceUuid, String ifMatch, SfvbSequenceStepCreateRequest sequenceStepCreateRequest, final ApiCallback<SfvbSequenceStepCreateResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, ifMatch, sequenceStepCreateRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

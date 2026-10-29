@@ -60,6 +60,7 @@
 | WALMART | &quot;Walmart&quot; |
 | SHOP_COM | &quot;Shop.com&quot; |
 | SEZZLE | &quot;Sezzle&quot; |
+| TRUEMED | &quot;Truemed&quot; |
 | VENMO | &quot;Venmo&quot; |
 | APPLE_PAY | &quot;Apple Pay&quot; |
 | GOOGLE_PAY | &quot;Google Pay&quot; |

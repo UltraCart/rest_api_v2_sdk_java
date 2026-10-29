@@ -16611,6 +16611,120 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps:
+    post:
+      description: "Creates a new email with the subject and preview text and adds\
+        \ the email step that sends it, together, so a failure leaves neither.  It\
+        \ goes right after after_step_uuid, or first on one side of a condition, split\
+        \ or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256\
+        \ as If-Match.  The email has no body yet, and gets the content review flags\
+        \ the admin gives a new email here.  A sequence whose campaign or flow is\
+        \ live needs sfvb_publish.\n"
+      operationId: insertSfvbSequenceStep
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: sequence_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The hash_sha256 of the step it goes after, or of the branching\
+          \ step.  Required; 428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbSequenceStepCreateRequest'
+        description: "Where the step goes, and the new email's subject and preview\
+          \ text"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSequenceStepCreateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: "Add an email step, with its new email"
+      tags:
+      - sfvb
+      x-codegen-request-body-name: sequence_step_create_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}:
     put:
       description: "Replaces the step's settings (config_json), its audience filter\
@@ -231125,6 +231239,7 @@ components:
           - Walmart
           - Shop.com
           - Sezzle
+          - Truemed
           - Venmo
           - Apple Pay
           - Google Pay
@@ -260962,6 +261077,96 @@ components:
           description: True for a step no branch leads to.  Listed at the end so nothing
             is hidden.
           type: boolean
+      type: object
+    SfvbSequenceStepCreateRequest:
+      example:
+        after_step_uuid: after_step_uuid
+        side: side
+        preview_text: preview_text
+        subject: subject
+        branch_step_uuid: branch_step_uuid
+        type: type
+      properties:
+        after_step_uuid:
+          description: "The step the new step follows, in the same list.  Not an end,\
+            \ continue or merge step."
+          type: string
+        branch_step_uuid:
+          description: "A condition, split or inboxgeek step.  With side, the new\
+            \ step goes first on that side."
+          type: string
+        preview_text:
+          description: "The new email's preview text, 5 to 150 characters."
+          type: string
+        side:
+          description: "With branch_step_uuid, the side's label from the sequence\
+            \ read.  yes or no for a condition, left or right for a split or inboxgeek\
+            \ step."
+          type: string
+        subject:
+          description: "The new email's subject line, 5 to 150 characters."
+          type: string
+        type:
+          description: The kind of step.  Only email for now.
+          type: string
+      type: object
+    SfvbSequenceStepCreateResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        email_uuid: email_uuid
+        requires_review: true
+        step:
+          step_uuid: step_uuid
+          config_json: config_json
+          unreachable: true
+          config_error: true
+          postcard_uuid: postcard_uuid
+          label: label
+          branches:
+          - label: label
+            steps:
+            - null
+            - null
+          - label: label
+            steps:
+            - null
+            - null
+          type: type
+          merchant_notes: merchant_notes
+          hash_sha256: hash_sha256
+          config_merchant_notes: config_merchant_notes
+          filter_profile_equation_json: filter_profile_equation_json
+          item_ids:
+          - item_ids
+          - item_ids
+          name: name
+          disabled: true
+          email_uuids:
+          - email_uuids
+          - email_uuids
+          list_uuids:
+          - list_uuids
+          - list_uuids
+          number_waiting: 0
+      properties:
+        email_uuid:
+          description: The new email's uuid.  Its body is the email container with
+            this owner id.
+          type: string
+        notes:
+          description: "What to do next, such as writing the body, and customers already\
+            \ waiting on the step before it."
+          items:
+            type: string
+          type: array
+        requires_review:
+          description: True when the new email must pass content review before it
+            sends.
+          type: boolean
+        step:
+          $ref: '#/components/schemas/SfvbSequenceStep'
       type: object
     SfvbSequenceStepUpdateRequest:
       example:
