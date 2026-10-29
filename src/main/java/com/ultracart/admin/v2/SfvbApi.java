@@ -168,6 +168,7 @@ import com.ultracart.admin.v2.models.SfvbSecretRequestsResponse;
 import com.ultracart.admin.v2.models.SfvbSequence;
 import com.ultracart.admin.v2.models.SfvbSequenceStepCreateRequest;
 import com.ultracart.admin.v2.models.SfvbSequenceStepCreateResponse;
+import com.ultracart.admin.v2.models.SfvbSequenceStepDeleteResponse;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateResponse;
 import com.ultracart.admin.v2.models.SfvbServerLogDetail;
@@ -5119,6 +5120,206 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = deleteSfvbSecretRequestValidateBeforeCall(requestId, _callback);
         Type localVarReturnType = new TypeToken<SfvbSecretRequest>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSfvbSequenceStep
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.delete request for this step.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbSequenceStepCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "sequence_uuid" + "\\}", localVarApiClient.escapeString(sequenceUuid.toString()))
+            .replaceAll("\\{" + "step_uuid" + "\\}", localVarApiClient.escapeString(stepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSfvbSequenceStepValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'sequenceUuid' is set
+        if (sequenceUuid == null) {
+            throw new ApiException("Missing the required parameter 'sequenceUuid' when calling deleteSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'stepUuid' is set
+        if (stepUuid == null) {
+            throw new ApiException("Missing the required parameter 'stepUuid' when calling deleteSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling deleteSfvbSequenceStep(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSfvbSequenceStepCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Remove one step
+     * Removes the step from its list and links the step before it to the step after it, in one transaction.  An email, experiment or postcard step&#39;s email or postcard is archived with it.  Refused while any customer is waiting on the step, for the begin, end, continue and merge markers, for a condition, split or inboxgeek step with steps on a side, and for a step whose email a resend step re-sends.  Send the step&#39;s hash_sha256 as If-Match.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.delete approval (Approval-Id); a draft or inactive one needs neither.  An email or postcard another step still uses is left as it is. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.delete request for this step.  See POST /sfvb/approvals. (optional)
+     * @return SfvbSequenceStepDeleteResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSequenceStepDeleteResponse deleteSfvbSequenceStep(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, String approvalId) throws ApiException {
+        ApiResponse<SfvbSequenceStepDeleteResponse> localVarResp = deleteSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Remove one step
+     * Removes the step from its list and links the step before it to the step after it, in one transaction.  An email, experiment or postcard step&#39;s email or postcard is archived with it.  Refused while any customer is waiting on the step, for the begin, end, continue and merge markers, for a condition, split or inboxgeek step with steps on a side, and for a step whose email a resend step re-sends.  Send the step&#39;s hash_sha256 as If-Match.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.delete approval (Approval-Id); a draft or inactive one needs neither.  An email or postcard another step still uses is left as it is. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.delete request for this step.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbSequenceStepDeleteResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSequenceStepDeleteResponse> deleteSfvbSequenceStepWithHttpInfo(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepDeleteResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Remove one step (asynchronously)
+     * Removes the step from its list and links the step before it to the step after it, in one transaction.  An email, experiment or postcard step&#39;s email or postcard is archived with it.  Refused while any customer is waiting on the step, for the begin, end, continue and merge markers, for a condition, split or inboxgeek step with steps on a side, and for a step whose email a resend step re-sends.  Send the step&#39;s hash_sha256 as If-Match.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.delete approval (Approval-Id); a draft or inactive one needs neither.  An email or postcard another step still uses is left as it is. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.delete request for this step.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbSequenceStepAsync(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, String approvalId, final ApiCallback<SfvbSequenceStepDeleteResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepDeleteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19010,7 +19211,7 @@ public class SfvbApi {
      * Build call for insertSfvbSequenceStep
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
-     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -19110,10 +19311,10 @@ public class SfvbApi {
 
     /**
      * Add an email step, with its new email
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
-     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
      * @return SfvbSequenceStepCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19137,10 +19338,10 @@ public class SfvbApi {
 
     /**
      * Add an email step, with its new email
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
-     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
      * @return ApiResponse&lt;SfvbSequenceStepCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -19165,10 +19366,10 @@ public class SfvbApi {
 
     /**
      * Add an email step, with its new email (asynchronously)
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
-     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step.  Required; 428 when absent, 412 when stale. (required)
+     * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

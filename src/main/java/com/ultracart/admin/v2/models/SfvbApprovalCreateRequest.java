@@ -77,7 +77,13 @@ public class SfvbApprovalCreateRequest {
     
     ITEM_ATTRIBUTE_BATCH("item.attribute_batch"),
     
-    ITEM_PRICING("item.pricing");
+    ITEM_PRICING("item.pricing"),
+    
+    TWILIO_ACCOUNT_DELETE("twilio_account.delete"),
+    
+    SENDING_DOMAIN_DELETE("sending_domain.delete"),
+    
+    SEQUENCE_STEP_DELETE("sequence_step.delete");
 
     private String value;
 

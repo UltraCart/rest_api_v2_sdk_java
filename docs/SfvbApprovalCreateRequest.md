@@ -31,6 +31,9 @@
 | UPSELL_ENABLE | &quot;upsell.enable&quot; |
 | ITEM_ATTRIBUTE_BATCH | &quot;item.attribute_batch&quot; |
 | ITEM_PRICING | &quot;item.pricing&quot; |
+| TWILIO_ACCOUNT_DELETE | &quot;twilio_account.delete&quot; |
+| SENDING_DOMAIN_DELETE | &quot;sending_domain.delete&quot; |
+| SEQUENCE_STEP_DELETE | &quot;sequence_step.delete&quot; |
 
 
 

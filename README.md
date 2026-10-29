@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.216</version>
+    <version>4.1.217</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.216"
+     implementation "com.ultracart:rest-sdk:4.1.217"
   }
 ```
 
@@ -524,6 +524,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbRedirect**](docs/SfvbApi.md#deleteSfvbRedirect) | **DELETE** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Delete a redirect rule
 *SfvbApi* | [**deleteSfvbRedirects**](docs/SfvbApi.md#deleteSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 *SfvbApi* | [**deleteSfvbSecretRequest**](docs/SfvbApi.md#deleteSfvbSecretRequest) | **DELETE** /sfvb/secrets/{request_id} | Cancel a pending secret request
+*SfvbApi* | [**deleteSfvbSequenceStep**](docs/SfvbApi.md#deleteSfvbSequenceStep) | **DELETE** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Remove one step
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
@@ -2134,6 +2135,7 @@ Class | Method | HTTP request | Description
  - [SfvbSequenceStep](docs/SfvbSequenceStep.md)
  - [SfvbSequenceStepCreateRequest](docs/SfvbSequenceStepCreateRequest.md)
  - [SfvbSequenceStepCreateResponse](docs/SfvbSequenceStepCreateResponse.md)
+ - [SfvbSequenceStepDeleteResponse](docs/SfvbSequenceStepDeleteResponse.md)
  - [SfvbSequenceStepUpdateRequest](docs/SfvbSequenceStepUpdateRequest.md)
  - [SfvbSequenceStepUpdateResponse](docs/SfvbSequenceStepUpdateResponse.md)
  - [SfvbServerLog](docs/SfvbServerLog.md)
@@ -2359,6 +2361,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.217 | 10/29/2026 | sfvb internal testing |
 | 4.1.216 | 10/29/2026 | sfvb internal testing |
 | 4.1.215 | 10/28/2026 | sfvb internal testing |
 | 4.1.214 | 10/28/2026 | sfvb internal testing |

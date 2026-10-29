@@ -99,9 +99,17 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_RULE_COUNT)
   private Integer ruleCount;
 
+  public static final String SERIALIZED_NAME_SEQUENCE_UUID = "sequence_uuid";
+  @SerializedName(SERIALIZED_NAME_SEQUENCE_UUID)
+  private String sequenceUuid;
+
   public static final String SERIALIZED_NAME_SLOT = "slot";
   @SerializedName(SERIALIZED_NAME_SLOT)
   private String slot;
+
+  public static final String SERIALIZED_NAME_STEP_UUID = "step_uuid";
+  @SerializedName(SERIALIZED_NAME_STEP_UUID)
+  private String stepUuid;
 
   /**
    * For upsell.enable, what to switch on.
@@ -457,6 +465,29 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams sequenceUuid(String sequenceUuid) {
+    
+    this.sequenceUuid = sequenceUuid;
+    return this;
+  }
+
+   /**
+   * The communication sequence, for sequence_step.delete.
+   * @return sequenceUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The communication sequence, for sequence_step.delete.")
+
+  public String getSequenceUuid() {
+    return sequenceUuid;
+  }
+
+
+  public void setSequenceUuid(String sequenceUuid) {
+    this.sequenceUuid = sequenceUuid;
+  }
+
+
   public SfvbApprovalParams slot(String slot) {
     
     this.slot = slot;
@@ -477,6 +508,29 @@ public class SfvbApprovalParams {
 
   public void setSlot(String slot) {
     this.slot = slot;
+  }
+
+
+  public SfvbApprovalParams stepUuid(String stepUuid) {
+    
+    this.stepUuid = stepUuid;
+    return this;
+  }
+
+   /**
+   * The step to remove, for sequence_step.delete.
+   * @return stepUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The step to remove, for sequence_step.delete.")
+
+  public String getStepUuid() {
+    return stepUuid;
+  }
+
+
+  public void setStepUuid(String stepUuid) {
+    this.stepUuid = stepUuid;
   }
 
 
@@ -617,7 +671,9 @@ public class SfvbApprovalParams {
         Objects.equals(this.requestSha256, sfvbApprovalParams.requestSha256) &&
         Objects.equals(this.rowsSha256, sfvbApprovalParams.rowsSha256) &&
         Objects.equals(this.ruleCount, sfvbApprovalParams.ruleCount) &&
+        Objects.equals(this.sequenceUuid, sfvbApprovalParams.sequenceUuid) &&
         Objects.equals(this.slot, sfvbApprovalParams.slot) &&
+        Objects.equals(this.stepUuid, sfvbApprovalParams.stepUuid) &&
         Objects.equals(this.upsellKind, sfvbApprovalParams.upsellKind) &&
         Objects.equals(this.upsellOid, sfvbApprovalParams.upsellOid) &&
         Objects.equals(this.version, sfvbApprovalParams.version) &&
@@ -627,7 +683,7 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeNames, blogPostOid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, slot, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(attributeNames, blogPostOid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, sequenceUuid, slot, stepUuid, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
@@ -646,7 +702,9 @@ public class SfvbApprovalParams {
     sb.append("    requestSha256: ").append(toIndentedString(requestSha256)).append("\n");
     sb.append("    rowsSha256: ").append(toIndentedString(rowsSha256)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
+    sb.append("    sequenceUuid: ").append(toIndentedString(sequenceUuid)).append("\n");
     sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
+    sb.append("    stepUuid: ").append(toIndentedString(stepUuid)).append("\n");
     sb.append("    upsellKind: ").append(toIndentedString(upsellKind)).append("\n");
     sb.append("    upsellOid: ").append(toIndentedString(upsellOid)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -686,7 +744,9 @@ public class SfvbApprovalParams {
     openapiFields.add("request_sha256");
     openapiFields.add("rows_sha256");
     openapiFields.add("rule_count");
+    openapiFields.add("sequence_uuid");
     openapiFields.add("slot");
+    openapiFields.add("step_uuid");
     openapiFields.add("upsell_kind");
     openapiFields.add("upsell_oid");
     openapiFields.add("version");
@@ -741,8 +801,14 @@ public class SfvbApprovalParams {
       if (jsonObj.get("rows_sha256") != null && !jsonObj.get("rows_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rows_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rows_sha256").toString()));
       }
+      if (jsonObj.get("sequence_uuid") != null && !jsonObj.get("sequence_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sequence_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sequence_uuid").toString()));
+      }
       if (jsonObj.get("slot") != null && !jsonObj.get("slot").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `slot` to be a primitive type in the JSON string but got `%s`", jsonObj.get("slot").toString()));
+      }
+      if (jsonObj.get("step_uuid") != null && !jsonObj.get("step_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `step_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("step_uuid").toString()));
       }
       if (jsonObj.get("upsell_kind") != null && !jsonObj.get("upsell_kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `upsell_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_kind").toString()));
