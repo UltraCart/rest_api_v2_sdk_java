@@ -57,6 +57,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getSfvbBlogPost**](SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post |
 | [**getSfvbCampaign**](SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign |
 | [**getSfvbCjsonUsedElements**](SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container |
+| [**getSfvbCommsSegment**](SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule |
 | [**getSfvbCommsSendingDomain**](SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain |
 | [**getSfvbCommsSendingDomains**](SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains |
 | [**getSfvbCommsTwilioAccount**](SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account |
@@ -117,6 +118,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**importSfvbRedirects**](SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import |
 | [**insertSfvbApproval**](SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval |
 | [**insertSfvbBlogPost**](SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post |
+| [**insertSfvbCommsSegment**](SfvbApi.md#insertSfvbCommsSegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment |
 | [**insertSfvbCommsSendingDomain**](SfvbApi.md#insertSfvbCommsSendingDomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain |
 | [**insertSfvbCommsTwilioAccount**](SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account |
 | [**insertSfvbPage**](SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page |
@@ -196,6 +198,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**unshareSfvbLibraryEntry**](SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account |
 | [**updateSfvbBlogPost**](SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post |
 | [**updateSfvbCampaign**](SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign |
+| [**updateSfvbCommsSegment**](SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder |
 | [**updateSfvbCommsSendingDomain**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain |
 | [**updateSfvbCommsTwilioAccount**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account |
 | [**updateSfvbEmail**](SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text |
@@ -2630,6 +2633,49 @@ Element types used by a container
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getSfvbCommsSegment"></a>
+# **getSfvbCommsSegment**
+> SfvbCommsSegmentResponse getSfvbCommsSegment(storefrontOid, segmentUuid)
+
+Read one segment, with its rule
+
+The segment&#39;s name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **segmentUuid** | **String**|  | |
+
+### Return type
+
+[**SfvbCommsSegmentResponse**](SfvbCommsSegmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getSfvbCommsSendingDomain"></a>
@@ -5247,6 +5293,50 @@ title and url_part are required.  The post is a draft unless visibility says oth
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 | **201** |  |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="insertSfvbCommsSegment"></a>
+# **insertSfvbCommsSegment**
+> SfvbCommsSegmentResponse insertSfvbCommsSegment(storefrontOid, segmentWriteRequest)
+
+Create a segment
+
+A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **segmentWriteRequest** | [**SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md)| The new segment&#39;s name, rule and folder | |
+
+### Return type
+
+[**SfvbCommsSegmentResponse**](SfvbCommsSegmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -8833,6 +8923,56 @@ A field left out keeps its value; memberships replaces the whole set.  The statu
 ### Return type
 
 [**SfvbCampaign**](SfvbCampaign.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateSfvbCommsSegment"></a>
+# **updateSfvbCommsSegment**
+> SfvbCommsSegmentResponse updateSfvbCommsSegment(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId)
+
+Change a segment&#39;s name, rule or folder
+
+A field left out stays as it is.  Send the segment&#39;s hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **segmentUuid** | **String**|  | |
+| **ifMatch** | **String**| The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+| **segmentWriteRequest** | [**SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md)| The fields to change | |
+| **approvalId** | **String**| When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. | [optional] |
+
+### Return type
+
+[**SfvbCommsSegmentResponse**](SfvbCommsSegmentResponse.md)
 
 ### Authorization
 

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
+import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
@@ -83,7 +84,9 @@ public class SfvbApprovalCreateRequest {
     
     SENDING_DOMAIN_DELETE("sending_domain.delete"),
     
-    SEQUENCE_STEP_DELETE("sequence_step.delete");
+    SEQUENCE_STEP_DELETE("sequence_step.delete"),
+    
+    SEGMENT_UPDATE("segment.update");
 
     private String value;
 
@@ -154,6 +157,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_REDIRECT_ROWS = "redirect_rows";
   @SerializedName(SERIALIZED_NAME_REDIRECT_ROWS)
   private List<SfvbRedirectDeleteRow> redirectRows = null;
+
+  public static final String SERIALIZED_NAME_SEGMENT_UPDATE = "segment_update";
+  @SerializedName(SERIALIZED_NAME_SEGMENT_UPDATE)
+  private SfvbCommsSegmentWriteRequest segmentUpdate;
 
   public SfvbApprovalCreateRequest() { 
   }
@@ -358,6 +365,29 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest segmentUpdate(SfvbCommsSegmentWriteRequest segmentUpdate) {
+    
+    this.segmentUpdate = segmentUpdate;
+    return this;
+  }
+
+   /**
+   * Get segmentUpdate
+   * @return segmentUpdate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCommsSegmentWriteRequest getSegmentUpdate() {
+    return segmentUpdate;
+  }
+
+
+  public void setSegmentUpdate(SfvbCommsSegmentWriteRequest segmentUpdate) {
+    this.segmentUpdate = segmentUpdate;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -375,12 +405,13 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
-        Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows);
+        Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows) &&
+        Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows);
+    return Objects.hash(action, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate);
   }
 
   @Override
@@ -395,6 +426,7 @@ public class SfvbApprovalCreateRequest {
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
+    sb.append("    segmentUpdate: ").append(toIndentedString(segmentUpdate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -425,6 +457,7 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("params");
     openapiFields.add("reason");
     openapiFields.add("redirect_rows");
+    openapiFields.add("segment_update");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -496,6 +529,10 @@ public class SfvbApprovalCreateRequest {
         for (int i = 0; i < jsonArrayredirectRows.size(); i++) {
           SfvbRedirectDeleteRow.validateJsonObject(jsonArrayredirectRows.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `segment_update`
+      if (jsonObj.getAsJsonObject("segment_update") != null) {
+        SfvbCommsSegmentWriteRequest.validateJsonObject(jsonObj.getAsJsonObject("segment_update"));
       }
   }
 

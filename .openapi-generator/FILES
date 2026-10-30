@@ -1012,6 +1012,10 @@ docs/SfvbCommsList.md
 docs/SfvbCommsListsResponse.md
 docs/SfvbCommsPostcard.md
 docs/SfvbCommsSegment.md
+docs/SfvbCommsSegmentDetail.md
+docs/SfvbCommsSegmentResponse.md
+docs/SfvbCommsSegmentUsedBy.md
+docs/SfvbCommsSegmentWriteRequest.md
 docs/SfvbCommsSegmentsResponse.md
 docs/SfvbCommsSendingDomain.md
 docs/SfvbCommsSendingDomainsResponse.md
@@ -2369,6 +2373,10 @@ src/main/java/com/ultracart/admin/v2/models/SfvbCommsList.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsListsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsPostcard.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegment.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentDetail.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentUsedBy.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSegmentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomain.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsSendingDomainsResponse.java

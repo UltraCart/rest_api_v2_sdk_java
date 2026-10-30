@@ -16524,6 +16524,300 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    post:
+      description: "A new segment with the name, rule and folder given.  The rule\
+        \ needs at least one group, each with at least one function of a rule type\
+        \ the segment rebuild knows, and any list or segment it names must be on this\
+        \ storefront.  The segment starts empty and rebuilds in the background; member_count\
+        \ is out of date until rebuild_required is false.\n"
+      operationId: insertSfvbCommsSegment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsSegmentWriteRequest'
+        description: "The new segment's name, rule and folder"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSegmentResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a segment
+      tags:
+      - sfvb
+      x-codegen-request-body-name: segment_write_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}:
+    get:
+      description: "The segment's name, folder, rule, member count at its last rebuild,\
+        \ whether a rebuild is still due, and the campaigns and flows that use it,\
+        \ each with whether it is live.  hash_sha256 is the If-Match for an update.\
+        \  Never its members, its Facebook audience, its ranking or its third party\
+        \ sync settings.\n"
+      operationId: getSfvbCommsSegment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: segment_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSegmentResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "Read one segment, with its rule"
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A field left out stays as it is.  Send the segment's hash_sha256\
+        \ as If-Match; the change applies only while the name, rule and folder are\
+        \ still what was read.  A changed rule is checked as on a create and starts\
+        \ a rebuild.  Changing the rule of a segment a live campaign or flow uses\
+        \ needs sfvb_publish and an approved segment.update approval (Approval-Id);\
+        \ a name or folder change, or a segment nothing live uses, needs neither.\n"
+      operationId: updateSfvbCommsSegment
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: segment_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The segment's hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "When the rule changes and a live campaign or flow uses the segment,\
+          \ the approval_id of an approved segment.update request for this change.\
+          \  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsSegmentWriteRequest'
+        description: The fields to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSegmentResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: "Change a segment's name, rule or folder"
+      tags:
+      - sfvb
+      x-codegen-request-body-name: segment_write_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}:
     get:
       description: "The communication sequence named by a campaign's or flow's communication_sequence_uuid,\
@@ -250823,6 +251117,7 @@ components:
           experiment_oid: 5
           domain: domain
           rows_sha256: rows_sha256
+          segment_uuid: segment_uuid
           winner_variation_number: 4
           merchant_item_oid: 7
           rule_count: 9
@@ -250968,6 +251263,10 @@ components:
           redirect_id: 3
         - hash_sha256: hash_sha256
           redirect_id: 3
+        segment_update:
+          filter_profile_equation_json: filter_profile_equation_json
+          folder_uuid: folder_uuid
+          name: name
         item_attribute_rows:
         - merchant_item_id: merchant_item_id
           name: name
@@ -251035,6 +251334,7 @@ components:
           experiment_oid: 5
           domain: domain
           rows_sha256: rows_sha256
+          segment_uuid: segment_uuid
           winner_variation_number: 4
           merchant_item_oid: 7
           rule_count: 9
@@ -251056,6 +251356,7 @@ components:
           - twilio_account.delete
           - sending_domain.delete
           - sequence_step.delete
+          - segment.update
           type: string
         content:
           description: "For a file.put_script write, the exact script to be written,\
@@ -251087,6 +251388,8 @@ components:
           items:
             $ref: '#/components/schemas/SfvbRedirectDeleteRow'
           type: array
+        segment_update:
+          $ref: '#/components/schemas/SfvbCommsSegmentWriteRequest'
       type: object
     SfvbApprovalParams:
       example:
@@ -251108,6 +251411,7 @@ components:
         experiment_oid: 5
         domain: domain
         rows_sha256: rows_sha256
+        segment_uuid: segment_uuid
         winner_variation_number: 4
         merchant_item_oid: 7
         rule_count: 9
@@ -251168,6 +251472,9 @@ components:
             \ delete when it was requested.  Set by the server."
           format: int32
           type: integer
+        segment_uuid:
+          description: "The segment whose rule changes, for segment.update."
+          type: string
         sequence_uuid:
           description: "The communication sequence, for sequence_step.delete."
           type: string
@@ -251339,6 +251646,7 @@ components:
             experiment_oid: 5
             domain: domain
             rows_sha256: rows_sha256
+            segment_uuid: segment_uuid
             winner_variation_number: 4
             merchant_item_oid: 7
             rule_count: 9
@@ -251407,6 +251715,7 @@ components:
             experiment_oid: 5
             domain: domain
             rows_sha256: rows_sha256
+            segment_uuid: segment_uuid
             winner_variation_number: 4
             merchant_item_oid: 7
             rule_count: 9
@@ -252401,6 +252710,105 @@ components:
           description: The segment uuid.
           type: string
       type: object
+    SfvbCommsSegmentDetail:
+      example:
+        hash_sha256: hash_sha256
+        filter_profile_equation_json: filter_profile_equation_json
+        folder_uuid: folder_uuid
+        rebuild_percentage: 6.027456183070403
+        name: name
+        rebuild_nightly: true
+        segment_uuid: segment_uuid
+        member_count: 0
+        created_dts: created_dts
+        used_by:
+        - name: name
+          type: campaign
+          uuid: uuid
+          live: true
+        - name: name
+          type: campaign
+          uuid: uuid
+          live: true
+        rebuild_required: true
+      properties:
+        created_dts:
+          description: "When it was created (ISO 8601, UTC)."
+          format: dateTime
+          type: string
+        filter_profile_equation_json:
+          description: "The rule, as JSON text in the admin editor's shape.  Every\
+            \ entry in groups must hold, and inside a group one function is enough."
+          type: string
+        folder_uuid:
+          description: "The list and segment folder it is filed in, or absent."
+          type: string
+        hash_sha256:
+          description: "Send as If-Match on an update.  Covers the name, the rule\
+            \ and the folder."
+          type: string
+        member_count:
+          description: How many customers it held at its last rebuild.  Out of date
+            while rebuild_required is true.
+          format: int32
+          type: integer
+        name:
+          description: The segment name.
+          type: string
+        rebuild_nightly:
+          description: "True when the rule has a date range, so the segment is also\
+            \ rebuilt every night."
+          type: boolean
+        rebuild_percentage:
+          description: "How far the current rebuild has got, when one is running."
+          type: number
+        rebuild_required:
+          description: True when the rule changed and the segment has not finished
+            rebuilding.
+          type: boolean
+        segment_uuid:
+          description: The segment uuid.
+          type: string
+        used_by:
+          description: The campaigns that send to it and the flows it starts.
+          items:
+            $ref: '#/components/schemas/SfvbCommsSegmentUsedBy'
+          type: array
+      type: object
+    SfvbCommsSegmentResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        segment:
+          hash_sha256: hash_sha256
+          filter_profile_equation_json: filter_profile_equation_json
+          folder_uuid: folder_uuid
+          rebuild_percentage: 6.027456183070403
+          name: name
+          rebuild_nightly: true
+          segment_uuid: segment_uuid
+          member_count: 0
+          created_dts: created_dts
+          used_by:
+          - name: name
+            type: campaign
+            uuid: uuid
+            live: true
+          - name: name
+            type: campaign
+            uuid: uuid
+            live: true
+          rebuild_required: true
+      properties:
+        notes:
+          description: "What happens next, such as the rebuild a changed rule starts."
+          items:
+            type: string
+          type: array
+        segment:
+          $ref: '#/components/schemas/SfvbCommsSegmentDetail'
+      type: object
     SfvbCommsSegmentsResponse:
       example:
         segments:
@@ -252420,6 +252828,49 @@ components:
           items:
             $ref: '#/components/schemas/SfvbCommsSegment'
           type: array
+      type: object
+    SfvbCommsSegmentUsedBy:
+      example:
+        name: name
+        type: campaign
+        uuid: uuid
+        live: true
+      properties:
+        live:
+          description: "True when the campaign or flow reaches customers now, so a\
+            \ change to the rule changes who gets its mail."
+          type: boolean
+        name:
+          description: The campaign or flow name.
+          type: string
+        type:
+          description: campaign or flow.
+          enum:
+          - campaign
+          - flow
+          type: string
+        uuid:
+          description: The campaign or flow uuid.
+          type: string
+      type: object
+    SfvbCommsSegmentWriteRequest:
+      example:
+        filter_profile_equation_json: filter_profile_equation_json
+        folder_uuid: folder_uuid
+        name: name
+      properties:
+        filter_profile_equation_json:
+          description: "The rule, as JSON text in the admin editor's shape.  Required\
+            \ on a create.  At least one group, each with at least one function, each\
+            \ of a rule type the segment rebuild knows."
+          type: string
+        folder_uuid:
+          description: A list and segment folder on this storefront.  An empty string
+            takes the segment out of its folder.
+          type: string
+        name:
+          description: The segment name.  Required on a create.
+          type: string
       type: object
     SfvbCommsSendingDomain:
       example:

@@ -99,6 +99,10 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_RULE_COUNT)
   private Integer ruleCount;
 
+  public static final String SERIALIZED_NAME_SEGMENT_UUID = "segment_uuid";
+  @SerializedName(SERIALIZED_NAME_SEGMENT_UUID)
+  private String segmentUuid;
+
   public static final String SERIALIZED_NAME_SEQUENCE_UUID = "sequence_uuid";
   @SerializedName(SERIALIZED_NAME_SEQUENCE_UUID)
   private String sequenceUuid;
@@ -465,6 +469,29 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams segmentUuid(String segmentUuid) {
+    
+    this.segmentUuid = segmentUuid;
+    return this;
+  }
+
+   /**
+   * The segment whose rule changes, for segment.update.
+   * @return segmentUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The segment whose rule changes, for segment.update.")
+
+  public String getSegmentUuid() {
+    return segmentUuid;
+  }
+
+
+  public void setSegmentUuid(String segmentUuid) {
+    this.segmentUuid = segmentUuid;
+  }
+
+
   public SfvbApprovalParams sequenceUuid(String sequenceUuid) {
     
     this.sequenceUuid = sequenceUuid;
@@ -671,6 +698,7 @@ public class SfvbApprovalParams {
         Objects.equals(this.requestSha256, sfvbApprovalParams.requestSha256) &&
         Objects.equals(this.rowsSha256, sfvbApprovalParams.rowsSha256) &&
         Objects.equals(this.ruleCount, sfvbApprovalParams.ruleCount) &&
+        Objects.equals(this.segmentUuid, sfvbApprovalParams.segmentUuid) &&
         Objects.equals(this.sequenceUuid, sfvbApprovalParams.sequenceUuid) &&
         Objects.equals(this.slot, sfvbApprovalParams.slot) &&
         Objects.equals(this.stepUuid, sfvbApprovalParams.stepUuid) &&
@@ -683,7 +711,7 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributeNames, blogPostOid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, sequenceUuid, slot, stepUuid, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(attributeNames, blogPostOid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, slot, stepUuid, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
@@ -702,6 +730,7 @@ public class SfvbApprovalParams {
     sb.append("    requestSha256: ").append(toIndentedString(requestSha256)).append("\n");
     sb.append("    rowsSha256: ").append(toIndentedString(rowsSha256)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
+    sb.append("    segmentUuid: ").append(toIndentedString(segmentUuid)).append("\n");
     sb.append("    sequenceUuid: ").append(toIndentedString(sequenceUuid)).append("\n");
     sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
     sb.append("    stepUuid: ").append(toIndentedString(stepUuid)).append("\n");
@@ -744,6 +773,7 @@ public class SfvbApprovalParams {
     openapiFields.add("request_sha256");
     openapiFields.add("rows_sha256");
     openapiFields.add("rule_count");
+    openapiFields.add("segment_uuid");
     openapiFields.add("sequence_uuid");
     openapiFields.add("slot");
     openapiFields.add("step_uuid");
@@ -800,6 +830,9 @@ public class SfvbApprovalParams {
       }
       if (jsonObj.get("rows_sha256") != null && !jsonObj.get("rows_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rows_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rows_sha256").toString()));
+      }
+      if (jsonObj.get("segment_uuid") != null && !jsonObj.get("segment_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `segment_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("segment_uuid").toString()));
       }
       if (jsonObj.get("sequence_uuid") != null && !jsonObj.get("sequence_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sequence_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sequence_uuid").toString()));

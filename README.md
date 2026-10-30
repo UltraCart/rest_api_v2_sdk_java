@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.217</version>
+    <version>4.1.218</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.217"
+     implementation "com.ultracart:rest-sdk:4.1.218"
   }
 ```
 
@@ -548,6 +548,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCampaign**](docs/SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCommsSegment**](docs/SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
 *SfvbApi* | [**getSfvbCommsSendingDomain**](docs/SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 *SfvbApi* | [**getSfvbCommsSendingDomains**](docs/SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
 *SfvbApi* | [**getSfvbCommsTwilioAccount**](docs/SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
@@ -608,6 +609,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**importSfvbRedirects**](docs/SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
 *SfvbApi* | [**insertSfvbApproval**](docs/SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+*SfvbApi* | [**insertSfvbCommsSegment**](docs/SfvbApi.md#insertSfvbCommsSegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment
 *SfvbApi* | [**insertSfvbCommsSendingDomain**](docs/SfvbApi.md#insertSfvbCommsSendingDomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
@@ -687,6 +689,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**unshareSfvbLibraryEntry**](docs/SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
 *SfvbApi* | [**updateSfvbBlogPost**](docs/SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbCampaign**](docs/SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign
+*SfvbApi* | [**updateSfvbCommsSegment**](docs/SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 *SfvbApi* | [**updateSfvbEmail**](docs/SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
@@ -1951,6 +1954,10 @@ Class | Method | HTTP request | Description
  - [SfvbCommsListsResponse](docs/SfvbCommsListsResponse.md)
  - [SfvbCommsPostcard](docs/SfvbCommsPostcard.md)
  - [SfvbCommsSegment](docs/SfvbCommsSegment.md)
+ - [SfvbCommsSegmentDetail](docs/SfvbCommsSegmentDetail.md)
+ - [SfvbCommsSegmentResponse](docs/SfvbCommsSegmentResponse.md)
+ - [SfvbCommsSegmentUsedBy](docs/SfvbCommsSegmentUsedBy.md)
+ - [SfvbCommsSegmentWriteRequest](docs/SfvbCommsSegmentWriteRequest.md)
  - [SfvbCommsSegmentsResponse](docs/SfvbCommsSegmentsResponse.md)
  - [SfvbCommsSendingDomain](docs/SfvbCommsSendingDomain.md)
  - [SfvbCommsSendingDomainsResponse](docs/SfvbCommsSendingDomainsResponse.md)
@@ -2361,6 +2368,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.218 | 10/30/2026 | svfb internal testing |
 | 4.1.217 | 10/29/2026 | sfvb internal testing |
 | 4.1.216 | 10/29/2026 | sfvb internal testing |
 | 4.1.215 | 10/28/2026 | sfvb internal testing |

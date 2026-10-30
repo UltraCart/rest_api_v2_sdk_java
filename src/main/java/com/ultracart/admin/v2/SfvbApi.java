@@ -40,6 +40,8 @@ import com.ultracart.admin.v2.models.SfvbCampaign;
 import com.ultracart.admin.v2.models.SfvbCampaignWriteRequest;
 import com.ultracart.admin.v2.models.SfvbCampaignsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsListsResponse;
+import com.ultracart.admin.v2.models.SfvbCommsSegmentResponse;
+import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
 import com.ultracart.admin.v2.models.SfvbCommsSegmentsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsSendingDomain;
 import com.ultracart.admin.v2.models.SfvbCommsSendingDomainsResponse;
@@ -9037,6 +9039,159 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbCjsonUsedElementsValidateBeforeCall(compileRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbElementsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbCommsSegment
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbCommsSegmentCall(Integer storefrontOid, String segmentUuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "segment_uuid" + "\\}", localVarApiClient.escapeString(segmentUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbCommsSegmentValidateBeforeCall(Integer storefrontOid, String segmentUuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbCommsSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentUuid' is set
+        if (segmentUuid == null) {
+            throw new ApiException("Missing the required parameter 'segmentUuid' when calling getSfvbCommsSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbCommsSegmentCall(storefrontOid, segmentUuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read one segment, with its rule
+     * The segment&#39;s name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @return SfvbCommsSegmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCommsSegmentResponse getSfvbCommsSegment(Integer storefrontOid, String segmentUuid) throws ApiException {
+        ApiResponse<SfvbCommsSegmentResponse> localVarResp = getSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentUuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read one segment, with its rule
+     * The segment&#39;s name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @return ApiResponse&lt;SfvbCommsSegmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCommsSegmentResponse> getSfvbCommsSegmentWithHttpInfo(Integer storefrontOid, String segmentUuid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentUuid, null);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read one segment, with its rule (asynchronously)
+     * The segment&#39;s name, folder, rule, member count at its last rebuild, whether a rebuild is still due, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for an update.  Never its members, its Facebook audience, its ranking or its third party sync settings. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbCommsSegmentAsync(Integer storefrontOid, String segmentUuid, final ApiCallback<SfvbCommsSegmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentUuid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18422,6 +18577,162 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = insertSfvbBlogPostValidateBeforeCall(storefrontOid, blogPostRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbBlogPostDetail>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbCommsSegment
+     * @param storefrontOid  (required)
+     * @param segmentWriteRequest The new segment&#39;s name, rule and folder (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbCommsSegmentCall(Integer storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = segmentWriteRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/segments"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbCommsSegmentValidateBeforeCall(Integer storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling insertSfvbCommsSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentWriteRequest' is set
+        if (segmentWriteRequest == null) {
+            throw new ApiException("Missing the required parameter 'segmentWriteRequest' when calling insertSfvbCommsSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertSfvbCommsSegmentCall(storefrontOid, segmentWriteRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create a segment
+     * A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+     * @param storefrontOid  (required)
+     * @param segmentWriteRequest The new segment&#39;s name, rule and folder (required)
+     * @return SfvbCommsSegmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCommsSegmentResponse insertSfvbCommsSegment(Integer storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest) throws ApiException {
+        ApiResponse<SfvbCommsSegmentResponse> localVarResp = insertSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentWriteRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a segment
+     * A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+     * @param storefrontOid  (required)
+     * @param segmentWriteRequest The new segment&#39;s name, rule and folder (required)
+     * @return ApiResponse&lt;SfvbCommsSegmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCommsSegmentResponse> insertSfvbCommsSegmentWithHttpInfo(Integer storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentWriteRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a segment (asynchronously)
+     * A new segment with the name, rule and folder given.  The rule needs at least one group, each with at least one function of a rule type the segment rebuild knows, and any list or segment it names must be on this storefront.  The segment starts empty and rebuilds in the background; member_count is out of date until rebuild_required is false. 
+     * @param storefrontOid  (required)
+     * @param segmentWriteRequest The new segment&#39;s name, rule and folder (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbCommsSegmentAsync(Integer storefrontOid, SfvbCommsSegmentWriteRequest segmentWriteRequest, final ApiCallback<SfvbCommsSegmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentWriteRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -31769,6 +32080,205 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = updateSfvbCampaignValidateBeforeCall(storefrontOid, campaignUuid, ifMatch, campaignWriteRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbCampaign>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSfvbCommsSegment
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param ifMatch The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param segmentWriteRequest The fields to change (required)
+     * @param approvalId When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbCommsSegmentCall(Integer storefrontOid, String segmentUuid, String ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = segmentWriteRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "segment_uuid" + "\\}", localVarApiClient.escapeString(segmentUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSfvbCommsSegmentValidateBeforeCall(Integer storefrontOid, String segmentUuid, String ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateSfvbCommsSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentUuid' is set
+        if (segmentUuid == null) {
+            throw new ApiException("Missing the required parameter 'segmentUuid' when calling updateSfvbCommsSegment(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling updateSfvbCommsSegment(Async)");
+        }
+        
+        // verify the required parameter 'segmentWriteRequest' is set
+        if (segmentWriteRequest == null) {
+            throw new ApiException("Missing the required parameter 'segmentWriteRequest' when calling updateSfvbCommsSegment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSfvbCommsSegmentCall(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Change a segment&#39;s name, rule or folder
+     * A field left out stays as it is.  Send the segment&#39;s hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param ifMatch The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param segmentWriteRequest The fields to change (required)
+     * @param approvalId When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)
+     * @return SfvbCommsSegmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCommsSegmentResponse updateSfvbCommsSegment(Integer storefrontOid, String segmentUuid, String ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbCommsSegmentResponse> localVarResp = updateSfvbCommsSegmentWithHttpInfo(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Change a segment&#39;s name, rule or folder
+     * A field left out stays as it is.  Send the segment&#39;s hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param ifMatch The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param segmentWriteRequest The fields to change (required)
+     * @param approvalId When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbCommsSegmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCommsSegmentResponse> updateSfvbCommsSegmentWithHttpInfo(Integer storefrontOid, String segmentUuid, String ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Change a segment&#39;s name, rule or folder (asynchronously)
+     * A field left out stays as it is.  Send the segment&#39;s hash_sha256 as If-Match; the change applies only while the name, rule and folder are still what was read.  A changed rule is checked as on a create and starts a rebuild.  Changing the rule of a segment a live campaign or flow uses needs sfvb_publish and an approved segment.update approval (Approval-Id); a name or folder change, or a segment nothing live uses, needs neither. 
+     * @param storefrontOid  (required)
+     * @param segmentUuid  (required)
+     * @param ifMatch The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param segmentWriteRequest The fields to change (required)
+     * @param approvalId When the rule changes and a live campaign or flow uses the segment, the approval_id of an approved segment.update request for this change.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbCommsSegmentAsync(Integer storefrontOid, String segmentUuid, String ifMatch, SfvbCommsSegmentWriteRequest segmentWriteRequest, String approvalId, final ApiCallback<SfvbCommsSegmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSfvbCommsSegmentValidateBeforeCall(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCommsSegmentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

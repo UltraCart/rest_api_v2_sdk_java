@@ -15,6 +15,7 @@
 |**params** | [**SfvbApprovalParams**](SfvbApprovalParams.md) |  |  [optional] |
 |**reason** | **String** | Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters. |  [optional] |
 |**redirectRows** | [**List&lt;SfvbRedirectDeleteRow&gt;**](SfvbRedirectDeleteRow.md) | For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash. |  [optional] |
+|**segmentUpdate** | [**SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md) |  |  [optional] |
 
 
 
@@ -34,6 +35,7 @@
 | TWILIO_ACCOUNT_DELETE | &quot;twilio_account.delete&quot; |
 | SENDING_DOMAIN_DELETE | &quot;sending_domain.delete&quot; |
 | SEQUENCE_STEP_DELETE | &quot;sequence_step.delete&quot; |
+| SEGMENT_UPDATE | &quot;segment.update&quot; |
 
 
 
