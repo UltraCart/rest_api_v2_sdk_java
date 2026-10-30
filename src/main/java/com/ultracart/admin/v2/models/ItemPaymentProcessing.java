@@ -63,6 +63,10 @@ public class ItemPaymentProcessing {
   @SerializedName(SERIALIZED_NAME_CREDIT_CARD_TRANSACTION_TYPE)
   private String creditCardTransactionType;
 
+  public static final String SERIALIZED_NAME_HSA_FSA_ELIGIBILITY = "hsa_fsa_eligibility";
+  @SerializedName(SERIALIZED_NAME_HSA_FSA_ELIGIBILITY)
+  private String hsaFsaEligibility;
+
   public static final String SERIALIZED_NAME_NO_REALTIME_CHARGE = "no_realtime_charge";
   @SerializedName(SERIALIZED_NAME_NO_REALTIME_CHARGE)
   private Boolean noRealtimeCharge;
@@ -144,6 +148,29 @@ public class ItemPaymentProcessing {
 
   public void setCreditCardTransactionType(String creditCardTransactionType) {
     this.creditCardTransactionType = creditCardTransactionType;
+  }
+
+
+  public ItemPaymentProcessing hsaFsaEligibility(String hsaFsaEligibility) {
+    
+    this.hsaFsaEligibility = hsaFsaEligibility;
+    return this;
+  }
+
+   /**
+   * HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field
+   * @return hsaFsaEligibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "HSA/FSA eligibility. eligible_with_lmn means the customer needs a Letter of Medical Necessity. Kept in sync automatically when Truemed is configured. Empty string clears it, null value will not update the field")
+
+  public String getHsaFsaEligibility() {
+    return hsaFsaEligibility;
+  }
+
+
+  public void setHsaFsaEligibility(String hsaFsaEligibility) {
+    this.hsaFsaEligibility = hsaFsaEligibility;
   }
 
 
@@ -245,6 +272,7 @@ public class ItemPaymentProcessing {
     return Objects.equals(this.blockPrepaid, itemPaymentProcessing.blockPrepaid) &&
         Objects.equals(this.blockRefunds, itemPaymentProcessing.blockRefunds) &&
         Objects.equals(this.creditCardTransactionType, itemPaymentProcessing.creditCardTransactionType) &&
+        Objects.equals(this.hsaFsaEligibility, itemPaymentProcessing.hsaFsaEligibility) &&
         Objects.equals(this.noRealtimeCharge, itemPaymentProcessing.noRealtimeCharge) &&
         Objects.equals(this.paymentMethodValidity, itemPaymentProcessing.paymentMethodValidity) &&
         Objects.equals(this.rotatingTransactionGatewayCodes, itemPaymentProcessing.rotatingTransactionGatewayCodes);
@@ -252,7 +280,7 @@ public class ItemPaymentProcessing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blockPrepaid, blockRefunds, creditCardTransactionType, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
+    return Objects.hash(blockPrepaid, blockRefunds, creditCardTransactionType, hsaFsaEligibility, noRealtimeCharge, paymentMethodValidity, rotatingTransactionGatewayCodes);
   }
 
   @Override
@@ -262,6 +290,7 @@ public class ItemPaymentProcessing {
     sb.append("    blockPrepaid: ").append(toIndentedString(blockPrepaid)).append("\n");
     sb.append("    blockRefunds: ").append(toIndentedString(blockRefunds)).append("\n");
     sb.append("    creditCardTransactionType: ").append(toIndentedString(creditCardTransactionType)).append("\n");
+    sb.append("    hsaFsaEligibility: ").append(toIndentedString(hsaFsaEligibility)).append("\n");
     sb.append("    noRealtimeCharge: ").append(toIndentedString(noRealtimeCharge)).append("\n");
     sb.append("    paymentMethodValidity: ").append(toIndentedString(paymentMethodValidity)).append("\n");
     sb.append("    rotatingTransactionGatewayCodes: ").append(toIndentedString(rotatingTransactionGatewayCodes)).append("\n");
@@ -290,6 +319,7 @@ public class ItemPaymentProcessing {
     openapiFields.add("block_prepaid");
     openapiFields.add("block_refunds");
     openapiFields.add("credit_card_transaction_type");
+    openapiFields.add("hsa_fsa_eligibility");
     openapiFields.add("no_realtime_charge");
     openapiFields.add("payment_method_validity");
     openapiFields.add("rotating_transaction_gateway_codes");
@@ -322,6 +352,9 @@ public class ItemPaymentProcessing {
       }
       if (jsonObj.get("credit_card_transaction_type") != null && !jsonObj.get("credit_card_transaction_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `credit_card_transaction_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credit_card_transaction_type").toString()));
+      }
+      if (jsonObj.get("hsa_fsa_eligibility") != null && !jsonObj.get("hsa_fsa_eligibility").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hsa_fsa_eligibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hsa_fsa_eligibility").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("payment_method_validity") != null && !jsonObj.get("payment_method_validity").isJsonArray()) {

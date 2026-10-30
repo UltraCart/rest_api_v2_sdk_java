@@ -213140,6 +213140,7 @@ components:
           - payment_method_validity
           block_prepaid: true
           credit_card_transaction_type: credit_card_transaction_type
+          hsa_fsa_eligibility: hsa_fsa_eligibility
           no_realtime_charge: true
           rotating_transaction_gateway_codes:
           - rotating_transaction_gateway_codes
@@ -217167,6 +217168,7 @@ components:
         - payment_method_validity
         block_prepaid: true
         credit_card_transaction_type: credit_card_transaction_type
+        hsa_fsa_eligibility: hsa_fsa_eligibility
         no_realtime_charge: true
         rotating_transaction_gateway_codes:
         - rotating_transaction_gateway_codes
@@ -217181,6 +217183,12 @@ components:
           type: boolean
         credit_card_transaction_type:
           description: Credit card transaction type
+          type: string
+        hsa_fsa_eligibility:
+          description: "HSA/FSA eligibility. eligible_with_lmn means the customer\
+            \ needs a Letter of Medical Necessity. Kept in sync automatically when\
+            \ Truemed is configured. Empty string clears it, null value will not update\
+            \ the field"
           type: string
         no_realtime_charge:
           description: True if no real-time charge should be performed on this item.
@@ -217552,6 +217560,7 @@ components:
             - payment_method_validity
             block_prepaid: true
             credit_card_transaction_type: credit_card_transaction_type
+            hsa_fsa_eligibility: hsa_fsa_eligibility
             no_realtime_charge: true
             rotating_transaction_gateway_codes:
             - rotating_transaction_gateway_codes
@@ -220051,6 +220060,7 @@ components:
             - payment_method_validity
             block_prepaid: true
             credit_card_transaction_type: credit_card_transaction_type
+            hsa_fsa_eligibility: hsa_fsa_eligibility
             no_realtime_charge: true
             rotating_transaction_gateway_codes:
             - rotating_transaction_gateway_codes
@@ -221349,6 +221359,7 @@ components:
             - payment_method_validity
             block_prepaid: true
             credit_card_transaction_type: credit_card_transaction_type
+            hsa_fsa_eligibility: hsa_fsa_eligibility
             no_realtime_charge: true
             rotating_transaction_gateway_codes:
             - rotating_transaction_gateway_codes
@@ -222677,6 +222688,7 @@ components:
             - payment_method_validity
             block_prepaid: true
             credit_card_transaction_type: credit_card_transaction_type
+            hsa_fsa_eligibility: hsa_fsa_eligibility
             no_realtime_charge: true
             rotating_transaction_gateway_codes:
             - rotating_transaction_gateway_codes
@@ -223975,6 +223987,7 @@ components:
             - payment_method_validity
             block_prepaid: true
             credit_card_transaction_type: credit_card_transaction_type
+            hsa_fsa_eligibility: hsa_fsa_eligibility
             no_realtime_charge: true
             rotating_transaction_gateway_codes:
             - rotating_transaction_gateway_codes
