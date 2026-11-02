@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.220</version>
+    <version>4.1.221</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.220"
+     implementation "com.ultracart:rest-sdk:4.1.221"
   }
 ```
 
@@ -642,6 +642,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbUpsellPaths**](docs/SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
 *SfvbApi* | [**moveSfvbSequenceStep**](docs/SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 *SfvbApi* | [**moveSfvbUpsellPath**](docs/SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
+*SfvbApi* | [**proofSfvbSequencePostcard**](docs/SfvbApi.md#proofSfvbSequencePostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it
 *SfvbApi* | [**publishSfvbLibraryEntry**](docs/SfvbApi.md#publishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/publish | Publish a library entry&#39;s draft
 *SfvbApi* | [**putSfvbContainer**](docs/SfvbApi.md#putSfvbContainer) | **PUT** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Write a container stored outside the file system
 *SfvbApi* | [**putSfvbExperimentVariation**](docs/SfvbApi.md#putSfvbExperimentVariation) | **PUT** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/variations/{variation_number} | Pause or resume a variation
@@ -2103,6 +2104,8 @@ Class | Method | HTTP request | Description
  - [SfvbPageSelectors](docs/SfvbPageSelectors.md)
  - [SfvbPageSettingsRequest](docs/SfvbPageSettingsRequest.md)
  - [SfvbPageSummary](docs/SfvbPageSummary.md)
+ - [SfvbPostcardProofRequest](docs/SfvbPostcardProofRequest.md)
+ - [SfvbPostcardProofResponse](docs/SfvbPostcardProofResponse.md)
  - [SfvbPreviewAccessRequest](docs/SfvbPreviewAccessRequest.md)
  - [SfvbPreviewAccessResponse](docs/SfvbPreviewAccessResponse.md)
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
@@ -2374,6 +2377,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.221 | 11/02/2026 | sfvb internal testing |
 | 4.1.220 | 11/02/2026 | sfvb internal testing |
 | 4.1.219 | 10/30/2026 | item - field for hsa/fsa eligibility |
 | 4.1.218 | 10/30/2026 | svfb internal testing |

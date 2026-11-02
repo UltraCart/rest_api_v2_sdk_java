@@ -1159,6 +1159,8 @@ docs/SfvbPageResponse.md
 docs/SfvbPageSelectors.md
 docs/SfvbPageSettingsRequest.md
 docs/SfvbPageSummary.md
+docs/SfvbPostcardProofRequest.md
+docs/SfvbPostcardProofResponse.md
 docs/SfvbPreviewAccessRequest.md
 docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
@@ -2524,6 +2526,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPageResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageSelectors.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageSettingsRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageSummary.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPostcardProofRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPostcardProofResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionRequest.java
