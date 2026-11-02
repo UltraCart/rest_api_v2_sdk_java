@@ -1006,6 +1006,8 @@ docs/SfvbCampaign.md
 docs/SfvbCampaignMembership.md
 docs/SfvbCampaignWriteRequest.md
 docs/SfvbCampaignsResponse.md
+docs/SfvbCodeLibraryEmail.md
+docs/SfvbCodeLibraryEmailsResponse.md
 docs/SfvbCommsDnsRecord.md
 docs/SfvbCommsEmail.md
 docs/SfvbCommsList.md
@@ -1201,6 +1203,8 @@ docs/SfvbSequenceStep.md
 docs/SfvbSequenceStepCreateRequest.md
 docs/SfvbSequenceStepCreateResponse.md
 docs/SfvbSequenceStepDeleteResponse.md
+docs/SfvbSequenceStepMoveRequest.md
+docs/SfvbSequenceStepMoveResponse.md
 docs/SfvbSequenceStepUpdateRequest.md
 docs/SfvbSequenceStepUpdateResponse.md
 docs/SfvbServerLog.md
@@ -2367,6 +2371,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbCampaign.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignMembership.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignsResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCodeLibraryEmail.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCodeLibraryEmailsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsDnsRecord.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsEmail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCommsList.java
@@ -2562,6 +2568,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStep.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepCreateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepCreateResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepDeleteResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepMoveRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepMoveResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSequenceStepUpdateResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbServerLog.java

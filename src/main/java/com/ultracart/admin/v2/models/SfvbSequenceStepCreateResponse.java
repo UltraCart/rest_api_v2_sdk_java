@@ -52,13 +52,41 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbSequenceStepCreateResponse {
+  public static final String SERIALIZED_NAME_BACK_CONTAINER_UUID = "back_container_uuid";
+  @SerializedName(SERIALIZED_NAME_BACK_CONTAINER_UUID)
+  private String backContainerUuid;
+
   public static final String SERIALIZED_NAME_EMAIL_UUID = "email_uuid";
   @SerializedName(SERIALIZED_NAME_EMAIL_UUID)
   private String emailUuid;
 
+  public static final String SERIALIZED_NAME_FRONT_CONTAINER_UUID = "front_container_uuid";
+  @SerializedName(SERIALIZED_NAME_FRONT_CONTAINER_UUID)
+  private String frontContainerUuid;
+
+  public static final String SERIALIZED_NAME_LIBRARY_FILES_KEPT = "library_files_kept";
+  @SerializedName(SERIALIZED_NAME_LIBRARY_FILES_KEPT)
+  private List<String> libraryFilesKept = null;
+
+  public static final String SERIALIZED_NAME_LIBRARY_FILES_SKIPPED = "library_files_skipped";
+  @SerializedName(SERIALIZED_NAME_LIBRARY_FILES_SKIPPED)
+  private List<String> libraryFilesSkipped = null;
+
+  public static final String SERIALIZED_NAME_LIBRARY_FILES_WRITTEN = "library_files_written";
+  @SerializedName(SERIALIZED_NAME_LIBRARY_FILES_WRITTEN)
+  private List<String> libraryFilesWritten = null;
+
+  public static final String SERIALIZED_NAME_LIBRARY_ITEM_OID = "library_item_oid";
+  @SerializedName(SERIALIZED_NAME_LIBRARY_ITEM_OID)
+  private Integer libraryItemOid;
+
   public static final String SERIALIZED_NAME_NOTES = "notes";
   @SerializedName(SERIALIZED_NAME_NOTES)
   private List<String> notes = null;
+
+  public static final String SERIALIZED_NAME_POSTCARD_UUID = "postcard_uuid";
+  @SerializedName(SERIALIZED_NAME_POSTCARD_UUID)
+  private String postcardUuid;
 
   public static final String SERIALIZED_NAME_REQUIRES_REVIEW = "requires_review";
   @SerializedName(SERIALIZED_NAME_REQUIRES_REVIEW)
@@ -70,6 +98,29 @@ public class SfvbSequenceStepCreateResponse {
 
   public SfvbSequenceStepCreateResponse() { 
   }
+
+  public SfvbSequenceStepCreateResponse backContainerUuid(String backContainerUuid) {
+    
+    this.backContainerUuid = backContainerUuid;
+    return this;
+  }
+
+   /**
+   * A post_card step&#39;s back, the container with owner type postcardback and this owner id.
+   * @return backContainerUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A post_card step's back, the container with owner type postcardback and this owner id.")
+
+  public String getBackContainerUuid() {
+    return backContainerUuid;
+  }
+
+
+  public void setBackContainerUuid(String backContainerUuid) {
+    this.backContainerUuid = backContainerUuid;
+  }
+
 
   public SfvbSequenceStepCreateResponse emailUuid(String emailUuid) {
     
@@ -91,6 +142,145 @@ public class SfvbSequenceStepCreateResponse {
 
   public void setEmailUuid(String emailUuid) {
     this.emailUuid = emailUuid;
+  }
+
+
+  public SfvbSequenceStepCreateResponse frontContainerUuid(String frontContainerUuid) {
+    
+    this.frontContainerUuid = frontContainerUuid;
+    return this;
+  }
+
+   /**
+   * A post_card step&#39;s front, the container with owner type postcardfront and this owner id.
+   * @return frontContainerUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A post_card step's front, the container with owner type postcardfront and this owner id.")
+
+  public String getFrontContainerUuid() {
+    return frontContainerUuid;
+  }
+
+
+  public void setFrontContainerUuid(String frontContainerUuid) {
+    this.frontContainerUuid = frontContainerUuid;
+  }
+
+
+  public SfvbSequenceStepCreateResponse libraryFilesKept(List<String> libraryFilesKept) {
+    
+    this.libraryFilesKept = libraryFilesKept;
+    return this;
+  }
+
+  public SfvbSequenceStepCreateResponse addLibraryFilesKeptItem(String libraryFilesKeptItem) {
+    if (this.libraryFilesKept == null) {
+      this.libraryFilesKept = new ArrayList<>();
+    }
+    this.libraryFilesKept.add(libraryFilesKeptItem);
+    return this;
+  }
+
+   /**
+   * The library item&#39;s files whose path already held a file, which was kept, not replaced.
+   * @return libraryFilesKept
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The library item's files whose path already held a file, which was kept, not replaced.")
+
+  public List<String> getLibraryFilesKept() {
+    return libraryFilesKept;
+  }
+
+
+  public void setLibraryFilesKept(List<String> libraryFilesKept) {
+    this.libraryFilesKept = libraryFilesKept;
+  }
+
+
+  public SfvbSequenceStepCreateResponse libraryFilesSkipped(List<String> libraryFilesSkipped) {
+    
+    this.libraryFilesSkipped = libraryFilesSkipped;
+    return this;
+  }
+
+  public SfvbSequenceStepCreateResponse addLibraryFilesSkippedItem(String libraryFilesSkippedItem) {
+    if (this.libraryFilesSkipped == null) {
+      this.libraryFilesSkipped = new ArrayList<>();
+    }
+    this.libraryFilesSkipped.add(libraryFilesSkippedItem);
+    return this;
+  }
+
+   /**
+   * The library item&#39;s files that weren&#39;t written because they aren&#39;t a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.
+   * @return libraryFilesSkipped
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The library item's files that weren't written because they aren't a PNG, JPEG or GIF image whose bytes match its name.  Only those images are copied from a library item.")
+
+  public List<String> getLibraryFilesSkipped() {
+    return libraryFilesSkipped;
+  }
+
+
+  public void setLibraryFilesSkipped(List<String> libraryFilesSkipped) {
+    this.libraryFilesSkipped = libraryFilesSkipped;
+  }
+
+
+  public SfvbSequenceStepCreateResponse libraryFilesWritten(List<String> libraryFilesWritten) {
+    
+    this.libraryFilesWritten = libraryFilesWritten;
+    return this;
+  }
+
+  public SfvbSequenceStepCreateResponse addLibraryFilesWrittenItem(String libraryFilesWrittenItem) {
+    if (this.libraryFilesWritten == null) {
+      this.libraryFilesWritten = new ArrayList<>();
+    }
+    this.libraryFilesWritten.add(libraryFilesWrittenItem);
+    return this;
+  }
+
+   /**
+   * Storefront file paths the library item&#39;s files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.
+   * @return libraryFilesWritten
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Storefront file paths the library item's files were written to.  A file already at its path is kept as it is and listed in library_files_kept instead.")
+
+  public List<String> getLibraryFilesWritten() {
+    return libraryFilesWritten;
+  }
+
+
+  public void setLibraryFilesWritten(List<String> libraryFilesWritten) {
+    this.libraryFilesWritten = libraryFilesWritten;
+  }
+
+
+  public SfvbSequenceStepCreateResponse libraryItemOid(Integer libraryItemOid) {
+    
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * The code library email item the new email started from (#1589), when one was given.
+   * @return libraryItemOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The code library email item the new email started from (#1589), when one was given.")
+
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
   }
 
 
@@ -122,6 +312,29 @@ public class SfvbSequenceStepCreateResponse {
 
   public void setNotes(List<String> notes) {
     this.notes = notes;
+  }
+
+
+  public SfvbSequenceStepCreateResponse postcardUuid(String postcardUuid) {
+    
+    this.postcardUuid = postcardUuid;
+    return this;
+  }
+
+   /**
+   * A post_card step&#39;s new postcard (#1644).
+   * @return postcardUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A post_card step's new postcard (#1644).")
+
+  public String getPostcardUuid() {
+    return postcardUuid;
+  }
+
+
+  public void setPostcardUuid(String postcardUuid) {
+    this.postcardUuid = postcardUuid;
   }
 
 
@@ -181,23 +394,37 @@ public class SfvbSequenceStepCreateResponse {
       return false;
     }
     SfvbSequenceStepCreateResponse sfvbSequenceStepCreateResponse = (SfvbSequenceStepCreateResponse) o;
-    return Objects.equals(this.emailUuid, sfvbSequenceStepCreateResponse.emailUuid) &&
+    return Objects.equals(this.backContainerUuid, sfvbSequenceStepCreateResponse.backContainerUuid) &&
+        Objects.equals(this.emailUuid, sfvbSequenceStepCreateResponse.emailUuid) &&
+        Objects.equals(this.frontContainerUuid, sfvbSequenceStepCreateResponse.frontContainerUuid) &&
+        Objects.equals(this.libraryFilesKept, sfvbSequenceStepCreateResponse.libraryFilesKept) &&
+        Objects.equals(this.libraryFilesSkipped, sfvbSequenceStepCreateResponse.libraryFilesSkipped) &&
+        Objects.equals(this.libraryFilesWritten, sfvbSequenceStepCreateResponse.libraryFilesWritten) &&
+        Objects.equals(this.libraryItemOid, sfvbSequenceStepCreateResponse.libraryItemOid) &&
         Objects.equals(this.notes, sfvbSequenceStepCreateResponse.notes) &&
+        Objects.equals(this.postcardUuid, sfvbSequenceStepCreateResponse.postcardUuid) &&
         Objects.equals(this.requiresReview, sfvbSequenceStepCreateResponse.requiresReview) &&
         Objects.equals(this.step, sfvbSequenceStepCreateResponse.step);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailUuid, notes, requiresReview, step);
+    return Objects.hash(backContainerUuid, emailUuid, frontContainerUuid, libraryFilesKept, libraryFilesSkipped, libraryFilesWritten, libraryItemOid, notes, postcardUuid, requiresReview, step);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbSequenceStepCreateResponse {\n");
+    sb.append("    backContainerUuid: ").append(toIndentedString(backContainerUuid)).append("\n");
     sb.append("    emailUuid: ").append(toIndentedString(emailUuid)).append("\n");
+    sb.append("    frontContainerUuid: ").append(toIndentedString(frontContainerUuid)).append("\n");
+    sb.append("    libraryFilesKept: ").append(toIndentedString(libraryFilesKept)).append("\n");
+    sb.append("    libraryFilesSkipped: ").append(toIndentedString(libraryFilesSkipped)).append("\n");
+    sb.append("    libraryFilesWritten: ").append(toIndentedString(libraryFilesWritten)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    postcardUuid: ").append(toIndentedString(postcardUuid)).append("\n");
     sb.append("    requiresReview: ").append(toIndentedString(requiresReview)).append("\n");
     sb.append("    step: ").append(toIndentedString(step)).append("\n");
     sb.append("}");
@@ -222,8 +449,15 @@ public class SfvbSequenceStepCreateResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("back_container_uuid");
     openapiFields.add("email_uuid");
+    openapiFields.add("front_container_uuid");
+    openapiFields.add("library_files_kept");
+    openapiFields.add("library_files_skipped");
+    openapiFields.add("library_files_written");
+    openapiFields.add("library_item_oid");
     openapiFields.add("notes");
+    openapiFields.add("postcard_uuid");
     openapiFields.add("requires_review");
     openapiFields.add("step");
 
@@ -253,12 +487,33 @@ public class SfvbSequenceStepCreateResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbSequenceStepCreateResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
+      if (jsonObj.get("back_container_uuid") != null && !jsonObj.get("back_container_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `back_container_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("back_container_uuid").toString()));
+      }
       if (jsonObj.get("email_uuid") != null && !jsonObj.get("email_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_uuid").toString()));
+      }
+      if (jsonObj.get("front_container_uuid") != null && !jsonObj.get("front_container_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `front_container_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("front_container_uuid").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("library_files_kept") != null && !jsonObj.get("library_files_kept").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `library_files_kept` to be an array in the JSON string but got `%s`", jsonObj.get("library_files_kept").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("library_files_skipped") != null && !jsonObj.get("library_files_skipped").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `library_files_skipped` to be an array in the JSON string but got `%s`", jsonObj.get("library_files_skipped").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("library_files_written") != null && !jsonObj.get("library_files_written").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `library_files_written` to be an array in the JSON string but got `%s`", jsonObj.get("library_files_written").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+      }
+      if (jsonObj.get("postcard_uuid") != null && !jsonObj.get("postcard_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postcard_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postcard_uuid").toString()));
       }
       // validate the optional field `step`
       if (jsonObj.getAsJsonObject("step") != null) {

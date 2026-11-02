@@ -39,6 +39,7 @@ import com.ultracart.admin.v2.models.SfvbBlogPostsResponse;
 import com.ultracart.admin.v2.models.SfvbCampaign;
 import com.ultracart.admin.v2.models.SfvbCampaignWriteRequest;
 import com.ultracart.admin.v2.models.SfvbCampaignsResponse;
+import com.ultracart.admin.v2.models.SfvbCodeLibraryEmailsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsListsResponse;
 import com.ultracart.admin.v2.models.SfvbCommsSegmentResponse;
 import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
@@ -171,6 +172,8 @@ import com.ultracart.admin.v2.models.SfvbSequence;
 import com.ultracart.admin.v2.models.SfvbSequenceStepCreateRequest;
 import com.ultracart.admin.v2.models.SfvbSequenceStepCreateResponse;
 import com.ultracart.admin.v2.models.SfvbSequenceStepDeleteResponse;
+import com.ultracart.admin.v2.models.SfvbSequenceStepMoveRequest;
+import com.ultracart.admin.v2.models.SfvbSequenceStepMoveResponse;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbSequenceStepUpdateResponse;
 import com.ultracart.admin.v2.models.SfvbServerLogDetail;
@@ -19523,7 +19526,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -19621,12 +19624,12 @@ public class SfvbApi {
     }
 
     /**
-     * Add an email step, with its new email
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin&#39;s default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin&#39;s editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      * @return SfvbSequenceStepCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19648,12 +19651,12 @@ public class SfvbApi {
     }
 
     /**
-     * Add an email step, with its new email
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+     * type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin&#39;s default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin&#39;s editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      * @return ApiResponse&lt;SfvbSequenceStepCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -19676,12 +19679,12 @@ public class SfvbApi {
     }
 
     /**
-     * Add an email step, with its new email (asynchronously)
-     * Creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  It goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the email, as the admin&#39;s editor adds them.  The email has no body yet, and gets the content review flags the admin gives a new email here.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Add an email step, with its new email, a wait step, or a postcard step, with its new postcard (asynchronously)
+     * type email (the default) creates a new email with the subject and preview text and adds the email step that sends it, together, so a failure leaves neither.  The email has no body yet, and gets the content review flags the admin gives a new email here.  With library_item_oid the email starts from a code library email item instead (listSfvbCodeLibraryEmails): its body with new element ids, and its subject and preview text where the request gives none.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free; it must pass the library content scanner and the email container rules, and executable elements need acknowledge_executable true.  Its PNG, JPEG and GIF image files are copied into the storefront first, never over an existing file; any other file is skipped and listed.  type wait adds a wait step with config_json as its settings: delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until option; a wait that would pass customers on at once is refused.  type post_card creates a new postcard with the admin&#39;s default front and back and adds the postcard step that mails it, together; the step starts disabled, so nothing is printed or mailed until it is turned on with set-config, and the response names the front and back containers.  Any goes right after after_step_uuid, or first on one side of a condition, split or inboxgeek step (branch_step_uuid with side).  Send that step&#39;s hash_sha256 as If-Match.  A sequence with no steps yet takes neither place and If-Match *, and gets begin and end steps around the new step, as the admin&#39;s editor adds them.  A sequence whose campaign or flow is live needs sfvb_publish. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param ifMatch The hash_sha256 of the step it goes after, or of the branching step, or * for the first step of a sequence with no steps.  Required; 428 when absent, 412 when stale. (required)
-     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text (required)
+     * @param sequenceStepCreateRequest Where the step goes, and the new email&#39;s subject and preview text or code library item, the wait&#39;s config_json, or the postcard step&#39;s name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20529,6 +20532,157 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = listSfvbCampaignsValidateBeforeCall(storefrontOid, search, page, pageSize, includeDeleted, _callback);
         Type localVarReturnType = new TypeToken<SfvbCampaignsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSfvbCodeLibraryEmails
+     * @param storefrontOid  (required)
+     * @param search Part of the title to match, with case.  Up to 100 characters. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbCodeLibraryEmailsCall(Integer storefrontOid, String search, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/code_library/emails"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSfvbCodeLibraryEmailsValidateBeforeCall(Integer storefrontOid, String search, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling listSfvbCodeLibraryEmails(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSfvbCodeLibraryEmailsCall(storefrontOid, search, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Email items from the code library that can start a new email step
+     * The code library is the one the admin&#39;s \&quot;start from library\&quot; uses; it isn&#39;t the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item&#39;s library_item_oid on the step insert to start a new email from it. 
+     * @param storefrontOid  (required)
+     * @param search Part of the title to match, with case.  Up to 100 characters. (optional)
+     * @return SfvbCodeLibraryEmailsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbCodeLibraryEmailsResponse listSfvbCodeLibraryEmails(Integer storefrontOid, String search) throws ApiException {
+        ApiResponse<SfvbCodeLibraryEmailsResponse> localVarResp = listSfvbCodeLibraryEmailsWithHttpInfo(storefrontOid, search);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Email items from the code library that can start a new email step
+     * The code library is the one the admin&#39;s \&quot;start from library\&quot; uses; it isn&#39;t the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item&#39;s library_item_oid on the step insert to start a new email from it. 
+     * @param storefrontOid  (required)
+     * @param search Part of the title to match, with case.  Up to 100 characters. (optional)
+     * @return ApiResponse&lt;SfvbCodeLibraryEmailsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbCodeLibraryEmailsResponse> listSfvbCodeLibraryEmailsWithHttpInfo(Integer storefrontOid, String search) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbCodeLibraryEmailsValidateBeforeCall(storefrontOid, search, null);
+        Type localVarReturnType = new TypeToken<SfvbCodeLibraryEmailsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Email items from the code library that can start a new email step (asynchronously)
+     * The code library is the one the admin&#39;s \&quot;start from library\&quot; uses; it isn&#39;t the Visual Builder element library.  Lists the email items this account may use, by title: its own (source owned), those shared with it (shared), and those published for everyone, approved by UltraCart and free (public).  search matches part of the title, with case.  Each kind is capped at 100 items, and truncated says when there were more.  Send an item&#39;s library_item_oid on the step insert to start a new email from it. 
+     * @param storefrontOid  (required)
+     * @param search Part of the title to match, with case.  Up to 100 characters. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSfvbCodeLibraryEmailsAsync(Integer storefrontOid, String search, final ApiCallback<SfvbCodeLibraryEmailsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSfvbCodeLibraryEmailsValidateBeforeCall(storefrontOid, search, _callback);
+        Type localVarReturnType = new TypeToken<SfvbCodeLibraryEmailsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -23435,6 +23589,215 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = listSfvbUpsellPathsValidateBeforeCall(storefrontOid, status, location, search, stats, statsStart, statsEnd, statsWeekdays, maxResults, offset, _callback);
         Type localVarReturnType = new TypeToken<SfvbUpsellPathsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for moveSfvbSequenceStep
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepMoveRequest Where the step moves, and the hash of the step it goes next to (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call moveSfvbSequenceStepCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = sequenceStepMoveRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "sequence_uuid" + "\\}", localVarApiClient.escapeString(sequenceUuid.toString()))
+            .replaceAll("\\{" + "step_uuid" + "\\}", localVarApiClient.escapeString(stepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call moveSfvbSequenceStepValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling moveSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'sequenceUuid' is set
+        if (sequenceUuid == null) {
+            throw new ApiException("Missing the required parameter 'sequenceUuid' when calling moveSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'stepUuid' is set
+        if (stepUuid == null) {
+            throw new ApiException("Missing the required parameter 'stepUuid' when calling moveSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling moveSfvbSequenceStep(Async)");
+        }
+        
+        // verify the required parameter 'sequenceStepMoveRequest' is set
+        if (sequenceStepMoveRequest == null) {
+            throw new ApiException("Missing the required parameter 'sequenceStepMoveRequest' when calling moveSfvbSequenceStep(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = moveSfvbSequenceStepCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Move one step
+     * Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step&#39;s hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepMoveRequest Where the step moves, and the hash of the step it goes next to (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     * @return SfvbSequenceStepMoveResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSequenceStepMoveResponse moveSfvbSequenceStep(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbSequenceStepMoveResponse> localVarResp = moveSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Move one step
+     * Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step&#39;s hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepMoveRequest Where the step moves, and the hash of the step it goes next to (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbSequenceStepMoveResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSequenceStepMoveResponse> moveSfvbSequenceStepWithHttpInfo(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = moveSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepMoveResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Move one step (asynchronously)
+     * Moves the step, in one transaction, to right after after_step_uuid (the begin step puts it first in the sequence) or to the start of one side of a condition, split or inboxgeek step (branch_step_uuid with side).  The step keeps its uuid, settings and the email or postcard it sends: nothing is archived or created.  Refused for the begin, end, continue and merge markers, for a condition, split or inboxgeek step, while any customer is waiting on the step, and when the new place is the one it is in.  Send the step&#39;s hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id); a draft or inactive one needs neither. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param ifMatch The moved step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
+     * @param sequenceStepMoveRequest Where the step moves, and the hash of the step it goes next to (required)
+     * @param approvalId When the sequence is live, the approval_id of an approved sequence_step.move request for exactly this move.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call moveSfvbSequenceStepAsync(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepMoveRequest sequenceStepMoveRequest, String approvalId, final ApiCallback<SfvbSequenceStepMoveResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = moveSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSequenceStepMoveResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -33762,6 +34125,7 @@ public class SfvbApi {
      * @param stepUuid  (required)
      * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepUpdateRequest The settings, the filter, or both (required)
+     * @param approvalId When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -33778,7 +34142,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSfvbSequenceStepCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateSfvbSequenceStepCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, String approvalId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -33810,6 +34174,10 @@ public class SfvbApi {
             localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
         }
 
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -33831,7 +34199,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSfvbSequenceStepValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateSfvbSequenceStepValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, String approvalId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -33859,19 +34227,20 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = updateSfvbSequenceStepCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updateSfvbSequenceStepCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId, _callback);
         return localVarCall;
 
     }
 
     /**
      * Change one step&#39;s settings or audience filter
-     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param stepUuid  (required)
      * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepUpdateRequest The settings, the filter, or both (required)
+     * @param approvalId When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      * @return SfvbSequenceStepUpdateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -33887,19 +34256,20 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbSequenceStepUpdateResponse updateSfvbSequenceStep(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest) throws ApiException {
-        ApiResponse<SfvbSequenceStepUpdateResponse> localVarResp = updateSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest);
+    public SfvbSequenceStepUpdateResponse updateSfvbSequenceStep(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbSequenceStepUpdateResponse> localVarResp = updateSfvbSequenceStepWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId);
         return localVarResp.getData();
     }
 
     /**
      * Change one step&#39;s settings or audience filter
-     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param stepUuid  (required)
      * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepUpdateRequest The settings, the filter, or both (required)
+     * @param approvalId When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbSequenceStepUpdateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -33915,20 +34285,21 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbSequenceStepUpdateResponse> updateSfvbSequenceStepWithHttpInfo(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, null);
+    public ApiResponse<SfvbSequenceStepUpdateResponse> updateSfvbSequenceStepWithHttpInfo(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId, null);
         Type localVarReturnType = new TypeToken<SfvbSequenceStepUpdateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Change one step&#39;s settings or audience filter (asynchronously)
-     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, postcard, experiment, resend, webhook, begin, end, continue and merge steps are refused.  A sequence whose campaign or flow is live needs sfvb_publish. 
+     * Replaces the step&#39;s settings (config_json), its audience filter (filter_profile_equation_json), or both.  Nothing else about the step or the sequence changes.  Send the step&#39;s hash_sha256 as If-Match; the write only lands if the step is still what you read.  Email, experiment, resend, webhook, begin, end, continue and merge steps are refused.  On a post_card step only disabled, name and info change, and not its filter.  A sequence whose campaign or flow is live needs sfvb_publish.  Turning a post_card step on, live or not, needs an approved sequence_step.enable_postcard approval (Approval-Id): once on, it mails printed cards whenever the campaign or flow runs. 
      * @param storefrontOid  (required)
      * @param sequenceUuid  (required)
      * @param stepUuid  (required)
      * @param ifMatch The step&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param sequenceStepUpdateRequest The settings, the filter, or both (required)
+     * @param approvalId When the change turns a post_card step on, the approval_id of an approved sequence_step.enable_postcard request for this step.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -33945,9 +34316,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call updateSfvbSequenceStepAsync(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, final ApiCallback<SfvbSequenceStepUpdateResponse> _callback) throws ApiException {
+    public okhttp3.Call updateSfvbSequenceStepAsync(Integer storefrontOid, String sequenceUuid, String stepUuid, String ifMatch, SfvbSequenceStepUpdateRequest sequenceStepUpdateRequest, String approvalId, final ApiCallback<SfvbSequenceStepUpdateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updateSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbSequenceStepUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

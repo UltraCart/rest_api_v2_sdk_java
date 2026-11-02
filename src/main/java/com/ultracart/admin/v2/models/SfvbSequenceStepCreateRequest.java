@@ -49,6 +49,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbSequenceStepCreateRequest {
+  public static final String SERIALIZED_NAME_ACKNOWLEDGE_EXECUTABLE = "acknowledge_executable";
+  @SerializedName(SERIALIZED_NAME_ACKNOWLEDGE_EXECUTABLE)
+  private Boolean acknowledgeExecutable;
+
   public static final String SERIALIZED_NAME_AFTER_STEP_UUID = "after_step_uuid";
   @SerializedName(SERIALIZED_NAME_AFTER_STEP_UUID)
   private String afterStepUuid;
@@ -56,6 +60,18 @@ public class SfvbSequenceStepCreateRequest {
   public static final String SERIALIZED_NAME_BRANCH_STEP_UUID = "branch_step_uuid";
   @SerializedName(SERIALIZED_NAME_BRANCH_STEP_UUID)
   private String branchStepUuid;
+
+  public static final String SERIALIZED_NAME_CONFIG_JSON = "config_json";
+  @SerializedName(SERIALIZED_NAME_CONFIG_JSON)
+  private String configJson;
+
+  public static final String SERIALIZED_NAME_LIBRARY_ITEM_OID = "library_item_oid";
+  @SerializedName(SERIALIZED_NAME_LIBRARY_ITEM_OID)
+  private Integer libraryItemOid;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_PREVIEW_TEXT = "preview_text";
   @SerializedName(SERIALIZED_NAME_PREVIEW_TEXT)
@@ -75,6 +91,29 @@ public class SfvbSequenceStepCreateRequest {
 
   public SfvbSequenceStepCreateRequest() { 
   }
+
+  public SfvbSequenceStepCreateRequest acknowledgeExecutable(Boolean acknowledgeExecutable) {
+    
+    this.acknowledgeExecutable = acknowledgeExecutable;
+    return this;
+  }
+
+   /**
+   * With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.
+   * @return acknowledgeExecutable
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "With library_item_oid, true once the caller has seen that the item carries executable content (script, html, embed, css or velocity elements) and still wants it.  An item with any is refused without it.")
+
+  public Boolean getAcknowledgeExecutable() {
+    return acknowledgeExecutable;
+  }
+
+
+  public void setAcknowledgeExecutable(Boolean acknowledgeExecutable) {
+    this.acknowledgeExecutable = acknowledgeExecutable;
+  }
+
 
   public SfvbSequenceStepCreateRequest afterStepUuid(String afterStepUuid) {
     
@@ -122,6 +161,75 @@ public class SfvbSequenceStepCreateRequest {
   }
 
 
+  public SfvbSequenceStepCreateRequest configJson(String configJson) {
+    
+    this.configJson = configJson;
+    return this;
+  }
+
+   /**
+   * A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
+   * @return configJson
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.")
+
+  public String getConfigJson() {
+    return configJson;
+  }
+
+
+  public void setConfigJson(String configJson) {
+    this.configJson = configJson;
+  }
+
+
+  public SfvbSequenceStepCreateRequest libraryItemOid(Integer libraryItemOid) {
+    
+    this.libraryItemOid = libraryItemOid;
+    return this;
+  }
+
+   /**
+   * An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account&#39;s own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.
+   * @return libraryItemOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An email item from the code library (#1589) to start the new email from, taking its body, with new element ids, and its subject and preview text unless subject or preview_text is given.  The item must be this account's own, shared with it, or published, approved by UltraCart and free.  Only for an email step.  The items are listed by the code library email read.")
+
+  public Integer getLibraryItemOid() {
+    return libraryItemOid;
+  }
+
+
+  public void setLibraryItemOid(Integer libraryItemOid) {
+    this.libraryItemOid = libraryItemOid;
+  }
+
+
+  public SfvbSequenceStepCreateRequest name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * A post_card step&#39;s name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A post_card step's name, shown in the admin, 1 to 100 characters on one line.  Postcard by default.  Only for a post_card step.")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   public SfvbSequenceStepCreateRequest previewText(String previewText) {
     
     this.previewText = previewText;
@@ -129,11 +237,11 @@ public class SfvbSequenceStepCreateRequest {
   }
 
    /**
-   * The new email&#39;s preview text, 5 to 150 characters.
+   * The new email&#39;s preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.
    * @return previewText
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new email's preview text, 5 to 150 characters.")
+  @ApiModelProperty(value = "The new email's preview text, 5 to 150 characters.  Optional with library_item_oid, whose preview text is used when this is left out.")
 
   public String getPreviewText() {
     return previewText;
@@ -175,11 +283,11 @@ public class SfvbSequenceStepCreateRequest {
   }
 
    /**
-   * The new email&#39;s subject line, 5 to 150 characters.
+   * The new email&#39;s subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.
    * @return subject
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new email's subject line, 5 to 150 characters.")
+  @ApiModelProperty(value = "The new email's subject line, 5 to 150 characters.  Optional with library_item_oid, whose subject is used when this is left out.")
 
   public String getSubject() {
     return subject;
@@ -198,11 +306,11 @@ public class SfvbSequenceStepCreateRequest {
   }
 
    /**
-   * The kind of step.  Only email for now.
+   * The kind of step, one of email (the default), wait or post_card.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The kind of step.  Only email for now.")
+  @ApiModelProperty(value = "The kind of step, one of email (the default), wait or post_card.")
 
   public String getType() {
     return type;
@@ -224,8 +332,12 @@ public class SfvbSequenceStepCreateRequest {
       return false;
     }
     SfvbSequenceStepCreateRequest sfvbSequenceStepCreateRequest = (SfvbSequenceStepCreateRequest) o;
-    return Objects.equals(this.afterStepUuid, sfvbSequenceStepCreateRequest.afterStepUuid) &&
+    return Objects.equals(this.acknowledgeExecutable, sfvbSequenceStepCreateRequest.acknowledgeExecutable) &&
+        Objects.equals(this.afterStepUuid, sfvbSequenceStepCreateRequest.afterStepUuid) &&
         Objects.equals(this.branchStepUuid, sfvbSequenceStepCreateRequest.branchStepUuid) &&
+        Objects.equals(this.configJson, sfvbSequenceStepCreateRequest.configJson) &&
+        Objects.equals(this.libraryItemOid, sfvbSequenceStepCreateRequest.libraryItemOid) &&
+        Objects.equals(this.name, sfvbSequenceStepCreateRequest.name) &&
         Objects.equals(this.previewText, sfvbSequenceStepCreateRequest.previewText) &&
         Objects.equals(this.side, sfvbSequenceStepCreateRequest.side) &&
         Objects.equals(this.subject, sfvbSequenceStepCreateRequest.subject) &&
@@ -234,15 +346,19 @@ public class SfvbSequenceStepCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterStepUuid, branchStepUuid, previewText, side, subject, type);
+    return Objects.hash(acknowledgeExecutable, afterStepUuid, branchStepUuid, configJson, libraryItemOid, name, previewText, side, subject, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbSequenceStepCreateRequest {\n");
+    sb.append("    acknowledgeExecutable: ").append(toIndentedString(acknowledgeExecutable)).append("\n");
     sb.append("    afterStepUuid: ").append(toIndentedString(afterStepUuid)).append("\n");
     sb.append("    branchStepUuid: ").append(toIndentedString(branchStepUuid)).append("\n");
+    sb.append("    configJson: ").append(toIndentedString(configJson)).append("\n");
+    sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");
     sb.append("    side: ").append(toIndentedString(side)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
@@ -269,8 +385,12 @@ public class SfvbSequenceStepCreateRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("acknowledge_executable");
     openapiFields.add("after_step_uuid");
     openapiFields.add("branch_step_uuid");
+    openapiFields.add("config_json");
+    openapiFields.add("library_item_oid");
+    openapiFields.add("name");
     openapiFields.add("preview_text");
     openapiFields.add("side");
     openapiFields.add("subject");
@@ -307,6 +427,12 @@ public class SfvbSequenceStepCreateRequest {
       }
       if (jsonObj.get("branch_step_uuid") != null && !jsonObj.get("branch_step_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `branch_step_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("branch_step_uuid").toString()));
+      }
+      if (jsonObj.get("config_json") != null && !jsonObj.get("config_json").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `config_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("config_json").toString()));
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (jsonObj.get("preview_text") != null && !jsonObj.get("preview_text").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `preview_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preview_text").toString()));

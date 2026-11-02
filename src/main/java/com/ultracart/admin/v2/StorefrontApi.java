@@ -6316,7 +6316,7 @@ public class StorefrontApi {
 
     /**
      * Get email campaigns with stats
-     * 
+     * Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn&#39;t listed; getEmailCampaigns lists every campaign. 
      * @param storefrontOid  (required)
      * @param statDays  (required)
      * @return EmailCampaignsResponse
@@ -6339,7 +6339,7 @@ public class StorefrontApi {
 
     /**
      * Get email campaigns with stats
-     * 
+     * Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn&#39;t listed; getEmailCampaigns lists every campaign. 
      * @param storefrontOid  (required)
      * @param statDays  (required)
      * @return ApiResponse&lt;EmailCampaignsResponse&gt;
@@ -6363,7 +6363,7 @@ public class StorefrontApi {
 
     /**
      * Get email campaigns with stats (asynchronously)
-     * 
+     * Lists only the campaigns with stats recorded in the last stat_days days, with those stats summed.  A campaign with no stats in that window isn&#39;t listed; getEmailCampaigns lists every campaign. 
      * @param storefrontOid  (required)
      * @param statDays  (required)
      * @param _callback The callback to be executed when the API call finishes

@@ -3972,6 +3972,88 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/code_library/emails:
+    get:
+      description: "The code library is the one the admin's \"start from library\"\
+        \ uses; it isn't the Visual Builder element library.  Lists the email items\
+        \ this account may use, by title: its own (source owned), those shared with\
+        \ it (shared), and those published for everyone, approved by UltraCart and\
+        \ free (public).  search matches part of the title, with case.  Each kind\
+        \ is capped at 100 items, and truncated says when there were more.  Send an\
+        \ item's library_item_oid on the step insert to start a new email from it.\n"
+      operationId: listSfvbCodeLibraryEmails
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "Part of the title to match, with case.  Up to 100 characters."
+        in: query
+        name: search
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCodeLibraryEmailsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Email items from the code library that can start a new email step
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
       description: "Addressed the same way as the container itself, so owner_type\
@@ -16907,15 +16989,29 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps:
     post:
-      description: "Creates a new email with the subject and preview text and adds\
-        \ the email step that sends it, together, so a failure leaves neither.  It\
-        \ goes right after after_step_uuid, or first on one side of a condition, split\
-        \ or inboxgeek step (branch_step_uuid with side).  Send that step's hash_sha256\
-        \ as If-Match.  A sequence with no steps yet takes neither place and If-Match\
-        \ *, and gets begin and end steps around the email, as the admin's editor\
-        \ adds them.  The email has no body yet, and gets the content review flags\
-        \ the admin gives a new email here.  A sequence whose campaign or flow is\
-        \ live needs sfvb_publish.\n"
+      description: "type email (the default) creates a new email with the subject\
+        \ and preview text and adds the email step that sends it, together, so a failure\
+        \ leaves neither.  The email has no body yet, and gets the content review\
+        \ flags the admin gives a new email here.  With library_item_oid the email\
+        \ starts from a code library email item instead (listSfvbCodeLibraryEmails):\
+        \ its body with new element ids, and its subject and preview text where the\
+        \ request gives none.  The item must be this account's own, shared with it,\
+        \ or published, approved by UltraCart and free; it must pass the library content\
+        \ scanner and the email container rules, and executable elements need acknowledge_executable\
+        \ true.  Its PNG, JPEG and GIF image files are copied into the storefront\
+        \ first, never over an existing file; any other file is skipped and listed.\
+        \  type wait adds a wait step with config_json as its settings: delay_duration\
+        \ and delay_duration_unit (minutes, hours, days, weeks or months), or a delay_until\
+        \ option; a wait that would pass customers on at once is refused.  type post_card\
+        \ creates a new postcard with the admin's default front and back and adds\
+        \ the postcard step that mails it, together; the step starts disabled, so\
+        \ nothing is printed or mailed until it is turned on with set-config, and\
+        \ the response names the front and back containers.  Any goes right after\
+        \ after_step_uuid, or first on one side of a condition, split or inboxgeek\
+        \ step (branch_step_uuid with side).  Send that step's hash_sha256 as If-Match.\
+        \  A sequence with no steps yet takes neither place and If-Match *, and gets\
+        \ begin and end steps around the new step, as the admin's editor adds them.\
+        \  A sequence whose campaign or flow is live needs sfvb_publish.\n"
       operationId: insertSfvbSequenceStep
       parameters:
       - in: path
@@ -16943,7 +17039,8 @@ paths:
             schema:
               $ref: '#/components/schemas/SfvbSequenceStepCreateRequest'
         description: "Where the step goes, and the new email's subject and preview\
-          \ text"
+          \ text or code library item, the wait's config_json, or the postcard step's\
+          \ name"
         required: true
       responses:
         "200":
@@ -17016,7 +17113,8 @@ paths:
       - ultraCartOauth:
         - sfvb_write
       - ultraCartSimpleApiKey: []
-      summary: "Add an email step, with its new email"
+      summary: "Add an email step, with its new email, a wait step, or a postcard\
+        \ step, with its new postcard"
       tags:
       - sfvb
       x-codegen-request-body-name: sequence_step_create_request
@@ -17146,9 +17244,13 @@ paths:
       description: "Replaces the step's settings (config_json), its audience filter\
         \ (filter_profile_equation_json), or both.  Nothing else about the step or\
         \ the sequence changes.  Send the step's hash_sha256 as If-Match; the write\
-        \ only lands if the step is still what you read.  Email, postcard, experiment,\
-        \ resend, webhook, begin, end, continue and merge steps are refused.  A sequence\
-        \ whose campaign or flow is live needs sfvb_publish.\n"
+        \ only lands if the step is still what you read.  Email, experiment, resend,\
+        \ webhook, begin, end, continue and merge steps are refused.  On a post_card\
+        \ step only disabled, name and info change, and not its filter.  A sequence\
+        \ whose campaign or flow is live needs sfvb_publish.  Turning a post_card\
+        \ step on, live or not, needs an approved sequence_step.enable_postcard approval\
+        \ (Approval-Id): once on, it mails printed cards whenever the campaign or\
+        \ flow runs.\n"
       operationId: updateSfvbSequenceStep
       parameters:
       - in: path
@@ -17172,6 +17274,13 @@ paths:
         in: header
         name: If-Match
         required: true
+        schema:
+          type: string
+      - description: "When the change turns a post_card step on, the approval_id of\
+          \ an approved sequence_step.enable_postcard request for this step.  See\
+          \ POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
         schema:
           type: string
       requestBody:
@@ -17256,6 +17365,137 @@ paths:
       tags:
       - sfvb
       x-codegen-request-body-name: sequence_step_update_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move:
+    post:
+      description: "Moves the step, in one transaction, to right after after_step_uuid\
+        \ (the begin step puts it first in the sequence) or to the start of one side\
+        \ of a condition, split or inboxgeek step (branch_step_uuid with side).  The\
+        \ step keeps its uuid, settings and the email or postcard it sends: nothing\
+        \ is archived or created.  Refused for the begin, end, continue and merge\
+        \ markers, for a condition, split or inboxgeek step, while any customer is\
+        \ waiting on the step, and when the new place is the one it is in.  Send the\
+        \ step's hash_sha256 as If-Match, and the hash_sha256 of after_step_uuid or\
+        \ branch_step_uuid as anchor_hash_sha256.  A sequence whose campaign or flow\
+        \ is live needs sfvb_publish and an approved sequence_step.move approval (Approval-Id);\
+        \ a draft or inactive one needs neither.\n"
+      operationId: moveSfvbSequenceStep
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: sequence_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: step_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The moved step's hash_sha256 from the last read.  Required;\
+          \ 428 when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "When the sequence is live, the approval_id of an approved sequence_step.move\
+          \ request for exactly this move.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbSequenceStepMoveRequest'
+        description: "Where the step moves, and the hash of the step it goes next\
+          \ to"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSequenceStepMoveResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Move one step
+      tags:
+      - sfvb
+      x-codegen-request-body-name: sequence_step_move_request
       x-content-type: application/json
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/templates:
@@ -36506,6 +36746,9 @@ paths:
       x-accepts: application/json
   /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days}:
     get:
+      description: "Lists only the campaigns with stats recorded in the last stat_days\
+        \ days, with those stats summed.  A campaign with no stats in that window\
+        \ isn't listed; getEmailCampaigns lists every campaign.\n"
       operationId: getEmailCampaignsWithStats
       parameters:
       - in: path
@@ -251117,11 +251360,13 @@ components:
           - attribute_names
           - attribute_names
           esp_twilio_uuid: esp_twilio_uuid
+          side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
           slot: slot
           version: 2
           request_sha256: request_sha256
+          after_step_uuid: after_step_uuid
           blog_post_oid: 5
           path: path
           sequence_uuid: sequence_uuid
@@ -251131,6 +251376,7 @@ components:
           domain: domain
           rows_sha256: rows_sha256
           segment_uuid: segment_uuid
+          branch_step_uuid: branch_step_uuid
           winner_variation_number: 4
           merchant_item_oid: 7
           rule_count: 9
@@ -251334,11 +251580,13 @@ components:
           - attribute_names
           - attribute_names
           esp_twilio_uuid: esp_twilio_uuid
+          side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
           slot: slot
           version: 2
           request_sha256: request_sha256
+          after_step_uuid: after_step_uuid
           blog_post_oid: 5
           path: path
           sequence_uuid: sequence_uuid
@@ -251348,6 +251596,7 @@ components:
           domain: domain
           rows_sha256: rows_sha256
           segment_uuid: segment_uuid
+          branch_step_uuid: branch_step_uuid
           winner_variation_number: 4
           merchant_item_oid: 7
           rule_count: 9
@@ -251411,11 +251660,13 @@ components:
         - attribute_names
         - attribute_names
         esp_twilio_uuid: esp_twilio_uuid
+        side: side
         step_uuid: step_uuid
         content_sha256: content_sha256
         slot: slot
         version: 2
         request_sha256: request_sha256
+        after_step_uuid: after_step_uuid
         blog_post_oid: 5
         path: path
         sequence_uuid: sequence_uuid
@@ -251425,11 +251676,16 @@ components:
         domain: domain
         rows_sha256: rows_sha256
         segment_uuid: segment_uuid
+        branch_step_uuid: branch_step_uuid
         winner_variation_number: 4
         merchant_item_oid: 7
         rule_count: 9
         upsell_oid: 3
       properties:
+        after_step_uuid:
+          description: "For sequence_step.move, the step it moves after.  Or branch_step_uuid\
+            \ with side."
+          type: string
         attribute_names:
           description: "For item.attribute_batch, the attributes the batch would change.\
             \  Set by the server."
@@ -251440,6 +251696,10 @@ components:
           description: "The blog post, for blog_post.delete."
           format: int32
           type: integer
+        branch_step_uuid:
+          description: "For sequence_step.move, the condition, split or inboxgeek\
+            \ step it moves to the start of a side of."
+          type: string
         content_sha256:
           description: "For file.put_script, the SHA-256 of the exact bytes approved.\
             \  Set by the server, never by the caller.  The write must send bytes\
@@ -251489,14 +251749,19 @@ components:
           description: "The segment whose rule changes, for segment.update."
           type: string
         sequence_uuid:
-          description: "The communication sequence, for sequence_step.delete."
+          description: "The communication sequence, for sequence_step.delete and sequence_step.move."
+          type: string
+        side:
+          description: "For sequence_step.move with branch_step_uuid, the side's label\
+            \ from the sequence read."
           type: string
         slot:
           description: "For experiment.start of a page experiment, the page body name.\
             \  Defaults to body."
           type: string
         step_uuid:
-          description: "The step to remove, for sequence_step.delete."
+          description: "The step to remove, for sequence_step.delete, or to move,\
+            \ for sequence_step.move."
           type: string
         upsell_kind:
           description: "For upsell.enable, what to switch on."
@@ -251646,11 +251911,13 @@ components:
             - attribute_names
             - attribute_names
             esp_twilio_uuid: esp_twilio_uuid
+            side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
             slot: slot
             version: 2
             request_sha256: request_sha256
+            after_step_uuid: after_step_uuid
             blog_post_oid: 5
             path: path
             sequence_uuid: sequence_uuid
@@ -251660,6 +251927,7 @@ components:
             domain: domain
             rows_sha256: rows_sha256
             segment_uuid: segment_uuid
+            branch_step_uuid: branch_step_uuid
             winner_variation_number: 4
             merchant_item_oid: 7
             rule_count: 9
@@ -251715,11 +251983,13 @@ components:
             - attribute_names
             - attribute_names
             esp_twilio_uuid: esp_twilio_uuid
+            side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
             slot: slot
             version: 2
             request_sha256: request_sha256
+            after_step_uuid: after_step_uuid
             blog_post_oid: 5
             path: path
             sequence_uuid: sequence_uuid
@@ -251729,6 +251999,7 @@ components:
             domain: domain
             rows_sha256: rows_sha256
             segment_uuid: segment_uuid
+            branch_step_uuid: branch_step_uuid
             winner_variation_number: 4
             merchant_item_oid: 7
             rule_count: 9
@@ -252529,6 +252800,65 @@ components:
           description: The part of the from address before the at sign.  Defaults
             to the storefront's marketing setting.
           type: string
+      type: object
+    SfvbCodeLibraryEmail:
+      example:
+        preview_text: preview_text
+        subject: subject
+        description: description
+        source: source
+        title: title
+        library_item_oid: 0
+      properties:
+        description:
+          description: The item's description.
+          type: string
+        library_item_oid:
+          description: "The item, to send as library_item_oid on the step insert."
+          format: int32
+          type: integer
+        preview_text:
+          description: "The preview text a new email takes from the item, or null\
+            \ when it has none and preview_text must be given."
+          type: string
+        source:
+          description: "owned (this account's own), shared (shared with this account)\
+            \ or public (published and approved by UltraCart)."
+          type: string
+        subject:
+          description: "The subject a new email takes from the item, or null when\
+            \ it has none and subject must be given."
+          type: string
+        title:
+          description: The item's title.
+          type: string
+      type: object
+    SfvbCodeLibraryEmailsResponse:
+      example:
+        emails:
+        - preview_text: preview_text
+          subject: subject
+          description: description
+          source: source
+          title: title
+          library_item_oid: 0
+        - preview_text: preview_text
+          subject: subject
+          description: description
+          source: source
+          title: title
+          library_item_oid: 0
+        truncated: true
+      properties:
+        emails:
+          description: "The items, by title."
+          items:
+            $ref: '#/components/schemas/SfvbCodeLibraryEmail'
+          type: array
+        truncated:
+          description: True when there were more items than listed.  Narrow the search
+            to see the rest.
+          type: boolean
       type: object
     SfvbCommsDnsRecord:
       example:
@@ -261687,11 +262017,20 @@ components:
       example:
         after_step_uuid: after_step_uuid
         side: side
+        config_json: config_json
         preview_text: preview_text
         subject: subject
+        name: name
         branch_step_uuid: branch_step_uuid
         type: type
+        library_item_oid: 0
+        acknowledge_executable: true
       properties:
+        acknowledge_executable:
+          description: "With library_item_oid, true once the caller has seen that\
+            \ the item carries executable content (script, html, embed, css or velocity\
+            \ elements) and still wants it.  An item with any is refused without it."
+          type: boolean
         after_step_uuid:
           description: "The step the new step follows, in the same list.  Not an end,\
             \ continue or merge step."
@@ -261700,8 +262039,29 @@ components:
           description: "A condition, split or inboxgeek step.  With side, the new\
             \ step goes first on that side."
           type: string
+        config_json:
+          description: "A wait step's settings, as the admin saves them and set-config\
+            \ changes them, namely delay_duration and delay_duration_unit (minutes,\
+            \ hours, days, weeks or months), and optionally the delay_until_* options.\
+            \  Not for an email step."
+          type: string
+        library_item_oid:
+          description: "An email item from the code library (#1589) to start the new\
+            \ email from, taking its body, with new element ids, and its subject and\
+            \ preview text unless subject or preview_text is given.  The item must\
+            \ be this account's own, shared with it, or published, approved by UltraCart\
+            \ and free.  Only for an email step.  The items are listed by the code\
+            \ library email read."
+          format: int32
+          type: integer
+        name:
+          description: "A post_card step's name, shown in the admin, 1 to 100 characters\
+            \ on one line.  Postcard by default.  Only for a post_card step."
+          type: string
         preview_text:
-          description: "The new email's preview text, 5 to 150 characters."
+          description: "The new email's preview text, 5 to 150 characters.  Optional\
+            \ with library_item_oid, whose preview text is used when this is left\
+            \ out."
           type: string
         side:
           description: "With branch_step_uuid, the side's label from the sequence\
@@ -261709,18 +262069,31 @@ components:
             \ step."
           type: string
         subject:
-          description: "The new email's subject line, 5 to 150 characters."
+          description: "The new email's subject line, 5 to 150 characters.  Optional\
+            \ with library_item_oid, whose subject is used when this is left out."
           type: string
         type:
-          description: The kind of step.  Only email for now.
+          description: "The kind of step, one of email (the default), wait or post_card."
           type: string
       type: object
     SfvbSequenceStepCreateResponse:
       example:
+        front_container_uuid: front_container_uuid
         notes:
         - notes
         - notes
         email_uuid: email_uuid
+        library_files_kept:
+        - library_files_kept
+        - library_files_kept
+        library_files_skipped:
+        - library_files_skipped
+        - library_files_skipped
+        library_files_written:
+        - library_files_written
+        - library_files_written
+        back_container_uuid: back_container_uuid
+        postcard_uuid: postcard_uuid
         requires_review: true
         step:
           step_uuid: step_uuid
@@ -261755,17 +262128,54 @@ components:
           - list_uuids
           - list_uuids
           number_waiting: 0
+        library_item_oid: 0
       properties:
+        back_container_uuid:
+          description: "A post_card step's back, the container with owner type postcardback\
+            \ and this owner id."
+          type: string
         email_uuid:
           description: The new email's uuid.  Its body is the email container with
             this owner id.
           type: string
+        front_container_uuid:
+          description: "A post_card step's front, the container with owner type postcardfront\
+            \ and this owner id."
+          type: string
+        library_files_kept:
+          description: "The library item's files whose path already held a file, which\
+            \ was kept, not replaced."
+          items:
+            type: string
+          type: array
+        library_files_skipped:
+          description: "The library item's files that weren't written because they\
+            \ aren't a PNG, JPEG or GIF image whose bytes match its name.  Only those\
+            \ images are copied from a library item."
+          items:
+            type: string
+          type: array
+        library_files_written:
+          description: Storefront file paths the library item's files were written
+            to.  A file already at its path is kept as it is and listed in library_files_kept
+            instead.
+          items:
+            type: string
+          type: array
+        library_item_oid:
+          description: "The code library email item the new email started from (#1589),\
+            \ when one was given."
+          format: int32
+          type: integer
         notes:
           description: "What to do next, such as writing the body, and customers already\
             \ waiting on the step before it."
           items:
             type: string
           type: array
+        postcard_uuid:
+          description: A post_card step's new postcard (#1644).
+          type: string
         requires_review:
           description: True when the new email must pass content review before it
             sends.
@@ -261809,6 +262219,79 @@ components:
           items:
             type: string
           type: array
+      type: object
+    SfvbSequenceStepMoveRequest:
+      example:
+        after_step_uuid: after_step_uuid
+        side: side
+        anchor_hash_sha256: anchor_hash_sha256
+        branch_step_uuid: branch_step_uuid
+      properties:
+        after_step_uuid:
+          description: "The step it moves after, in that step's list.  The begin step\
+            \ puts it first in the sequence.  Not an end, continue or merge step."
+          type: string
+        anchor_hash_sha256:
+          description: "The hash_sha256 of after_step_uuid, or of branch_step_uuid,\
+            \ from the last read.  Required; 412 when stale."
+          type: string
+        branch_step_uuid:
+          description: "A condition, split or inboxgeek step.  With side, the step\
+            \ moves to the start of that side."
+          type: string
+        side:
+          description: "With branch_step_uuid, the side's label from the sequence\
+            \ read.  yes or no for a condition, left or right for a split or inboxgeek\
+            \ step."
+          type: string
+      type: object
+    SfvbSequenceStepMoveResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        step:
+          step_uuid: step_uuid
+          config_json: config_json
+          unreachable: true
+          config_error: true
+          postcard_uuid: postcard_uuid
+          label: label
+          branches:
+          - label: label
+            steps:
+            - null
+            - null
+          - label: label
+            steps:
+            - null
+            - null
+          type: type
+          merchant_notes: merchant_notes
+          hash_sha256: hash_sha256
+          config_merchant_notes: config_merchant_notes
+          filter_profile_equation_json: filter_profile_equation_json
+          item_ids:
+          - item_ids
+          - item_ids
+          name: name
+          disabled: true
+          email_uuids:
+          - email_uuids
+          - email_uuids
+          list_uuids:
+          - list_uuids
+          - list_uuids
+          number_waiting: 0
+      properties:
+        notes:
+          description: "Where the step was and where it is now, and anyone waiting\
+            \ on the steps around it."
+          items:
+            type: string
+          type: array
+        step:
+          $ref: '#/components/schemas/SfvbSequenceStep'
       type: object
     SfvbSequenceStepUpdateRequest:
       example:
