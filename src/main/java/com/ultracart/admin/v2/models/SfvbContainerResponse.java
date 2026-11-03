@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbErrorDetail;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -131,6 +134,10 @@ public class SfvbContainerResponse {
   public static final String SERIALIZED_NAME_OWNER_TYPE = "owner_type";
   @SerializedName(SERIALIZED_NAME_OWNER_TYPE)
   private OwnerTypeEnum ownerType;
+
+  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+  @SerializedName(SERIALIZED_NAME_WARNINGS)
+  private List<SfvbErrorDetail> warnings = null;
 
   public SfvbContainerResponse() { 
   }
@@ -296,6 +303,37 @@ public class SfvbContainerResponse {
   }
 
 
+  public SfvbContainerResponse warnings(List<SfvbErrorDetail> warnings) {
+    
+    this.warnings = warnings;
+    return this;
+  }
+
+  public SfvbContainerResponse addWarningsItem(SfvbErrorDetail warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+   /**
+   * Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none.
+   * @return warnings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Quality warnings from validating this write.  The write succeeded; each one says what to look at, such as a postcard QR code URL with a fragment.  Absent when there are none.")
+
+  public List<SfvbErrorDetail> getWarnings() {
+    return warnings;
+  }
+
+
+  public void setWarnings(List<SfvbErrorDetail> warnings) {
+    this.warnings = warnings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -312,12 +350,13 @@ public class SfvbContainerResponse {
         Objects.equals(this.lastModified, sfvbContainerResponse.lastModified) &&
         Objects.equals(this.merchantItemId, sfvbContainerResponse.merchantItemId) &&
         Objects.equals(this.ownerObjectId, sfvbContainerResponse.ownerObjectId) &&
-        Objects.equals(this.ownerType, sfvbContainerResponse.ownerType);
+        Objects.equals(this.ownerType, sfvbContainerResponse.ownerType) &&
+        Objects.equals(this.warnings, sfvbContainerResponse.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cjson, containerName, hashSha256, lastModified, merchantItemId, ownerObjectId, ownerType);
+    return Objects.hash(cjson, containerName, hashSha256, lastModified, merchantItemId, ownerObjectId, ownerType, warnings);
   }
 
   @Override
@@ -331,6 +370,7 @@ public class SfvbContainerResponse {
     sb.append("    merchantItemId: ").append(toIndentedString(merchantItemId)).append("\n");
     sb.append("    ownerObjectId: ").append(toIndentedString(ownerObjectId)).append("\n");
     sb.append("    ownerType: ").append(toIndentedString(ownerType)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -360,6 +400,7 @@ public class SfvbContainerResponse {
     openapiFields.add("merchant_item_id");
     openapiFields.add("owner_object_id");
     openapiFields.add("owner_type");
+    openapiFields.add("warnings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -407,6 +448,18 @@ public class SfvbContainerResponse {
       }
       if (jsonObj.get("owner_type") != null && !jsonObj.get("owner_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_type").toString()));
+      }
+      JsonArray jsonArraywarnings = jsonObj.getAsJsonArray("warnings");
+      if (jsonArraywarnings != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("warnings").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
+        }
+
+        // validate the optional field `warnings` (array)
+        for (int i = 0; i < jsonArraywarnings.size(); i++) {
+          SfvbErrorDetail.validateJsonObject(jsonArraywarnings.get(i).getAsJsonObject());
+        };
       }
   }
 

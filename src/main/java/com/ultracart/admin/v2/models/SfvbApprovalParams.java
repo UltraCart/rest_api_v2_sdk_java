@@ -51,6 +51,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbApprovalParams {
+  public static final String SERIALIZED_NAME_AFFILIATE_NETWORK_OID = "affiliate_network_oid";
+  @SerializedName(SERIALIZED_NAME_AFFILIATE_NETWORK_OID)
+  private Integer affiliateNetworkOid;
+
   public static final String SERIALIZED_NAME_AFTER_STEP_UUID = "after_step_uuid";
   @SerializedName(SERIALIZED_NAME_AFTER_STEP_UUID)
   private String afterStepUuid;
@@ -127,6 +131,10 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_STEP_UUID)
   private String stepUuid;
 
+  public static final String SERIALIZED_NAME_TRACKING_PROVIDER = "tracking_provider";
+  @SerializedName(SERIALIZED_NAME_TRACKING_PROVIDER)
+  private String trackingProvider;
+
   /**
    * For upsell.enable, what to switch on.
    */
@@ -196,6 +204,29 @@ public class SfvbApprovalParams {
 
   public SfvbApprovalParams() { 
   }
+
+  public SfvbApprovalParams affiliateNetworkOid(Integer affiliateNetworkOid) {
+    
+    this.affiliateNetworkOid = affiliateNetworkOid;
+    return this;
+  }
+
+   /**
+   * The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.
+   * @return affiliateNetworkOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The affiliate network, for affiliate_network.change and affiliate_network.delete.  0 or left out for affiliate_network.change of a network the create call will add.")
+
+  public Integer getAffiliateNetworkOid() {
+    return affiliateNetworkOid;
+  }
+
+
+  public void setAffiliateNetworkOid(Integer affiliateNetworkOid) {
+    this.affiliateNetworkOid = affiliateNetworkOid;
+  }
+
 
   public SfvbApprovalParams afterStepUuid(String afterStepUuid) {
     
@@ -304,11 +335,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.
+   * For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.
    * @return contentSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For file.put_script, the SHA-256 of the exact bytes approved.  Set by the server, never by the caller.  The write must send bytes with this hash.")
+  @ApiModelProperty(value = "For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.")
 
   public String getContentSha256() {
     return contentSha256;
@@ -465,11 +496,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.
+   * For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.
    * @return requestSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For experiment.start of a url experiment, the hash of the checked experiment approved, and for item.pricing the hash of the change.  Set by the server.  The gated call must send the same.")
+  @ApiModelProperty(value = "For experiment.start of a url experiment, the hash of the checked experiment approved, for item.pricing, tracking_provider.change and affiliate_network.change the hash of the change, and for smart_attribution.change the hash of the configuration the change would store.  Set by the server.  The gated call must send the same.")
 
   public String getRequestSha256() {
     return requestSha256;
@@ -603,11 +634,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For experiment.start of a page experiment, the page body name.  Defaults to body.
+   * For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.
    * @return slot
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For experiment.start of a page experiment, the page body name.  Defaults to body.")
+  @ApiModelProperty(value = "For experiment.start of a page experiment, the page body name, which defaults to body.  For tracking_html.put, tracking or conversion.")
 
   public String getSlot() {
     return slot;
@@ -639,6 +670,29 @@ public class SfvbApprovalParams {
 
   public void setStepUuid(String stepUuid) {
     this.stepUuid = stepUuid;
+  }
+
+
+  public SfvbApprovalParams trackingProvider(String trackingProvider) {
+    
+    this.trackingProvider = trackingProvider;
+    return this;
+  }
+
+   /**
+   * The tracking provider key, for tracking_provider.change.
+   * @return trackingProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The tracking provider key, for tracking_provider.change.")
+
+  public String getTrackingProvider() {
+    return trackingProvider;
+  }
+
+
+  public void setTrackingProvider(String trackingProvider) {
+    this.trackingProvider = trackingProvider;
   }
 
 
@@ -767,7 +821,8 @@ public class SfvbApprovalParams {
       return false;
     }
     SfvbApprovalParams sfvbApprovalParams = (SfvbApprovalParams) o;
-    return Objects.equals(this.afterStepUuid, sfvbApprovalParams.afterStepUuid) &&
+    return Objects.equals(this.affiliateNetworkOid, sfvbApprovalParams.affiliateNetworkOid) &&
+        Objects.equals(this.afterStepUuid, sfvbApprovalParams.afterStepUuid) &&
         Objects.equals(this.attributeNames, sfvbApprovalParams.attributeNames) &&
         Objects.equals(this.blogPostOid, sfvbApprovalParams.blogPostOid) &&
         Objects.equals(this.branchStepUuid, sfvbApprovalParams.branchStepUuid) &&
@@ -786,6 +841,7 @@ public class SfvbApprovalParams {
         Objects.equals(this.side, sfvbApprovalParams.side) &&
         Objects.equals(this.slot, sfvbApprovalParams.slot) &&
         Objects.equals(this.stepUuid, sfvbApprovalParams.stepUuid) &&
+        Objects.equals(this.trackingProvider, sfvbApprovalParams.trackingProvider) &&
         Objects.equals(this.upsellKind, sfvbApprovalParams.upsellKind) &&
         Objects.equals(this.upsellOid, sfvbApprovalParams.upsellOid) &&
         Objects.equals(this.version, sfvbApprovalParams.version) &&
@@ -795,13 +851,14 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(affiliateNetworkOid, afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, trackingProvider, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbApprovalParams {\n");
+    sb.append("    affiliateNetworkOid: ").append(toIndentedString(affiliateNetworkOid)).append("\n");
     sb.append("    afterStepUuid: ").append(toIndentedString(afterStepUuid)).append("\n");
     sb.append("    attributeNames: ").append(toIndentedString(attributeNames)).append("\n");
     sb.append("    blogPostOid: ").append(toIndentedString(blogPostOid)).append("\n");
@@ -821,6 +878,7 @@ public class SfvbApprovalParams {
     sb.append("    side: ").append(toIndentedString(side)).append("\n");
     sb.append("    slot: ").append(toIndentedString(slot)).append("\n");
     sb.append("    stepUuid: ").append(toIndentedString(stepUuid)).append("\n");
+    sb.append("    trackingProvider: ").append(toIndentedString(trackingProvider)).append("\n");
     sb.append("    upsellKind: ").append(toIndentedString(upsellKind)).append("\n");
     sb.append("    upsellOid: ").append(toIndentedString(upsellOid)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -848,6 +906,7 @@ public class SfvbApprovalParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("affiliate_network_oid");
     openapiFields.add("after_step_uuid");
     openapiFields.add("attribute_names");
     openapiFields.add("blog_post_oid");
@@ -867,6 +926,7 @@ public class SfvbApprovalParams {
     openapiFields.add("side");
     openapiFields.add("slot");
     openapiFields.add("step_uuid");
+    openapiFields.add("tracking_provider");
     openapiFields.add("upsell_kind");
     openapiFields.add("upsell_oid");
     openapiFields.add("version");
@@ -941,6 +1001,9 @@ public class SfvbApprovalParams {
       }
       if (jsonObj.get("step_uuid") != null && !jsonObj.get("step_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `step_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("step_uuid").toString()));
+      }
+      if (jsonObj.get("tracking_provider") != null && !jsonObj.get("tracking_provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tracking_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tracking_provider").toString()));
       }
       if (jsonObj.get("upsell_kind") != null && !jsonObj.get("upsell_kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `upsell_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upsell_kind").toString()));

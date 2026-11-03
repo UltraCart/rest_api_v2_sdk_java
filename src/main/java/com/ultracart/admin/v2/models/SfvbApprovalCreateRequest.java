@@ -20,12 +20,15 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbAffiliateNetworkRequest;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
 import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
+import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
+import com.ultracart.admin.v2.models.SfvbTrackingProviderRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -90,7 +93,19 @@ public class SfvbApprovalCreateRequest {
     
     SEQUENCE_STEP_ENABLE_POSTCARD("sequence_step.enable_postcard"),
     
-    SEGMENT_UPDATE("segment.update");
+    SEGMENT_UPDATE("segment.update"),
+    
+    SMART_ATTRIBUTION_CHANGE("smart_attribution.change"),
+    
+    SMART_ATTRIBUTION_DELETE("smart_attribution.delete"),
+    
+    TRACKING_PROVIDER_CHANGE("tracking_provider.change"),
+    
+    TRACKING_HTML_PUT("tracking_html.put"),
+    
+    AFFILIATE_NETWORK_CHANGE("affiliate_network.change"),
+    
+    AFFILIATE_NETWORK_DELETE("affiliate_network.delete");
 
     private String value;
 
@@ -134,6 +149,10 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_ACTION)
   private ActionEnum action;
 
+  public static final String SERIALIZED_NAME_AFFILIATE_NETWORK = "affiliate_network";
+  @SerializedName(SERIALIZED_NAME_AFFILIATE_NETWORK)
+  private SfvbAffiliateNetworkRequest affiliateNetwork;
+
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
@@ -166,6 +185,14 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_SEGMENT_UPDATE)
   private SfvbCommsSegmentWriteRequest segmentUpdate;
 
+  public static final String SERIALIZED_NAME_SMART_ATTRIBUTION = "smart_attribution";
+  @SerializedName(SERIALIZED_NAME_SMART_ATTRIBUTION)
+  private SfvbSmartAttributionRequest smartAttribution;
+
+  public static final String SERIALIZED_NAME_TRACKING_PROVIDER = "tracking_provider";
+  @SerializedName(SERIALIZED_NAME_TRACKING_PROVIDER)
+  private SfvbTrackingProviderRequest trackingProvider;
+
   public SfvbApprovalCreateRequest() { 
   }
 
@@ -192,6 +219,29 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest affiliateNetwork(SfvbAffiliateNetworkRequest affiliateNetwork) {
+    
+    this.affiliateNetwork = affiliateNetwork;
+    return this;
+  }
+
+   /**
+   * Get affiliateNetwork
+   * @return affiliateNetwork
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbAffiliateNetworkRequest getAffiliateNetwork() {
+    return affiliateNetwork;
+  }
+
+
+  public void setAffiliateNetwork(SfvbAffiliateNetworkRequest affiliateNetwork) {
+    this.affiliateNetwork = affiliateNetwork;
+  }
+
+
   public SfvbApprovalCreateRequest content(String content) {
     
     this.content = content;
@@ -199,11 +249,11 @@ public class SfvbApprovalCreateRequest {
   }
 
    /**
-   * For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+   * For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
    * @return content
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For a file.put_script write, the exact script to be written, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.")
+  @ApiModelProperty(value = "For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.")
 
   public String getContent() {
     return content;
@@ -392,6 +442,52 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest smartAttribution(SfvbSmartAttributionRequest smartAttribution) {
+    
+    this.smartAttribution = smartAttribution;
+    return this;
+  }
+
+   /**
+   * Get smartAttribution
+   * @return smartAttribution
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbSmartAttributionRequest getSmartAttribution() {
+    return smartAttribution;
+  }
+
+
+  public void setSmartAttribution(SfvbSmartAttributionRequest smartAttribution) {
+    this.smartAttribution = smartAttribution;
+  }
+
+
+  public SfvbApprovalCreateRequest trackingProvider(SfvbTrackingProviderRequest trackingProvider) {
+    
+    this.trackingProvider = trackingProvider;
+    return this;
+  }
+
+   /**
+   * Get trackingProvider
+   * @return trackingProvider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbTrackingProviderRequest getTrackingProvider() {
+    return trackingProvider;
+  }
+
+
+  public void setTrackingProvider(SfvbTrackingProviderRequest trackingProvider) {
+    this.trackingProvider = trackingProvider;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -403,6 +499,7 @@ public class SfvbApprovalCreateRequest {
     }
     SfvbApprovalCreateRequest sfvbApprovalCreateRequest = (SfvbApprovalCreateRequest) o;
     return Objects.equals(this.action, sfvbApprovalCreateRequest.action) &&
+        Objects.equals(this.affiliateNetwork, sfvbApprovalCreateRequest.affiliateNetwork) &&
         Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
@@ -410,12 +507,14 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
         Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows) &&
-        Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate);
+        Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate) &&
+        Objects.equals(this.smartAttribution, sfvbApprovalCreateRequest.smartAttribution) &&
+        Objects.equals(this.trackingProvider, sfvbApprovalCreateRequest.trackingProvider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate);
+    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, smartAttribution, trackingProvider);
   }
 
   @Override
@@ -423,6 +522,7 @@ public class SfvbApprovalCreateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbApprovalCreateRequest {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    affiliateNetwork: ").append(toIndentedString(affiliateNetwork)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
@@ -431,6 +531,8 @@ public class SfvbApprovalCreateRequest {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
     sb.append("    segmentUpdate: ").append(toIndentedString(segmentUpdate)).append("\n");
+    sb.append("    smartAttribution: ").append(toIndentedString(smartAttribution)).append("\n");
+    sb.append("    trackingProvider: ").append(toIndentedString(trackingProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -454,6 +556,7 @@ public class SfvbApprovalCreateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
+    openapiFields.add("affiliate_network");
     openapiFields.add("content");
     openapiFields.add("experiment_start");
     openapiFields.add("item_attribute_rows");
@@ -462,6 +565,8 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("reason");
     openapiFields.add("redirect_rows");
     openapiFields.add("segment_update");
+    openapiFields.add("smart_attribution");
+    openapiFields.add("tracking_provider");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -491,6 +596,10 @@ public class SfvbApprovalCreateRequest {
       }
       if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      // validate the optional field `affiliate_network`
+      if (jsonObj.getAsJsonObject("affiliate_network") != null) {
+        SfvbAffiliateNetworkRequest.validateJsonObject(jsonObj.getAsJsonObject("affiliate_network"));
       }
       if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
@@ -537,6 +646,14 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `segment_update`
       if (jsonObj.getAsJsonObject("segment_update") != null) {
         SfvbCommsSegmentWriteRequest.validateJsonObject(jsonObj.getAsJsonObject("segment_update"));
+      }
+      // validate the optional field `smart_attribution`
+      if (jsonObj.getAsJsonObject("smart_attribution") != null) {
+        SfvbSmartAttributionRequest.validateJsonObject(jsonObj.getAsJsonObject("smart_attribution"));
+      }
+      // validate the optional field `tracking_provider`
+      if (jsonObj.getAsJsonObject("tracking_provider") != null) {
+        SfvbTrackingProviderRequest.validateJsonObject(jsonObj.getAsJsonObject("tracking_provider"));
       }
   }
 

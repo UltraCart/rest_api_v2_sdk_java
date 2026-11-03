@@ -3020,10 +3020,12 @@ paths:
         \ request (200) rather than a new one (201).  A request lapses after 10 minutes.\
         \  Requires a token that resolves to a user, so use the device authorization\
         \ flow.  For file.put_script send the script as content, or params.version\
-        \ for a revert.  The request starts as reviewing while UltraCart's scanner\
-        \ and two AI models read it, then becomes pending with the review attached,\
-        \ or refused.  Keep polling, and show approval_url only once it is pending.\
-        \  Only the hash is kept, so the write must send the same bytes.\n"
+        \ for a revert; for tracking_html.put send the HTML as content and params.slot;\
+        \ for affiliate_network.change send affiliate_network.  These three start\
+        \ as reviewing while UltraCart's scanner and two AI models read the content,\
+        \ then become pending with the review attached, or refused.  Keep polling,\
+        \ and show approval_url only once it is pending.  Only the hash is kept, so\
+        \ the write must send the same content.\n"
       operationId: insertSfvbApproval
       parameters:
       - description: "The storefront the action runs on.  Required for storefront\
@@ -20498,6 +20500,409 @@ paths:
       x-codegen-request-body-name: postcard_proof_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/smart_attribution:
+    delete:
+      description: "Every platform goes back to being sent conversions as it was before\
+        \ Smart Attribution, and the settings are gone.  Send the hash_sha256 you\
+        \ read as If-Match.  Needs sfvb_publish and an approved smart_attribution.delete\
+        \ request (Approval-Id).  An unconfigured storefront is 404.\n"
+      operationId: deleteSfvbSmartAttribution
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the Smart Attribution read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved smart_attribution.delete request.  Required.  See
+          POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a storefront's Smart Attribution configuration
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The mode, model, global credit split, lookback and platforms,\
+        \ the platforms detected from the tracking integrations that are not configured\
+        \ yet, and the hash_sha256 a change or delete sends back as If-Match.  When\
+        \ configured is false the values are the defaults an enable would save.\n"
+      operationId: getSfvbSmartAttribution
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSmartAttribution'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a storefront's Smart Attribution configuration
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update of the mode, model, global split and lookback.\
+        \  platforms, when sent, replaces the whole list.  The global split must total\
+        \ exactly 1 and the lookback is 7 to 365.  On an unconfigured storefront it\
+        \ creates the configuration.  Send the hash_sha256 you read as If-Match. \
+        \ Needs sfvb_publish, and when the mode is active or the change makes it active,\
+        \ an approved smart_attribution.change request for exactly this change (Approval-Id),\
+        \ because active mode decides which conversions each platform is sent.  A\
+        \ change that stores what is already stored returns the configuration unchanged\
+        \ and uses no approval.\n"
+      operationId: updateSfvbSmartAttribution
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the Smart Attribution read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "When the mode is or becomes active, the approval_id of an approved\
+          \ smart_attribution.change request for this change.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbSmartAttributionRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSmartAttribution'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a storefront's Smart Attribution configuration
+      tags:
+      - sfvb
+      x-codegen-request-body-name: smart_attribution_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/smart_attribution/enable:
+    post:
+      description: "What the admin's Enable button saves: report_only, position_based,\
+        \ a 40/20/40 split, a 7 day lookback and every detected platform.  report_only\
+        \ records decisions and changes nothing any platform is sent.  A storefront\
+        \ that already has a configuration is 409 sfvb.smart_attribution_configured.\
+        \  Needs sfvb_publish.\n"
+      operationId: enableSfvbSmartAttribution
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSmartAttribution'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Turn Smart Attribution on in report_only mode
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/templates:
     get:
       description: "Each template with the page type it declares and what it can render\
@@ -21480,6 +21885,1501 @@ paths:
       - sfvb
       x-codegen-request-body-name: velocity_validate_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking:
+    get:
+      description: "The five privacy rules (which shoppers each applies to) and the\
+        \ advanced conversion settings, each section with the hash_sha256 a write\
+        \ sends back as If-Match.  The order hash secret key is shared by every storefront\
+        \ on the account and is reported only as set or not.\n"
+      operationId: getSfvbTrackingSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a storefront's privacy rules and advanced conversion settings
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/advanced:
+    put:
+      description: "A partial update.  Fields left out keep their value, and a text\
+        \ setting is cleared by naming it in unset.  URLs are a path starting with\
+        \ / or an absolute http or https URL, and one over its limit is refused rather\
+        \ than cut short.  The currency must be one the read lists.  The order hash\
+        \ secret key cannot be changed here.  Every field is checked before any is\
+        \ written.  Send the advanced hash_sha256 you read as If-Match.  dry_run reports\
+        \ the changes without saving.  Always needs sfvb_publish, because the settings\
+        \ apply to shoppers as soon as they are saved.  The admin saves the whole\
+        \ tab, so a merchant with it open can still overwrite a change made here.\n"
+      operationId: updateSfvbTrackingAdvanced
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The advanced hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbTrackingAdvancedRequest'
+        description: The settings to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a storefront's advanced conversion settings
+      tags:
+      - sfvb
+      x-codegen-request-body-name: tracking_advanced_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks:
+    get:
+      description: "Every affiliate network pixel, by name, with its settings and\
+        \ hash_sha256.  conversion_pixel is left out; its size and hash are shown.\
+        \  Read one network for it.\n"
+      operationId: getSfvbAffiliateNetworks
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbAffiliateNetworksResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a storefront's affiliate networks
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "network_name, parameter_name and parameter_value are required;\
+        \ the rest start from the admin's defaults.  Internal affiliate oids must\
+        \ be the account's own.  Needs sfvb_publish.  A network with a conversion_pixel\
+        \ that a custom or server_to_server network will use needs an approved affiliate_network.change\
+        \ request for exactly this create (Approval-Id), which UltraCart reviews first.\
+        \  dry_run says whether it needs one, without saving.\n"
+      operationId: insertSfvbAffiliateNetwork
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "For a network with a conversion pixel it will use, the approval_id\
+          \ of an approved affiliate_network.change request for exactly this create.\
+          \  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
+        description: The network
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbAffiliateNetwork'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Add an affiliate network
+      tags:
+      - sfvb
+      x-codegen-request-body-name: affiliate_network_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid}:
+    delete:
+      description: |
+        Visits from the network stop being recognized and its pixel stops firing.  Refused with 409 while Smart Attribution names the network as a platform.  Send the network's hash_sha256 as If-Match.  Needs sfvb_publish and an approved affiliate_network.delete request (Approval-Id).
+      operationId: deleteSfvbAffiliateNetwork
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: affiliate_network_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The network's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved affiliate_network.delete request
+          for this network.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete an affiliate network
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The network with its conversion_pixel, and the hash_sha256 an\
+        \ update or delete sends back as If-Match.\n"
+      operationId: getSfvbAffiliateNetwork
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: affiliate_network_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbAffiliateNetwork'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one affiliate network
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update: only the fields sent change.  Send the network's\
+        \ hash_sha256 as If-Match.  Needs sfvb_publish.  Changing the conversion_pixel,\
+        \ or the conversion_type, of a network whose pixel will be used needs an approved\
+        \ affiliate_network.change request for exactly this change (Approval-Id),\
+        \ which UltraCart reviews first.  Other fields, and emptying the pixel, need\
+        \ none.  dry_run says whether it needs one, without saving.\n"
+      operationId: updateSfvbAffiliateNetwork
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: affiliate_network_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The network's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "When the change sets a conversion pixel the network will use,\
+          \ the approval_id of an approved affiliate_network.change request for exactly\
+          \ this change.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbAffiliateNetwork'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change an affiliate network
+      tags:
+      - sfvb
+      x-codegen-request-body-name: affiliate_network_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/html:
+    get:
+      description: "tracking (every page but the receipt) and conversion (the receipt\
+        \ only), each with its size and hash_sha256.  Read one slot for its content.\n"
+      operationId: getSfvbTrackingHtmlSlots
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingHtmlResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a storefront's custom tracking HTML slots
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/html/{slot}:
+    get:
+      description: "The HTML with its Velocity tokens as stored, and the hash_sha256\
+        \ a write sends back as If-Match.\n"
+      operationId: getSfvbTrackingHtml
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: tracking or conversion
+        in: path
+        name: slot
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingHtml'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one custom tracking HTML slot
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Replaces the whole slot, at most 256 KB.  Content the storefront's\
+        \ templates may not use is refused with its lines.  Send the slot's hash_sha256\
+        \ as If-Match.  Needs sfvb_publish.  Any HTML but an empty string needs an\
+        \ approved tracking_html.put request for exactly this content (Approval-Id),\
+        \ which UltraCart reviews first.  An empty string empties the slot without\
+        \ one.  dry_run says whether the write needs one, without saving.\n"
+      operationId: updateSfvbTrackingHtml
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: tracking or conversion
+        in: path
+        name: slot
+        required: true
+        schema:
+          type: string
+      - description: "The slot's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "For any content but an empty string, the approval_id of an approved\
+          \ tracking_html.put request for exactly this content.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbTrackingHtmlRequest'
+        description: The content
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingHtml'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Write one custom tracking HTML slot
+      tags:
+      - sfvb
+      x-codegen-request-body-name: tracking_html_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/privacy:
+    put:
+      description: "A partial update.  Each rule named is set to all, eea, non_us\
+        \ or off, and rules left out keep their value.  Every rule is checked before\
+        \ any is written.  Send the privacy hash_sha256 you read as If-Match.  dry_run\
+        \ reports the changes without saving.  Always needs sfvb_publish, because\
+        \ the rules apply to shoppers as soon as they are saved.  The admin saves\
+        \ the whole tab, so a merchant with it open can still overwrite a change made\
+        \ here.\n"
+      operationId: updateSfvbTrackingPrivacy
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The privacy hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbTrackingPrivacyRequest'
+        description: The rules to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a storefront's privacy rules
+      tags:
+      - sfvb
+      x-codegen-request-body-name: tracking_privacy_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/providers:
+    get:
+      description: "Every provider on the admin's Google and Other tabs, with each\
+        \ field's type and value, its consent gate, events, OAuth connection state\
+        \ and hash_sha256.  A secret's value is never returned, only whether one is\
+        \ set, its mask and the sink to request a handle for.  configured=true lists\
+        \ only the providers that are on.\n"
+      operationId: getSfvbTrackingProviders
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: configured
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingProvidersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a storefront's tracking providers
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}:
+    delete:
+      description: "Clears every field and secret the API can change, the consent\
+        \ gate and the events, and turns off Google Tag Gateway.  The provider stops\
+        \ being sent anything.  An OAuth connection is left alone, and notes say to\
+        \ disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.\
+        \  Needs sfvb_publish.  No approval.\n"
+      operationId: deleteSfvbTrackingProvider
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: provider
+        required: true
+        schema:
+          type: string
+      - description: "The provider's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingProvider'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Clear one tracking provider
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The provider as the list shows it, with the hash_sha256 a change\
+        \ or clear sends back as If-Match.\n"
+      operationId: getSfvbTrackingProvider
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: provider
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingProvider'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one tracking provider
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update of the provider's fields, secrets (as secret\
+        \ handles), consent gate, events and, for google_analytics, wholesale account\
+        \ numbers.  Every value is checked for its field's type before anything is\
+        \ written.  Send the provider's hash_sha256 as If-Match.  dry_run reports\
+        \ the changes without saving.  Needs sfvb_publish.  Turning the provider on,\
+        \ loosening its consent gate, or turning on Google Tag Gateway (which also\
+        \ needs accept_cost true) needs an approved tracking_provider.change request\
+        \ for exactly this change (Approval-Id).  OAuth connections are made in the\
+        \ admin.\n"
+      operationId: updateSfvbTrackingProvider
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: provider
+        required: true
+        schema:
+          type: string
+      - description: "The provider's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "When the change turns the provider on, loosens its consent gate\
+          \ or turns on Google Tag Gateway, the approval_id of an approved tracking_provider.change\
+          \ request for this change.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbTrackingProviderRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingProvider'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "502":
+          $ref: '#/components/responses/502'
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change one tracking provider
+      tags:
+      - sfvb
+      x-codegen-request-body-name: tracking_provider_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/transactional_emails:
     get:
@@ -23360,6 +25260,468 @@ paths:
       summary: Unarchive an upsell path
       tags:
       - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/utm_shortcodes:
+    get:
+      description: "Every live shortcode, sorted by code, each with its hash_sha256.\
+        \  q matches the code or the description, ignoring case.\n"
+      operationId: getSfvbUtmShortcodes
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: q
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUtmShortcodesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List a storefront's UTM shortcodes
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "code is letters, digits, underscore and hyphen, 1 to 50 characters,\
+        \ and at least one UTM or ITM value is required.  A code another live shortcode\
+        \ has, ignoring case, is 409 sfvb.utm_shortcode_exists.  A code that is one\
+        \ of the account's affiliate short codes is 409 sfvb.utm_shortcode_affiliate_conflict,\
+        \ because the storefront checks those first and this one would never fire.\
+        \  Up to 5,000 per storefront.  Needs sfvb_write only, because no link sent\
+        \ before it existed changes.\n"
+      operationId: insertSfvbUtmShortcode
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbUtmShortcodeRequest'
+        description: The shortcode
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUtmShortcode'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a UTM shortcode
+      tags:
+      - sfvb
+      x-codegen-request-body-name: utm_shortcode_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid}:
+    delete:
+      description: "The shortcode stops attributing at once.  A link that uses it\
+        \ as a path segment still opens its page, without the UTM values.  Send the\
+        \ hash_sha256 you read as If-Match.  Needs sfvb_publish.\n"
+      operationId: deleteSfvbUtmShortcode
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: shortcode_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The shortcode's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a UTM shortcode
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: |
+        The shortcode with the hash_sha256 an update or delete sends back as If-Match.  A deleted shortcode is 404.
+      operationId: getSfvbUtmShortcode
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: shortcode_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUtmShortcode'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one UTM shortcode
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update.  Fields left out keep their value, and an empty\
+        \ string clears a value.  A changed code is checked like a new one.  The creation\
+        \ date is kept.  Send the hash_sha256 you read as If-Match.  Needs sfvb_publish,\
+        \ because links already in emails and ads that use the code are attributed\
+        \ differently from now on.\n"
+      operationId: updateSfvbUtmShortcode
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: shortcode_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The shortcode's hash_sha256 from the last read.  428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbUtmShortcodeRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbUtmShortcode'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a UTM shortcode
+      tags:
+      - sfvb
+      x-codegen-request-body-name: utm_shortcode_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/widget_ids:
     post:
@@ -251475,6 +253837,315 @@ components:
             instead of shipping address
           type: boolean
       type: object
+    SfvbAffiliateNetwork:
+      example:
+        if_not_fired_affiliate_oid: 7
+        if_not_fired: process
+        remove_empty_pixel_parameters: true
+        affiliate_network_oid: 0
+        changes:
+        - from: from
+          section: section
+          to: to
+          key: key
+        - from: from
+          section: section
+          to: to
+          key: key
+        network_name: network_name
+        parameter_value: parameter_value
+        stomp_previous_cookie: true
+        conversion_pixel_sha256: conversion_pixel_sha256
+        parameter_name: parameter_name
+        hash_sha256: hash_sha256
+        assign_to_affiliate_oid: 6
+        record_fire_in_custom_field: 9
+        conversion_type: custom
+        commission: 1.4658129805029452
+        dry_run: true
+        cookie_lifetime_days: 5
+        fire_percentage: 2.3021358869347655
+        record_name_in_custom_field: 3
+        conversion_pixel_size_bytes: 5
+        approval_needed: true
+        conversion_pixel: conversion_pixel
+      properties:
+        affiliate_network_oid:
+          description: The network's oid.  Smart Attribution names it as a platform's
+            integration_id.
+          format: int32
+          type: integer
+        approval_needed:
+          description: "On a dry run, whether the real write needs an approved affiliate_network.change\
+            \ request."
+          type: boolean
+        assign_to_affiliate_oid:
+          description: The account's own affiliate that orders from this network are
+            assigned to.  Null when none.
+          format: int32
+          type: integer
+        changes:
+          description: "On a write, what changed, or what would change on a dry run.\
+            \  conversion_pixel shows its size and hash, not its content."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingChange'
+          type: array
+        commission:
+          description: "A fixed commission amount, in the account's currency.  Null\
+            \ when not set."
+          type: number
+        conversion_pixel:
+          description: "HTML for custom, or the postback URL for server_to_server,\
+            \ with the admin's order tokens.  Only on a read of one network and on\
+            \ a write.  Empty when not set."
+          type: string
+        conversion_pixel_sha256:
+          description: The SHA-256 of conversion_pixel as UTF-8.
+          type: string
+        conversion_pixel_size_bytes:
+          description: The size of conversion_pixel in UTF-8 bytes.
+          format: int32
+          type: integer
+        conversion_type:
+          description: custom prints conversion_pixel into the receipt page.  commission_junction
+            fires the account's Commission Junction setup instead and does not use
+            conversion_pixel.  server_to_server has UltraCart's server request conversion_pixel
+            as an https URL after the order.  A value stored by the admin that is
+            none of these is shown as stored.
+          enum:
+          - custom
+          - commission_junction
+          - server_to_server
+          type: string
+        cookie_lifetime_days:
+          description: "How long the visit is remembered, in days, 1 to 3650."
+          format: int32
+          type: integer
+        dry_run:
+          description: "On a write, true when nothing was saved."
+          type: boolean
+        fire_percentage:
+          description: "The share of this network's orders whose pixel fires, from\
+            \ 0 to 100."
+          type: number
+        hash_sha256:
+          description: The hash of the network as stored.  Send it as If-Match on
+            an update or delete.
+          type: string
+        if_not_fired:
+          description: "What UltraCart's own affiliate system does with an order whose\
+            \ pixel did not fire.  process handles it as usual, skip leaves it out,\
+            \ assign credits if_not_fired_affiliate_oid."
+          enum:
+          - process
+          - skip
+          - assign
+          type: string
+        if_not_fired_affiliate_oid:
+          description: "For if_not_fired assign, the account's own affiliate to credit."
+          format: int32
+          type: integer
+        network_name:
+          description: "The network's name, up to 50 characters."
+          type: string
+        parameter_name:
+          description: "The URL parameter that marks a visit from this network, up\
+            \ to 50 characters.  Compared without case."
+          type: string
+        parameter_value:
+          description: "The parameter's value for this network, up to 100 characters.\
+            \  Compared without case."
+          type: string
+        record_fire_in_custom_field:
+          description: "The order custom field, 1 to 10, that records whether the\
+            \ pixel fired."
+          format: int32
+          type: integer
+        record_name_in_custom_field:
+          description: "The order custom field, 1 to 10, that records the network's\
+            \ name."
+          format: int32
+          type: integer
+        remove_empty_pixel_parameters:
+          description: "For server_to_server only, true to drop query parameters that\
+            \ are empty after the tokens are filled in."
+          type: boolean
+        stomp_previous_cookie:
+          description: True to replace another network's cookie.  False keeps the
+            first network's.
+          type: boolean
+      type: object
+    SfvbAffiliateNetworkRequest:
+      example:
+        if_not_fired_affiliate_oid: 5
+        if_not_fired: process
+        remove_empty_pixel_parameters: true
+        network_name: network_name
+        parameter_value: parameter_value
+        stomp_previous_cookie: true
+        parameter_name: parameter_name
+        unset:
+        - unset
+        - unset
+        assign_to_affiliate_oid: 0
+        record_fire_in_custom_field: 2
+        conversion_type: custom
+        commission: 6.027456183070403
+        dry_run: true
+        cookie_lifetime_days: 1
+        fire_percentage: 5.962133916683182
+        record_name_in_custom_field: 7
+        conversion_pixel: conversion_pixel
+      properties:
+        assign_to_affiliate_oid:
+          description: One of the account's own affiliates.  Name it in unset to clear
+            it.
+          format: int32
+          type: integer
+        commission:
+          description: "A fixed commission amount, 0 or more, with at most 6 decimals.\
+            \  Name it in unset to clear it."
+          type: number
+        conversion_pixel:
+          description: "HTML for custom, at most 10,000 characters, or one https URL\
+            \ for server_to_server.  An empty string empties it.  A pixel that a custom\
+            \ or server_to_server network will use needs an approved affiliate_network.change\
+            \ request for exactly this change."
+          type: string
+        conversion_type:
+          description: "custom, commission_junction or server_to_server."
+          enum:
+          - custom
+          - commission_junction
+          - server_to_server
+          type: string
+        cookie_lifetime_days:
+          description: 1 to 3650.
+          format: int32
+          type: integer
+        dry_run:
+          description: "True to check the change and say whether it needs an approval,\
+            \ without saving."
+          type: boolean
+        fire_percentage:
+          description: "0 to 100, with at most 2 decimals."
+          type: number
+        if_not_fired:
+          description: "process, skip or assign.  assign needs if_not_fired_affiliate_oid."
+          enum:
+          - process
+          - skip
+          - assign
+          type: string
+        if_not_fired_affiliate_oid:
+          description: "For if_not_fired assign, one of the account's own affiliates."
+          format: int32
+          type: integer
+        network_name:
+          description: Up to 50 characters.  Required on a create.
+          type: string
+        parameter_name:
+          description: Up to 50 characters.  Required on a create.
+          type: string
+        parameter_value:
+          description: Up to 100 characters.  Required on a create.
+          type: string
+        record_fire_in_custom_field:
+          description: 1 to 10.
+          format: int32
+          type: integer
+        record_name_in_custom_field:
+          description: 1 to 10.
+          format: int32
+          type: integer
+        remove_empty_pixel_parameters:
+          description: server_to_server only.
+          type: boolean
+        stomp_previous_cookie:
+          description: True to replace another network's cookie.
+          type: boolean
+        unset:
+          description: Fields to clear.  commission and assign_to_affiliate_oid only.
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbAffiliateNetworksResponse:
+      example:
+        storefront_oid: 2
+        affiliate_networks:
+        - if_not_fired_affiliate_oid: 7
+          if_not_fired: process
+          remove_empty_pixel_parameters: true
+          affiliate_network_oid: 0
+          changes:
+          - from: from
+            section: section
+            to: to
+            key: key
+          - from: from
+            section: section
+            to: to
+            key: key
+          network_name: network_name
+          parameter_value: parameter_value
+          stomp_previous_cookie: true
+          conversion_pixel_sha256: conversion_pixel_sha256
+          parameter_name: parameter_name
+          hash_sha256: hash_sha256
+          assign_to_affiliate_oid: 6
+          record_fire_in_custom_field: 9
+          conversion_type: custom
+          commission: 1.4658129805029452
+          dry_run: true
+          cookie_lifetime_days: 5
+          fire_percentage: 2.3021358869347655
+          record_name_in_custom_field: 3
+          conversion_pixel_size_bytes: 5
+          approval_needed: true
+          conversion_pixel: conversion_pixel
+        - if_not_fired_affiliate_oid: 7
+          if_not_fired: process
+          remove_empty_pixel_parameters: true
+          affiliate_network_oid: 0
+          changes:
+          - from: from
+            section: section
+            to: to
+            key: key
+          - from: from
+            section: section
+            to: to
+            key: key
+          network_name: network_name
+          parameter_value: parameter_value
+          stomp_previous_cookie: true
+          conversion_pixel_sha256: conversion_pixel_sha256
+          parameter_name: parameter_name
+          hash_sha256: hash_sha256
+          assign_to_affiliate_oid: 6
+          record_fire_in_custom_field: 9
+          conversion_type: custom
+          commission: 1.4658129805029452
+          dry_run: true
+          cookie_lifetime_days: 5
+          fire_percentage: 2.3021358869347655
+          record_name_in_custom_field: 3
+          conversion_pixel_size_bytes: 5
+          approval_needed: true
+          conversion_pixel: conversion_pixel
+      properties:
+        affiliate_networks:
+          description: "Every network, by name.  conversion_pixel is left out; read\
+            \ one network for it."
+          items:
+            $ref: '#/components/schemas/SfvbAffiliateNetwork'
+          type: array
+        storefront_oid:
+          description: The storefront.
+          format: int32
+          type: integer
+      type: object
     SfvbApproval:
       example:
         reason: reason
@@ -251485,32 +254156,34 @@ components:
         storefront_oid: 1
         approval_url: approval_url
         params:
-          item_count: 2
+          esp_twilio_uuid: esp_twilio_uuid
+          affiliate_network_oid: 5
+          slot: slot
+          after_step_uuid: after_step_uuid
+          path: path
+          widget_id: widget_id
+          experiment_oid: 2
+          segment_uuid: segment_uuid
+          branch_step_uuid: branch_step_uuid
+          rule_count: 3
+          upsell_oid: 2
+          item_count: 7
           attribute_names:
           - attribute_names
           - attribute_names
-          esp_twilio_uuid: esp_twilio_uuid
           side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
-          slot: slot
-          version: 2
+          tracking_provider: tracking_provider
+          version: 4
           request_sha256: request_sha256
-          after_step_uuid: after_step_uuid
           blog_post_oid: 5
-          path: path
           sequence_uuid: sequence_uuid
           upsell_kind: offer
-          widget_id: widget_id
-          experiment_oid: 5
           domain: domain
           rows_sha256: rows_sha256
-          segment_uuid: segment_uuid
-          branch_step_uuid: branch_step_uuid
-          winner_variation_number: 4
-          merchant_item_oid: 7
-          rule_count: 9
-          upsell_oid: 3
+          winner_variation_number: 7
+          merchant_item_oid: 9
         fresh_code_required: true
         outcome_code: outcome_code
         outcome_http_status: 1
@@ -251533,11 +254206,11 @@ components:
           findings:
           - clear_violation: true
             evidence: evidence
-            line: 7
+            line: 1
             category: category
           - clear_violation: true
             evidence: evidence
-            line: 7
+            line: 1
             category: category
           reviewed_at: reviewed_at
           verdict: approve
@@ -251649,9 +254322,9 @@ components:
         reason: reason
         redirect_rows:
         - hash_sha256: hash_sha256
-          redirect_id: 3
+          redirect_id: 6
         - hash_sha256: hash_sha256
-          redirect_id: 3
+          redirect_id: 6
         segment_update:
           filter_profile_equation_json: filter_profile_equation_json
           folder_uuid: folder_uuid
@@ -251663,26 +254336,26 @@ components:
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 1
+          merchant_item_oid: 2
         - merchant_item_id: merchant_item_id
           name: name
           current_sha256: current_sha256
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 1
+          merchant_item_oid: 2
         item_pricing:
-          cost: 5.962133916683182
-          sale_cost: 2.3021358869347655
-          msrp: 5.637376656633329
+          cost: 4.145608029883936
+          sale_cost: 1.2315135367772556
+          msrp: 7.386281948385884
           clear_sale: true
           clear_msrp: true
           sale_end: sale_end
           volume_discounts:
-          - cost: 7.061401241503109
-            quantity: 9
-          - cost: 7.061401241503109
-            quantity: 9
+          - cost: 1.0246457001441578
+            quantity: 1
+          - cost: 1.0246457001441578
+            quantity: 1
           sale_start: sale_start
         action: file.delete
         experiment_start:
@@ -251692,45 +254365,128 @@ components:
           widget_id: widget_id
           variations:
           - path: path
-            traffic_percentage: 6
+            traffic_percentage: 3
             name: name
           - path: path
-            traffic_percentage: 6
+            traffic_percentage: 3
             name: name
           optimization_type: optimization_type
-          duration_days: 0
+          duration_days: 9
           name: name
           slot: slot
           type: type
           objective_parameter: objective_parameter
           objective: objective
+        tracking_provider:
+          wholesale_tiers:
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          accept_cost: true
+          dry_run: true
+          consent:
+            "false": true
+            region: region
+            type: type
+          fields: "{}"
+          secrets:
+            referralcandy_secret_key: referralcandy_secret_key
+            nextdoor_access_token: nextdoor_access_token
+            pinterest_token: pinterest_token
+            converge_webhook_token: converge_webhook_token
+            klaviyo_private_api_key: klaviyo_private_api_key
+            attentive_private_api_key: attentive_private_api_key
+            customerio_write_key: customerio_write_key
+            northbeam_api_key: northbeam_api_key
+            retention_key: retention_key
+            facebook_server_side_access_token: facebook_server_side_access_token
+            ga4_api_secret: ga4_api_secret
+            kissmetrics_api_key: kissmetrics_api_key
+            axon_conversion_api_key: axon_conversion_api_key
+            awin_conversion_api_key: awin_conversion_api_key
+            hyros_api_key: hyros_api_key
+          unset:
+          - unset
+          - unset
+          events: "{}"
         params:
-          item_count: 2
+          esp_twilio_uuid: esp_twilio_uuid
+          affiliate_network_oid: 5
+          slot: slot
+          after_step_uuid: after_step_uuid
+          path: path
+          widget_id: widget_id
+          experiment_oid: 2
+          segment_uuid: segment_uuid
+          branch_step_uuid: branch_step_uuid
+          rule_count: 3
+          upsell_oid: 2
+          item_count: 7
           attribute_names:
           - attribute_names
           - attribute_names
-          esp_twilio_uuid: esp_twilio_uuid
           side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
-          slot: slot
-          version: 2
+          tracking_provider: tracking_provider
+          version: 4
           request_sha256: request_sha256
-          after_step_uuid: after_step_uuid
           blog_post_oid: 5
-          path: path
           sequence_uuid: sequence_uuid
           upsell_kind: offer
-          widget_id: widget_id
-          experiment_oid: 5
           domain: domain
           rows_sha256: rows_sha256
-          segment_uuid: segment_uuid
-          branch_step_uuid: branch_step_uuid
-          winner_variation_number: 4
-          merchant_item_oid: 7
-          rule_count: 9
-          upsell_oid: 3
+          winner_variation_number: 7
+          merchant_item_oid: 9
+        smart_attribution:
+          mode: mode
+          originator_percent: 5.025004791520295
+          lookback_days: 4
+          assist_percent: 7.457744773683766
+          closer_percent: 1.1730742509559433
+          attribution_model: attribution_model
+          platforms:
+          - integration_name: integration_name
+            originator_percent: 9.018348186070783
+            integration_id: 6
+            platform_type: platform_type
+            platform_type_override: true
+            assist_percent: 9.965781217890562
+            fire_on_rebill: true
+            closer_percent: 9.369310271410669
+            non_participant_percent: 8.762042012749001
+          - integration_name: integration_name
+            originator_percent: 9.018348186070783
+            integration_id: 6
+            platform_type: platform_type
+            platform_type_override: true
+            assist_percent: 9.965781217890562
+            fire_on_rebill: true
+            closer_percent: 9.369310271410669
+            non_participant_percent: 8.762042012749001
+        affiliate_network:
+          if_not_fired_affiliate_oid: 5
+          if_not_fired: process
+          remove_empty_pixel_parameters: true
+          network_name: network_name
+          parameter_value: parameter_value
+          stomp_previous_cookie: true
+          parameter_name: parameter_name
+          unset:
+          - unset
+          - unset
+          assign_to_affiliate_oid: 0
+          record_fire_in_custom_field: 2
+          conversion_type: custom
+          commission: 6.027456183070403
+          dry_run: true
+          cookie_lifetime_days: 1
+          fire_percentage: 5.962133916683182
+          record_name_in_custom_field: 7
+          conversion_pixel: conversion_pixel
         content: content
       properties:
         action:
@@ -251751,12 +254507,21 @@ components:
           - sequence_step.move
           - sequence_step.enable_postcard
           - segment.update
+          - smart_attribution.change
+          - smart_attribution.delete
+          - tracking_provider.change
+          - tracking_html.put
+          - affiliate_network.change
+          - affiliate_network.delete
           type: string
+        affiliate_network:
+          $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
         content:
           description: "For a file.put_script write, the exact script to be written,\
-            \ at most 256 KB.  UltraCart reviews it and keeps only its hash, so send\
-            \ the same bytes again on the write.  Leave it out for a revert, which\
-            \ names params.version."
+            \ at most 256 KB.  For tracking_html.put, the exact HTML the write will\
+            \ send, at most 256 KB.  UltraCart reviews it and keeps only its hash,\
+            \ so send the same bytes again on the write.  Leave it out for a revert,\
+            \ which names params.version."
           type: string
         experiment_start:
           $ref: '#/components/schemas/SfvbExperimentStartRequest'
@@ -251784,36 +254549,48 @@ components:
           type: array
         segment_update:
           $ref: '#/components/schemas/SfvbCommsSegmentWriteRequest'
+        smart_attribution:
+          $ref: '#/components/schemas/SfvbSmartAttributionRequest'
+        tracking_provider:
+          $ref: '#/components/schemas/SfvbTrackingProviderRequest'
       type: object
     SfvbApprovalParams:
       example:
-        item_count: 2
+        esp_twilio_uuid: esp_twilio_uuid
+        affiliate_network_oid: 5
+        slot: slot
+        after_step_uuid: after_step_uuid
+        path: path
+        widget_id: widget_id
+        experiment_oid: 2
+        segment_uuid: segment_uuid
+        branch_step_uuid: branch_step_uuid
+        rule_count: 3
+        upsell_oid: 2
+        item_count: 7
         attribute_names:
         - attribute_names
         - attribute_names
-        esp_twilio_uuid: esp_twilio_uuid
         side: side
         step_uuid: step_uuid
         content_sha256: content_sha256
-        slot: slot
-        version: 2
+        tracking_provider: tracking_provider
+        version: 4
         request_sha256: request_sha256
-        after_step_uuid: after_step_uuid
         blog_post_oid: 5
-        path: path
         sequence_uuid: sequence_uuid
         upsell_kind: offer
-        widget_id: widget_id
-        experiment_oid: 5
         domain: domain
         rows_sha256: rows_sha256
-        segment_uuid: segment_uuid
-        branch_step_uuid: branch_step_uuid
-        winner_variation_number: 4
-        merchant_item_oid: 7
-        rule_count: 9
-        upsell_oid: 3
+        winner_variation_number: 7
+        merchant_item_oid: 9
       properties:
+        affiliate_network_oid:
+          description: "The affiliate network, for affiliate_network.change and affiliate_network.delete.\
+            \  0 or left out for affiliate_network.change of a network the create\
+            \ call will add."
+          format: int32
+          type: integer
         after_step_uuid:
           description: "For sequence_step.move, the step it moves after.  Or branch_step_uuid\
             \ with side."
@@ -251833,9 +254610,10 @@ components:
             \ step it moves to the start of a side of."
           type: string
         content_sha256:
-          description: "For file.put_script, the SHA-256 of the exact bytes approved.\
-            \  Set by the server, never by the caller.  The write must send bytes\
-            \ with this hash."
+          description: "For file.put_script and tracking_html.put, the SHA-256 of\
+            \ the exact bytes approved, and for affiliate_network.change the SHA-256\
+            \ of the conversion pixel.  Set by the server, never by the caller.  The\
+            \ write must send bytes with this hash."
           type: string
         domain:
           description: "For sending_domain.delete, the sending domain."
@@ -251864,8 +254642,10 @@ components:
           type: string
         request_sha256:
           description: "For experiment.start of a url experiment, the hash of the\
-            \ checked experiment approved, and for item.pricing the hash of the change.\
-            \  Set by the server.  The gated call must send the same."
+            \ checked experiment approved, for item.pricing, tracking_provider.change\
+            \ and affiliate_network.change the hash of the change, and for smart_attribution.change\
+            \ the hash of the configuration the change would store.  Set by the server.\
+            \  The gated call must send the same."
           type: string
         rows_sha256:
           description: "For redirect.delete_batch and item.attribute_batch, the plan_hash\
@@ -251889,12 +254669,15 @@ components:
             \ from the sequence read."
           type: string
         slot:
-          description: "For experiment.start of a page experiment, the page body name.\
-            \  Defaults to body."
+          description: "For experiment.start of a page experiment, the page body name,\
+            \ which defaults to body.  For tracking_html.put, tracking or conversion."
           type: string
         step_uuid:
           description: "The step to remove, for sequence_step.delete, to move, for\
             \ sequence_step.move, or to turn on, for sequence_step.enable_postcard."
+          type: string
+        tracking_provider:
+          description: "The tracking provider key, for tracking_provider.change."
           type: string
         upsell_kind:
           description: "For upsell.enable, what to switch on."
@@ -251938,11 +254721,11 @@ components:
         findings:
         - clear_violation: true
           evidence: evidence
-          line: 7
+          line: 1
           category: category
         - clear_violation: true
           evidence: evidence
-          line: 7
+          line: 1
           category: category
         reviewed_at: reviewed_at
         verdict: approve
@@ -252010,7 +254793,7 @@ components:
       example:
         clear_violation: true
         evidence: evidence
-        line: 7
+        line: 1
         category: category
       properties:
         category:
@@ -252039,32 +254822,34 @@ components:
           storefront_oid: 1
           approval_url: approval_url
           params:
-            item_count: 2
+            esp_twilio_uuid: esp_twilio_uuid
+            affiliate_network_oid: 5
+            slot: slot
+            after_step_uuid: after_step_uuid
+            path: path
+            widget_id: widget_id
+            experiment_oid: 2
+            segment_uuid: segment_uuid
+            branch_step_uuid: branch_step_uuid
+            rule_count: 3
+            upsell_oid: 2
+            item_count: 7
             attribute_names:
             - attribute_names
             - attribute_names
-            esp_twilio_uuid: esp_twilio_uuid
             side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
-            slot: slot
-            version: 2
+            tracking_provider: tracking_provider
+            version: 4
             request_sha256: request_sha256
-            after_step_uuid: after_step_uuid
             blog_post_oid: 5
-            path: path
             sequence_uuid: sequence_uuid
             upsell_kind: offer
-            widget_id: widget_id
-            experiment_oid: 5
             domain: domain
             rows_sha256: rows_sha256
-            segment_uuid: segment_uuid
-            branch_step_uuid: branch_step_uuid
-            winner_variation_number: 4
-            merchant_item_oid: 7
-            rule_count: 9
-            upsell_oid: 3
+            winner_variation_number: 7
+            merchant_item_oid: 9
           fresh_code_required: true
           outcome_code: outcome_code
           outcome_http_status: 1
@@ -252087,11 +254872,11 @@ components:
             findings:
             - clear_violation: true
               evidence: evidence
-              line: 7
+              line: 1
               category: category
             - clear_violation: true
               evidence: evidence
-              line: 7
+              line: 1
               category: category
             reviewed_at: reviewed_at
             verdict: approve
@@ -252111,32 +254896,34 @@ components:
           storefront_oid: 1
           approval_url: approval_url
           params:
-            item_count: 2
+            esp_twilio_uuid: esp_twilio_uuid
+            affiliate_network_oid: 5
+            slot: slot
+            after_step_uuid: after_step_uuid
+            path: path
+            widget_id: widget_id
+            experiment_oid: 2
+            segment_uuid: segment_uuid
+            branch_step_uuid: branch_step_uuid
+            rule_count: 3
+            upsell_oid: 2
+            item_count: 7
             attribute_names:
             - attribute_names
             - attribute_names
-            esp_twilio_uuid: esp_twilio_uuid
             side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
-            slot: slot
-            version: 2
+            tracking_provider: tracking_provider
+            version: 4
             request_sha256: request_sha256
-            after_step_uuid: after_step_uuid
             blog_post_oid: 5
-            path: path
             sequence_uuid: sequence_uuid
             upsell_kind: offer
-            widget_id: widget_id
-            experiment_oid: 5
             domain: domain
             rows_sha256: rows_sha256
-            segment_uuid: segment_uuid
-            branch_step_uuid: branch_step_uuid
-            winner_variation_number: 4
-            merchant_item_oid: 7
-            rule_count: 9
-            upsell_oid: 3
+            winner_variation_number: 7
+            merchant_item_oid: 9
           fresh_code_required: true
           outcome_code: outcome_code
           outcome_http_status: 1
@@ -252159,11 +254946,11 @@ components:
             findings:
             - clear_violation: true
               evidence: evidence
-              line: 7
+              line: 1
               category: category
             - clear_violation: true
               evidence: evidence
-              line: 7
+              line: 1
               category: category
             reviewed_at: reviewed_at
             verdict: approve
@@ -253716,6 +256503,31 @@ components:
         merchant_item_id: merchant_item_id
         owner_object_id: owner_object_id
         container_name: container_name
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
         last_modified: last_modified
         cjson: cjson
         owner_type: theme
@@ -253762,6 +256574,13 @@ components:
           - email
           - postcard
           type: string
+        warnings:
+          description: "Quality warnings from validating this write.  The write succeeded;\
+            \ each one says what to look at, such as a postcard QR code URL with a\
+            \ fragment.  Absent when there are none."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
       type: object
     SfvbContainerRevertRequest:
       example:
@@ -254913,13 +257732,13 @@ components:
         widget_id: widget_id
         variations:
         - path: path
-          traffic_percentage: 6
+          traffic_percentage: 3
           name: name
         - path: path
-          traffic_percentage: 6
+          traffic_percentage: 3
           name: name
         optimization_type: optimization_type
-        duration_days: 0
+        duration_days: 9
         name: name
         slot: slot
         type: type
@@ -254971,7 +257790,7 @@ components:
     SfvbExperimentStartVariation:
       example:
         path: path
-        traffic_percentage: 6
+        traffic_percentage: 3
         name: name
       properties:
         name:
@@ -256445,14 +259264,14 @@ components:
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 1
+          merchant_item_oid: 2
         - merchant_item_id: merchant_item_id
           name: name
           current_sha256: current_sha256
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 1
+          merchant_item_oid: 2
       properties:
         plan_hash:
           description: "From the dry run.  Required to apply, with exactly the rows\
@@ -256558,7 +259377,7 @@ components:
         expected_value: expected_value
         type: type
         value: value
-        merchant_item_oid: 1
+        merchant_item_oid: 2
       properties:
         current_sha256:
           description: The current_sha256 the dry run answered for this row.  Required
@@ -256992,10 +259811,10 @@ components:
         msrp: 1.4658129805029452
         sale_end: sale_end
         volume_discounts:
-        - cost: 7.061401241503109
-          quantity: 9
-        - cost: 7.061401241503109
-          quantity: 9
+        - cost: 1.0246457001441578
+          quantity: 1
+        - cost: 1.0246457001441578
+          quantity: 1
         sale_active: true
         sale_start: sale_start
         currency_code: currency_code
@@ -257044,17 +259863,17 @@ components:
       type: object
     SfvbItemPricingRequest:
       example:
-        cost: 5.962133916683182
-        sale_cost: 2.3021358869347655
-        msrp: 5.637376656633329
+        cost: 4.145608029883936
+        sale_cost: 1.2315135367772556
+        msrp: 7.386281948385884
         clear_sale: true
         clear_msrp: true
         sale_end: sale_end
         volume_discounts:
-        - cost: 7.061401241503109
-          quantity: 9
-        - cost: 7.061401241503109
-          quantity: 9
+        - cost: 1.0246457001441578
+          quantity: 1
+        - cost: 1.0246457001441578
+          quantity: 1
         sale_start: sale_start
       properties:
         clear_msrp:
@@ -257418,8 +260237,8 @@ components:
       type: object
     SfvbItemVolumeDiscount:
       example:
-        cost: 7.061401241503109
-        quantity: 9
+        cost: 1.0246457001441578
+        quantity: 1
       properties:
         cost:
           description: "The unit price at that quantity, in the item's currency."
@@ -260894,9 +263713,9 @@ components:
         plan_hash: plan_hash
         rows:
         - hash_sha256: hash_sha256
-          redirect_id: 3
+          redirect_id: 6
         - hash_sha256: hash_sha256
-          redirect_id: 3
+          redirect_id: 6
       properties:
         plan_hash:
           description: From the dry run of exactly these rows.  Required to delete.
@@ -260982,7 +263801,7 @@ components:
     SfvbRedirectDeleteRow:
       example:
         hash_sha256: hash_sha256
-        redirect_id: 3
+        redirect_id: 6
       properties:
         hash_sha256:
           description: "The hash_sha256 you read.  Optional on a dry run, which reports\
@@ -262947,6 +265766,211 @@ components:
             $ref: '#/components/schemas/SfvbSiteAttributeUpdate'
           type: array
       type: object
+    SfvbSmartAttribution:
+      example:
+        configured: true
+        hash_sha256: hash_sha256
+        mode: mode
+        originator_percent: 5.962133916683182
+        available_platforms:
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+        lookback_days: 1
+        assist_percent: 0.8008281904610115
+        closer_percent: 6.027456183070403
+        storefront_oid: 5
+        attribution_model: attribution_model
+        platforms:
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+      properties:
+        assist_percent:
+          description: "The global assist credit, 0 to 1."
+          type: number
+        attribution_model:
+          description: "position_based, linear, time_decay or custom."
+          type: string
+        available_platforms:
+          description: "Platforms detected from the storefront's tracking integrations\
+            \ that are not configured yet, with suggested settings."
+          items:
+            $ref: '#/components/schemas/SfvbSmartAttributionPlatform'
+          type: array
+        closer_percent:
+          description: "The global closer credit, 0 to 1."
+          type: number
+        configured:
+          description: "True when the storefront has a saved configuration.  When\
+            \ false, the other fields are the defaults an enable would save."
+          type: boolean
+        hash_sha256:
+          description: The hash of the configuration.  Send it as If-Match when changing
+            or deleting it.
+          type: string
+        lookback_days:
+          description: "How many days of a shopper's visits count toward an order,\
+            \ 7 to 365."
+          format: int32
+          type: integer
+        mode:
+          description: "disabled, report_only (decisions are recorded but every platform\
+            \ reports as before) or active (Smart Attribution decides whether each\
+            \ platform's conversion fires and what value it reports)."
+          type: string
+        originator_percent:
+          description: "The global originator credit, 0 to 1.  The three global percentages\
+            \ total exactly 1."
+          type: number
+        platforms:
+          description: The configured platforms.
+          items:
+            $ref: '#/components/schemas/SfvbSmartAttributionPlatform'
+          type: array
+        storefront_oid:
+          description: The storefront this configuration belongs to.
+          format: int32
+          type: integer
+      type: object
+    SfvbSmartAttributionPlatform:
+      example:
+        integration_name: integration_name
+        originator_percent: 9.018348186070783
+        integration_id: 6
+        platform_type: platform_type
+        platform_type_override: true
+        assist_percent: 9.965781217890562
+        fire_on_rebill: true
+        closer_percent: 9.369310271410669
+        non_participant_percent: 8.762042012749001
+      properties:
+        assist_percent:
+          description: "This platform's assist credit, 0 to 1.  Used only when platform_type_override\
+            \ is true."
+          type: number
+        closer_percent:
+          description: "This platform's closer credit, 0 to 1.  Used only when platform_type_override\
+            \ is true."
+          type: number
+        fire_on_rebill:
+          description: "True when the platform also reports auto order rebills.  On\
+            \ a write, when left out, true for paid and owned and false for the affiliate\
+            \ types."
+          type: boolean
+        integration_id:
+          description: "The integration's id, such as an affiliate network pixel's\
+            \ oid.  Null for a platform matched by name.  On a write it must be an\
+            \ id from platforms or available_platforms."
+          format: int32
+          type: integer
+        integration_name:
+          description: "The platform, as Smart Attribution names it, up to 50 characters."
+          type: string
+        non_participant_percent:
+          description: "The credit this platform reports for an order it took no part\
+            \ in, 0 to 1.  0 when left out."
+          type: number
+        originator_percent:
+          description: "This platform's originator credit, 0 to 1.  Used only when\
+            \ platform_type_override is true."
+          type: number
+        platform_type:
+          description: "paid, owned, external affiliate, affiliate network pixel,\
+            \ or excluded."
+          type: string
+        platform_type_override:
+          description: "True when this platform uses its own originator, assist and\
+            \ closer split instead of the global one.  On a write, when left out,\
+            \ true if all three of its percentages are sent."
+          type: boolean
+      type: object
+    SfvbSmartAttributionRequest:
+      example:
+        mode: mode
+        originator_percent: 5.025004791520295
+        lookback_days: 4
+        assist_percent: 7.457744773683766
+        closer_percent: 1.1730742509559433
+        attribution_model: attribution_model
+        platforms:
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+        - integration_name: integration_name
+          originator_percent: 9.018348186070783
+          integration_id: 6
+          platform_type: platform_type
+          platform_type_override: true
+          assist_percent: 9.965781217890562
+          fire_on_rebill: true
+          closer_percent: 9.369310271410669
+          non_participant_percent: 8.762042012749001
+      properties:
+        assist_percent:
+          description: "0 to 1, at most 4 decimals."
+          type: number
+        attribution_model:
+          description: "position_based, linear, time_decay or custom."
+          type: string
+        closer_percent:
+          description: "0 to 1, at most 4 decimals."
+          type: number
+        lookback_days:
+          description: 7 to 365.
+          format: int32
+          type: integer
+        mode:
+          description: "disabled, report_only or active.  Making it active, or any\
+            \ change while it is active, needs an approval."
+          type: string
+        originator_percent:
+          description: "0 to 1, at most 4 decimals.  The three global percentages\
+            \ must total exactly 1, so send all three to change the split."
+          type: number
+        platforms:
+          description: "When sent, replaces the whole platform list.  Up to 100, each\
+            \ name and id once.  Left out, the list is unchanged."
+          items:
+            $ref: '#/components/schemas/SfvbSmartAttributionPlatform'
+          type: array
+      type: object
     SfvbStorefront:
       example:
         active_theme_oid: 0
@@ -263703,6 +266727,1026 @@ components:
           items:
             $ref: '#/components/schemas/SfvbTheme'
           type: array
+      type: object
+    SfvbTrackingAdvanced:
+      example:
+        hash_sha256: hash_sha256
+        conversion_pixel_only_if_paid: true
+        continue_shopping_url: continue_shopping_url
+        order_hash_secret_key_set: true
+        catalog_url: catalog_url
+        omit_order_data: true
+        default_currency: default_currency
+        payment_pending_url: payment_pending_url
+        thank_you_url: thank_you_url
+      properties:
+        catalog_url:
+          description: "The override for the storefront's catalog URL (the admin's\
+            \ Override Catalog URL).  A path starting with / or an absolute http or\
+            \ https URL, up to 250 characters.  Null when not overridden."
+          type: string
+        continue_shopping_url:
+          description: "Where the continue shopping button goes instead of the default.\
+            \  A path starting with / or an absolute http or https URL, up to 250\
+            \ characters.  Null when not overridden."
+          type: string
+        conversion_pixel_only_if_paid:
+          description: True when the receipt's conversion HTML runs only for orders
+            whose payment succeeded.
+          type: boolean
+        default_currency:
+          description: "The storefront's default currency code, one of the response's\
+            \ currencies.  Null when not set."
+          type: string
+        hash_sha256:
+          description: The hash of the seven writable settings.  Send it as If-Match
+            when changing them.
+          type: string
+        omit_order_data:
+          description: True when the order data is left off the custom thank you URL.
+          type: boolean
+        order_hash_secret_key_set:
+          description: "True when the account has an order hash secret key.  The key\
+            \ is shared by every storefront on the account, is never returned, and\
+            \ is changed only in the admin.  Null when it could not be checked."
+          type: boolean
+        payment_pending_url:
+          description: "Where the shopper goes when the order's payment is still pending.\
+            \  A path starting with / or an absolute http or https URL, up to 500\
+            \ characters.  Null when not set."
+          type: string
+        thank_you_url:
+          description: "Where the shopper goes after placing an order, instead of\
+            \ the built-in receipt.  A path starting with / or an absolute http or\
+            \ https URL, up to 500 characters.  Null for the built-in receipt."
+          type: string
+      type: object
+    SfvbTrackingAdvancedRequest:
+      example:
+        conversion_pixel_only_if_paid: true
+        continue_shopping_url: continue_shopping_url
+        catalog_url: catalog_url
+        dry_run: true
+        omit_order_data: true
+        default_currency: default_currency
+        unset:
+        - unset
+        - unset
+        payment_pending_url: payment_pending_url
+        thank_you_url: thank_you_url
+      properties:
+        catalog_url:
+          description: "A path starting with / or an absolute http or https URL, up\
+            \ to 250 characters."
+          type: string
+        continue_shopping_url:
+          description: "A path starting with / or an absolute http or https URL, up\
+            \ to 250 characters."
+          type: string
+        conversion_pixel_only_if_paid:
+          description: True to run the receipt's conversion HTML only for orders whose
+            payment succeeded.
+          type: boolean
+        default_currency:
+          description: A currency code from the read's currencies.
+          type: string
+        dry_run:
+          description: True to check the change and report it without saving.
+          type: boolean
+        omit_order_data:
+          description: True to leave the order data off the custom thank you URL.
+          type: boolean
+        payment_pending_url:
+          description: "A path starting with / or an absolute http or https URL, up\
+            \ to 500 characters."
+          type: string
+        thank_you_url:
+          description: "A path starting with / or an absolute http or https URL, up\
+            \ to 500 characters."
+          type: string
+        unset:
+          description: "Text settings to clear, by key.  continue_shopping_url, catalog_url,\
+            \ thank_you_url, payment_pending_url or default_currency.  Not with a\
+            \ value for the same key."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbTrackingChange:
+      example:
+        from: from
+        section: section
+        to: to
+        key: key
+      properties:
+        from:
+          description: The value before.  Null when it was not set.  Booleans are
+            true or false.
+          type: string
+        key:
+          description: "The setting's key, as the read names it."
+          type: string
+        section:
+          description: "What the setting belongs to.  privacy or advanced for the\
+            \ tracking settings, the provider's key for a tracking provider, or affiliate_network."
+          type: string
+        to:
+          description: The value after.  Null when it is cleared.  Booleans are true
+            or false.
+          type: string
+      type: object
+    SfvbTrackingHtml:
+      example:
+        hash_sha256: hash_sha256
+        set: true
+        size_bytes: 6
+        runs_on: runs_on
+        dry_run: true
+        label: label
+        slot: tracking
+        content: content
+        approval_needed: true
+        changed: true
+      properties:
+        approval_needed:
+          description: "On a dry run, whether the real write needs an approved tracking_html.put\
+            \ request."
+          type: boolean
+        changed:
+          description: "On a write, whether the slot changed.  False when the content\
+            \ was already the same."
+          type: boolean
+        content:
+          description: "The HTML, with its Velocity tokens as stored.  Only on a read\
+            \ of one slot and on a write.  Null when empty."
+          type: string
+        dry_run:
+          description: "On a write, true when nothing was saved."
+          type: boolean
+        hash_sha256:
+          description: "The SHA-256 of the HTML as UTF-8, the hash of an empty string\
+            \ when empty.  Send it as If-Match on the write."
+          type: string
+        label:
+          description: The slot's name in the admin.
+          type: string
+        runs_on:
+          description: "Where the storefront injects it, in words."
+          type: string
+        set:
+          description: True when the slot holds any HTML.
+          type: boolean
+        size_bytes:
+          description: The size of the HTML in UTF-8 bytes.  0 when empty.
+          format: int32
+          type: integer
+        slot:
+          description: tracking is injected into every page except the receipt.  conversion
+            is injected into the receipt only.
+          enum:
+          - tracking
+          - conversion
+          type: string
+      type: object
+    SfvbTrackingHtmlRequest:
+      example:
+        dry_run: true
+        content: content
+      properties:
+        content:
+          description: "The whole HTML the slot will hold, at most 256 KB as UTF-8.\
+            \  An empty string empties the slot, which needs no approval.  Anything\
+            \ else needs an approved tracking_html.put request for exactly these bytes."
+          type: string
+        dry_run:
+          description: "True to check the write and say whether it needs an approval,\
+            \ without saving."
+          type: boolean
+      type: object
+    SfvbTrackingHtmlResponse:
+      example:
+        slots:
+        - hash_sha256: hash_sha256
+          set: true
+          size_bytes: 6
+          runs_on: runs_on
+          dry_run: true
+          label: label
+          slot: tracking
+          content: content
+          approval_needed: true
+          changed: true
+        - hash_sha256: hash_sha256
+          set: true
+          size_bytes: 6
+          runs_on: runs_on
+          dry_run: true
+          label: label
+          slot: tracking
+          content: content
+          approval_needed: true
+          changed: true
+        storefront_oid: 1
+        max_bytes: 0
+      properties:
+        max_bytes:
+          description: "The largest HTML the API writes to a slot, in UTF-8 bytes.\
+            \  The admin allows larger, but UltraCart's review must read the whole\
+            \ of it."
+          format: int32
+          type: integer
+        slots:
+          description: "tracking and conversion, each with its size and hash_sha256.\
+            \  Read one slot for its content."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingHtml'
+          type: array
+        storefront_oid:
+          description: The storefront.
+          format: int32
+          type: integer
+      type: object
+    SfvbTrackingPrivacy:
+      example:
+        hash_sha256: hash_sha256
+        default_mailing_list_off: all
+        show_cookie_notice: all
+        exclude_purchase_bubble_history: all
+        disable_return_email: all
+        anonymize_ip: all
+      properties:
+        anonymize_ip:
+          description: "Which shoppers have their IP address anonymized on the cart\
+            \ and order.  all, eea, non_us, or null for nobody."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+        default_mailing_list_off:
+          description: "Which shoppers start checkout with the mailing list sign-up\
+            \ unchecked.  all, eea, non_us, or null for nobody."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+        disable_return_email:
+          description: "Which shoppers are left out of the return email (the admin's\
+            \ Disable Return Email rule).  all, eea, non_us, or null for nobody."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+        exclude_purchase_bubble_history:
+          description: "Which shoppers' purchases are left out of the purchase bubble\
+            \ history.  all, eea, non_us, or null for nobody."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+        hash_sha256:
+          description: The hash of these five rules.  Send it as If-Match when changing
+            them.
+          type: string
+        show_cookie_notice:
+          description: "Which shoppers see the privacy and cookie notice.  all, eea\
+            \ (shoppers in the European Economic Area), non_us, or null for nobody."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+      type: object
+    SfvbTrackingPrivacyRequest:
+      example:
+        default_mailing_list_off: all
+        show_cookie_notice: all
+        exclude_purchase_bubble_history: all
+        disable_return_email: all
+        dry_run: true
+        anonymize_ip: all
+      properties:
+        anonymize_ip:
+          description: "all, eea, non_us, or off."
+          enum:
+          - all
+          - eea
+          - non_us
+          - "off"
+          type: string
+        default_mailing_list_off:
+          description: "all, eea, non_us, or off."
+          enum:
+          - all
+          - eea
+          - non_us
+          - "off"
+          type: string
+        disable_return_email:
+          description: "all, eea, non_us, or off."
+          enum:
+          - all
+          - eea
+          - non_us
+          - "off"
+          type: string
+        dry_run:
+          description: True to check the change and report it without saving.
+          type: boolean
+        exclude_purchase_bubble_history:
+          description: "all, eea, non_us, or off."
+          enum:
+          - all
+          - eea
+          - non_us
+          - "off"
+          type: string
+        show_cookie_notice:
+          description: "all, eea, non_us, or off."
+          enum:
+          - all
+          - eea
+          - non_us
+          - "off"
+          type: string
+      type: object
+    SfvbTrackingProvider:
+      example:
+        configured: true
+        cost: cost
+        notes:
+        - notes
+        - notes
+        changes:
+        - from: from
+          section: section
+          to: to
+          key: key
+        - from: from
+          section: section
+          to: to
+          key: key
+        consent:
+          "false": true
+          region: region
+          type: type
+        hash_sha256: hash_sha256
+        admin_path: admin_path
+        wholesale_tiers:
+        - account_number: account_number
+          pricing_tier_oid: 6
+          name: name
+        - account_number: account_number
+          pricing_tier_oid: 6
+          name: name
+        name: name
+        consent_supported: true
+        dry_run: true
+        fields:
+        - set: true
+          max: 6
+          allowed:
+          - allowed
+          - allowed
+          sink: sink
+          label: label
+          secret: true
+          type: type
+          writable: true
+          min_value: 5
+          value: value
+          key: key
+          mask: mask
+          max_value: 1
+        - set: true
+          max: 6
+          allowed:
+          - allowed
+          - allowed
+          sink: sink
+          label: label
+          secret: true
+          type: type
+          writable: true
+          min_value: 5
+          value: value
+          key: key
+          mask: mask
+          max_value: 1
+        oauth:
+          connected: true
+          expires_at: expires_at
+          admin_path: admin_path
+          feeds_connected: true
+          kind: kind
+          ads_connected: true
+        events:
+        - name: name
+          "true": true
+        - name: name
+          "true": true
+        key: key
+        group: group
+      properties:
+        admin_path:
+          description: Where the provider is in the admin.
+          type: string
+        changes:
+          description: "On a write, each setting it changed, or would change on a\
+            \ dry run.  Secrets read only set or cleared."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingChange'
+          type: array
+        configured:
+          description: "True when the provider is on, which means one of its identifying\
+            \ fields is set."
+          type: boolean
+        consent:
+          $ref: '#/components/schemas/SfvbTrackingProviderConsent'
+        consent_supported:
+          description: True when the provider can be held back until the shopper consents.
+          type: boolean
+        cost:
+          description: "For google_tag_manager, what turning on Google Tag Gateway\
+            \ costs."
+          type: string
+        dry_run:
+          description: "On a write, true when nothing was saved."
+          type: boolean
+        events:
+          description: "For a provider with standard events, each one and whether\
+            \ it is sent."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingProviderEvent'
+          type: array
+        fields:
+          description: "Every field, in the order the admin shows them."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingProviderField'
+          type: array
+        group:
+          description: "google or other, the admin tab it is on."
+          type: string
+        hash_sha256:
+          description: The hash of the stored settings.  A secret counts by its mask
+            and length only.  Send it as If-Match when changing or clearing the provider.
+          type: string
+        key:
+          description: "The provider key, such as facebook or google_analytics."
+          type: string
+        name:
+          description: The name the admin shows.
+          type: string
+        notes:
+          description: "Anything the write left for a person to do, such as disconnecting\
+            \ an OAuth connection in the admin."
+          items:
+            type: string
+          type: array
+        oauth:
+          $ref: '#/components/schemas/SfvbTrackingProviderOauth'
+        wholesale_tiers:
+          description: "For google_analytics, the account number per wholesale pricing\
+            \ tier."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingWholesaleTier'
+          type: array
+      type: object
+    SfvbTrackingProviderConsent:
+      example:
+        "false": true
+        region: region
+        type: type
+      properties:
+        "false":
+          description: "On a write, true to remove the gate.  Not with type or region."
+          type: boolean
+        region:
+          description: "Which shoppers the gate applies to.  all, eea or non_us."
+          type: string
+        type:
+          description: "Statistics, Preferences or Marketing."
+          type: string
+      type: object
+    SfvbTrackingProviderEvent:
+      example:
+        name: name
+        "true": true
+      properties:
+        name:
+          description: "AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration,\
+            \ InitiateCheckout, Lead, Search or ViewContent."
+          type: string
+        "true":
+          description: True when the event is sent to the provider.
+          type: boolean
+      type: object
+    SfvbTrackingProviderField:
+      example:
+        set: true
+        max: 6
+        allowed:
+        - allowed
+        - allowed
+        sink: sink
+        label: label
+        secret: true
+        type: type
+        writable: true
+        min_value: 5
+        value: value
+        key: key
+        mask: mask
+        max_value: 1
+      properties:
+        allowed:
+          description: "For a select, the values accepted."
+          items:
+            type: string
+          type: array
+        key:
+          description: The field key a write names.
+          type: string
+        label:
+          description: The label the admin shows.
+          type: string
+        mask:
+          description: "For a stored secret, its mask.  Send it back, or leave the\
+            \ secret out, to keep it."
+          type: string
+        max:
+          description: "The longest value accepted, or for an id_list the longest\
+            \ line."
+          format: int32
+          type: integer
+        max_value:
+          description: "For a number, the largest value accepted."
+          format: int32
+          type: integer
+        min_value:
+          description: "For a number, the smallest value accepted."
+          format: int32
+          type: integer
+        secret:
+          description: True for a secret.  Its value is never returned; set and mask
+            say whether one is stored.
+          type: boolean
+        set:
+          description: "For a secret, true when one is stored."
+          type: boolean
+        sink:
+          description: "For a writable secret, the sink a secret request names, with\
+            \ this storefront_oid as its target."
+          type: string
+        type:
+          description: "id, id_list, token, url, server_url, host, host_list, bool,\
+            \ select, number, numeric_id or secret.  It decides what a write accepts."
+          type: string
+        value:
+          description: The stored value.  Booleans are true or false.  Null when blank.  Never
+            present for a secret.
+          type: string
+        writable:
+          description: False for a field the API reports but does not change.
+          type: boolean
+      type: object
+    SfvbTrackingProviderOauth:
+      example:
+        connected: true
+        expires_at: expires_at
+        admin_path: admin_path
+        feeds_connected: true
+        kind: kind
+        ads_connected: true
+      properties:
+        admin_path:
+          description: Where in the admin a person connects or disconnects it.
+          type: string
+        ads_connected:
+          description: "For twitter, true when the Ads connection is made."
+          type: boolean
+        connected:
+          description: True when the connection is made.
+          type: boolean
+        expires_at:
+          description: "For facebook, when the connection expires, ISO 8601."
+          type: string
+        feeds_connected:
+          description: "For twitter, true when the Feeds connection is made."
+          type: boolean
+        kind:
+          description: "google_ads, facebook, hubspot, snapchat, tiktok or twitter."
+          type: string
+      type: object
+    SfvbTrackingProviderRequest:
+      example:
+        wholesale_tiers:
+        - account_number: account_number
+          pricing_tier_oid: 6
+          name: name
+        - account_number: account_number
+          pricing_tier_oid: 6
+          name: name
+        accept_cost: true
+        dry_run: true
+        consent:
+          "false": true
+          region: region
+          type: type
+        fields: "{}"
+        secrets:
+          referralcandy_secret_key: referralcandy_secret_key
+          nextdoor_access_token: nextdoor_access_token
+          pinterest_token: pinterest_token
+          converge_webhook_token: converge_webhook_token
+          klaviyo_private_api_key: klaviyo_private_api_key
+          attentive_private_api_key: attentive_private_api_key
+          customerio_write_key: customerio_write_key
+          northbeam_api_key: northbeam_api_key
+          retention_key: retention_key
+          facebook_server_side_access_token: facebook_server_side_access_token
+          ga4_api_secret: ga4_api_secret
+          kissmetrics_api_key: kissmetrics_api_key
+          axon_conversion_api_key: axon_conversion_api_key
+          awin_conversion_api_key: awin_conversion_api_key
+          hyros_api_key: hyros_api_key
+        unset:
+        - unset
+        - unset
+        events: "{}"
+      properties:
+        accept_cost:
+          description: True to accept the cost of turning on Google Tag Gateway.  Required
+            to turn it on.
+          type: boolean
+        consent:
+          $ref: '#/components/schemas/SfvbTrackingProviderConsent'
+        dry_run:
+          description: True to check the change and report it without saving.
+          type: boolean
+        events:
+          description: "Standard events by name, true to send."
+          type: object
+        fields:
+          description: Plain field values by key.  An empty string clears one.  Booleans
+            are true or false.  Secrets go in secrets instead.
+          type: object
+        secrets:
+          $ref: '#/components/schemas/SfvbTrackingProviderSecrets'
+        unset:
+          description: Plain field keys to clear.
+          items:
+            type: string
+          type: array
+        wholesale_tiers:
+          description: "For google_analytics, account numbers by pricing_tier_oid."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingWholesaleTier'
+          type: array
+      type: object
+    SfvbTrackingProviderSecrets:
+      example:
+        referralcandy_secret_key: referralcandy_secret_key
+        nextdoor_access_token: nextdoor_access_token
+        pinterest_token: pinterest_token
+        converge_webhook_token: converge_webhook_token
+        klaviyo_private_api_key: klaviyo_private_api_key
+        attentive_private_api_key: attentive_private_api_key
+        customerio_write_key: customerio_write_key
+        northbeam_api_key: northbeam_api_key
+        retention_key: retention_key
+        facebook_server_side_access_token: facebook_server_side_access_token
+        ga4_api_secret: ga4_api_secret
+        kissmetrics_api_key: kissmetrics_api_key
+        axon_conversion_api_key: axon_conversion_api_key
+        awin_conversion_api_key: awin_conversion_api_key
+        hyros_api_key: hyros_api_key
+      properties:
+        attentive_private_api_key:
+          description: "Attentive SMS Private API Key.  A secret handle (sec_...)\
+            \ made for this storefront by POST secrets with sink tracking.attentive.private_api_key,\
+            \ or an empty string to clear it."
+          type: string
+        awin_conversion_api_key:
+          description: "Awin Conversion API Key.  A secret handle (sec_...) made for\
+            \ this storefront by POST secrets with sink tracking.awin.conversion_api_key,\
+            \ or an empty string to clear it."
+          type: string
+        axon_conversion_api_key:
+          description: "AppLovin / Axon Conversion API Key.  A secret handle (sec_...)\
+            \ made for this storefront by POST secrets with sink tracking.axon.conversion_api_key,\
+            \ or an empty string to clear it."
+          type: string
+        converge_webhook_token:
+          description: "Converge Webhook Token.  A secret handle (sec_...) made for\
+            \ this storefront by POST secrets with sink tracking.converge.webhook_token,\
+            \ or an empty string to clear it."
+          type: string
+        customerio_write_key:
+          description: "customer.io Write Key.  A secret handle (sec_...) made for\
+            \ this storefront by POST secrets with sink tracking.customerio.write_key,\
+            \ or an empty string to clear it."
+          type: string
+        facebook_server_side_access_token:
+          description: "Facebook Server Side Access Token.  A secret handle (sec_...)\
+            \ made for this storefront by POST secrets with sink tracking.facebook.capi_access_token,\
+            \ or an empty string to clear it."
+          type: string
+        ga4_api_secret:
+          description: "Google Analytics GA4 Api Secret.  A secret handle (sec_...)\
+            \ made for this storefront by POST secrets with sink tracking.ga4.api_secret,\
+            \ or an empty string to clear it."
+          type: string
+        hyros_api_key:
+          description: "Hyros API Key.  A secret handle (sec_...) made for this storefront\
+            \ by POST secrets with sink tracking.hyros.api_key, or an empty string\
+            \ to clear it."
+          type: string
+        kissmetrics_api_key:
+          description: "KISSmetrics API Key.  A secret handle (sec_...) made for this\
+            \ storefront by POST secrets with sink tracking.kissmetrics.api_key, or\
+            \ an empty string to clear it."
+          type: string
+        klaviyo_private_api_key:
+          description: "Klaviyo API Key.  A secret handle (sec_...) made for this\
+            \ storefront by POST secrets with sink tracking.klaviyo.private_api_key,\
+            \ or an empty string to clear it."
+          type: string
+        nextdoor_access_token:
+          description: "Nextdoor Access Token.  A secret handle (sec_...) made for\
+            \ this storefront by POST secrets with sink tracking.nextdoor.access_token,\
+            \ or an empty string to clear it."
+          type: string
+        northbeam_api_key:
+          description: "Northbeam API Key.  A secret handle (sec_...) made for this\
+            \ storefront by POST secrets with sink tracking.northbeam.api_key, or\
+            \ an empty string to clear it."
+          type: string
+        pinterest_token:
+          description: "Pinterest Conversion Token.  A secret handle (sec_...) made\
+            \ for this storefront by POST secrets with sink tracking.pinterest.capi_token,\
+            \ or an empty string to clear it."
+          type: string
+        referralcandy_secret_key:
+          description: "ReferralCandy Secret Key.  A secret handle (sec_...) made\
+            \ for this storefront by POST secrets with sink tracking.referralcandy.secret_key,\
+            \ or an empty string to clear it."
+          type: string
+        retention_key:
+          description: "Retention.com Key.  A secret handle (sec_...) made for this\
+            \ storefront by POST secrets with sink tracking.retention.api_key, or\
+            \ an empty string to clear it."
+          type: string
+      type: object
+    SfvbTrackingProvidersResponse:
+      example:
+        catalog_version: 0
+        storefront_oid: 5
+        providers:
+        - configured: true
+          cost: cost
+          notes:
+          - notes
+          - notes
+          changes:
+          - from: from
+            section: section
+            to: to
+            key: key
+          - from: from
+            section: section
+            to: to
+            key: key
+          consent:
+            "false": true
+            region: region
+            type: type
+          hash_sha256: hash_sha256
+          admin_path: admin_path
+          wholesale_tiers:
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          name: name
+          consent_supported: true
+          dry_run: true
+          fields:
+          - set: true
+            max: 6
+            allowed:
+            - allowed
+            - allowed
+            sink: sink
+            label: label
+            secret: true
+            type: type
+            writable: true
+            min_value: 5
+            value: value
+            key: key
+            mask: mask
+            max_value: 1
+          - set: true
+            max: 6
+            allowed:
+            - allowed
+            - allowed
+            sink: sink
+            label: label
+            secret: true
+            type: type
+            writable: true
+            min_value: 5
+            value: value
+            key: key
+            mask: mask
+            max_value: 1
+          oauth:
+            connected: true
+            expires_at: expires_at
+            admin_path: admin_path
+            feeds_connected: true
+            kind: kind
+            ads_connected: true
+          events:
+          - name: name
+            "true": true
+          - name: name
+            "true": true
+          key: key
+          group: group
+        - configured: true
+          cost: cost
+          notes:
+          - notes
+          - notes
+          changes:
+          - from: from
+            section: section
+            to: to
+            key: key
+          - from: from
+            section: section
+            to: to
+            key: key
+          consent:
+            "false": true
+            region: region
+            type: type
+          hash_sha256: hash_sha256
+          admin_path: admin_path
+          wholesale_tiers:
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          - account_number: account_number
+            pricing_tier_oid: 6
+            name: name
+          name: name
+          consent_supported: true
+          dry_run: true
+          fields:
+          - set: true
+            max: 6
+            allowed:
+            - allowed
+            - allowed
+            sink: sink
+            label: label
+            secret: true
+            type: type
+            writable: true
+            min_value: 5
+            value: value
+            key: key
+            mask: mask
+            max_value: 1
+          - set: true
+            max: 6
+            allowed:
+            - allowed
+            - allowed
+            sink: sink
+            label: label
+            secret: true
+            type: type
+            writable: true
+            min_value: 5
+            value: value
+            key: key
+            mask: mask
+            max_value: 1
+          oauth:
+            connected: true
+            expires_at: expires_at
+            admin_path: admin_path
+            feeds_connected: true
+            kind: kind
+            ads_connected: true
+          events:
+          - name: name
+            "true": true
+          - name: name
+            "true": true
+          key: key
+          group: group
+      properties:
+        catalog_version:
+          description: "Bumped whenever a provider or field is added, removed or renamed."
+          format: int32
+          type: integer
+        providers:
+          description: "Every provider, Google first, in the order the admin shows\
+            \ them."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingProvider'
+          type: array
+        storefront_oid:
+          description: The storefront.  Also the target_id of a secret request for
+            a provider secret.
+          format: int32
+          type: integer
+      type: object
+    SfvbTrackingSettingsResponse:
+      example:
+        advanced:
+          hash_sha256: hash_sha256
+          conversion_pixel_only_if_paid: true
+          continue_shopping_url: continue_shopping_url
+          order_hash_secret_key_set: true
+          catalog_url: catalog_url
+          omit_order_data: true
+          default_currency: default_currency
+          payment_pending_url: payment_pending_url
+          thank_you_url: thank_you_url
+        changes:
+        - from: from
+          section: section
+          to: to
+          key: key
+        - from: from
+          section: section
+          to: to
+          key: key
+        privacy:
+          hash_sha256: hash_sha256
+          default_mailing_list_off: all
+          show_cookie_notice: all
+          exclude_purchase_bubble_history: all
+          disable_return_email: all
+          anonymize_ip: all
+        storefront_oid: 0
+        dry_run: true
+        currencies:
+        - currencies
+        - currencies
+      properties:
+        advanced:
+          $ref: '#/components/schemas/SfvbTrackingAdvanced'
+        changes:
+          description: "On a write, each setting it changed, or would change on a\
+            \ dry run.  Empty when nothing changed.  Absent on a read."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingChange'
+          type: array
+        currencies:
+          description: The currency codes default_currency accepts.
+          items:
+            type: string
+          type: array
+        dry_run:
+          description: "On a write, true when nothing was saved.  Absent on a read."
+          type: boolean
+        privacy:
+          $ref: '#/components/schemas/SfvbTrackingPrivacy'
+        storefront_oid:
+          description: The storefront these settings belong to.
+          format: int32
+          type: integer
+      type: object
+    SfvbTrackingWholesaleTier:
+      example:
+        account_number: account_number
+        pricing_tier_oid: 6
+        name: name
+      properties:
+        account_number:
+          description: "The account number for shoppers in this tier, up to 20 characters.\
+            \  Null or an empty string uses the default."
+          type: string
+        name:
+          description: The pricing tier's name.  Set by the server.
+          type: string
+        pricing_tier_oid:
+          description: The pricing tier.  One of the account's non-default tiers.
+          format: int32
+          type: integer
       type: object
     SfvbTransactionalEmail:
       example:
@@ -267262,6 +271306,230 @@ components:
           items:
             $ref: '#/components/schemas/SfvbUpsellStep'
           type: array
+      type: object
+    SfvbUtmShortcode:
+      example:
+        itm_content: itm_content
+        itm_medium: itm_medium
+        code: code
+        shortcode_oid: 1
+        utm_campaign: utm_campaign
+        utm_medium: utm_medium
+        description: description
+        last_modified_dts: last_modified_dts
+        creation_dts: creation_dts
+        query_parameter: query_parameter
+        hash_sha256: hash_sha256
+        utm_id: utm_id
+        utm_term: utm_term
+        path_segment: path_segment
+        itm_term: itm_term
+        itm_id: itm_id
+        itm_source: itm_source
+        itm_campaign: itm_campaign
+        utm_content: utm_content
+        utm_source: utm_source
+      properties:
+        code:
+          description: The shortcode.  Matched ignoring case.
+          type: string
+        creation_dts:
+          description: "When the shortcode was created, ISO 8601."
+          type: string
+        description:
+          description: What the shortcode is for.  Null when blank.
+          type: string
+        hash_sha256:
+          description: "The hash of the code, description and values.  Send it as\
+            \ If-Match when changing or deleting the shortcode."
+          type: string
+        itm_campaign:
+          description: ITM campaign the shortcode applies.  Null when blank.
+          type: string
+        itm_content:
+          description: ITM content the shortcode applies.  Null when blank.
+          type: string
+        itm_id:
+          description: ITM id the shortcode applies.  Null when blank.
+          type: string
+        itm_medium:
+          description: ITM medium the shortcode applies.  Null when blank.
+          type: string
+        itm_source:
+          description: ITM (internal tracking) source the shortcode applies.  Null
+            when blank.
+          type: string
+        itm_term:
+          description: ITM term the shortcode applies.  Null when blank.
+          type: string
+        last_modified_dts:
+          description: "When the shortcode last changed, ISO 8601."
+          type: string
+        path_segment:
+          description: Append this to a storefront path (as its last segment) to apply
+            the shortcode.  Fires only where that full path is not itself a page.
+          type: string
+        query_parameter:
+          description: "Add this query parameter to a link on any page running UC\
+            \ Analytics, including other sites, to apply the shortcode."
+          type: string
+        shortcode_oid:
+          description: The shortcode's id on this storefront.
+          format: int32
+          type: integer
+        utm_campaign:
+          description: UTM campaign the shortcode applies.  Null when blank.
+          type: string
+        utm_content:
+          description: UTM content the shortcode applies.  Null when blank.
+          type: string
+        utm_id:
+          description: UTM id the shortcode applies.  Null when blank.
+          type: string
+        utm_medium:
+          description: UTM medium the shortcode applies.  Null when blank.
+          type: string
+        utm_source:
+          description: UTM source the shortcode applies.  Null when blank.
+          type: string
+        utm_term:
+          description: UTM term the shortcode applies.  Null when blank.
+          type: string
+      type: object
+    SfvbUtmShortcodeRequest:
+      example:
+        itm_content: itm_content
+        itm_medium: itm_medium
+        code: code
+        utm_campaign: utm_campaign
+        utm_medium: utm_medium
+        description: description
+        utm_id: utm_id
+        utm_term: utm_term
+        itm_term: itm_term
+        itm_id: itm_id
+        itm_source: itm_source
+        itm_campaign: itm_campaign
+        utm_content: utm_content
+        utm_source: utm_source
+      properties:
+        code:
+          description: "The shortcode.  Letters, digits, underscore and hyphen, 1\
+            \ to 50 characters.  Required on create."
+          type: string
+        description:
+          description: "What the shortcode is for, up to 250 characters.  An empty\
+            \ string clears it."
+          type: string
+        itm_campaign:
+          description: "ITM campaign, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        itm_content:
+          description: "ITM content, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        itm_id:
+          description: "ITM id, up to 100 characters.  An empty string clears it."
+          type: string
+        itm_medium:
+          description: "ITM medium, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        itm_source:
+          description: "ITM (internal tracking) source, up to 100 characters.  An\
+            \ empty string clears it."
+          type: string
+        itm_term:
+          description: "ITM term, up to 100 characters.  An empty string clears it."
+          type: string
+        utm_campaign:
+          description: "UTM campaign, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        utm_content:
+          description: "UTM content, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        utm_id:
+          description: "UTM id, up to 100 characters.  An empty string clears it."
+          type: string
+        utm_medium:
+          description: "UTM medium, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        utm_source:
+          description: "UTM source, up to 100 characters.  An empty string clears\
+            \ it."
+          type: string
+        utm_term:
+          description: "UTM term, up to 100 characters.  An empty string clears it."
+          type: string
+      type: object
+    SfvbUtmShortcodesResponse:
+      example:
+        shortcodes:
+        - itm_content: itm_content
+          itm_medium: itm_medium
+          code: code
+          shortcode_oid: 1
+          utm_campaign: utm_campaign
+          utm_medium: utm_medium
+          description: description
+          last_modified_dts: last_modified_dts
+          creation_dts: creation_dts
+          query_parameter: query_parameter
+          hash_sha256: hash_sha256
+          utm_id: utm_id
+          utm_term: utm_term
+          path_segment: path_segment
+          itm_term: itm_term
+          itm_id: itm_id
+          itm_source: itm_source
+          itm_campaign: itm_campaign
+          utm_content: utm_content
+          utm_source: utm_source
+        - itm_content: itm_content
+          itm_medium: itm_medium
+          code: code
+          shortcode_oid: 1
+          utm_campaign: utm_campaign
+          utm_medium: utm_medium
+          description: description
+          last_modified_dts: last_modified_dts
+          creation_dts: creation_dts
+          query_parameter: query_parameter
+          hash_sha256: hash_sha256
+          utm_id: utm_id
+          utm_term: utm_term
+          path_segment: path_segment
+          itm_term: itm_term
+          itm_id: itm_id
+          itm_source: itm_source
+          itm_campaign: itm_campaign
+          utm_content: utm_content
+          utm_source: utm_source
+        count: 0
+        limit: 6
+        storefront_oid: 5
+      properties:
+        count:
+          description: How many shortcodes are listed.
+          format: int32
+          type: integer
+        limit:
+          description: The most shortcodes the API will create on one storefront.
+          format: int32
+          type: integer
+        shortcodes:
+          description: "Every live shortcode, sorted by code."
+          items:
+            $ref: '#/components/schemas/SfvbUtmShortcode'
+          type: array
+        storefront_oid:
+          description: The storefront the shortcodes belong to.
+          format: int32
+          type: integer
       type: object
     SfvbValidateRequest:
       example:

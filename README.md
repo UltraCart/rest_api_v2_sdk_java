@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.223</version>
+    <version>4.1.224</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.223"
+     implementation "com.ultracart:rest-sdk:4.1.224"
   }
 ```
 
@@ -511,6 +511,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**createSfvbLibraryEntry**](docs/SfvbApi.md#createSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library | Save a fragment to the library
 *SfvbApi* | [**createSfvbPreviewAccess**](docs/SfvbApi.md#createSfvbPreviewAccess) | **POST** /sfvb/storefronts/{storefront_oid}/preview_access | One time link that opens a preview in a browser with no UltraCart login
 *SfvbApi* | [**createSfvbPreviewSession**](docs/SfvbApi.md#createSfvbPreviewSession) | **POST** /sfvb/storefronts/{storefront_oid}/preview_sessions | Create a preview session
+*SfvbApi* | [**deleteSfvbAffiliateNetwork**](docs/SfvbApi.md#deleteSfvbAffiliateNetwork) | **DELETE** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Delete an affiliate network
 *SfvbApi* | [**deleteSfvbApproval**](docs/SfvbApi.md#deleteSfvbApproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request
 *SfvbApi* | [**deleteSfvbBlogPost**](docs/SfvbApi.md#deleteSfvbBlogPost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post
 *SfvbApi* | [**deleteSfvbCommsSendingDomain**](docs/SfvbApi.md#deleteSfvbCommsSendingDomain) | **DELETE** /sfvb/comms/sending_domains/{domain} | Remove a sending domain
@@ -525,6 +526,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**deleteSfvbRedirects**](docs/SfvbApi.md#deleteSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/delete | Delete up to 5,000 redirect rules in one call
 *SfvbApi* | [**deleteSfvbSecretRequest**](docs/SfvbApi.md#deleteSfvbSecretRequest) | **DELETE** /sfvb/secrets/{request_id} | Cancel a pending secret request
 *SfvbApi* | [**deleteSfvbSequenceStep**](docs/SfvbApi.md#deleteSfvbSequenceStep) | **DELETE** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Remove one step
+*SfvbApi* | [**deleteSfvbSmartAttribution**](docs/SfvbApi.md#deleteSfvbSmartAttribution) | **DELETE** /sfvb/storefronts/{storefront_oid}/smart_attribution | Delete a storefront&#39;s Smart Attribution configuration
+*SfvbApi* | [**deleteSfvbTrackingProvider**](docs/SfvbApi.md#deleteSfvbTrackingProvider) | **DELETE** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Clear one tracking provider
+*SfvbApi* | [**deleteSfvbUtmShortcode**](docs/SfvbApi.md#deleteSfvbUtmShortcode) | **DELETE** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Delete a UTM shortcode
 *SfvbApi* | [**detachSfvbBlogPostImage**](docs/SfvbApi.md#detachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/detach | Detach an image from a blog post
 *SfvbApi* | [**disableSfvbI18nLanguage**](docs/SfvbApi.md#disableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/disable | Disable a language
 *SfvbApi* | [**disableSfvbUpsellOffer**](docs/SfvbApi.md#disableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/disable | Disable an upsell offer
@@ -539,10 +543,13 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**duplicateSfvbUpsellOffer**](docs/SfvbApi.md#duplicateSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/duplicate | Duplicate an upsell offer
 *SfvbApi* | [**duplicateSfvbUpsellPath**](docs/SfvbApi.md#duplicateSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/duplicate | Duplicate an upsell path or one of its variations
 *SfvbApi* | [**enableSfvbI18nLanguage**](docs/SfvbApi.md#enableSfvbI18nLanguage) | **POST** /sfvb/storefronts/{storefront_oid}/i18n/languages/{code}/enable | Enable a language
+*SfvbApi* | [**enableSfvbSmartAttribution**](docs/SfvbApi.md#enableSfvbSmartAttribution) | **POST** /sfvb/storefronts/{storefront_oid}/smart_attribution/enable | Turn Smart Attribution on in report_only mode
 *SfvbApi* | [**enableSfvbUpsellOffer**](docs/SfvbApi.md#enableSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid}/enable | Enable an upsell offer
 *SfvbApi* | [**enableSfvbUpsellPath**](docs/SfvbApi.md#enableSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/enable | Enable an upsell path
 *SfvbApi* | [**endSfvbExperiment**](docs/SfvbApi.md#endSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid}/end | End an experiment
 *SfvbApi* | [**favoriteSfvbLibraryEntry**](docs/SfvbApi.md#favoriteSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Favorite a library entry
+*SfvbApi* | [**getSfvbAffiliateNetwork**](docs/SfvbApi.md#getSfvbAffiliateNetwork) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Read one affiliate network
+*SfvbApi* | [**getSfvbAffiliateNetworks**](docs/SfvbApi.md#getSfvbAffiliateNetworks) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | List a storefront&#39;s affiliate networks
 *SfvbApi* | [**getSfvbApproval**](docs/SfvbApi.md#getSfvbApproval) | **GET** /sfvb/approvals/{approval_id} | Read one approval request
 *SfvbApi* | [**getSfvbApprovals**](docs/SfvbApi.md#getSfvbApprovals) | **GET** /sfvb/approvals | List this sign-in&#39;s approval requests
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
@@ -596,17 +603,26 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSequence**](docs/SfvbApi.md#getSfvbSequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbSmartAttribution**](docs/SfvbApi.md#getSfvbSmartAttribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 *SfvbApi* | [**getSfvbTestOrders**](docs/SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbTrackingHtml**](docs/SfvbApi.md#getSfvbTrackingHtml) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
+*SfvbApi* | [**getSfvbTrackingHtmlSlots**](docs/SfvbApi.md#getSfvbTrackingHtmlSlots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
+*SfvbApi* | [**getSfvbTrackingProvider**](docs/SfvbApi.md#getSfvbTrackingProvider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
+*SfvbApi* | [**getSfvbTrackingProviders**](docs/SfvbApi.md#getSfvbTrackingProviders) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers | List a storefront&#39;s tracking providers
+*SfvbApi* | [**getSfvbTrackingSettings**](docs/SfvbApi.md#getSfvbTrackingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/tracking | Read a storefront&#39;s privacy rules and advanced conversion settings
 *SfvbApi* | [**getSfvbTransactionalEmails**](docs/SfvbApi.md#getSfvbTransactionalEmails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 *SfvbApi* | [**getSfvbUpsellOffer**](docs/SfvbApi.md#getSfvbUpsellOffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 *SfvbApi* | [**getSfvbUpsellPath**](docs/SfvbApi.md#getSfvbUpsellPath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
+*SfvbApi* | [**getSfvbUtmShortcode**](docs/SfvbApi.md#getSfvbUtmShortcode) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Read one UTM shortcode
+*SfvbApi* | [**getSfvbUtmShortcodes**](docs/SfvbApi.md#getSfvbUtmShortcodes) | **GET** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | List a storefront&#39;s UTM shortcodes
 *SfvbApi* | [**getSfvbVersion**](docs/SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 *SfvbApi* | [**ignoreSfvbNotFoundEntry**](docs/SfvbApi.md#ignoreSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
 *SfvbApi* | [**importSfvbRedirects**](docs/SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
+*SfvbApi* | [**insertSfvbAffiliateNetwork**](docs/SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 *SfvbApi* | [**insertSfvbApproval**](docs/SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
 *SfvbApi* | [**insertSfvbCommsSegment**](docs/SfvbApi.md#insertSfvbCommsSegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment
@@ -618,6 +634,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbSequenceStep**](docs/SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
+*SfvbApi* | [**insertSfvbUtmShortcode**](docs/SfvbApi.md#insertSfvbUtmShortcode) | **POST** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | Create a UTM shortcode
 *SfvbApi* | [**installSfvbLibraryEntry**](docs/SfvbApi.md#installSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/install | Install a library entry into a storefront
 *SfvbApi* | [**listSfvbBlogPosts**](docs/SfvbApi.md#listSfvbBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts | List the storefront&#39;s blog posts
 *SfvbApi* | [**listSfvbCampaigns**](docs/SfvbApi.md#listSfvbCampaigns) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns | List the storefront&#39;s campaigns
@@ -690,6 +707,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**unignoreSfvbNotFoundEntry**](docs/SfvbApi.md#unignoreSfvbNotFoundEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Stop ignoring a 404 path
 *SfvbApi* | [**unpublishSfvbLibraryEntry**](docs/SfvbApi.md#unpublishSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/unpublish | Narrow who can see a library entry
 *SfvbApi* | [**unshareSfvbLibraryEntry**](docs/SfvbApi.md#unshareSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares/{merchant_id} | Stop sharing a library entry with an account
+*SfvbApi* | [**updateSfvbAffiliateNetwork**](docs/SfvbApi.md#updateSfvbAffiliateNetwork) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Change an affiliate network
 *SfvbApi* | [**updateSfvbBlogPost**](docs/SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post
 *SfvbApi* | [**updateSfvbCampaign**](docs/SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign
 *SfvbApi* | [**updateSfvbCommsSegment**](docs/SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
@@ -702,8 +720,14 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
 *SfvbApi* | [**updateSfvbSequenceStep**](docs/SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
+*SfvbApi* | [**updateSfvbSmartAttribution**](docs/SfvbApi.md#updateSfvbSmartAttribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
+*SfvbApi* | [**updateSfvbTrackingAdvanced**](docs/SfvbApi.md#updateSfvbTrackingAdvanced) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/advanced | Change a storefront&#39;s advanced conversion settings
+*SfvbApi* | [**updateSfvbTrackingHtml**](docs/SfvbApi.md#updateSfvbTrackingHtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
+*SfvbApi* | [**updateSfvbTrackingPrivacy**](docs/SfvbApi.md#updateSfvbTrackingPrivacy) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/privacy | Change a storefront&#39;s privacy rules
+*SfvbApi* | [**updateSfvbTrackingProvider**](docs/SfvbApi.md#updateSfvbTrackingProvider) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Change one tracking provider
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
+*SfvbApi* | [**updateSfvbUtmShortcode**](docs/SfvbApi.md#updateSfvbUtmShortcode) | **PUT** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Change a UTM shortcode
 *SfvbApi* | [**uploadSfvbFile**](docs/SfvbApi.md#uploadSfvbFile) | **POST** /sfvb/storefronts/{storefront_oid}/files/upload | Store a binary asset that was already uploaded
 *SfvbApi* | [**validateSfvbCjson**](docs/SfvbApi.md#validateSfvbCjson) | **POST** /sfvb/cjson/validate | Validate CJSON
 *SfvbApi* | [**validateSfvbVelocity**](docs/SfvbApi.md#validateSfvbVelocity) | **POST** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate | Validate a Velocity template against a theme
@@ -1934,6 +1958,9 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingUserProperty](docs/ScreenRecordingUserProperty.md)
  - [ScreenshotsResponse](docs/ScreenshotsResponse.md)
  - [SelfConfig](docs/SelfConfig.md)
+ - [SfvbAffiliateNetwork](docs/SfvbAffiliateNetwork.md)
+ - [SfvbAffiliateNetworkRequest](docs/SfvbAffiliateNetworkRequest.md)
+ - [SfvbAffiliateNetworksResponse](docs/SfvbAffiliateNetworksResponse.md)
  - [SfvbApproval](docs/SfvbApproval.md)
  - [SfvbApprovalCreateRequest](docs/SfvbApprovalCreateRequest.md)
  - [SfvbApprovalParams](docs/SfvbApprovalParams.md)
@@ -2162,6 +2189,9 @@ Class | Method | HTTP request | Description
  - [SfvbSiteAttributeUpdate](docs/SfvbSiteAttributeUpdate.md)
  - [SfvbSiteAttributeUpdateRequest](docs/SfvbSiteAttributeUpdateRequest.md)
  - [SfvbSiteAttributesResponse](docs/SfvbSiteAttributesResponse.md)
+ - [SfvbSmartAttribution](docs/SfvbSmartAttribution.md)
+ - [SfvbSmartAttributionPlatform](docs/SfvbSmartAttributionPlatform.md)
+ - [SfvbSmartAttributionRequest](docs/SfvbSmartAttributionRequest.md)
  - [SfvbStorefront](docs/SfvbStorefront.md)
  - [SfvbStorefrontsResponse](docs/SfvbStorefrontsResponse.md)
  - [SfvbTemplate](docs/SfvbTemplate.md)
@@ -2181,6 +2211,24 @@ Class | Method | HTTP request | Description
  - [SfvbThemeFontFamily](docs/SfvbThemeFontFamily.md)
  - [SfvbThemeJobResponse](docs/SfvbThemeJobResponse.md)
  - [SfvbThemesResponse](docs/SfvbThemesResponse.md)
+ - [SfvbTrackingAdvanced](docs/SfvbTrackingAdvanced.md)
+ - [SfvbTrackingAdvancedRequest](docs/SfvbTrackingAdvancedRequest.md)
+ - [SfvbTrackingChange](docs/SfvbTrackingChange.md)
+ - [SfvbTrackingHtml](docs/SfvbTrackingHtml.md)
+ - [SfvbTrackingHtmlRequest](docs/SfvbTrackingHtmlRequest.md)
+ - [SfvbTrackingHtmlResponse](docs/SfvbTrackingHtmlResponse.md)
+ - [SfvbTrackingPrivacy](docs/SfvbTrackingPrivacy.md)
+ - [SfvbTrackingPrivacyRequest](docs/SfvbTrackingPrivacyRequest.md)
+ - [SfvbTrackingProvider](docs/SfvbTrackingProvider.md)
+ - [SfvbTrackingProviderConsent](docs/SfvbTrackingProviderConsent.md)
+ - [SfvbTrackingProviderEvent](docs/SfvbTrackingProviderEvent.md)
+ - [SfvbTrackingProviderField](docs/SfvbTrackingProviderField.md)
+ - [SfvbTrackingProviderOauth](docs/SfvbTrackingProviderOauth.md)
+ - [SfvbTrackingProviderRequest](docs/SfvbTrackingProviderRequest.md)
+ - [SfvbTrackingProviderSecrets](docs/SfvbTrackingProviderSecrets.md)
+ - [SfvbTrackingProvidersResponse](docs/SfvbTrackingProvidersResponse.md)
+ - [SfvbTrackingSettingsResponse](docs/SfvbTrackingSettingsResponse.md)
+ - [SfvbTrackingWholesaleTier](docs/SfvbTrackingWholesaleTier.md)
  - [SfvbTransactionalEmail](docs/SfvbTransactionalEmail.md)
  - [SfvbTransactionalEmailsResponse](docs/SfvbTransactionalEmailsResponse.md)
  - [SfvbUpsellItemLogic](docs/SfvbUpsellItemLogic.md)
@@ -2196,6 +2244,9 @@ Class | Method | HTTP request | Description
  - [SfvbUpsellStepOffer](docs/SfvbUpsellStepOffer.md)
  - [SfvbUpsellTowerData](docs/SfvbUpsellTowerData.md)
  - [SfvbUpsellVariation](docs/SfvbUpsellVariation.md)
+ - [SfvbUtmShortcode](docs/SfvbUtmShortcode.md)
+ - [SfvbUtmShortcodeRequest](docs/SfvbUtmShortcodeRequest.md)
+ - [SfvbUtmShortcodesResponse](docs/SfvbUtmShortcodesResponse.md)
  - [SfvbValidateRequest](docs/SfvbValidateRequest.md)
  - [SfvbValidationResponse](docs/SfvbValidationResponse.md)
  - [SfvbVelocityValidateRequest](docs/SfvbVelocityValidateRequest.md)
@@ -2377,6 +2428,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.224 | 11/03/2026 | sfvb internal testing |
 | 4.1.223 | 11/03/2026 | sfvb internal testing |
 | 4.1.222 | 11/03/2026 | sfvb internal testing |
 | 4.1.221 | 11/02/2026 | sfvb internal testing |
