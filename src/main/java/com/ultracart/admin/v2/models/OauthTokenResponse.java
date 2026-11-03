@@ -77,6 +77,10 @@ public class OauthTokenResponse {
   @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
   private String refreshToken;
 
+  public static final String SERIALIZED_NAME_REFRESH_TOKEN_EXPIRES_IN = "refresh_token_expires_in";
+  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN_EXPIRES_IN)
+  private String refreshTokenExpiresIn;
+
   public static final String SERIALIZED_NAME_SCOPE = "scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
   private String scope;
@@ -294,6 +298,29 @@ public class OauthTokenResponse {
   }
 
 
+  public OauthTokenResponse refreshTokenExpiresIn(String refreshTokenExpiresIn) {
+    
+    this.refreshTokenExpiresIn = refreshTokenExpiresIn;
+    return this;
+  }
+
+   /**
+   * Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.
+   * @return refreshTokenExpiresIn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh.")
+
+  public String getRefreshTokenExpiresIn() {
+    return refreshTokenExpiresIn;
+  }
+
+
+  public void setRefreshTokenExpiresIn(String refreshTokenExpiresIn) {
+    this.refreshTokenExpiresIn = refreshTokenExpiresIn;
+  }
+
+
   public OauthTokenResponse scope(String scope) {
     
     this.scope = scope;
@@ -357,13 +384,14 @@ public class OauthTokenResponse {
         Objects.equals(this.expiresIn, oauthTokenResponse.expiresIn) &&
         Objects.equals(this.merchantId, oauthTokenResponse.merchantId) &&
         Objects.equals(this.refreshToken, oauthTokenResponse.refreshToken) &&
+        Objects.equals(this.refreshTokenExpiresIn, oauthTokenResponse.refreshTokenExpiresIn) &&
         Objects.equals(this.scope, oauthTokenResponse.scope) &&
         Objects.equals(this.tokenType, oauthTokenResponse.tokenType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, error, errorDescription, errorUri, expiresIn, merchantId, refreshToken, scope, tokenType);
+    return Objects.hash(accessToken, error, errorDescription, errorUri, expiresIn, merchantId, refreshToken, refreshTokenExpiresIn, scope, tokenType);
   }
 
   @Override
@@ -377,6 +405,7 @@ public class OauthTokenResponse {
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    refreshTokenExpiresIn: ").append(toIndentedString(refreshTokenExpiresIn)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
     sb.append("}");
@@ -408,6 +437,7 @@ public class OauthTokenResponse {
     openapiFields.add("expires_in");
     openapiFields.add("merchant_id");
     openapiFields.add("refresh_token");
+    openapiFields.add("refresh_token_expires_in");
     openapiFields.add("scope");
     openapiFields.add("token_type");
 
@@ -457,6 +487,9 @@ public class OauthTokenResponse {
       }
       if (jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
+      }
+      if (jsonObj.get("refresh_token_expires_in") != null && !jsonObj.get("refresh_token_expires_in").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `refresh_token_expires_in` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token_expires_in").toString()));
       }
       if (jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));

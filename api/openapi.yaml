@@ -227080,6 +227080,7 @@ components:
     OauthTokenResponse:
       example:
         access_token: access_token
+        refresh_token_expires_in: refresh_token_expires_in
         refresh_token: refresh_token
         error_description: error_description
         scope: scope
@@ -227110,6 +227111,11 @@ components:
         refresh_token:
           description: The refresh token that should be used to fetch a new access
             token when the expiration occurs
+          type: string
+        refresh_token_expires_in:
+          description: "Seconds until the refresh token expires.  Returned only by\
+            \ applications that rotate refresh tokens, which return a new refresh\
+            \ token on every refresh."
           type: string
         scope:
           description: The scope of permissions associated with teh access token
