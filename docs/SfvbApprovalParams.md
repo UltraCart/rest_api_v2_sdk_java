@@ -22,10 +22,10 @@
 |**rowsSha256** | **String** | For redirect.delete_batch and item.attribute_batch, the plan_hash of the exact rows approved.  Set by the server.  The batch must send rows with this hash. |  [optional] |
 |**ruleCount** | **Integer** | For redirect.delete_batch, how many rules the batch would delete when it was requested.  Set by the server. |  [optional] |
 |**segmentUuid** | **String** | The segment whose rule changes, for segment.update. |  [optional] |
-|**sequenceUuid** | **String** | The communication sequence, for sequence_step.delete and sequence_step.move. |  [optional] |
+|**sequenceUuid** | **String** | The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard. |  [optional] |
 |**side** | **String** | For sequence_step.move with branch_step_uuid, the side&#39;s label from the sequence read. |  [optional] |
 |**slot** | **String** | For experiment.start of a page experiment, the page body name.  Defaults to body. |  [optional] |
-|**stepUuid** | **String** | The step to remove, for sequence_step.delete, or to move, for sequence_step.move. |  [optional] |
+|**stepUuid** | **String** | The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard. |  [optional] |
 |**upsellKind** | [**UpsellKindEnum**](#UpsellKindEnum) | For upsell.enable, what to switch on. |  [optional] |
 |**upsellOid** | **Integer** | For upsell.enable, the oid of the offer or path to switch on. |  [optional] |
 |**version** | **Integer** | For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write. |  [optional] |

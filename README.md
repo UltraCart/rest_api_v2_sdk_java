@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.221</version>
+    <version>4.1.222</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.221"
+     implementation "com.ultracart:rest-sdk:4.1.222"
   }
 ```
 
@@ -2377,6 +2377,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.222 | 11/03/2026 | sfvb internal testing |
 | 4.1.221 | 11/02/2026 | sfvb internal testing |
 | 4.1.220 | 11/02/2026 | sfvb internal testing |
 | 4.1.219 | 10/30/2026 | item - field for hsa/fsa eligibility |

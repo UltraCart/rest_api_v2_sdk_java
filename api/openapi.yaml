@@ -251742,6 +251742,8 @@ components:
           - twilio_account.delete
           - sending_domain.delete
           - sequence_step.delete
+          - sequence_step.move
+          - sequence_step.enable_postcard
           - segment.update
           type: string
         content:
@@ -251873,7 +251875,8 @@ components:
           description: "The segment whose rule changes, for segment.update."
           type: string
         sequence_uuid:
-          description: "The communication sequence, for sequence_step.delete and sequence_step.move."
+          description: "The communication sequence, for sequence_step.delete, sequence_step.move\
+            \ and sequence_step.enable_postcard."
           type: string
         side:
           description: "For sequence_step.move with branch_step_uuid, the side's label\
@@ -251884,8 +251887,8 @@ components:
             \  Defaults to body."
           type: string
         step_uuid:
-          description: "The step to remove, for sequence_step.delete, or to move,\
-            \ for sequence_step.move."
+          description: "The step to remove, for sequence_step.delete, to move, for\
+            \ sequence_step.move, or to turn on, for sequence_step.enable_postcard."
           type: string
         upsell_kind:
           description: "For upsell.enable, what to switch on."

@@ -35,6 +35,8 @@
 | TWILIO_ACCOUNT_DELETE | &quot;twilio_account.delete&quot; |
 | SENDING_DOMAIN_DELETE | &quot;sending_domain.delete&quot; |
 | SEQUENCE_STEP_DELETE | &quot;sequence_step.delete&quot; |
+| SEQUENCE_STEP_MOVE | &quot;sequence_step.move&quot; |
+| SEQUENCE_STEP_ENABLE_POSTCARD | &quot;sequence_step.enable_postcard&quot; |
 | SEGMENT_UPDATE | &quot;segment.update&quot; |
 
 

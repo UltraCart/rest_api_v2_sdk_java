@@ -86,6 +86,10 @@ public class SfvbApprovalCreateRequest {
     
     SEQUENCE_STEP_DELETE("sequence_step.delete"),
     
+    SEQUENCE_STEP_MOVE("sequence_step.move"),
+    
+    SEQUENCE_STEP_ENABLE_POSTCARD("sequence_step.enable_postcard"),
+    
     SEGMENT_UPDATE("segment.update");
 
     private String value;

@@ -557,11 +557,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The communication sequence, for sequence_step.delete and sequence_step.move.
+   * The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.
    * @return sequenceUuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The communication sequence, for sequence_step.delete and sequence_step.move.")
+  @ApiModelProperty(value = "The communication sequence, for sequence_step.delete, sequence_step.move and sequence_step.enable_postcard.")
 
   public String getSequenceUuid() {
     return sequenceUuid;
@@ -626,11 +626,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The step to remove, for sequence_step.delete, or to move, for sequence_step.move.
+   * The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.
    * @return stepUuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The step to remove, for sequence_step.delete, or to move, for sequence_step.move.")
+  @ApiModelProperty(value = "The step to remove, for sequence_step.delete, to move, for sequence_step.move, or to turn on, for sequence_step.enable_postcard.")
 
   public String getStepUuid() {
     return stepUuid;
