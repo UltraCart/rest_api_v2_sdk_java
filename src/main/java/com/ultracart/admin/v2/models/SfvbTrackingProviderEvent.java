@@ -49,16 +49,39 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbTrackingProviderEvent {
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  private Boolean enabled;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_TRUE = "true";
-  @SerializedName(SERIALIZED_NAME_TRUE)
-  private Boolean true;
-
   public SfvbTrackingProviderEvent() { 
   }
+
+  public SfvbTrackingProviderEvent enabled(Boolean enabled) {
+    
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * True when the event is sent to the provider.
+   * @return enabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the event is sent to the provider.")
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
 
   public SfvbTrackingProviderEvent name(String name) {
     
@@ -83,29 +106,6 @@ public class SfvbTrackingProviderEvent {
   }
 
 
-  public SfvbTrackingProviderEvent true(Boolean true) {
-    
-    this.true = true;
-    return this;
-  }
-
-   /**
-   * True when the event is sent to the provider.
-   * @return true
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True when the event is sent to the provider.")
-
-  public Boolean getTrue() {
-    return true;
-  }
-
-
-  public void setTrue(Boolean true) {
-    this.true = true;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -116,21 +116,21 @@ public class SfvbTrackingProviderEvent {
       return false;
     }
     SfvbTrackingProviderEvent sfvbTrackingProviderEvent = (SfvbTrackingProviderEvent) o;
-    return Objects.equals(this.name, sfvbTrackingProviderEvent.name) &&
-        Objects.equals(this.true, sfvbTrackingProviderEvent.true);
+    return Objects.equals(this.enabled, sfvbTrackingProviderEvent.enabled) &&
+        Objects.equals(this.name, sfvbTrackingProviderEvent.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, true);
+    return Objects.hash(enabled, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTrackingProviderEvent {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    true: ").append(toIndentedString(true)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,8 +153,8 @@ public class SfvbTrackingProviderEvent {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("enabled");
     openapiFields.add("name");
-    openapiFields.add("true");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

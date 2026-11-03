@@ -254388,7 +254388,7 @@ components:
           accept_cost: true
           dry_run: true
           consent:
-            "false": true
+            disabled: true
             region: region
             type: type
           fields: "{}"
@@ -267090,7 +267090,7 @@ components:
           to: to
           key: key
         consent:
-          "false": true
+          disabled: true
           region: region
           type: type
         hash_sha256: hash_sha256
@@ -267145,9 +267145,9 @@ components:
           ads_connected: true
         events:
         - name: name
-          "true": true
+          enabled: true
         - name: name
-          "true": true
+          enabled: true
         key: key
         group: group
       properties:
@@ -267217,11 +267217,11 @@ components:
       type: object
     SfvbTrackingProviderConsent:
       example:
-        "false": true
+        disabled: true
         region: region
         type: type
       properties:
-        "false":
+        disabled:
           description: "On a write, true to remove the gate.  Not with type or region."
           type: boolean
         region:
@@ -267234,15 +267234,15 @@ components:
     SfvbTrackingProviderEvent:
       example:
         name: name
-        "true": true
+        enabled: true
       properties:
+        enabled:
+          description: True when the event is sent to the provider.
+          type: boolean
         name:
           description: "AddPaymentInfo, AddToCart, AddToWishlist, CompleteRegistration,\
             \ InitiateCheckout, Lead, Search or ViewContent."
           type: string
-        "true":
-          description: True when the event is sent to the provider.
-          type: boolean
       type: object
     SfvbTrackingProviderField:
       example:
@@ -267353,7 +267353,7 @@ components:
         accept_cost: true
         dry_run: true
         consent:
-          "false": true
+          disabled: true
           region: region
           type: type
         fields: "{}"
@@ -267521,7 +267521,7 @@ components:
             to: to
             key: key
           consent:
-            "false": true
+            disabled: true
             region: region
             type: type
           hash_sha256: hash_sha256
@@ -267576,9 +267576,9 @@ components:
             ads_connected: true
           events:
           - name: name
-            "true": true
+            enabled: true
           - name: name
-            "true": true
+            enabled: true
           key: key
           group: group
         - configured: true
@@ -267596,7 +267596,7 @@ components:
             to: to
             key: key
           consent:
-            "false": true
+            disabled: true
             region: region
             type: type
           hash_sha256: hash_sha256
@@ -267651,9 +267651,9 @@ components:
             ads_connected: true
           events:
           - name: name
-            "true": true
+            enabled: true
           - name: name
-            "true": true
+            enabled: true
           key: key
           group: group
       properties:

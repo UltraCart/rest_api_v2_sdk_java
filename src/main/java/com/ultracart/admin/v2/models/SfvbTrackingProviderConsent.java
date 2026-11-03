@@ -49,9 +49,9 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbTrackingProviderConsent {
-  public static final String SERIALIZED_NAME_FALSE = "false";
-  @SerializedName(SERIALIZED_NAME_FALSE)
-  private Boolean false;
+  public static final String SERIALIZED_NAME_DISABLED = "disabled";
+  @SerializedName(SERIALIZED_NAME_DISABLED)
+  private Boolean disabled;
 
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)
@@ -64,26 +64,26 @@ public class SfvbTrackingProviderConsent {
   public SfvbTrackingProviderConsent() { 
   }
 
-  public SfvbTrackingProviderConsent false(Boolean false) {
+  public SfvbTrackingProviderConsent disabled(Boolean disabled) {
     
-    this.false = false;
+    this.disabled = disabled;
     return this;
   }
 
    /**
    * On a write, true to remove the gate.  Not with type or region.
-   * @return false
+   * @return disabled
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "On a write, true to remove the gate.  Not with type or region.")
 
-  public Boolean getFalse() {
-    return false;
+  public Boolean getDisabled() {
+    return disabled;
   }
 
 
-  public void setFalse(Boolean false) {
-    this.false = false;
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
   }
 
 
@@ -143,21 +143,21 @@ public class SfvbTrackingProviderConsent {
       return false;
     }
     SfvbTrackingProviderConsent sfvbTrackingProviderConsent = (SfvbTrackingProviderConsent) o;
-    return Objects.equals(this.false, sfvbTrackingProviderConsent.false) &&
+    return Objects.equals(this.disabled, sfvbTrackingProviderConsent.disabled) &&
         Objects.equals(this.region, sfvbTrackingProviderConsent.region) &&
         Objects.equals(this.type, sfvbTrackingProviderConsent.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(false, region, type);
+    return Objects.hash(disabled, region, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTrackingProviderConsent {\n");
-    sb.append("    false: ").append(toIndentedString(false)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -182,7 +182,7 @@ public class SfvbTrackingProviderConsent {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("false");
+    openapiFields.add("disabled");
     openapiFields.add("region");
     openapiFields.add("type");
 
