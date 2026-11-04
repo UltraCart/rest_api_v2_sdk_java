@@ -95,6 +95,10 @@ public class SfvbTrackingProviderField {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_UNAVAILABLE_REASON = "unavailable_reason";
+  @SerializedName(SERIALIZED_NAME_UNAVAILABLE_REASON)
+  private String unavailableReason;
+
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
@@ -367,6 +371,29 @@ public class SfvbTrackingProviderField {
   }
 
 
+  public SfvbTrackingProviderField unavailableReason(String unavailableReason) {
+    
+    this.unavailableReason = unavailableReason;
+    return this;
+  }
+
+   /**
+   * Present only when this storefront can&#39;t turn the field on, and why.  Turning it off still works.
+   * @return unavailableReason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Present only when this storefront can't turn the field on, and why.  Turning it off still works.")
+
+  public String getUnavailableReason() {
+    return unavailableReason;
+  }
+
+
+  public void setUnavailableReason(String unavailableReason) {
+    this.unavailableReason = unavailableReason;
+  }
+
+
   public SfvbTrackingProviderField value(String value) {
     
     this.value = value;
@@ -434,13 +461,14 @@ public class SfvbTrackingProviderField {
         Objects.equals(this.set, sfvbTrackingProviderField.set) &&
         Objects.equals(this.sink, sfvbTrackingProviderField.sink) &&
         Objects.equals(this.type, sfvbTrackingProviderField.type) &&
+        Objects.equals(this.unavailableReason, sfvbTrackingProviderField.unavailableReason) &&
         Objects.equals(this.value, sfvbTrackingProviderField.value) &&
         Objects.equals(this.writable, sfvbTrackingProviderField.writable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowed, key, label, mask, max, maxValue, minValue, secret, set, sink, type, value, writable);
+    return Objects.hash(allowed, key, label, mask, max, maxValue, minValue, secret, set, sink, type, unavailableReason, value, writable);
   }
 
   @Override
@@ -458,6 +486,7 @@ public class SfvbTrackingProviderField {
     sb.append("    set: ").append(toIndentedString(set)).append("\n");
     sb.append("    sink: ").append(toIndentedString(sink)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    unavailableReason: ").append(toIndentedString(unavailableReason)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    writable: ").append(toIndentedString(writable)).append("\n");
     sb.append("}");
@@ -493,6 +522,7 @@ public class SfvbTrackingProviderField {
     openapiFields.add("set");
     openapiFields.add("sink");
     openapiFields.add("type");
+    openapiFields.add("unavailable_reason");
     openapiFields.add("value");
     openapiFields.add("writable");
 
@@ -540,6 +570,9 @@ public class SfvbTrackingProviderField {
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if (jsonObj.get("unavailable_reason") != null && !jsonObj.get("unavailable_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `unavailable_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unavailable_reason").toString()));
       }
       if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));

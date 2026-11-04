@@ -61,6 +61,10 @@ public class SfvbTrackingProvider {
   @SerializedName(SERIALIZED_NAME_ADMIN_PATH)
   private String adminPath;
 
+  public static final String SERIALIZED_NAME_APPROVAL_NEEDED = "approval_needed";
+  @SerializedName(SERIALIZED_NAME_APPROVAL_NEEDED)
+  private Boolean approvalNeeded;
+
   public static final String SERIALIZED_NAME_CHANGES = "changes";
   @SerializedName(SERIALIZED_NAME_CHANGES)
   private List<SfvbTrackingChange> changes = null;
@@ -144,6 +148,29 @@ public class SfvbTrackingProvider {
 
   public void setAdminPath(String adminPath) {
     this.adminPath = adminPath;
+  }
+
+
+  public SfvbTrackingProvider approvalNeeded(Boolean approvalNeeded) {
+    
+    this.approvalNeeded = approvalNeeded;
+    return this;
+  }
+
+   /**
+   * On a dry run, whether the real write needs an approved tracking_provider.change request.
+   * @return approvalNeeded
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "On a dry run, whether the real write needs an approved tracking_provider.change request.")
+
+  public Boolean getApprovalNeeded() {
+    return approvalNeeded;
+  }
+
+
+  public void setApprovalNeeded(Boolean approvalNeeded) {
+    this.approvalNeeded = approvalNeeded;
   }
 
 
@@ -543,6 +570,7 @@ public class SfvbTrackingProvider {
     }
     SfvbTrackingProvider sfvbTrackingProvider = (SfvbTrackingProvider) o;
     return Objects.equals(this.adminPath, sfvbTrackingProvider.adminPath) &&
+        Objects.equals(this.approvalNeeded, sfvbTrackingProvider.approvalNeeded) &&
         Objects.equals(this.changes, sfvbTrackingProvider.changes) &&
         Objects.equals(this.configured, sfvbTrackingProvider.configured) &&
         Objects.equals(this.consent, sfvbTrackingProvider.consent) &&
@@ -562,7 +590,7 @@ public class SfvbTrackingProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminPath, changes, configured, consent, consentSupported, cost, dryRun, events, fields, group, hashSha256, key, name, notes, oauth, wholesaleTiers);
+    return Objects.hash(adminPath, approvalNeeded, changes, configured, consent, consentSupported, cost, dryRun, events, fields, group, hashSha256, key, name, notes, oauth, wholesaleTiers);
   }
 
   @Override
@@ -570,6 +598,7 @@ public class SfvbTrackingProvider {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTrackingProvider {\n");
     sb.append("    adminPath: ").append(toIndentedString(adminPath)).append("\n");
+    sb.append("    approvalNeeded: ").append(toIndentedString(approvalNeeded)).append("\n");
     sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
     sb.append("    configured: ").append(toIndentedString(configured)).append("\n");
     sb.append("    consent: ").append(toIndentedString(consent)).append("\n");
@@ -608,6 +637,7 @@ public class SfvbTrackingProvider {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("admin_path");
+    openapiFields.add("approval_needed");
     openapiFields.add("changes");
     openapiFields.add("configured");
     openapiFields.add("consent");

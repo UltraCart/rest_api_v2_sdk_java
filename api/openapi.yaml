@@ -267112,6 +267112,7 @@ components:
           - allowed
           - allowed
           sink: sink
+          unavailable_reason: unavailable_reason
           label: label
           secret: true
           type: type
@@ -267127,6 +267128,7 @@ components:
           - allowed
           - allowed
           sink: sink
+          unavailable_reason: unavailable_reason
           label: label
           secret: true
           type: type
@@ -267149,11 +267151,16 @@ components:
         - name: name
           enabled: true
         key: key
+        approval_needed: true
         group: group
       properties:
         admin_path:
           description: Where the provider is in the admin.
           type: string
+        approval_needed:
+          description: "On a dry run, whether the real write needs an approved tracking_provider.change\
+            \ request."
+          type: boolean
         changes:
           description: "On a write, each setting it changed, or would change on a\
             \ dry run.  Secrets read only set or cleared."
@@ -267252,6 +267259,7 @@ components:
         - allowed
         - allowed
         sink: sink
+        unavailable_reason: unavailable_reason
         label: label
         secret: true
         type: type
@@ -267304,6 +267312,10 @@ components:
         type:
           description: "id, id_list, token, url, server_url, host, host_list, bool,\
             \ select, number, numeric_id or secret.  It decides what a write accepts."
+          type: string
+        unavailable_reason:
+          description: "Present only when this storefront can't turn the field on,\
+            \ and why.  Turning it off still works."
           type: string
         value:
           description: The stored value.  Booleans are true or false.  Null when blank.  Never
@@ -267543,6 +267555,7 @@ components:
             - allowed
             - allowed
             sink: sink
+            unavailable_reason: unavailable_reason
             label: label
             secret: true
             type: type
@@ -267558,6 +267571,7 @@ components:
             - allowed
             - allowed
             sink: sink
+            unavailable_reason: unavailable_reason
             label: label
             secret: true
             type: type
@@ -267580,6 +267594,7 @@ components:
           - name: name
             enabled: true
           key: key
+          approval_needed: true
           group: group
         - configured: true
           cost: cost
@@ -267618,6 +267633,7 @@ components:
             - allowed
             - allowed
             sink: sink
+            unavailable_reason: unavailable_reason
             label: label
             secret: true
             type: type
@@ -267633,6 +267649,7 @@ components:
             - allowed
             - allowed
             sink: sink
+            unavailable_reason: unavailable_reason
             label: label
             secret: true
             type: type
@@ -267655,6 +267672,7 @@ components:
           - name: name
             enabled: true
           key: key
+          approval_needed: true
           group: group
       properties:
         catalog_version:
