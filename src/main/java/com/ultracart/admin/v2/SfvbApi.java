@@ -185,6 +185,7 @@ import com.ultracart.admin.v2.models.SfvbServerLogDetail;
 import com.ultracart.admin.v2.models.SfvbServerLogsResponse;
 import com.ultracart.admin.v2.models.SfvbSiteAttributeUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbSiteAttributesResponse;
+import com.ultracart.admin.v2.models.SfvbSitemapsResponse;
 import com.ultracart.admin.v2.models.SfvbSmartAttribution;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
 import com.ultracart.admin.v2.models.SfvbStorefrontsResponse;
@@ -17717,6 +17718,149 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbSiteAttributesValidateBeforeCall(storefrontOid, _callback);
         Type localVarReturnType = new TypeToken<SfvbSiteAttributesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbSitemaps
+     * @param storefrontOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSitemapsCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sitemaps"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbSitemapsValidateBeforeCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbSitemaps(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbSitemapsCall(storefrontOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a storefront&#39;s sitemaps and robots.txt
+     * The sitemaps the admin SEO Sitemaps screen lists, with their child files and build times, the Sitemap lines robots.txt serves, and whether Prevent Indexing is on.  Read only.  The files are rebuilt nightly, so a page change shows in them after the next build. 
+     * @param storefrontOid  (required)
+     * @return SfvbSitemapsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSitemapsResponse getSfvbSitemaps(Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbSitemapsResponse> localVarResp = getSfvbSitemapsWithHttpInfo(storefrontOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a storefront&#39;s sitemaps and robots.txt
+     * The sitemaps the admin SEO Sitemaps screen lists, with their child files and build times, the Sitemap lines robots.txt serves, and whether Prevent Indexing is on.  Read only.  The files are rebuilt nightly, so a page change shows in them after the next build. 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;SfvbSitemapsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSitemapsResponse> getSfvbSitemapsWithHttpInfo(Integer storefrontOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbSitemapsValidateBeforeCall(storefrontOid, null);
+        Type localVarReturnType = new TypeToken<SfvbSitemapsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a storefront&#39;s sitemaps and robots.txt (asynchronously)
+     * The sitemaps the admin SEO Sitemaps screen lists, with their child files and build times, the Sitemap lines robots.txt serves, and whether Prevent Indexing is on.  Read only.  The files are rebuilt nightly, so a page change shows in them after the next build. 
+     * @param storefrontOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSitemapsAsync(Integer storefrontOid, final ApiCallback<SfvbSitemapsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbSitemapsValidateBeforeCall(storefrontOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSitemapsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

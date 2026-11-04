@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.226</version>
+    <version>4.1.227</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.226"
+     implementation "com.ultracart:rest-sdk:4.1.227"
   }
 ```
 
@@ -603,6 +603,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSequence**](docs/SfvbApi.md#getSfvbSequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
+*SfvbApi* | [**getSfvbSitemaps**](docs/SfvbApi.md#getSfvbSitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
 *SfvbApi* | [**getSfvbSmartAttribution**](docs/SfvbApi.md#getSfvbSmartAttribution) | **GET** /sfvb/storefronts/{storefront_oid}/smart_attribution | Read a storefront&#39;s Smart Attribution configuration
 *SfvbApi* | [**getSfvbTestOrders**](docs/SfvbApi.md#getSfvbTestOrders) | **GET** /sfvb/storefronts/{storefront_oid}/test_orders | List recent test orders
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
@@ -2164,6 +2165,7 @@ Class | Method | HTTP request | Description
  - [SfvbRedirectsResponse](docs/SfvbRedirectsResponse.md)
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
+ - [SfvbRobotsTxt](docs/SfvbRobotsTxt.md)
  - [SfvbSecretHandle](docs/SfvbSecretHandle.md)
  - [SfvbSecretKind](docs/SfvbSecretKind.md)
  - [SfvbSecretKindsResponse](docs/SfvbSecretKindsResponse.md)
@@ -2189,6 +2191,9 @@ Class | Method | HTTP request | Description
  - [SfvbSiteAttributeUpdate](docs/SfvbSiteAttributeUpdate.md)
  - [SfvbSiteAttributeUpdateRequest](docs/SfvbSiteAttributeUpdateRequest.md)
  - [SfvbSiteAttributesResponse](docs/SfvbSiteAttributesResponse.md)
+ - [SfvbSitemap](docs/SfvbSitemap.md)
+ - [SfvbSitemapFile](docs/SfvbSitemapFile.md)
+ - [SfvbSitemapsResponse](docs/SfvbSitemapsResponse.md)
  - [SfvbSmartAttribution](docs/SfvbSmartAttribution.md)
  - [SfvbSmartAttributionPlatform](docs/SfvbSmartAttributionPlatform.md)
  - [SfvbSmartAttributionRequest](docs/SfvbSmartAttributionRequest.md)
@@ -2428,6 +2433,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.227 | 11/04/2026 | sfvb internal testing |
 | 4.1.226 | 11/04/2026 | sfvb internal testing |
 | 4.1.225 | 11/03/2026 | sfvb internal testing |
 | 4.1.224 | 11/03/2026 | sfvb internal testing |

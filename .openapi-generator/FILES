@@ -1195,6 +1195,7 @@ docs/SfvbRedirectResponse.md
 docs/SfvbRedirectsResponse.md
 docs/SfvbRenderRequest.md
 docs/SfvbRenderResponse.md
+docs/SfvbRobotsTxt.md
 docs/SfvbSecretHandle.md
 docs/SfvbSecretKind.md
 docs/SfvbSecretKindsResponse.md
@@ -1220,6 +1221,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSitemap.md
+docs/SfvbSitemapFile.md
+docs/SfvbSitemapsResponse.md
 docs/SfvbSmartAttribution.md
 docs/SfvbSmartAttributionPlatform.md
 docs/SfvbSmartAttributionRequest.md
@@ -2589,6 +2593,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRenderResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRobotsTxt.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSecretHandle.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSecretKind.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSecretKindsResponse.java
@@ -2614,6 +2619,9 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttribute.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdate.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributesResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSitemap.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSitemapFile.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSitemapsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttribution.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttributionPlatform.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttributionRequest.java

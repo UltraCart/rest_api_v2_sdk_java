@@ -1266,6 +1266,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbRedirectsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbRenderRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbRenderResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbRobotsTxt.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSecretHandle.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSecretKind.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSecretKindsResponse.CustomTypeAdapterFactory());
@@ -1291,6 +1292,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSiteAttributeUpdate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSiteAttributeUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSiteAttributesResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSitemap.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSitemapFile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSitemapsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSmartAttribution.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSmartAttributionPlatform.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbSmartAttributionRequest.CustomTypeAdapterFactory());
