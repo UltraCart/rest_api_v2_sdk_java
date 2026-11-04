@@ -49,6 +49,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbRedirectRequest {
+  public static final String SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP = "exclude_from_sitemap";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP)
+  private Boolean excludeFromSitemap;
+
   public static final String SERIALIZED_NAME_NOTE = "note";
   @SerializedName(SERIALIZED_NAME_NOTE)
   private String note;
@@ -71,6 +75,29 @@ public class SfvbRedirectRequest {
 
   public SfvbRedirectRequest() { 
   }
+
+  public SfvbRedirectRequest excludeFromSitemap(Boolean excludeFromSitemap) {
+    
+    this.excludeFromSitemap = excludeFromSitemap;
+    return this;
+  }
+
+   /**
+   * True to leave the rule&#39;s source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule&#39;s value.
+   * @return excludeFromSitemap
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True to leave the rule's source out of the generated sitemap.  On a create, left out means false, as in the admin.  On an update, left out keeps the rule's value.")
+
+  public Boolean getExcludeFromSitemap() {
+    return excludeFromSitemap;
+  }
+
+
+  public void setExcludeFromSitemap(Boolean excludeFromSitemap) {
+    this.excludeFromSitemap = excludeFromSitemap;
+  }
+
 
   public SfvbRedirectRequest note(String note) {
     
@@ -197,7 +224,8 @@ public class SfvbRedirectRequest {
       return false;
     }
     SfvbRedirectRequest sfvbRedirectRequest = (SfvbRedirectRequest) o;
-    return Objects.equals(this.note, sfvbRedirectRequest.note) &&
+    return Objects.equals(this.excludeFromSitemap, sfvbRedirectRequest.excludeFromSitemap) &&
+        Objects.equals(this.note, sfvbRedirectRequest.note) &&
         Objects.equals(this.overLivePage, sfvbRedirectRequest.overLivePage) &&
         Objects.equals(this.source, sfvbRedirectRequest.source) &&
         Objects.equals(this.status, sfvbRedirectRequest.status) &&
@@ -206,13 +234,14 @@ public class SfvbRedirectRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(note, overLivePage, source, status, target);
+    return Objects.hash(excludeFromSitemap, note, overLivePage, source, status, target);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbRedirectRequest {\n");
+    sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    overLivePage: ").append(toIndentedString(overLivePage)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -240,6 +269,7 @@ public class SfvbRedirectRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("exclude_from_sitemap");
     openapiFields.add("note");
     openapiFields.add("over_live_page");
     openapiFields.add("source");

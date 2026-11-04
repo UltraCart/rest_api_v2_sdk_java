@@ -27,6 +27,7 @@ import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
+import com.ultracart.admin.v2.models.SfvbSiteSeoRequest;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
 import com.ultracart.admin.v2.models.SfvbTrackingProviderRequest;
 import io.swagger.annotations.ApiModel;
@@ -105,7 +106,9 @@ public class SfvbApprovalCreateRequest {
     
     AFFILIATE_NETWORK_CHANGE("affiliate_network.change"),
     
-    AFFILIATE_NETWORK_DELETE("affiliate_network.delete");
+    AFFILIATE_NETWORK_DELETE("affiliate_network.delete"),
+    
+    SITE_SEO_CHANGE("site_seo.change");
 
     private String value;
 
@@ -184,6 +187,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_SEGMENT_UPDATE = "segment_update";
   @SerializedName(SERIALIZED_NAME_SEGMENT_UPDATE)
   private SfvbCommsSegmentWriteRequest segmentUpdate;
+
+  public static final String SERIALIZED_NAME_SITE_SEO = "site_seo";
+  @SerializedName(SERIALIZED_NAME_SITE_SEO)
+  private SfvbSiteSeoRequest siteSeo;
 
   public static final String SERIALIZED_NAME_SMART_ATTRIBUTION = "smart_attribution";
   @SerializedName(SERIALIZED_NAME_SMART_ATTRIBUTION)
@@ -442,6 +449,29 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest siteSeo(SfvbSiteSeoRequest siteSeo) {
+    
+    this.siteSeo = siteSeo;
+    return this;
+  }
+
+   /**
+   * Get siteSeo
+   * @return siteSeo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbSiteSeoRequest getSiteSeo() {
+    return siteSeo;
+  }
+
+
+  public void setSiteSeo(SfvbSiteSeoRequest siteSeo) {
+    this.siteSeo = siteSeo;
+  }
+
+
   public SfvbApprovalCreateRequest smartAttribution(SfvbSmartAttributionRequest smartAttribution) {
     
     this.smartAttribution = smartAttribution;
@@ -508,13 +538,14 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
         Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows) &&
         Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate) &&
+        Objects.equals(this.siteSeo, sfvbApprovalCreateRequest.siteSeo) &&
         Objects.equals(this.smartAttribution, sfvbApprovalCreateRequest.smartAttribution) &&
         Objects.equals(this.trackingProvider, sfvbApprovalCreateRequest.trackingProvider);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, smartAttribution, trackingProvider);
+    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider);
   }
 
   @Override
@@ -531,6 +562,7 @@ public class SfvbApprovalCreateRequest {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
     sb.append("    segmentUpdate: ").append(toIndentedString(segmentUpdate)).append("\n");
+    sb.append("    siteSeo: ").append(toIndentedString(siteSeo)).append("\n");
     sb.append("    smartAttribution: ").append(toIndentedString(smartAttribution)).append("\n");
     sb.append("    trackingProvider: ").append(toIndentedString(trackingProvider)).append("\n");
     sb.append("}");
@@ -565,6 +597,7 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("reason");
     openapiFields.add("redirect_rows");
     openapiFields.add("segment_update");
+    openapiFields.add("site_seo");
     openapiFields.add("smart_attribution");
     openapiFields.add("tracking_provider");
 
@@ -646,6 +679,10 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `segment_update`
       if (jsonObj.getAsJsonObject("segment_update") != null) {
         SfvbCommsSegmentWriteRequest.validateJsonObject(jsonObj.getAsJsonObject("segment_update"));
+      }
+      // validate the optional field `site_seo`
+      if (jsonObj.getAsJsonObject("site_seo") != null) {
+        SfvbSiteSeoRequest.validateJsonObject(jsonObj.getAsJsonObject("site_seo"));
       }
       // validate the optional field `smart_attribution`
       if (jsonObj.getAsJsonObject("smart_attribution") != null) {

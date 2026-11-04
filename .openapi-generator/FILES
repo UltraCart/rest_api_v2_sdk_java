@@ -1140,6 +1140,7 @@ docs/SfvbNotFoundEntryResponse.md
 docs/SfvbNotFoundHit.md
 docs/SfvbNotFoundPage.md
 docs/SfvbNotFoundResponse.md
+docs/SfvbNotFoundSummary.md
 docs/SfvbPageAttribute.md
 docs/SfvbPageAttributeUpdate.md
 docs/SfvbPageAttributeUpdateRequest.md
@@ -1189,6 +1190,8 @@ docs/SfvbRedirectImportResponse.md
 docs/SfvbRedirectImportRow.md
 docs/SfvbRedirectImportRowResult.md
 docs/SfvbRedirectRequest.md
+docs/SfvbRedirectResolveBatchRequest.md
+docs/SfvbRedirectResolveBatchResponse.md
 docs/SfvbRedirectResolveResponse.md
 docs/SfvbRedirectResolveStep.md
 docs/SfvbRedirectResponse.md
@@ -1221,6 +1224,9 @@ docs/SfvbSiteAttribute.md
 docs/SfvbSiteAttributeUpdate.md
 docs/SfvbSiteAttributeUpdateRequest.md
 docs/SfvbSiteAttributesResponse.md
+docs/SfvbSiteSeo.md
+docs/SfvbSiteSeoChange.md
+docs/SfvbSiteSeoRequest.md
 docs/SfvbSitemap.md
 docs/SfvbSitemapFile.md
 docs/SfvbSitemapsResponse.md
@@ -2541,6 +2547,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbNotFoundEntryResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbNotFoundHit.java
 src/main/java/com/ultracart/admin/v2/models/SfvbNotFoundPage.java
 src/main/java/com/ultracart/admin/v2/models/SfvbNotFoundResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbNotFoundSummary.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttribute.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttributeUpdate.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPageAttributeUpdateRequest.java
@@ -2590,6 +2597,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbRedirectImportResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectImportRow.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectImportRowResult.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResolveBatchRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResolveBatchResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResolveResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResolveStep.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRedirectResponse.java
@@ -2622,6 +2631,9 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttribute.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdate.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributeUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSiteAttributesResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteSeo.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteSeoChange.java
+src/main/java/com/ultracart/admin/v2/models/SfvbSiteSeoRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSitemap.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSitemapFile.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSitemapsResponse.java

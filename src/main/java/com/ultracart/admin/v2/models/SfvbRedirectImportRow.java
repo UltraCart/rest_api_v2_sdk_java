@@ -49,6 +49,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbRedirectImportRow {
+  public static final String SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP = "exclude_from_sitemap";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP)
+  private Boolean excludeFromSitemap;
+
   public static final String SERIALIZED_NAME_NOTE = "note";
   @SerializedName(SERIALIZED_NAME_NOTE)
   private String note;
@@ -63,6 +67,29 @@ public class SfvbRedirectImportRow {
 
   public SfvbRedirectImportRow() { 
   }
+
+  public SfvbRedirectImportRow excludeFromSitemap(Boolean excludeFromSitemap) {
+    
+    this.excludeFromSitemap = excludeFromSitemap;
+    return this;
+  }
+
+   /**
+   * True to leave the rule&#39;s source out of the generated sitemap.  Left out means false, as in the admin.
+   * @return excludeFromSitemap
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True to leave the rule's source out of the generated sitemap.  Left out means false, as in the admin.")
+
+  public Boolean getExcludeFromSitemap() {
+    return excludeFromSitemap;
+  }
+
+
+  public void setExcludeFromSitemap(Boolean excludeFromSitemap) {
+    this.excludeFromSitemap = excludeFromSitemap;
+  }
+
 
   public SfvbRedirectImportRow note(String note) {
     
@@ -143,20 +170,22 @@ public class SfvbRedirectImportRow {
       return false;
     }
     SfvbRedirectImportRow sfvbRedirectImportRow = (SfvbRedirectImportRow) o;
-    return Objects.equals(this.note, sfvbRedirectImportRow.note) &&
+    return Objects.equals(this.excludeFromSitemap, sfvbRedirectImportRow.excludeFromSitemap) &&
+        Objects.equals(this.note, sfvbRedirectImportRow.note) &&
         Objects.equals(this.source, sfvbRedirectImportRow.source) &&
         Objects.equals(this.target, sfvbRedirectImportRow.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(note, source, target);
+    return Objects.hash(excludeFromSitemap, note, source, target);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbRedirectImportRow {\n");
+    sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    note: ").append(toIndentedString(note)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -182,6 +211,7 @@ public class SfvbRedirectImportRow {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("exclude_from_sitemap");
     openapiFields.add("note");
     openapiFields.add("source");
     openapiFields.add("target");

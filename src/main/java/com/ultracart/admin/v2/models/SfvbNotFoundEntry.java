@@ -67,6 +67,10 @@ public class SfvbNotFoundEntry {
   @SerializedName(SERIALIZED_NAME_FIRST_SEEN_DTS)
   private String firstSeenDts;
 
+  public static final String SERIALIZED_NAME_FIXED = "fixed";
+  @SerializedName(SERIALIZED_NAME_FIXED)
+  private Boolean fixed;
+
   public static final String SERIALIZED_NAME_HITS = "hits";
   @SerializedName(SERIALIZED_NAME_HITS)
   private Integer hits;
@@ -187,6 +191,29 @@ public class SfvbNotFoundEntry {
 
   public void setFirstSeenDts(String firstSeenDts) {
     this.firstSeenDts = firstSeenDts;
+  }
+
+
+  public SfvbNotFoundEntry fixed(Boolean fixed) {
+    
+    this.fixed = fixed;
+    return this;
+  }
+
+   /**
+   * True when the entry is marked fixed or mapped.  The next hit on the path clears it.
+   * @return fixed
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the entry is marked fixed or mapped.  The next hit on the path clears it.")
+
+  public Boolean getFixed() {
+    return fixed;
+  }
+
+
+  public void setFixed(Boolean fixed) {
+    this.fixed = fixed;
   }
 
 
@@ -373,6 +400,7 @@ public class SfvbNotFoundEntry {
         Objects.equals(this.botShare, sfvbNotFoundEntry.botShare) &&
         Objects.equals(this.countedHits, sfvbNotFoundEntry.countedHits) &&
         Objects.equals(this.firstSeenDts, sfvbNotFoundEntry.firstSeenDts) &&
+        Objects.equals(this.fixed, sfvbNotFoundEntry.fixed) &&
         Objects.equals(this.hits, sfvbNotFoundEntry.hits) &&
         Objects.equals(this.ignored, sfvbNotFoundEntry.ignored) &&
         Objects.equals(this.lastSeenDts, sfvbNotFoundEntry.lastSeenDts) &&
@@ -384,7 +412,7 @@ public class SfvbNotFoundEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(botHits, botShare, countedHits, firstSeenDts, hits, ignored, lastSeenDts, notFoundId, path, redirectedTo, referrerHosts);
+    return Objects.hash(botHits, botShare, countedHits, firstSeenDts, fixed, hits, ignored, lastSeenDts, notFoundId, path, redirectedTo, referrerHosts);
   }
 
   @Override
@@ -395,6 +423,7 @@ public class SfvbNotFoundEntry {
     sb.append("    botShare: ").append(toIndentedString(botShare)).append("\n");
     sb.append("    countedHits: ").append(toIndentedString(countedHits)).append("\n");
     sb.append("    firstSeenDts: ").append(toIndentedString(firstSeenDts)).append("\n");
+    sb.append("    fixed: ").append(toIndentedString(fixed)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("    ignored: ").append(toIndentedString(ignored)).append("\n");
     sb.append("    lastSeenDts: ").append(toIndentedString(lastSeenDts)).append("\n");
@@ -428,6 +457,7 @@ public class SfvbNotFoundEntry {
     openapiFields.add("bot_share");
     openapiFields.add("counted_hits");
     openapiFields.add("first_seen_dts");
+    openapiFields.add("fixed");
     openapiFields.add("hits");
     openapiFields.add("ignored");
     openapiFields.add("last_seen_dts");

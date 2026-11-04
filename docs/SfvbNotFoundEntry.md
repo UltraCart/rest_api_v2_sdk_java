@@ -11,6 +11,7 @@
 |**botShare** | **Object** | bot_hits divided by counted_hits, 0 to 1.  Empty when not yet counted. |  [optional] |
 |**countedHits** | **Integer** | Hits since bot counting began, the base for bot_share. |  [optional] |
 |**firstSeenDts** | **String** | First hit, ISO 8601. |  [optional] |
+|**fixed** | **Boolean** | True when the entry is marked fixed or mapped.  The next hit on the path clears it. |  [optional] |
 |**hits** | **Integer** | Every recorded hit, bots included. |  [optional] |
 |**ignored** | **Boolean** | True when the entry is ignored and no longer counts. |  [optional] |
 |**lastSeenDts** | **String** | Latest hit, ISO 8601. |  [optional] |

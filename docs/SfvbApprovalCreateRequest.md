@@ -17,6 +17,7 @@
 |**reason** | **String** | Why the agent wants to do this, in a sentence.  Shown to the person as unverified text, capped at 500 characters. |  [optional] |
 |**redirectRows** | [**List&lt;SfvbRedirectDeleteRow&gt;**](SfvbRedirectDeleteRow.md) | For redirect.delete_batch, exactly the rows the batch delete will send, up to 5,000, each with its hash_sha256.  UltraCart keeps only their hash. |  [optional] |
 |**segmentUpdate** | [**SfvbCommsSegmentWriteRequest**](SfvbCommsSegmentWriteRequest.md) |  |  [optional] |
+|**siteSeo** | [**SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  |  [optional] |
 |**smartAttribution** | [**SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  |  [optional] |
 |**trackingProvider** | [**SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  |  [optional] |
 
@@ -47,6 +48,7 @@
 | TRACKING_HTML_PUT | &quot;tracking_html.put&quot; |
 | AFFILIATE_NETWORK_CHANGE | &quot;affiliate_network.change&quot; |
 | AFFILIATE_NETWORK_DELETE | &quot;affiliate_network.delete&quot; |
+| SITE_SEO_CHANGE | &quot;site_seo.change&quot; |
 
 
 

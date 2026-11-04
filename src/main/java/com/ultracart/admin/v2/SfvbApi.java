@@ -131,6 +131,7 @@ import com.ultracart.admin.v2.models.SfvbNotFoundEntry;
 import com.ultracart.admin.v2.models.SfvbNotFoundEntryResponse;
 import com.ultracart.admin.v2.models.SfvbNotFoundPage;
 import com.ultracart.admin.v2.models.SfvbNotFoundResponse;
+import com.ultracart.admin.v2.models.SfvbNotFoundSummary;
 import com.ultracart.admin.v2.models.SfvbPageAttributeUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbPageBlogPostsRequest;
 import com.ultracart.admin.v2.models.SfvbPageBlogPostsResponse;
@@ -164,6 +165,8 @@ import com.ultracart.admin.v2.models.SfvbRedirectDeleteResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectImportRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectImportResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectRequest;
+import com.ultracart.admin.v2.models.SfvbRedirectResolveBatchRequest;
+import com.ultracart.admin.v2.models.SfvbRedirectResolveBatchResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectResolveResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectResponse;
 import com.ultracart.admin.v2.models.SfvbRedirectsResponse;
@@ -185,6 +188,8 @@ import com.ultracart.admin.v2.models.SfvbServerLogDetail;
 import com.ultracart.admin.v2.models.SfvbServerLogsResponse;
 import com.ultracart.admin.v2.models.SfvbSiteAttributeUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbSiteAttributesResponse;
+import com.ultracart.admin.v2.models.SfvbSiteSeo;
+import com.ultracart.admin.v2.models.SfvbSiteSeoRequest;
 import com.ultracart.admin.v2.models.SfvbSitemapsResponse;
 import com.ultracart.admin.v2.models.SfvbSmartAttribution;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
@@ -4508,6 +4513,163 @@ public class SfvbApi {
         okhttp3.Call localVarCall = deleteSfvbLibraryEntryValidateBeforeCall(storefrontOid, libraryOid, ifMatch, _callback);
         Type localVarReturnType = new TypeToken<SfvbLibraryDeleteResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSfvbNotFoundEntry
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbNotFoundEntryCall(Integer storefrontOid, String notFoundId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "not_found_id" + "\\}", localVarApiClient.escapeString(notFoundId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSfvbNotFoundEntryValidateBeforeCall(Integer storefrontOid, String notFoundId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling deleteSfvbNotFoundEntry(Async)");
+        }
+        
+        // verify the required parameter 'notFoundId' is set
+        if (notFoundId == null) {
+            throw new ApiException("Missing the required parameter 'notFoundId' when calling deleteSfvbNotFoundEntry(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSfvbNotFoundEntryCall(storefrontOid, notFoundId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Remove a 404 path from the log
+     * The admin&#39;s Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void deleteSfvbNotFoundEntry(Integer storefrontOid, String notFoundId) throws ApiException {
+        deleteSfvbNotFoundEntryWithHttpInfo(storefrontOid, notFoundId);
+    }
+
+    /**
+     * Remove a 404 path from the log
+     * The admin&#39;s Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSfvbNotFoundEntryWithHttpInfo(Integer storefrontOid, String notFoundId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSfvbNotFoundEntryValidateBeforeCall(storefrontOid, notFoundId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Remove a 404 path from the log (asynchronously)
+     * The admin&#39;s Permanent Ignore button.  Despite that label, the next hit on the path records it again as a new entry.  To stop counting a path, ignore it instead. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSfvbNotFoundEntryAsync(Integer storefrontOid, String notFoundId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSfvbNotFoundEntryValidateBeforeCall(storefrontOid, notFoundId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -9068,6 +9230,165 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for exportSfvbNotFound
+     * @param storefrontOid  (required)
+     * @param includeBots  (optional)
+     * @param includeTokens  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exportSfvbNotFoundCall(Integer storefrontOid, Boolean includeBots, Boolean includeTokens, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/export"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (includeBots != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_bots", includeBots));
+        }
+
+        if (includeTokens != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_tokens", includeTokens));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exportSfvbNotFoundValidateBeforeCall(Integer storefrontOid, Boolean includeBots, Boolean includeTokens, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling exportSfvbNotFound(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = exportSfvbNotFoundCall(storefrontOid, includeBots, includeTokens, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Export the open 404 paths
+     * Up to 5,000 open paths, most hits first, as the admin&#39;s mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+     * @param storefrontOid  (required)
+     * @param includeBots  (optional)
+     * @param includeTokens  (optional)
+     * @return SfvbNotFoundResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbNotFoundResponse exportSfvbNotFound(Integer storefrontOid, Boolean includeBots, Boolean includeTokens) throws ApiException {
+        ApiResponse<SfvbNotFoundResponse> localVarResp = exportSfvbNotFoundWithHttpInfo(storefrontOid, includeBots, includeTokens);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Export the open 404 paths
+     * Up to 5,000 open paths, most hits first, as the admin&#39;s mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+     * @param storefrontOid  (required)
+     * @param includeBots  (optional)
+     * @param includeTokens  (optional)
+     * @return ApiResponse&lt;SfvbNotFoundResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbNotFoundResponse> exportSfvbNotFoundWithHttpInfo(Integer storefrontOid, Boolean includeBots, Boolean includeTokens) throws ApiException {
+        okhttp3.Call localVarCall = exportSfvbNotFoundValidateBeforeCall(storefrontOid, includeBots, includeTokens, null);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Export the open 404 paths (asynchronously)
+     * Up to 5,000 open paths, most hits first, as the admin&#39;s mapping spreadsheet reads them, each with where a redirect rule already sends it.  Fixed, mapped and ignored paths are never included.  Paths only bots have hit are left out unless include_bots is true.  Tokens in paths are redacted unless include_tokens is true.  Read only. 
+     * @param storefrontOid  (required)
+     * @param includeBots  (optional)
+     * @param includeTokens  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exportSfvbNotFoundAsync(Integer storefrontOid, Boolean includeBots, Boolean includeTokens, final ApiCallback<SfvbNotFoundResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = exportSfvbNotFoundValidateBeforeCall(storefrontOid, includeBots, includeTokens, _callback);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for favoriteSfvbLibraryEntry
      * @param storefrontOid  (required)
      * @param libraryOid  (required)
@@ -9214,6 +9535,167 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = favoriteSfvbLibraryEntryValidateBeforeCall(storefrontOid, libraryOid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fixSfvbNotFoundEntry
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fixSfvbNotFoundEntryCall(Integer storefrontOid, String notFoundId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/fixed"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "not_found_id" + "\\}", localVarApiClient.escapeString(notFoundId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fixSfvbNotFoundEntryValidateBeforeCall(Integer storefrontOid, String notFoundId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling fixSfvbNotFoundEntry(Async)");
+        }
+        
+        // verify the required parameter 'notFoundId' is set
+        if (notFoundId == null) {
+            throw new ApiException("Missing the required parameter 'notFoundId' when calling fixSfvbNotFoundEntry(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = fixSfvbNotFoundEntryCall(storefrontOid, notFoundId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Mark a 404 path fixed
+     * For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin&#39;s Mark Fixed. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @return SfvbNotFoundEntry
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbNotFoundEntry fixSfvbNotFoundEntry(Integer storefrontOid, String notFoundId) throws ApiException {
+        ApiResponse<SfvbNotFoundEntry> localVarResp = fixSfvbNotFoundEntryWithHttpInfo(storefrontOid, notFoundId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Mark a 404 path fixed
+     * For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin&#39;s Mark Fixed. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @return ApiResponse&lt;SfvbNotFoundEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbNotFoundEntry> fixSfvbNotFoundEntryWithHttpInfo(Integer storefrontOid, String notFoundId) throws ApiException {
+        okhttp3.Call localVarCall = fixSfvbNotFoundEntryValidateBeforeCall(storefrontOid, notFoundId, null);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundEntry>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Mark a 404 path fixed (asynchronously)
+     * For a path fixed by creating the page rather than a redirect.  It leaves the list; the next hit on the path clears the mark and lists it again.  The admin&#39;s Mark Fixed. 
+     * @param storefrontOid  (required)
+     * @param notFoundId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fixSfvbNotFoundEntryAsync(Integer storefrontOid, String notFoundId, final ApiCallback<SfvbNotFoundEntry> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fixSfvbNotFoundEntryValidateBeforeCall(storefrontOid, notFoundId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundEntry>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -15253,6 +15735,149 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for getSfvbNotFoundSummary
+     * @param storefrontOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbNotFoundSummaryCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/not_found/summary"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbNotFoundSummaryValidateBeforeCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbNotFoundSummary(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbNotFoundSummaryCall(storefrontOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * The 404 log&#39;s trend
+     * The admin&#39;s 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+     * @param storefrontOid  (required)
+     * @return SfvbNotFoundSummary
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbNotFoundSummary getSfvbNotFoundSummary(Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbNotFoundSummary> localVarResp = getSfvbNotFoundSummaryWithHttpInfo(storefrontOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * The 404 log&#39;s trend
+     * The admin&#39;s 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;SfvbNotFoundSummary&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbNotFoundSummary> getSfvbNotFoundSummaryWithHttpInfo(Integer storefrontOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbNotFoundSummaryValidateBeforeCall(storefrontOid, null);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundSummary>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * The 404 log&#39;s trend (asynchronously)
+     * The admin&#39;s 404 charts: hits per day for 30 and 7 days and per hour for 24 hours, bots included, plus up to 10 open paths first seen in the last 30 days.  Read only. 
+     * @param storefrontOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbNotFoundSummaryAsync(Integer storefrontOid, final ApiCallback<SfvbNotFoundSummary> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbNotFoundSummaryValidateBeforeCall(storefrontOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbNotFoundSummary>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSfvbPage
      * @param storefrontOid  (required)
      * @param path Page path, for example /catalog/dispensers/ (required)
@@ -17906,6 +18531,149 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbSiteAttributesValidateBeforeCall(storefrontOid, _callback);
         Type localVarReturnType = new TypeToken<SfvbSiteAttributesResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbSiteSeo
+     * @param storefrontOid  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSiteSeoCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/seo"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbSiteSeoValidateBeforeCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbSiteSeo(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbSiteSeoCall(storefrontOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a storefront&#39;s search engine settings
+     * Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+     * @param storefrontOid  (required)
+     * @return SfvbSiteSeo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSiteSeo getSfvbSiteSeo(Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbSiteSeo> localVarResp = getSfvbSiteSeoWithHttpInfo(storefrontOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a storefront&#39;s search engine settings
+     * Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+     * @param storefrontOid  (required)
+     * @return ApiResponse&lt;SfvbSiteSeo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSiteSeo> getSfvbSiteSeoWithHttpInfo(Integer storefrontOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbSiteSeoValidateBeforeCall(storefrontOid, null);
+        Type localVarReturnType = new TypeToken<SfvbSiteSeo>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a storefront&#39;s search engine settings (asynchronously)
+     * Canonical Links, Schema.org and Prevent Indexing as true or false, with the default meta description and keywords and the hash to send as If-Match on a change. 
+     * @param storefrontOid  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSiteSeoAsync(Integer storefrontOid, final ApiCallback<SfvbSiteSeo> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbSiteSeoValidateBeforeCall(storefrontOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSiteSeo>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -32774,6 +33542,162 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for resolveSfvbRedirectBatch
+     * @param storefrontOid  (required)
+     * @param redirectResolveBatchRequest The paths (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call resolveSfvbRedirectBatchCall(Integer storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = redirectResolveBatchRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/redirects/resolve_batch"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call resolveSfvbRedirectBatchValidateBeforeCall(Integer storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling resolveSfvbRedirectBatch(Async)");
+        }
+        
+        // verify the required parameter 'redirectResolveBatchRequest' is set
+        if (redirectResolveBatchRequest == null) {
+            throw new ApiException("Missing the required parameter 'redirectResolveBatchRequest' when calling resolveSfvbRedirectBatch(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = resolveSfvbRedirectBatchCall(storefrontOid, redirectResolveBatchRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * What a shopper gets for each of many paths
+     * Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+     * @param storefrontOid  (required)
+     * @param redirectResolveBatchRequest The paths (required)
+     * @return SfvbRedirectResolveBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbRedirectResolveBatchResponse resolveSfvbRedirectBatch(Integer storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest) throws ApiException {
+        ApiResponse<SfvbRedirectResolveBatchResponse> localVarResp = resolveSfvbRedirectBatchWithHttpInfo(storefrontOid, redirectResolveBatchRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * What a shopper gets for each of many paths
+     * Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+     * @param storefrontOid  (required)
+     * @param redirectResolveBatchRequest The paths (required)
+     * @return ApiResponse&lt;SfvbRedirectResolveBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbRedirectResolveBatchResponse> resolveSfvbRedirectBatchWithHttpInfo(Integer storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest) throws ApiException {
+        okhttp3.Call localVarCall = resolveSfvbRedirectBatchValidateBeforeCall(storefrontOid, redirectResolveBatchRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbRedirectResolveBatchResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * What a shopper gets for each of many paths (asynchronously)
+     * Up to 1,000 paths in one call, each followed through the redirect rules exactly as the single resolve does, with counts of how many redirect and how many end on a 404.  For checking every old URL of a migrated store.  Read only. 
+     * @param storefrontOid  (required)
+     * @param redirectResolveBatchRequest The paths (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call resolveSfvbRedirectBatchAsync(Integer storefrontOid, SfvbRedirectResolveBatchRequest redirectResolveBatchRequest, final ApiCallback<SfvbRedirectResolveBatchResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = resolveSfvbRedirectBatchValidateBeforeCall(storefrontOid, redirectResolveBatchRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbRedirectResolveBatchResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for resolveSfvbTemplate
      * @param storefrontOid  (required)
      * @param name The template file name, such as catalog.vm (required)
@@ -37770,6 +38694,199 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = updateSfvbSequenceStepValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepUpdateRequest, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbSequenceStepUpdateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSfvbSiteSeo
+     * @param storefrontOid  (required)
+     * @param ifMatch The hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param siteSeoRequest The switches to change (required)
+     * @param approvalId When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbSiteSeoCall(Integer storefrontOid, String ifMatch, SfvbSiteSeoRequest siteSeoRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = siteSeoRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/seo"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSfvbSiteSeoValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbSiteSeoRequest siteSeoRequest, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling updateSfvbSiteSeo(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling updateSfvbSiteSeo(Async)");
+        }
+        
+        // verify the required parameter 'siteSeoRequest' is set
+        if (siteSeoRequest == null) {
+            throw new ApiException("Missing the required parameter 'siteSeoRequest' when calling updateSfvbSiteSeo(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSfvbSiteSeoCall(storefrontOid, ifMatch, siteSeoRequest, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Change a storefront&#39;s search engine settings
+     * A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+     * @param storefrontOid  (required)
+     * @param ifMatch The hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param siteSeoRequest The switches to change (required)
+     * @param approvalId When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)
+     * @return SfvbSiteSeo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbSiteSeo updateSfvbSiteSeo(Integer storefrontOid, String ifMatch, SfvbSiteSeoRequest siteSeoRequest, String approvalId) throws ApiException {
+        ApiResponse<SfvbSiteSeo> localVarResp = updateSfvbSiteSeoWithHttpInfo(storefrontOid, ifMatch, siteSeoRequest, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Change a storefront&#39;s search engine settings
+     * A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+     * @param storefrontOid  (required)
+     * @param ifMatch The hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param siteSeoRequest The switches to change (required)
+     * @param approvalId When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbSiteSeo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbSiteSeo> updateSfvbSiteSeoWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbSiteSeoRequest siteSeoRequest, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = updateSfvbSiteSeoValidateBeforeCall(storefrontOid, ifMatch, siteSeoRequest, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbSiteSeo>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Change a storefront&#39;s search engine settings (asynchronously)
+     * A partial update of Canonical Links, Schema.org and Prevent Indexing.  Send the hash_sha256 you read as If-Match.  dry_run reports each change, whether it needs approval and whether that approval needs a fresh code, without saving.  Turning Canonical Links or Schema.org on needs no approval.  Turning either off, or turning Prevent Indexing on or off, needs an approved site_seo.change request for exactly this change (Approval-Id), and turning Prevent Indexing on asks for an authenticator code even inside an approval session.  Always needs sfvb_publish, because the settings apply to every page as soon as they are saved.  The admin saves the whole storefront, so a merchant with the screen open can still overwrite a change made here. 
+     * @param storefrontOid  (required)
+     * @param ifMatch The hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param siteSeoRequest The switches to change (required)
+     * @param approvalId When the change turns Canonical Links or Schema.org off, or turns Prevent Indexing on or off, the approval_id of an approved site_seo.change request for this change.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSfvbSiteSeoAsync(Integer storefrontOid, String ifMatch, SfvbSiteSeoRequest siteSeoRequest, String approvalId, final ApiCallback<SfvbSiteSeo> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSfvbSiteSeoValidateBeforeCall(storefrontOid, ifMatch, siteSeoRequest, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbSiteSeo>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
