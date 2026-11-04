@@ -188,6 +188,7 @@ import com.ultracart.admin.v2.models.SfvbSiteAttributesResponse;
 import com.ultracart.admin.v2.models.SfvbSitemapsResponse;
 import com.ultracart.admin.v2.models.SfvbSmartAttribution;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
+import com.ultracart.admin.v2.models.SfvbStepDispatchLogsResponse;
 import com.ultracart.admin.v2.models.SfvbStorefrontsResponse;
 import com.ultracart.admin.v2.models.SfvbTemplateResolveResponse;
 import com.ultracart.admin.v2.models.SfvbTemplatesResponse;
@@ -17414,6 +17415,193 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbSequenceValidateBeforeCall(storefrontOid, sequenceUuid, waiting, _callback);
         Type localVarReturnType = new TypeToken<SfvbSequence>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbSequenceStepDispatchLogs
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param since  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSequenceStepDispatchLogsCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String since, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "sequence_uuid" + "\\}", localVarApiClient.escapeString(sequenceUuid.toString()))
+            .replaceAll("\\{" + "step_uuid" + "\\}", localVarApiClient.escapeString(stepUuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (since != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("since", since));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbSequenceStepDispatchLogsValidateBeforeCall(Integer storefrontOid, String sequenceUuid, String stepUuid, String since, Integer limit, Integer offset, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbSequenceStepDispatchLogs(Async)");
+        }
+        
+        // verify the required parameter 'sequenceUuid' is set
+        if (sequenceUuid == null) {
+            throw new ApiException("Missing the required parameter 'sequenceUuid' when calling getSfvbSequenceStepDispatchLogs(Async)");
+        }
+        
+        // verify the required parameter 'stepUuid' is set
+        if (stepUuid == null) {
+            throw new ApiException("Missing the required parameter 'stepUuid' when calling getSfvbSequenceStepDispatchLogs(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbSequenceStepDispatchLogsCall(storefrontOid, sequenceUuid, stepUuid, since, limit, offset, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a flow or campaign step&#39;s dispatch log and counts
+     * Why customers were sent, skipped or ended at this step, newest first, as the admin&#39;s Dispatch Logs screen shows it, with the step&#39;s counts.  An email step&#39;s counts are its email&#39;s; any other step&#39;s are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param since  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @return SfvbStepDispatchLogsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbStepDispatchLogsResponse getSfvbSequenceStepDispatchLogs(Integer storefrontOid, String sequenceUuid, String stepUuid, String since, Integer limit, Integer offset) throws ApiException {
+        ApiResponse<SfvbStepDispatchLogsResponse> localVarResp = getSfvbSequenceStepDispatchLogsWithHttpInfo(storefrontOid, sequenceUuid, stepUuid, since, limit, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a flow or campaign step&#39;s dispatch log and counts
+     * Why customers were sent, skipped or ended at this step, newest first, as the admin&#39;s Dispatch Logs screen shows it, with the step&#39;s counts.  An email step&#39;s counts are its email&#39;s; any other step&#39;s are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param since  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @return ApiResponse&lt;SfvbStepDispatchLogsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbStepDispatchLogsResponse> getSfvbSequenceStepDispatchLogsWithHttpInfo(Integer storefrontOid, String sequenceUuid, String stepUuid, String since, Integer limit, Integer offset) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbSequenceStepDispatchLogsValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, since, limit, offset, null);
+        Type localVarReturnType = new TypeToken<SfvbStepDispatchLogsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a flow or campaign step&#39;s dispatch log and counts (asynchronously)
+     * Why customers were sent, skipped or ended at this step, newest first, as the admin&#39;s Dispatch Logs screen shows it, with the step&#39;s counts.  An email step&#39;s counts are its email&#39;s; any other step&#39;s are its own over 90 days.  Email addresses and phone numbers in the text are masked.  since is 15m, 2h or 7d, or an ISO-8601 time, default 7d; entries are kept 90 days.  limit is 1 to 200, default 50; send next_offset as offset for the next page.  Read only. 
+     * @param storefrontOid  (required)
+     * @param sequenceUuid  (required)
+     * @param stepUuid  (required)
+     * @param since  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbSequenceStepDispatchLogsAsync(Integer storefrontOid, String sequenceUuid, String stepUuid, String since, Integer limit, Integer offset, final ApiCallback<SfvbStepDispatchLogsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbSequenceStepDispatchLogsValidateBeforeCall(storefrontOid, sequenceUuid, stepUuid, since, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<SfvbStepDispatchLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

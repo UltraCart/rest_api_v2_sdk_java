@@ -63,6 +63,10 @@ public class SfvbBlogPostRequest {
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
 
+  public static final String SERIALIZED_NAME_DRY_RUN = "dry_run";
+  @SerializedName(SERIALIZED_NAME_DRY_RUN)
+  private Boolean dryRun;
+
   public static final String SERIALIZED_NAME_EXCERPT = "excerpt";
   @SerializedName(SERIALIZED_NAME_EXCERPT)
   private String excerpt;
@@ -217,6 +221,29 @@ public class SfvbBlogPostRequest {
 
   public void setBody(String body) {
     this.body = body;
+  }
+
+
+  public SfvbBlogPostRequest dryRun(Boolean dryRun) {
+    
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.
+   * @return dryRun
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "On an update, true to run every check the write would run and save nothing.  A refusal comes back exactly as it would on the real write.")
+
+  public Boolean getDryRun() {
+    return dryRun;
+  }
+
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
 
@@ -448,6 +475,7 @@ public class SfvbBlogPostRequest {
     return Objects.equals(this.allowComments, sfvbBlogPostRequest.allowComments) &&
         Objects.equals(this.author, sfvbBlogPostRequest.author) &&
         Objects.equals(this.body, sfvbBlogPostRequest.body) &&
+        Objects.equals(this.dryRun, sfvbBlogPostRequest.dryRun) &&
         Objects.equals(this.excerpt, sfvbBlogPostRequest.excerpt) &&
         Objects.equals(this.publicationDts, sfvbBlogPostRequest.publicationDts) &&
         Objects.equals(this.seoDescription, sfvbBlogPostRequest.seoDescription) &&
@@ -461,7 +489,7 @@ public class SfvbBlogPostRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowComments, author, body, excerpt, publicationDts, seoDescription, seoKeywords, seoTitle, tags, title, urlPart, visibility);
+    return Objects.hash(allowComments, author, body, dryRun, excerpt, publicationDts, seoDescription, seoKeywords, seoTitle, tags, title, urlPart, visibility);
   }
 
   @Override
@@ -471,6 +499,7 @@ public class SfvbBlogPostRequest {
     sb.append("    allowComments: ").append(toIndentedString(allowComments)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    excerpt: ").append(toIndentedString(excerpt)).append("\n");
     sb.append("    publicationDts: ").append(toIndentedString(publicationDts)).append("\n");
     sb.append("    seoDescription: ").append(toIndentedString(seoDescription)).append("\n");
@@ -505,6 +534,7 @@ public class SfvbBlogPostRequest {
     openapiFields.add("allow_comments");
     openapiFields.add("author");
     openapiFields.add("body");
+    openapiFields.add("dry_run");
     openapiFields.add("excerpt");
     openapiFields.add("publication_dts");
     openapiFields.add("seo_description");

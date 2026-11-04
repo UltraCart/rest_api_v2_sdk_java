@@ -72,6 +72,10 @@ public class SfvbBlogPostDetail {
   @SerializedName(SERIALIZED_NAME_CREATED_DTS)
   private String createdDts;
 
+  public static final String SERIALIZED_NAME_DRY_RUN = "dry_run";
+  @SerializedName(SERIALIZED_NAME_DRY_RUN)
+  private Boolean dryRun;
+
   public static final String SERIALIZED_NAME_EXCERPT = "excerpt";
   @SerializedName(SERIALIZED_NAME_EXCERPT)
   private String excerpt;
@@ -239,6 +243,29 @@ public class SfvbBlogPostDetail {
 
   public void setCreatedDts(String createdDts) {
     this.createdDts = createdDts;
+  }
+
+
+  public SfvbBlogPostDetail dryRun(Boolean dryRun) {
+    
+    this.dryRun = dryRun;
+    return this;
+  }
+
+   /**
+   * True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.
+   * @return dryRun
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this is the result of a dry run and nothing was saved.  The post is shown as it is stored.")
+
+  public Boolean getDryRun() {
+    return dryRun;
+  }
+
+
+  public void setDryRun(Boolean dryRun) {
+    this.dryRun = dryRun;
   }
 
 
@@ -572,6 +599,7 @@ public class SfvbBlogPostDetail {
         Objects.equals(this.blogPostOid, sfvbBlogPostDetail.blogPostOid) &&
         Objects.equals(this.body, sfvbBlogPostDetail.body) &&
         Objects.equals(this.createdDts, sfvbBlogPostDetail.createdDts) &&
+        Objects.equals(this.dryRun, sfvbBlogPostDetail.dryRun) &&
         Objects.equals(this.excerpt, sfvbBlogPostDetail.excerpt) &&
         Objects.equals(this.images, sfvbBlogPostDetail.images) &&
         Objects.equals(this.lastModifiedDts, sfvbBlogPostDetail.lastModifiedDts) &&
@@ -589,7 +617,7 @@ public class SfvbBlogPostDetail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowComments, author, blogPostOid, body, createdDts, excerpt, images, lastModifiedDts, publicationDts, seoDescription, seoKeywords, seoTitle, tags, title, unassigned, urlPart, viewUrl, visibility);
+    return Objects.hash(allowComments, author, blogPostOid, body, createdDts, dryRun, excerpt, images, lastModifiedDts, publicationDts, seoDescription, seoKeywords, seoTitle, tags, title, unassigned, urlPart, viewUrl, visibility);
   }
 
   @Override
@@ -601,6 +629,7 @@ public class SfvbBlogPostDetail {
     sb.append("    blogPostOid: ").append(toIndentedString(blogPostOid)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
+    sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    excerpt: ").append(toIndentedString(excerpt)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    lastModifiedDts: ").append(toIndentedString(lastModifiedDts)).append("\n");
@@ -641,6 +670,7 @@ public class SfvbBlogPostDetail {
     openapiFields.add("blog_post_oid");
     openapiFields.add("body");
     openapiFields.add("created_dts");
+    openapiFields.add("dry_run");
     openapiFields.add("excerpt");
     openapiFields.add("images");
     openapiFields.add("last_modified_dts");

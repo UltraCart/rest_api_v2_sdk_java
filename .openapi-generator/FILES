@@ -1227,6 +1227,9 @@ docs/SfvbSitemapsResponse.md
 docs/SfvbSmartAttribution.md
 docs/SfvbSmartAttributionPlatform.md
 docs/SfvbSmartAttributionRequest.md
+docs/SfvbStepCounts.md
+docs/SfvbStepDispatchLog.md
+docs/SfvbStepDispatchLogsResponse.md
 docs/SfvbStorefront.md
 docs/SfvbStorefrontsResponse.md
 docs/SfvbTemplate.md
@@ -2625,6 +2628,9 @@ src/main/java/com/ultracart/admin/v2/models/SfvbSitemapsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttribution.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttributionPlatform.java
 src/main/java/com/ultracart/admin/v2/models/SfvbSmartAttributionRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbStepCounts.java
+src/main/java/com/ultracart/admin/v2/models/SfvbStepDispatchLog.java
+src/main/java/com/ultracart/admin/v2/models/SfvbStepDispatchLogsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefront.java
 src/main/java/com/ultracart/admin/v2/models/SfvbStorefrontsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTemplate.java

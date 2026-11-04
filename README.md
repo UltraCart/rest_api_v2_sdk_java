@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.227</version>
+    <version>4.1.228</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.227"
+     implementation "com.ultracart:rest-sdk:4.1.228"
   }
 ```
 
@@ -601,6 +601,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbSecretRequest**](docs/SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 *SfvbApi* | [**getSfvbSecretRequests**](docs/SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
 *SfvbApi* | [**getSfvbSequence**](docs/SfvbApi.md#getSfvbSequence) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid} | Get a campaign&#39;s or flow&#39;s steps as a tree
+*SfvbApi* | [**getSfvbSequenceStepDispatchLogs**](docs/SfvbApi.md#getSfvbSequenceStepDispatchLogs) | **GET** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/dispatch_logs | Read a flow or campaign step&#39;s dispatch log and counts
 *SfvbApi* | [**getSfvbServerLog**](docs/SfvbApi.md#getSfvbServerLog) | **GET** /sfvb/storefronts/{storefront_oid}/logs/{log_id} | Get one storefront render log
 *SfvbApi* | [**getSfvbSiteAttributes**](docs/SfvbApi.md#getSfvbSiteAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/attributes | Read a storefront&#39;s site attributes
 *SfvbApi* | [**getSfvbSitemaps**](docs/SfvbApi.md#getSfvbSitemaps) | **GET** /sfvb/storefronts/{storefront_oid}/sitemaps | Read a storefront&#39;s sitemaps and robots.txt
@@ -2197,6 +2198,9 @@ Class | Method | HTTP request | Description
  - [SfvbSmartAttribution](docs/SfvbSmartAttribution.md)
  - [SfvbSmartAttributionPlatform](docs/SfvbSmartAttributionPlatform.md)
  - [SfvbSmartAttributionRequest](docs/SfvbSmartAttributionRequest.md)
+ - [SfvbStepCounts](docs/SfvbStepCounts.md)
+ - [SfvbStepDispatchLog](docs/SfvbStepDispatchLog.md)
+ - [SfvbStepDispatchLogsResponse](docs/SfvbStepDispatchLogsResponse.md)
  - [SfvbStorefront](docs/SfvbStorefront.md)
  - [SfvbStorefrontsResponse](docs/SfvbStorefrontsResponse.md)
  - [SfvbTemplate](docs/SfvbTemplate.md)
@@ -2433,6 +2437,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.228 | 11/04/2026 | sfvb internal testing |
 | 4.1.227 | 11/04/2026 | sfvb internal testing |
 | 4.1.226 | 11/04/2026 | sfvb internal testing |
 | 4.1.225 | 11/03/2026 | sfvb internal testing |
