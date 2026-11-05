@@ -93,6 +93,18 @@ public class ItemAutoOrder {
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_DOWNGRADE_ITEMS)
   private List<String> autoOrderDowngradeItems = null;
 
+  public static final String SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_DAY_COUNTS = "auto_order_myaccount_frequency_day_counts";
+  @SerializedName(SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_DAY_COUNTS)
+  private List<Integer> autoOrderMyaccountFrequencyDayCounts = null;
+
+  public static final String SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_LAST_STEP_ONLY = "auto_order_myaccount_frequency_last_step_only";
+  @SerializedName(SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_LAST_STEP_ONLY)
+  private Boolean autoOrderMyaccountFrequencyLastStepOnly;
+
+  public static final String SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_SCHEDULES = "auto_order_myaccount_frequency_schedules";
+  @SerializedName(SERIALIZED_NAME_AUTO_ORDER_MYACCOUNT_FREQUENCY_SCHEDULES)
+  private List<String> autoOrderMyaccountFrequencySchedules = null;
+
   public static final String SERIALIZED_NAME_AUTO_ORDER_PAUSED = "auto_order_paused";
   @SerializedName(SERIALIZED_NAME_AUTO_ORDER_PAUSED)
   private Boolean autoOrderPaused;
@@ -379,6 +391,91 @@ public class ItemAutoOrder {
 
   public void setAutoOrderDowngradeItems(List<String> autoOrderDowngradeItems) {
     this.autoOrderDowngradeItems = autoOrderDowngradeItems;
+  }
+
+
+  public ItemAutoOrder autoOrderMyaccountFrequencyDayCounts(List<Integer> autoOrderMyaccountFrequencyDayCounts) {
+    
+    this.autoOrderMyaccountFrequencyDayCounts = autoOrderMyaccountFrequencyDayCounts;
+    return this;
+  }
+
+  public ItemAutoOrder addAutoOrderMyaccountFrequencyDayCountsItem(Integer autoOrderMyaccountFrequencyDayCountsItem) {
+    if (this.autoOrderMyaccountFrequencyDayCounts == null) {
+      this.autoOrderMyaccountFrequencyDayCounts = new ArrayList<>();
+    }
+    this.autoOrderMyaccountFrequencyDayCounts.add(autoOrderMyaccountFrequencyDayCountsItem);
+    return this;
+  }
+
+   /**
+   * Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+   * @return autoOrderMyaccountFrequencyDayCounts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.")
+
+  public List<Integer> getAutoOrderMyaccountFrequencyDayCounts() {
+    return autoOrderMyaccountFrequencyDayCounts;
+  }
+
+
+  public void setAutoOrderMyaccountFrequencyDayCounts(List<Integer> autoOrderMyaccountFrequencyDayCounts) {
+    this.autoOrderMyaccountFrequencyDayCounts = autoOrderMyaccountFrequencyDayCounts;
+  }
+
+
+  public ItemAutoOrder autoOrderMyaccountFrequencyLastStepOnly(Boolean autoOrderMyaccountFrequencyLastStepOnly) {
+    
+    this.autoOrderMyaccountFrequencyLastStepOnly = autoOrderMyaccountFrequencyLastStepOnly;
+    return this;
+  }
+
+   /**
+   * True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+   * @return autoOrderMyaccountFrequencyLastStepOnly
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.")
+
+  public Boolean getAutoOrderMyaccountFrequencyLastStepOnly() {
+    return autoOrderMyaccountFrequencyLastStepOnly;
+  }
+
+
+  public void setAutoOrderMyaccountFrequencyLastStepOnly(Boolean autoOrderMyaccountFrequencyLastStepOnly) {
+    this.autoOrderMyaccountFrequencyLastStepOnly = autoOrderMyaccountFrequencyLastStepOnly;
+  }
+
+
+  public ItemAutoOrder autoOrderMyaccountFrequencySchedules(List<String> autoOrderMyaccountFrequencySchedules) {
+    
+    this.autoOrderMyaccountFrequencySchedules = autoOrderMyaccountFrequencySchedules;
+    return this;
+  }
+
+  public ItemAutoOrder addAutoOrderMyaccountFrequencySchedulesItem(String autoOrderMyaccountFrequencySchedulesItem) {
+    if (this.autoOrderMyaccountFrequencySchedules == null) {
+      this.autoOrderMyaccountFrequencySchedules = new ArrayList<>();
+    }
+    this.autoOrderMyaccountFrequencySchedules.add(autoOrderMyaccountFrequencySchedulesItem);
+    return this;
+  }
+
+   /**
+   * Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.
+   * @return autoOrderMyaccountFrequencySchedules
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear.")
+
+  public List<String> getAutoOrderMyaccountFrequencySchedules() {
+    return autoOrderMyaccountFrequencySchedules;
+  }
+
+
+  public void setAutoOrderMyaccountFrequencySchedules(List<String> autoOrderMyaccountFrequencySchedules) {
+    this.autoOrderMyaccountFrequencySchedules = autoOrderMyaccountFrequencySchedules;
   }
 
 
@@ -702,6 +799,9 @@ public class ItemAutoOrder {
         Objects.equals(this.autoOrderCancelMinimumRebillCount, itemAutoOrder.autoOrderCancelMinimumRebillCount) &&
         Objects.equals(this.autoOrderCancelMinimumRebillValue, itemAutoOrder.autoOrderCancelMinimumRebillValue) &&
         Objects.equals(this.autoOrderDowngradeItems, itemAutoOrder.autoOrderDowngradeItems) &&
+        Objects.equals(this.autoOrderMyaccountFrequencyDayCounts, itemAutoOrder.autoOrderMyaccountFrequencyDayCounts) &&
+        Objects.equals(this.autoOrderMyaccountFrequencyLastStepOnly, itemAutoOrder.autoOrderMyaccountFrequencyLastStepOnly) &&
+        Objects.equals(this.autoOrderMyaccountFrequencySchedules, itemAutoOrder.autoOrderMyaccountFrequencySchedules) &&
         Objects.equals(this.autoOrderPaused, itemAutoOrder.autoOrderPaused) &&
         Objects.equals(this.autoOrderProhibitExpiringCards, itemAutoOrder.autoOrderProhibitExpiringCards) &&
         Objects.equals(this.autoOrderSchedules, itemAutoOrder.autoOrderSchedules) &&
@@ -718,7 +818,7 @@ public class ItemAutoOrder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelChargeMinimumBalance, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderCancelMinimumLifeTimeCount, autoOrderCancelMinimumLifeTimeValue, autoOrderCancelMinimumRebillCount, autoOrderCancelMinimumRebillValue, autoOrderDowngradeItems, autoOrderPaused, autoOrderProhibitExpiringCards, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
+    return Objects.hash(authFutureAmount, authTestAmount, autoOrderCancelChargeMinimumBalance, autoOrderCancelItemId, autoOrderCancelItemOid, autoOrderCancelMinimumLifeTimeCount, autoOrderCancelMinimumLifeTimeValue, autoOrderCancelMinimumRebillCount, autoOrderCancelMinimumRebillValue, autoOrderDowngradeItems, autoOrderMyaccountFrequencyDayCounts, autoOrderMyaccountFrequencyLastStepOnly, autoOrderMyaccountFrequencySchedules, autoOrderPaused, autoOrderProhibitExpiringCards, autoOrderSchedules, autoOrderUpgradeItems, autoOrderUpsell, autoOrderUpsellNoEasyCancel, autoOrderUpsellOnePerCustomer, autoOrderable, cancelOtherAutoOrders, freeShippingAutoOrder, refundOtherAutoOrders, steps);
   }
 
   @Override
@@ -735,6 +835,9 @@ public class ItemAutoOrder {
     sb.append("    autoOrderCancelMinimumRebillCount: ").append(toIndentedString(autoOrderCancelMinimumRebillCount)).append("\n");
     sb.append("    autoOrderCancelMinimumRebillValue: ").append(toIndentedString(autoOrderCancelMinimumRebillValue)).append("\n");
     sb.append("    autoOrderDowngradeItems: ").append(toIndentedString(autoOrderDowngradeItems)).append("\n");
+    sb.append("    autoOrderMyaccountFrequencyDayCounts: ").append(toIndentedString(autoOrderMyaccountFrequencyDayCounts)).append("\n");
+    sb.append("    autoOrderMyaccountFrequencyLastStepOnly: ").append(toIndentedString(autoOrderMyaccountFrequencyLastStepOnly)).append("\n");
+    sb.append("    autoOrderMyaccountFrequencySchedules: ").append(toIndentedString(autoOrderMyaccountFrequencySchedules)).append("\n");
     sb.append("    autoOrderPaused: ").append(toIndentedString(autoOrderPaused)).append("\n");
     sb.append("    autoOrderProhibitExpiringCards: ").append(toIndentedString(autoOrderProhibitExpiringCards)).append("\n");
     sb.append("    autoOrderSchedules: ").append(toIndentedString(autoOrderSchedules)).append("\n");
@@ -779,6 +882,9 @@ public class ItemAutoOrder {
     openapiFields.add("auto_order_cancel_minimum_rebill_count");
     openapiFields.add("auto_order_cancel_minimum_rebill_value");
     openapiFields.add("auto_order_downgrade_items");
+    openapiFields.add("auto_order_myaccount_frequency_day_counts");
+    openapiFields.add("auto_order_myaccount_frequency_last_step_only");
+    openapiFields.add("auto_order_myaccount_frequency_schedules");
     openapiFields.add("auto_order_paused");
     openapiFields.add("auto_order_prohibit_expiring_cards");
     openapiFields.add("auto_order_schedules");
@@ -824,6 +930,14 @@ public class ItemAutoOrder {
       // ensure the json data is an array
       if (jsonObj.get("auto_order_downgrade_items") != null && !jsonObj.get("auto_order_downgrade_items").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `auto_order_downgrade_items` to be an array in the JSON string but got `%s`", jsonObj.get("auto_order_downgrade_items").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("auto_order_myaccount_frequency_day_counts") != null && !jsonObj.get("auto_order_myaccount_frequency_day_counts").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `auto_order_myaccount_frequency_day_counts` to be an array in the JSON string but got `%s`", jsonObj.get("auto_order_myaccount_frequency_day_counts").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("auto_order_myaccount_frequency_schedules") != null && !jsonObj.get("auto_order_myaccount_frequency_schedules").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `auto_order_myaccount_frequency_schedules` to be an array in the JSON string but got `%s`", jsonObj.get("auto_order_myaccount_frequency_schedules").toString()));
       }
       // ensure the json data is an array
       if (jsonObj.get("auto_order_schedules") != null && !jsonObj.get("auto_order_schedules").isJsonArray()) {

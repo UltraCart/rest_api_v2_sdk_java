@@ -17,6 +17,9 @@
 |**autoOrderCancelMinimumRebillCount** | **Integer** | The minimum rebill count that must be billed in order to not be charged the cancellation item. |  [optional] |
 |**autoOrderCancelMinimumRebillValue** | **BigDecimal** | The minimum rebill value that must be paid in order to not be charged the cancellation item. |  [optional] |
 |**autoOrderDowngradeItems** | **List&lt;String&gt;** | List of downgrade items presented to customer service representatives |  [optional] |
+|**autoOrderMyaccountFrequencyDayCounts** | **List&lt;Integer&gt;** | Day counts (1 to 365, at most 20) a customer may switch this auto-enrolled item to from MyAccount, for example [30, 60, 90].  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear. |  [optional] |
+|**autoOrderMyaccountFrequencyLastStepOnly** | **Boolean** | True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged. |  [optional] |
+|**autoOrderMyaccountFrequencySchedules** | **List&lt;String&gt;** | Standard schedules a customer may switch this auto-enrolled item to from MyAccount.  Requires the advanced auto order settings to be enabled on the account.  Omit to leave unchanged; send an empty array to clear. |  [optional] |
 |**autoOrderPaused** | **Boolean** | True if the rebill processing of this item is paused |  [optional] |
 |**autoOrderProhibitExpiringCards** | **Integer** | Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable. |  [optional] |
 |**autoOrderSchedules** | **List&lt;String&gt;** | The user selectable schedules that are available |  [optional] |

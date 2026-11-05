@@ -7,6 +7,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**addSfvbPageBlogPosts**](SfvbApi.md#addSfvbPageBlogPosts) | **POST** /sfvb/storefronts/{storefront_oid}/pages/blog_posts/add | Assign blog posts to a page |
 | [**addSfvbPageItems**](SfvbApi.md#addSfvbPageItems) | **POST** /sfvb/storefronts/{storefront_oid}/pages/items/add | Assign items to a page |
 | [**archiveSfvbCampaign**](SfvbApi.md#archiveSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid}/archive | Archive or unarchive a campaign |
+| [**archiveSfvbCommsList**](SfvbApi.md#archiveSfvbCommsList) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/archive | Archive an email list |
+| [**archiveSfvbCommsSegment**](SfvbApi.md#archiveSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/archive | Archive a segment |
 | [**archiveSfvbFlow**](SfvbApi.md#archiveSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid}/archive | Archive or unarchive a flow |
 | [**archiveSfvbUpsellPath**](SfvbApi.md#archiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/archive | Archive an upsell path |
 | [**attachSfvbBlogPostImage**](SfvbApi.md#attachSfvbBlogPostImage) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid}/images/attach | Attach an image to a blog post |
@@ -23,6 +25,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**deleteSfvbAffiliateNetwork**](SfvbApi.md#deleteSfvbAffiliateNetwork) | **DELETE** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Delete an affiliate network |
 | [**deleteSfvbApproval**](SfvbApi.md#deleteSfvbApproval) | **DELETE** /sfvb/approvals/{approval_id} | Cancel a pending approval request |
 | [**deleteSfvbBlogPost**](SfvbApi.md#deleteSfvbBlogPost) | **DELETE** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Delete a blog post |
+| [**deleteSfvbCommsFolder**](SfvbApi.md#deleteSfvbCommsFolder) | **DELETE** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Delete a list and segment folder |
 | [**deleteSfvbCommsSendingDomain**](SfvbApi.md#deleteSfvbCommsSendingDomain) | **DELETE** /sfvb/comms/sending_domains/{domain} | Remove a sending domain |
 | [**deleteSfvbCommsTwilioAccount**](SfvbApi.md#deleteSfvbCommsTwilioAccount) | **DELETE** /sfvb/comms/twilio_account | Remove the Twilio account |
 | [**deleteSfvbFile**](SfvbApi.md#deleteSfvbFile) | **DELETE** /sfvb/storefronts/{storefront_oid}/files | Delete a storefront file |
@@ -67,6 +70,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getSfvbBlogPost**](SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post |
 | [**getSfvbCampaign**](SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign |
 | [**getSfvbCjsonUsedElements**](SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container |
+| [**getSfvbCommsFolder**](SfvbApi.md#getSfvbCommsFolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder |
+| [**getSfvbCommsFolders**](SfvbApi.md#getSfvbCommsFolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders |
+| [**getSfvbCommsList**](SfvbApi.md#getSfvbCommsList) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list |
 | [**getSfvbCommsSegment**](SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule |
 | [**getSfvbCommsSendingDomain**](SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain |
 | [**getSfvbCommsSendingDomains**](SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains |
@@ -141,6 +147,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**insertSfvbAffiliateNetwork**](SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network |
 | [**insertSfvbApproval**](SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval |
 | [**insertSfvbBlogPost**](SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post |
+| [**insertSfvbCommsFolder**](SfvbApi.md#insertSfvbCommsFolder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder |
+| [**insertSfvbCommsList**](SfvbApi.md#insertSfvbCommsList) | **POST** /sfvb/storefronts/{storefront_oid}/lists | Create an email list |
 | [**insertSfvbCommsSegment**](SfvbApi.md#insertSfvbCommsSegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment |
 | [**insertSfvbCommsSendingDomain**](SfvbApi.md#insertSfvbCommsSendingDomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain |
 | [**insertSfvbCommsTwilioAccount**](SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account |
@@ -227,6 +235,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateSfvbAffiliateNetwork**](SfvbApi.md#updateSfvbAffiliateNetwork) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks/{affiliate_network_oid} | Change an affiliate network |
 | [**updateSfvbBlogPost**](SfvbApi.md#updateSfvbBlogPost) | **PUT** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Change a blog post |
 | [**updateSfvbCampaign**](SfvbApi.md#updateSfvbCampaign) | **PUT** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Change a campaign |
+| [**updateSfvbCommsFolder**](SfvbApi.md#updateSfvbCommsFolder) | **PUT** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Rename a list and segment folder |
+| [**updateSfvbCommsList**](SfvbApi.md#updateSfvbCommsList) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Change an email list&#39;s name, folder or public settings |
 | [**updateSfvbCommsSegment**](SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder |
 | [**updateSfvbCommsSendingDomain**](SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain |
 | [**updateSfvbCommsTwilioAccount**](SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account |
@@ -375,6 +385,102 @@ Archiving alone never stops a send, so archiving a scheduled campaign also sets 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="archiveSfvbCommsList"></a>
+# **archiveSfvbCommsList**
+> SfvbCommsListResponse archiveSfvbCommsList(storefrontOid, listUuid, ifMatch)
+
+Archive an email list
+
+Hides the list from the lists list and the admin, and keeps its members.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren&#39;t live, which can no longer use it.  Send the list&#39;s hash_sha256 as If-Match. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **listUuid** | **String**|  | |
+| **ifMatch** | **String**| The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+
+### Return type
+
+[**SfvbCommsListResponse**](SfvbCommsListResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="archiveSfvbCommsSegment"></a>
+# **archiveSfvbCommsSegment**
+> SfvbCommsSegmentResponse archiveSfvbCommsSegment(storefrontOid, segmentUuid, ifMatch)
+
+Archive a segment
+
+Hides the segment from the segments list and the admin.  Refused with sfvb.in_use_live, naming each one, while a live campaign or flow uses it; notes names any that use it but aren&#39;t live, which can no longer use it.  Send the segment&#39;s hash_sha256 as If-Match. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **segmentUuid** | **String**|  | |
+| **ifMatch** | **String**| The segment&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+
+### Return type
+
+[**SfvbCommsSegmentResponse**](SfvbCommsSegmentResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1124,6 +1230,54 @@ null (empty response body)
 | **409** |  |  -  |
 | **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **412** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="deleteSfvbCommsFolder"></a>
+# **deleteSfvbCommsFolder**
+> SfvbCommsFolderResponse deleteSfvbCommsFolder(storefrontOid, folderUuid, ifMatch)
+
+Delete a list and segment folder
+
+Its lists and segments are kept and filed under no folder, as the admin does; items names each one.  Send the folder&#39;s hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can&#39;t be deleted here. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **folderUuid** | **String**|  | |
+| **ifMatch** | **String**| The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+
+### Return type
+
+[**SfvbCommsFolderResponse**](SfvbCommsFolderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="deleteSfvbCommsSendingDomain"></a>
@@ -3126,6 +3280,134 @@ Element types used by a container
 | **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getSfvbCommsFolder"></a>
+# **getSfvbCommsFolder**
+> SfvbCommsFolderResponse getSfvbCommsFolder(storefrontOid, folderUuid)
+
+Read one list and segment folder
+
+The folder, with the name and uuid of each list and segment filed in it. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **folderUuid** | **String**|  | |
+
+### Return type
+
+[**SfvbCommsFolderResponse**](SfvbCommsFolderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getSfvbCommsFolders"></a>
+# **getSfvbCommsFolders**
+> SfvbCommsFoldersResponse getSfvbCommsFolders(storefrontOid)
+
+List the list and segment folders
+
+Each folder with how many lists and segments are filed in it, whether the admin made it, and its hash_sha256. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+
+### Return type
+
+[**SfvbCommsFoldersResponse**](SfvbCommsFoldersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="getSfvbCommsList"></a>
+# **getSfvbCommsList**
+> SfvbCommsListResponse getSfvbCommsList(storefrontOid, listUuid)
+
+Read one email list
+
+The list&#39;s name, folder, member count, public settings, and the campaigns and flows that use it, each with whether it is live.  hash_sha256 is the If-Match for a change or an archive.  Never its members. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **listUuid** | **String**|  | |
+
+### Return type
+
+[**SfvbCommsListResponse**](SfvbCommsListResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
 <a name="getSfvbCommsSegment"></a>
@@ -6349,6 +6631,94 @@ title and url_part are required.  The post is a draft unless visibility says oth
 |-------------|-------------|------------------|
 | **200** | Successful response |  -  |
 | **201** |  |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="insertSfvbCommsFolder"></a>
+# **insertSfvbCommsFolder**
+> SfvbCommsFolderResponse insertSfvbCommsFolder(storefrontOid, folderWriteRequest)
+
+Create a list and segment folder
+
+A new, empty folder.  File a list or segment in it by setting its folder_uuid. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **folderWriteRequest** | [**SfvbCommsFolderWriteRequest**](SfvbCommsFolderWriteRequest.md)| The new folder&#39;s name | |
+
+### Return type
+
+[**SfvbCommsFolderResponse**](SfvbCommsFolderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="insertSfvbCommsList"></a>
+# **insertSfvbCommsList**
+> SfvbCommsListResponse insertSfvbCommsList(storefrontOid, listWriteRequest)
+
+Create an email list
+
+A new, empty list with the name, folder and public settings given.  public_description is plain text, since subscribers see it on the email preferences page. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **listWriteRequest** | [**SfvbCommsListWriteRequest**](SfvbCommsListWriteRequest.md)| The new list&#39;s name, folder and public settings | |
+
+### Return type
+
+[**SfvbCommsListResponse**](SfvbCommsListResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 | **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
@@ -10285,6 +10655,104 @@ A field left out keeps its value; memberships replaces the whole set.  The statu
 | **428** |  |  -  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="updateSfvbCommsFolder"></a>
+# **updateSfvbCommsFolder**
+> SfvbCommsFolderResponse updateSfvbCommsFolder(storefrontOid, folderUuid, ifMatch, folderWriteRequest)
+
+Rename a list and segment folder
+
+Send the folder&#39;s hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can&#39;t be renamed here. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **folderUuid** | **String**|  | |
+| **ifMatch** | **String**| The folder&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+| **folderWriteRequest** | [**SfvbCommsFolderWriteRequest**](SfvbCommsFolderWriteRequest.md)| The new name | |
+
+### Return type
+
+[**SfvbCommsFolderResponse**](SfvbCommsFolderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateSfvbCommsList"></a>
+# **updateSfvbCommsList**
+> SfvbCommsListResponse updateSfvbCommsList(storefrontOid, listUuid, ifMatch, listWriteRequest)
+
+Change an email list&#39;s name, folder or public settings
+
+A field left out stays as it is; an empty folder_uuid or public_description clears it.  Send the list&#39;s hash_sha256 as If-Match; the change applies only while the name, folder and public settings are still what was read.  The members and member count are never changed here. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **listUuid** | **String**|  | |
+| **ifMatch** | **String**| The list&#39;s hash_sha256 from the last read.  Required; 428 when absent, 412 when stale. | |
+| **listWriteRequest** | [**SfvbCommsListWriteRequest**](SfvbCommsListWriteRequest.md)| The fields to change | |
+
+### Return type
+
+[**SfvbCommsListResponse**](SfvbCommsListResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="updateSfvbCommsSegment"></a>
 # **updateSfvbCommsSegment**
 > SfvbCommsSegmentResponse updateSfvbCommsSegment(storefrontOid, segmentUuid, ifMatch, segmentWriteRequest, approvalId)
@@ -10483,7 +10951,7 @@ A field left out keeps its value.  Each is 5 to 150 characters on one line.  Sen
 
 Change a flow
 
-A field left out keeps its value.  The trigger and the status are never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
+A field left out keeps its value.  The trigger changes only while the flow is off (sfvb.flow_trigger_live otherwise), and customers already in the flow continue.  The status is never changed here.  Send the hash_sha256 you read as If-Match.  A flow that is enrolling customers needs sfvb_publish. 
 
 ### Example
 

@@ -233,11 +233,11 @@ public class SfvbStepCounts {
   }
 
    /**
-   * email (the step&#39;s email, all time) or step (this step, the last 90 days).
+   * email (the step&#39;s email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).
    * @return source
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "email (the step's email, all time) or step (this step, the last 90 days).")
+  @ApiModelProperty(value = "email (the step's email, all time), sequence (the begin step, customers who started the sequence, all time) or step (this step, the last 90 days).")
 
   public String getSource() {
     return source;

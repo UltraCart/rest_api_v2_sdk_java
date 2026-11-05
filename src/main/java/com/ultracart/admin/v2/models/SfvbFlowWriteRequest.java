@@ -359,11 +359,11 @@ public class SfvbFlowWriteRequest {
   }
 
    /**
-   * The list or segment uuid for a list or segment trigger.  Create only.
+   * The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.
    * @return triggerParameter
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list or segment uuid for a list or segment trigger.  Create only.")
+  @ApiModelProperty(value = "The list or segment uuid for a list or segment trigger.  Cleared when the trigger changes to one that takes none.")
 
   public String getTriggerParameter() {
     return triggerParameter;
@@ -382,11 +382,11 @@ public class SfvbFlowWriteRequest {
   }
 
    /**
-   * What enrolls a customer, such as cart abandoned.  Create only.
+   * What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.
    * @return triggerType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "What enrolls a customer, such as cart abandoned.  Create only.")
+  @ApiModelProperty(value = "What enrolls a customer, such as cart abandoned.  Required to create.  On a change, only while the flow is off.")
 
   public String getTriggerType() {
     return triggerType;

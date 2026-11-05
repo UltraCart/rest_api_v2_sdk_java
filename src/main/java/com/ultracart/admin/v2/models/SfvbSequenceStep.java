@@ -311,11 +311,11 @@ public class SfvbSequenceStep {
   }
 
    /**
-   * The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.
+   * The hash of the step&#39;s type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step&#39;s resend mappings, a rate limiter&#39;s inventory refresh time, an experiment&#39;s winner) doesn&#39;t count.  An email step&#39;s smartSending and magicLink are the email&#39;s own settings, so the email&#39;s hash_sha256 guards them, not this one.
    * @return hashSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.")
+  @ApiModelProperty(value = "The hash of the step's type, stored settings and audience filter.  Send it back as If-Match when changing the step.  What a running flow records in the settings (a resend step's resend mappings, a rate limiter's inventory refresh time, an experiment's winner) doesn't count.  An email step's smartSending and magicLink are the email's own settings, so the email's hash_sha256 guards them, not this one.")
 
   public String getHashSha256() {
     return hashSha256;
