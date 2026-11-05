@@ -432,11 +432,11 @@ public class ItemAutoOrder {
   }
 
    /**
-   * True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.
+   * True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged.
    * @return autoOrderMyaccountFrequencyLastStepOnly
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if the MyAccount frequency change is only offered once the item is on its last auto order step.  Omit to leave unchanged.")
+  @ApiModelProperty(value = "True if the MyAccount frequency change is only offered once the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules or auto_order_myaccount_frequency_day_counts is sent without this property, it is set to false; if none of the three are sent, it is left unchanged.")
 
   public Boolean getAutoOrderMyaccountFrequencyLastStepOnly() {
     return autoOrderMyaccountFrequencyLastStepOnly;

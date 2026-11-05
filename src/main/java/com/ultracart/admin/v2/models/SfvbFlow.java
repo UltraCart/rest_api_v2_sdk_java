@@ -125,6 +125,10 @@ public class SfvbFlow {
   @SerializedName(SERIALIZED_NAME_SENDING_USER)
   private String sendingUser;
 
+  public static final String SERIALIZED_NAME_SMS_PHONE_NUMBER = "sms_phone_number";
+  @SerializedName(SERIALIZED_NAME_SMS_PHONE_NUMBER)
+  private String smsPhoneNumber;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
@@ -586,6 +590,29 @@ public class SfvbFlow {
   }
 
 
+  public SfvbFlow smsPhoneNumber(String smsPhoneNumber) {
+    
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * The number this flow&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say.
+   * @return smsPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number this flow's SMS steps send from.  Without one, every SMS step skips every customer, whatever the account's SMS settings say.")
+
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
+
   public SfvbFlow status(String status) {
     
     this.status = status;
@@ -729,6 +756,7 @@ public class SfvbFlow {
         Objects.equals(this.sendingDomainUuid, sfvbFlow.sendingDomainUuid) &&
         Objects.equals(this.sendingName, sfvbFlow.sendingName) &&
         Objects.equals(this.sendingUser, sfvbFlow.sendingUser) &&
+        Objects.equals(this.smsPhoneNumber, sfvbFlow.smsPhoneNumber) &&
         Objects.equals(this.status, sfvbFlow.status) &&
         Objects.equals(this.statusDts, sfvbFlow.statusDts) &&
         Objects.equals(this.triggerParameter, sfvbFlow.triggerParameter) &&
@@ -738,7 +766,7 @@ public class SfvbFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, flowUuid, hashSha256, live, name, notes, postcards, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, status, statusDts, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, flowUuid, hashSha256, live, name, notes, postcards, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts, triggerParameter, triggerParameterName, triggerType);
   }
 
   @Override
@@ -763,6 +791,7 @@ public class SfvbFlow {
     sb.append("    sendingDomainUuid: ").append(toIndentedString(sendingDomainUuid)).append("\n");
     sb.append("    sendingName: ").append(toIndentedString(sendingName)).append("\n");
     sb.append("    sendingUser: ").append(toIndentedString(sendingUser)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("    triggerParameter: ").append(toIndentedString(triggerParameter)).append("\n");
@@ -808,6 +837,7 @@ public class SfvbFlow {
     openapiFields.add("sending_domain_uuid");
     openapiFields.add("sending_name");
     openapiFields.add("sending_user");
+    openapiFields.add("sms_phone_number");
     openapiFields.add("status");
     openapiFields.add("status_dts");
     openapiFields.add("trigger_parameter");
@@ -894,6 +924,9 @@ public class SfvbFlow {
       }
       if (jsonObj.get("sending_user") != null && !jsonObj.get("sending_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sending_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_user").toString()));
+      }
+      if (jsonObj.get("sms_phone_number") != null && !jsonObj.get("sms_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_phone_number").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

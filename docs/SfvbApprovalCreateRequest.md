@@ -20,6 +20,7 @@
 |**siteSeo** | [**SfvbSiteSeoRequest**](SfvbSiteSeoRequest.md) |  |  [optional] |
 |**smartAttribution** | [**SfvbSmartAttributionRequest**](SfvbSmartAttributionRequest.md) |  |  [optional] |
 |**trackingProvider** | [**SfvbTrackingProviderRequest**](SfvbTrackingProviderRequest.md) |  |  [optional] |
+|**transactionalEmail** | [**SfvbTransactionalEmailUpdateRequest**](SfvbTransactionalEmailUpdateRequest.md) |  |  [optional] |
 
 
 
@@ -49,6 +50,7 @@
 | AFFILIATE_NETWORK_CHANGE | &quot;affiliate_network.change&quot; |
 | AFFILIATE_NETWORK_DELETE | &quot;affiliate_network.delete&quot; |
 | SITE_SEO_CHANGE | &quot;site_seo.change&quot; |
+| TRANSACTIONAL_EMAIL_UPDATE | &quot;transactional_email.update&quot; |
 
 
 

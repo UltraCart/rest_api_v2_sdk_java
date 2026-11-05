@@ -122,6 +122,10 @@ public class SfvbCampaign {
   @SerializedName(SERIALIZED_NAME_SENDING_USER)
   private String sendingUser;
 
+  public static final String SERIALIZED_NAME_SMS_PHONE_NUMBER = "sms_phone_number";
+  @SerializedName(SERIALIZED_NAME_SMS_PHONE_NUMBER)
+  private String smsPhoneNumber;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
@@ -556,6 +560,29 @@ public class SfvbCampaign {
   }
 
 
+  public SfvbCampaign smsPhoneNumber(String smsPhoneNumber) {
+    
+    this.smsPhoneNumber = smsPhoneNumber;
+    return this;
+  }
+
+   /**
+   * The number this campaign&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say.
+   * @return smsPhoneNumber
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number this campaign's SMS steps send from.  Without one, every SMS step skips every customer, whatever the account's SMS settings say.")
+
+  public String getSmsPhoneNumber() {
+    return smsPhoneNumber;
+  }
+
+
+  public void setSmsPhoneNumber(String smsPhoneNumber) {
+    this.smsPhoneNumber = smsPhoneNumber;
+  }
+
+
   public SfvbCampaign status(String status) {
     
     this.status = status;
@@ -629,13 +656,14 @@ public class SfvbCampaign {
         Objects.equals(this.sendingDomainUuid, sfvbCampaign.sendingDomainUuid) &&
         Objects.equals(this.sendingName, sfvbCampaign.sendingName) &&
         Objects.equals(this.sendingUser, sfvbCampaign.sendingUser) &&
+        Objects.equals(this.smsPhoneNumber, sfvbCampaign.smsPhoneNumber) &&
         Objects.equals(this.status, sfvbCampaign.status) &&
         Objects.equals(this.statusDts, sfvbCampaign.statusDts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, hashSha256, live, memberships, name, notes, postcards, scheduledDts, sendingDomainUuid, sendingName, sendingUser, status, statusDts);
+    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, hashSha256, live, memberships, name, notes, postcards, scheduledDts, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts);
   }
 
   @Override
@@ -659,6 +687,7 @@ public class SfvbCampaign {
     sb.append("    sendingDomainUuid: ").append(toIndentedString(sendingDomainUuid)).append("\n");
     sb.append("    sendingName: ").append(toIndentedString(sendingName)).append("\n");
     sb.append("    sendingUser: ").append(toIndentedString(sendingUser)).append("\n");
+    sb.append("    smsPhoneNumber: ").append(toIndentedString(smsPhoneNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusDts: ").append(toIndentedString(statusDts)).append("\n");
     sb.append("}");
@@ -700,6 +729,7 @@ public class SfvbCampaign {
     openapiFields.add("sending_domain_uuid");
     openapiFields.add("sending_name");
     openapiFields.add("sending_user");
+    openapiFields.add("sms_phone_number");
     openapiFields.add("status");
     openapiFields.add("status_dts");
 
@@ -795,6 +825,9 @@ public class SfvbCampaign {
       }
       if (jsonObj.get("sending_user") != null && !jsonObj.get("sending_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sending_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_user").toString()));
+      }
+      if (jsonObj.get("sms_phone_number") != null && !jsonObj.get("sms_phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sms_phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sms_phone_number").toString()));
       }
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

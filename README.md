@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.230</version>
+    <version>4.1.231</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.230"
+     implementation "com.ultracart:rest-sdk:4.1.231"
   }
 ```
 
@@ -564,7 +564,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbCommsFolder**](docs/SfvbApi.md#getSfvbCommsFolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 *SfvbApi* | [**getSfvbCommsFolders**](docs/SfvbApi.md#getSfvbCommsFolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 *SfvbApi* | [**getSfvbCommsList**](docs/SfvbApi.md#getSfvbCommsList) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
+*SfvbApi* | [**getSfvbCommsListMembers**](docs/SfvbApi.md#getSfvbCommsListMembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
 *SfvbApi* | [**getSfvbCommsSegment**](docs/SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
+*SfvbApi* | [**getSfvbCommsSegmentMembers**](docs/SfvbApi.md#getSfvbCommsSegmentMembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 *SfvbApi* | [**getSfvbCommsSendingDomain**](docs/SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 *SfvbApi* | [**getSfvbCommsSendingDomains**](docs/SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
 *SfvbApi* | [**getSfvbCommsTwilioAccount**](docs/SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
@@ -601,6 +603,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbPageBlogPosts**](docs/SfvbApi.md#getSfvbPageBlogPosts) | **GET** /sfvb/storefronts/{storefront_oid}/pages/blog_posts | Read the blog posts assigned to a page
 *SfvbApi* | [**getSfvbPageItems**](docs/SfvbApi.md#getSfvbPageItems) | **GET** /sfvb/storefronts/{storefront_oid}/pages/items | Read the items assigned to a page
 *SfvbApi* | [**getSfvbPageSelectors**](docs/SfvbApi.md#getSfvbPageSelectors) | **GET** /sfvb/storefronts/{storefront_oid}/pages/selectors | Read a page&#39;s selectors
+*SfvbApi* | [**getSfvbPostcardTracking**](docs/SfvbApi.md#getSfvbPostcardTracking) | **GET** /sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking | Read one page of the cards mailed for a postcard
 *SfvbApi* | [**getSfvbPreviewUrl**](docs/SfvbApi.md#getSfvbPreviewUrl) | **GET** /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url | URL that renders a preview session
 *SfvbApi* | [**getSfvbRecording**](docs/SfvbApi.md#getSfvbRecording) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid} | Get a screen recording
 *SfvbApi* | [**getSfvbRecordingPageViewEvents**](docs/SfvbApi.md#getSfvbRecordingPageViewEvents) | **GET** /sfvb/storefronts/{storefront_oid}/recordings/{screen_recording_uuid}/page_views/{screen_recording_page_view_uuid}/events | Get one recorded page view&#39;s replay events
@@ -626,6 +629,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTrackingProvider**](docs/SfvbApi.md#getSfvbTrackingProvider) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Read one tracking provider
 *SfvbApi* | [**getSfvbTrackingProviders**](docs/SfvbApi.md#getSfvbTrackingProviders) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/providers | List a storefront&#39;s tracking providers
 *SfvbApi* | [**getSfvbTrackingSettings**](docs/SfvbApi.md#getSfvbTrackingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/tracking | Read a storefront&#39;s privacy rules and advanced conversion settings
+*SfvbApi* | [**getSfvbTransactionalEmail**](docs/SfvbApi.md#getSfvbTransactionalEmail) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Read a transactional email&#39;s subject, delivery options and sender
 *SfvbApi* | [**getSfvbTransactionalEmails**](docs/SfvbApi.md#getSfvbTransactionalEmails) | **GET** /sfvb/storefronts/{storefront_oid}/transactional_emails | List the transactional emails a storefront sends
 *SfvbApi* | [**getSfvbUpsellOffer**](docs/SfvbApi.md#getSfvbUpsellOffer) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Get an upsell offer
 *SfvbApi* | [**getSfvbUpsellPath**](docs/SfvbApi.md#getSfvbUpsellPath) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Get an upsell path
@@ -744,6 +748,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbTrackingHtml**](docs/SfvbApi.md#updateSfvbTrackingHtml) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Write one custom tracking HTML slot
 *SfvbApi* | [**updateSfvbTrackingPrivacy**](docs/SfvbApi.md#updateSfvbTrackingPrivacy) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/privacy | Change a storefront&#39;s privacy rules
 *SfvbApi* | [**updateSfvbTrackingProvider**](docs/SfvbApi.md#updateSfvbTrackingProvider) | **PUT** /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider} | Change one tracking provider
+*SfvbApi* | [**updateSfvbTransactionalEmail**](docs/SfvbApi.md#updateSfvbTransactionalEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name} | Change a transactional email&#39;s subject, delivery options or sender
 *SfvbApi* | [**updateSfvbUpsellOffer**](docs/SfvbApi.md#updateSfvbUpsellOffer) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_offers/{upsell_offer_oid} | Update an upsell offer
 *SfvbApi* | [**updateSfvbUpsellPath**](docs/SfvbApi.md#updateSfvbUpsellPath) | **PUT** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid} | Update an upsell path
 *SfvbApi* | [**updateSfvbUtmShortcode**](docs/SfvbApi.md#updateSfvbUtmShortcode) | **PUT** /sfvb/storefronts/{storefront_oid}/utm_shortcodes/{shortcode_oid} | Change a UTM shortcode
@@ -2011,6 +2016,8 @@ Class | Method | HTTP request | Description
  - [SfvbCommsListResponse](docs/SfvbCommsListResponse.md)
  - [SfvbCommsListWriteRequest](docs/SfvbCommsListWriteRequest.md)
  - [SfvbCommsListsResponse](docs/SfvbCommsListsResponse.md)
+ - [SfvbCommsMember](docs/SfvbCommsMember.md)
+ - [SfvbCommsMembersResponse](docs/SfvbCommsMembersResponse.md)
  - [SfvbCommsPostcard](docs/SfvbCommsPostcard.md)
  - [SfvbCommsSegment](docs/SfvbCommsSegment.md)
  - [SfvbCommsSegmentDetail](docs/SfvbCommsSegmentDetail.md)
@@ -2159,8 +2166,11 @@ Class | Method | HTTP request | Description
  - [SfvbPageSelectors](docs/SfvbPageSelectors.md)
  - [SfvbPageSettingsRequest](docs/SfvbPageSettingsRequest.md)
  - [SfvbPageSummary](docs/SfvbPageSummary.md)
+ - [SfvbPostcardAddress](docs/SfvbPostcardAddress.md)
+ - [SfvbPostcardCard](docs/SfvbPostcardCard.md)
  - [SfvbPostcardProofRequest](docs/SfvbPostcardProofRequest.md)
  - [SfvbPostcardProofResponse](docs/SfvbPostcardProofResponse.md)
+ - [SfvbPostcardTrackingResponse](docs/SfvbPostcardTrackingResponse.md)
  - [SfvbPreviewAccessRequest](docs/SfvbPreviewAccessRequest.md)
  - [SfvbPreviewAccessResponse](docs/SfvbPreviewAccessResponse.md)
  - [SfvbPreviewSessionRequest](docs/SfvbPreviewSessionRequest.md)
@@ -2269,8 +2279,14 @@ Class | Method | HTTP request | Description
  - [SfvbTrackingProvidersResponse](docs/SfvbTrackingProvidersResponse.md)
  - [SfvbTrackingSettingsResponse](docs/SfvbTrackingSettingsResponse.md)
  - [SfvbTrackingWholesaleTier](docs/SfvbTrackingWholesaleTier.md)
+ - [SfvbTransactionalChange](docs/SfvbTransactionalChange.md)
+ - [SfvbTransactionalDeliveryOption](docs/SfvbTransactionalDeliveryOption.md)
  - [SfvbTransactionalEmail](docs/SfvbTransactionalEmail.md)
+ - [SfvbTransactionalEmailDetail](docs/SfvbTransactionalEmailDetail.md)
+ - [SfvbTransactionalEmailResponse](docs/SfvbTransactionalEmailResponse.md)
+ - [SfvbTransactionalEmailUpdateRequest](docs/SfvbTransactionalEmailUpdateRequest.md)
  - [SfvbTransactionalEmailsResponse](docs/SfvbTransactionalEmailsResponse.md)
+ - [SfvbTransactionalSender](docs/SfvbTransactionalSender.md)
  - [SfvbUpsellItemLogic](docs/SfvbUpsellItemLogic.md)
  - [SfvbUpsellItemLogicItem](docs/SfvbUpsellItemLogicItem.md)
  - [SfvbUpsellOffer](docs/SfvbUpsellOffer.md)
@@ -2468,6 +2484,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.231 | 11/05/2026 | sfvb internal testing |
 | 4.1.230 | 11/05/2026 | sfvb internal testing |
 | 4.1.229 | 11/04/2026 | sfvb internal testing |
 | 4.1.228 | 11/04/2026 | sfvb internal testing |

@@ -15694,6 +15694,114 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members:
+    get:
+      description: "Each member's customer uuid, email and the date they joined. \
+        \ Email addresses are masked (w***a@example.com) and customer_data is masked,\
+        \ unless show_customer_data is true, which returns the real addresses and\
+        \ needs the sfvb_publish scope.  Every such read is logged.  Ask for them\
+        \ only when the merchant needs a person's address.  Read only.\n"
+      operationId: getSfvbCommsListMembers
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: list_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The page, from 1"
+        in: query
+        name: page
+        schema:
+          format: int32
+          type: integer
+      - description: "Members per page, 1 to 100 (default 50)"
+        in: query
+        name: page_size
+        schema:
+          format: int32
+          type: integer
+      - description: True to return the real email addresses instead of masked ones
+        in: query
+        name: show_customer_data
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsMembersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one page of a list's members
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/logs:
     get:
       description: "The server log the storefront Developer Tools panel shows, one\
@@ -18604,6 +18712,115 @@ paths:
       x-codegen-request-body-name: page_settings_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/postcards/{postcard_uuid}/tracking:
+    get:
+      description: "Every printed card mailed for the postcard, newest first, with\
+        \ its status, cost, dates and the order it converted to.  Recipients are masked\
+        \ (the name an initial, the street lines hidden, city, state and postal code\
+        \ kept) and the vendor's status text is left out, unless show_customer_data\
+        \ is true, which needs the sfvb_publish scope and is logged.  The return address\
+        \ is the merchant's own.  Read only.\n"
+      operationId: getSfvbPostcardTracking
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: postcard_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The page, from 1"
+        in: query
+        name: page
+        schema:
+          format: int32
+          type: integer
+      - description: "Cards per page, 1 to 100 (default 50)"
+        in: query
+        name: page_size
+        schema:
+          format: int32
+          type: integer
+      - description: True to return the recipients' real names and street addresses
+        in: query
+        name: show_customer_data
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPostcardTrackingResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one page of the cards mailed for a postcard
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_access:
     post:
       description: "The preview URL only works in a browser already signed in to UltraCart\
@@ -21162,6 +21379,114 @@ paths:
         - sfvb_write
       - ultraCartSimpleApiKey: []
       summary: Archive a segment
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members:
+    get:
+      description: "Each member's customer uuid, email and the date they joined. \
+        \ Email addresses are masked (w***a@example.com) and customer_data is masked,\
+        \ unless show_customer_data is true, which returns the real addresses and\
+        \ needs the sfvb_publish scope.  Every such read is logged.  Ask for them\
+        \ only when the merchant needs a person's address.  Read only.\n"
+      operationId: getSfvbCommsSegmentMembers
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: segment_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The page, from 1"
+        in: query
+        name: page
+        schema:
+          format: int32
+          type: integer
+      - description: "Members per page, 1 to 100 (default 50)"
+        in: query
+        name: page_size
+        schema:
+          format: int32
+          type: integer
+      - description: True to return the real email addresses instead of masked ones
+        in: query
+        name: show_customer_data
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsMembersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one page of a segment's members
       tags:
       - sfvb
       x-accepts: application/json
@@ -25232,6 +25557,208 @@ paths:
       summary: List the transactional emails a storefront sends
       tags:
       - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}:
+    get:
+      description: "file_name is the template file from the transactional email list,\
+        \ such as receipt_html.vm, or its display name.  The sender is shared by every\
+        \ storefront on the same screen branding theme (sender_shared_with); a sender\
+        \ that sends through the merchant's own mail server shows smtp true and never\
+        \ its credentials.  hash_sha256 is the If-Match for an update.  The template\
+        \ itself is a theme file.\n"
+      operationId: getSfvbTransactionalEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: file_name
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTransactionalEmailResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "Read a transactional email's subject, delivery options and sender"
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A field left out stays as it is.  It goes to every matching order\
+        \ from the moment it is saved, so every change needs sfvb_publish, the email's\
+        \ hash_sha256 as If-Match, and an approved transactional_email.update request\
+        \ for exactly this change (params.path the template file).  dry_run checks\
+        \ and shows the change without writing or using an approval.  Delivery options\
+        \ are named by name.  A sender change reaches every storefront on the same\
+        \ screen branding theme, and is refused for one that sends through the merchant's\
+        \ own mail server.\n"
+      operationId: updateSfvbTransactionalEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: file_name
+        required: true
+        schema:
+          type: string
+      - description: "The email's hash_sha256 from the last read.  Required; 428 when\
+          \ absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved transactional_email.update request
+          for exactly this change.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbTransactionalEmailUpdateRequest'
+        description: The fields to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTransactionalEmailResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: "Change a transactional email's subject, delivery options or sender"
+      tags:
+      - sfvb
+      x-codegen-request-body-name: transactional_email_update_request
+      x-content-type: application/json
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/transactional_emails/{file_name}/render:
     post:
@@ -219232,8 +219759,10 @@ components:
             type: integer
           type: array
         auto_order_myaccount_frequency_last_step_only:
-          description: True if the MyAccount frequency change is only offered once
-            the item is on its last auto order step.  Omit to leave unchanged.
+          description: "True if the MyAccount frequency change is only offered once\
+            \ the item is on its last auto order step.  If auto_order_myaccount_frequency_schedules\
+            \ or auto_order_myaccount_frequency_day_counts is sent without this property,\
+            \ it is set to false; if none of the three are sent, it is left unchanged."
           type: boolean
         auto_order_myaccount_frequency_schedules:
           description: Standard schedules a customer may switch this auto-enrolled
@@ -256328,6 +256857,19 @@ components:
           fire_percentage: 5.962133916683182
           record_name_in_custom_field: 7
           conversion_pixel: conversion_pixel
+        transactional_email:
+          sending_domain_uuid: sending_domain_uuid
+          subject: subject
+          delivery_options:
+          - name: name
+            description: description
+            selected: true
+          - name: name
+            description: description
+            selected: true
+          dry_run: true
+          sending_name: sending_name
+          sending_user: sending_user
       properties:
         action:
           description: The gated action to approve.
@@ -256354,6 +256896,7 @@ components:
           - affiliate_network.change
           - affiliate_network.delete
           - site_seo.change
+          - transactional_email.update
           type: string
         affiliate_network:
           $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
@@ -256396,6 +256939,8 @@ components:
           $ref: '#/components/schemas/SfvbSmartAttributionRequest'
         tracking_provider:
           $ref: '#/components/schemas/SfvbTrackingProviderRequest'
+        transactional_email:
+          $ref: '#/components/schemas/SfvbTransactionalEmailUpdateRequest'
       type: object
     SfvbApprovalParams:
       example:
@@ -257253,6 +257798,7 @@ components:
           back_container_uuid: back_container_uuid
           postcard_uuid: postcard_uuid
         deleted: true
+        sms_phone_number: sms_phone_number
         end_once_customer_purchases: true
         name: name
         status_dts: status_dts
@@ -257330,6 +257876,11 @@ components:
         sending_user:
           description: The part of the from address before the at sign.  Defaults
             to the storefront's marketing setting.
+          type: string
+        sms_phone_number:
+          description: "The number this campaign's SMS steps send from.  Without one,\
+            \ every SMS step skips every customer, whatever the account's SMS settings\
+            \ say."
           type: string
         status:
           description: "The status, such as draft, scheduled, sending, sent or archived."
@@ -257424,6 +257975,7 @@ components:
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
           deleted: true
+          sms_phone_number: sms_phone_number
           end_once_customer_purchases: true
           name: name
           status_dts: status_dts
@@ -257493,6 +258045,7 @@ components:
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
           deleted: true
+          sms_phone_number: sms_phone_number
           end_once_customer_purchases: true
           name: name
           status_dts: status_dts
@@ -257992,6 +258545,85 @@ components:
           description: True to let subscribers choose this list on the storefront's
             email preferences page.  Defaults to false.
           type: boolean
+      type: object
+    SfvbCommsMember:
+      example:
+        customer_uuid: customer_uuid
+        added_dts: added_dts
+        email: email
+      properties:
+        added_dts:
+          description: When the customer joined the list or segment.
+          type: string
+        customer_uuid:
+          description: "The customer uuid, the same on every list, segment and flow."
+          type: string
+        email:
+          description: "The email address, masked as w***a@example.com unless show_customer_data\
+            \ was sent."
+          type: string
+      type: object
+    SfvbCommsMembersResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        list_uuid: list_uuid
+        members:
+        - customer_uuid: customer_uuid
+          added_dts: added_dts
+          email: email
+        - customer_uuid: customer_uuid
+          added_dts: added_dts
+          email: email
+        customer_data: customer_data
+        segment_uuid: segment_uuid
+        total_members: 1
+        page: 0
+        total_pages: 5
+        rebuild_required: true
+        page_size: 6
+      properties:
+        customer_data:
+          description: "masked, or shown when show_customer_data was sent."
+          type: string
+        list_uuid:
+          description: "The list, for a list's members."
+          type: string
+        members:
+          description: This page of members.
+          items:
+            $ref: '#/components/schemas/SfvbCommsMember'
+          type: array
+        notes:
+          description: "What to keep in mind, such as how to handle customer data\
+            \ that is shown."
+          items:
+            type: string
+          type: array
+        page:
+          description: "The page number, from 1."
+          format: int32
+          type: integer
+        page_size:
+          description: Members per page.
+          format: int32
+          type: integer
+        rebuild_required:
+          description: "For a segment, true while it is being rebuilt, so the members\
+            \ are from the last rebuild."
+          type: boolean
+        segment_uuid:
+          description: "The segment, for a segment's members."
+          type: string
+        total_members:
+          description: How many members there are.
+          format: int32
+          type: integer
+        total_pages:
+          description: How many pages there are.
+          format: int32
+          type: integer
       type: object
     SfvbCommsPostcard:
       example:
@@ -260572,6 +261204,7 @@ components:
           back_container_uuid: back_container_uuid
           postcard_uuid: postcard_uuid
         deleted: true
+        sms_phone_number: sms_phone_number
         flow_uuid: flow_uuid
         end_once_customer_purchases: true
         name: name
@@ -260656,6 +261289,11 @@ components:
           description: The part of the from address before the at sign.  Defaults
             to the storefront's marketing setting.
           type: string
+        sms_phone_number:
+          description: "The number this flow's SMS steps send from.  Without one,\
+            \ every SMS step skips every customer, whatever the account's SMS settings\
+            \ say."
+          type: string
         status:
           description: "The status, such as draft, active, paused, draining or inactive."
           type: string
@@ -260733,6 +261371,7 @@ components:
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
           deleted: true
+          sms_phone_number: sms_phone_number
           flow_uuid: flow_uuid
           end_once_customer_purchases: true
           name: name
@@ -260798,6 +261437,7 @@ components:
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
           deleted: true
+          sms_phone_number: sms_phone_number
           flow_uuid: flow_uuid
           end_once_customer_purchases: true
           name: name
@@ -264887,6 +265527,99 @@ components:
           format: dateTime
           type: string
       type: object
+    SfvbPostcardAddress:
+      example:
+        zip: zip
+        city: city
+        address_line_1: address_line_1
+        name: name
+        address_line_2: address_line_2
+        state: state
+      properties:
+        address_line_1:
+          description: "The first street line.  For the recipient, [hidden] unless\
+            \ customer data was asked for."
+          type: string
+        address_line_2:
+          description: "The second street line, masked the same way."
+          type: string
+        city:
+          description: The city.
+          type: string
+        name:
+          description: "The name.  For the recipient, an initial unless customer data\
+            \ was asked for."
+          type: string
+        state:
+          description: The state or region.
+          type: string
+        zip:
+          description: The postal code.
+          type: string
+      type: object
+    SfvbPostcardCard:
+      example:
+        cost: 0.8008281904610115
+        print_record_uuid: print_record_uuid
+        customer_uuid: customer_uuid
+        delivered_dts: delivered_dts
+        submit_dts: submit_dts
+        from:
+          zip: zip
+          city: city
+          address_line_1: address_line_1
+          name: name
+          address_line_2: address_line_2
+          state: state
+        conversion_dts: conversion_dts
+        to:
+          zip: zip
+          city: city
+          address_line_1: address_line_1
+          name: name
+          address_line_2: address_line_2
+          state: state
+        mailed_dts: mailed_dts
+        tracking_description: tracking_description
+        order_id: order_id
+        status: status
+      properties:
+        conversion_dts:
+          description: When the customer ordered after it.
+          type: string
+        cost:
+          description: What the account is billed for this card.
+          type: number
+        customer_uuid:
+          description: The customer it was mailed to.
+          type: string
+        delivered_dts:
+          description: When it was delivered.
+          type: string
+        from:
+          $ref: '#/components/schemas/SfvbPostcardAddress'
+        mailed_dts:
+          description: When it was mailed.
+          type: string
+        order_id:
+          description: The order it converted to.
+          type: string
+        print_record_uuid:
+          description: The print vendor's record for this card.
+          type: string
+        status:
+          description: The vendor's latest status.
+          type: string
+        submit_dts:
+          description: When it was sent to the printer.
+          type: string
+        to:
+          $ref: '#/components/schemas/SfvbPostcardAddress'
+        tracking_description:
+          description: "The vendor's own words for the latest status.  Only when customer\
+            \ data was asked for, since it can name where the card went."
+          type: string
+      type: object
     SfvbPostcardProofRequest:
       example:
         address2: address2
@@ -265022,6 +265755,105 @@ components:
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
           type: array
+      type: object
+    SfvbPostcardTrackingResponse:
+      example:
+        cards:
+        - cost: 0.8008281904610115
+          print_record_uuid: print_record_uuid
+          customer_uuid: customer_uuid
+          delivered_dts: delivered_dts
+          submit_dts: submit_dts
+          from:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
+          conversion_dts: conversion_dts
+          to:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
+          mailed_dts: mailed_dts
+          tracking_description: tracking_description
+          order_id: order_id
+          status: status
+        - cost: 0.8008281904610115
+          print_record_uuid: print_record_uuid
+          customer_uuid: customer_uuid
+          delivered_dts: delivered_dts
+          submit_dts: submit_dts
+          from:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
+          conversion_dts: conversion_dts
+          to:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
+          mailed_dts: mailed_dts
+          tracking_description: tracking_description
+          order_id: order_id
+          status: status
+        notes:
+        - notes
+        - notes
+        total_cards: 5
+        customer_data: customer_data
+        postcard_uuid: postcard_uuid
+        page_cost: 1.4658129805029452
+        page: 6
+        total_pages: 2
+        page_size: 5
+      properties:
+        cards:
+          description: This page of cards.
+          items:
+            $ref: '#/components/schemas/SfvbPostcardCard'
+          type: array
+        customer_data:
+          description: "masked, or shown when show_customer_data was sent."
+          type: string
+        notes:
+          description: "What to keep in mind, such as how to handle customer data\
+            \ that is shown."
+          items:
+            type: string
+          type: array
+        page:
+          description: "The page number, from 1."
+          format: int32
+          type: integer
+        page_cost:
+          description: The total cost of the cards on this page.
+          type: number
+        page_size:
+          description: Cards per page.
+          format: int32
+          type: integer
+        postcard_uuid:
+          description: The postcard.
+          type: string
+        total_cards:
+          description: How many cards have been mailed for this postcard.
+          format: int32
+          type: integer
+        total_pages:
+          description: How many pages there are.
+          format: int32
+          type: integer
       type: object
     SfvbPreviewAccessRequest:
       example:
@@ -270416,6 +271248,42 @@ components:
           format: int32
           type: integer
       type: object
+    SfvbTransactionalChange:
+      example:
+        field: field
+        name: name
+        from: from
+        to: to
+      properties:
+        field:
+          description: "subject, option, sending_domain_uuid, sending_user or sending_name."
+          type: string
+        from:
+          description: The value before.
+          type: string
+        name:
+          description: "For an option, its name."
+          type: string
+        to:
+          description: The value after.
+          type: string
+      type: object
+    SfvbTransactionalDeliveryOption:
+      example:
+        name: name
+        description: description
+        selected: true
+      properties:
+        description:
+          description: What the option does.
+          type: string
+        name:
+          description: The option's name.  An update names options by it.
+          type: string
+        selected:
+          description: True when the option is on.
+          type: boolean
+      type: object
     SfvbTransactionalEmail:
       example:
         file_name: file_name
@@ -270443,6 +271311,108 @@ components:
           description: "The plain text template file, when the email has one."
           type: string
       type: object
+    SfvbTransactionalEmailDetail:
+      example:
+        hash_sha256: hash_sha256
+        sender:
+          smtp: true
+          sending_domain_uuid: sending_domain_uuid
+          sending_name: sending_name
+          sending_user: sending_user
+        file_name: file_name
+        subject: subject
+        name: name
+        delivery_options:
+        - name: name
+          description: description
+          selected: true
+        - name: name
+          description: description
+          selected: true
+        sender_shared_with:
+        - sender_shared_with
+        - sender_shared_with
+      properties:
+        delivery_options:
+          description: Its delivery options.  Empty for an email that has none.
+          items:
+            $ref: '#/components/schemas/SfvbTransactionalDeliveryOption'
+          type: array
+        file_name:
+          description: "The HTML template file, such as receipt_html.vm."
+          type: string
+        hash_sha256:
+          description: "The hash of the subject, the options and the sender.  Send\
+            \ it as If-Match to change them."
+          type: string
+        name:
+          description: "The display name, such as Order - Receipt."
+          type: string
+        sender:
+          $ref: '#/components/schemas/SfvbTransactionalSender'
+        sender_shared_with:
+          description: "Every storefront on this account that shares the sender, this\
+            \ one included."
+          items:
+            type: string
+          type: array
+        subject:
+          description: The subject line.
+          type: string
+      type: object
+    SfvbTransactionalEmailResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        changes:
+        - field: field
+          name: name
+          from: from
+          to: to
+        - field: field
+          name: name
+          from: from
+          to: to
+        dry_run: true
+        email:
+          hash_sha256: hash_sha256
+          sender:
+            smtp: true
+            sending_domain_uuid: sending_domain_uuid
+            sending_name: sending_name
+            sending_user: sending_user
+          file_name: file_name
+          subject: subject
+          name: name
+          delivery_options:
+          - name: name
+            description: description
+            selected: true
+          - name: name
+            description: description
+            selected: true
+          sender_shared_with:
+          - sender_shared_with
+          - sender_shared_with
+      properties:
+        changes:
+          description: "What the update changes, or would change on a dry run."
+          items:
+            $ref: '#/components/schemas/SfvbTransactionalChange'
+          type: array
+        dry_run:
+          description: True when nothing was written.
+          type: boolean
+        email:
+          $ref: '#/components/schemas/SfvbTransactionalEmailDetail'
+        notes:
+          description: "What the change means, such as the orders it reaches and the\
+            \ storefronts that share a sender."
+          items:
+            type: string
+          type: array
+      type: object
     SfvbTransactionalEmailsResponse:
       example:
         emails:
@@ -270462,6 +271432,64 @@ components:
           items:
             $ref: '#/components/schemas/SfvbTransactionalEmail'
           type: array
+      type: object
+    SfvbTransactionalEmailUpdateRequest:
+      example:
+        sending_domain_uuid: sending_domain_uuid
+        subject: subject
+        delivery_options:
+        - name: name
+          description: description
+          selected: true
+        - name: name
+          description: description
+          selected: true
+        dry_run: true
+        sending_name: sending_name
+        sending_user: sending_user
+      properties:
+        delivery_options:
+          description: "Options to turn on or off, each by name with selected."
+          items:
+            $ref: '#/components/schemas/SfvbTransactionalDeliveryOption'
+          type: array
+        dry_run:
+          description: True to check the change and show it without writing anything
+            or using an approval.
+          type: boolean
+        sending_domain_uuid:
+          description: A sending domain on this account.
+          type: string
+        sending_name:
+          description: The from name.
+          type: string
+        sending_user:
+          description: The part of the from address before the at sign.
+          type: string
+        subject:
+          description: "The subject line, 1 to 150 characters."
+          type: string
+      type: object
+    SfvbTransactionalSender:
+      example:
+        smtp: true
+        sending_domain_uuid: sending_domain_uuid
+        sending_name: sending_name
+        sending_user: sending_user
+      properties:
+        sending_domain_uuid:
+          description: "The sending domain uuid, or none."
+          type: string
+        sending_name:
+          description: The from name.
+          type: string
+        sending_user:
+          description: The part of the from address before the at sign.
+          type: string
+        smtp:
+          description: "True when it sends through the merchant's own mail server,\
+            \ which only the admin changes.  Its credentials are never returned."
+          type: boolean
       type: object
     SfvbUpsellItemLogic:
       example:

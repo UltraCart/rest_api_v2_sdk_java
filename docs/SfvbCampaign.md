@@ -24,6 +24,7 @@
 |**sendingDomainUuid** | **String** | The sending domain uuid.  Defaults to the storefront&#39;s marketing sending domain. |  [optional] |
 |**sendingName** | **String** | The from name.  Defaults to the storefront&#39;s marketing setting. |  [optional] |
 |**sendingUser** | **String** | The part of the from address before the at sign.  Defaults to the storefront&#39;s marketing setting. |  [optional] |
+|**smsPhoneNumber** | **String** | The number this campaign&#39;s SMS steps send from.  Without one, every SMS step skips every customer, whatever the account&#39;s SMS settings say. |  [optional] |
 |**status** | **String** | The status, such as draft, scheduled, sending, sent or archived. |  [optional] |
 |**statusDts** | **String** | When the status last changed (ISO 8601, UTC). |  [optional] |
 

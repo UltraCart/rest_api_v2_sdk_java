@@ -30,6 +30,7 @@ import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
 import com.ultracart.admin.v2.models.SfvbSiteSeoRequest;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
 import com.ultracart.admin.v2.models.SfvbTrackingProviderRequest;
+import com.ultracart.admin.v2.models.SfvbTransactionalEmailUpdateRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -108,7 +109,9 @@ public class SfvbApprovalCreateRequest {
     
     AFFILIATE_NETWORK_DELETE("affiliate_network.delete"),
     
-    SITE_SEO_CHANGE("site_seo.change");
+    SITE_SEO_CHANGE("site_seo.change"),
+    
+    TRANSACTIONAL_EMAIL_UPDATE("transactional_email.update");
 
     private String value;
 
@@ -199,6 +202,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_TRACKING_PROVIDER = "tracking_provider";
   @SerializedName(SERIALIZED_NAME_TRACKING_PROVIDER)
   private SfvbTrackingProviderRequest trackingProvider;
+
+  public static final String SERIALIZED_NAME_TRANSACTIONAL_EMAIL = "transactional_email";
+  @SerializedName(SERIALIZED_NAME_TRANSACTIONAL_EMAIL)
+  private SfvbTransactionalEmailUpdateRequest transactionalEmail;
 
   public SfvbApprovalCreateRequest() { 
   }
@@ -518,6 +525,29 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest transactionalEmail(SfvbTransactionalEmailUpdateRequest transactionalEmail) {
+    
+    this.transactionalEmail = transactionalEmail;
+    return this;
+  }
+
+   /**
+   * Get transactionalEmail
+   * @return transactionalEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbTransactionalEmailUpdateRequest getTransactionalEmail() {
+    return transactionalEmail;
+  }
+
+
+  public void setTransactionalEmail(SfvbTransactionalEmailUpdateRequest transactionalEmail) {
+    this.transactionalEmail = transactionalEmail;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -540,12 +570,13 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate) &&
         Objects.equals(this.siteSeo, sfvbApprovalCreateRequest.siteSeo) &&
         Objects.equals(this.smartAttribution, sfvbApprovalCreateRequest.smartAttribution) &&
-        Objects.equals(this.trackingProvider, sfvbApprovalCreateRequest.trackingProvider);
+        Objects.equals(this.trackingProvider, sfvbApprovalCreateRequest.trackingProvider) &&
+        Objects.equals(this.transactionalEmail, sfvbApprovalCreateRequest.transactionalEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider);
+    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -565,6 +596,7 @@ public class SfvbApprovalCreateRequest {
     sb.append("    siteSeo: ").append(toIndentedString(siteSeo)).append("\n");
     sb.append("    smartAttribution: ").append(toIndentedString(smartAttribution)).append("\n");
     sb.append("    trackingProvider: ").append(toIndentedString(trackingProvider)).append("\n");
+    sb.append("    transactionalEmail: ").append(toIndentedString(transactionalEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -600,6 +632,7 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("site_seo");
     openapiFields.add("smart_attribution");
     openapiFields.add("tracking_provider");
+    openapiFields.add("transactional_email");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -691,6 +724,10 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `tracking_provider`
       if (jsonObj.getAsJsonObject("tracking_provider") != null) {
         SfvbTrackingProviderRequest.validateJsonObject(jsonObj.getAsJsonObject("tracking_provider"));
+      }
+      // validate the optional field `transactional_email`
+      if (jsonObj.getAsJsonObject("transactional_email") != null) {
+        SfvbTransactionalEmailUpdateRequest.validateJsonObject(jsonObj.getAsJsonObject("transactional_email"));
       }
   }
 
