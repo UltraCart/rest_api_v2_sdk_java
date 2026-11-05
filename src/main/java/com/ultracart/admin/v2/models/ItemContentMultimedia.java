@@ -52,6 +52,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ItemContentMultimedia {
+  public static final String SERIALIZED_NAME_AI_ALT_TEXT = "ai_alt_text";
+  @SerializedName(SERIALIZED_NAME_AI_ALT_TEXT)
+  private String aiAltText;
+
   public static final String SERIALIZED_NAME_CLOUD_URL = "cloud_url";
   @SerializedName(SERIALIZED_NAME_CLOUD_URL)
   private String cloudUrl;
@@ -171,6 +175,29 @@ public class ItemContentMultimedia {
 
   public ItemContentMultimedia() { 
   }
+
+  public ItemContentMultimedia aiAltText(String aiAltText) {
+    
+    this.aiAltText = aiAltText;
+    return this;
+  }
+
+   /**
+   * AI generated alt text for the image.  StoreFront uses this when description is empty.
+   * @return aiAltText
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "AI generated alt text for the image.  StoreFront uses this when description is empty.")
+
+  public String getAiAltText() {
+    return aiAltText;
+  }
+
+
+  public void setAiAltText(String aiAltText) {
+    this.aiAltText = aiAltText;
+  }
+
 
   public ItemContentMultimedia cloudUrl(String cloudUrl) {
     
@@ -558,7 +585,8 @@ public class ItemContentMultimedia {
       return false;
     }
     ItemContentMultimedia itemContentMultimedia = (ItemContentMultimedia) o;
-    return Objects.equals(this.cloudUrl, itemContentMultimedia.cloudUrl) &&
+    return Objects.equals(this.aiAltText, itemContentMultimedia.aiAltText) &&
+        Objects.equals(this.cloudUrl, itemContentMultimedia.cloudUrl) &&
         Objects.equals(this.cloudUrlExpiration, itemContentMultimedia.cloudUrlExpiration) &&
         Objects.equals(this.code, itemContentMultimedia.code) &&
         Objects.equals(this.description, itemContentMultimedia.description) &&
@@ -578,13 +606,14 @@ public class ItemContentMultimedia {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudUrl, cloudUrlExpiration, code, description, excludeFromGallery, fileName, height, merchantItemMultimediaOid, orphan, placeholder, size, tempMultimediaOid, thumbnails, type, url, width);
+    return Objects.hash(aiAltText, cloudUrl, cloudUrlExpiration, code, description, excludeFromGallery, fileName, height, merchantItemMultimediaOid, orphan, placeholder, size, tempMultimediaOid, thumbnails, type, url, width);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemContentMultimedia {\n");
+    sb.append("    aiAltText: ").append(toIndentedString(aiAltText)).append("\n");
     sb.append("    cloudUrl: ").append(toIndentedString(cloudUrl)).append("\n");
     sb.append("    cloudUrlExpiration: ").append(toIndentedString(cloudUrlExpiration)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -623,6 +652,7 @@ public class ItemContentMultimedia {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("ai_alt_text");
     openapiFields.add("cloud_url");
     openapiFields.add("cloud_url_expiration");
     openapiFields.add("code");
@@ -665,6 +695,9 @@ public class ItemContentMultimedia {
         if (!ItemContentMultimedia.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemContentMultimedia` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("ai_alt_text") != null && !jsonObj.get("ai_alt_text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_alt_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_alt_text").toString()));
       }
       if (jsonObj.get("cloud_url") != null && !jsonObj.get("cloud_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloud_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud_url").toString()));

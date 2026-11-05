@@ -6932,6 +6932,1235 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/plan:
+    get:
+      description: "The plan, its customer and email caps, what has been sent against\
+        \ them, and the spam pause, with notes on anything that stops sends.  Account-wide.\
+        \  Never a price, fee or upgrade option; the plan is changed in the admin.\
+        \  Read only.\n"
+      operationId: getSfvbCommsPlan
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsPlanResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the account's communications plan and sending health
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/providers:
+    get:
+      description: "Each provider that can share list members, connected or not, with\
+        \ a connected one's lists.  Each call asks the providers themselves, so it\
+        \ is rate limited.  No credential or connect URL is returned.  import_allowed\
+        \ says whether the account may import.  Read only.\n"
+      operationId: getSfvbCommsProviders
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsProvidersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the email providers the account can import lists from
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/providers/import:
+    post:
+      description: "Each list becomes a new list of the same name on this storefront\
+        \ and every member is subscribed, in the background; the signed-in user is\
+        \ emailed when it finishes.  Needs the account to be allowed to import, sfvb_publish,\
+        \ and an approved comms_list.import request for exactly these lists.  At most\
+        \ 20 lists.  dry_run checks the provider and the list ids and names what would\
+        \ be created, without importing or using an approval.\n"
+      operationId: importSfvbCommsProviderLists
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved comms_list.import request for
+          exactly these lists.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsProviderImportRequest'
+        description: The provider and lists to import
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsProviderImportResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Import lists from another email provider
+      tags:
+      - sfvb
+      x-codegen-request-body-name: provider_import_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks:
+    get:
+      description: "The email must be sent by an email or experiment step of this\
+        \ flow's or campaign's sequence; any other is 404.  Most clicked first, over\
+        \ the last days (1 to 365, default 30).  Read only.\n"
+      operationId: getSfvbCommsEmailClicks
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: email_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The window, 1 to 365 days (default 30)."
+        in: query
+        name: days
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsClicksResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read each link in one email and how often it was clicked
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats:
+    get:
+      description: "overall covers all time; each email, SMS, postcard and branch\
+        \ step covers the last days (1 to 365, default 30).  Each step reports only\
+        \ the counts its channel records and names the rest in not_measured, so a\
+        \ missing count is never zero.  Bounces, opens and spam are counts here, not\
+        \ separate reports.  Read only.\n"
+      operationId: getSfvbCommsSequenceStats
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The window for the step counts, 1 to 365 days (default 30)."
+        in: query
+        name: days
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceStatsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "Read a flow's or campaign's counts, overall and step by step"
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email:
+    post:
+      description: |
+        to_email must be the email address of a user on this account; a test is never sent to customers or anyone else.  It reaches a real inbox and counts against the plan's email quota.  Needs sfvb_publish and the sign-in of a person.  Rate limited per merchant to 10 an hour and 50 a day.  The email render shows the same email without sending it.
+      operationId: testSfvbCommsEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: step_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsTestEmailRequest'
+        description: The email and the recipient
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTestSendResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Send one test of an email step's email to a user on this account
+      tags:
+      - sfvb
+      x-codegen-request-body-name: test_email_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard:
+    post:
+      description: "It is printed and mailed at the account's cost and can't be recalled.\
+        \  mail_card must be true; the postcard proof shows the card without mailing\
+        \ it.  Postcards must be turned on for the account by UltraCart.  Needs sfvb_publish,\
+        \ the sign-in of a person, and an approved postcard.test_mail request for\
+        \ exactly this card and address, with a fresh code every time.  dry_run checks\
+        \ everything and shows the cost.  Rate limited per merchant to 3 an hour and\
+        \ 10 a day.  The answer says whether a card was mailed.\n"
+      operationId: testSfvbCommsPostcard
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: step_uuid
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved postcard.test_mail request for
+          exactly this card and address.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsTestPostcardRequest'
+        description: The address and mail_card
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTestSendResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Print and mail one real test postcard
+      tags:
+      - sfvb
+      x-codegen-request-body-name: test_postcard_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms:
+    post:
+      description: "to_phone must be the cell phone of a user on this account, in\
+        \ E.164 form.  It is billed per segment through the account's Twilio account,\
+        \ from the flow's or campaign's SMS number; with none it is refused.  Needs\
+        \ sfvb_publish and the sign-in of a person.  Rate limited per merchant to\
+        \ 5 an hour and 20 a day.\n"
+      operationId: testSfvbCommsSms
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: commseq_uuid
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: step_uuid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsTestSmsRequest'
+        description: The recipient
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTestSendResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Send one test of an SMS step to a user on this account
+      tags:
+      - sfvb
+      x-codegen-request-body-name: test_sms_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/settings:
+    get:
+      description: "The postcard return address, the default marketing and transactional\
+        \ senders, and the default SMS number, with what each one drives in notes.\
+        \  Read only.  hash_sha256 is the If-Match for an update.\n"
+      operationId: getSfvbCommsSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read a storefront's communications settings
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A field left out stays as it is.  A return address change needs\
+        \ sfvb_write and If-Match.  A change to the default marketing or transactional\
+        \ sender, or the default SMS number, also needs sfvb_publish and an approved\
+        \ comms_settings.update request for exactly this change.  A sending domain\
+        \ must be on this account and the SMS number on one of its Twilio accounts.\
+        \  dry_run checks and shows the change without writing or using an approval.\n"
+      operationId: updateSfvbCommsSettings
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The settings' hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: "The approval_id of an approved comms_settings.update request\
+          \ for exactly this change, when a sender or the SMS number changes.  See\
+          \ POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsSettingsUpdateRequest'
+        description: The settings to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSettingsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change a storefront's communications settings
+      tags:
+      - sfvb
+      x-codegen-request-body-name: comms_settings_update_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard:
+    get:
+      description: "rows cover each flow and campaign with activity in the last days\
+        \ (1 to 365, default 30); daily is the account's last 31 days of sending,\
+        \ whatever the window.  Read only.\n"
+      operationId: getSfvbCommsDashboardStats
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The window for the rows, 1 to 365 days (default 30)."
+        in: query
+        name: days
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsDashboardResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "Read every flow's and campaign's counts over a window, with the account's\
+        \ daily sending"
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/templates:
+    get:
+      description: "One list: UltraCart's system templates and this storefront's saved\
+        \ ones (each with email_template_oid), then base templates, the active theme's\
+        \ files an email renders inside (each with path).  Read only.\n"
+      operationId: getSfvbCommsTemplates
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTemplatesResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the email templates a new email can start from
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid}:
+    get:
+      description: "A system template or one saved on this storefront; any other is\
+        \ 404.  container_cjson is the body.  The Velocity template it renders inside\
+        \ is named in email_template_vm_path, not shown.  Read only.\n"
+      operationId: getSfvbCommsTemplate
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: email_template_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsTemplateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one saved email template's body
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/container_versions:
     get:
       description: "Addressed the same way as the container itself, so owner_type\
@@ -218915,6 +220144,7 @@ components:
             temp_multimedia_oid: 7
             cloud_url_expiration: cloud_url_expiration
             size: 0
+            ai_alt_text: ai_alt_text
             width: 4
             cloud_url: cloud_url
             placeholder: true
@@ -218943,6 +220173,7 @@ components:
             temp_multimedia_oid: 7
             cloud_url_expiration: cloud_url_expiration
             size: 0
+            ai_alt_text: ai_alt_text
             width: 4
             cloud_url: cloud_url
             placeholder: true
@@ -218992,6 +220223,7 @@ components:
             temp_multimedia_oid: 7
             cloud_url_expiration: cloud_url_expiration
             size: 0
+            ai_alt_text: ai_alt_text
             width: 4
             cloud_url: cloud_url
             placeholder: true
@@ -219083,6 +220315,7 @@ components:
             temp_multimedia_oid: 7
             cloud_url_expiration: cloud_url_expiration
             size: 0
+            ai_alt_text: ai_alt_text
             width: 4
             cloud_url: cloud_url
             placeholder: true
@@ -220192,6 +221425,7 @@ components:
           temp_multimedia_oid: 7
           cloud_url_expiration: cloud_url_expiration
           size: 0
+          ai_alt_text: ai_alt_text
           width: 4
           cloud_url: cloud_url
           placeholder: true
@@ -220220,6 +221454,7 @@ components:
           temp_multimedia_oid: 7
           cloud_url_expiration: cloud_url_expiration
           size: 0
+          ai_alt_text: ai_alt_text
           width: 4
           cloud_url: cloud_url
           placeholder: true
@@ -220377,6 +221612,7 @@ components:
         temp_multimedia_oid: 7
         cloud_url_expiration: cloud_url_expiration
         size: 0
+        ai_alt_text: ai_alt_text
         width: 4
         cloud_url: cloud_url
         placeholder: true
@@ -220396,6 +221632,10 @@ components:
           png_format: true
         height: 3
       properties:
+        ai_alt_text:
+          description: AI generated alt text for the image.  StoreFront uses this
+            when description is empty.
+          type: string
         cloud_url:
           description: URL where the image can be downloaded from the cloud
           type: string
@@ -223371,6 +224611,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -223399,6 +224640,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -223448,6 +224690,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -223539,6 +224782,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -225878,6 +227122,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -225906,6 +227151,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -225955,6 +227201,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -226046,6 +227293,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -227184,6 +228432,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -227212,6 +228461,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -227261,6 +228511,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -227352,6 +228603,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -228520,6 +229772,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -228548,6 +229801,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -228597,6 +229851,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -228688,6 +229943,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -229826,6 +231082,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -229854,6 +231111,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -229903,6 +231161,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -229994,6 +231253,7 @@ components:
               temp_multimedia_oid: 7
               cloud_url_expiration: cloud_url_expiration
               size: 0
+              ai_alt_text: ai_alt_text
               width: 4
               cloud_url: cloud_url
               placeholder: true
@@ -230528,6 +231788,7 @@ components:
           temp_multimedia_oid: 7
           cloud_url_expiration: cloud_url_expiration
           size: 0
+          ai_alt_text: ai_alt_text
           width: 4
           cloud_url: cloud_url
           placeholder: true
@@ -256689,6 +257950,24 @@ components:
           redirect_id: 6
         - hash_sha256: hash_sha256
           redirect_id: 6
+        comms_settings:
+          marketing_sender:
+            sending_domain_uuid: sending_domain_uuid
+            sending_name: sending_name
+            sending_user: sending_user
+          transactional_sender:
+            sending_domain_uuid: sending_domain_uuid
+            sending_name: sending_name
+            sending_user: sending_user
+          sms_phone_number: sms_phone_number
+          dry_run: true
+          postcard_return_address:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
         site_seo:
           dry_run: true
           canonical: true
@@ -256748,6 +258027,12 @@ components:
           - unset
           - unset
           events: "{}"
+        comms_list_import:
+          provider: provider
+          dry_run: true
+          list_ids:
+          - list_ids
+          - list_ids
         params:
           esp_twilio_uuid: esp_twilio_uuid
           affiliate_network_oid: 5
@@ -256837,6 +258122,19 @@ components:
             quantity: 1
           sale_start: sale_start
         action: file.delete
+        postcard_test_mail:
+          mail_card: true
+          address2: address2
+          city: city
+          address1: address1
+          cart_item_ids:
+          - cart_item_ids
+          - cart_item_ids
+          name: name
+          dry_run: true
+          state: state
+          postal_code: postal_code
+          order_id: order_id
         affiliate_network:
           if_not_fired_affiliate_oid: 5
           if_not_fired: process
@@ -256897,9 +258195,16 @@ components:
           - affiliate_network.delete
           - site_seo.change
           - transactional_email.update
+          - comms_settings.update
+          - comms_list.import
+          - postcard.test_mail
           type: string
         affiliate_network:
           $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
+        comms_list_import:
+          $ref: '#/components/schemas/SfvbCommsProviderImportRequest'
+        comms_settings:
+          $ref: '#/components/schemas/SfvbCommsSettingsUpdateRequest'
         content:
           description: "For a file.put_script write, the exact script to be written,\
             \ at most 256 KB.  For tracking_html.put, the exact HTML the write will\
@@ -256920,6 +258225,8 @@ components:
           $ref: '#/components/schemas/SfvbItemPricingRequest'
         params:
           $ref: '#/components/schemas/SfvbApprovalParams'
+        postcard_test_mail:
+          $ref: '#/components/schemas/SfvbCommsTestPostcardRequest'
         reason:
           description: "Why the agent wants to do this, in a sentence.  Shown to the\
             \ person as unverified text, capped at 500 characters."
@@ -258187,6 +259494,284 @@ components:
             to see the rest.
           type: boolean
       type: object
+    SfvbCommsBranchStat:
+      example:
+        stats:
+          not_measured:
+          - not_measured
+          - not_measured
+          conversions: 5
+          returned_to_sender: 1
+          channel: channel
+          delivered: 2
+          finished: 7
+          opened: 2
+          bounced: 6
+          clicked: 1
+          sent: 1
+          skipped: 6
+          in_progress: 9
+          revenue: 1.0246457001441578
+          unsubscribed: 1
+          invalid: 3
+          orders: 4
+          customers: 5
+          spam: 7
+          profit: 7.386281948385884
+        label: label
+      properties:
+        label:
+          description: "The side, as the admin names it (yes or no, left or right)."
+          type: string
+        stats:
+          $ref: '#/components/schemas/SfvbCommsStat'
+      type: object
+    SfvbCommsChange:
+      example:
+        field: field
+        from: from
+        to: to
+      properties:
+        field:
+          description: "The setting, such as postcard_return_address.city or marketing_sender.sending_domain_uuid."
+          type: string
+        from:
+          description: "The value before, or none."
+          type: string
+        to:
+          description: "The value after, or none."
+          type: string
+      type: object
+    SfvbCommsClick:
+      example:
+        clicks: 0
+        url: url
+      properties:
+        clicks:
+          description: Clicks in the window.
+          format: int32
+          type: integer
+        url:
+          description: The link.
+          type: string
+      type: object
+    SfvbCommsClicksResponse:
+      example:
+        step_uuid: step_uuid
+        notes:
+        - notes
+        - notes
+        email_uuid: email_uuid
+        clicks:
+        - clicks: 0
+          url: url
+        - clicks: 0
+          url: url
+        days: 6
+      properties:
+        clicks:
+          description: "Each link, most clicked first."
+          items:
+            $ref: '#/components/schemas/SfvbCommsClick'
+          type: array
+        days:
+          description: "The window, in days."
+          format: int32
+          type: integer
+        email_uuid:
+          description: The email.
+          type: string
+        notes:
+          description: What the counts cover.
+          items:
+            type: string
+          type: array
+        step_uuid:
+          description: The step that sends it.
+          type: string
+      type: object
+    SfvbCommsDailyStat:
+      example:
+        date: date
+        revenue: 1.4658129805029452
+        transactional_sent: 2
+        delivered: 6
+        bounced: 0
+        spam: 5
+        sequence_sent: 5
+      properties:
+        bounced:
+          description: Emails bounced.
+          format: int32
+          type: integer
+        date:
+          description: The day.
+          type: string
+        delivered:
+          description: Emails delivered.
+          format: int32
+          type: integer
+        revenue:
+          description: Revenue attributed.
+          type: number
+        sequence_sent:
+          description: Flow and campaign emails sent.
+          format: int32
+          type: integer
+        spam:
+          description: Spam complaints.
+          format: int32
+          type: integer
+        transactional_sent:
+          description: Transactional emails sent.
+          format: int32
+          type: integer
+      type: object
+    SfvbCommsDashboardResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        daily:
+        - date: date
+          revenue: 1.4658129805029452
+          transactional_sent: 2
+          delivered: 6
+          bounced: 0
+          spam: 5
+          sequence_sent: 5
+        - date: date
+          revenue: 1.4658129805029452
+          transactional_sent: 2
+          delivered: 6
+          bounced: 0
+          spam: 5
+          sequence_sent: 5
+        days: 7
+        rows:
+        - deleted: true
+          stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          name: name
+          type: type
+          uuid: uuid
+          status: status
+        - deleted: true
+          stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          name: name
+          type: type
+          uuid: uuid
+          status: status
+      properties:
+        daily:
+          description: "The account's last 31 days of sending, whatever the window."
+          items:
+            $ref: '#/components/schemas/SfvbCommsDailyStat'
+          type: array
+        days:
+          description: "The window, in days, for the rows."
+          format: int32
+          type: integer
+        notes:
+          description: What the windows are.
+          items:
+            type: string
+          type: array
+        rows:
+          description: Each flow and campaign with counts in the window.
+          items:
+            $ref: '#/components/schemas/SfvbCommsDashboardRow'
+          type: array
+      type: object
+    SfvbCommsDashboardRow:
+      example:
+        deleted: true
+        stats:
+          not_measured:
+          - not_measured
+          - not_measured
+          conversions: 5
+          returned_to_sender: 1
+          channel: channel
+          delivered: 2
+          finished: 7
+          opened: 2
+          bounced: 6
+          clicked: 1
+          sent: 1
+          skipped: 6
+          in_progress: 9
+          revenue: 1.0246457001441578
+          unsubscribed: 1
+          invalid: 3
+          orders: 4
+          customers: 5
+          spam: 7
+          profit: 7.386281948385884
+        name: name
+        type: type
+        uuid: uuid
+        status: status
+      properties:
+        deleted:
+          description: True when it is archived.
+          type: boolean
+        name:
+          description: Its name.
+          type: string
+        stats:
+          $ref: '#/components/schemas/SfvbCommsStat'
+        status:
+          description: Its status.
+          type: string
+        type:
+          description: flow or campaign.
+          type: string
+        uuid:
+          description: The flow or campaign uuid.
+          type: string
+      type: object
     SfvbCommsDnsRecord:
       example:
         purpose: verification
@@ -258625,6 +260210,170 @@ components:
           format: int32
           type: integer
       type: object
+    SfvbCommsPlan:
+      example:
+        allow_tracking_emails: true
+        plan_name_formatted: plan_name_formatted
+        bounce_count: 6
+        sent_emails_per_day: 1
+        total_customers: 4
+        sent_emails_per_month: 1
+        plan_customers: 2
+        max_emails_per_hour: 9
+        spam_count: 6
+        active_customers: 0
+        delivered_count: 5
+        allow_list_import: true
+        spam_percent_limit: 7
+        initial_sending_limits: 5
+        plan_emails: 4
+        max_emails_per_month: 3
+        spam_percentage: 1.1730742509559433
+        total_emails: 5
+        sent_emails_per_hour: 1
+        require_order_within_last_days: 7
+        plan_name: plan_name
+        max_emails_per_day: 7
+        bounce_percentage: 1.4658129805029452
+        paused_for_spam: true
+        max_active_customers: 2
+      properties:
+        active_customers:
+          description: Customers being mailed now.
+          format: int32
+          type: integer
+        allow_list_import:
+          description: True when the account may import lists from another email provider.
+          type: boolean
+        allow_tracking_emails:
+          description: True when shipment tracking emails are allowed.
+          type: boolean
+        bounce_count:
+          description: Emails bounced.
+          format: int32
+          type: integer
+        bounce_percentage:
+          description: The bounce percentage.
+          type: number
+        delivered_count:
+          description: Emails delivered.
+          format: int32
+          type: integer
+        initial_sending_limits:
+          description: The starting sending limit for a new account.
+          format: int32
+          type: integer
+        max_active_customers:
+          description: The most customers the plan mails.
+          format: int32
+          type: integer
+        max_emails_per_day:
+          description: The daily sending cap.
+          format: int32
+          type: integer
+        max_emails_per_hour:
+          description: The hourly sending cap.
+          format: int32
+          type: integer
+        max_emails_per_month:
+          description: The monthly sending cap.
+          format: int32
+          type: integer
+        paused_for_spam:
+          description: True when sending is paused for spam complaints.
+          type: boolean
+        plan_customers:
+          description: Customers the plan covers.
+          format: int32
+          type: integer
+        plan_emails:
+          description: Emails a month the plan covers.
+          format: int32
+          type: integer
+        plan_name:
+          description: "The plan, such as small."
+          type: string
+        plan_name_formatted:
+          description: The plan's display name.
+          type: string
+        require_order_within_last_days:
+          description: "When set, only customers who ordered within this many days\
+            \ are mailed."
+          format: int32
+          type: integer
+        sent_emails_per_day:
+          description: Emails sent in the last day.
+          format: int32
+          type: integer
+        sent_emails_per_hour:
+          description: Emails sent in the last hour.
+          format: int32
+          type: integer
+        sent_emails_per_month:
+          description: Emails sent in the last month.
+          format: int32
+          type: integer
+        spam_count:
+          description: Spam complaints.
+          format: int32
+          type: integer
+        spam_percent_limit:
+          description: The spam complaint percentage at which sending pauses.
+          format: int32
+          type: integer
+        spam_percentage:
+          description: The spam complaint percentage.
+          type: number
+        total_customers:
+          description: Customers allowed in all.
+          format: int32
+          type: integer
+        total_emails:
+          description: Emails a month allowed in all.
+          format: int32
+          type: integer
+      type: object
+    SfvbCommsPlanResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        plan:
+          allow_tracking_emails: true
+          plan_name_formatted: plan_name_formatted
+          bounce_count: 6
+          sent_emails_per_day: 1
+          total_customers: 4
+          sent_emails_per_month: 1
+          plan_customers: 2
+          max_emails_per_hour: 9
+          spam_count: 6
+          active_customers: 0
+          delivered_count: 5
+          allow_list_import: true
+          spam_percent_limit: 7
+          initial_sending_limits: 5
+          plan_emails: 4
+          max_emails_per_month: 3
+          spam_percentage: 1.1730742509559433
+          total_emails: 5
+          sent_emails_per_hour: 1
+          require_order_within_last_days: 7
+          plan_name: plan_name
+          max_emails_per_day: 7
+          bounce_percentage: 1.4658129805029452
+          paused_for_spam: true
+          max_active_customers: 2
+      properties:
+        notes:
+          description: "What stands out, such as a paused account or a cap nearly\
+            \ reached."
+          items:
+            type: string
+          type: array
+        plan:
+          $ref: '#/components/schemas/SfvbCommsPlan'
+      type: object
     SfvbCommsPostcard:
       example:
         front_container_uuid: front_container_uuid
@@ -258653,6 +260402,151 @@ components:
         step_uuid:
           description: The step that sends this postcard.
           type: string
+      type: object
+    SfvbCommsProvider:
+      example:
+        connected: true
+        logo_url: logo_url
+        lists:
+        - name: name
+          id: id
+        - name: name
+          id: id
+        name: name
+        supports_list_unsubscribe: true
+        supports_tags: true
+      properties:
+        connected:
+          description: True when the account has connected this provider.  One that
+            isn't connected has no lists and is connected in the admin.
+          type: boolean
+        lists:
+          description: The provider's lists.
+          items:
+            $ref: '#/components/schemas/SfvbCommsProviderList'
+          type: array
+        logo_url:
+          description: The provider's logo.
+          type: string
+        name:
+          description: "The provider, such as Mailchimp."
+          type: string
+        supports_list_unsubscribe:
+          description: True when the provider supports unsubscribing.
+          type: boolean
+        supports_tags:
+          description: True when the provider supports contact tags.
+          type: boolean
+      type: object
+    SfvbCommsProviderImportRequest:
+      example:
+        provider: provider
+        dry_run: true
+        list_ids:
+        - list_ids
+        - list_ids
+      properties:
+        dry_run:
+          description: "Check the import and name what it would create, without importing\
+            \ or using an approval."
+          type: boolean
+        list_ids:
+          description: The provider's list ids to import.
+          items:
+            type: string
+          type: array
+        provider:
+          description: "The provider's name, from the providers list."
+          type: string
+      type: object
+    SfvbCommsProviderImportResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        provider: provider
+        lists:
+        - name: name
+          id: id
+        - name: name
+          id: id
+        queued: true
+        dry_run: true
+      properties:
+        dry_run:
+          description: True when nothing was imported.
+          type: boolean
+        lists:
+          description: "The lists imported, each into a new list of the same name."
+          items:
+            $ref: '#/components/schemas/SfvbCommsProviderList'
+          type: array
+        notes:
+          description: What the import does.
+          items:
+            type: string
+          type: array
+        provider:
+          description: The provider.
+          type: string
+        queued:
+          description: True when the import was started.  It runs in the background
+            and emails the signed-in user when done.
+          type: boolean
+      type: object
+    SfvbCommsProviderList:
+      example:
+        name: name
+        id: id
+      properties:
+        id:
+          description: The provider's list id.
+          type: string
+        name:
+          description: The list name.
+          type: string
+      type: object
+    SfvbCommsProvidersResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        import_allowed: true
+        providers:
+        - connected: true
+          logo_url: logo_url
+          lists:
+          - name: name
+            id: id
+          - name: name
+            id: id
+          name: name
+          supports_list_unsubscribe: true
+          supports_tags: true
+        - connected: true
+          logo_url: logo_url
+          lists:
+          - name: name
+            id: id
+          - name: name
+            id: id
+          name: name
+          supports_list_unsubscribe: true
+          supports_tags: true
+      properties:
+        import_allowed:
+          description: True when the account may import lists.
+          type: boolean
+        notes:
+          description: "Why import isn't allowed, and what an import does."
+          items:
+            type: string
+          type: array
+        providers:
+          description: Each connected provider that can share list members.
+          items:
+            $ref: '#/components/schemas/SfvbCommsProvider'
+          type: array
       type: object
     SfvbCommsSegment:
       example:
@@ -258843,6 +260737,42 @@ components:
           description: The segment name.  Required on a create.
           type: string
       type: object
+    SfvbCommsSender:
+      example:
+        sending_domain_uuid: sending_domain_uuid
+        sending_domain: sending_domain
+        sending_name: sending_name
+        sending_user: sending_user
+      properties:
+        sending_domain:
+          description: "The sending domain's name, such as mail.example.com."
+          type: string
+        sending_domain_uuid:
+          description: "The sending domain uuid, or none."
+          type: string
+        sending_name:
+          description: The from name.
+          type: string
+        sending_user:
+          description: The part of the from address before the at sign.
+          type: string
+      type: object
+    SfvbCommsSenderUpdate:
+      example:
+        sending_domain_uuid: sending_domain_uuid
+        sending_name: sending_name
+        sending_user: sending_user
+      properties:
+        sending_domain_uuid:
+          description: A sending domain on this account.
+          type: string
+        sending_name:
+          description: "The from name, one line."
+          type: string
+        sending_user:
+          description: The part of the from address before the at sign.
+          type: string
+      type: object
     SfvbCommsSendingDomain:
       example:
         esp_domain_uuid: esp_domain_uuid
@@ -258966,6 +260896,787 @@ components:
           items:
             $ref: '#/components/schemas/SfvbCommsSendingDomain'
           type: array
+      type: object
+    SfvbCommsSequenceStatsResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        communication_sequence_uuid: communication_sequence_uuid
+        days: 0
+        overall:
+          not_measured:
+          - not_measured
+          - not_measured
+          conversions: 5
+          returned_to_sender: 1
+          channel: channel
+          delivered: 2
+          finished: 7
+          opened: 2
+          bounced: 6
+          clicked: 1
+          sent: 1
+          skipped: 6
+          in_progress: 9
+          revenue: 1.0246457001441578
+          unsubscribed: 1
+          invalid: 3
+          orders: 4
+          customers: 5
+          spam: 7
+          profit: 7.386281948385884
+        steps:
+        - step_uuid: step_uuid
+          email_uuid: email_uuid
+          stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          name: name
+          postcard_uuid: postcard_uuid
+          variant_name: variant_name
+          label: label
+          branches:
+          - stats:
+              not_measured:
+              - not_measured
+              - not_measured
+              conversions: 5
+              returned_to_sender: 1
+              channel: channel
+              delivered: 2
+              finished: 7
+              opened: 2
+              bounced: 6
+              clicked: 1
+              sent: 1
+              skipped: 6
+              in_progress: 9
+              revenue: 1.0246457001441578
+              unsubscribed: 1
+              invalid: 3
+              orders: 4
+              customers: 5
+              spam: 7
+              profit: 7.386281948385884
+            label: label
+          - stats:
+              not_measured:
+              - not_measured
+              - not_measured
+              conversions: 5
+              returned_to_sender: 1
+              channel: channel
+              delivered: 2
+              finished: 7
+              opened: 2
+              bounced: 6
+              clicked: 1
+              sent: 1
+              skipped: 6
+              in_progress: 9
+              revenue: 1.0246457001441578
+              unsubscribed: 1
+              invalid: 3
+              orders: 4
+              customers: 5
+              spam: 7
+              profit: 7.386281948385884
+            label: label
+          type: type
+        - step_uuid: step_uuid
+          email_uuid: email_uuid
+          stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          name: name
+          postcard_uuid: postcard_uuid
+          variant_name: variant_name
+          label: label
+          branches:
+          - stats:
+              not_measured:
+              - not_measured
+              - not_measured
+              conversions: 5
+              returned_to_sender: 1
+              channel: channel
+              delivered: 2
+              finished: 7
+              opened: 2
+              bounced: 6
+              clicked: 1
+              sent: 1
+              skipped: 6
+              in_progress: 9
+              revenue: 1.0246457001441578
+              unsubscribed: 1
+              invalid: 3
+              orders: 4
+              customers: 5
+              spam: 7
+              profit: 7.386281948385884
+            label: label
+          - stats:
+              not_measured:
+              - not_measured
+              - not_measured
+              conversions: 5
+              returned_to_sender: 1
+              channel: channel
+              delivered: 2
+              finished: 7
+              opened: 2
+              bounced: 6
+              clicked: 1
+              sent: 1
+              skipped: 6
+              in_progress: 9
+              revenue: 1.0246457001441578
+              unsubscribed: 1
+              invalid: 3
+              orders: 4
+              customers: 5
+              spam: 7
+              profit: 7.386281948385884
+            label: label
+          type: type
+      properties:
+        communication_sequence_uuid:
+          description: The sequence.
+          type: string
+        days:
+          description: "The window, in days, for the step counts."
+          format: int32
+          type: integer
+        notes:
+          description: What the windows are and what a missing count means.
+          items:
+            type: string
+          type: array
+        overall:
+          $ref: '#/components/schemas/SfvbCommsStat'
+        steps:
+          description: "Each email, SMS, postcard and branch step, in the stored order."
+          items:
+            $ref: '#/components/schemas/SfvbCommsStepStat'
+          type: array
+      type: object
+    SfvbCommsSettings:
+      example:
+        hash_sha256: hash_sha256
+        marketing_sender:
+          sending_domain_uuid: sending_domain_uuid
+          sending_domain: sending_domain
+          sending_name: sending_name
+          sending_user: sending_user
+        transactional_sender:
+          sending_domain_uuid: sending_domain_uuid
+          sending_domain: sending_domain
+          sending_name: sending_name
+          sending_user: sending_user
+        sms_phone_number: sms_phone_number
+        machine_open_ignore: true
+        postcard_return_address_complete: true
+        postcard_return_address:
+          zip: zip
+          city: city
+          address_line_1: address_line_1
+          name: name
+          address_line_2: address_line_2
+          state: state
+        reviews_io_configured: true
+        sms_twilio_uuid: sms_twilio_uuid
+      properties:
+        hash_sha256:
+          description: The hash of the settings.  Send it as If-Match to change them.
+          type: string
+        machine_open_ignore:
+          description: True when opens by mail privacy proxies are ignored.  Account-wide;
+            changed in the admin.
+          type: boolean
+        marketing_sender:
+          $ref: '#/components/schemas/SfvbCommsSender'
+        postcard_return_address:
+          $ref: '#/components/schemas/SfvbPostcardAddress'
+        postcard_return_address_complete:
+          description: "True when the name, street, city, state and postal code are\
+            \ all set.  Until then postcards fall back as the send code does."
+          type: boolean
+        reviews_io_configured:
+          description: True when a Reviews.io key is set for the account.
+          type: boolean
+        sms_phone_number:
+          description: The default SMS number the admin offers for a new flow or campaign.  No
+            send reads it.  An SMS step sends from its flow's or campaign's own number.
+          type: string
+        sms_twilio_uuid:
+          description: The Twilio account that holds sms_phone_number.
+          type: string
+        transactional_sender:
+          $ref: '#/components/schemas/SfvbCommsSender'
+      type: object
+    SfvbCommsSettingsResponse:
+      example:
+        settings:
+          hash_sha256: hash_sha256
+          marketing_sender:
+            sending_domain_uuid: sending_domain_uuid
+            sending_domain: sending_domain
+            sending_name: sending_name
+            sending_user: sending_user
+          transactional_sender:
+            sending_domain_uuid: sending_domain_uuid
+            sending_domain: sending_domain
+            sending_name: sending_name
+            sending_user: sending_user
+          sms_phone_number: sms_phone_number
+          machine_open_ignore: true
+          postcard_return_address_complete: true
+          postcard_return_address:
+            zip: zip
+            city: city
+            address_line_1: address_line_1
+            name: name
+            address_line_2: address_line_2
+            state: state
+          reviews_io_configured: true
+          sms_twilio_uuid: sms_twilio_uuid
+        notes:
+        - notes
+        - notes
+        changes:
+        - field: field
+          from: from
+          to: to
+        - field: field
+          from: from
+          to: to
+        dry_run: true
+      properties:
+        changes:
+          description: "Each setting the call changed, or would change on a dry run."
+          items:
+            $ref: '#/components/schemas/SfvbCommsChange'
+          type: array
+        dry_run:
+          description: True when nothing was written.
+          type: boolean
+        notes:
+          description: Where each change takes effect.
+          items:
+            type: string
+          type: array
+        settings:
+          $ref: '#/components/schemas/SfvbCommsSettings'
+      type: object
+    SfvbCommsSettingsUpdateRequest:
+      example:
+        marketing_sender:
+          sending_domain_uuid: sending_domain_uuid
+          sending_name: sending_name
+          sending_user: sending_user
+        transactional_sender:
+          sending_domain_uuid: sending_domain_uuid
+          sending_name: sending_name
+          sending_user: sending_user
+        sms_phone_number: sms_phone_number
+        dry_run: true
+        postcard_return_address:
+          zip: zip
+          city: city
+          address_line_1: address_line_1
+          name: name
+          address_line_2: address_line_2
+          state: state
+      properties:
+        dry_run:
+          description: Check the change and show it without writing or using an approval.
+          type: boolean
+        marketing_sender:
+          $ref: '#/components/schemas/SfvbCommsSenderUpdate'
+        postcard_return_address:
+          $ref: '#/components/schemas/SfvbPostcardAddress'
+        sms_phone_number:
+          description: "The default SMS number, one of the account's Twilio numbers,\
+            \ or an empty string to clear it."
+          type: string
+        transactional_sender:
+          $ref: '#/components/schemas/SfvbCommsSenderUpdate'
+      type: object
+    SfvbCommsStat:
+      example:
+        not_measured:
+        - not_measured
+        - not_measured
+        conversions: 5
+        returned_to_sender: 1
+        channel: channel
+        delivered: 2
+        finished: 7
+        opened: 2
+        bounced: 6
+        clicked: 1
+        sent: 1
+        skipped: 6
+        in_progress: 9
+        revenue: 1.0246457001441578
+        unsubscribed: 1
+        invalid: 3
+        orders: 4
+        customers: 5
+        spam: 7
+        profit: 7.386281948385884
+      properties:
+        bounced:
+          description: Permanent bounces.
+          format: int32
+          type: integer
+        channel:
+          description: "email, sms, postcard, branch or sequence."
+          type: string
+        clicked:
+          description: "Clicks (for a postcard, scans of its QR code)."
+          format: int32
+          type: integer
+        conversions:
+          description: Conversions.
+          format: int32
+          type: integer
+        customers:
+          description: "Customers who reached it (a branch side), or started (a whole\
+            \ sequence)."
+          format: int32
+          type: integer
+        delivered:
+          description: Deliveries.
+          format: int32
+          type: integer
+        finished:
+          description: Customers who finished the sequence.
+          format: int32
+          type: integer
+        in_progress:
+          description: Customers in the sequence now.
+          format: int32
+          type: integer
+        invalid:
+          description: Addresses the email validator refused.
+          format: int32
+          type: integer
+        not_measured:
+          description: "The counts this channel doesn't record, left out above."
+          items:
+            type: string
+          type: array
+        opened:
+          description: Opens.
+          format: int32
+          type: integer
+        orders:
+          description: Orders attributed.
+          format: int32
+          type: integer
+        profit:
+          description: Profit attributed.
+          type: number
+        returned_to_sender:
+          description: Postcards returned to sender.
+          format: int32
+          type: integer
+        revenue:
+          description: Revenue attributed.
+          type: number
+        sent:
+          description: Sends.
+          format: int32
+          type: integer
+        skipped:
+          description: Customers skipped.
+          format: int32
+          type: integer
+        spam:
+          description: Spam complaints.
+          format: int32
+          type: integer
+        unsubscribed:
+          description: Unsubscribes.
+          format: int32
+          type: integer
+      type: object
+    SfvbCommsStepStat:
+      example:
+        step_uuid: step_uuid
+        email_uuid: email_uuid
+        stats:
+          not_measured:
+          - not_measured
+          - not_measured
+          conversions: 5
+          returned_to_sender: 1
+          channel: channel
+          delivered: 2
+          finished: 7
+          opened: 2
+          bounced: 6
+          clicked: 1
+          sent: 1
+          skipped: 6
+          in_progress: 9
+          revenue: 1.0246457001441578
+          unsubscribed: 1
+          invalid: 3
+          orders: 4
+          customers: 5
+          spam: 7
+          profit: 7.386281948385884
+        name: name
+        postcard_uuid: postcard_uuid
+        variant_name: variant_name
+        label: label
+        branches:
+        - stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          label: label
+        - stats:
+            not_measured:
+            - not_measured
+            - not_measured
+            conversions: 5
+            returned_to_sender: 1
+            channel: channel
+            delivered: 2
+            finished: 7
+            opened: 2
+            bounced: 6
+            clicked: 1
+            sent: 1
+            skipped: 6
+            in_progress: 9
+            revenue: 1.0246457001441578
+            unsubscribed: 1
+            invalid: 3
+            orders: 4
+            customers: 5
+            spam: 7
+            profit: 7.386281948385884
+          label: label
+        type: type
+      properties:
+        branches:
+          description: "Each side's counts, for a condition, split or InboxGeek step."
+          items:
+            $ref: '#/components/schemas/SfvbCommsBranchStat'
+          type: array
+        email_uuid:
+          description: "The email it sends, for an email or experiment variant."
+          type: string
+        label:
+          description: The step type as the admin shows it.
+          type: string
+        name:
+          description: "The step's name, if it has one."
+          type: string
+        postcard_uuid:
+          description: "The postcard it mails, for a postcard step."
+          type: string
+        stats:
+          $ref: '#/components/schemas/SfvbCommsStat'
+        step_uuid:
+          description: The step.
+          type: string
+        type:
+          description: The step type.
+          type: string
+        variant_name:
+          description: "The experiment variant, for an experiment step."
+          type: string
+      type: object
+    SfvbCommsTemplate:
+      example:
+        path: path
+        email_template_oid: 0
+        trigger_type: trigger_type
+        name: name
+        description: description
+        source: source
+        sort_order: 6
+      properties:
+        description:
+          description: The description.
+          type: string
+        email_template_oid:
+          description: "The saved template's id, for a storefront or system template."
+          format: int32
+          type: integer
+        name:
+          description: The name.
+          type: string
+        path:
+          description: "The theme file, for a base template."
+          type: string
+        sort_order:
+          description: The admin's order.
+          format: int32
+          type: integer
+        source:
+          description: "storefront (saved on this storefront), system (UltraCart's),\
+            \ or base (a theme file an email renders inside)."
+          type: string
+        trigger_type:
+          description: "The flow trigger the template is meant for, or none."
+          type: string
+      type: object
+    SfvbCommsTemplateResponse:
+      example:
+        container_cjson: container_cjson
+        template:
+          path: path
+          email_template_oid: 0
+          trigger_type: trigger_type
+          name: name
+          description: description
+          source: source
+          sort_order: 6
+        notes:
+        - notes
+        - notes
+        email_template_vm_path: email_template_vm_path
+      properties:
+        container_cjson:
+          description: "The template's body, as CJSON."
+          type: string
+        email_template_vm_path:
+          description: The Velocity template it renders inside.  Its content isn't
+            shown here.
+          type: string
+        notes:
+          description: What isn't shown.
+          items:
+            type: string
+          type: array
+        template:
+          $ref: '#/components/schemas/SfvbCommsTemplate'
+      type: object
+    SfvbCommsTemplatesResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        templates:
+        - path: path
+          email_template_oid: 0
+          trigger_type: trigger_type
+          name: name
+          description: description
+          source: source
+          sort_order: 6
+        - path: path
+          email_template_oid: 0
+          trigger_type: trigger_type
+          name: name
+          description: description
+          source: source
+          sort_order: 6
+      properties:
+        notes:
+          description: What each source is.
+          items:
+            type: string
+          type: array
+        templates:
+          description: "Saved templates first (system, then this storefront's), then\
+            \ base templates."
+          items:
+            $ref: '#/components/schemas/SfvbCommsTemplate'
+          type: array
+      type: object
+    SfvbCommsTestEmailRequest:
+      example:
+        to_email: to_email
+        email_uuid: email_uuid
+        cart_item_ids:
+        - cart_item_ids
+        - cart_item_ids
+        order_id: order_id
+      properties:
+        cart_item_ids:
+          description: Items for a cart flow's email.  The cart is built for the test.
+          items:
+            type: string
+          type: array
+        email_uuid:
+          description: "The email, which this step sends.  For an experiment step,\
+            \ one variant's email."
+          type: string
+        order_id:
+          description: A test order to render an order flow's email with.  A real
+            customer's order is refused.
+          type: string
+        to_email:
+          description: "The recipient, which must be the email address of a user on\
+            \ this account."
+          type: string
+      type: object
+    SfvbCommsTestPostcardRequest:
+      example:
+        mail_card: true
+        address2: address2
+        city: city
+        address1: address1
+        cart_item_ids:
+        - cart_item_ids
+        - cart_item_ids
+        name: name
+        dry_run: true
+        state: state
+        postal_code: postal_code
+        order_id: order_id
+      properties:
+        address1:
+          description: The street address.
+          type: string
+        address2:
+          description: The second address line.
+          type: string
+        cart_item_ids:
+          description: Items for a cart flow's card.
+          items:
+            type: string
+          type: array
+        city:
+          description: The city.
+          type: string
+        dry_run:
+          description: "Check everything, including that postcards are turned on,\
+            \ and show the cost, without mailing or using an approval."
+          type: boolean
+        mail_card:
+          description: Must be true.  Without it nothing is mailed; use the postcard
+            proof to see the card.
+          type: boolean
+        name:
+          description: The recipient's name.
+          type: string
+        order_id:
+          description: A test order to render an order flow's card with.  A real customer's
+            order is refused.
+          type: string
+        postal_code:
+          description: The postal code.
+          type: string
+        state:
+          description: The state.
+          type: string
+      type: object
+    SfvbCommsTestSendResponse:
+      example:
+        cost: 0.8008281904610115
+        notes:
+        - notes
+        - notes
+        channel: channel
+        recipient: recipient
+        dry_run: true
+        body: body
+        sent: true
+        skipped_reason: skipped_reason
+      properties:
+        body:
+          description: "For an SMS, the message as sent."
+          type: string
+        channel:
+          description: "email, sms or postcard."
+          type: string
+        cost:
+          description: "For a postcard, what this card costs the account."
+          type: number
+        dry_run:
+          description: True when nothing was sent.
+          type: boolean
+        notes:
+          description: "What else happened, such as records created by the test."
+          items:
+            type: string
+          type: array
+        recipient:
+          description: "Who it went to, as a user on this account (their login), or\
+            \ the postcard's city and state."
+          type: string
+        sent:
+          description: True when it was sent or mailed.  False on a dry run or when
+            it was skipped.
+          type: boolean
+        skipped_reason:
+          description: "Why it wasn't sent or mailed, when it wasn't."
+          type: string
+      type: object
+    SfvbCommsTestSmsRequest:
+      example:
+        to_phone: to_phone
+      properties:
+        to_phone:
+          description: "The recipient in E.164 form, such as +14045550100.  It must\
+            \ be the cell phone of a user on this account."
+          type: string
       type: object
     SfvbCommsTwilioAccount:
       example:

@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbAffiliateNetworkRequest;
 import com.ultracart.admin.v2.models.SfvbApprovalParams;
+import com.ultracart.admin.v2.models.SfvbCommsProviderImportRequest;
 import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
+import com.ultracart.admin.v2.models.SfvbCommsSettingsUpdateRequest;
+import com.ultracart.admin.v2.models.SfvbCommsTestPostcardRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
@@ -111,7 +114,13 @@ public class SfvbApprovalCreateRequest {
     
     SITE_SEO_CHANGE("site_seo.change"),
     
-    TRANSACTIONAL_EMAIL_UPDATE("transactional_email.update");
+    TRANSACTIONAL_EMAIL_UPDATE("transactional_email.update"),
+    
+    COMMS_SETTINGS_UPDATE("comms_settings.update"),
+    
+    COMMS_LIST_IMPORT("comms_list.import"),
+    
+    POSTCARD_TEST_MAIL("postcard.test_mail");
 
     private String value;
 
@@ -159,6 +168,14 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_AFFILIATE_NETWORK)
   private SfvbAffiliateNetworkRequest affiliateNetwork;
 
+  public static final String SERIALIZED_NAME_COMMS_LIST_IMPORT = "comms_list_import";
+  @SerializedName(SERIALIZED_NAME_COMMS_LIST_IMPORT)
+  private SfvbCommsProviderImportRequest commsListImport;
+
+  public static final String SERIALIZED_NAME_COMMS_SETTINGS = "comms_settings";
+  @SerializedName(SERIALIZED_NAME_COMMS_SETTINGS)
+  private SfvbCommsSettingsUpdateRequest commsSettings;
+
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
@@ -178,6 +195,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
   private SfvbApprovalParams params;
+
+  public static final String SERIALIZED_NAME_POSTCARD_TEST_MAIL = "postcard_test_mail";
+  @SerializedName(SERIALIZED_NAME_POSTCARD_TEST_MAIL)
+  private SfvbCommsTestPostcardRequest postcardTestMail;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -253,6 +274,52 @@ public class SfvbApprovalCreateRequest {
 
   public void setAffiliateNetwork(SfvbAffiliateNetworkRequest affiliateNetwork) {
     this.affiliateNetwork = affiliateNetwork;
+  }
+
+
+  public SfvbApprovalCreateRequest commsListImport(SfvbCommsProviderImportRequest commsListImport) {
+    
+    this.commsListImport = commsListImport;
+    return this;
+  }
+
+   /**
+   * Get commsListImport
+   * @return commsListImport
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCommsProviderImportRequest getCommsListImport() {
+    return commsListImport;
+  }
+
+
+  public void setCommsListImport(SfvbCommsProviderImportRequest commsListImport) {
+    this.commsListImport = commsListImport;
+  }
+
+
+  public SfvbApprovalCreateRequest commsSettings(SfvbCommsSettingsUpdateRequest commsSettings) {
+    
+    this.commsSettings = commsSettings;
+    return this;
+  }
+
+   /**
+   * Get commsSettings
+   * @return commsSettings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCommsSettingsUpdateRequest getCommsSettings() {
+    return commsSettings;
+  }
+
+
+  public void setCommsSettings(SfvbCommsSettingsUpdateRequest commsSettings) {
+    this.commsSettings = commsSettings;
   }
 
 
@@ -376,6 +443,29 @@ public class SfvbApprovalCreateRequest {
 
   public void setParams(SfvbApprovalParams params) {
     this.params = params;
+  }
+
+
+  public SfvbApprovalCreateRequest postcardTestMail(SfvbCommsTestPostcardRequest postcardTestMail) {
+    
+    this.postcardTestMail = postcardTestMail;
+    return this;
+  }
+
+   /**
+   * Get postcardTestMail
+   * @return postcardTestMail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCommsTestPostcardRequest getPostcardTestMail() {
+    return postcardTestMail;
+  }
+
+
+  public void setPostcardTestMail(SfvbCommsTestPostcardRequest postcardTestMail) {
+    this.postcardTestMail = postcardTestMail;
   }
 
 
@@ -560,11 +650,14 @@ public class SfvbApprovalCreateRequest {
     SfvbApprovalCreateRequest sfvbApprovalCreateRequest = (SfvbApprovalCreateRequest) o;
     return Objects.equals(this.action, sfvbApprovalCreateRequest.action) &&
         Objects.equals(this.affiliateNetwork, sfvbApprovalCreateRequest.affiliateNetwork) &&
+        Objects.equals(this.commsListImport, sfvbApprovalCreateRequest.commsListImport) &&
+        Objects.equals(this.commsSettings, sfvbApprovalCreateRequest.commsSettings) &&
         Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
         Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
+        Objects.equals(this.postcardTestMail, sfvbApprovalCreateRequest.postcardTestMail) &&
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
         Objects.equals(this.redirectRows, sfvbApprovalCreateRequest.redirectRows) &&
         Objects.equals(this.segmentUpdate, sfvbApprovalCreateRequest.segmentUpdate) &&
@@ -576,7 +669,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, content, experimentStart, itemAttributeRows, itemPricing, params, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
+    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, itemAttributeRows, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -585,11 +678,14 @@ public class SfvbApprovalCreateRequest {
     sb.append("class SfvbApprovalCreateRequest {\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    affiliateNetwork: ").append(toIndentedString(affiliateNetwork)).append("\n");
+    sb.append("    commsListImport: ").append(toIndentedString(commsListImport)).append("\n");
+    sb.append("    commsSettings: ").append(toIndentedString(commsSettings)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
     sb.append("    itemPricing: ").append(toIndentedString(itemPricing)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    postcardTestMail: ").append(toIndentedString(postcardTestMail)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    redirectRows: ").append(toIndentedString(redirectRows)).append("\n");
     sb.append("    segmentUpdate: ").append(toIndentedString(segmentUpdate)).append("\n");
@@ -621,11 +717,14 @@ public class SfvbApprovalCreateRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("action");
     openapiFields.add("affiliate_network");
+    openapiFields.add("comms_list_import");
+    openapiFields.add("comms_settings");
     openapiFields.add("content");
     openapiFields.add("experiment_start");
     openapiFields.add("item_attribute_rows");
     openapiFields.add("item_pricing");
     openapiFields.add("params");
+    openapiFields.add("postcard_test_mail");
     openapiFields.add("reason");
     openapiFields.add("redirect_rows");
     openapiFields.add("segment_update");
@@ -667,6 +766,14 @@ public class SfvbApprovalCreateRequest {
       if (jsonObj.getAsJsonObject("affiliate_network") != null) {
         SfvbAffiliateNetworkRequest.validateJsonObject(jsonObj.getAsJsonObject("affiliate_network"));
       }
+      // validate the optional field `comms_list_import`
+      if (jsonObj.getAsJsonObject("comms_list_import") != null) {
+        SfvbCommsProviderImportRequest.validateJsonObject(jsonObj.getAsJsonObject("comms_list_import"));
+      }
+      // validate the optional field `comms_settings`
+      if (jsonObj.getAsJsonObject("comms_settings") != null) {
+        SfvbCommsSettingsUpdateRequest.validateJsonObject(jsonObj.getAsJsonObject("comms_settings"));
+      }
       if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }
@@ -693,6 +800,10 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `params`
       if (jsonObj.getAsJsonObject("params") != null) {
         SfvbApprovalParams.validateJsonObject(jsonObj.getAsJsonObject("params"));
+      }
+      // validate the optional field `postcard_test_mail`
+      if (jsonObj.getAsJsonObject("postcard_test_mail") != null) {
+        SfvbCommsTestPostcardRequest.validateJsonObject(jsonObj.getAsJsonObject("postcard_test_mail"));
       }
       if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));

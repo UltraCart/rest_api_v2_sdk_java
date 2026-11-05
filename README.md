@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.231</version>
+    <version>4.1.232</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.231"
+     implementation "com.ultracart:rest-sdk:4.1.232"
   }
 ```
 
@@ -561,14 +561,22 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCampaign**](docs/SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCommsDashboardStats**](docs/SfvbApi.md#getSfvbCommsDashboardStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
+*SfvbApi* | [**getSfvbCommsEmailClicks**](docs/SfvbApi.md#getSfvbCommsEmailClicks) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks | Read each link in one email and how often it was clicked
 *SfvbApi* | [**getSfvbCommsFolder**](docs/SfvbApi.md#getSfvbCommsFolder) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders/{folder_uuid} | Read one list and segment folder
 *SfvbApi* | [**getSfvbCommsFolders**](docs/SfvbApi.md#getSfvbCommsFolders) | **GET** /sfvb/storefronts/{storefront_oid}/list_segment_folders | List the list and segment folders
 *SfvbApi* | [**getSfvbCommsList**](docs/SfvbApi.md#getSfvbCommsList) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Read one email list
 *SfvbApi* | [**getSfvbCommsListMembers**](docs/SfvbApi.md#getSfvbCommsListMembers) | **GET** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid}/members | Read one page of a list&#39;s members
+*SfvbApi* | [**getSfvbCommsPlan**](docs/SfvbApi.md#getSfvbCommsPlan) | **GET** /sfvb/storefronts/{storefront_oid}/comms/plan | Read the account&#39;s communications plan and sending health
+*SfvbApi* | [**getSfvbCommsProviders**](docs/SfvbApi.md#getSfvbCommsProviders) | **GET** /sfvb/storefronts/{storefront_oid}/comms/providers | List the email providers the account can import lists from
 *SfvbApi* | [**getSfvbCommsSegment**](docs/SfvbApi.md#getSfvbCommsSegment) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Read one segment, with its rule
 *SfvbApi* | [**getSfvbCommsSegmentMembers**](docs/SfvbApi.md#getSfvbCommsSegmentMembers) | **GET** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid}/members | Read one page of a segment&#39;s members
 *SfvbApi* | [**getSfvbCommsSendingDomain**](docs/SfvbApi.md#getSfvbCommsSendingDomain) | **GET** /sfvb/comms/sending_domains/{domain} | Read a sending domain
 *SfvbApi* | [**getSfvbCommsSendingDomains**](docs/SfvbApi.md#getSfvbCommsSendingDomains) | **GET** /sfvb/comms/sending_domains | List the sending domains
+*SfvbApi* | [**getSfvbCommsSequenceStats**](docs/SfvbApi.md#getSfvbCommsSequenceStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/stats | Read a flow&#39;s or campaign&#39;s counts, overall and step by step
+*SfvbApi* | [**getSfvbCommsSettings**](docs/SfvbApi.md#getSfvbCommsSettings) | **GET** /sfvb/storefronts/{storefront_oid}/comms/settings | Read a storefront&#39;s communications settings
+*SfvbApi* | [**getSfvbCommsTemplate**](docs/SfvbApi.md#getSfvbCommsTemplate) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid} | Read one saved email template&#39;s body
+*SfvbApi* | [**getSfvbCommsTemplates**](docs/SfvbApi.md#getSfvbCommsTemplates) | **GET** /sfvb/storefronts/{storefront_oid}/comms/templates | List the email templates a new email can start from
 *SfvbApi* | [**getSfvbCommsTwilioAccount**](docs/SfvbApi.md#getSfvbCommsTwilioAccount) | **GET** /sfvb/comms/twilio_account | Read the Twilio account
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
@@ -638,6 +646,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbVersion**](docs/SfvbApi.md#getSfvbVersion) | **GET** /sfvb/version | Compiler version for this merchant
 *SfvbApi* | [**getSfvbWhoami**](docs/SfvbApi.md#getSfvbWhoami) | **GET** /sfvb/whoami | Who this token is
 *SfvbApi* | [**ignoreSfvbNotFoundEntry**](docs/SfvbApi.md#ignoreSfvbNotFoundEntry) | **POST** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Ignore a 404 path
+*SfvbApi* | [**importSfvbCommsProviderLists**](docs/SfvbApi.md#importSfvbCommsProviderLists) | **POST** /sfvb/storefronts/{storefront_oid}/comms/providers/import | Import lists from another email provider
 *SfvbApi* | [**importSfvbRedirects**](docs/SfvbApi.md#importSfvbRedirects) | **POST** /sfvb/storefronts/{storefront_oid}/redirects/import | Apply a reviewed redirect import
 *SfvbApi* | [**insertSfvbAffiliateNetwork**](docs/SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 *SfvbApi* | [**insertSfvbApproval**](docs/SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
@@ -722,6 +731,9 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**setSfvbLibraryScreenshot**](docs/SfvbApi.md#setSfvbLibraryScreenshot) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/screenshot | Set a library entry&#39;s screenshot
 *SfvbApi* | [**shareSfvbLibraryEntry**](docs/SfvbApi.md#shareSfvbLibraryEntry) | **POST** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/shares | Share a published library entry with a linked account
 *SfvbApi* | [**startSfvbExperiment**](docs/SfvbApi.md#startSfvbExperiment) | **POST** /sfvb/storefronts/{storefront_oid}/experiments | Start an experiment
+*SfvbApi* | [**testSfvbCommsEmail**](docs/SfvbApi.md#testSfvbCommsEmail) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_email | Send one test of an email step&#39;s email to a user on this account
+*SfvbApi* | [**testSfvbCommsPostcard**](docs/SfvbApi.md#testSfvbCommsPostcard) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_postcard | Print and mail one real test postcard
+*SfvbApi* | [**testSfvbCommsSms**](docs/SfvbApi.md#testSfvbCommsSms) | **POST** /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/steps/{step_uuid}/test_sms | Send one test of an SMS step to a user on this account
 *SfvbApi* | [**unarchiveSfvbUpsellPath**](docs/SfvbApi.md#unarchiveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/unarchive | Unarchive an upsell path
 *SfvbApi* | [**unfavoriteSfvbLibraryEntry**](docs/SfvbApi.md#unfavoriteSfvbLibraryEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/library/{library_oid}/favorite | Remove a library entry from favorites
 *SfvbApi* | [**unignoreSfvbNotFoundEntry**](docs/SfvbApi.md#unignoreSfvbNotFoundEntry) | **DELETE** /sfvb/storefronts/{storefront_oid}/not_found/{not_found_id}/ignore | Stop ignoring a 404 path
@@ -734,6 +746,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbCommsList**](docs/SfvbApi.md#updateSfvbCommsList) | **PUT** /sfvb/storefronts/{storefront_oid}/lists/{list_uuid} | Change an email list&#39;s name, folder or public settings
 *SfvbApi* | [**updateSfvbCommsSegment**](docs/SfvbApi.md#updateSfvbCommsSegment) | **PUT** /sfvb/storefronts/{storefront_oid}/segments/{segment_uuid} | Change a segment&#39;s name, rule or folder
 *SfvbApi* | [**updateSfvbCommsSendingDomain**](docs/SfvbApi.md#updateSfvbCommsSendingDomain) | **PUT** /sfvb/comms/sending_domains/{domain} | Update a sending domain
+*SfvbApi* | [**updateSfvbCommsSettings**](docs/SfvbApi.md#updateSfvbCommsSettings) | **PUT** /sfvb/storefronts/{storefront_oid}/comms/settings | Change a storefront&#39;s communications settings
 *SfvbApi* | [**updateSfvbCommsTwilioAccount**](docs/SfvbApi.md#updateSfvbCommsTwilioAccount) | **PUT** /sfvb/comms/twilio_account | Update the Twilio account
 *SfvbApi* | [**updateSfvbEmail**](docs/SfvbApi.md#updateSfvbEmail) | **PUT** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Change a flow or campaign email&#39;s subject or preview text
 *SfvbApi* | [**updateSfvbFlow**](docs/SfvbApi.md#updateSfvbFlow) | **PUT** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Change a flow
@@ -2004,6 +2017,13 @@ Class | Method | HTTP request | Description
  - [SfvbCampaignsResponse](docs/SfvbCampaignsResponse.md)
  - [SfvbCodeLibraryEmail](docs/SfvbCodeLibraryEmail.md)
  - [SfvbCodeLibraryEmailsResponse](docs/SfvbCodeLibraryEmailsResponse.md)
+ - [SfvbCommsBranchStat](docs/SfvbCommsBranchStat.md)
+ - [SfvbCommsChange](docs/SfvbCommsChange.md)
+ - [SfvbCommsClick](docs/SfvbCommsClick.md)
+ - [SfvbCommsClicksResponse](docs/SfvbCommsClicksResponse.md)
+ - [SfvbCommsDailyStat](docs/SfvbCommsDailyStat.md)
+ - [SfvbCommsDashboardResponse](docs/SfvbCommsDashboardResponse.md)
+ - [SfvbCommsDashboardRow](docs/SfvbCommsDashboardRow.md)
  - [SfvbCommsDnsRecord](docs/SfvbCommsDnsRecord.md)
  - [SfvbCommsEmail](docs/SfvbCommsEmail.md)
  - [SfvbCommsFolder](docs/SfvbCommsFolder.md)
@@ -2018,15 +2038,37 @@ Class | Method | HTTP request | Description
  - [SfvbCommsListsResponse](docs/SfvbCommsListsResponse.md)
  - [SfvbCommsMember](docs/SfvbCommsMember.md)
  - [SfvbCommsMembersResponse](docs/SfvbCommsMembersResponse.md)
+ - [SfvbCommsPlan](docs/SfvbCommsPlan.md)
+ - [SfvbCommsPlanResponse](docs/SfvbCommsPlanResponse.md)
  - [SfvbCommsPostcard](docs/SfvbCommsPostcard.md)
+ - [SfvbCommsProvider](docs/SfvbCommsProvider.md)
+ - [SfvbCommsProviderImportRequest](docs/SfvbCommsProviderImportRequest.md)
+ - [SfvbCommsProviderImportResponse](docs/SfvbCommsProviderImportResponse.md)
+ - [SfvbCommsProviderList](docs/SfvbCommsProviderList.md)
+ - [SfvbCommsProvidersResponse](docs/SfvbCommsProvidersResponse.md)
  - [SfvbCommsSegment](docs/SfvbCommsSegment.md)
  - [SfvbCommsSegmentDetail](docs/SfvbCommsSegmentDetail.md)
  - [SfvbCommsSegmentResponse](docs/SfvbCommsSegmentResponse.md)
  - [SfvbCommsSegmentUsedBy](docs/SfvbCommsSegmentUsedBy.md)
  - [SfvbCommsSegmentWriteRequest](docs/SfvbCommsSegmentWriteRequest.md)
  - [SfvbCommsSegmentsResponse](docs/SfvbCommsSegmentsResponse.md)
+ - [SfvbCommsSender](docs/SfvbCommsSender.md)
+ - [SfvbCommsSenderUpdate](docs/SfvbCommsSenderUpdate.md)
  - [SfvbCommsSendingDomain](docs/SfvbCommsSendingDomain.md)
  - [SfvbCommsSendingDomainsResponse](docs/SfvbCommsSendingDomainsResponse.md)
+ - [SfvbCommsSequenceStatsResponse](docs/SfvbCommsSequenceStatsResponse.md)
+ - [SfvbCommsSettings](docs/SfvbCommsSettings.md)
+ - [SfvbCommsSettingsResponse](docs/SfvbCommsSettingsResponse.md)
+ - [SfvbCommsSettingsUpdateRequest](docs/SfvbCommsSettingsUpdateRequest.md)
+ - [SfvbCommsStat](docs/SfvbCommsStat.md)
+ - [SfvbCommsStepStat](docs/SfvbCommsStepStat.md)
+ - [SfvbCommsTemplate](docs/SfvbCommsTemplate.md)
+ - [SfvbCommsTemplateResponse](docs/SfvbCommsTemplateResponse.md)
+ - [SfvbCommsTemplatesResponse](docs/SfvbCommsTemplatesResponse.md)
+ - [SfvbCommsTestEmailRequest](docs/SfvbCommsTestEmailRequest.md)
+ - [SfvbCommsTestPostcardRequest](docs/SfvbCommsTestPostcardRequest.md)
+ - [SfvbCommsTestSendResponse](docs/SfvbCommsTestSendResponse.md)
+ - [SfvbCommsTestSmsRequest](docs/SfvbCommsTestSmsRequest.md)
  - [SfvbCommsTwilioAccount](docs/SfvbCommsTwilioAccount.md)
  - [SfvbCommsTwilioAccountResponse](docs/SfvbCommsTwilioAccountResponse.md)
  - [SfvbCompileRequest](docs/SfvbCompileRequest.md)
@@ -2484,6 +2526,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.232 | 11/05/2026 | sfvb internal testing |
 | 4.1.231 | 11/05/2026 | sfvb internal testing |
 | 4.1.230 | 11/05/2026 | sfvb internal testing |
 | 4.1.229 | 11/04/2026 | sfvb internal testing |
