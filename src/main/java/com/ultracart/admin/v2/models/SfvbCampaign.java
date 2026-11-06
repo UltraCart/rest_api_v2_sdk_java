@@ -82,6 +82,14 @@ public class SfvbCampaign {
   @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE)
   private Boolean endOnceCustomerPurchasesAnywhere;
 
+  public static final String SERIALIZED_NAME_FOLDER_NAME = "folder_name";
+  @SerializedName(SERIALIZED_NAME_FOLDER_NAME)
+  private String folderName;
+
+  public static final String SERIALIZED_NAME_FOLDER_UUID = "folder_uuid";
+  @SerializedName(SERIALIZED_NAME_FOLDER_UUID)
+  private String folderUuid;
+
   public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
@@ -303,6 +311,52 @@ public class SfvbCampaign {
 
   public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
     this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public SfvbCampaign folderName(String folderName) {
+    
+    this.folderName = folderName;
+    return this;
+  }
+
+   /**
+   * That folder&#39;s name.
+   * @return folderName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "That folder's name.")
+
+  public String getFolderName() {
+    return folderName;
+  }
+
+
+  public void setFolderName(String folderName) {
+    this.folderName = folderName;
+  }
+
+
+  public SfvbCampaign folderUuid(String folderUuid) {
+    
+    this.folderUuid = folderUuid;
+    return this;
+  }
+
+   /**
+   * The campaign folder it is filed in, or none.
+   * @return folderUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The campaign folder it is filed in, or none.")
+
+  public String getFolderUuid() {
+    return folderUuid;
+  }
+
+
+  public void setFolderUuid(String folderUuid) {
+    this.folderUuid = folderUuid;
   }
 
 
@@ -646,6 +700,8 @@ public class SfvbCampaign {
         Objects.equals(this.emails, sfvbCampaign.emails) &&
         Objects.equals(this.endOnceCustomerPurchases, sfvbCampaign.endOnceCustomerPurchases) &&
         Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbCampaign.endOnceCustomerPurchasesAnywhere) &&
+        Objects.equals(this.folderName, sfvbCampaign.folderName) &&
+        Objects.equals(this.folderUuid, sfvbCampaign.folderUuid) &&
         Objects.equals(this.hashSha256, sfvbCampaign.hashSha256) &&
         Objects.equals(this.live, sfvbCampaign.live) &&
         Objects.equals(this.memberships, sfvbCampaign.memberships) &&
@@ -663,7 +719,7 @@ public class SfvbCampaign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, hashSha256, live, memberships, name, notes, postcards, scheduledDts, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts);
+    return Objects.hash(campaignUuid, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, folderName, folderUuid, hashSha256, live, memberships, name, notes, postcards, scheduledDts, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts);
   }
 
   @Override
@@ -677,6 +733,8 @@ public class SfvbCampaign {
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
     sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
+    sb.append("    folderName: ").append(toIndentedString(folderName)).append("\n");
+    sb.append("    folderUuid: ").append(toIndentedString(folderUuid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
@@ -719,6 +777,8 @@ public class SfvbCampaign {
     openapiFields.add("emails");
     openapiFields.add("end_once_customer_purchases");
     openapiFields.add("end_once_customer_purchases_anywhere");
+    openapiFields.add("folder_name");
+    openapiFields.add("folder_uuid");
     openapiFields.add("hash_sha256");
     openapiFields.add("live");
     openapiFields.add("memberships");
@@ -779,6 +839,12 @@ public class SfvbCampaign {
         for (int i = 0; i < jsonArrayemails.size(); i++) {
           SfvbCommsEmail.validateJsonObject(jsonArrayemails.get(i).getAsJsonObject());
         };
+      }
+      if (jsonObj.get("folder_name") != null && !jsonObj.get("folder_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_name").toString()));
+      }
+      if (jsonObj.get("folder_uuid") != null && !jsonObj.get("folder_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_uuid").toString()));
       }
       if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));

@@ -27,6 +27,7 @@ import com.ultracart.admin.v2.models.SfvbCommsSegmentWriteRequest;
 import com.ultracart.admin.v2.models.SfvbCommsSettingsUpdateRequest;
 import com.ultracart.admin.v2.models.SfvbCommsTestPostcardRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
+import com.ultracart.admin.v2.models.SfvbFlowBackfillRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
@@ -120,7 +121,9 @@ public class SfvbApprovalCreateRequest {
     
     COMMS_LIST_IMPORT("comms_list.import"),
     
-    POSTCARD_TEST_MAIL("postcard.test_mail");
+    POSTCARD_TEST_MAIL("postcard.test_mail"),
+    
+    FLOW_BACKFILL("flow.backfill");
 
     private String value;
 
@@ -183,6 +186,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_EXPERIMENT_START = "experiment_start";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_START)
   private SfvbExperimentStartRequest experimentStart;
+
+  public static final String SERIALIZED_NAME_FLOW_BACKFILL = "flow_backfill";
+  @SerializedName(SERIALIZED_NAME_FLOW_BACKFILL)
+  private SfvbFlowBackfillRequest flowBackfill;
 
   public static final String SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS = "item_attribute_rows";
   @SerializedName(SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS)
@@ -366,6 +373,29 @@ public class SfvbApprovalCreateRequest {
 
   public void setExperimentStart(SfvbExperimentStartRequest experimentStart) {
     this.experimentStart = experimentStart;
+  }
+
+
+  public SfvbApprovalCreateRequest flowBackfill(SfvbFlowBackfillRequest flowBackfill) {
+    
+    this.flowBackfill = flowBackfill;
+    return this;
+  }
+
+   /**
+   * Get flowBackfill
+   * @return flowBackfill
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbFlowBackfillRequest getFlowBackfill() {
+    return flowBackfill;
+  }
+
+
+  public void setFlowBackfill(SfvbFlowBackfillRequest flowBackfill) {
+    this.flowBackfill = flowBackfill;
   }
 
 
@@ -654,6 +684,7 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.commsSettings, sfvbApprovalCreateRequest.commsSettings) &&
         Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
+        Objects.equals(this.flowBackfill, sfvbApprovalCreateRequest.flowBackfill) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
         Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
@@ -669,7 +700,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, itemAttributeRows, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
+    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -682,6 +713,7 @@ public class SfvbApprovalCreateRequest {
     sb.append("    commsSettings: ").append(toIndentedString(commsSettings)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
+    sb.append("    flowBackfill: ").append(toIndentedString(flowBackfill)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
     sb.append("    itemPricing: ").append(toIndentedString(itemPricing)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
@@ -721,6 +753,7 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("comms_settings");
     openapiFields.add("content");
     openapiFields.add("experiment_start");
+    openapiFields.add("flow_backfill");
     openapiFields.add("item_attribute_rows");
     openapiFields.add("item_pricing");
     openapiFields.add("params");
@@ -780,6 +813,10 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `experiment_start`
       if (jsonObj.getAsJsonObject("experiment_start") != null) {
         SfvbExperimentStartRequest.validateJsonObject(jsonObj.getAsJsonObject("experiment_start"));
+      }
+      // validate the optional field `flow_backfill`
+      if (jsonObj.getAsJsonObject("flow_backfill") != null) {
+        SfvbFlowBackfillRequest.validateJsonObject(jsonObj.getAsJsonObject("flow_backfill"));
       }
       JsonArray jsonArrayitemAttributeRows = jsonObj.getAsJsonArray("item_attribute_rows");
       if (jsonArrayitemAttributeRows != null) {

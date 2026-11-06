@@ -61,6 +61,10 @@ public class SfvbFlowWriteRequest {
   @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE)
   private Boolean endOnceCustomerPurchasesAnywhere;
 
+  public static final String SERIALIZED_NAME_FOLDER_UUID = "folder_uuid";
+  @SerializedName(SERIALIZED_NAME_FOLDER_UUID)
+  private String folderUuid;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -211,6 +215,29 @@ public class SfvbFlowWriteRequest {
 
   public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
     this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public SfvbFlowWriteRequest folderUuid(String folderUuid) {
+    
+    this.folderUuid = folderUuid;
+    return this;
+  }
+
+   /**
+   * File it in this flow folder.  An empty value takes it out of its folder.
+   * @return folderUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "File it in this flow folder.  An empty value takes it out of its folder.")
+
+  public String getFolderUuid() {
+    return folderUuid;
+  }
+
+
+  public void setFolderUuid(String folderUuid) {
+    this.folderUuid = folderUuid;
   }
 
 
@@ -411,6 +438,7 @@ public class SfvbFlowWriteRequest {
     return Objects.equals(this.allowMultipleConcurrentEnrollments, sfvbFlowWriteRequest.allowMultipleConcurrentEnrollments) &&
         Objects.equals(this.endOnceCustomerPurchases, sfvbFlowWriteRequest.endOnceCustomerPurchases) &&
         Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbFlowWriteRequest.endOnceCustomerPurchasesAnywhere) &&
+        Objects.equals(this.folderUuid, sfvbFlowWriteRequest.folderUuid) &&
         Objects.equals(this.name, sfvbFlowWriteRequest.name) &&
         Objects.equals(this.reentryDelayDays, sfvbFlowWriteRequest.reentryDelayDays) &&
         Objects.equals(this.reentryPolicy, sfvbFlowWriteRequest.reentryPolicy) &&
@@ -423,7 +451,7 @@ public class SfvbFlowWriteRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, name, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, triggerParameter, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, folderUuid, name, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, triggerParameter, triggerType);
   }
 
   @Override
@@ -433,6 +461,7 @@ public class SfvbFlowWriteRequest {
     sb.append("    allowMultipleConcurrentEnrollments: ").append(toIndentedString(allowMultipleConcurrentEnrollments)).append("\n");
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
     sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
+    sb.append("    folderUuid: ").append(toIndentedString(folderUuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    reentryDelayDays: ").append(toIndentedString(reentryDelayDays)).append("\n");
     sb.append("    reentryPolicy: ").append(toIndentedString(reentryPolicy)).append("\n");
@@ -466,6 +495,7 @@ public class SfvbFlowWriteRequest {
     openapiFields.add("allow_multiple_concurrent_enrollments");
     openapiFields.add("end_once_customer_purchases");
     openapiFields.add("end_once_customer_purchases_anywhere");
+    openapiFields.add("folder_uuid");
     openapiFields.add("name");
     openapiFields.add("reentry_delay_days");
     openapiFields.add("reentry_policy");
@@ -500,6 +530,9 @@ public class SfvbFlowWriteRequest {
         if (!SfvbFlowWriteRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbFlowWriteRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("folder_uuid") != null && !jsonObj.get("folder_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_uuid").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

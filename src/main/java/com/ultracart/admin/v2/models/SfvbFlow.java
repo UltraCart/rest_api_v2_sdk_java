@@ -85,6 +85,14 @@ public class SfvbFlow {
   @SerializedName(SERIALIZED_NAME_FLOW_UUID)
   private String flowUuid;
 
+  public static final String SERIALIZED_NAME_FOLDER_NAME = "folder_name";
+  @SerializedName(SERIALIZED_NAME_FOLDER_NAME)
+  private String folderName;
+
+  public static final String SERIALIZED_NAME_FOLDER_UUID = "folder_uuid";
+  @SerializedName(SERIALIZED_NAME_FOLDER_UUID)
+  private String folderUuid;
+
   public static final String SERIALIZED_NAME_HASH_SHA256 = "hash_sha256";
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
@@ -341,6 +349,52 @@ public class SfvbFlow {
 
   public void setFlowUuid(String flowUuid) {
     this.flowUuid = flowUuid;
+  }
+
+
+  public SfvbFlow folderName(String folderName) {
+    
+    this.folderName = folderName;
+    return this;
+  }
+
+   /**
+   * That folder&#39;s name.
+   * @return folderName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "That folder's name.")
+
+  public String getFolderName() {
+    return folderName;
+  }
+
+
+  public void setFolderName(String folderName) {
+    this.folderName = folderName;
+  }
+
+
+  public SfvbFlow folderUuid(String folderUuid) {
+    
+    this.folderUuid = folderUuid;
+    return this;
+  }
+
+   /**
+   * The flow folder it is filed in, or none.
+   * @return folderUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The flow folder it is filed in, or none.")
+
+  public String getFolderUuid() {
+    return folderUuid;
+  }
+
+
+  public void setFolderUuid(String folderUuid) {
+    this.folderUuid = folderUuid;
   }
 
 
@@ -746,6 +800,8 @@ public class SfvbFlow {
         Objects.equals(this.endOnceCustomerPurchases, sfvbFlow.endOnceCustomerPurchases) &&
         Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbFlow.endOnceCustomerPurchasesAnywhere) &&
         Objects.equals(this.flowUuid, sfvbFlow.flowUuid) &&
+        Objects.equals(this.folderName, sfvbFlow.folderName) &&
+        Objects.equals(this.folderUuid, sfvbFlow.folderUuid) &&
         Objects.equals(this.hashSha256, sfvbFlow.hashSha256) &&
         Objects.equals(this.live, sfvbFlow.live) &&
         Objects.equals(this.name, sfvbFlow.name) &&
@@ -766,7 +822,7 @@ public class SfvbFlow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowMultipleConcurrentEnrollments, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, flowUuid, hashSha256, live, name, notes, postcards, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts, triggerParameter, triggerParameterName, triggerType);
+    return Objects.hash(allowMultipleConcurrentEnrollments, communicationSequenceUuid, createdDts, deleted, emails, endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, flowUuid, folderName, folderUuid, hashSha256, live, name, notes, postcards, reentryDelayDays, reentryPolicy, sendingDomainUuid, sendingName, sendingUser, smsPhoneNumber, status, statusDts, triggerParameter, triggerParameterName, triggerType);
   }
 
   @Override
@@ -781,6 +837,8 @@ public class SfvbFlow {
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
     sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
     sb.append("    flowUuid: ").append(toIndentedString(flowUuid)).append("\n");
+    sb.append("    folderName: ").append(toIndentedString(folderName)).append("\n");
+    sb.append("    folderUuid: ").append(toIndentedString(folderUuid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -827,6 +885,8 @@ public class SfvbFlow {
     openapiFields.add("end_once_customer_purchases");
     openapiFields.add("end_once_customer_purchases_anywhere");
     openapiFields.add("flow_uuid");
+    openapiFields.add("folder_name");
+    openapiFields.add("folder_uuid");
     openapiFields.add("hash_sha256");
     openapiFields.add("live");
     openapiFields.add("name");
@@ -890,6 +950,12 @@ public class SfvbFlow {
       }
       if (jsonObj.get("flow_uuid") != null && !jsonObj.get("flow_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `flow_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flow_uuid").toString()));
+      }
+      if (jsonObj.get("folder_name") != null && !jsonObj.get("folder_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_name").toString()));
+      }
+      if (jsonObj.get("folder_uuid") != null && !jsonObj.get("folder_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_uuid").toString()));
       }
       if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));

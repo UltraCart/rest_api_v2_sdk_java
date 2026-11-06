@@ -60,6 +60,10 @@ public class SfvbCampaignWriteRequest {
   @SerializedName(SERIALIZED_NAME_END_ONCE_CUSTOMER_PURCHASES_ANYWHERE)
   private Boolean endOnceCustomerPurchasesAnywhere;
 
+  public static final String SERIALIZED_NAME_FOLDER_UUID = "folder_uuid";
+  @SerializedName(SERIALIZED_NAME_FOLDER_UUID)
+  private String folderUuid;
+
   public static final String SERIALIZED_NAME_MEMBERSHIPS = "memberships";
   @SerializedName(SERIALIZED_NAME_MEMBERSHIPS)
   private List<SfvbCampaignMembership> memberships = null;
@@ -130,6 +134,29 @@ public class SfvbCampaignWriteRequest {
 
   public void setEndOnceCustomerPurchasesAnywhere(Boolean endOnceCustomerPurchasesAnywhere) {
     this.endOnceCustomerPurchasesAnywhere = endOnceCustomerPurchasesAnywhere;
+  }
+
+
+  public SfvbCampaignWriteRequest folderUuid(String folderUuid) {
+    
+    this.folderUuid = folderUuid;
+    return this;
+  }
+
+   /**
+   * File it in this campaign folder.  An empty value takes it out of its folder.
+   * @return folderUuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "File it in this campaign folder.  An empty value takes it out of its folder.")
+
+  public String getFolderUuid() {
+    return folderUuid;
+  }
+
+
+  public void setFolderUuid(String folderUuid) {
+    this.folderUuid = folderUuid;
   }
 
 
@@ -291,6 +318,7 @@ public class SfvbCampaignWriteRequest {
     SfvbCampaignWriteRequest sfvbCampaignWriteRequest = (SfvbCampaignWriteRequest) o;
     return Objects.equals(this.endOnceCustomerPurchases, sfvbCampaignWriteRequest.endOnceCustomerPurchases) &&
         Objects.equals(this.endOnceCustomerPurchasesAnywhere, sfvbCampaignWriteRequest.endOnceCustomerPurchasesAnywhere) &&
+        Objects.equals(this.folderUuid, sfvbCampaignWriteRequest.folderUuid) &&
         Objects.equals(this.memberships, sfvbCampaignWriteRequest.memberships) &&
         Objects.equals(this.name, sfvbCampaignWriteRequest.name) &&
         Objects.equals(this.scheduledDts, sfvbCampaignWriteRequest.scheduledDts) &&
@@ -301,7 +329,7 @@ public class SfvbCampaignWriteRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, memberships, name, scheduledDts, sendingDomainUuid, sendingName, sendingUser);
+    return Objects.hash(endOnceCustomerPurchases, endOnceCustomerPurchasesAnywhere, folderUuid, memberships, name, scheduledDts, sendingDomainUuid, sendingName, sendingUser);
   }
 
   @Override
@@ -310,6 +338,7 @@ public class SfvbCampaignWriteRequest {
     sb.append("class SfvbCampaignWriteRequest {\n");
     sb.append("    endOnceCustomerPurchases: ").append(toIndentedString(endOnceCustomerPurchases)).append("\n");
     sb.append("    endOnceCustomerPurchasesAnywhere: ").append(toIndentedString(endOnceCustomerPurchasesAnywhere)).append("\n");
+    sb.append("    folderUuid: ").append(toIndentedString(folderUuid)).append("\n");
     sb.append("    memberships: ").append(toIndentedString(memberships)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scheduledDts: ").append(toIndentedString(scheduledDts)).append("\n");
@@ -340,6 +369,7 @@ public class SfvbCampaignWriteRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("end_once_customer_purchases");
     openapiFields.add("end_once_customer_purchases_anywhere");
+    openapiFields.add("folder_uuid");
     openapiFields.add("memberships");
     openapiFields.add("name");
     openapiFields.add("scheduled_dts");
@@ -372,6 +402,9 @@ public class SfvbCampaignWriteRequest {
         if (!SfvbCampaignWriteRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbCampaignWriteRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if (jsonObj.get("folder_uuid") != null && !jsonObj.get("folder_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `folder_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_uuid").toString()));
       }
       JsonArray jsonArraymemberships = jsonObj.getAsJsonArray("memberships");
       if (jsonArraymemberships != null) {

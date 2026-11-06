@@ -68,6 +68,18 @@ public class SfvbCommsTemplateResponse {
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
   private SfvbCommsTemplate template;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_EXISTS = "template_exists";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_EXISTS)
+  private Boolean templateExists;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_NOTE = "template_note";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_NOTE)
+  private String templateNote;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_PATH = "template_path";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_PATH)
+  private String templatePath;
+
   public SfvbCommsTemplateResponse() { 
   }
 
@@ -101,11 +113,11 @@ public class SfvbCommsTemplateResponse {
   }
 
    /**
-   * The Velocity template it renders inside.  Its content isn&#39;t shown here.
+   * The Velocity template it renders inside, as stored.  It is looked up in the storefront&#39;s active theme.
    * @return emailTemplateVmPath
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The Velocity template it renders inside.  Its content isn't shown here.")
+  @ApiModelProperty(value = "The Velocity template it renders inside, as stored.  It is looked up in the storefront's active theme.")
 
   public String getEmailTemplateVmPath() {
     return emailTemplateVmPath;
@@ -171,6 +183,75 @@ public class SfvbCommsTemplateResponse {
   }
 
 
+  public SfvbCommsTemplateResponse templateExists(Boolean templateExists) {
+    
+    this.templateExists = templateExists;
+    return this;
+  }
+
+   /**
+   * True when the file at template_path exists.
+   * @return templateExists
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the file at template_path exists.")
+
+  public Boolean getTemplateExists() {
+    return templateExists;
+  }
+
+
+  public void setTemplateExists(Boolean templateExists) {
+    this.templateExists = templateExists;
+  }
+
+
+  public SfvbCommsTemplateResponse templateNote(String templateNote) {
+    
+    this.templateNote = templateNote;
+    return this;
+  }
+
+   /**
+   * Why there is no template file, or null when there is one.
+   * @return templateNote
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Why there is no template file, or null when there is one.")
+
+  public String getTemplateNote() {
+    return templateNote;
+  }
+
+
+  public void setTemplateNote(String templateNote) {
+    this.templateNote = templateNote;
+  }
+
+
+  public SfvbCommsTemplateResponse templatePath(String templatePath) {
+    
+    this.templatePath = templatePath;
+    return this;
+  }
+
+   /**
+   * The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.
+   * @return templatePath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The theme file that template is, as a render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.")
+
+  public String getTemplatePath() {
+    return templatePath;
+  }
+
+
+  public void setTemplatePath(String templatePath) {
+    this.templatePath = templatePath;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -184,12 +265,15 @@ public class SfvbCommsTemplateResponse {
     return Objects.equals(this.containerCjson, sfvbCommsTemplateResponse.containerCjson) &&
         Objects.equals(this.emailTemplateVmPath, sfvbCommsTemplateResponse.emailTemplateVmPath) &&
         Objects.equals(this.notes, sfvbCommsTemplateResponse.notes) &&
-        Objects.equals(this.template, sfvbCommsTemplateResponse.template);
+        Objects.equals(this.template, sfvbCommsTemplateResponse.template) &&
+        Objects.equals(this.templateExists, sfvbCommsTemplateResponse.templateExists) &&
+        Objects.equals(this.templateNote, sfvbCommsTemplateResponse.templateNote) &&
+        Objects.equals(this.templatePath, sfvbCommsTemplateResponse.templatePath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerCjson, emailTemplateVmPath, notes, template);
+    return Objects.hash(containerCjson, emailTemplateVmPath, notes, template, templateExists, templateNote, templatePath);
   }
 
   @Override
@@ -200,6 +284,9 @@ public class SfvbCommsTemplateResponse {
     sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    templateExists: ").append(toIndentedString(templateExists)).append("\n");
+    sb.append("    templateNote: ").append(toIndentedString(templateNote)).append("\n");
+    sb.append("    templatePath: ").append(toIndentedString(templatePath)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,6 +313,9 @@ public class SfvbCommsTemplateResponse {
     openapiFields.add("email_template_vm_path");
     openapiFields.add("notes");
     openapiFields.add("template");
+    openapiFields.add("template_exists");
+    openapiFields.add("template_note");
+    openapiFields.add("template_path");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -266,6 +356,12 @@ public class SfvbCommsTemplateResponse {
       // validate the optional field `template`
       if (jsonObj.getAsJsonObject("template") != null) {
         SfvbCommsTemplate.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      }
+      if (jsonObj.get("template_note") != null && !jsonObj.get("template_note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `template_note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_note").toString()));
+      }
+      if (jsonObj.get("template_path") != null && !jsonObj.get("template_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `template_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_path").toString()));
       }
   }
 

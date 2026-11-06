@@ -3533,6 +3533,93 @@ paths:
       x-codegen-request-body-name: validate_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/comms/lookup:
+    get:
+      description: "Takes a campaign, flow, sequence, step, email, postcard, list\
+        \ or segment uuid and says which of this account's storefronts it is on, what\
+        \ it is, the campaign or flow it belongs to, and the command that reads it.\
+        \  A uuid nothing on this account has, another account's included, is 404.\
+        \  Read only.\n"
+      operationId: getSfvbCommsLookup
+      parameters:
+      - description: The uuid to find.
+        in: query
+        name: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsLookupResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Find which storefront a communications uuid lives on
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/comms/sending_domains:
     get:
       description: "Every domain the account sends email from, with its provider,\
@@ -6258,6 +6345,460 @@ paths:
       x-codegen-request-body-name: blog_post_image_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/campaign_folders:
+    get:
+      description: "Each campaign folder with how many campaigns are filed in it,\
+        \ whether the admin made it, and its hash_sha256.\n"
+      operationId: getSfvbCommsCampaignFolders
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFoldersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the campaign folders
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "A new, empty folder.  File a campaign in it by setting its folder_uuid.\n"
+      operationId: insertSfvbCommsCampaignFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsFolderWriteRequest'
+        description: The new folder's name
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a campaign folder
+      tags:
+      - sfvb
+      x-codegen-request-body-name: folder_write_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid}:
+    delete:
+      description: "Its campaigns are kept and filed under no folder, as the admin\
+        \ does; items names each one.  Send the folder's hash_sha256 as If-Match.\
+        \  A folder the admin made itself (system_generated) can't be deleted here.\n"
+      operationId: deleteSfvbCommsCampaignFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The folder's hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a campaign folder
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The folder, with the name and uuid of each campaign filed in it.\n"
+      operationId: getSfvbCommsCampaignFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one campaign folder
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: |
+        Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here.
+      operationId: updateSfvbCommsCampaignFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The folder's hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsFolderWriteRequest'
+        description: The new name
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Rename a campaign folder
+      tags:
+      - sfvb
+      x-codegen-request-body-name: folder_write_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/campaigns:
     get:
       description: "One page of campaigns, newest first, each with its emails and\
@@ -6932,6 +7473,129 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/flows/{flow_uuid}/backfill:
+    post:
+      description: "Enrolls customers who would have met the flow's trigger before\
+        \ it existed: a segment trigger's members, or the orders of the last order_days_old\
+        \ days (1 to 90, default 5, every storefront on the account) for an order\
+        \ trigger, up to the plan's customer limit.  The flow must be on.  dry_run\
+        \ counts them and enrolls nobody.  A real backfill needs sfvb_publish, the\
+        \ sign-in of a person, and an approved flow.backfill request for exactly this\
+        \ flow and window; it runs in the background and mails each customer through\
+        \ the flow.\n"
+      operationId: backfillSfvbCommsFlow
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: flow_uuid
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved flow.backfill request for exactly
+          this flow and window.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbFlowBackfillRequest'
+        description: The window and dry_run
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbFlowBackfillResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: "Back populate a live flow, or count who it would enroll"
+      tags:
+      - sfvb
+      x-codegen-request-body-name: flow_backfill_request
+      x-content-type: application/json
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/comms/plan:
     get:
       description: "The plan, its customer and email caps, what has been sent against\
@@ -7206,6 +7870,102 @@ paths:
       tags:
       - sfvb
       x-codegen-request-body-name: provider_import_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/ruler/validate:
+    post:
+      description: "Compiles the pattern the way an Is in BigQuery segment rule's\
+        \ bigquery_ruler is checked, and says whether it is valid and, if not, why.\
+        \  An invalid pattern is a 200 with valid false.  Nothing is read or saved.\
+        \  A segment create or update refuses a rule whose pattern doesn't compile,\
+        \ or whose bigquery_table_id isn't project.dataset.table.\n"
+      operationId: validateSfvbCommsRuler
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsRulerValidateRequest'
+        description: The pattern to check
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsRulerValidateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Check an Event Ruler pattern for an Is in BigQuery segment rule
+      tags:
+      - sfvb
+      x-codegen-request-body-name: ruler_validate_request
       x-content-type: application/json
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/comms/sequences/{commseq_uuid}/emails/{email_uuid}/clicks:
@@ -8084,9 +8844,8 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/comms/templates/{email_template_oid}:
     get:
-      description: "A system template or one saved on this storefront; any other is\
-        \ 404.  container_cjson is the body.  The Velocity template it renders inside\
-        \ is named in email_template_vm_path, not shown.  Read only.\n"
+      description: |
+        A system template or one saved on this storefront; any other is 404.  container_cjson is the body.  The Velocity template it renders inside is the theme file at template_path; read it with the files endpoints.  Read only.
       operationId: getSfvbCommsTemplate
       parameters:
       - in: path
@@ -8158,6 +8917,92 @@ paths:
         - sfvb_read
       - ultraCartSimpleApiKey: []
       summary: Read one saved email template's body
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/comms/unreferenced:
+    get:
+      description: "An email or postcard no step of any sequence on this storefront\
+        \ names, an off or archived flow's included, so nothing sends it.  The admin's\
+        \ add can leave one when its second call fails.  Most recently changed first.\
+        \  Read only, nothing is deleted.\n"
+      operationId: getSfvbCommsUnreferenced
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsUnreferencedResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the emails and postcards on a storefront that no step names
       tags:
       - sfvb
       x-accepts: application/json
@@ -8667,8 +9512,10 @@ paths:
     get:
       description: "The subject, preview text and hash_sha256 to send as If-Match\
         \ when updating them, with whether the email is live and its review state.\
-        \  The body is the email container (owner type email).  Find the uuid in the\
-        \ storefront's campaigns and flows.\n"
+        \  The body is the email container (owner type email).  The Velocity template\
+        \ it renders inside is the theme file at template_path; read it with the files\
+        \ endpoints, whose read reports valid and velocity_errors.  Find the uuid\
+        \ in the storefront's campaigns and flows.\n"
       operationId: getSfvbEmail
       parameters:
       - in: path
@@ -10641,6 +11488,460 @@ paths:
       summary: Version history for a storefront file
       tags:
       - sfvb
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/flow_folders:
+    get:
+      description: "Each flow folder with how many flows are filed in it, whether\
+        \ the admin made it, and its hash_sha256.\n"
+      operationId: getSfvbCommsFlowFolders
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFoldersResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: List the flow folders
+      tags:
+      - sfvb
+      x-accepts: application/json
+    post:
+      description: "A new, empty folder.  File a flow in it by setting its folder_uuid.\n"
+      operationId: insertSfvbCommsFlowFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsFolderWriteRequest'
+        description: The new folder's name
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a flow folder
+      tags:
+      - sfvb
+      x-codegen-request-body-name: folder_write_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/flow_folders/{folder_uuid}:
+    delete:
+      description: "Its flows are kept and filed under no folder, as the admin does;\
+        \ items names each one.  Send the folder's hash_sha256 as If-Match.  A folder\
+        \ the admin made itself (system_generated) can't be deleted here.\n"
+      operationId: deleteSfvbCommsFlowFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The folder's hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Delete a flow folder
+      tags:
+      - sfvb
+      x-accepts: application/json
+    get:
+      description: "The folder, with the name and uuid of each flow filed in it.\n"
+      operationId: getSfvbCommsFlowFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read one flow folder
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: |
+        Send the folder's hash_sha256 as If-Match.  A folder the admin made itself (system_generated) can't be renamed here.
+      operationId: updateSfvbCommsFlowFolder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: folder_uuid
+        required: true
+        schema:
+          type: string
+      - description: "The folder's hash_sha256 from the last read.  Required; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCommsFolderWriteRequest'
+        description: The new name
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCommsSequenceFolderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Rename a flow folder
+      tags:
+      - sfvb
+      x-codegen-request-body-name: folder_write_request
+      x-content-type: application/json
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/flows:
     get:
@@ -257947,9 +259248,9 @@ components:
         reason: reason
         redirect_rows:
         - hash_sha256: hash_sha256
-          redirect_id: 6
+          redirect_id: 7
         - hash_sha256: hash_sha256
-          redirect_id: 6
+          redirect_id: 7
         comms_settings:
           marketing_sender:
             sending_domain_uuid: sending_domain_uuid
@@ -257995,10 +259296,10 @@ components:
         tracking_provider:
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           accept_cost: true
           dry_run: true
@@ -258064,31 +259365,36 @@ components:
           merchant_item_oid: 9
         smart_attribution:
           mode: mode
-          originator_percent: 5.025004791520295
-          lookback_days: 4
-          assist_percent: 7.457744773683766
-          closer_percent: 1.1730742509559433
+          originator_percent: 9.965781217890562
+          lookback_days: 5
+          assist_percent: 1.1730742509559433
+          closer_percent: 4.965218492984954
           attribution_model: attribution_model
           platforms:
           - integration_name: integration_name
-            originator_percent: 9.018348186070783
-            integration_id: 6
+            originator_percent: 6.438423552598547
+            integration_id: 8
             platform_type: platform_type
             platform_type_override: true
-            assist_percent: 9.965781217890562
+            assist_percent: 9.369310271410669
             fire_on_rebill: true
-            closer_percent: 9.369310271410669
-            non_participant_percent: 8.762042012749001
+            closer_percent: 6.683562403749608
+            non_participant_percent: 9.018348186070783
           - integration_name: integration_name
-            originator_percent: 9.018348186070783
-            integration_id: 6
+            originator_percent: 6.438423552598547
+            integration_id: 8
             platform_type: platform_type
             platform_type_override: true
-            assist_percent: 9.965781217890562
+            assist_percent: 9.369310271410669
             fire_on_rebill: true
-            closer_percent: 9.369310271410669
-            non_participant_percent: 8.762042012749001
+            closer_percent: 6.683562403749608
+            non_participant_percent: 9.018348186070783
         content: content
+        flow_backfill:
+          flow_uuid: flow_uuid
+          relative_to_event: true
+          order_days_old: 2
+          dry_run: true
         segment_update:
           filter_profile_equation_json: filter_profile_equation_json
           folder_uuid: folder_uuid
@@ -258100,26 +259406,26 @@ components:
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 2
+          merchant_item_oid: 4
         - merchant_item_id: merchant_item_id
           name: name
           current_sha256: current_sha256
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 2
+          merchant_item_oid: 4
         item_pricing:
-          cost: 4.145608029883936
-          sale_cost: 1.2315135367772556
-          msrp: 7.386281948385884
+          cost: 7.386281948385884
+          sale_cost: 1.0246457001441578
+          msrp: 1.2315135367772556
           clear_sale: true
           clear_msrp: true
           sale_end: sale_end
           volume_discounts:
-          - cost: 1.0246457001441578
-            quantity: 1
-          - cost: 1.0246457001441578
-            quantity: 1
+          - cost: 1.4894159098541704
+            quantity: 6
+          - cost: 1.4894159098541704
+            quantity: 6
           sale_start: sale_start
         action: file.delete
         postcard_test_mail:
@@ -258198,6 +259504,7 @@ components:
           - comms_settings.update
           - comms_list.import
           - postcard.test_mail
+          - flow.backfill
           type: string
         affiliate_network:
           $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
@@ -258214,6 +259521,8 @@ components:
           type: string
         experiment_start:
           $ref: '#/components/schemas/SfvbExperimentStartRequest'
+        flow_backfill:
+          $ref: '#/components/schemas/SfvbFlowBackfillRequest'
         item_attribute_rows:
           description: "For item.attribute_batch, exactly the rows the batch will\
             \ send - the dry run's change rows, each with merchant_item_oid and current_sha256.\
@@ -259051,6 +260360,7 @@ components:
         end_once_customer_purchases_anywhere: true
         sending_domain_uuid: sending_domain_uuid
         communication_sequence_uuid: communication_sequence_uuid
+        folder_name: folder_name
         memberships:
         - list_uuid: list_uuid
           name: name
@@ -259107,6 +260417,7 @@ components:
         deleted: true
         sms_phone_number: sms_phone_number
         end_once_customer_purchases: true
+        folder_uuid: folder_uuid
         name: name
         status_dts: status_dts
         sending_name: sending_name
@@ -259141,6 +260452,12 @@ components:
           description: True when a customer leaves the campaign once they buy from
             any source.
           type: boolean
+        folder_name:
+          description: That folder's name.
+          type: string
+        folder_uuid:
+          description: "The campaign folder it is filed in, or none."
+          type: string
         hash_sha256:
           description: Send this as If-Match when changing or archiving the campaign.
           type: string
@@ -259228,6 +260545,7 @@ components:
           end_once_customer_purchases_anywhere: true
           sending_domain_uuid: sending_domain_uuid
           communication_sequence_uuid: communication_sequence_uuid
+          folder_name: folder_name
           memberships:
           - list_uuid: list_uuid
             name: name
@@ -259284,6 +260602,7 @@ components:
           deleted: true
           sms_phone_number: sms_phone_number
           end_once_customer_purchases: true
+          folder_uuid: folder_uuid
           name: name
           status_dts: status_dts
           sending_name: sending_name
@@ -259298,6 +260617,7 @@ components:
           end_once_customer_purchases_anywhere: true
           sending_domain_uuid: sending_domain_uuid
           communication_sequence_uuid: communication_sequence_uuid
+          folder_name: folder_name
           memberships:
           - list_uuid: list_uuid
             name: name
@@ -259354,6 +260674,7 @@ components:
           deleted: true
           sms_phone_number: sms_phone_number
           end_once_customer_purchases: true
+          folder_uuid: folder_uuid
           name: name
           status_dts: status_dts
           sending_name: sending_name
@@ -259387,6 +260708,7 @@ components:
         end_once_customer_purchases_anywhere: true
         sending_domain_uuid: sending_domain_uuid
         end_once_customer_purchases: true
+        folder_uuid: folder_uuid
         name: name
         sending_name: sending_name
         memberships:
@@ -259409,6 +260731,10 @@ components:
           description: True to end the campaign for a customer once they buy from
             any source.
           type: boolean
+        folder_uuid:
+          description: File it in this campaign folder.  An empty value takes it out
+            of its folder.
+          type: string
         memberships:
           description: The lists and segments it sends to or leaves out.  Replaces
             the whole set.  An empty array clears it.
@@ -260131,6 +261457,81 @@ components:
             email preferences page.  Defaults to false.
           type: boolean
       type: object
+    SfvbCommsLookupOwner:
+      example:
+        name: name
+        type: type
+        uuid: uuid
+        live: true
+        status: status
+      properties:
+        live:
+          description: "True when it is sending now, by the same rule the sequence\
+            \ read uses."
+          type: boolean
+        name:
+          description: Its name.
+          type: string
+        status:
+          description: Its status as stored.
+          type: string
+        type:
+          description: campaign or flow.
+          type: string
+        uuid:
+          description: The campaign or flow uuid.
+          type: string
+      type: object
+    SfvbCommsLookupResponse:
+      example:
+        next: next
+        owner:
+          name: name
+          type: type
+          uuid: uuid
+          live: true
+          status: status
+        step_uuid: step_uuid
+        notes:
+        - notes
+        - notes
+        kind: kind
+        communication_sequence_uuid: communication_sequence_uuid
+        name: name
+        storefront_oid: 0
+        uuid: uuid
+      properties:
+        communication_sequence_uuid:
+          description: "The sequence it belongs to, when there is one."
+          type: string
+        kind:
+          description: "campaign, flow, sequence, step, email, postcard, list or segment."
+          type: string
+        name:
+          description: "The campaign, flow, list or segment name, or the email subject."
+          type: string
+        next:
+          description: The CLI command that reads it.
+          type: string
+        notes:
+          description: "What the answer means, in sentences."
+          items:
+            type: string
+          type: array
+        owner:
+          $ref: '#/components/schemas/SfvbCommsLookupOwner'
+        step_uuid:
+          description: "The step that sends it, for an email or postcard a step names,\
+            \ or the step itself."
+          type: string
+        storefront_oid:
+          description: "The storefront it lives on, for the --storefront option."
+          format: int32
+          type: integer
+        uuid:
+          description: The uuid looked up.
+          type: string
+      type: object
     SfvbCommsMember:
       example:
         customer_uuid: customer_uuid
@@ -260548,6 +261949,36 @@ components:
             $ref: '#/components/schemas/SfvbCommsProvider'
           type: array
       type: object
+    SfvbCommsRulerValidateRequest:
+      example:
+        ruler: ruler
+      properties:
+        ruler:
+          description: "The Event Ruler pattern, as JSON text, the same text the rule's\
+            \ bigquery_ruler holds.  At most 16384 characters."
+          type: string
+      type: object
+    SfvbCommsRulerValidateResponse:
+      example:
+        error_message: error_message
+        valid: true
+        notes:
+        - notes
+        - notes
+      properties:
+        error_message:
+          description: Why it doesn't compile.  Only when valid is false.
+          type: string
+        notes:
+          description: How the pattern is used.
+          items:
+            type: string
+          type: array
+        valid:
+          description: "True when the pattern compiles, so an Is in BigQuery segment\
+            \ rule will accept it."
+          type: boolean
+      type: object
     SfvbCommsSegment:
       example:
         name: name
@@ -260895,6 +262326,93 @@ components:
             \ API keys are masked."
           items:
             $ref: '#/components/schemas/SfvbCommsSendingDomain'
+          type: array
+      type: object
+    SfvbCommsSequenceFolder:
+      example:
+        hash_sha256: hash_sha256
+        item_count: 0
+        system_generated: true
+        kind: kind
+        folder_uuid: folder_uuid
+        name: name
+      properties:
+        folder_uuid:
+          description: The folder.
+          type: string
+        hash_sha256:
+          description: Send it as If-Match to rename or delete the folder.
+          type: string
+        item_count:
+          description: "How many campaigns or flows are filed in it, archived ones\
+            \ left out."
+          format: int32
+          type: integer
+        kind:
+          description: "campaign or flow, what the folder files."
+          type: string
+        name:
+          description: Its name.
+          type: string
+        system_generated:
+          description: True when the admin made it itself.  It can't be renamed or
+            deleted here.
+          type: boolean
+      type: object
+    SfvbCommsSequenceFolderResponse:
+      example:
+        folder:
+          hash_sha256: hash_sha256
+          item_count: 0
+          system_generated: true
+          kind: kind
+          folder_uuid: folder_uuid
+          name: name
+        notes:
+        - notes
+        - notes
+        items:
+        - name: name
+          type: type
+          uuid: uuid
+        - name: name
+          type: type
+          uuid: uuid
+      properties:
+        folder:
+          $ref: '#/components/schemas/SfvbCommsSequenceFolder'
+        items:
+          description: "The campaigns or flows filed in it, or after a delete the\
+            \ ones moved to no folder."
+          items:
+            $ref: '#/components/schemas/SfvbCommsFolderItem'
+          type: array
+        notes:
+          description: "What happened, in sentences."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbCommsSequenceFoldersResponse:
+      example:
+        folders:
+        - hash_sha256: hash_sha256
+          item_count: 0
+          system_generated: true
+          kind: kind
+          folder_uuid: folder_uuid
+          name: name
+        - hash_sha256: hash_sha256
+          item_count: 0
+          system_generated: true
+          kind: kind
+          folder_uuid: folder_uuid
+          name: name
+      properties:
+        folders:
+          description: "The folders, by name."
+          items:
+            $ref: '#/components/schemas/SfvbCommsSequenceFolder'
           type: array
       type: object
     SfvbCommsSequenceStatsResponse:
@@ -261271,7 +262789,8 @@ components:
           format: int32
           type: integer
         channel:
-          description: "email, sms, postcard, branch or sequence."
+          description: "email, sms, postcard, branch or sequence, or step for a step\
+            \ type that records no counts of its own, with every count named in not_measured."
           type: string
         clicked:
           description: "Clicks (for a postcard, scans of its QR code)."
@@ -261499,14 +263018,17 @@ components:
         notes:
         - notes
         - notes
+        template_note: template_note
+        template_path: template_path
+        template_exists: true
         email_template_vm_path: email_template_vm_path
       properties:
         container_cjson:
           description: "The template's body, as CJSON."
           type: string
         email_template_vm_path:
-          description: The Velocity template it renders inside.  Its content isn't
-            shown here.
+          description: "The Velocity template it renders inside, as stored.  It is\
+            \ looked up in the storefront's active theme."
           type: string
         notes:
           description: What isn't shown.
@@ -261515,6 +263037,17 @@ components:
           type: array
         template:
           $ref: '#/components/schemas/SfvbCommsTemplate'
+        template_exists:
+          description: True when the file at template_path exists.
+          type: boolean
+        template_note:
+          description: "Why there is no template file, or null when there is one."
+          type: string
+        template_path:
+          description: "The theme file that template is, as a render finds it.  Read\
+            \ it with the files endpoints, whose read also reports valid and velocity_errors.\
+            \  Null when it couldn't be worked out, with template_note saying why."
+          type: string
       type: object
     SfvbCommsTemplatesResponse:
       example:
@@ -261794,6 +263327,130 @@ components:
           items:
             $ref: '#/components/schemas/SfvbErrorDetail'
           type: array
+      type: object
+    SfvbCommsUnreferencedEmail:
+      example:
+        pending_review: true
+        email_uuid: email_uuid
+        rejected: true
+        container_last_modified_dts: container_last_modified_dts
+        subject: subject
+        requires_review: true
+        version: 6
+      properties:
+        container_last_modified_dts:
+          description: When its body last changed.
+          type: string
+        email_uuid:
+          description: The email.
+          type: string
+        pending_review:
+          description: True while a review is pending.
+          type: boolean
+        rejected:
+          description: True when its last review was rejected.
+          type: boolean
+        requires_review:
+          description: True when it needs a review before it can send.
+          type: boolean
+        subject:
+          description: Its subject.
+          type: string
+        version:
+          description: Its stored version.
+          format: int32
+          type: integer
+      type: object
+    SfvbCommsUnreferencedPostcard:
+      example:
+        front_container_uuid: front_container_uuid
+        container_last_modified_dts: container_last_modified_dts
+        back_container_uuid: back_container_uuid
+        postcard_uuid: postcard_uuid
+      properties:
+        back_container_uuid:
+          description: Its back container.
+          type: string
+        container_last_modified_dts:
+          description: When a side last changed.
+          type: string
+        front_container_uuid:
+          description: Its front container.
+          type: string
+        postcard_uuid:
+          description: The postcard.
+          type: string
+      type: object
+    SfvbCommsUnreferencedResponse:
+      example:
+        emails:
+        - pending_review: true
+          email_uuid: email_uuid
+          rejected: true
+          container_last_modified_dts: container_last_modified_dts
+          subject: subject
+          requires_review: true
+          version: 6
+        - pending_review: true
+          email_uuid: email_uuid
+          rejected: true
+          container_last_modified_dts: container_last_modified_dts
+          subject: subject
+          requires_review: true
+          version: 6
+        emails_checked: 1
+        email_count: 0
+        postcards:
+        - front_container_uuid: front_container_uuid
+          container_last_modified_dts: container_last_modified_dts
+          back_container_uuid: back_container_uuid
+          postcard_uuid: postcard_uuid
+        - front_container_uuid: front_container_uuid
+          container_last_modified_dts: container_last_modified_dts
+          back_container_uuid: back_container_uuid
+          postcard_uuid: postcard_uuid
+        notes:
+        - notes
+        - notes
+        postcard_count: 5
+        postcards_checked: 5
+        sequences_checked: 2
+      properties:
+        email_count:
+          description: How many emails no step names.
+          format: int32
+          type: integer
+        emails:
+          description: "Emails no step names, most recently changed first."
+          items:
+            $ref: '#/components/schemas/SfvbCommsUnreferencedEmail'
+          type: array
+        emails_checked:
+          description: How many emails the storefront has.
+          format: int32
+          type: integer
+        notes:
+          description: "What the report means, in sentences."
+          items:
+            type: string
+          type: array
+        postcard_count:
+          description: How many postcards no step names.
+          format: int32
+          type: integer
+        postcards:
+          description: "Postcards no step names, most recently changed first."
+          items:
+            $ref: '#/components/schemas/SfvbCommsUnreferencedPostcard'
+          type: array
+        postcards_checked:
+          description: How many postcards the storefront has.
+          format: int32
+          type: integer
+        sequences_checked:
+          description: How many sequences were read for the steps that name them.
+          format: int32
+          type: integer
       type: object
     SfvbCompileRequest:
       example:
@@ -262216,16 +263873,25 @@ components:
         rejected: true
         container_last_modified_dts: container_last_modified_dts
         subject: subject
+        template_path: template_path
         requires_review: true
+        template_exists: true
         version: 0
         hash_sha256: hash_sha256
         suspended_for_spam: true
+        template_note: template_note
+        email_template_vm_path: email_template_vm_path
         live: true
         transactional: true
       properties:
         container_last_modified_dts:
           description: "When the email container was last changed (ISO 8601, UTC)."
           format: dateTime
+          type: string
+        email_template_vm_path:
+          description: "The Velocity template the email body renders inside, as stored,\
+            \ such as templates/template_email.vm.  It is looked up in the storefront's\
+            \ active theme."
           type: string
         email_uuid:
           description: The email uuid.  The same uuid the email container (owner type
@@ -262269,6 +263935,19 @@ components:
           description: True when UltraCart suspended the email for spam.  Edits are
             refused until the merchant resolves it with UltraCart support.
           type: boolean
+        template_exists:
+          description: True when the file at template_path exists.  False means the
+            email can't render.
+          type: boolean
+        template_note:
+          description: "Why there is no template file, or null when there is one."
+          type: string
+        template_path:
+          description: "The theme file that template is, as the render finds it. \
+            \ Read it with the files endpoints, whose read also reports valid and\
+            \ velocity_errors.  Null when it couldn't be worked out, with template_note\
+            \ saying why."
+          type: string
         transactional:
           description: "True for a transactional email, which skips the marketing\
             \ footer rules."
@@ -263867,10 +265546,8 @@ components:
         end_once_customer_purchases_anywhere: true
         sending_domain_uuid: sending_domain_uuid
         trigger_type: trigger_type
-        communication_sequence_uuid: communication_sequence_uuid
         reentry_policy: reentry_policy
         trigger_parameter_name: trigger_parameter_name
-        trigger_parameter: trigger_parameter
         emails:
         - step_uuid: step_uuid
           pending_review: true
@@ -263900,7 +265577,6 @@ components:
           variant_winner: true
           deleted: true
           transactional: true
-        hash_sha256: hash_sha256
         postcards:
         - front_container_uuid: front_container_uuid
           step_uuid: step_uuid
@@ -263914,18 +265590,23 @@ components:
           container_last_modified_dts: container_last_modified_dts
           back_container_uuid: back_container_uuid
           postcard_uuid: postcard_uuid
-        deleted: true
         sms_phone_number: sms_phone_number
-        flow_uuid: flow_uuid
         end_once_customer_purchases: true
-        name: name
         status_dts: status_dts
         sending_name: sending_name
         created_dts: created_dts
-        allow_multiple_concurrent_enrollments: true
         live: true
-        reentry_delay_days: 0
         sending_user: sending_user
+        communication_sequence_uuid: communication_sequence_uuid
+        folder_name: folder_name
+        trigger_parameter: trigger_parameter
+        hash_sha256: hash_sha256
+        deleted: true
+        flow_uuid: flow_uuid
+        folder_uuid: folder_uuid
+        name: name
+        allow_multiple_concurrent_enrollments: true
+        reentry_delay_days: 0
         status: status
       properties:
         allow_multiple_concurrent_enrollments:
@@ -263957,6 +265638,12 @@ components:
           type: boolean
         flow_uuid:
           description: The flow uuid.
+          type: string
+        folder_name:
+          description: That folder's name.
+          type: string
+        folder_uuid:
+          description: "The flow folder it is filed in, or none."
           type: string
         hash_sha256:
           description: "Send this as If-Match when changing, archiving or turning\
@@ -264024,6 +265711,88 @@ components:
           description: "What starts the flow, such as cart abandon or an order."
           type: string
       type: object
+    SfvbFlowBackfillRequest:
+      example:
+        flow_uuid: flow_uuid
+        relative_to_event: true
+        order_days_old: 2
+        dry_run: true
+      properties:
+        dry_run:
+          description: Count who would be enrolled and enroll nobody.
+          type: boolean
+        flow_uuid:
+          description: The flow.  Used by a flow.backfill approval request.  The backfill
+            call takes it from the path.
+          type: string
+        order_days_old:
+          description: "For an order trigger, how many days of orders to enroll, 1\
+            \ to 90 (default 5)."
+          format: int32
+          type: integer
+        relative_to_event:
+          description: "For an order trigger, shorten the flow's first wait by each\
+            \ order's age."
+          type: boolean
+      type: object
+    SfvbFlowBackfillResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        flow_uuid: flow_uuid
+        capped: true
+        relative_to_event: true
+        trigger_type: trigger_type
+        order_days_old: 1
+        dry_run: true
+        started: true
+        customers: 0
+        segment_rebuild_required: true
+        enrollments: 6
+      properties:
+        capped:
+          description: True when the plan's customer limit stopped the count.
+          type: boolean
+        customers:
+          description: How many different customers those are.
+          format: int32
+          type: integer
+        dry_run:
+          description: True when nothing was enrolled.
+          type: boolean
+        enrollments:
+          description: How many enrollments the backfill makes (a purchased product
+            trigger makes one per item).
+          format: int32
+          type: integer
+        flow_uuid:
+          description: The flow.
+          type: string
+        notes:
+          description: "What happens next, in sentences."
+          items:
+            type: string
+          type: array
+        order_days_old:
+          description: "The days of orders, for an order trigger."
+          format: int32
+          type: integer
+        relative_to_event:
+          description: Whether the first wait is shortened by each order's age.
+          type: boolean
+        segment_rebuild_required:
+          description: "True when the segment needs a rebuild, so the count is from\
+            \ its last one."
+          type: boolean
+        started:
+          description: True when the backfill started in the background.  The signed-in
+            user is emailed when it ends.
+          type: boolean
+        trigger_type:
+          description: The flow's trigger.
+          type: string
+      type: object
     SfvbFlowsResponse:
       example:
         total: 5
@@ -264034,10 +265803,8 @@ components:
           end_once_customer_purchases_anywhere: true
           sending_domain_uuid: sending_domain_uuid
           trigger_type: trigger_type
-          communication_sequence_uuid: communication_sequence_uuid
           reentry_policy: reentry_policy
           trigger_parameter_name: trigger_parameter_name
-          trigger_parameter: trigger_parameter
           emails:
           - step_uuid: step_uuid
             pending_review: true
@@ -264067,7 +265834,6 @@ components:
             variant_winner: true
             deleted: true
             transactional: true
-          hash_sha256: hash_sha256
           postcards:
           - front_container_uuid: front_container_uuid
             step_uuid: step_uuid
@@ -264081,18 +265847,23 @@ components:
             container_last_modified_dts: container_last_modified_dts
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
-          deleted: true
           sms_phone_number: sms_phone_number
-          flow_uuid: flow_uuid
           end_once_customer_purchases: true
-          name: name
           status_dts: status_dts
           sending_name: sending_name
           created_dts: created_dts
-          allow_multiple_concurrent_enrollments: true
           live: true
-          reentry_delay_days: 0
           sending_user: sending_user
+          communication_sequence_uuid: communication_sequence_uuid
+          folder_name: folder_name
+          trigger_parameter: trigger_parameter
+          hash_sha256: hash_sha256
+          deleted: true
+          flow_uuid: flow_uuid
+          folder_uuid: folder_uuid
+          name: name
+          allow_multiple_concurrent_enrollments: true
+          reentry_delay_days: 0
           status: status
         - notes:
           - notes
@@ -264100,10 +265871,8 @@ components:
           end_once_customer_purchases_anywhere: true
           sending_domain_uuid: sending_domain_uuid
           trigger_type: trigger_type
-          communication_sequence_uuid: communication_sequence_uuid
           reentry_policy: reentry_policy
           trigger_parameter_name: trigger_parameter_name
-          trigger_parameter: trigger_parameter
           emails:
           - step_uuid: step_uuid
             pending_review: true
@@ -264133,7 +265902,6 @@ components:
             variant_winner: true
             deleted: true
             transactional: true
-          hash_sha256: hash_sha256
           postcards:
           - front_container_uuid: front_container_uuid
             step_uuid: step_uuid
@@ -264147,18 +265915,23 @@ components:
             container_last_modified_dts: container_last_modified_dts
             back_container_uuid: back_container_uuid
             postcard_uuid: postcard_uuid
-          deleted: true
           sms_phone_number: sms_phone_number
-          flow_uuid: flow_uuid
           end_once_customer_purchases: true
-          name: name
           status_dts: status_dts
           sending_name: sending_name
           created_dts: created_dts
-          allow_multiple_concurrent_enrollments: true
           live: true
-          reentry_delay_days: 0
           sending_user: sending_user
+          communication_sequence_uuid: communication_sequence_uuid
+          folder_name: folder_name
+          trigger_parameter: trigger_parameter
+          hash_sha256: hash_sha256
+          deleted: true
+          flow_uuid: flow_uuid
+          folder_uuid: folder_uuid
+          name: name
+          allow_multiple_concurrent_enrollments: true
+          reentry_delay_days: 0
           status: status
         page: 6
         page_size: 1
@@ -264198,6 +265971,7 @@ components:
         end_once_customer_purchases_anywhere: true
         sending_domain_uuid: sending_domain_uuid
         end_once_customer_purchases: true
+        folder_uuid: folder_uuid
         trigger_type: trigger_type
         name: name
         sending_name: sending_name
@@ -264219,6 +265993,10 @@ components:
           description: True to end the flow for a customer once they buy from any
             source.
           type: boolean
+        folder_uuid:
+          description: File it in this flow folder.  An empty value takes it out of
+            its folder.
+          type: string
         name:
           description: "The flow name, 1 to 250 characters.  Required to create."
           type: string
@@ -264692,14 +266470,14 @@ components:
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 2
+          merchant_item_oid: 4
         - merchant_item_id: merchant_item_id
           name: name
           current_sha256: current_sha256
           expected_value: expected_value
           type: type
           value: value
-          merchant_item_oid: 2
+          merchant_item_oid: 4
       properties:
         plan_hash:
           description: "From the dry run.  Required to apply, with exactly the rows\
@@ -264805,7 +266583,7 @@ components:
         expected_value: expected_value
         type: type
         value: value
-        merchant_item_oid: 2
+        merchant_item_oid: 4
       properties:
         current_sha256:
           description: The current_sha256 the dry run answered for this row.  Required
@@ -265239,10 +267017,10 @@ components:
         msrp: 1.4658129805029452
         sale_end: sale_end
         volume_discounts:
-        - cost: 1.0246457001441578
-          quantity: 1
-        - cost: 1.0246457001441578
-          quantity: 1
+        - cost: 1.4894159098541704
+          quantity: 6
+        - cost: 1.4894159098541704
+          quantity: 6
         sale_active: true
         sale_start: sale_start
         currency_code: currency_code
@@ -265291,17 +267069,17 @@ components:
       type: object
     SfvbItemPricingRequest:
       example:
-        cost: 4.145608029883936
-        sale_cost: 1.2315135367772556
-        msrp: 7.386281948385884
+        cost: 7.386281948385884
+        sale_cost: 1.0246457001441578
+        msrp: 1.2315135367772556
         clear_sale: true
         clear_msrp: true
         sale_end: sale_end
         volume_discounts:
-        - cost: 1.0246457001441578
-          quantity: 1
-        - cost: 1.0246457001441578
-          quantity: 1
+        - cost: 1.4894159098541704
+          quantity: 6
+        - cost: 1.4894159098541704
+          quantity: 6
         sale_start: sale_start
       properties:
         clear_msrp:
@@ -265665,8 +267443,8 @@ components:
       type: object
     SfvbItemVolumeDiscount:
       example:
-        cost: 1.0246457001441578
-        quantity: 1
+        cost: 1.4894159098541704
+        quantity: 6
       properties:
         cost:
           description: "The unit price at that quantity, in the item's currency."
@@ -269418,9 +271196,9 @@ components:
         plan_hash: plan_hash
         rows:
         - hash_sha256: hash_sha256
-          redirect_id: 6
+          redirect_id: 7
         - hash_sha256: hash_sha256
-          redirect_id: 6
+          redirect_id: 7
       properties:
         plan_hash:
           description: From the dry run of exactly these rows.  Required to delete.
@@ -269506,7 +271284,7 @@ components:
     SfvbRedirectDeleteRow:
       example:
         hash_sha256: hash_sha256
-        redirect_id: 6
+        redirect_id: 7
       properties:
         hash_sha256:
           description: "The hash_sha256 you read.  Optional on a dry run, which reports\
@@ -271839,23 +273617,23 @@ components:
         originator_percent: 5.962133916683182
         available_platforms:
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
         lookback_days: 1
         assist_percent: 0.8008281904610115
         closer_percent: 6.027456183070403
@@ -271863,23 +273641,23 @@ components:
         attribution_model: attribution_model
         platforms:
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
       properties:
         assist_percent:
           description: "The global assist credit, 0 to 1."
@@ -271931,14 +273709,14 @@ components:
     SfvbSmartAttributionPlatform:
       example:
         integration_name: integration_name
-        originator_percent: 9.018348186070783
-        integration_id: 6
+        originator_percent: 6.438423552598547
+        integration_id: 8
         platform_type: platform_type
         platform_type_override: true
-        assist_percent: 9.965781217890562
+        assist_percent: 9.369310271410669
         fire_on_rebill: true
-        closer_percent: 9.369310271410669
-        non_participant_percent: 8.762042012749001
+        closer_percent: 6.683562403749608
+        non_participant_percent: 9.018348186070783
       properties:
         assist_percent:
           description: "This platform's assist credit, 0 to 1.  Used only when platform_type_override\
@@ -271983,30 +273761,30 @@ components:
     SfvbSmartAttributionRequest:
       example:
         mode: mode
-        originator_percent: 5.025004791520295
-        lookback_days: 4
-        assist_percent: 7.457744773683766
-        closer_percent: 1.1730742509559433
+        originator_percent: 9.965781217890562
+        lookback_days: 5
+        assist_percent: 1.1730742509559433
+        closer_percent: 4.965218492984954
         attribution_model: attribution_model
         platforms:
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
         - integration_name: integration_name
-          originator_percent: 9.018348186070783
-          integration_id: 6
+          originator_percent: 6.438423552598547
+          integration_id: 8
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.965781217890562
+          assist_percent: 9.369310271410669
           fire_on_rebill: true
-          closer_percent: 9.369310271410669
-          non_participant_percent: 8.762042012749001
+          closer_percent: 6.683562403749608
+          non_participant_percent: 9.018348186070783
       properties:
         assist_percent:
           description: "0 to 1, at most 4 decimals."
@@ -272076,8 +273854,12 @@ components:
           type: integer
         source:
           description: "email (the step's email, all time), sequence (the begin step,\
-            \ customers who started the sequence, all time) or step (this step, the\
-            \ last 90 days)."
+            \ customers who started the sequence, all time), resend (a Resend Email\
+            \ step, what it resent, the last 90 days), experiment (an experiment step,\
+            \ its variants together, the last 90 days), sms or postcard (the step's\
+            \ own sends, the last 90 days), step (the end step or a condition, split\
+            \ or InboxGeek step, the last 90 days) or not_recorded (a step type the\
+            \ send path keeps no counts for, such as a wait; no counts are given)."
           type: string
         spam:
           description: Spam complaints.
@@ -273290,10 +275072,10 @@ components:
         admin_path: admin_path
         wholesale_tiers:
         - account_number: account_number
-          pricing_tier_oid: 6
+          pricing_tier_oid: 3
           name: name
         - account_number: account_number
-          pricing_tier_oid: 6
+          pricing_tier_oid: 3
           name: name
         name: name
         consent_supported: true
@@ -273550,10 +275332,10 @@ components:
       example:
         wholesale_tiers:
         - account_number: account_number
-          pricing_tier_oid: 6
+          pricing_tier_oid: 3
           name: name
         - account_number: account_number
-          pricing_tier_oid: 6
+          pricing_tier_oid: 3
           name: name
         accept_cost: true
         dry_run: true
@@ -273733,10 +275515,10 @@ components:
           admin_path: admin_path
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           name: name
           consent_supported: true
@@ -273811,10 +275593,10 @@ components:
           admin_path: admin_path
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           - account_number: account_number
-            pricing_tier_oid: 6
+            pricing_tier_oid: 3
             name: name
           name: name
           consent_supported: true
@@ -273944,7 +275726,7 @@ components:
     SfvbTrackingWholesaleTier:
       example:
         account_number: account_number
-        pricing_tier_oid: 6
+        pricing_tier_oid: 3
         name: name
       properties:
         account_number:

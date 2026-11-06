@@ -55,6 +55,10 @@ public class SfvbEmail {
   @SerializedName(SERIALIZED_NAME_CONTAINER_LAST_MODIFIED_DTS)
   private String containerLastModifiedDts;
 
+  public static final String SERIALIZED_NAME_EMAIL_TEMPLATE_VM_PATH = "email_template_vm_path";
+  @SerializedName(SERIALIZED_NAME_EMAIL_TEMPLATE_VM_PATH)
+  private String emailTemplateVmPath;
+
   public static final String SERIALIZED_NAME_EMAIL_UUID = "email_uuid";
   @SerializedName(SERIALIZED_NAME_EMAIL_UUID)
   private String emailUuid;
@@ -95,6 +99,18 @@ public class SfvbEmail {
   @SerializedName(SERIALIZED_NAME_SUSPENDED_FOR_SPAM)
   private Boolean suspendedForSpam;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_EXISTS = "template_exists";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_EXISTS)
+  private Boolean templateExists;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_NOTE = "template_note";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_NOTE)
+  private String templateNote;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_PATH = "template_path";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_PATH)
+  private String templatePath;
+
   public static final String SERIALIZED_NAME_TRANSACTIONAL = "transactional";
   @SerializedName(SERIALIZED_NAME_TRANSACTIONAL)
   private Boolean transactional;
@@ -126,6 +142,29 @@ public class SfvbEmail {
 
   public void setContainerLastModifiedDts(String containerLastModifiedDts) {
     this.containerLastModifiedDts = containerLastModifiedDts;
+  }
+
+
+  public SfvbEmail emailTemplateVmPath(String emailTemplateVmPath) {
+    
+    this.emailTemplateVmPath = emailTemplateVmPath;
+    return this;
+  }
+
+   /**
+   * The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront&#39;s active theme.
+   * @return emailTemplateVmPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Velocity template the email body renders inside, as stored, such as templates/template_email.vm.  It is looked up in the storefront's active theme.")
+
+  public String getEmailTemplateVmPath() {
+    return emailTemplateVmPath;
+  }
+
+
+  public void setEmailTemplateVmPath(String emailTemplateVmPath) {
+    this.emailTemplateVmPath = emailTemplateVmPath;
   }
 
 
@@ -367,6 +406,75 @@ public class SfvbEmail {
   }
 
 
+  public SfvbEmail templateExists(Boolean templateExists) {
+    
+    this.templateExists = templateExists;
+    return this;
+  }
+
+   /**
+   * True when the file at template_path exists.  False means the email can&#39;t render.
+   * @return templateExists
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the file at template_path exists.  False means the email can't render.")
+
+  public Boolean getTemplateExists() {
+    return templateExists;
+  }
+
+
+  public void setTemplateExists(Boolean templateExists) {
+    this.templateExists = templateExists;
+  }
+
+
+  public SfvbEmail templateNote(String templateNote) {
+    
+    this.templateNote = templateNote;
+    return this;
+  }
+
+   /**
+   * Why there is no template file, or null when there is one.
+   * @return templateNote
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Why there is no template file, or null when there is one.")
+
+  public String getTemplateNote() {
+    return templateNote;
+  }
+
+
+  public void setTemplateNote(String templateNote) {
+    this.templateNote = templateNote;
+  }
+
+
+  public SfvbEmail templatePath(String templatePath) {
+    
+    this.templatePath = templatePath;
+    return this;
+  }
+
+   /**
+   * The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn&#39;t be worked out, with template_note saying why.
+   * @return templatePath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The theme file that template is, as the render finds it.  Read it with the files endpoints, whose read also reports valid and velocity_errors.  Null when it couldn't be worked out, with template_note saying why.")
+
+  public String getTemplatePath() {
+    return templatePath;
+  }
+
+
+  public void setTemplatePath(String templatePath) {
+    this.templatePath = templatePath;
+  }
+
+
   public SfvbEmail transactional(Boolean transactional) {
     
     this.transactional = transactional;
@@ -424,6 +532,7 @@ public class SfvbEmail {
     }
     SfvbEmail sfvbEmail = (SfvbEmail) o;
     return Objects.equals(this.containerLastModifiedDts, sfvbEmail.containerLastModifiedDts) &&
+        Objects.equals(this.emailTemplateVmPath, sfvbEmail.emailTemplateVmPath) &&
         Objects.equals(this.emailUuid, sfvbEmail.emailUuid) &&
         Objects.equals(this.hashSha256, sfvbEmail.hashSha256) &&
         Objects.equals(this.live, sfvbEmail.live) &&
@@ -434,13 +543,16 @@ public class SfvbEmail {
         Objects.equals(this.requiresReview, sfvbEmail.requiresReview) &&
         Objects.equals(this.subject, sfvbEmail.subject) &&
         Objects.equals(this.suspendedForSpam, sfvbEmail.suspendedForSpam) &&
+        Objects.equals(this.templateExists, sfvbEmail.templateExists) &&
+        Objects.equals(this.templateNote, sfvbEmail.templateNote) &&
+        Objects.equals(this.templatePath, sfvbEmail.templatePath) &&
         Objects.equals(this.transactional, sfvbEmail.transactional) &&
         Objects.equals(this.version, sfvbEmail.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerLastModifiedDts, emailUuid, hashSha256, live, notes, pendingReview, previewText, rejected, requiresReview, subject, suspendedForSpam, transactional, version);
+    return Objects.hash(containerLastModifiedDts, emailTemplateVmPath, emailUuid, hashSha256, live, notes, pendingReview, previewText, rejected, requiresReview, subject, suspendedForSpam, templateExists, templateNote, templatePath, transactional, version);
   }
 
   @Override
@@ -448,6 +560,7 @@ public class SfvbEmail {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbEmail {\n");
     sb.append("    containerLastModifiedDts: ").append(toIndentedString(containerLastModifiedDts)).append("\n");
+    sb.append("    emailTemplateVmPath: ").append(toIndentedString(emailTemplateVmPath)).append("\n");
     sb.append("    emailUuid: ").append(toIndentedString(emailUuid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
@@ -458,6 +571,9 @@ public class SfvbEmail {
     sb.append("    requiresReview: ").append(toIndentedString(requiresReview)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    suspendedForSpam: ").append(toIndentedString(suspendedForSpam)).append("\n");
+    sb.append("    templateExists: ").append(toIndentedString(templateExists)).append("\n");
+    sb.append("    templateNote: ").append(toIndentedString(templateNote)).append("\n");
+    sb.append("    templatePath: ").append(toIndentedString(templatePath)).append("\n");
     sb.append("    transactional: ").append(toIndentedString(transactional)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
@@ -483,6 +599,7 @@ public class SfvbEmail {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("container_last_modified_dts");
+    openapiFields.add("email_template_vm_path");
     openapiFields.add("email_uuid");
     openapiFields.add("hash_sha256");
     openapiFields.add("live");
@@ -493,6 +610,9 @@ public class SfvbEmail {
     openapiFields.add("requires_review");
     openapiFields.add("subject");
     openapiFields.add("suspended_for_spam");
+    openapiFields.add("template_exists");
+    openapiFields.add("template_note");
+    openapiFields.add("template_path");
     openapiFields.add("transactional");
     openapiFields.add("version");
 
@@ -525,6 +645,9 @@ public class SfvbEmail {
       if (jsonObj.get("container_last_modified_dts") != null && !jsonObj.get("container_last_modified_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `container_last_modified_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_last_modified_dts").toString()));
       }
+      if (jsonObj.get("email_template_vm_path") != null && !jsonObj.get("email_template_vm_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email_template_vm_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_template_vm_path").toString()));
+      }
       if (jsonObj.get("email_uuid") != null && !jsonObj.get("email_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_uuid").toString()));
       }
@@ -540,6 +663,12 @@ public class SfvbEmail {
       }
       if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
+      }
+      if (jsonObj.get("template_note") != null && !jsonObj.get("template_note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `template_note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_note").toString()));
+      }
+      if (jsonObj.get("template_path") != null && !jsonObj.get("template_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `template_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_path").toString()));
       }
   }
 

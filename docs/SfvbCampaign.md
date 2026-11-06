@@ -14,6 +14,8 @@
 |**emails** | [**List&lt;SfvbCommsEmail&gt;**](SfvbCommsEmail.md) | Its emails, in step order. |  [optional] |
 |**endOnceCustomerPurchases** | **Boolean** | True when a customer leaves the campaign once they buy from one of its emails. |  [optional] |
 |**endOnceCustomerPurchasesAnywhere** | **Boolean** | True when a customer leaves the campaign once they buy from any source. |  [optional] |
+|**folderName** | **String** | That folder&#39;s name. |  [optional] |
+|**folderUuid** | **String** | The campaign folder it is filed in, or none. |  [optional] |
 |**hashSha256** | **String** | Send this as If-Match when changing or archiving the campaign. |  [optional] |
 |**live** | **Boolean** | True when the emails and postcards reach customers now, so a change to one shows at once.  False only in a status that sends nothing. |  [optional] |
 |**memberships** | [**List&lt;SfvbCampaignMembership&gt;**](SfvbCampaignMembership.md) | The lists and segments it sends to or leaves out. |  [optional] |
