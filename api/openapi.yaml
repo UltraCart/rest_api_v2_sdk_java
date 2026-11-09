@@ -27321,6 +27321,125 @@ paths:
       x-codegen-request-body-name: affiliate_network_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/check_plan:
+    get:
+      description: "What each tracking provider should load on one page, for page_view\
+        \ or a test order's purchase, under a consent state and region, with the requests\
+        \ and calls to look for and the ones that must not appear.  Built from the\
+        \ same rules the storefront's tracking templates follow, never by running\
+        \ them, so nothing is sent to any provider.  Includes the hosts the storefront's\
+        \ custom and affiliate network HTML loads, the sends made from UltraCart servers,\
+        \ and a snippet that collects what the browser saw.  Grade the results locally;\
+        \ they are never sent here.  With neither consent nor region, every provider\
+        \ is listed with the gate that holds it back.  A purchase needs a test order\
+        \ on this account.\n"
+      operationId: getSfvbTrackingCheckPlan
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "A storefront page path, such as / or /checkout/receipt.html,\
+          \ with an optional query"
+        in: query
+        name: path
+        required: true
+        schema:
+          type: string
+      - description: page_view (the default) or purchase
+        in: query
+        name: event
+        schema:
+          type: string
+      - description: "For purchase, a test order on this account"
+        in: query
+        name: order_id
+        schema:
+          type: string
+      - description: "none, all, or a comma list of statistics, preferences and marketing"
+        in: query
+        name: consent
+        schema:
+          type: string
+      - description: "Where the browser is.  eea, non-us or other"
+        in: query
+        name: region
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingCheckPlan'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Plan a browser check of a storefront's tracking
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/tracking/html:
     get:
       description: "tracking (every page but the receipt) and conversion (the receipt\
@@ -275089,6 +275208,324 @@ components:
         to:
           description: The value after.  Null when it is cleared.  Booleans are true
             or false.
+          type: string
+      type: object
+    SfvbTrackingCheckPlan:
+      example:
+        catalog_version: 0
+        snippet: snippet
+        notes:
+        - notes
+        - notes
+        unchecked:
+        - why: why
+          source: source
+        - why: why
+          source: source
+        storefront_oid: 6
+        consent: consent
+        path: path
+        server_side:
+        - provider: provider
+          trigger: trigger
+        - provider: provider
+          trigger: trigger
+        event: page_view
+        region: eea
+        order_id: order_id
+        plan_id: plan_id
+        providers:
+        - template: template
+          expect: must_load
+          note: note
+          provider: provider
+          name: name
+          gate:
+            region: all
+            type: Statistics
+          requests:
+          - kind: script
+            host: host
+            params: "{}"
+            path_prefix: path_prefix
+          - kind: script
+            host: host
+            params: "{}"
+            path_prefix: path_prefix
+          source: provider
+          events:
+          - name: name
+            params: "{}"
+            via: dataLayer
+          - name: name
+            params: "{}"
+            via: dataLayer
+        - template: template
+          expect: must_load
+          note: note
+          provider: provider
+          name: name
+          gate:
+            region: all
+            type: Statistics
+          requests:
+          - kind: script
+            host: host
+            params: "{}"
+            path_prefix: path_prefix
+          - kind: script
+            host: host
+            params: "{}"
+            path_prefix: path_prefix
+          source: provider
+          events:
+          - name: name
+            params: "{}"
+            via: dataLayer
+          - name: name
+            params: "{}"
+            via: dataLayer
+      properties:
+        catalog_version:
+          description: The tracking provider catalog version the plan was built from.
+          format: int32
+          type: integer
+        consent:
+          description: "The consent state the plan assumes.  none, all, or the granted\
+            \ categories in the order statistics, preferences, marketing.  Left out\
+            \ when the plan lists every gate instead."
+          type: string
+        event:
+          description: "page_view, or purchase for a test order receipt."
+          enum:
+          - page_view
+          - purchase
+          type: string
+        notes:
+          description: What the plan assumes about the browser and the page.
+          items:
+            type: string
+          type: array
+        order_id:
+          description: The test order a purchase plan is for.  Left out for a page
+            view.
+          type: string
+        path:
+          description: "The page path the plan is for, as given."
+          type: string
+        plan_id:
+          description: "The lowercase SHA-256 hex of the UTF-8 bytes of this response\
+            \ written as JSON without plan_id and snippet, with object keys sorted,\
+            \ no white space, and keys whose value is null left out, as JavaScript\
+            \ JSON.stringify writes values.  A results file carries it, so the CLI\
+            \ can tell which plan the results belong to."
+          type: string
+        providers:
+          description: "One entry per provider the storefront turns on for this event,\
+            \ then one per host found in custom or affiliate network HTML."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingCheckPlanProvider'
+          type: array
+        region:
+          description: "Where the browser is, which decides which gates apply.  eea,\
+            \ non-us or other.  Left out when the plan lists every gate instead."
+          enum:
+          - eea
+          - non-us
+          - other
+          type: string
+        server_side:
+          description: "What providers send from UltraCart servers for this event.\
+            \  The browser never sees these, so they are reported as not checked."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingCheckPlanServerSide'
+          type: array
+        snippet:
+          description: "The collector, the source of one JavaScript async arrow function.\
+            \  Run it with addInitScript before the action so it starts before the\
+            \ page scripts, then run it again with evaluate after the action.  The\
+            \ second run waits for 3 seconds of quiet, or 15 seconds at most, and\
+            \ returns plan_id, page, collected_at, requests (url, initiator) and events\
+            \ (via, name, params).  URLs keep only the query params the plan names\
+            \ for that host, and events only the params the plan names.  It never\
+            \ reads cookies, storage or form fields and sends nothing anywhere."
+          type: string
+        storefront_oid:
+          description: The storefront.
+          format: int32
+          type: integer
+        unchecked:
+          description: "What the plan could not predict, and why."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingCheckPlanUnchecked'
+          type: array
+      type: object
+    SfvbTrackingCheckPlanEvent:
+      example:
+        name: name
+        params: "{}"
+        via: dataLayer
+      properties:
+        name:
+          description: The event name or command.
+          type: string
+        params:
+          description: "Params the call must carry, as text.  A star means present\
+            \ with any value."
+          type: object
+        via:
+          description: "dataLayer, gtag or fbq."
+          enum:
+          - dataLayer
+          - gtag
+          - fbq
+          type: string
+      type: object
+    SfvbTrackingCheckPlanGate:
+      example:
+        region: all
+        type: Statistics
+      properties:
+        region:
+          description: "Where the gate applies.  all, eea or non_us."
+          enum:
+          - all
+          - eea
+          - non_us
+          type: string
+        type:
+          description: "The consent category that must be granted.  Statistics, Preferences\
+            \ or Marketing."
+          enum:
+          - Statistics
+          - Preferences
+          - Marketing
+          type: string
+      type: object
+    SfvbTrackingCheckPlanProvider:
+      example:
+        template: template
+        expect: must_load
+        note: note
+        provider: provider
+        name: name
+        gate:
+          region: all
+          type: Statistics
+        requests:
+        - kind: script
+          host: host
+          params: "{}"
+          path_prefix: path_prefix
+        - kind: script
+          host: host
+          params: "{}"
+          path_prefix: path_prefix
+        source: provider
+        events:
+        - name: name
+          params: "{}"
+          via: dataLayer
+        - name: name
+          params: "{}"
+          via: dataLayer
+      properties:
+        events:
+          description: "The dataLayer, gtag and fbq calls it makes, where the template\
+            \ makes them."
+          items:
+            $ref: '#/components/schemas/SfvbTrackingCheckPlanEvent'
+          type: array
+        expect:
+          description: "must_load, must_not_load (held back by a gate this consent\
+            \ state and region have not granted, or never sent for this event), or\
+            \ may_load (depends on something the plan cannot know).  A missing may_load\
+            \ request is a warning, never a fail."
+          enum:
+          - must_load
+          - must_not_load
+          - may_load
+          type: string
+        gate:
+          $ref: '#/components/schemas/SfvbTrackingCheckPlanGate'
+        name:
+          description: A name to show.
+          type: string
+        note:
+          description: "Why the expectation is what it is, when that is not obvious."
+          type: string
+        provider:
+          description: "The provider key, as tracking/providers names it.  For custom\
+            \ or affiliate network HTML, the host."
+          type: string
+        requests:
+          description: The requests it makes.
+          items:
+            $ref: '#/components/schemas/SfvbTrackingCheckPlanRequest'
+          type: array
+        source:
+          description: "provider for a provider in the catalog, custom_html for the\
+            \ storefront Tracking or Conversion HTML, affiliate_network for an affiliate\
+            \ network pixel."
+          enum:
+          - provider
+          - custom_html
+          - affiliate_network
+          type: string
+        template:
+          description: "The storefront template that writes it, tracking.vm or conversion.vm.\
+            \  Left out for custom and affiliate network HTML."
+          type: string
+      type: object
+    SfvbTrackingCheckPlanRequest:
+      example:
+        kind: script
+        host: host
+        params: "{}"
+        path_prefix: path_prefix
+      properties:
+        host:
+          description: "The host, exactly, or with a leading star and dot for any\
+            \ subdomain."
+          type: string
+        kind:
+          description: "script, beacon or pixel."
+          enum:
+          - script
+          - beacon
+          - pixel
+          type: string
+        params:
+          description: Query params that must be on the request.  A star means present
+            with any value.
+          type: object
+        path_prefix:
+          description: The start of the path.
+          type: string
+      type: object
+    SfvbTrackingCheckPlanServerSide:
+      example:
+        provider: provider
+        trigger: trigger
+      properties:
+        provider:
+          description: "The provider key, or affiliate_network for affiliate network\
+            \ postbacks."
+          type: string
+        trigger:
+          description: What sends it.
+          type: string
+      type: object
+    SfvbTrackingCheckPlanUnchecked:
+      example:
+        why: why
+        source: source
+      properties:
+        source:
+          description: "provider, custom_html or affiliate_network."
+          type: string
+        why:
+          description: "What the plan left out, and why."
           type: string
       type: object
     SfvbTrackingHtml:

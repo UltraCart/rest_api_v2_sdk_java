@@ -236,6 +236,7 @@ import com.ultracart.admin.v2.models.SfvbThemeDuplicateRequest;
 import com.ultracart.admin.v2.models.SfvbThemeJobResponse;
 import com.ultracart.admin.v2.models.SfvbThemesResponse;
 import com.ultracart.admin.v2.models.SfvbTrackingAdvancedRequest;
+import com.ultracart.admin.v2.models.SfvbTrackingCheckPlan;
 import com.ultracart.admin.v2.models.SfvbTrackingHtml;
 import com.ultracart.admin.v2.models.SfvbTrackingHtmlRenderRequest;
 import com.ultracart.admin.v2.models.SfvbTrackingHtmlRenderResponse;
@@ -23834,6 +23835,198 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbThemeJobValidateBeforeCall(storefrontOid, jobId, _callback);
         Type localVarReturnType = new TypeToken<SfvbThemeJobResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbTrackingCheckPlan
+     * @param storefrontOid  (required)
+     * @param path A storefront page path, such as / or /checkout/receipt.html, with an optional query (required)
+     * @param event page_view (the default) or purchase (optional)
+     * @param orderId For purchase, a test order on this account (optional)
+     * @param consent none, all, or a comma list of statistics, preferences and marketing (optional)
+     * @param region Where the browser is.  eea, non-us or other (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbTrackingCheckPlanCall(Integer storefrontOid, String path, String event, String orderId, String consent, String region, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/check_plan"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (path != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("path", path));
+        }
+
+        if (event != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("event", event));
+        }
+
+        if (orderId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_id", orderId));
+        }
+
+        if (consent != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("consent", consent));
+        }
+
+        if (region != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("region", region));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbTrackingCheckPlanValidateBeforeCall(Integer storefrontOid, String path, String event, String orderId, String consent, String region, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbTrackingCheckPlan(Async)");
+        }
+        
+        // verify the required parameter 'path' is set
+        if (path == null) {
+            throw new ApiException("Missing the required parameter 'path' when calling getSfvbTrackingCheckPlan(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbTrackingCheckPlanCall(storefrontOid, path, event, orderId, consent, region, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Plan a browser check of a storefront&#39;s tracking
+     * What each tracking provider should load on one page, for page_view or a test order&#39;s purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront&#39;s tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront&#39;s custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+     * @param storefrontOid  (required)
+     * @param path A storefront page path, such as / or /checkout/receipt.html, with an optional query (required)
+     * @param event page_view (the default) or purchase (optional)
+     * @param orderId For purchase, a test order on this account (optional)
+     * @param consent none, all, or a comma list of statistics, preferences and marketing (optional)
+     * @param region Where the browser is.  eea, non-us or other (optional)
+     * @return SfvbTrackingCheckPlan
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbTrackingCheckPlan getSfvbTrackingCheckPlan(Integer storefrontOid, String path, String event, String orderId, String consent, String region) throws ApiException {
+        ApiResponse<SfvbTrackingCheckPlan> localVarResp = getSfvbTrackingCheckPlanWithHttpInfo(storefrontOid, path, event, orderId, consent, region);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Plan a browser check of a storefront&#39;s tracking
+     * What each tracking provider should load on one page, for page_view or a test order&#39;s purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront&#39;s tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront&#39;s custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+     * @param storefrontOid  (required)
+     * @param path A storefront page path, such as / or /checkout/receipt.html, with an optional query (required)
+     * @param event page_view (the default) or purchase (optional)
+     * @param orderId For purchase, a test order on this account (optional)
+     * @param consent none, all, or a comma list of statistics, preferences and marketing (optional)
+     * @param region Where the browser is.  eea, non-us or other (optional)
+     * @return ApiResponse&lt;SfvbTrackingCheckPlan&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbTrackingCheckPlan> getSfvbTrackingCheckPlanWithHttpInfo(Integer storefrontOid, String path, String event, String orderId, String consent, String region) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbTrackingCheckPlanValidateBeforeCall(storefrontOid, path, event, orderId, consent, region, null);
+        Type localVarReturnType = new TypeToken<SfvbTrackingCheckPlan>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Plan a browser check of a storefront&#39;s tracking (asynchronously)
+     * What each tracking provider should load on one page, for page_view or a test order&#39;s purchase, under a consent state and region, with the requests and calls to look for and the ones that must not appear.  Built from the same rules the storefront&#39;s tracking templates follow, never by running them, so nothing is sent to any provider.  Includes the hosts the storefront&#39;s custom and affiliate network HTML loads, the sends made from UltraCart servers, and a snippet that collects what the browser saw.  Grade the results locally; they are never sent here.  With neither consent nor region, every provider is listed with the gate that holds it back.  A purchase needs a test order on this account. 
+     * @param storefrontOid  (required)
+     * @param path A storefront page path, such as / or /checkout/receipt.html, with an optional query (required)
+     * @param event page_view (the default) or purchase (optional)
+     * @param orderId For purchase, a test order on this account (optional)
+     * @param consent none, all, or a comma list of statistics, preferences and marketing (optional)
+     * @param region Where the browser is.  eea, non-us or other (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbTrackingCheckPlanAsync(Integer storefrontOid, String path, String event, String orderId, String consent, String region, final ApiCallback<SfvbTrackingCheckPlan> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbTrackingCheckPlanValidateBeforeCall(storefrontOid, path, event, orderId, consent, region, _callback);
+        Type localVarReturnType = new TypeToken<SfvbTrackingCheckPlan>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
