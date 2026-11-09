@@ -107,6 +107,8 @@ public class SfvbApprovalCreateRequest {
     
     TRACKING_PROVIDER_CHANGE("tracking_provider.change"),
     
+    TRACKING_PROVIDER_CLEAR("tracking_provider.clear"),
+    
     TRACKING_HTML_PUT("tracking_html.put"),
     
     AFFILIATE_NETWORK_CHANGE("affiliate_network.change"),

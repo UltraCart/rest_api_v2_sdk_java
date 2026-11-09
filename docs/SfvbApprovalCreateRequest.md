@@ -50,6 +50,7 @@
 | SMART_ATTRIBUTION_CHANGE | &quot;smart_attribution.change&quot; |
 | SMART_ATTRIBUTION_DELETE | &quot;smart_attribution.delete&quot; |
 | TRACKING_PROVIDER_CHANGE | &quot;tracking_provider.change&quot; |
+| TRACKING_PROVIDER_CLEAR | &quot;tracking_provider.clear&quot; |
 | TRACKING_HTML_PUT | &quot;tracking_html.put&quot; |
 | AFFILIATE_NETWORK_CHANGE | &quot;affiliate_network.change&quot; |
 | AFFILIATE_NETWORK_DELETE | &quot;affiliate_network.delete&quot; |
