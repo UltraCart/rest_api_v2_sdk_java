@@ -3538,8 +3538,10 @@ paths:
       description: "Takes a campaign, flow, sequence, step, email, postcard, list\
         \ or segment uuid and says which of this account's storefronts it is on, what\
         \ it is, the campaign or flow it belongs to, and the command that reads it.\
-        \  A uuid nothing on this account has, another account's included, is 404.\
-        \  Read only.\n"
+        \  An archived campaign or flow is found too, with archived true, and owner.archived\
+        \ is true when what was found belongs to one.  A uuid nothing on this account\
+        \ has, another account's included, and a deleted step, email, postcard, list\
+        \ or segment, is 404.  Read only.\n"
       operationId: getSfvbCommsLookup
       parameters:
       - description: The uuid to find.
@@ -21726,6 +21728,111 @@ paths:
       x-codegen-request-body-name: preview_session
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html:
+    put:
+      description: "Runs Tracking HTML, Conversion HTML or both instead of the storefront's\
+        \ live slots, only in a browser that opened this session's preview access\
+        \ link, so a page can be checked before the write is approved.  Staged Conversion\
+        \ HTML runs only on a test order's receipt.  Each slot gets the same checks\
+        \ as a write.  An empty string unstages a slot; a slot left out is left as\
+        \ it is.  Containers pushed to the session later keep what is staged.  Needs\
+        \ sfvb_write and a token that resolves to a user; no approval, since nothing\
+        \ durable is written and only that user's own session runs it.\n"
+      operationId: putSfvbPreviewTrackingHtml
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: preview_session_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPreviewTrackingHtmlRequest'
+        description: The HTML to stage
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingHtmlResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Stage custom tracking HTML in a preview session
+      tags:
+      - sfvb
+      x-codegen-request-body-name: preview_tracking_html
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/url:
     get:
       description: "Refuses a session that does not exist, so a URL you receive is\
@@ -27498,6 +27605,102 @@ paths:
       x-codegen-request-body-name: tracking_html_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render:
+    post:
+      description: "The Conversion HTML as the receipt of that order would inject\
+        \ it: order tokens filled, then Velocity run with $order, $conversion and\
+        \ $formatHelper.  Renders the stored slot, or content when it is sent (a draft,\
+        \ checked as a write is).  Only a test order on this account may be used;\
+        \ a real or unknown order is refused the same way.  Nothing is saved, injected\
+        \ or sent: the receipt's provider pixels, analytics and postbacks do not run,\
+        \ and a token that would write something ([CouponForNewAffiliate=...]) is\
+        \ left as written.  Only the conversion slot renders; tracking HTML is checked\
+        \ by staging it in a preview session.\n"
+      operationId: renderSfvbTrackingHtml
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: conversion
+        in: path
+        name: slot
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbTrackingHtmlRenderRequest'
+        description: "The test order, and optionally a draft"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbTrackingHtmlRenderResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Render the Conversion HTML against a test order
+      tags:
+      - sfvb
+      x-codegen-request-body-name: tracking_html_render_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/tracking/privacy:
     put:
       description: "A partial update.  Each rule named is set to all, eea, non_us\
@@ -27688,10 +27891,14 @@ paths:
   /sfvb/storefronts/{storefront_oid}/tracking/providers/{provider}:
     delete:
       description: "Clears every field and secret the API can change, the consent\
-        \ gate and the events, and turns off Google Tag Gateway.  The provider stops\
-        \ being sent anything.  An OAuth connection is left alone, and notes say to\
-        \ disconnect it in the admin.  Send the provider's hash_sha256 as If-Match.\
-        \  Needs sfvb_publish.  No approval.\n"
+        \ gate and the events, and turns off Google Tag Gateway.  An OAuth connection\
+        \ is left alone, and notes say to disconnect it in the admin.  Send the provider's\
+        \ hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run=true reports the\
+        \ changes, and approval_needed, without clearing.  No approval, except when\
+        \ the clear removes a consent gate while something outside the provider's\
+        \ fields still fires it (Google Ads for an affiliate's own Google conversion\
+        \ id, Commission Junction for an affiliate network of its type): that needs\
+        \ an approved tracking_provider.clear request for the provider (Approval-Id).\n"
       operationId: deleteSfvbTrackingProvider
       parameters:
       - in: path
@@ -27705,11 +27912,22 @@ paths:
         required: true
         schema:
           type: string
+      - in: query
+        name: dry_run
+        schema:
+          type: boolean
       - description: "The provider's hash_sha256 from the last read.  428 when absent,\
           \ 412 when stale."
         in: header
         name: If-Match
         required: true
+        schema:
+          type: string
+      - description: "When the clear removes a consent gate while something else still\
+          \ fires the provider, the approval_id of an approved tracking_provider.clear\
+          \ request for it.  See POST /sfvb/approvals."
+        in: header
+        name: Approval-Id
         schema:
           type: string
       responses:
@@ -27758,6 +27976,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -259681,7 +259913,8 @@ components:
             \ sequence_step.move, or to turn on, for sequence_step.enable_postcard."
           type: string
         tracking_provider:
-          description: "The tracking provider key, for tracking_provider.change."
+          description: "The tracking provider key, for tracking_provider.change and\
+            \ tracking_provider.clear."
           type: string
         upsell_kind:
           description: "For upsell.enable, what to switch on."
@@ -261459,12 +261692,17 @@ components:
       type: object
     SfvbCommsLookupOwner:
       example:
+        archived: true
         name: name
         type: type
         uuid: uuid
         live: true
         status: status
       properties:
+        archived:
+          description: "True when the campaign or flow is archived.  It sends nothing,\
+            \ and 'sf comms flows list' or 'campaigns list' shows it only with --include-deleted."
+          type: boolean
         live:
           description: "True when it is sending now, by the same rule the sequence\
             \ read uses."
@@ -261486,11 +261724,13 @@ components:
       example:
         next: next
         owner:
+          archived: true
           name: name
           type: type
           uuid: uuid
           live: true
           status: status
+        archived: true
         step_uuid: step_uuid
         notes:
         - notes
@@ -261501,6 +261741,10 @@ components:
         storefront_oid: 0
         uuid: uuid
       properties:
+        archived:
+          description: True when the uuid is an archived campaign or flow.  It is
+            still on its storefront and can be read; it sends nothing.
+          type: boolean
         communication_sequence_uuid:
           description: "The sequence it belongs to, when there is one."
           type: string
@@ -270500,6 +270744,23 @@ components:
             type: string
           type: array
       type: object
+    SfvbPreviewTrackingHtmlRequest:
+      example:
+        conversion_html: conversion_html
+        tracking_html: tracking_html
+      properties:
+        conversion_html:
+          description: Conversion HTML to run instead of the live slot on a test order's
+            receipt opened through this session's preview access link.  Never on a
+            real order's receipt.  An empty string unstages it.  The same checks as
+            a write apply.
+          type: string
+        tracking_html:
+          description: Tracking HTML to run instead of the live slot on pages opened
+            through this session's preview access link.  An empty string unstages
+            it.  The same checks as a write apply.
+          type: string
+      type: object
     SfvbPreviewUrlResponse:
       example:
         shareable: true
@@ -273053,7 +273314,7 @@ components:
           type: integer
         error_count:
           description: "Error lines in the log, including Velocity problems such as\
-            \ a null"
+            \ setting a variable to null."
           format: int32
           type: integer
         line_count:
@@ -274883,6 +275144,97 @@ components:
           - conversion
           type: string
       type: object
+    SfvbTrackingHtmlRenderRequest:
+      example:
+        order_id: order_id
+        content: content
+      properties:
+        content:
+          description: "HTML to render instead of the stored slot, such as a draft\
+            \ about to be written.  The same checks as a write apply.  Left out, the\
+            \ stored slot is rendered."
+          type: string
+        order_id:
+          description: "A test order on this account, as sf orders test-orders lists\
+            \ them.  A real or unknown order is refused the same way."
+          type: string
+      type: object
+    SfvbTrackingHtmlRenderResponse:
+      example:
+        size_bytes: 0
+        content_sha256: content_sha256
+        provides:
+        - provides
+        - provides
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        html: html
+        slot: slot
+        source: stored
+        order_id: order_id
+      properties:
+        content_sha256:
+          description: "The SHA-256 of the HTML rendered, before rendering, as the\
+            \ slot would store it.  For a draft, the hash a tracking_html.put approval\
+            \ binds."
+          type: string
+        html:
+          description: "The rendered HTML, with order tokens filled and Velocity run,\
+            \ as the receipt would inject it.  Empty when the slot is empty."
+          type: string
+        order_id:
+          description: The test order rendered against.
+          type: string
+        provides:
+          description: The Velocity references the render provides.  Any other reference
+            the receipt page has is left as written.
+          items:
+            type: string
+          type: array
+        size_bytes:
+          description: The size of html in UTF-8 bytes.
+          format: int32
+          type: integer
+        slot:
+          description: The slot rendered.  Always conversion.
+          type: string
+        source:
+          description: "stored when the slot's saved HTML was rendered, draft when\
+            \ the request's content was."
+          enum:
+          - stored
+          - draft
+          type: string
+        warnings:
+          description: "What the render left out or could not do, such as tokens it\
+            \ doesn't fill."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
     SfvbTrackingHtmlRequest:
       example:
         dry_run: true
@@ -275080,6 +275432,7 @@ components:
         name: name
         consent_supported: true
         dry_run: true
+        server_side: server_side
         fields:
         - set: true
           max: 6
@@ -275190,6 +275543,11 @@ components:
           type: array
         oauth:
           $ref: '#/components/schemas/SfvbTrackingProviderOauth'
+        server_side:
+          description: "What the provider also sends from UltraCart's servers.  A\
+            \ consent gate holds back only the browser pixel, not these.  Absent when\
+            \ it sends nothing server side."
+          type: string
         wholesale_tiers:
           description: "For google_analytics, the account number per wholesale pricing\
             \ tier."
@@ -275523,6 +275881,7 @@ components:
           name: name
           consent_supported: true
           dry_run: true
+          server_side: server_side
           fields:
           - set: true
             max: 6
@@ -275601,6 +275960,7 @@ components:
           name: name
           consent_supported: true
           dry_run: true
+          server_side: server_side
           fields:
           - set: true
             max: 6

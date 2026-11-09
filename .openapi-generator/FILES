@@ -1223,6 +1223,7 @@ docs/SfvbPreviewAccessRequest.md
 docs/SfvbPreviewAccessResponse.md
 docs/SfvbPreviewSessionRequest.md
 docs/SfvbPreviewSessionResponse.md
+docs/SfvbPreviewTrackingHtmlRequest.md
 docs/SfvbPreviewUrlResponse.md
 docs/SfvbRecording.md
 docs/SfvbRecordingEvent.md
@@ -1313,6 +1314,8 @@ docs/SfvbTrackingAdvanced.md
 docs/SfvbTrackingAdvancedRequest.md
 docs/SfvbTrackingChange.md
 docs/SfvbTrackingHtml.md
+docs/SfvbTrackingHtmlRenderRequest.md
+docs/SfvbTrackingHtmlRenderResponse.md
 docs/SfvbTrackingHtmlRequest.md
 docs/SfvbTrackingHtmlResponse.md
 docs/SfvbTrackingPrivacy.md
@@ -2690,6 +2693,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewAccessResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewSessionResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbPreviewTrackingHtmlRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbPreviewUrlResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRecording.java
 src/main/java/com/ultracart/admin/v2/models/SfvbRecordingEvent.java
@@ -2780,6 +2784,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbTrackingAdvanced.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingAdvancedRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingChange.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingHtml.java
+src/main/java/com/ultracart/admin/v2/models/SfvbTrackingHtmlRenderRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbTrackingHtmlRenderResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingHtmlRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingHtmlResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbTrackingPrivacy.java

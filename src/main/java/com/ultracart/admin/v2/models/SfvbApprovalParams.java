@@ -680,11 +680,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The tracking provider key, for tracking_provider.change.
+   * The tracking provider key, for tracking_provider.change and tracking_provider.clear.
    * @return trackingProvider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The tracking provider key, for tracking_provider.change.")
+  @ApiModelProperty(value = "The tracking provider key, for tracking_provider.change and tracking_provider.clear.")
 
   public String getTrackingProvider() {
     return trackingProvider;

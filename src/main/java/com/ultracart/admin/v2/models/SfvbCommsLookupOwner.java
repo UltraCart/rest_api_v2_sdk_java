@@ -49,6 +49,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbCommsLookupOwner {
+  public static final String SERIALIZED_NAME_ARCHIVED = "archived";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED)
+  private Boolean archived;
+
   public static final String SERIALIZED_NAME_LIVE = "live";
   @SerializedName(SERIALIZED_NAME_LIVE)
   private Boolean live;
@@ -71,6 +75,29 @@ public class SfvbCommsLookupOwner {
 
   public SfvbCommsLookupOwner() { 
   }
+
+  public SfvbCommsLookupOwner archived(Boolean archived) {
+    
+    this.archived = archived;
+    return this;
+  }
+
+   /**
+   * True when the campaign or flow is archived.  It sends nothing, and &#39;sf comms flows list&#39; or &#39;campaigns list&#39; shows it only with --include-deleted.
+   * @return archived
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the campaign or flow is archived.  It sends nothing, and 'sf comms flows list' or 'campaigns list' shows it only with --include-deleted.")
+
+  public Boolean getArchived() {
+    return archived;
+  }
+
+
+  public void setArchived(Boolean archived) {
+    this.archived = archived;
+  }
+
 
   public SfvbCommsLookupOwner live(Boolean live) {
     
@@ -197,7 +224,8 @@ public class SfvbCommsLookupOwner {
       return false;
     }
     SfvbCommsLookupOwner sfvbCommsLookupOwner = (SfvbCommsLookupOwner) o;
-    return Objects.equals(this.live, sfvbCommsLookupOwner.live) &&
+    return Objects.equals(this.archived, sfvbCommsLookupOwner.archived) &&
+        Objects.equals(this.live, sfvbCommsLookupOwner.live) &&
         Objects.equals(this.name, sfvbCommsLookupOwner.name) &&
         Objects.equals(this.status, sfvbCommsLookupOwner.status) &&
         Objects.equals(this.type, sfvbCommsLookupOwner.type) &&
@@ -206,13 +234,14 @@ public class SfvbCommsLookupOwner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(live, name, status, type, uuid);
+    return Objects.hash(archived, live, name, status, type, uuid);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbCommsLookupOwner {\n");
+    sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
     sb.append("    live: ").append(toIndentedString(live)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -240,6 +269,7 @@ public class SfvbCommsLookupOwner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("archived");
     openapiFields.add("live");
     openapiFields.add("name");
     openapiFields.add("status");

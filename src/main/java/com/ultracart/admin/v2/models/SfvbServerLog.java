@@ -149,11 +149,11 @@ public class SfvbServerLog {
   }
 
    /**
-   * Error lines in the log, including Velocity problems such as a null
+   * Error lines in the log, including Velocity problems such as setting a variable to null.
    * @return errorCount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Error lines in the log, including Velocity problems such as a null")
+  @ApiModelProperty(value = "Error lines in the log, including Velocity problems such as setting a variable to null.")
 
   public Integer getErrorCount() {
     return errorCount;

@@ -121,6 +121,10 @@ public class SfvbTrackingProvider {
   @SerializedName(SERIALIZED_NAME_OAUTH)
   private SfvbTrackingProviderOauth oauth;
 
+  public static final String SERIALIZED_NAME_SERVER_SIDE = "server_side";
+  @SerializedName(SERIALIZED_NAME_SERVER_SIDE)
+  private String serverSide;
+
   public static final String SERIALIZED_NAME_WHOLESALE_TIERS = "wholesale_tiers";
   @SerializedName(SERIALIZED_NAME_WHOLESALE_TIERS)
   private List<SfvbTrackingWholesaleTier> wholesaleTiers = null;
@@ -528,6 +532,29 @@ public class SfvbTrackingProvider {
   }
 
 
+  public SfvbTrackingProvider serverSide(String serverSide) {
+    
+    this.serverSide = serverSide;
+    return this;
+  }
+
+   /**
+   * What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.
+   * @return serverSide
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "What the provider also sends from UltraCart's servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side.")
+
+  public String getServerSide() {
+    return serverSide;
+  }
+
+
+  public void setServerSide(String serverSide) {
+    this.serverSide = serverSide;
+  }
+
+
   public SfvbTrackingProvider wholesaleTiers(List<SfvbTrackingWholesaleTier> wholesaleTiers) {
     
     this.wholesaleTiers = wholesaleTiers;
@@ -585,12 +612,13 @@ public class SfvbTrackingProvider {
         Objects.equals(this.name, sfvbTrackingProvider.name) &&
         Objects.equals(this.notes, sfvbTrackingProvider.notes) &&
         Objects.equals(this.oauth, sfvbTrackingProvider.oauth) &&
+        Objects.equals(this.serverSide, sfvbTrackingProvider.serverSide) &&
         Objects.equals(this.wholesaleTiers, sfvbTrackingProvider.wholesaleTiers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminPath, approvalNeeded, changes, configured, consent, consentSupported, cost, dryRun, events, fields, group, hashSha256, key, name, notes, oauth, wholesaleTiers);
+    return Objects.hash(adminPath, approvalNeeded, changes, configured, consent, consentSupported, cost, dryRun, events, fields, group, hashSha256, key, name, notes, oauth, serverSide, wholesaleTiers);
   }
 
   @Override
@@ -613,6 +641,7 @@ public class SfvbTrackingProvider {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
+    sb.append("    serverSide: ").append(toIndentedString(serverSide)).append("\n");
     sb.append("    wholesaleTiers: ").append(toIndentedString(wholesaleTiers)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -652,6 +681,7 @@ public class SfvbTrackingProvider {
     openapiFields.add("name");
     openapiFields.add("notes");
     openapiFields.add("oauth");
+    openapiFields.add("server_side");
     openapiFields.add("wholesale_tiers");
 
     // a set of required properties/fields (JSON key names)
@@ -745,6 +775,9 @@ public class SfvbTrackingProvider {
       // validate the optional field `oauth`
       if (jsonObj.getAsJsonObject("oauth") != null) {
         SfvbTrackingProviderOauth.validateJsonObject(jsonObj.getAsJsonObject("oauth"));
+      }
+      if (jsonObj.get("server_side") != null && !jsonObj.get("server_side").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `server_side` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_side").toString()));
       }
       JsonArray jsonArraywholesaleTiers = jsonObj.getAsJsonArray("wholesale_tiers");
       if (jsonArraywholesaleTiers != null) {

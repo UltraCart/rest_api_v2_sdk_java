@@ -52,6 +52,10 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbCommsLookupResponse {
+  public static final String SERIALIZED_NAME_ARCHIVED = "archived";
+  @SerializedName(SERIALIZED_NAME_ARCHIVED)
+  private Boolean archived;
+
   public static final String SERIALIZED_NAME_COMMUNICATION_SEQUENCE_UUID = "communication_sequence_uuid";
   @SerializedName(SERIALIZED_NAME_COMMUNICATION_SEQUENCE_UUID)
   private String communicationSequenceUuid;
@@ -90,6 +94,29 @@ public class SfvbCommsLookupResponse {
 
   public SfvbCommsLookupResponse() { 
   }
+
+  public SfvbCommsLookupResponse archived(Boolean archived) {
+    
+    this.archived = archived;
+    return this;
+  }
+
+   /**
+   * True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.
+   * @return archived
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the uuid is an archived campaign or flow.  It is still on its storefront and can be read; it sends nothing.")
+
+  public Boolean getArchived() {
+    return archived;
+  }
+
+
+  public void setArchived(Boolean archived) {
+    this.archived = archived;
+  }
+
 
   public SfvbCommsLookupResponse communicationSequenceUuid(String communicationSequenceUuid) {
     
@@ -316,7 +343,8 @@ public class SfvbCommsLookupResponse {
       return false;
     }
     SfvbCommsLookupResponse sfvbCommsLookupResponse = (SfvbCommsLookupResponse) o;
-    return Objects.equals(this.communicationSequenceUuid, sfvbCommsLookupResponse.communicationSequenceUuid) &&
+    return Objects.equals(this.archived, sfvbCommsLookupResponse.archived) &&
+        Objects.equals(this.communicationSequenceUuid, sfvbCommsLookupResponse.communicationSequenceUuid) &&
         Objects.equals(this.kind, sfvbCommsLookupResponse.kind) &&
         Objects.equals(this.name, sfvbCommsLookupResponse.name) &&
         Objects.equals(this.next, sfvbCommsLookupResponse.next) &&
@@ -329,13 +357,14 @@ public class SfvbCommsLookupResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(communicationSequenceUuid, kind, name, next, notes, owner, stepUuid, storefrontOid, uuid);
+    return Objects.hash(archived, communicationSequenceUuid, kind, name, next, notes, owner, stepUuid, storefrontOid, uuid);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbCommsLookupResponse {\n");
+    sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
     sb.append("    communicationSequenceUuid: ").append(toIndentedString(communicationSequenceUuid)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -367,6 +396,7 @@ public class SfvbCommsLookupResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("archived");
     openapiFields.add("communication_sequence_uuid");
     openapiFields.add("kind");
     openapiFields.add("name");

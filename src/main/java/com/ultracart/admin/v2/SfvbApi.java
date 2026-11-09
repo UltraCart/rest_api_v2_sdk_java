@@ -183,6 +183,7 @@ import com.ultracart.admin.v2.models.SfvbPreviewAccessRequest;
 import com.ultracart.admin.v2.models.SfvbPreviewAccessResponse;
 import com.ultracart.admin.v2.models.SfvbPreviewSessionRequest;
 import com.ultracart.admin.v2.models.SfvbPreviewSessionResponse;
+import com.ultracart.admin.v2.models.SfvbPreviewTrackingHtmlRequest;
 import com.ultracart.admin.v2.models.SfvbPreviewUrlResponse;
 import com.ultracart.admin.v2.models.SfvbRecordingEventsResponse;
 import com.ultracart.admin.v2.models.SfvbRecordingResponse;
@@ -236,6 +237,8 @@ import com.ultracart.admin.v2.models.SfvbThemeJobResponse;
 import com.ultracart.admin.v2.models.SfvbThemesResponse;
 import com.ultracart.admin.v2.models.SfvbTrackingAdvancedRequest;
 import com.ultracart.admin.v2.models.SfvbTrackingHtml;
+import com.ultracart.admin.v2.models.SfvbTrackingHtmlRenderRequest;
+import com.ultracart.admin.v2.models.SfvbTrackingHtmlRenderResponse;
 import com.ultracart.admin.v2.models.SfvbTrackingHtmlRequest;
 import com.ultracart.admin.v2.models.SfvbTrackingHtmlResponse;
 import com.ultracart.admin.v2.models.SfvbTrackingPrivacyRequest;
@@ -7015,6 +7018,8 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param provider  (required)
      * @param ifMatch The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param dryRun  (optional)
+     * @param approvalId When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7026,13 +7031,15 @@ public class SfvbApi {
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 502 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSfvbTrackingProviderCall(Integer storefrontOid, String provider, String ifMatch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteSfvbTrackingProviderCall(Integer storefrontOid, String provider, String ifMatch, Boolean dryRun, String approvalId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7059,8 +7066,16 @@ public class SfvbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dry_run", dryRun));
+        }
+
         if (ifMatch != null) {
             localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
         }
 
         final String[] localVarAccepts = {
@@ -7084,7 +7099,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSfvbTrackingProviderValidateBeforeCall(Integer storefrontOid, String provider, String ifMatch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteSfvbTrackingProviderValidateBeforeCall(Integer storefrontOid, String provider, String ifMatch, Boolean dryRun, String approvalId, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -7102,17 +7117,19 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = deleteSfvbTrackingProviderCall(storefrontOid, provider, ifMatch, _callback);
+        okhttp3.Call localVarCall = deleteSfvbTrackingProviderCall(storefrontOid, provider, ifMatch, dryRun, approvalId, _callback);
         return localVarCall;
 
     }
 
     /**
      * Clear one tracking provider
-     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run&#x3D;true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider&#39;s fields still fires it (Google Ads for an affiliate&#39;s own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
      * @param storefrontOid  (required)
      * @param provider  (required)
      * @param ifMatch The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param dryRun  (optional)
+     * @param approvalId When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      * @return SfvbTrackingProvider
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7123,23 +7140,27 @@ public class SfvbApi {
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 502 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public SfvbTrackingProvider deleteSfvbTrackingProvider(Integer storefrontOid, String provider, String ifMatch) throws ApiException {
-        ApiResponse<SfvbTrackingProvider> localVarResp = deleteSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch);
+    public SfvbTrackingProvider deleteSfvbTrackingProvider(Integer storefrontOid, String provider, String ifMatch, Boolean dryRun, String approvalId) throws ApiException {
+        ApiResponse<SfvbTrackingProvider> localVarResp = deleteSfvbTrackingProviderWithHttpInfo(storefrontOid, provider, ifMatch, dryRun, approvalId);
         return localVarResp.getData();
     }
 
     /**
      * Clear one tracking provider
-     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run&#x3D;true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider&#39;s fields still fires it (Google Ads for an affiliate&#39;s own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
      * @param storefrontOid  (required)
      * @param provider  (required)
      * @param ifMatch The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param dryRun  (optional)
+     * @param approvalId When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbTrackingProvider&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7150,24 +7171,28 @@ public class SfvbApi {
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 502 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbTrackingProvider> deleteSfvbTrackingProviderWithHttpInfo(Integer storefrontOid, String provider, String ifMatch) throws ApiException {
-        okhttp3.Call localVarCall = deleteSfvbTrackingProviderValidateBeforeCall(storefrontOid, provider, ifMatch, null);
+    public ApiResponse<SfvbTrackingProvider> deleteSfvbTrackingProviderWithHttpInfo(Integer storefrontOid, String provider, String ifMatch, Boolean dryRun, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSfvbTrackingProviderValidateBeforeCall(storefrontOid, provider, ifMatch, dryRun, approvalId, null);
         Type localVarReturnType = new TypeToken<SfvbTrackingProvider>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Clear one tracking provider (asynchronously)
-     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  The provider stops being sent anything.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  No approval. 
+     * Clears every field and secret the API can change, the consent gate and the events, and turns off Google Tag Gateway.  An OAuth connection is left alone, and notes say to disconnect it in the admin.  Send the provider&#39;s hash_sha256 as If-Match.  Needs sfvb_publish.  dry_run&#x3D;true reports the changes, and approval_needed, without clearing.  No approval, except when the clear removes a consent gate while something outside the provider&#39;s fields still fires it (Google Ads for an affiliate&#39;s own Google conversion id, Commission Junction for an affiliate network of its type): that needs an approved tracking_provider.clear request for the provider (Approval-Id). 
      * @param storefrontOid  (required)
      * @param provider  (required)
      * @param ifMatch The provider&#39;s hash_sha256 from the last read.  428 when absent, 412 when stale. (required)
+     * @param dryRun  (optional)
+     * @param approvalId When the clear removes a consent gate while something else still fires the provider, the approval_id of an approved tracking_provider.clear request for it.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7179,15 +7204,17 @@ public class SfvbApi {
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 502 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteSfvbTrackingProviderAsync(Integer storefrontOid, String provider, String ifMatch, final ApiCallback<SfvbTrackingProvider> _callback) throws ApiException {
+    public okhttp3.Call deleteSfvbTrackingProviderAsync(Integer storefrontOid, String provider, String ifMatch, Boolean dryRun, String approvalId, final ApiCallback<SfvbTrackingProvider> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteSfvbTrackingProviderValidateBeforeCall(storefrontOid, provider, ifMatch, _callback);
+        okhttp3.Call localVarCall = deleteSfvbTrackingProviderValidateBeforeCall(storefrontOid, provider, ifMatch, dryRun, approvalId, _callback);
         Type localVarReturnType = new TypeToken<SfvbTrackingProvider>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -13476,7 +13503,7 @@ public class SfvbApi {
 
     /**
      * Find which storefront a communications uuid lives on
-     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account&#39;s included, is 404.  Read only. 
+     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account&#39;s included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
      * @param uuid The uuid to find. (required)
      * @return SfvbCommsLookupResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13498,7 +13525,7 @@ public class SfvbApi {
 
     /**
      * Find which storefront a communications uuid lives on
-     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account&#39;s included, is 404.  Read only. 
+     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account&#39;s included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
      * @param uuid The uuid to find. (required)
      * @return ApiResponse&lt;SfvbCommsLookupResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -13521,7 +13548,7 @@ public class SfvbApi {
 
     /**
      * Find which storefront a communications uuid lives on (asynchronously)
-     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  A uuid nothing on this account has, another account&#39;s included, is 404.  Read only. 
+     * Takes a campaign, flow, sequence, step, email, postcard, list or segment uuid and says which of this account&#39;s storefronts it is on, what it is, the campaign or flow it belongs to, and the command that reads it.  An archived campaign or flow is found too, with archived true, and owner.archived is true when what was found belongs to one.  A uuid nothing on this account has, another account&#39;s included, and a deleted step, email, postcard, list or segment, is 404.  Read only. 
      * @param uuid The uuid to find. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -36603,6 +36630,176 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for putSfvbPreviewTrackingHtml
+     * @param storefrontOid  (required)
+     * @param previewSessionId  (required)
+     * @param previewTrackingHtml The HTML to stage (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbPreviewTrackingHtmlCall(Integer storefrontOid, String previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = previewTrackingHtml;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/preview_sessions/{preview_session_id}/tracking_html"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "preview_session_id" + "\\}", localVarApiClient.escapeString(previewSessionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putSfvbPreviewTrackingHtmlValidateBeforeCall(Integer storefrontOid, String previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling putSfvbPreviewTrackingHtml(Async)");
+        }
+        
+        // verify the required parameter 'previewSessionId' is set
+        if (previewSessionId == null) {
+            throw new ApiException("Missing the required parameter 'previewSessionId' when calling putSfvbPreviewTrackingHtml(Async)");
+        }
+        
+        // verify the required parameter 'previewTrackingHtml' is set
+        if (previewTrackingHtml == null) {
+            throw new ApiException("Missing the required parameter 'previewTrackingHtml' when calling putSfvbPreviewTrackingHtml(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = putSfvbPreviewTrackingHtmlCall(storefrontOid, previewSessionId, previewTrackingHtml, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Stage custom tracking HTML in a preview session
+     * Runs Tracking HTML, Conversion HTML or both instead of the storefront&#39;s live slots, only in a browser that opened this session&#39;s preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order&#39;s receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user&#39;s own session runs it. 
+     * @param storefrontOid  (required)
+     * @param previewSessionId  (required)
+     * @param previewTrackingHtml The HTML to stage (required)
+     * @return SfvbTrackingHtmlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbTrackingHtmlResponse putSfvbPreviewTrackingHtml(Integer storefrontOid, String previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml) throws ApiException {
+        ApiResponse<SfvbTrackingHtmlResponse> localVarResp = putSfvbPreviewTrackingHtmlWithHttpInfo(storefrontOid, previewSessionId, previewTrackingHtml);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stage custom tracking HTML in a preview session
+     * Runs Tracking HTML, Conversion HTML or both instead of the storefront&#39;s live slots, only in a browser that opened this session&#39;s preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order&#39;s receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user&#39;s own session runs it. 
+     * @param storefrontOid  (required)
+     * @param previewSessionId  (required)
+     * @param previewTrackingHtml The HTML to stage (required)
+     * @return ApiResponse&lt;SfvbTrackingHtmlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbTrackingHtmlResponse> putSfvbPreviewTrackingHtmlWithHttpInfo(Integer storefrontOid, String previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml) throws ApiException {
+        okhttp3.Call localVarCall = putSfvbPreviewTrackingHtmlValidateBeforeCall(storefrontOid, previewSessionId, previewTrackingHtml, null);
+        Type localVarReturnType = new TypeToken<SfvbTrackingHtmlResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stage custom tracking HTML in a preview session (asynchronously)
+     * Runs Tracking HTML, Conversion HTML or both instead of the storefront&#39;s live slots, only in a browser that opened this session&#39;s preview access link, so a page can be checked before the write is approved.  Staged Conversion HTML runs only on a test order&#39;s receipt.  Each slot gets the same checks as a write.  An empty string unstages a slot; a slot left out is left as it is.  Containers pushed to the session later keep what is staged.  Needs sfvb_write and a token that resolves to a user; no approval, since nothing durable is written and only that user&#39;s own session runs it. 
+     * @param storefrontOid  (required)
+     * @param previewSessionId  (required)
+     * @param previewTrackingHtml The HTML to stage (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbPreviewTrackingHtmlAsync(Integer storefrontOid, String previewSessionId, SfvbPreviewTrackingHtmlRequest previewTrackingHtml, final ApiCallback<SfvbTrackingHtmlResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putSfvbPreviewTrackingHtmlValidateBeforeCall(storefrontOid, previewSessionId, previewTrackingHtml, _callback);
+        Type localVarReturnType = new TypeToken<SfvbTrackingHtmlResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for putSfvbRecordingSettings
      * @param storefrontOid  (required)
      * @param recordingSettingsRequest Whether to record (required)
@@ -37896,6 +38093,172 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = renderSfvbEmailValidateBeforeCall(storefrontOid, emailUuid, emailRenderRequest, _callback);
         Type localVarReturnType = new TypeToken<SfvbEmailRenderResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for renderSfvbTrackingHtml
+     * @param storefrontOid  (required)
+     * @param slot conversion (required)
+     * @param trackingHtmlRenderRequest The test order, and optionally a draft (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renderSfvbTrackingHtmlCall(Integer storefrontOid, String slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = trackingHtmlRenderRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/tracking/html/{slot}/render"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()))
+            .replaceAll("\\{" + "slot" + "\\}", localVarApiClient.escapeString(slot.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call renderSfvbTrackingHtmlValidateBeforeCall(Integer storefrontOid, String slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling renderSfvbTrackingHtml(Async)");
+        }
+        
+        // verify the required parameter 'slot' is set
+        if (slot == null) {
+            throw new ApiException("Missing the required parameter 'slot' when calling renderSfvbTrackingHtml(Async)");
+        }
+        
+        // verify the required parameter 'trackingHtmlRenderRequest' is set
+        if (trackingHtmlRenderRequest == null) {
+            throw new ApiException("Missing the required parameter 'trackingHtmlRenderRequest' when calling renderSfvbTrackingHtml(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = renderSfvbTrackingHtmlCall(storefrontOid, slot, trackingHtmlRenderRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Render the Conversion HTML against a test order
+     * The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt&#39;s provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate&#x3D;...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+     * @param storefrontOid  (required)
+     * @param slot conversion (required)
+     * @param trackingHtmlRenderRequest The test order, and optionally a draft (required)
+     * @return SfvbTrackingHtmlRenderResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbTrackingHtmlRenderResponse renderSfvbTrackingHtml(Integer storefrontOid, String slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest) throws ApiException {
+        ApiResponse<SfvbTrackingHtmlRenderResponse> localVarResp = renderSfvbTrackingHtmlWithHttpInfo(storefrontOid, slot, trackingHtmlRenderRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Render the Conversion HTML against a test order
+     * The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt&#39;s provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate&#x3D;...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+     * @param storefrontOid  (required)
+     * @param slot conversion (required)
+     * @param trackingHtmlRenderRequest The test order, and optionally a draft (required)
+     * @return ApiResponse&lt;SfvbTrackingHtmlRenderResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbTrackingHtmlRenderResponse> renderSfvbTrackingHtmlWithHttpInfo(Integer storefrontOid, String slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest) throws ApiException {
+        okhttp3.Call localVarCall = renderSfvbTrackingHtmlValidateBeforeCall(storefrontOid, slot, trackingHtmlRenderRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbTrackingHtmlRenderResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Render the Conversion HTML against a test order (asynchronously)
+     * The Conversion HTML as the receipt of that order would inject it: order tokens filled, then Velocity run with $order, $conversion and $formatHelper.  Renders the stored slot, or content when it is sent (a draft, checked as a write is).  Only a test order on this account may be used; a real or unknown order is refused the same way.  Nothing is saved, injected or sent: the receipt&#39;s provider pixels, analytics and postbacks do not run, and a token that would write something ([CouponForNewAffiliate&#x3D;...]) is left as written.  Only the conversion slot renders; tracking HTML is checked by staging it in a preview session. 
+     * @param storefrontOid  (required)
+     * @param slot conversion (required)
+     * @param trackingHtmlRenderRequest The test order, and optionally a draft (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renderSfvbTrackingHtmlAsync(Integer storefrontOid, String slot, SfvbTrackingHtmlRenderRequest trackingHtmlRenderRequest, final ApiCallback<SfvbTrackingHtmlRenderResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = renderSfvbTrackingHtmlValidateBeforeCall(storefrontOid, slot, trackingHtmlRenderRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbTrackingHtmlRenderResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

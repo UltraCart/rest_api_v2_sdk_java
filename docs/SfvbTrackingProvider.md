@@ -23,6 +23,7 @@
 |**name** | **String** | The name the admin shows. |  [optional] |
 |**notes** | **List&lt;String&gt;** | Anything the write left for a person to do, such as disconnecting an OAuth connection in the admin. |  [optional] |
 |**oauth** | [**SfvbTrackingProviderOauth**](SfvbTrackingProviderOauth.md) |  |  [optional] |
+|**serverSide** | **String** | What the provider also sends from UltraCart&#39;s servers.  A consent gate holds back only the browser pixel, not these.  Absent when it sends nothing server side. |  [optional] |
 |**wholesaleTiers** | [**List&lt;SfvbTrackingWholesaleTier&gt;**](SfvbTrackingWholesaleTier.md) | For google_analytics, the account number per wholesale pricing tier. |  [optional] |
 
 
