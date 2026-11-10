@@ -29,9 +29,11 @@ import com.ultracart.admin.v2.models.SfvbCommsTestPostcardRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbFlowBackfillRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
+import com.ultracart.admin.v2.models.SfvbItemDefaultPageRow;
 import com.ultracart.admin.v2.models.SfvbItemPreorderChildrenRequest;
 import com.ultracart.admin.v2.models.SfvbItemPreorderRequest;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
+import com.ultracart.admin.v2.models.SfvbItemVariationsRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
 import com.ultracart.admin.v2.models.SfvbSiteSeoRequest;
 import com.ultracart.admin.v2.models.SfvbSmartAttributionRequest;
@@ -92,6 +94,10 @@ public class SfvbApprovalCreateRequest {
     ITEM_PRICING("item.pricing"),
     
     ITEM_PREORDER("item.preorder"),
+    
+    ITEM_VARIATIONS("item.variations"),
+    
+    ITEM_DEFAULT_PAGE("item.default_page"),
     
     TWILIO_ACCOUNT_DELETE("twilio_account.delete"),
     
@@ -201,6 +207,10 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS)
   private List<SfvbItemAttributeBatchRow> itemAttributeRows = null;
 
+  public static final String SERIALIZED_NAME_ITEM_DEFAULT_PAGE_ROWS = "item_default_page_rows";
+  @SerializedName(SERIALIZED_NAME_ITEM_DEFAULT_PAGE_ROWS)
+  private List<SfvbItemDefaultPageRow> itemDefaultPageRows = null;
+
   public static final String SERIALIZED_NAME_ITEM_PREORDER = "item_preorder";
   @SerializedName(SERIALIZED_NAME_ITEM_PREORDER)
   private SfvbItemPreorderRequest itemPreorder;
@@ -212,6 +222,10 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_ITEM_PRICING = "item_pricing";
   @SerializedName(SERIALIZED_NAME_ITEM_PRICING)
   private SfvbItemPricingRequest itemPricing;
+
+  public static final String SERIALIZED_NAME_ITEM_VARIATIONS = "item_variations";
+  @SerializedName(SERIALIZED_NAME_ITEM_VARIATIONS)
+  private SfvbItemVariationsRequest itemVariations;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -444,6 +458,37 @@ public class SfvbApprovalCreateRequest {
   }
 
 
+  public SfvbApprovalCreateRequest itemDefaultPageRows(List<SfvbItemDefaultPageRow> itemDefaultPageRows) {
+    
+    this.itemDefaultPageRows = itemDefaultPageRows;
+    return this;
+  }
+
+  public SfvbApprovalCreateRequest addItemDefaultPageRowsItem(SfvbItemDefaultPageRow itemDefaultPageRowsItem) {
+    if (this.itemDefaultPageRows == null) {
+      this.itemDefaultPageRows = new ArrayList<>();
+    }
+    this.itemDefaultPageRows.add(itemDefaultPageRowsItem);
+    return this;
+  }
+
+   /**
+   * For item.default_page, exactly the rows the apply will send - the dry run&#39;s ready rows, each with merchant_item_oid, page_oid and current_sha256.  UltraCart keeps only their hash.
+   * @return itemDefaultPageRows
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For item.default_page, exactly the rows the apply will send - the dry run's ready rows, each with merchant_item_oid, page_oid and current_sha256.  UltraCart keeps only their hash.")
+
+  public List<SfvbItemDefaultPageRow> getItemDefaultPageRows() {
+    return itemDefaultPageRows;
+  }
+
+
+  public void setItemDefaultPageRows(List<SfvbItemDefaultPageRow> itemDefaultPageRows) {
+    this.itemDefaultPageRows = itemDefaultPageRows;
+  }
+
+
   public SfvbApprovalCreateRequest itemPreorder(SfvbItemPreorderRequest itemPreorder) {
     
     this.itemPreorder = itemPreorder;
@@ -510,6 +555,29 @@ public class SfvbApprovalCreateRequest {
 
   public void setItemPricing(SfvbItemPricingRequest itemPricing) {
     this.itemPricing = itemPricing;
+  }
+
+
+  public SfvbApprovalCreateRequest itemVariations(SfvbItemVariationsRequest itemVariations) {
+    
+    this.itemVariations = itemVariations;
+    return this;
+  }
+
+   /**
+   * Get itemVariations
+   * @return itemVariations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbItemVariationsRequest getItemVariations() {
+    return itemVariations;
+  }
+
+
+  public void setItemVariations(SfvbItemVariationsRequest itemVariations) {
+    this.itemVariations = itemVariations;
   }
 
 
@@ -746,9 +814,11 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
         Objects.equals(this.flowBackfill, sfvbApprovalCreateRequest.flowBackfill) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
+        Objects.equals(this.itemDefaultPageRows, sfvbApprovalCreateRequest.itemDefaultPageRows) &&
         Objects.equals(this.itemPreorder, sfvbApprovalCreateRequest.itemPreorder) &&
         Objects.equals(this.itemPreorderChildren, sfvbApprovalCreateRequest.itemPreorderChildren) &&
         Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
+        Objects.equals(this.itemVariations, sfvbApprovalCreateRequest.itemVariations) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
         Objects.equals(this.postcardTestMail, sfvbApprovalCreateRequest.postcardTestMail) &&
         Objects.equals(this.reason, sfvbApprovalCreateRequest.reason) &&
@@ -762,7 +832,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemPreorder, itemPreorderChildren, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
+    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemDefaultPageRows, itemPreorder, itemPreorderChildren, itemPricing, itemVariations, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -777,9 +847,11 @@ public class SfvbApprovalCreateRequest {
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
     sb.append("    flowBackfill: ").append(toIndentedString(flowBackfill)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
+    sb.append("    itemDefaultPageRows: ").append(toIndentedString(itemDefaultPageRows)).append("\n");
     sb.append("    itemPreorder: ").append(toIndentedString(itemPreorder)).append("\n");
     sb.append("    itemPreorderChildren: ").append(toIndentedString(itemPreorderChildren)).append("\n");
     sb.append("    itemPricing: ").append(toIndentedString(itemPricing)).append("\n");
+    sb.append("    itemVariations: ").append(toIndentedString(itemVariations)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    postcardTestMail: ").append(toIndentedString(postcardTestMail)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
@@ -819,9 +891,11 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("experiment_start");
     openapiFields.add("flow_backfill");
     openapiFields.add("item_attribute_rows");
+    openapiFields.add("item_default_page_rows");
     openapiFields.add("item_preorder");
     openapiFields.add("item_preorder_children");
     openapiFields.add("item_pricing");
+    openapiFields.add("item_variations");
     openapiFields.add("params");
     openapiFields.add("postcard_test_mail");
     openapiFields.add("reason");
@@ -896,6 +970,18 @@ public class SfvbApprovalCreateRequest {
           SfvbItemAttributeBatchRow.validateJsonObject(jsonArrayitemAttributeRows.get(i).getAsJsonObject());
         };
       }
+      JsonArray jsonArrayitemDefaultPageRows = jsonObj.getAsJsonArray("item_default_page_rows");
+      if (jsonArrayitemDefaultPageRows != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("item_default_page_rows").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `item_default_page_rows` to be an array in the JSON string but got `%s`", jsonObj.get("item_default_page_rows").toString()));
+        }
+
+        // validate the optional field `item_default_page_rows` (array)
+        for (int i = 0; i < jsonArrayitemDefaultPageRows.size(); i++) {
+          SfvbItemDefaultPageRow.validateJsonObject(jsonArrayitemDefaultPageRows.get(i).getAsJsonObject());
+        };
+      }
       // validate the optional field `item_preorder`
       if (jsonObj.getAsJsonObject("item_preorder") != null) {
         SfvbItemPreorderRequest.validateJsonObject(jsonObj.getAsJsonObject("item_preorder"));
@@ -907,6 +993,10 @@ public class SfvbApprovalCreateRequest {
       // validate the optional field `item_pricing`
       if (jsonObj.getAsJsonObject("item_pricing") != null) {
         SfvbItemPricingRequest.validateJsonObject(jsonObj.getAsJsonObject("item_pricing"));
+      }
+      // validate the optional field `item_variations`
+      if (jsonObj.getAsJsonObject("item_variations") != null) {
+        SfvbItemVariationsRequest.validateJsonObject(jsonObj.getAsJsonObject("item_variations"));
       }
       // validate the optional field `params`
       if (jsonObj.getAsJsonObject("params") != null) {

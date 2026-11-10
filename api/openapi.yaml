@@ -14687,6 +14687,116 @@ paths:
       x-codegen-request-body-name: item_attribute_batch_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/children:
+    post:
+      description: "Creates a new item copying the parent's description, cost, weight,\
+        \ dimensions and item folder, so it can be assigned to a combination with\
+        \ the variations update.  It is not assigned here and nothing else is copied.\
+        \  merchant_item_id may use letters, digits, dot, underscore and dash, at\
+        \ most 20 characters; an id already on the account is 409 sfvb.item_exists.\
+        \  Needs sfvb_publish when items are live.  dry_run checks without creating.\n"
+      operationId: insertSfvbItemChild
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemChildCreateRequest'
+        description: The child to create
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemChildCreateResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Create a child item for a parent's variations
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_child_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/content:
     put:
       description: "Partial - a field left out is untouched, a field sent empty is\
@@ -14791,6 +14901,243 @@ paths:
       - sfvb
       x-codegen-request-body-name: item_content_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/default_page:
+    post:
+      description: "Applies the dry run's ready rows with their rows_sha256 under\
+        \ an approved item.default_page request for exactly those rows.  Each item's\
+        \ default moves to the named page on this storefront only; every page assignment\
+        \ stays, and nothing else on the item changes.  A row whose pages changed\
+        \ since the dry run is skipped as stale, and one failed row doesn't stop the\
+        \ others.  Each row is read back; it answers updated with previous_default_path,\
+        \ so the change can be undone, or failed.  Needs sfvb_publish when items are\
+        \ live.\n"
+      operationId: updateSfvbItemDefaultPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved item.default_page request for
+          exactly these rows.  Required.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemDefaultPageRequest'
+        description: The dry run's ready rows and rows_sha256
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemDefaultPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "413":
+          $ref: '#/components/responses/413'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Move items' default (canonical) pages
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_default_page_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/default_page/dry_run:
+    post:
+      description: "Checks up to 2,000 rows on up to 200 items, each naming an item\
+        \ and a page it is already on, and saves nothing.  Each row answers ready,\
+        \ already_default, target_not_found, target_not_on_host, target_not_assigned,\
+        \ target_hidden (refused - a hidden page isn't served to shoppers), item_not_found,\
+        \ invalid or stale, with the item's current default and current_sha256.  rows_sha256\
+        \ covers the ready rows - request item.default_page with exactly those rows,\
+        \ then apply them.\n"
+      operationId: dryRunSfvbItemDefaultPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemDefaultPageRequest'
+        description: The rows
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemDefaultPageResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Check moving items' default (canonical) pages
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_default_page_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/multimedia:
     delete:
@@ -15108,6 +15455,113 @@ paths:
       - sfvb
       x-codegen-request-body-name: item_multimedia_description_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/pages:
+    get:
+      description: "Every page the item is assigned to on this storefront, whether\
+        \ each is visible, and which is the default - the page the item's canonical\
+        \ link uses.  Another storefront's pages aren't listed.  hash_sha256 is the\
+        \ same value the default-page dry run reports as current_sha256.  Address\
+        \ the item by merchant_item_id or merchant_item_oid.\n"
+      operationId: getSfvbItemPages
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPages'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the pages an item is on and its default page
+      tags:
+      - sfvb
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/preorder:
     get:
@@ -16114,6 +16568,255 @@ paths:
       - sfvb
       x-codegen-request-body-name: item_seo_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/variations:
+    get:
+      description: "The variation axes, such as Size, with their options in the order\
+        \ shoppers see them, and every filled combination with the child item it sells\
+        \ and its quantity.  A combination not listed has no child, and storefronts\
+        \ show it as unavailable.  hash_sha256 goes back as If-Match on the update.\
+        \  Address the parent by merchant_item_id or merchant_item_oid.\n"
+      operationId: getSfvbItemVariations
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemVariations'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read an item's variations
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A list of changes applied in order - add_axis, remove_axis, rename_axis,\
+        \ add_option, remove_option, rename_option, reorder_options, set_default,\
+        \ set_default_text, set_option_multimedia and set_combination.  Every change\
+        \ is checked before anything is saved, and nothing the list doesn't mention\
+        \ changes.  Child items must already exist; create one with POST items/children.\
+        \  Needs sfvb_publish when items are live and If-Match with the hash_sha256\
+        \ from the read.  Removing an axis, removing an option whose combinations\
+        \ sell a child, or re-pointing or clearing a combination shoppers can buy\
+        \ today also needs the approval of the person who signed in the CLI - an approved\
+        \ item.variations request for this item and exactly this list.  Adding never\
+        \ does.  dry_run returns the planned variations, what each change does, and\
+        \ whether approval is needed.\n"
+      operationId: putSfvbItemVariations
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the variations read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved item.variations request for this
+          item and list.  Required when the list removes or re-points something shoppers
+          can buy.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemVariationsRequest'
+        description: The changes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemVariationsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change an item's variations
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_variations_request
+      x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/library:
     get:
@@ -260309,9 +261012,9 @@ components:
         reason: reason
         redirect_rows:
         - hash_sha256: hash_sha256
-          redirect_id: 7
+          redirect_id: 9
         - hash_sha256: hash_sha256
-          redirect_id: 7
+          redirect_id: 9
         comms_settings:
           marketing_sender:
             sending_domain_uuid: sending_domain_uuid
@@ -260366,10 +261069,10 @@ components:
         tracking_provider:
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           accept_cost: true
           dry_run: true
@@ -260405,6 +261108,45 @@ components:
           list_ids:
           - list_ids
           - list_ids
+        item_variations:
+          changes:
+          - op: op
+            default: true
+            quantity: 5
+            before: before
+            default_text: default_text
+            values:
+            - values
+            - values
+            multimedia_oid: 4
+            variation_values:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            to: to
+            axis: axis
+            value: value
+            child: child
+          - op: op
+            default: true
+            quantity: 5
+            before: before
+            default_text: default_text
+            values:
+            - values
+            - values
+            multimedia_oid: 4
+            variation_values:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            to: to
+            axis: axis
+            value: value
+            child: child
+          dry_run: true
         params:
           esp_twilio_uuid: esp_twilio_uuid
           affiliate_network_oid: 5
@@ -260436,31 +261178,44 @@ components:
           merchant_item_oid: 9
         smart_attribution:
           mode: mode
-          originator_percent: 9.965781217890562
-          lookback_days: 5
-          assist_percent: 1.1730742509559433
-          closer_percent: 4.965218492984954
+          originator_percent: 9.018348186070783
+          lookback_days: 8
+          assist_percent: 9.369310271410669
+          closer_percent: 6.683562403749608
           attribution_model: attribution_model
           platforms:
           - integration_name: integration_name
-            originator_percent: 6.438423552598547
-            integration_id: 8
+            originator_percent: 2.8841621266687802
+            integration_id: 6
             platform_type: platform_type
             platform_type_override: true
-            assist_percent: 9.369310271410669
+            assist_percent: 6.438423552598547
             fire_on_rebill: true
-            closer_percent: 6.683562403749608
-            non_participant_percent: 9.018348186070783
+            closer_percent: 3.5571952270680973
+            non_participant_percent: 1.284659006116532
           - integration_name: integration_name
-            originator_percent: 6.438423552598547
-            integration_id: 8
+            originator_percent: 2.8841621266687802
+            integration_id: 6
             platform_type: platform_type
             platform_type_override: true
-            assist_percent: 9.369310271410669
+            assist_percent: 6.438423552598547
             fire_on_rebill: true
-            closer_percent: 6.683562403749608
-            non_participant_percent: 9.018348186070783
+            closer_percent: 3.5571952270680973
+            non_participant_percent: 1.284659006116532
         content: content
+        item_default_page_rows:
+        - merchant_item_id: merchant_item_id
+          expected_current_path: expected_current_path
+          page_oid: 1
+          page_path: page_path
+          current_sha256: current_sha256
+          merchant_item_oid: 7
+        - merchant_item_id: merchant_item_id
+          expected_current_path: expected_current_path
+          page_oid: 1
+          page_path: page_path
+          current_sha256: current_sha256
+          merchant_item_oid: 7
         flow_backfill:
           flow_uuid: flow_uuid
           relative_to_event: true
@@ -260486,17 +261241,17 @@ components:
           value: value
           merchant_item_oid: 4
         item_pricing:
-          cost: 7.386281948385884
-          sale_cost: 1.0246457001441578
-          msrp: 1.2315135367772556
+          cost: 1.0246457001441578
+          sale_cost: 6.84685269835264
+          msrp: 1.4894159098541704
           clear_sale: true
           clear_msrp: true
           sale_end: sale_end
           volume_discounts:
-          - cost: 1.4894159098541704
-            quantity: 6
-          - cost: 1.4894159098541704
-            quantity: 6
+          - cost: 7.457744773683766
+            quantity: 1
+          - cost: 7.457744773683766
+            quantity: 1
           sale_start: sale_start
         action: file.delete
         postcard_test_mail:
@@ -260559,6 +261314,8 @@ components:
           - item.attribute_batch
           - item.pricing
           - item.preorder
+          - item.variations
+          - item.default_page
           - twilio_account.delete
           - sending_domain.delete
           - sequence_step.delete
@@ -260603,12 +261360,21 @@ components:
           items:
             $ref: '#/components/schemas/SfvbItemAttributeBatchRow'
           type: array
+        item_default_page_rows:
+          description: "For item.default_page, exactly the rows the apply will send\
+            \ - the dry run's ready rows, each with merchant_item_oid, page_oid and\
+            \ current_sha256.  UltraCart keeps only their hash."
+          items:
+            $ref: '#/components/schemas/SfvbItemDefaultPageRow'
+          type: array
         item_preorder:
           $ref: '#/components/schemas/SfvbItemPreorderRequest'
         item_preorder_children:
           $ref: '#/components/schemas/SfvbItemPreorderChildrenRequest'
         item_pricing:
           $ref: '#/components/schemas/SfvbItemPricingRequest'
+        item_variations:
+          $ref: '#/components/schemas/SfvbItemVariationsRequest'
         params:
           $ref: '#/components/schemas/SfvbApprovalParams'
         postcard_test_mail:
@@ -267910,6 +268676,81 @@ components:
             $ref: '#/components/schemas/SfvbItemAttributeUpdate'
           type: array
       type: object
+    SfvbItemChildCreateRequest:
+      example:
+        merchant_item_id: merchant_item_id
+        parent_merchant_item_id: parent_merchant_item_id
+        description: description
+        dry_run: true
+        parent_merchant_item_oid: 0
+      properties:
+        description:
+          description: The new item's description.  Defaults to the parent's.
+          type: string
+        dry_run:
+          description: True to check without creating.
+          type: boolean
+        merchant_item_id:
+          description: "The new item's id - letters, digits, dot, underscore and dash,\
+            \ at most 20."
+          type: string
+        parent_merchant_item_id:
+          description: The parent item's id.  Send this or parent_merchant_item_oid.
+          type: string
+        parent_merchant_item_oid:
+          description: The parent item's oid.  Send this or parent_merchant_item_id.
+          format: int32
+          type: integer
+      type: object
+    SfvbItemChildCreateResponse:
+      example:
+        copied_cost: copied_cost
+        next: next
+        merchant_item_id: merchant_item_id
+        parent:
+          merchant_item_id: merchant_item_id
+          description: description
+          merchant_item_oid: 1
+        copied_dimensions: copied_dimensions
+        copied_weight: copied_weight
+        description: description
+        dry_run: true
+        copied_folder_id: 0
+        merchant_item_oid: 6
+      properties:
+        copied_cost:
+          description: The cost copied from the parent.
+          type: string
+        copied_dimensions:
+          description: "Length, width and height copied from the parent."
+          type: string
+        copied_folder_id:
+          description: "The parent's item folder the new item is filed in, 0 for the\
+            \ top."
+          format: int32
+          type: integer
+        copied_weight:
+          description: The weight copied from the parent.
+          type: string
+        description:
+          description: The new item's description.
+          type: string
+        dry_run:
+          description: True when nothing was created.
+          type: boolean
+        merchant_item_id:
+          description: The new item's id.
+          type: string
+        merchant_item_oid:
+          description: The new item's oid.  Absent on a dry run.
+          format: int32
+          type: integer
+        next:
+          description: What to do next.
+          type: string
+        parent:
+          $ref: '#/components/schemas/SfvbItemVariationChild'
+      type: object
     SfvbItemContainer:
       example:
         hash_sha256: hash_sha256
@@ -268049,6 +268890,203 @@ components:
           description: "What an itemtitle element renders.  This is the item's short\
             \ description in the catalog, so it changes the item everywhere, not only\
             \ on this storefront."
+          type: string
+      type: object
+    SfvbItemDefaultPageRequest:
+      example:
+        rows_sha256: rows_sha256
+        rows:
+        - merchant_item_id: merchant_item_id
+          expected_current_path: expected_current_path
+          page_oid: 1
+          page_path: page_path
+          current_sha256: current_sha256
+          merchant_item_oid: 7
+        - merchant_item_id: merchant_item_id
+          expected_current_path: expected_current_path
+          page_oid: 1
+          page_path: page_path
+          current_sha256: current_sha256
+          merchant_item_oid: 7
+      properties:
+        rows:
+          description: "Up to 2,000 rows on up to 200 items."
+          items:
+            $ref: '#/components/schemas/SfvbItemDefaultPageRow'
+          type: array
+        rows_sha256:
+          description: Apply only - the dry run's rows_sha256 for exactly these rows.
+          type: string
+      type: object
+    SfvbItemDefaultPageResponse:
+      example:
+        item_count: 1
+        stale: 4
+        refused: 5
+        ready: 5
+        rows_sha256: rows_sha256
+        dry_run: true
+        failed: 6
+        rows:
+        - merchant_item_id: merchant_item_id
+          current_default_path: current_default_path
+          previous_default_path: previous_default_path
+          index: 7
+          current_default_oid: 2
+          current_sha256: current_sha256
+          previous_default_oid: 3
+          target_oid: 2
+          message: message
+          target_path: target_path
+          merchant_item_oid: 9
+          status: status
+        - merchant_item_id: merchant_item_id
+          current_default_path: current_default_path
+          previous_default_path: previous_default_path
+          index: 7
+          current_default_oid: 2
+          current_sha256: current_sha256
+          previous_default_oid: 3
+          target_oid: 2
+          message: message
+          target_path: target_path
+          merchant_item_oid: 9
+          status: status
+        already_default: 0
+        updated: 7
+      properties:
+        already_default:
+          description: Rows whose page is already the default.
+          format: int32
+          type: integer
+        dry_run:
+          description: True when nothing was saved.
+          type: boolean
+        failed:
+          description: Rows whose change didn't save (apply).
+          format: int32
+          type: integer
+        item_count:
+          description: Distinct items in the request.
+          format: int32
+          type: integer
+        ready:
+          description: Rows that would change (dry run).
+          format: int32
+          type: integer
+        refused:
+          description: "Rows refused - not found, not assigned, hidden, another storefront\
+            \ or invalid."
+          format: int32
+          type: integer
+        rows:
+          description: "Every row, in request order."
+          items:
+            $ref: '#/components/schemas/SfvbItemDefaultPageResult'
+          type: array
+        rows_sha256:
+          description: "Hash of the ready rows.  Request item.default_page with exactly\
+            \ those rows, then apply them with this."
+          type: string
+        stale:
+          description: Rows that changed since they were read.
+          format: int32
+          type: integer
+        updated:
+          description: Rows changed (apply).
+          format: int32
+          type: integer
+      type: object
+    SfvbItemDefaultPageResult:
+      example:
+        merchant_item_id: merchant_item_id
+        current_default_path: current_default_path
+        previous_default_path: previous_default_path
+        index: 7
+        current_default_oid: 2
+        current_sha256: current_sha256
+        previous_default_oid: 3
+        target_oid: 2
+        message: message
+        target_path: target_path
+        merchant_item_oid: 9
+        status: status
+      properties:
+        current_default_oid:
+          description: "The default page's oid now, or null."
+          format: int32
+          type: integer
+        current_default_path:
+          description: "The default page now, or null."
+          type: string
+        current_sha256:
+          description: Hash of the item's pages and default on this storefront.  Send
+            it back on the apply.
+          type: string
+        index:
+          description: "The row's position in the request, from 0."
+          format: int32
+          type: integer
+        merchant_item_id:
+          description: "The item's id, when found."
+          type: string
+        merchant_item_oid:
+          description: "The item's oid, when found."
+          format: int32
+          type: integer
+        message:
+          description: "Why the row is refused, stale or failed."
+          type: string
+        previous_default_oid:
+          description: Apply only - the previous default page's oid.
+          format: int32
+          type: integer
+        previous_default_path:
+          description: "Apply only - the default page before the change, to undo it."
+          type: string
+        status:
+          description: "ready, already_default, target_not_found, target_not_on_host,\
+            \ target_not_assigned, target_hidden, item_not_found, invalid, stale,\
+            \ updated or failed."
+          type: string
+        target_oid:
+          description: The page's oid.
+          format: int32
+          type: integer
+        target_path:
+          description: The page the row makes the default.
+          type: string
+      type: object
+    SfvbItemDefaultPageRow:
+      example:
+        merchant_item_id: merchant_item_id
+        expected_current_path: expected_current_path
+        page_oid: 1
+        page_path: page_path
+        current_sha256: current_sha256
+        merchant_item_oid: 7
+      properties:
+        current_sha256:
+          description: The dry run's current_sha256 for the item.  Required on an
+            apply.
+          type: string
+        expected_current_path:
+          description: Dry run only - the default page the row expects now.  A different
+            default makes the row stale.
+          type: string
+        merchant_item_id:
+          description: The item's id.  Send this or merchant_item_oid.
+          type: string
+        merchant_item_oid:
+          description: The item's oid.  Required on an apply.
+          format: int32
+          type: integer
+        page_oid:
+          description: "The page to make the default, by oid.  Required on an apply."
+          format: int32
+          type: integer
+        page_path:
+          description: "The page to make the default, by path.  Send this or page_oid."
           type: string
       type: object
     SfvbItemMultimedia:
@@ -268192,6 +269230,86 @@ components:
             \ an item has no folder of its own - the bytes are copied into the item's\
             \ own storage on attach."
           type: string
+      type: object
+    SfvbItemPageAssignment:
+      example:
+        path: path
+        visible: true
+        default_assignment: true
+        page_oid: 6
+        url_part: url_part
+        sort_order: 1
+      properties:
+        default_assignment:
+          description: "True for the item's default page on this storefront, the one\
+            \ its canonical link uses."
+          type: boolean
+        page_oid:
+          description: The page's oid.
+          format: int32
+          type: integer
+        path:
+          description: The page's path.
+          type: string
+        sort_order:
+          description: "The item's place on the page, or null."
+          format: int32
+          type: integer
+        url_part:
+          description: "The item's URL part on the page, or null when the item id\
+            \ is used."
+          type: string
+        visible:
+          description: "False for a hidden page, which shoppers aren't served."
+          type: boolean
+      type: object
+    SfvbItemPages:
+      example:
+        hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
+        notes:
+        - notes
+        - notes
+        pages:
+        - path: path
+          visible: true
+          default_assignment: true
+          page_oid: 6
+          url_part: url_part
+          sort_order: 1
+        - path: path
+          visible: true
+          default_assignment: true
+          page_oid: 6
+          url_part: url_part
+          sort_order: 1
+        default_page_path: default_page_path
+        merchant_item_oid: 0
+      properties:
+        default_page_path:
+          description: "The default page's path, or null when none is marked."
+          type: string
+        hash_sha256:
+          description: Hash of the item's pages and default on this storefront.  The
+            dry run reports the same value as current_sha256.
+          type: string
+        merchant_item_id:
+          description: The item's id.
+          type: string
+        merchant_item_oid:
+          description: The item's oid.
+          format: int32
+          type: integer
+        notes:
+          description: "Things worth knowing, such as no default being marked."
+          items:
+            type: string
+          type: array
+        pages:
+          description: "Every page the item is on, on this storefront only."
+          items:
+            $ref: '#/components/schemas/SfvbItemPageAssignment'
+          type: array
       type: object
     SfvbItemPreorder:
       example:
@@ -268437,10 +269555,10 @@ components:
         msrp: 1.4658129805029452
         sale_end: sale_end
         volume_discounts:
-        - cost: 1.4894159098541704
-          quantity: 6
-        - cost: 1.4894159098541704
-          quantity: 6
+        - cost: 7.457744773683766
+          quantity: 1
+        - cost: 7.457744773683766
+          quantity: 1
         sale_active: true
         sale_start: sale_start
         currency_code: currency_code
@@ -268489,17 +269607,17 @@ components:
       type: object
     SfvbItemPricingRequest:
       example:
-        cost: 7.386281948385884
-        sale_cost: 1.0246457001441578
-        msrp: 1.2315135367772556
+        cost: 1.0246457001441578
+        sale_cost: 6.84685269835264
+        msrp: 1.4894159098541704
         clear_sale: true
         clear_msrp: true
         sale_end: sale_end
         volume_discounts:
-        - cost: 1.4894159098541704
-          quantity: 6
-        - cost: 1.4894159098541704
-          quantity: 6
+        - cost: 7.457744773683766
+          quantity: 1
+        - cost: 7.457744773683766
+          quantity: 1
         sale_start: sale_start
       properties:
         clear_msrp:
@@ -268861,10 +269979,447 @@ components:
             type: string
           type: array
       type: object
+    SfvbItemVariationAxis:
+      example:
+        default_text: default_text
+        name: name
+        options:
+        - default: true
+          multimedia_oid: 0
+          value: value
+        - default: true
+          multimedia_oid: 0
+          value: value
+      properties:
+        default_text:
+          description: "The prompt shown before a choice, such as Choose a size, or\
+            \ null."
+          type: string
+        name:
+          description: "The axis name, such as Size."
+          type: string
+        options:
+          description: "The options, in the order shoppers see them."
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationOption'
+          type: array
+      type: object
+    SfvbItemVariationChange:
+      example:
+        op: op
+        default: true
+        quantity: 5
+        before: before
+        default_text: default_text
+        values:
+        - values
+        - values
+        multimedia_oid: 4
+        variation_values:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        to: to
+        axis: axis
+        value: value
+        child: child
+      properties:
+        axis:
+          description: The axis the change is about.
+          type: string
+        before:
+          description: add_option puts the new option before this one.  Otherwise
+            it goes last.
+          type: string
+        child:
+          description: "set_combination - the child item id, or null to clear the\
+            \ combination."
+          type: string
+        default:
+          description: add_option and add_axis make the option the default.
+          type: boolean
+        default_text:
+          description: "The prompt, for add_axis and set_default_text.  Null clears\
+            \ it."
+          type: string
+        multimedia_oid:
+          description: An image of the parent item.  For set_option_multimedia null
+            clears it; for set_combination null keeps the current one.
+          format: int32
+          type: integer
+        op:
+          description: "add_axis, remove_axis, rename_axis, add_option, remove_option,\
+            \ rename_option, reorder_options, set_default, set_default_text, set_option_multimedia\
+            \ or set_combination."
+          type: string
+        quantity:
+          description: set_combination - how many of the child the combination adds.  Defaults
+            to 1.
+          format: int32
+          type: integer
+        to:
+          description: "The new name, for rename_axis and rename_option."
+          type: string
+        value:
+          description: The option the change is about.
+          type: string
+        values:
+          description: "add_axis options in order, or every option in its new order\
+            \ for reorder_options."
+          items:
+            type: string
+          type: array
+        variation_values:
+          description: set_combination - one axis and option per axis.
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationValue'
+          type: array
+      type: object
+    SfvbItemVariationChangeResult:
+      example:
+        gated: true
+        summary: summary
+        op: op
+        index: 0
+      properties:
+        gated:
+          description: "True when this change removes or re-points something shoppers\
+            \ can buy today, which needs approval."
+          type: boolean
+        index:
+          description: "The change's position in the request, from 0."
+          format: int32
+          type: integer
+        op:
+          description: The change's op.
+          type: string
+        summary:
+          description: "What the change does, in plain words."
+          type: string
+      type: object
+    SfvbItemVariationChild:
+      example:
+        merchant_item_id: merchant_item_id
+        description: description
+        merchant_item_oid: 1
+      properties:
+        description:
+          description: The child item's description.
+          type: string
+        merchant_item_id:
+          description: The child item's id.
+          type: string
+        merchant_item_oid:
+          description: The child item's oid.
+          format: int32
+          type: integer
+      type: object
+    SfvbItemVariationCombination:
+      example:
+        quantity: 1
+        multimedia_oid: 6
+        variation_values:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        child:
+          merchant_item_id: merchant_item_id
+          description: description
+          merchant_item_oid: 1
+      properties:
+        child:
+          $ref: '#/components/schemas/SfvbItemVariationChild'
+        multimedia_oid:
+          description: "An image of the parent item shown for this combination, or\
+            \ null."
+          format: int32
+          type: integer
+        quantity:
+          description: How many of the child the combination adds to the cart.  1
+            unless it is a pack.
+          format: int32
+          type: integer
+        variation_values:
+          description: "One axis and option per axis, in axis order."
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationValue'
+          type: array
+      type: object
+    SfvbItemVariationOption:
+      example:
+        default: true
+        multimedia_oid: 0
+        value: value
+      properties:
+        default:
+          description: True for the option the item page starts on.  At most one per
+            axis.
+          type: boolean
+        multimedia_oid:
+          description: "An image or swatch of the parent item shown for this option,\
+            \ or null."
+          format: int32
+          type: integer
+        value:
+          description: "The option value, such as 2T."
+          type: string
+      type: object
+    SfvbItemVariations:
+      example:
+        hash_sha256: hash_sha256
+        unfilled_combinations: 5
+        merchant_item_id: merchant_item_id
+        combinations:
+        - quantity: 1
+          multimedia_oid: 6
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          child:
+            merchant_item_id: merchant_item_id
+            description: description
+            merchant_item_oid: 1
+        - quantity: 1
+          multimedia_oid: 6
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          child:
+            merchant_item_id: merchant_item_id
+            description: description
+            merchant_item_oid: 1
+        axes:
+        - default_text: default_text
+          name: name
+          options:
+          - default: true
+            multimedia_oid: 0
+            value: value
+          - default: true
+            multimedia_oid: 0
+            value: value
+        - default_text: default_text
+          name: name
+          options:
+          - default: true
+            multimedia_oid: 0
+            value: value
+          - default: true
+            multimedia_oid: 0
+            value: value
+        description: description
+        merchant_item_oid: 5
+      properties:
+        axes:
+          description: The axes in order.  Empty when the item has no variations.
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationAxis'
+          type: array
+        combinations:
+          description: "Every filled combination.  A combination not listed has no\
+            \ child, and shoppers see it as unavailable."
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationCombination'
+          type: array
+        description:
+          description: The parent item's description.
+          type: string
+        hash_sha256:
+          description: Hash of the variations.  Send it as If-Match on the update.
+          type: string
+        merchant_item_id:
+          description: The parent item's id.
+          type: string
+        merchant_item_oid:
+          description: The parent item's oid.
+          format: int32
+          type: integer
+        unfilled_combinations:
+          description: How many combinations of the options have no child.
+          format: int32
+          type: integer
+      type: object
+    SfvbItemVariationsRequest:
+      example:
+        changes:
+        - op: op
+          default: true
+          quantity: 5
+          before: before
+          default_text: default_text
+          values:
+          - values
+          - values
+          multimedia_oid: 4
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          to: to
+          axis: axis
+          value: value
+          child: child
+        - op: op
+          default: true
+          quantity: 5
+          before: before
+          default_text: default_text
+          values:
+          - values
+          - values
+          multimedia_oid: 4
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          to: to
+          axis: axis
+          value: value
+          child: child
+        dry_run: true
+      properties:
+        changes:
+          description: "The changes, applied in order.  All are checked before anything\
+            \ is saved."
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationChange'
+          type: array
+        dry_run:
+          description: True to check and plan without saving.
+          type: boolean
+      type: object
+    SfvbItemVariationsResponse:
+      example:
+        hash_sha256: hash_sha256
+        unfilled_combinations: 1
+        merchant_item_id: merchant_item_id
+        combinations:
+        - quantity: 1
+          multimedia_oid: 6
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          child:
+            merchant_item_id: merchant_item_id
+            description: description
+            merchant_item_oid: 1
+        - quantity: 1
+          multimedia_oid: 6
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          child:
+            merchant_item_id: merchant_item_id
+            description: description
+            merchant_item_oid: 1
+        warnings:
+        - warnings
+        - warnings
+        axes:
+        - default_text: default_text
+          name: name
+          options:
+          - default: true
+            multimedia_oid: 0
+            value: value
+          - default: true
+            multimedia_oid: 0
+            value: value
+        - default_text: default_text
+          name: name
+          options:
+          - default: true
+            multimedia_oid: 0
+            value: value
+          - default: true
+            multimedia_oid: 0
+            value: value
+        changes:
+        - gated: true
+          summary: summary
+          op: op
+          index: 0
+        - gated: true
+          summary: summary
+          op: op
+          index: 0
+        description: description
+        dry_run: true
+        approval_needed: true
+        merchant_item_oid: 6
+      properties:
+        approval_needed:
+          description: True when the change needs an approved item.variations request.
+          type: boolean
+        axes:
+          description: The axes in order.
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationAxis'
+          type: array
+        changes:
+          description: "What each change did, or would do on a dry run."
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationChangeResult'
+          type: array
+        combinations:
+          description: Every filled combination.
+          items:
+            $ref: '#/components/schemas/SfvbItemVariationCombination'
+          type: array
+        description:
+          description: The parent item's description.
+          type: string
+        dry_run:
+          description: True when nothing was saved.
+          type: boolean
+        hash_sha256:
+          description: Hash of the variations as returned.
+          type: string
+        merchant_item_id:
+          description: The parent item's id.
+          type: string
+        merchant_item_oid:
+          description: The parent item's oid.
+          format: int32
+          type: integer
+        unfilled_combinations:
+          description: How many combinations of the options have no child.
+          format: int32
+          type: integer
+        warnings:
+          description: "Things worth knowing, such as combinations left unfilled."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbItemVariationValue:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          description: "The axis name, such as Size."
+          type: string
+        value:
+          description: "The option value, such as 2T."
+          type: string
+      type: object
     SfvbItemVolumeDiscount:
       example:
-        cost: 1.4894159098541704
-        quantity: 6
+        cost: 7.457744773683766
+        quantity: 1
       properties:
         cost:
           description: "The unit price at that quantity, in the item's currency."
@@ -272633,9 +274188,9 @@ components:
         plan_hash: plan_hash
         rows:
         - hash_sha256: hash_sha256
-          redirect_id: 7
+          redirect_id: 9
         - hash_sha256: hash_sha256
-          redirect_id: 7
+          redirect_id: 9
       properties:
         plan_hash:
           description: From the dry run of exactly these rows.  Required to delete.
@@ -272721,7 +274276,7 @@ components:
     SfvbRedirectDeleteRow:
       example:
         hash_sha256: hash_sha256
-        redirect_id: 7
+        redirect_id: 9
       properties:
         hash_sha256:
           description: "The hash_sha256 you read.  Optional on a dry run, which reports\
@@ -275054,23 +276609,23 @@ components:
         originator_percent: 5.962133916683182
         available_platforms:
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
         lookback_days: 1
         assist_percent: 0.8008281904610115
         closer_percent: 6.027456183070403
@@ -275078,23 +276633,23 @@ components:
         attribution_model: attribution_model
         platforms:
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
       properties:
         assist_percent:
           description: "The global assist credit, 0 to 1."
@@ -275146,14 +276701,14 @@ components:
     SfvbSmartAttributionPlatform:
       example:
         integration_name: integration_name
-        originator_percent: 6.438423552598547
-        integration_id: 8
+        originator_percent: 2.8841621266687802
+        integration_id: 6
         platform_type: platform_type
         platform_type_override: true
-        assist_percent: 9.369310271410669
+        assist_percent: 6.438423552598547
         fire_on_rebill: true
-        closer_percent: 6.683562403749608
-        non_participant_percent: 9.018348186070783
+        closer_percent: 3.5571952270680973
+        non_participant_percent: 1.284659006116532
       properties:
         assist_percent:
           description: "This platform's assist credit, 0 to 1.  Used only when platform_type_override\
@@ -275198,30 +276753,30 @@ components:
     SfvbSmartAttributionRequest:
       example:
         mode: mode
-        originator_percent: 9.965781217890562
-        lookback_days: 5
-        assist_percent: 1.1730742509559433
-        closer_percent: 4.965218492984954
+        originator_percent: 9.018348186070783
+        lookback_days: 8
+        assist_percent: 9.369310271410669
+        closer_percent: 6.683562403749608
         attribution_model: attribution_model
         platforms:
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
         - integration_name: integration_name
-          originator_percent: 6.438423552598547
-          integration_id: 8
+          originator_percent: 2.8841621266687802
+          integration_id: 6
           platform_type: platform_type
           platform_type_override: true
-          assist_percent: 9.369310271410669
+          assist_percent: 6.438423552598547
           fire_on_rebill: true
-          closer_percent: 6.683562403749608
-          non_participant_percent: 9.018348186070783
+          closer_percent: 3.5571952270680973
+          non_participant_percent: 1.284659006116532
       properties:
         assist_percent:
           description: "0 to 1, at most 4 decimals."
@@ -276918,10 +278473,10 @@ components:
         admin_path: admin_path
         wholesale_tiers:
         - account_number: account_number
-          pricing_tier_oid: 3
+          pricing_tier_oid: 6
           name: name
         - account_number: account_number
-          pricing_tier_oid: 3
+          pricing_tier_oid: 6
           name: name
         name: name
         consent_supported: true
@@ -277185,10 +278740,10 @@ components:
       example:
         wholesale_tiers:
         - account_number: account_number
-          pricing_tier_oid: 3
+          pricing_tier_oid: 6
           name: name
         - account_number: account_number
-          pricing_tier_oid: 3
+          pricing_tier_oid: 6
           name: name
         accept_cost: true
         dry_run: true
@@ -277375,10 +278930,10 @@ components:
           admin_path: admin_path
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           name: name
           consent_supported: true
@@ -277454,10 +279009,10 @@ components:
           admin_path: admin_path
           wholesale_tiers:
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           - account_number: account_number
-            pricing_tier_oid: 3
+            pricing_tier_oid: 6
             name: name
           name: name
           consent_supported: true
@@ -277588,7 +279143,7 @@ components:
     SfvbTrackingWholesaleTier:
       example:
         account_number: account_number
-        pricing_tier_oid: 3
+        pricing_tier_oid: 6
         name: name
       properties:
         account_number:
