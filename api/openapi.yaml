@@ -260381,6 +260381,7 @@ components:
           secrets:
             referralcandy_secret_key: referralcandy_secret_key
             nextdoor_access_token: nextdoor_access_token
+            openai_conversions_api_key: openai_conversions_api_key
             pinterest_token: pinterest_token
             converge_webhook_token: converge_webhook_token
             klaviyo_private_api_key: klaviyo_private_api_key
@@ -277199,6 +277200,7 @@ components:
         secrets:
           referralcandy_secret_key: referralcandy_secret_key
           nextdoor_access_token: nextdoor_access_token
+          openai_conversions_api_key: openai_conversions_api_key
           pinterest_token: pinterest_token
           converge_webhook_token: converge_webhook_token
           klaviyo_private_api_key: klaviyo_private_api_key
@@ -277250,6 +277252,7 @@ components:
       example:
         referralcandy_secret_key: referralcandy_secret_key
         nextdoor_access_token: nextdoor_access_token
+        openai_conversions_api_key: openai_conversions_api_key
         pinterest_token: pinterest_token
         converge_webhook_token: converge_webhook_token
         klaviyo_private_api_key: klaviyo_private_api_key
@@ -277323,6 +277326,11 @@ components:
           description: "Northbeam API Key.  A secret handle (sec_...) made for this\
             \ storefront by POST secrets with sink tracking.northbeam.api_key, or\
             \ an empty string to clear it."
+          type: string
+        openai_conversions_api_key:
+          description: "OpenAI Conversions API Key.  A secret handle (sec_...) made\
+            \ for this storefront by POST secrets with sink tracking.openai.conversions_api_key,\
+            \ or an empty string to clear it."
           type: string
         pinterest_token:
           description: "Pinterest Conversion Token.  A secret handle (sec_...) made\

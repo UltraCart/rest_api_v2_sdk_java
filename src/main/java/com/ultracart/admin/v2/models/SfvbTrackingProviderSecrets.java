@@ -97,6 +97,10 @@ public class SfvbTrackingProviderSecrets {
   @SerializedName(SERIALIZED_NAME_NORTHBEAM_API_KEY)
   private String northbeamApiKey;
 
+  public static final String SERIALIZED_NAME_OPENAI_CONVERSIONS_API_KEY = "openai_conversions_api_key";
+  @SerializedName(SERIALIZED_NAME_OPENAI_CONVERSIONS_API_KEY)
+  private String openaiConversionsApiKey;
+
   public static final String SERIALIZED_NAME_PINTEREST_TOKEN = "pinterest_token";
   @SerializedName(SERIALIZED_NAME_PINTEREST_TOKEN)
   private String pinterestToken;
@@ -388,6 +392,29 @@ public class SfvbTrackingProviderSecrets {
   }
 
 
+  public SfvbTrackingProviderSecrets openaiConversionsApiKey(String openaiConversionsApiKey) {
+    
+    this.openaiConversionsApiKey = openaiConversionsApiKey;
+    return this;
+  }
+
+   /**
+   * OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.
+   * @return openaiConversionsApiKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "OpenAI Conversions API Key.  A secret handle (sec_...) made for this storefront by POST secrets with sink tracking.openai.conversions_api_key, or an empty string to clear it.")
+
+  public String getOpenaiConversionsApiKey() {
+    return openaiConversionsApiKey;
+  }
+
+
+  public void setOpenaiConversionsApiKey(String openaiConversionsApiKey) {
+    this.openaiConversionsApiKey = openaiConversionsApiKey;
+  }
+
+
   public SfvbTrackingProviderSecrets pinterestToken(String pinterestToken) {
     
     this.pinterestToken = pinterestToken;
@@ -479,6 +506,7 @@ public class SfvbTrackingProviderSecrets {
         Objects.equals(this.klaviyoPrivateApiKey, sfvbTrackingProviderSecrets.klaviyoPrivateApiKey) &&
         Objects.equals(this.nextdoorAccessToken, sfvbTrackingProviderSecrets.nextdoorAccessToken) &&
         Objects.equals(this.northbeamApiKey, sfvbTrackingProviderSecrets.northbeamApiKey) &&
+        Objects.equals(this.openaiConversionsApiKey, sfvbTrackingProviderSecrets.openaiConversionsApiKey) &&
         Objects.equals(this.pinterestToken, sfvbTrackingProviderSecrets.pinterestToken) &&
         Objects.equals(this.referralcandySecretKey, sfvbTrackingProviderSecrets.referralcandySecretKey) &&
         Objects.equals(this.retentionKey, sfvbTrackingProviderSecrets.retentionKey);
@@ -486,7 +514,7 @@ public class SfvbTrackingProviderSecrets {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attentivePrivateApiKey, awinConversionApiKey, axonConversionApiKey, convergeWebhookToken, customerioWriteKey, facebookServerSideAccessToken, ga4ApiSecret, hyrosApiKey, kissmetricsApiKey, klaviyoPrivateApiKey, nextdoorAccessToken, northbeamApiKey, pinterestToken, referralcandySecretKey, retentionKey);
+    return Objects.hash(attentivePrivateApiKey, awinConversionApiKey, axonConversionApiKey, convergeWebhookToken, customerioWriteKey, facebookServerSideAccessToken, ga4ApiSecret, hyrosApiKey, kissmetricsApiKey, klaviyoPrivateApiKey, nextdoorAccessToken, northbeamApiKey, openaiConversionsApiKey, pinterestToken, referralcandySecretKey, retentionKey);
   }
 
   @Override
@@ -505,6 +533,7 @@ public class SfvbTrackingProviderSecrets {
     sb.append("    klaviyoPrivateApiKey: ").append(toIndentedString(klaviyoPrivateApiKey)).append("\n");
     sb.append("    nextdoorAccessToken: ").append(toIndentedString(nextdoorAccessToken)).append("\n");
     sb.append("    northbeamApiKey: ").append(toIndentedString(northbeamApiKey)).append("\n");
+    sb.append("    openaiConversionsApiKey: ").append(toIndentedString(openaiConversionsApiKey)).append("\n");
     sb.append("    pinterestToken: ").append(toIndentedString(pinterestToken)).append("\n");
     sb.append("    referralcandySecretKey: ").append(toIndentedString(referralcandySecretKey)).append("\n");
     sb.append("    retentionKey: ").append(toIndentedString(retentionKey)).append("\n");
@@ -542,6 +571,7 @@ public class SfvbTrackingProviderSecrets {
     openapiFields.add("klaviyo_private_api_key");
     openapiFields.add("nextdoor_access_token");
     openapiFields.add("northbeam_api_key");
+    openapiFields.add("openai_conversions_api_key");
     openapiFields.add("pinterest_token");
     openapiFields.add("referralcandy_secret_key");
     openapiFields.add("retention_key");
@@ -607,6 +637,9 @@ public class SfvbTrackingProviderSecrets {
       }
       if (jsonObj.get("northbeam_api_key") != null && !jsonObj.get("northbeam_api_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `northbeam_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("northbeam_api_key").toString()));
+      }
+      if (jsonObj.get("openai_conversions_api_key") != null && !jsonObj.get("openai_conversions_api_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `openai_conversions_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_conversions_api_key").toString()));
       }
       if (jsonObj.get("pinterest_token") != null && !jsonObj.get("pinterest_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pinterest_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pinterest_token").toString()));
