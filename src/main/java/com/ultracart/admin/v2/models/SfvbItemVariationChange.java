@@ -64,9 +64,9 @@ public class SfvbItemVariationChange {
   @SerializedName(SERIALIZED_NAME_CHILD)
   private String child;
 
-  public static final String SERIALIZED_NAME_DEFAULT = "default";
-  @SerializedName(SERIALIZED_NAME_DEFAULT)
-  private Boolean _default;
+  public static final String SERIALIZED_NAME_DEFAULT_OPTION = "default_option";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_OPTION)
+  private Boolean defaultOption;
 
   public static final String SERIALIZED_NAME_DEFAULT_TEXT = "default_text";
   @SerializedName(SERIALIZED_NAME_DEFAULT_TEXT)
@@ -172,26 +172,26 @@ public class SfvbItemVariationChange {
   }
 
 
-  public SfvbItemVariationChange _default(Boolean _default) {
+  public SfvbItemVariationChange defaultOption(Boolean defaultOption) {
     
-    this._default = _default;
+    this.defaultOption = defaultOption;
     return this;
   }
 
    /**
    * add_option and add_axis make the option the default.
-   * @return _default
+   * @return defaultOption
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "add_option and add_axis make the option the default.")
 
-  public Boolean getDefault() {
-    return _default;
+  public Boolean getDefaultOption() {
+    return defaultOption;
   }
 
 
-  public void setDefault(Boolean _default) {
-    this._default = _default;
+  public void setDefaultOption(Boolean defaultOption) {
+    this.defaultOption = defaultOption;
   }
 
 
@@ -408,7 +408,7 @@ public class SfvbItemVariationChange {
     return Objects.equals(this.axis, sfvbItemVariationChange.axis) &&
         Objects.equals(this.before, sfvbItemVariationChange.before) &&
         Objects.equals(this.child, sfvbItemVariationChange.child) &&
-        Objects.equals(this._default, sfvbItemVariationChange._default) &&
+        Objects.equals(this.defaultOption, sfvbItemVariationChange.defaultOption) &&
         Objects.equals(this.defaultText, sfvbItemVariationChange.defaultText) &&
         Objects.equals(this.multimediaOid, sfvbItemVariationChange.multimediaOid) &&
         Objects.equals(this.op, sfvbItemVariationChange.op) &&
@@ -421,7 +421,7 @@ public class SfvbItemVariationChange {
 
   @Override
   public int hashCode() {
-    return Objects.hash(axis, before, child, _default, defaultText, multimediaOid, op, quantity, to, value, values, variationValues);
+    return Objects.hash(axis, before, child, defaultOption, defaultText, multimediaOid, op, quantity, to, value, values, variationValues);
   }
 
   @Override
@@ -431,7 +431,7 @@ public class SfvbItemVariationChange {
     sb.append("    axis: ").append(toIndentedString(axis)).append("\n");
     sb.append("    before: ").append(toIndentedString(before)).append("\n");
     sb.append("    child: ").append(toIndentedString(child)).append("\n");
-    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    defaultOption: ").append(toIndentedString(defaultOption)).append("\n");
     sb.append("    defaultText: ").append(toIndentedString(defaultText)).append("\n");
     sb.append("    multimediaOid: ").append(toIndentedString(multimediaOid)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
@@ -465,7 +465,7 @@ public class SfvbItemVariationChange {
     openapiFields.add("axis");
     openapiFields.add("before");
     openapiFields.add("child");
-    openapiFields.add("default");
+    openapiFields.add("default_option");
     openapiFields.add("default_text");
     openapiFields.add("multimedia_oid");
     openapiFields.add("op");

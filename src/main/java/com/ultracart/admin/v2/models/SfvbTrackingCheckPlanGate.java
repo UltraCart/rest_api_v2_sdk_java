@@ -102,6 +102,10 @@ public class SfvbTrackingCheckPlanGate {
   @SerializedName(SERIALIZED_NAME_REGION)
   private RegionEnum region;
 
+  public static final String SERIALIZED_NAME_SERVICE = "service";
+  @SerializedName(SERIALIZED_NAME_SERVICE)
+  private String service;
+
   /**
    * The consent category that must be granted.  Statistics, Preferences or Marketing.
    */
@@ -181,6 +185,29 @@ public class SfvbTrackingCheckPlanGate {
   }
 
 
+  public SfvbTrackingCheckPlanGate service(String service) {
+    
+    this.service = service;
+    return this;
+  }
+
+   /**
+   * The cookie service the consent gate is stored under, for example openai or facebook (#1959).
+   * @return service
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The cookie service the consent gate is stored under, for example openai or facebook (#1959).")
+
+  public String getService() {
+    return service;
+  }
+
+
+  public void setService(String service) {
+    this.service = service;
+  }
+
+
   public SfvbTrackingCheckPlanGate type(TypeEnum type) {
     
     this.type = type;
@@ -215,12 +242,13 @@ public class SfvbTrackingCheckPlanGate {
     }
     SfvbTrackingCheckPlanGate sfvbTrackingCheckPlanGate = (SfvbTrackingCheckPlanGate) o;
     return Objects.equals(this.region, sfvbTrackingCheckPlanGate.region) &&
+        Objects.equals(this.service, sfvbTrackingCheckPlanGate.service) &&
         Objects.equals(this.type, sfvbTrackingCheckPlanGate.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(region, type);
+    return Objects.hash(region, service, type);
   }
 
   @Override
@@ -228,6 +256,7 @@ public class SfvbTrackingCheckPlanGate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbTrackingCheckPlanGate {\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -252,6 +281,7 @@ public class SfvbTrackingCheckPlanGate {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("region");
+    openapiFields.add("service");
     openapiFields.add("type");
 
     // a set of required properties/fields (JSON key names)
@@ -282,6 +312,9 @@ public class SfvbTrackingCheckPlanGate {
       }
       if (jsonObj.get("region") != null && !jsonObj.get("region").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
+      }
+      if (jsonObj.get("service") != null && !jsonObj.get("service").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `service` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service").toString()));
       }
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

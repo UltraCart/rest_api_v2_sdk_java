@@ -10,7 +10,7 @@
 |**axis** | **String** | The axis the change is about. |  [optional] |
 |**before** | **String** | add_option puts the new option before this one.  Otherwise it goes last. |  [optional] |
 |**child** | **String** | set_combination - the child item id, or null to clear the combination. |  [optional] |
-|**_default** | **Boolean** | add_option and add_axis make the option the default. |  [optional] |
+|**defaultOption** | **Boolean** | add_option and add_axis make the option the default. |  [optional] |
 |**defaultText** | **String** | The prompt, for add_axis and set_default_text.  Null clears it. |  [optional] |
 |**multimediaOid** | **Integer** | An image of the parent item.  For set_option_multimedia null clears it; for set_combination null keeps the current one. |  [optional] |
 |**op** | **String** | add_axis, remove_axis, rename_axis, add_option, remove_option, rename_option, reorder_options, set_default, set_default_text, set_option_multimedia or set_combination. |  [optional] |

@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**region** | [**RegionEnum**](#RegionEnum) | Where the gate applies.  all, eea or non_us. |  [optional] |
+|**service** | **String** | The cookie service the consent gate is stored under, for example openai or facebook (#1959). |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | The consent category that must be granted.  Statistics, Preferences or Marketing. |  [optional] |
 
 

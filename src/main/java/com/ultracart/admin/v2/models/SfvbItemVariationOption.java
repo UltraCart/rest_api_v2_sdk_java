@@ -49,9 +49,9 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbItemVariationOption {
-  public static final String SERIALIZED_NAME_DEFAULT = "default";
-  @SerializedName(SERIALIZED_NAME_DEFAULT)
-  private Boolean _default;
+  public static final String SERIALIZED_NAME_DEFAULT_OPTION = "default_option";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_OPTION)
+  private Boolean defaultOption;
 
   public static final String SERIALIZED_NAME_MULTIMEDIA_OID = "multimedia_oid";
   @SerializedName(SERIALIZED_NAME_MULTIMEDIA_OID)
@@ -64,26 +64,26 @@ public class SfvbItemVariationOption {
   public SfvbItemVariationOption() { 
   }
 
-  public SfvbItemVariationOption _default(Boolean _default) {
+  public SfvbItemVariationOption defaultOption(Boolean defaultOption) {
     
-    this._default = _default;
+    this.defaultOption = defaultOption;
     return this;
   }
 
    /**
    * True for the option the item page starts on.  At most one per axis.
-   * @return _default
+   * @return defaultOption
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "True for the option the item page starts on.  At most one per axis.")
 
-  public Boolean getDefault() {
-    return _default;
+  public Boolean getDefaultOption() {
+    return defaultOption;
   }
 
 
-  public void setDefault(Boolean _default) {
-    this._default = _default;
+  public void setDefaultOption(Boolean defaultOption) {
+    this.defaultOption = defaultOption;
   }
 
 
@@ -143,21 +143,21 @@ public class SfvbItemVariationOption {
       return false;
     }
     SfvbItemVariationOption sfvbItemVariationOption = (SfvbItemVariationOption) o;
-    return Objects.equals(this._default, sfvbItemVariationOption._default) &&
+    return Objects.equals(this.defaultOption, sfvbItemVariationOption.defaultOption) &&
         Objects.equals(this.multimediaOid, sfvbItemVariationOption.multimediaOid) &&
         Objects.equals(this.value, sfvbItemVariationOption.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default, multimediaOid, value);
+    return Objects.hash(defaultOption, multimediaOid, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbItemVariationOption {\n");
-    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    defaultOption: ").append(toIndentedString(defaultOption)).append("\n");
     sb.append("    multimediaOid: ").append(toIndentedString(multimediaOid)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -182,7 +182,7 @@ public class SfvbItemVariationOption {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("default");
+    openapiFields.add("default_option");
     openapiFields.add("multimedia_oid");
     openapiFields.add("value");
 

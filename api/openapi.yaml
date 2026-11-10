@@ -261111,9 +261111,9 @@ components:
         item_variations:
           changes:
           - op: op
-            default: true
             quantity: 5
             before: before
+            default_option: true
             default_text: default_text
             values:
             - values
@@ -261129,9 +261129,9 @@ components:
             value: value
             child: child
           - op: op
-            default: true
             quantity: 5
             before: before
+            default_option: true
             default_text: default_text
             values:
             - values
@@ -269984,10 +269984,10 @@ components:
         default_text: default_text
         name: name
         options:
-        - default: true
+        - default_option: true
           multimedia_oid: 0
           value: value
-        - default: true
+        - default_option: true
           multimedia_oid: 0
           value: value
       properties:
@@ -270007,9 +270007,9 @@ components:
     SfvbItemVariationChange:
       example:
         op: op
-        default: true
         quantity: 5
         before: before
+        default_option: true
         default_text: default_text
         values:
         - values
@@ -270036,7 +270036,7 @@ components:
           description: "set_combination - the child item id, or null to clear the\
             \ combination."
           type: string
-        default:
+        default_option:
           description: add_option and add_axis make the option the default.
           type: boolean
         default_text:
@@ -270149,11 +270149,11 @@ components:
       type: object
     SfvbItemVariationOption:
       example:
-        default: true
+        default_option: true
         multimedia_oid: 0
         value: value
       properties:
-        default:
+        default_option:
           description: True for the option the item page starts on.  At most one per
             axis.
           type: boolean
@@ -270198,19 +270198,19 @@ components:
         - default_text: default_text
           name: name
           options:
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
         - default_text: default_text
           name: name
           options:
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
         description: description
@@ -270249,9 +270249,9 @@ components:
       example:
         changes:
         - op: op
-          default: true
           quantity: 5
           before: before
+          default_option: true
           default_text: default_text
           values:
           - values
@@ -270267,9 +270267,9 @@ components:
           value: value
           child: child
         - op: op
-          default: true
           quantity: 5
           before: before
+          default_option: true
           default_text: default_text
           values:
           - values
@@ -270331,19 +270331,19 @@ components:
         - default_text: default_text
           name: name
           options:
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
         - default_text: default_text
           name: name
           options:
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
-          - default: true
+          - default_option: true
             multimedia_oid: 0
             value: value
         changes:
@@ -277853,6 +277853,7 @@ components:
           provider: provider
           name: name
           gate:
+            service: service
             region: all
             type: Statistics
           requests:
@@ -277878,6 +277879,7 @@ components:
           provider: provider
           name: name
           gate:
+            service: service
             region: all
             type: Statistics
           requests:
@@ -277995,6 +277997,7 @@ components:
       type: object
     SfvbTrackingCheckPlanGate:
       example:
+        service: service
         region: all
         type: Statistics
       properties:
@@ -278004,6 +278007,10 @@ components:
           - all
           - eea
           - non_us
+          type: string
+        service:
+          description: "The cookie service the consent gate is stored under, for example\
+            \ openai or facebook (#1959)."
           type: string
         type:
           description: "The consent category that must be granted.  Statistics, Preferences\
@@ -278022,6 +278029,7 @@ components:
         provider: provider
         name: name
         gate:
+          service: service
           region: all
           type: Statistics
         requests:
