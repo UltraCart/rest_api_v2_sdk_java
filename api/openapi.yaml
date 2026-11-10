@@ -14194,6 +14194,17 @@ paths:
               description: Contains human readable error message
               schema:
                 type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "404":
           content:
             application/json:
@@ -15098,6 +15109,467 @@ paths:
       x-codegen-request-body-name: item_multimedia_description_request
       x-content-type: application/json
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/preorder:
+    get:
+      description: "Whether the item is on pre-order, its ETA, and what itempreorder\
+        \ shows shoppers because of them, with a hash_sha256 to send as If-Match when\
+        \ changing them.  A variation is an item of its own and can be read here;\
+        \ read a parent's variations together with GET items/preorder/children.  Address\
+        \ by merchant_item_id or merchant_item_oid.\n"
+      operationId: getSfvbItemPreorder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPreorder'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read an item's pre-order flag and ETA
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "Partial - a field left out is untouched, and nothing else on the\
+        \ item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish\
+        \ when items are live and If-Match with the hash_sha256 from the read.  Putting\
+        \ the item on or off pre-order also needs the approval of the person who signed\
+        \ in the CLI - an approved item.preorder request for this item and exactly\
+        \ this change - because a pre-order item can be ordered while out of stock\
+        \ and its orders go to the Pre-ordered stage.  An ETA-only change needs no\
+        \ approval.  A change that sets every field to what it already is returns\
+        \ the item unchanged.  The answer has the values before and after, what shoppers\
+        \ now see, and warnings such as an ETA in the past.\n"
+      operationId: putSfvbItemPreorder
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the pre-order read.  Required; 428 when absent,\
+          \ 412 when stale."
+        in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - description: The approval_id of an approved item.preorder request for this
+          item and change.  Required when the change puts the item on or off pre-order.  See
+          POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemPreorderRequest'
+        description: The change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPreorder'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change an item's pre-order flag or ETA
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_preorder_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/items/preorder/children:
+    get:
+      description: "The parent's own values and each variation's, with the option\
+        \ values that pick it (such as Size 2T) and its hash_sha256 to send when changing\
+        \ it.  Read fresh, never from a cache.  Address the parent by merchant_item_id\
+        \ or merchant_item_oid.\n"
+      operationId: getSfvbItemPreorderChildren
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPreorderListResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the pre-order flag and ETA of a parent item's variations
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "The same change for each variation named, 1 to 100, by its merchant\
+        \ item id or by an option value only one variation has (such as 2T), each\
+        \ with the hash_sha256 from the children read.  All or nothing - every row\
+        \ is checked before any variation is saved, and an unknown, ambiguous, repeated\
+        \ or stale row refuses the whole call.  Putting any of them on or off pre-order\
+        \ needs one approved item.preorder request for the parent and exactly this\
+        \ change; an ETA-only change needs none.  Needs sfvb_publish when items are\
+        \ live.  Each variation is saved on its own, so if a save itself fails part\
+        \ way the error names the variations already saved.\n"
+      operationId: putSfvbItemPreorderChildren
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: merchant_item_id
+        schema:
+          type: string
+      - in: query
+        name: merchant_item_oid
+        schema:
+          format: int32
+          type: integer
+      - description: The approval_id of an approved item.preorder request for the
+          parent and this change.  Required when the change puts any variation on
+          or off pre-order.  See POST /sfvb/approvals.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbItemPreorderChildrenRequest'
+        description: The change and the variations
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbItemPreorderListResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change the pre-order flag or ETA of several variations of one parent
+      tags:
+      - sfvb
+      x-codegen-request-body-name: item_preorder_children_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/items/pricing:
     get:
       description: "Price, sale (with whether it applies now), MSRP and retail volume\
@@ -15145,6 +15617,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -15365,6 +15848,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
           headers:
             UC-REST-ERROR:
               description: Contains human readable error message
@@ -259808,6 +260302,10 @@ components:
       type: object
     SfvbApprovalCreateRequest:
       example:
+        item_preorder:
+          eta: eta
+          clear_eta: true
+          preorder: true
         reason: reason
         redirect_rows:
         - hash_sha256: hash_sha256
@@ -259856,6 +260354,15 @@ components:
           type: type
           objective_parameter: objective_parameter
           objective: objective
+        item_preorder_children:
+          eta: eta
+          clear_eta: true
+          children:
+          - hash_sha256: hash_sha256
+            child: child
+          - hash_sha256: hash_sha256
+            child: child
+          preorder: true
         tracking_provider:
           wholesale_tiers:
           - account_number: account_number
@@ -260050,6 +260557,7 @@ components:
           - upsell.enable
           - item.attribute_batch
           - item.pricing
+          - item.preorder
           - twilio_account.delete
           - sending_domain.delete
           - sequence_step.delete
@@ -260094,6 +260602,10 @@ components:
           items:
             $ref: '#/components/schemas/SfvbItemAttributeBatchRow'
           type: array
+        item_preorder:
+          $ref: '#/components/schemas/SfvbItemPreorderRequest'
+        item_preorder_children:
+          $ref: '#/components/schemas/SfvbItemPreorderChildrenRequest'
         item_pricing:
           $ref: '#/components/schemas/SfvbItemPricingRequest'
         params:
@@ -267679,6 +268191,241 @@ components:
             \ an item has no folder of its own - the bytes are copied into the item's\
             \ own storage on attach."
           type: string
+      type: object
+    SfvbItemPreorder:
+      example:
+        hash_sha256: hash_sha256
+        merchant_item_id: merchant_item_id
+        shoppers_see: preorder_with_eta
+        eta: eta
+        warnings:
+        - warnings
+        - warnings
+        shoppers_see_text: shoppers_see_text
+        variation_values:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        preorder: true
+        changed:
+          preorder_before: true
+          eta_before: eta_before
+          eta_after: eta_after
+          preorder_after: true
+        merchant_item_oid: 0
+      properties:
+        changed:
+          $ref: '#/components/schemas/SfvbItemPreorderChange'
+        eta:
+          description: "The expected date, YYYY-MM-DD, or null when none is set."
+          type: string
+        hash_sha256:
+          description: "The hash of preorder and eta.  Send it as If-Match, or as\
+            \ the row's hash_sha256, to change them."
+          type: string
+        merchant_item_id:
+          description: The item's merchant item id.
+          type: string
+        merchant_item_oid:
+          description: The item.
+          format: int32
+          type: integer
+        preorder:
+          description: "True when the item is on pre-order.  Shoppers can order it\
+            \ while out of stock, and its orders go to the Pre-ordered stage."
+          type: boolean
+        shoppers_see:
+          description: "What itempreorder shows.  preorder_with_eta when on pre-order\
+            \ with an ETA of today or later, preorder_no_eta when on pre-order with\
+            \ no ETA or a past one, nothing when not on pre-order."
+          enum:
+          - preorder_with_eta
+          - preorder_no_eta
+          - nothing
+          type: string
+        shoppers_see_text:
+          description: "shoppers_see in words, such as on pre-order, ETA 2026-11-20."
+          type: string
+        variation_values:
+          description: "For a variation listed under its parent, the option values\
+            \ that pick it, such as Size 2T."
+          items:
+            $ref: '#/components/schemas/SfvbItemPreorderOption'
+          type: array
+        warnings:
+          description: "After a change, things worth knowing about the new values,\
+            \ such as an ETA in the past.  Never a refusal."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbItemPreorderChange:
+      example:
+        preorder_before: true
+        eta_before: eta_before
+        eta_after: eta_after
+        preorder_after: true
+      properties:
+        eta_after:
+          description: "The ETA after the change, YYYY-MM-DD, or null."
+          type: string
+        eta_before:
+          description: "The ETA before the change, YYYY-MM-DD, or null."
+          type: string
+        preorder_after:
+          description: Pre-order after the change.
+          type: boolean
+        preorder_before:
+          description: Pre-order before the change.
+          type: boolean
+      type: object
+    SfvbItemPreorderChildrenRequest:
+      example:
+        eta: eta
+        clear_eta: true
+        children:
+        - hash_sha256: hash_sha256
+          child: child
+        - hash_sha256: hash_sha256
+          child: child
+        preorder: true
+      properties:
+        children:
+          description: "The variations to change, 1 to 100, each named once."
+          items:
+            $ref: '#/components/schemas/SfvbItemPreorderChildRow'
+          type: array
+        clear_eta:
+          description: True to remove the ETA from every variation named.  Not with
+            eta.
+          type: boolean
+        eta:
+          description: "The expected date for every variation named, YYYY-MM-DD. \
+            \ Not with clear_eta."
+          type: string
+        preorder:
+          description: "True to put the variations on pre-order, false to take them\
+            \ off.  Needs an approved item.preorder request when it changes any of\
+            \ them."
+          type: boolean
+      type: object
+    SfvbItemPreorderChildRow:
+      example:
+        hash_sha256: hash_sha256
+        child: child
+      properties:
+        child:
+          description: "The variation's merchant item id, or an option value that\
+            \ exactly one variation of the parent has, such as 2T."
+          type: string
+        hash_sha256:
+          description: The variation's hash_sha256 from the read.  Required.  A stale
+            hash refuses the whole call.
+          type: string
+      type: object
+    SfvbItemPreorderListResponse:
+      example:
+        parent:
+          hash_sha256: hash_sha256
+          merchant_item_id: merchant_item_id
+          shoppers_see: preorder_with_eta
+          eta: eta
+          warnings:
+          - warnings
+          - warnings
+          shoppers_see_text: shoppers_see_text
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          preorder: true
+          changed:
+            preorder_before: true
+            eta_before: eta_before
+            eta_after: eta_after
+            preorder_after: true
+          merchant_item_oid: 0
+        children:
+        - hash_sha256: hash_sha256
+          merchant_item_id: merchant_item_id
+          shoppers_see: preorder_with_eta
+          eta: eta
+          warnings:
+          - warnings
+          - warnings
+          shoppers_see_text: shoppers_see_text
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          preorder: true
+          changed:
+            preorder_before: true
+            eta_before: eta_before
+            eta_after: eta_after
+            preorder_after: true
+          merchant_item_oid: 0
+        - hash_sha256: hash_sha256
+          merchant_item_id: merchant_item_id
+          shoppers_see: preorder_with_eta
+          eta: eta
+          warnings:
+          - warnings
+          - warnings
+          shoppers_see_text: shoppers_see_text
+          variation_values:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          preorder: true
+          changed:
+            preorder_before: true
+            eta_before: eta_before
+            eta_after: eta_after
+            preorder_after: true
+          merchant_item_oid: 0
+      properties:
+        children:
+          description: "Each variation, with the option values that pick it.  After\
+            \ a change, the variations named, in the order sent."
+          items:
+            $ref: '#/components/schemas/SfvbItemPreorder'
+          type: array
+        parent:
+          $ref: '#/components/schemas/SfvbItemPreorder'
+      type: object
+    SfvbItemPreorderOption:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          description: "The variation's name, such as Size."
+          type: string
+        value:
+          description: "The option value, such as 2T."
+          type: string
+      type: object
+    SfvbItemPreorderRequest:
+      example:
+        eta: eta
+        clear_eta: true
+        preorder: true
+      properties:
+        clear_eta:
+          description: True to remove the ETA.  Not with eta.
+          type: boolean
+        eta:
+          description: "The expected date, YYYY-MM-DD.  Not with clear_eta."
+          type: string
+        preorder:
+          description: "True to put the item on pre-order, false to take it off. \
+            \ Either needs an approved item.preorder request when it changes the item."
+          type: boolean
       type: object
     SfvbItemPricing:
       example:
@@ -281073,10 +281820,12 @@ components:
       type: object
     SfvbWhoamiResponse:
       example:
+        can_edit_items: true
         can_publish_public: true
         can_write: true
         storefronts_withheld: true
         user_name: user_name
+        can_read_items: true
         merchant_id: merchant_id
         login: login
         authentication_type: authentication_type
@@ -281109,6 +281858,11 @@ components:
           description: "How this token authenticated - Oauth2, Simple Key, Public/Private\
             \ Key or Browser Key."
           type: string
+        can_edit_items:
+          description: "True when this token may change item data.  Needs can_write,\
+            \ and the UltraCart user behind the token must hold Edit Items.  A token\
+            \ with no user is judged on its scopes alone."
+          type: boolean
         can_publish:
           description: "True when this token may write a target that is currently\
             \ live - an active upsell offer, an email on a delivering flow, the active\
@@ -281122,6 +281876,12 @@ components:
         can_read:
           description: True when this token may read.  Do not infer this from the
             requested scope name.
+          type: boolean
+        can_read_items:
+          description: "True when this token may read item data - the item, its pricing,\
+            \ pre-order and related items.  Needs can_read, and the UltraCart user\
+            \ behind the token must hold View Items or Edit Items.  A token with no\
+            \ user is judged on its scopes alone."
           type: boolean
         can_write:
           description: True when this token may write.  Writing a target that is not
@@ -281980,6 +282740,7 @@ components:
         send_test_orders: true
         api_key: api_key
         active: true
+        skip_calculation_outside_nexus: true
         estimate_only: true
         skip_channel_orders: true
         send_outside_nexus: true
@@ -282004,6 +282765,12 @@ components:
         send_test_orders:
           description: Send test orders through to TaxJar.  The default is to not
             transmit test orders to TaxJar.
+          type: boolean
+        skip_calculation_outside_nexus:
+          description: "Only calculate tax for states within your nexus.  Requires\
+            \ send_outside_nexus to be true.  When true, orders outside your nexus\
+            \ are still transmitted to TaxJar for nexus tracking, but no tax calculation\
+            \ is requested for them, reducing API calls."
           type: boolean
         skip_channel_orders:
           description: Do not send channel partner orders to TaxJar.  Set this to
@@ -282877,6 +283644,7 @@ components:
             send_test_orders: true
             api_key: api_key
             active: true
+            skip_calculation_outside_nexus: true
             estimate_only: true
             skip_channel_orders: true
             send_outside_nexus: true
@@ -283584,6 +284352,7 @@ components:
           send_test_orders: true
           api_key: api_key
           active: true
+          skip_calculation_outside_nexus: true
           estimate_only: true
           skip_channel_orders: true
           send_outside_nexus: true

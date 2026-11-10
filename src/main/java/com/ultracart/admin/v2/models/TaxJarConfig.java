@@ -69,6 +69,10 @@ public class TaxJarConfig {
   @SerializedName(SERIALIZED_NAME_SEND_TEST_ORDERS)
   private Boolean sendTestOrders;
 
+  public static final String SERIALIZED_NAME_SKIP_CALCULATION_OUTSIDE_NEXUS = "skip_calculation_outside_nexus";
+  @SerializedName(SERIALIZED_NAME_SKIP_CALCULATION_OUTSIDE_NEXUS)
+  private Boolean skipCalculationOutsideNexus;
+
   public static final String SERIALIZED_NAME_SKIP_CHANNEL_ORDERS = "skip_channel_orders";
   @SerializedName(SERIALIZED_NAME_SKIP_CHANNEL_ORDERS)
   private Boolean skipChannelOrders;
@@ -195,6 +199,29 @@ public class TaxJarConfig {
   }
 
 
+  public TaxJarConfig skipCalculationOutsideNexus(Boolean skipCalculationOutsideNexus) {
+    
+    this.skipCalculationOutsideNexus = skipCalculationOutsideNexus;
+    return this;
+  }
+
+   /**
+   * Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls.
+   * @return skipCalculationOutsideNexus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Only calculate tax for states within your nexus.  Requires send_outside_nexus to be true.  When true, orders outside your nexus are still transmitted to TaxJar for nexus tracking, but no tax calculation is requested for them, reducing API calls.")
+
+  public Boolean getSkipCalculationOutsideNexus() {
+    return skipCalculationOutsideNexus;
+  }
+
+
+  public void setSkipCalculationOutsideNexus(Boolean skipCalculationOutsideNexus) {
+    this.skipCalculationOutsideNexus = skipCalculationOutsideNexus;
+  }
+
+
   public TaxJarConfig skipChannelOrders(Boolean skipChannelOrders) {
     
     this.skipChannelOrders = skipChannelOrders;
@@ -256,13 +283,14 @@ public class TaxJarConfig {
         Objects.equals(this.estimateOnly, taxJarConfig.estimateOnly) &&
         Objects.equals(this.sendOutsideNexus, taxJarConfig.sendOutsideNexus) &&
         Objects.equals(this.sendTestOrders, taxJarConfig.sendTestOrders) &&
+        Objects.equals(this.skipCalculationOutsideNexus, taxJarConfig.skipCalculationOutsideNexus) &&
         Objects.equals(this.skipChannelOrders, taxJarConfig.skipChannelOrders) &&
         Objects.equals(this.useDistributionCenterFrom, taxJarConfig.useDistributionCenterFrom);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, apiKey, estimateOnly, sendOutsideNexus, sendTestOrders, skipChannelOrders, useDistributionCenterFrom);
+    return Objects.hash(active, apiKey, estimateOnly, sendOutsideNexus, sendTestOrders, skipCalculationOutsideNexus, skipChannelOrders, useDistributionCenterFrom);
   }
 
   @Override
@@ -274,6 +302,7 @@ public class TaxJarConfig {
     sb.append("    estimateOnly: ").append(toIndentedString(estimateOnly)).append("\n");
     sb.append("    sendOutsideNexus: ").append(toIndentedString(sendOutsideNexus)).append("\n");
     sb.append("    sendTestOrders: ").append(toIndentedString(sendTestOrders)).append("\n");
+    sb.append("    skipCalculationOutsideNexus: ").append(toIndentedString(skipCalculationOutsideNexus)).append("\n");
     sb.append("    skipChannelOrders: ").append(toIndentedString(skipChannelOrders)).append("\n");
     sb.append("    useDistributionCenterFrom: ").append(toIndentedString(useDistributionCenterFrom)).append("\n");
     sb.append("}");
@@ -303,6 +332,7 @@ public class TaxJarConfig {
     openapiFields.add("estimate_only");
     openapiFields.add("send_outside_nexus");
     openapiFields.add("send_test_orders");
+    openapiFields.add("skip_calculation_outside_nexus");
     openapiFields.add("skip_channel_orders");
     openapiFields.add("use_distribution_center_from");
 

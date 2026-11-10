@@ -10,9 +10,11 @@
 |**actingAsUser** | **Boolean** | True when this token resolves to a merchant user.  Preview sessions and file writes need one, because they are recorded against the person who approved the token.  Only device flow tokens resolve a user, so a plain API key will see this false. |  [optional] |
 |**applicationName** | **String** | Description of the application this credential belongs to. |  [optional] |
 |**authenticationType** | **String** | How this token authenticated - Oauth2, Simple Key, Public/Private Key or Browser Key. |  [optional] |
+|**canEditItems** | **Boolean** | True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone. |  [optional] |
 |**canPublish** | **Boolean** | True when this token may write a target that is currently live - an active upsell offer, an email on a delivering flow, the active theme, the storefront root.  Never infer this; it is the difference between a draft edit and a shopper visible change. |  [optional] |
 |**canPublishPublic** | **Boolean** | True when this account may publish library entries to the public library.  Set by UltraCart staff only. |  [optional] |
 |**canRead** | **Boolean** | True when this token may read.  Do not infer this from the requested scope name. |  [optional] |
+|**canReadItems** | **Boolean** | True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone. |  [optional] |
 |**canWrite** | **Boolean** | True when this token may write.  Writing a target that is not currently live needs only this. |  [optional] |
 |**deviceScope** | **String** | Device scope name, when this is a device flow token. |  [optional] |
 |**login** | **String** | Login of the user who approved this token.  Populated for device flow tokens; null for plain API key credentials. |  [optional] |

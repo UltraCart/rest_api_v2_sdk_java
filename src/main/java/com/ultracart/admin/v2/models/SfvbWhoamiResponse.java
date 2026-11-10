@@ -64,6 +64,10 @@ public class SfvbWhoamiResponse {
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_TYPE)
   private String authenticationType;
 
+  public static final String SERIALIZED_NAME_CAN_EDIT_ITEMS = "can_edit_items";
+  @SerializedName(SERIALIZED_NAME_CAN_EDIT_ITEMS)
+  private Boolean canEditItems;
+
   public static final String SERIALIZED_NAME_CAN_PUBLISH = "can_publish";
   @SerializedName(SERIALIZED_NAME_CAN_PUBLISH)
   private Boolean canPublish;
@@ -75,6 +79,10 @@ public class SfvbWhoamiResponse {
   public static final String SERIALIZED_NAME_CAN_READ = "can_read";
   @SerializedName(SERIALIZED_NAME_CAN_READ)
   private Boolean canRead;
+
+  public static final String SERIALIZED_NAME_CAN_READ_ITEMS = "can_read_items";
+  @SerializedName(SERIALIZED_NAME_CAN_READ_ITEMS)
+  private Boolean canReadItems;
 
   public static final String SERIALIZED_NAME_CAN_WRITE = "can_write";
   @SerializedName(SERIALIZED_NAME_CAN_WRITE)
@@ -180,6 +188,29 @@ public class SfvbWhoamiResponse {
   }
 
 
+  public SfvbWhoamiResponse canEditItems(Boolean canEditItems) {
+    
+    this.canEditItems = canEditItems;
+    return this;
+  }
+
+   /**
+   * True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone.
+   * @return canEditItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this token may change item data.  Needs can_write, and the UltraCart user behind the token must hold Edit Items.  A token with no user is judged on its scopes alone.")
+
+  public Boolean getCanEditItems() {
+    return canEditItems;
+  }
+
+
+  public void setCanEditItems(Boolean canEditItems) {
+    this.canEditItems = canEditItems;
+  }
+
+
   public SfvbWhoamiResponse canPublish(Boolean canPublish) {
     
     this.canPublish = canPublish;
@@ -246,6 +277,29 @@ public class SfvbWhoamiResponse {
 
   public void setCanRead(Boolean canRead) {
     this.canRead = canRead;
+  }
+
+
+  public SfvbWhoamiResponse canReadItems(Boolean canReadItems) {
+    
+    this.canReadItems = canReadItems;
+    return this;
+  }
+
+   /**
+   * True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.
+   * @return canReadItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when this token may read item data - the item, its pricing, pre-order and related items.  Needs can_read, and the UltraCart user behind the token must hold View Items or Edit Items.  A token with no user is judged on its scopes alone.")
+
+  public Boolean getCanReadItems() {
+    return canReadItems;
+  }
+
+
+  public void setCanReadItems(Boolean canReadItems) {
+    this.canReadItems = canReadItems;
   }
 
 
@@ -462,9 +516,11 @@ public class SfvbWhoamiResponse {
     return Objects.equals(this.actingAsUser, sfvbWhoamiResponse.actingAsUser) &&
         Objects.equals(this.applicationName, sfvbWhoamiResponse.applicationName) &&
         Objects.equals(this.authenticationType, sfvbWhoamiResponse.authenticationType) &&
+        Objects.equals(this.canEditItems, sfvbWhoamiResponse.canEditItems) &&
         Objects.equals(this.canPublish, sfvbWhoamiResponse.canPublish) &&
         Objects.equals(this.canPublishPublic, sfvbWhoamiResponse.canPublishPublic) &&
         Objects.equals(this.canRead, sfvbWhoamiResponse.canRead) &&
+        Objects.equals(this.canReadItems, sfvbWhoamiResponse.canReadItems) &&
         Objects.equals(this.canWrite, sfvbWhoamiResponse.canWrite) &&
         Objects.equals(this.deviceScope, sfvbWhoamiResponse.deviceScope) &&
         Objects.equals(this.login, sfvbWhoamiResponse.login) &&
@@ -477,7 +533,7 @@ public class SfvbWhoamiResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actingAsUser, applicationName, authenticationType, canPublish, canPublishPublic, canRead, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
+    return Objects.hash(actingAsUser, applicationName, authenticationType, canEditItems, canPublish, canPublishPublic, canRead, canReadItems, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
   }
 
   @Override
@@ -487,9 +543,11 @@ public class SfvbWhoamiResponse {
     sb.append("    actingAsUser: ").append(toIndentedString(actingAsUser)).append("\n");
     sb.append("    applicationName: ").append(toIndentedString(applicationName)).append("\n");
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
+    sb.append("    canEditItems: ").append(toIndentedString(canEditItems)).append("\n");
     sb.append("    canPublish: ").append(toIndentedString(canPublish)).append("\n");
     sb.append("    canPublishPublic: ").append(toIndentedString(canPublishPublic)).append("\n");
     sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+    sb.append("    canReadItems: ").append(toIndentedString(canReadItems)).append("\n");
     sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
     sb.append("    deviceScope: ").append(toIndentedString(deviceScope)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
@@ -523,9 +581,11 @@ public class SfvbWhoamiResponse {
     openapiFields.add("acting_as_user");
     openapiFields.add("application_name");
     openapiFields.add("authentication_type");
+    openapiFields.add("can_edit_items");
     openapiFields.add("can_publish");
     openapiFields.add("can_publish_public");
     openapiFields.add("can_read");
+    openapiFields.add("can_read_items");
     openapiFields.add("can_write");
     openapiFields.add("device_scope");
     openapiFields.add("login");

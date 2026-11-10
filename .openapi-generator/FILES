@@ -1149,6 +1149,13 @@ docs/SfvbItemContentRequest.md
 docs/SfvbItemMultimedia.md
 docs/SfvbItemMultimediaDescriptionRequest.md
 docs/SfvbItemMultimediaRequest.md
+docs/SfvbItemPreorder.md
+docs/SfvbItemPreorderChange.md
+docs/SfvbItemPreorderChildRow.md
+docs/SfvbItemPreorderChildrenRequest.md
+docs/SfvbItemPreorderListResponse.md
+docs/SfvbItemPreorderOption.md
+docs/SfvbItemPreorderRequest.md
 docs/SfvbItemPricing.md
 docs/SfvbItemPricingRequest.md
 docs/SfvbItemRelated.md
@@ -2629,6 +2636,13 @@ src/main/java/com/ultracart/admin/v2/models/SfvbItemContentRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemMultimedia.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemMultimediaDescriptionRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemMultimediaRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorder.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderChange.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderChildRow.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderChildrenRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderListResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderOption.java
+src/main/java/com/ultracart/admin/v2/models/SfvbItemPreorderRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemPricing.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemPricingRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbItemRelated.java

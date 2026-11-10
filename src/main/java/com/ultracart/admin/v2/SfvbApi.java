@@ -135,6 +135,10 @@ import com.ultracart.admin.v2.models.SfvbItemContainersResponse;
 import com.ultracart.admin.v2.models.SfvbItemContentRequest;
 import com.ultracart.admin.v2.models.SfvbItemMultimediaDescriptionRequest;
 import com.ultracart.admin.v2.models.SfvbItemMultimediaRequest;
+import com.ultracart.admin.v2.models.SfvbItemPreorder;
+import com.ultracart.admin.v2.models.SfvbItemPreorderChildrenRequest;
+import com.ultracart.admin.v2.models.SfvbItemPreorderListResponse;
+import com.ultracart.admin.v2.models.SfvbItemPreorderRequest;
 import com.ultracart.admin.v2.models.SfvbItemPricing;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbItemRelated;
@@ -18061,6 +18065,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18147,6 +18152,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18170,6 +18176,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18195,6 +18202,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18203,6 +18211,332 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = getSfvbItemValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, _callback);
         Type localVarReturnType = new TypeToken<SfvbItemResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbItemPreorder
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbItemPreorderCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbItemPreorderValidateBeforeCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbItemPreorder(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbItemPreorderCall(storefrontOid, merchantItemId, merchantItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read an item&#39;s pre-order flag and ETA
+     * Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent&#39;s variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return SfvbItemPreorder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemPreorder getSfvbItemPreorder(Integer storefrontOid, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        ApiResponse<SfvbItemPreorder> localVarResp = getSfvbItemPreorderWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read an item&#39;s pre-order flag and ETA
+     * Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent&#39;s variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return ApiResponse&lt;SfvbItemPreorder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemPreorder> getSfvbItemPreorderWithHttpInfo(Integer storefrontOid, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbItemPreorderValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, null);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read an item&#39;s pre-order flag and ETA (asynchronously)
+     * Whether the item is on pre-order, its ETA, and what itempreorder shows shoppers because of them, with a hash_sha256 to send as If-Match when changing them.  A variation is an item of its own and can be read here; read a parent&#39;s variations together with GET items/preorder/children.  Address by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbItemPreorderAsync(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback<SfvbItemPreorder> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbItemPreorderValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSfvbItemPreorderChildren
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbItemPreorderChildrenCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbItemPreorderChildrenValidateBeforeCall(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbItemPreorderChildren(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbItemPreorderChildrenCall(storefrontOid, merchantItemId, merchantItemOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read the pre-order flag and ETA of a parent item&#39;s variations
+     * The parent&#39;s own values and each variation&#39;s, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return SfvbItemPreorderListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemPreorderListResponse getSfvbItemPreorderChildren(Integer storefrontOid, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        ApiResponse<SfvbItemPreorderListResponse> localVarResp = getSfvbItemPreorderChildrenWithHttpInfo(storefrontOid, merchantItemId, merchantItemOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read the pre-order flag and ETA of a parent item&#39;s variations
+     * The parent&#39;s own values and each variation&#39;s, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @return ApiResponse&lt;SfvbItemPreorderListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemPreorderListResponse> getSfvbItemPreorderChildrenWithHttpInfo(Integer storefrontOid, String merchantItemId, Integer merchantItemOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbItemPreorderChildrenValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, null);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorderListResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read the pre-order flag and ETA of a parent item&#39;s variations (asynchronously)
+     * The parent&#39;s own values and each variation&#39;s, with the option values that pick it (such as Size 2T) and its hash_sha256 to send when changing it.  Read fresh, never from a cache.  Address the parent by merchant_item_id or merchant_item_oid. 
+     * @param storefrontOid  (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbItemPreorderChildrenAsync(Integer storefrontOid, String merchantItemId, Integer merchantItemOid, final ApiCallback<SfvbItemPreorderListResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbItemPreorderChildrenValidateBeforeCall(storefrontOid, merchantItemId, merchantItemOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18220,6 +18554,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18306,6 +18641,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18329,6 +18665,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18354,6 +18691,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18379,6 +18717,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18465,6 +18804,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18488,6 +18828,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -18513,6 +18854,7 @@ public class SfvbApi {
         <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
@@ -35540,6 +35882,411 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = putSfvbItemMultimediaDescriptionValidateBeforeCall(storefrontOid, itemMultimediaDescriptionRequest, merchantItemId, merchantItemOid, _callback);
         Type localVarReturnType = new TypeToken<SfvbItemResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for putSfvbItemPreorder
+     * @param storefrontOid  (required)
+     * @param ifMatch hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale. (required)
+     * @param itemPreorderRequest The change (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbItemPreorderCall(Integer storefrontOid, String ifMatch, SfvbItemPreorderRequest itemPreorderRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = itemPreorderRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        if (ifMatch != null) {
+            localVarHeaderParams.put("If-Match", localVarApiClient.parameterToString(ifMatch));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putSfvbItemPreorderValidateBeforeCall(Integer storefrontOid, String ifMatch, SfvbItemPreorderRequest itemPreorderRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling putSfvbItemPreorder(Async)");
+        }
+        
+        // verify the required parameter 'ifMatch' is set
+        if (ifMatch == null) {
+            throw new ApiException("Missing the required parameter 'ifMatch' when calling putSfvbItemPreorder(Async)");
+        }
+        
+        // verify the required parameter 'itemPreorderRequest' is set
+        if (itemPreorderRequest == null) {
+            throw new ApiException("Missing the required parameter 'itemPreorderRequest' when calling putSfvbItemPreorder(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = putSfvbItemPreorderCall(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Change an item&#39;s pre-order flag or ETA
+     * Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+     * @param storefrontOid  (required)
+     * @param ifMatch hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale. (required)
+     * @param itemPreorderRequest The change (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @return SfvbItemPreorder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemPreorder putSfvbItemPreorder(Integer storefrontOid, String ifMatch, SfvbItemPreorderRequest itemPreorderRequest, String merchantItemId, Integer merchantItemOid, String approvalId) throws ApiException {
+        ApiResponse<SfvbItemPreorder> localVarResp = putSfvbItemPreorderWithHttpInfo(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Change an item&#39;s pre-order flag or ETA
+     * Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+     * @param storefrontOid  (required)
+     * @param ifMatch hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale. (required)
+     * @param itemPreorderRequest The change (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbItemPreorder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemPreorder> putSfvbItemPreorderWithHttpInfo(Integer storefrontOid, String ifMatch, SfvbItemPreorderRequest itemPreorderRequest, String merchantItemId, Integer merchantItemOid, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = putSfvbItemPreorderValidateBeforeCall(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Change an item&#39;s pre-order flag or ETA (asynchronously)
+     * Partial - a field left out is untouched, and nothing else on the item changes.  eta is YYYY-MM-DD; clear_eta removes it.  Needs sfvb_publish when items are live and If-Match with the hash_sha256 from the read.  Putting the item on or off pre-order also needs the approval of the person who signed in the CLI - an approved item.preorder request for this item and exactly this change - because a pre-order item can be ordered while out of stock and its orders go to the Pre-ordered stage.  An ETA-only change needs no approval.  A change that sets every field to what it already is returns the item unchanged.  The answer has the values before and after, what shoppers now see, and warnings such as an ETA in the past. 
+     * @param storefrontOid  (required)
+     * @param ifMatch hash_sha256 from the pre-order read.  Required; 428 when absent, 412 when stale. (required)
+     * @param itemPreorderRequest The change (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for this item and change.  Required when the change puts the item on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbItemPreorderAsync(Integer storefrontOid, String ifMatch, SfvbItemPreorderRequest itemPreorderRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback<SfvbItemPreorder> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putSfvbItemPreorderValidateBeforeCall(storefrontOid, ifMatch, itemPreorderRequest, merchantItemId, merchantItemOid, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for putSfvbItemPreorderChildren
+     * @param storefrontOid  (required)
+     * @param itemPreorderChildrenRequest The change and the variations (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbItemPreorderChildrenCall(Integer storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = itemPreorderChildrenRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/items/preorder/children"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantItemId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_id", merchantItemId));
+        }
+
+        if (merchantItemOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchant_item_oid", merchantItemOid));
+        }
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putSfvbItemPreorderChildrenValidateBeforeCall(Integer storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling putSfvbItemPreorderChildren(Async)");
+        }
+        
+        // verify the required parameter 'itemPreorderChildrenRequest' is set
+        if (itemPreorderChildrenRequest == null) {
+            throw new ApiException("Missing the required parameter 'itemPreorderChildrenRequest' when calling putSfvbItemPreorderChildren(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = putSfvbItemPreorderChildrenCall(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Change the pre-order flag or ETA of several variations of one parent
+     * The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+     * @param storefrontOid  (required)
+     * @param itemPreorderChildrenRequest The change and the variations (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @return SfvbItemPreorderListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbItemPreorderListResponse putSfvbItemPreorderChildren(Integer storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, String merchantItemId, Integer merchantItemOid, String approvalId) throws ApiException {
+        ApiResponse<SfvbItemPreorderListResponse> localVarResp = putSfvbItemPreorderChildrenWithHttpInfo(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Change the pre-order flag or ETA of several variations of one parent
+     * The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+     * @param storefrontOid  (required)
+     * @param itemPreorderChildrenRequest The change and the variations (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @return ApiResponse&lt;SfvbItemPreorderListResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbItemPreorderListResponse> putSfvbItemPreorderChildrenWithHttpInfo(Integer storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, String merchantItemId, Integer merchantItemOid, String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = putSfvbItemPreorderChildrenValidateBeforeCall(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId, null);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorderListResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Change the pre-order flag or ETA of several variations of one parent (asynchronously)
+     * The same change for each variation named, 1 to 100, by its merchant item id or by an option value only one variation has (such as 2T), each with the hash_sha256 from the children read.  All or nothing - every row is checked before any variation is saved, and an unknown, ambiguous, repeated or stale row refuses the whole call.  Putting any of them on or off pre-order needs one approved item.preorder request for the parent and exactly this change; an ETA-only change needs none.  Needs sfvb_publish when items are live.  Each variation is saved on its own, so if a save itself fails part way the error names the variations already saved. 
+     * @param storefrontOid  (required)
+     * @param itemPreorderChildrenRequest The change and the variations (required)
+     * @param merchantItemId  (optional)
+     * @param merchantItemOid  (optional)
+     * @param approvalId The approval_id of an approved item.preorder request for the parent and this change.  Required when the change puts any variation on or off pre-order.  See POST /sfvb/approvals. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 412 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 428 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putSfvbItemPreorderChildrenAsync(Integer storefrontOid, SfvbItemPreorderChildrenRequest itemPreorderChildrenRequest, String merchantItemId, Integer merchantItemOid, String approvalId, final ApiCallback<SfvbItemPreorderListResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putSfvbItemPreorderChildrenValidateBeforeCall(storefrontOid, itemPreorderChildrenRequest, merchantItemId, merchantItemOid, approvalId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbItemPreorderListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

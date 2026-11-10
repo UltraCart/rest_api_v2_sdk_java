@@ -29,6 +29,8 @@ import com.ultracart.admin.v2.models.SfvbCommsTestPostcardRequest;
 import com.ultracart.admin.v2.models.SfvbExperimentStartRequest;
 import com.ultracart.admin.v2.models.SfvbFlowBackfillRequest;
 import com.ultracart.admin.v2.models.SfvbItemAttributeBatchRow;
+import com.ultracart.admin.v2.models.SfvbItemPreorderChildrenRequest;
+import com.ultracart.admin.v2.models.SfvbItemPreorderRequest;
 import com.ultracart.admin.v2.models.SfvbItemPricingRequest;
 import com.ultracart.admin.v2.models.SfvbRedirectDeleteRow;
 import com.ultracart.admin.v2.models.SfvbSiteSeoRequest;
@@ -88,6 +90,8 @@ public class SfvbApprovalCreateRequest {
     ITEM_ATTRIBUTE_BATCH("item.attribute_batch"),
     
     ITEM_PRICING("item.pricing"),
+    
+    ITEM_PREORDER("item.preorder"),
     
     TWILIO_ACCOUNT_DELETE("twilio_account.delete"),
     
@@ -196,6 +200,14 @@ public class SfvbApprovalCreateRequest {
   public static final String SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS = "item_attribute_rows";
   @SerializedName(SERIALIZED_NAME_ITEM_ATTRIBUTE_ROWS)
   private List<SfvbItemAttributeBatchRow> itemAttributeRows = null;
+
+  public static final String SERIALIZED_NAME_ITEM_PREORDER = "item_preorder";
+  @SerializedName(SERIALIZED_NAME_ITEM_PREORDER)
+  private SfvbItemPreorderRequest itemPreorder;
+
+  public static final String SERIALIZED_NAME_ITEM_PREORDER_CHILDREN = "item_preorder_children";
+  @SerializedName(SERIALIZED_NAME_ITEM_PREORDER_CHILDREN)
+  private SfvbItemPreorderChildrenRequest itemPreorderChildren;
 
   public static final String SERIALIZED_NAME_ITEM_PRICING = "item_pricing";
   @SerializedName(SERIALIZED_NAME_ITEM_PRICING)
@@ -429,6 +441,52 @@ public class SfvbApprovalCreateRequest {
 
   public void setItemAttributeRows(List<SfvbItemAttributeBatchRow> itemAttributeRows) {
     this.itemAttributeRows = itemAttributeRows;
+  }
+
+
+  public SfvbApprovalCreateRequest itemPreorder(SfvbItemPreorderRequest itemPreorder) {
+    
+    this.itemPreorder = itemPreorder;
+    return this;
+  }
+
+   /**
+   * Get itemPreorder
+   * @return itemPreorder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbItemPreorderRequest getItemPreorder() {
+    return itemPreorder;
+  }
+
+
+  public void setItemPreorder(SfvbItemPreorderRequest itemPreorder) {
+    this.itemPreorder = itemPreorder;
+  }
+
+
+  public SfvbApprovalCreateRequest itemPreorderChildren(SfvbItemPreorderChildrenRequest itemPreorderChildren) {
+    
+    this.itemPreorderChildren = itemPreorderChildren;
+    return this;
+  }
+
+   /**
+   * Get itemPreorderChildren
+   * @return itemPreorderChildren
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbItemPreorderChildrenRequest getItemPreorderChildren() {
+    return itemPreorderChildren;
+  }
+
+
+  public void setItemPreorderChildren(SfvbItemPreorderChildrenRequest itemPreorderChildren) {
+    this.itemPreorderChildren = itemPreorderChildren;
   }
 
 
@@ -688,6 +746,8 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
         Objects.equals(this.flowBackfill, sfvbApprovalCreateRequest.flowBackfill) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
+        Objects.equals(this.itemPreorder, sfvbApprovalCreateRequest.itemPreorder) &&
+        Objects.equals(this.itemPreorderChildren, sfvbApprovalCreateRequest.itemPreorderChildren) &&
         Objects.equals(this.itemPricing, sfvbApprovalCreateRequest.itemPricing) &&
         Objects.equals(this.params, sfvbApprovalCreateRequest.params) &&
         Objects.equals(this.postcardTestMail, sfvbApprovalCreateRequest.postcardTestMail) &&
@@ -702,7 +762,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
+    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemPreorder, itemPreorderChildren, itemPricing, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -717,6 +777,8 @@ public class SfvbApprovalCreateRequest {
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
     sb.append("    flowBackfill: ").append(toIndentedString(flowBackfill)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
+    sb.append("    itemPreorder: ").append(toIndentedString(itemPreorder)).append("\n");
+    sb.append("    itemPreorderChildren: ").append(toIndentedString(itemPreorderChildren)).append("\n");
     sb.append("    itemPricing: ").append(toIndentedString(itemPricing)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    postcardTestMail: ").append(toIndentedString(postcardTestMail)).append("\n");
@@ -757,6 +819,8 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("experiment_start");
     openapiFields.add("flow_backfill");
     openapiFields.add("item_attribute_rows");
+    openapiFields.add("item_preorder");
+    openapiFields.add("item_preorder_children");
     openapiFields.add("item_pricing");
     openapiFields.add("params");
     openapiFields.add("postcard_test_mail");
@@ -831,6 +895,14 @@ public class SfvbApprovalCreateRequest {
         for (int i = 0; i < jsonArrayitemAttributeRows.size(); i++) {
           SfvbItemAttributeBatchRow.validateJsonObject(jsonArrayitemAttributeRows.get(i).getAsJsonObject());
         };
+      }
+      // validate the optional field `item_preorder`
+      if (jsonObj.getAsJsonObject("item_preorder") != null) {
+        SfvbItemPreorderRequest.validateJsonObject(jsonObj.getAsJsonObject("item_preorder"));
+      }
+      // validate the optional field `item_preorder_children`
+      if (jsonObj.getAsJsonObject("item_preorder_children") != null) {
+        SfvbItemPreorderChildrenRequest.validateJsonObject(jsonObj.getAsJsonObject("item_preorder_children"));
       }
       // validate the optional field `item_pricing`
       if (jsonObj.getAsJsonObject("item_pricing") != null) {
