@@ -85,6 +85,8 @@ import com.ultracart.admin.v2.models.SfvbContainerRevertRequest;
 import com.ultracart.admin.v2.models.SfvbContainerVersion;
 import com.ultracart.admin.v2.models.SfvbContainerVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbContainerWriteRequest;
+import com.ultracart.admin.v2.models.SfvbDocsGap;
+import com.ultracart.admin.v2.models.SfvbDocsGapReport;
 import com.ultracart.admin.v2.models.SfvbElementSchemaResponse;
 import com.ultracart.admin.v2.models.SfvbElementsResponse;
 import com.ultracart.admin.v2.models.SfvbEmail;
@@ -15717,6 +15719,157 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for getSfvbDocsGap
+     * @param reportId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbDocsGapCall(String reportId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/docs/gaps/{report_id}"
+            .replaceAll("\\{" + "report_id" + "\\}", localVarApiClient.escapeString(reportId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbDocsGapValidateBeforeCall(String reportId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'reportId' is set
+        if (reportId == null) {
+            throw new ApiException("Missing the required parameter 'reportId' when calling getSfvbDocsGap(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbDocsGapCall(reportId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get a documentation-gap report&#39;s status
+     * The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart&#39;s internal notes are not returned.  A report from another account answers 404. 
+     * @param reportId  (required)
+     * @return SfvbDocsGap
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbDocsGap getSfvbDocsGap(String reportId) throws ApiException {
+        ApiResponse<SfvbDocsGap> localVarResp = getSfvbDocsGapWithHttpInfo(reportId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a documentation-gap report&#39;s status
+     * The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart&#39;s internal notes are not returned.  A report from another account answers 404. 
+     * @param reportId  (required)
+     * @return ApiResponse&lt;SfvbDocsGap&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbDocsGap> getSfvbDocsGapWithHttpInfo(String reportId) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbDocsGapValidateBeforeCall(reportId, null);
+        Type localVarReturnType = new TypeToken<SfvbDocsGap>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a documentation-gap report&#39;s status (asynchronously)
+     * The status of a report this account sent.  received until UltraCart staff look at it, then accepted, declined or fixed.  The report text and UltraCart&#39;s internal notes are not returned.  A report from another account answers 404. 
+     * @param reportId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbDocsGapAsync(String reportId, final ApiCallback<SfvbDocsGap> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbDocsGapValidateBeforeCall(reportId, _callback);
+        Type localVarReturnType = new TypeToken<SfvbDocsGap>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSfvbElement
      * @param elementType  (required)
      * @param _callback Callback for upload/download progress
@@ -28121,6 +28274,172 @@ public class SfvbApi {
 
         okhttp3.Call localVarCall = insertSfvbCommsTwilioAccountValidateBeforeCall(twilioAccount, _callback);
         Type localVarReturnType = new TypeToken<SfvbCommsTwilioAccountResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbDocsGap
+     * @param docsGapReport The report (required)
+     * @param storefrontOid The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbDocsGapCall(SfvbDocsGapReport docsGapReport, Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = docsGapReport;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/docs/gaps";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (storefrontOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("storefront_oid", storefrontOid));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json; charset=UTF-8"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbDocsGapValidateBeforeCall(SfvbDocsGapReport docsGapReport, Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'docsGapReport' is set
+        if (docsGapReport == null) {
+            throw new ApiException("Missing the required parameter 'docsGapReport' when calling insertSfvbDocsGap(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = insertSfvbDocsGapCall(docsGapReport, storefrontOid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Send UltraCart a documentation-gap report
+     * Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param docsGapReport The report (required)
+     * @param storefrontOid The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)
+     * @return SfvbDocsGap
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbDocsGap insertSfvbDocsGap(SfvbDocsGapReport docsGapReport, Integer storefrontOid) throws ApiException {
+        ApiResponse<SfvbDocsGap> localVarResp = insertSfvbDocsGapWithHttpInfo(docsGapReport, storefrontOid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send UltraCart a documentation-gap report
+     * Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param docsGapReport The report (required)
+     * @param storefrontOid The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)
+     * @return ApiResponse&lt;SfvbDocsGap&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbDocsGap> insertSfvbDocsGapWithHttpInfo(SfvbDocsGapReport docsGapReport, Integer storefrontOid) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbDocsGapValidateBeforeCall(docsGapReport, storefrontOid, null);
+        Type localVarReturnType = new TypeToken<SfvbDocsGap>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send UltraCart a documentation-gap report (asynchronously)
+     * Reports a place where docs.ultracart.com is wrong or missing, for UltraCart staff to triage.  Send the report uc-storefront docs gap review checked, in this form.  Optionally name the storefront the agent was working on with storefront_oid.  The server checks the report again and refuses one that holds a credential or an email address (an ultracart.com address may stay), without keeping it.  Sending the same report again returns the earlier report_id with 200 and duplicate true rather than a second report.  An account may send 20 reports a UTC day.  Requires a token that resolves to a user, so use the device authorization flow. 
+     * @param docsGapReport The report (required)
+     * @param storefrontOid The storefront the agent was working on, recorded for context.  Leave it out when none applies. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 413 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbDocsGapAsync(SfvbDocsGapReport docsGapReport, Integer storefrontOid, final ApiCallback<SfvbDocsGap> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbDocsGapValidateBeforeCall(docsGapReport, storefrontOid, _callback);
+        Type localVarReturnType = new TypeToken<SfvbDocsGap>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

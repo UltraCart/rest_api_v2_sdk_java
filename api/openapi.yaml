@@ -4587,6 +4587,218 @@ paths:
       x-codegen-request-body-name: twilio_account
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/docs/gaps:
+    post:
+      description: "Reports a place where docs.ultracart.com is wrong or missing,\
+        \ for UltraCart staff to triage.  Send the report uc-storefront docs gap review\
+        \ checked, in this form.  Optionally name the storefront the agent was working\
+        \ on with storefront_oid.  The server checks the report again and refuses\
+        \ one that holds a credential or an email address (an ultracart.com address\
+        \ may stay), without keeping it.  Sending the same report again returns the\
+        \ earlier report_id with 200 and duplicate true rather than a second report.\
+        \  An account may send 20 reports a UTC day.  Requires a token that resolves\
+        \ to a user, so use the device authorization flow.\n"
+      operationId: insertSfvbDocsGap
+      parameters:
+      - description: "The storefront the agent was working on, recorded for context.\
+          \  Leave it out when none applies."
+        in: query
+        name: storefront_oid
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbDocsGapReport'
+        description: The report
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbDocsGap'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "413":
+          $ref: '#/components/responses/413'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Send UltraCart a documentation-gap report
+      tags:
+      - sfvb
+      x-codegen-request-body-name: docs_gap_report
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/docs/gaps/{report_id}:
+    get:
+      description: "The status of a report this account sent.  received until UltraCart\
+        \ staff look at it, then accepted, declined or fixed.  The report text and\
+        \ UltraCart's internal notes are not returned.  A report from another account\
+        \ answers 404.\n"
+      operationId: getSfvbDocsGap
+      parameters:
+      - in: path
+        name: report_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbDocsGap'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Get a documentation-gap report's status
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/elements:
     get:
       description: "The authoritative vocabulary, taken from the same lookup the compiler\
@@ -264163,6 +264375,102 @@ components:
           description: "For email containers, whether this is a marketing email. \
             \ Selects whether CAN-SPAM footer rules apply."
           type: boolean
+      type: object
+    SfvbDocsGap:
+      example:
+        received_at: received_at
+        report_id: report_id
+        storefront_oid: 0
+        duplicate: true
+        status_at: status_at
+        status: received
+      properties:
+        duplicate:
+          description: "On submit, true when this account had already sent the same\
+            \ report.  The earlier report_id is returned and nothing new is kept."
+          type: boolean
+        received_at:
+          description: When UltraCart received the report.
+          type: string
+        report_id:
+          description: "The report's id.  Quote it to UltraCart, or look the report\
+            \ up with GET docs/gaps/{report_id}."
+          type: string
+        status:
+          description: "received until UltraCart staff look at it, then accepted,\
+            \ declined or fixed."
+          enum:
+          - received
+          - accepted
+          - declined
+          - fixed
+          type: string
+        status_at:
+          description: When the status last changed.  Absent while the report is received.
+          type: string
+        storefront_oid:
+          description: "The storefront named when the report was sent, if one was."
+          format: int32
+          type: integer
+      type: object
+    SfvbDocsGapReport:
+      example:
+        format_version: 0
+        kind: kind
+        gap:
+          evidence:
+          - evidence
+          - evidence
+          expected: expected
+          documentation_url: documentation_url
+          title: title
+          observed: observed
+        created_at: created_at
+      properties:
+        created_at:
+          description: "When the report was captured, as a UTC ISO-8601 timestamp.\
+            \  Not more than a day ahead of the server's clock."
+          type: string
+        format_version:
+          description: Always 1.
+          format: int32
+          type: integer
+        gap:
+          $ref: '#/components/schemas/SfvbDocsGapReportGap'
+        kind:
+          description: Always documentation-gap.
+          type: string
+      type: object
+    SfvbDocsGapReportGap:
+      example:
+        evidence:
+        - evidence
+        - evidence
+        expected: expected
+        documentation_url: documentation_url
+        title: title
+        observed: observed
+      properties:
+        documentation_url:
+          description: "The nearest documentation page, an absolute http or https\
+            \ URL of at most 2000 characters.  Leave it out when no page exists."
+          type: string
+        evidence:
+          description: "1 to 20 sanitized evidence descriptions or links, each at\
+            \ most 8000 characters."
+          items:
+            type: string
+          type: array
+        expected:
+          description: "What the documentation should say, at most 8000 characters."
+          type: string
+        observed:
+          description: "The confirmed behavior, or the guidance that is missing, at\
+            \ most 8000 characters."
+          type: string
+        title:
+          description: "A short description of the gap, at most 200 characters."
+          type: string
       type: object
     SfvbElement:
       example:

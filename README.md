@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.236</version>
+    <version>4.1.237</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.236"
+     implementation "com.ultracart:rest-sdk:4.1.237"
   }
 ```
 
@@ -589,6 +589,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbCommsUnreferenced**](docs/SfvbApi.md#getSfvbCommsUnreferenced) | **GET** /sfvb/storefronts/{storefront_oid}/comms/unreferenced | List the emails and postcards on a storefront that no step names
 *SfvbApi* | [**getSfvbContainer**](docs/SfvbApi.md#getSfvbContainer) | **GET** /sfvb/storefronts/{storefront_oid}/containers/{owner_type}/{owner_object_id} | Read a container stored outside the file system
 *SfvbApi* | [**getSfvbContainerVersion**](docs/SfvbApi.md#getSfvbContainerVersion) | **GET** /sfvb/storefronts/{storefront_oid}/container_versions/{container_history_oid} | Read the CJSON stored in one container history entry
+*SfvbApi* | [**getSfvbDocsGap**](docs/SfvbApi.md#getSfvbDocsGap) | **GET** /sfvb/docs/gaps/{report_id} | Get a documentation-gap report&#39;s status
 *SfvbApi* | [**getSfvbElement**](docs/SfvbApi.md#getSfvbElement) | **GET** /sfvb/elements/{element_type} | Configuration schema and field card for one element type
 *SfvbApi* | [**getSfvbEmail**](docs/SfvbApi.md#getSfvbEmail) | **GET** /sfvb/storefronts/{storefront_oid}/emails/{email_uuid} | Get a flow or campaign email&#39;s subject and preview text
 *SfvbApi* | [**getSfvbEvents**](docs/SfvbApi.md#getSfvbEvents) | **GET** /sfvb/events | Replay events
@@ -668,6 +669,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbCommsSegment**](docs/SfvbApi.md#insertSfvbCommsSegment) | **POST** /sfvb/storefronts/{storefront_oid}/segments | Create a segment
 *SfvbApi* | [**insertSfvbCommsSendingDomain**](docs/SfvbApi.md#insertSfvbCommsSendingDomain) | **POST** /sfvb/comms/sending_domains | Add a sending domain
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
+*SfvbApi* | [**insertSfvbDocsGap**](docs/SfvbApi.md#insertSfvbDocsGap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -2105,6 +2107,9 @@ Class | Method | HTTP request | Description
  - [SfvbContainerVersion](docs/SfvbContainerVersion.md)
  - [SfvbContainerVersionsResponse](docs/SfvbContainerVersionsResponse.md)
  - [SfvbContainerWriteRequest](docs/SfvbContainerWriteRequest.md)
+ - [SfvbDocsGap](docs/SfvbDocsGap.md)
+ - [SfvbDocsGapReport](docs/SfvbDocsGapReport.md)
+ - [SfvbDocsGapReportGap](docs/SfvbDocsGapReportGap.md)
  - [SfvbElement](docs/SfvbElement.md)
  - [SfvbElementSchemaResponse](docs/SfvbElementSchemaResponse.md)
  - [SfvbElementsResponse](docs/SfvbElementsResponse.md)
@@ -2565,6 +2570,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.237 | 11/10/2026 | sfvb internal testing |
 | 4.1.236 | 11/09/2026 | sfvb internal testing |
 | 4.1.235 | 11/09/2026 | sfvb internal testing |
 | 4.1.234 | 11/09/2026 | sfvb internal testing |
