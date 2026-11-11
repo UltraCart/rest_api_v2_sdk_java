@@ -57,6 +57,10 @@ public class SfvbPageResponse {
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private List<SfvbPageAttribute> attributes = null;
 
+  public static final String SERIALIZED_NAME_BLOG_POST_TEMPLATE = "blog_post_template";
+  @SerializedName(SERIALIZED_NAME_BLOG_POST_TEMPLATE)
+  private String blogPostTemplate;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -73,13 +77,37 @@ public class SfvbPageResponse {
   @SerializedName(SERIALIZED_NAME_ITEM_TEMPLATE)
   private String itemTemplate;
 
+  public static final String SERIALIZED_NAME_ITEMS_PER_PAGE = "items_per_page";
+  @SerializedName(SERIALIZED_NAME_ITEMS_PER_PAGE)
+  private Integer itemsPerPage;
+
   public static final String SERIALIZED_NAME_MULTIMEDIA = "multimedia";
   @SerializedName(SERIALIZED_NAME_MULTIMEDIA)
   private List<SfvbPageMultimedia> multimedia = null;
 
+  public static final String SERIALIZED_NAME_PAGE_TYPE = "page_type";
+  @SerializedName(SERIALIZED_NAME_PAGE_TYPE)
+  private String pageType;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_REVIEW_TEMPLATE = "review_template";
+  @SerializedName(SERIALIZED_NAME_REVIEW_TEMPLATE)
+  private String reviewTemplate;
+
+  public static final String SERIALIZED_NAME_SORT_ORDER = "sort_order";
+  @SerializedName(SERIALIZED_NAME_SORT_ORDER)
+  private Integer sortOrder;
+
+  public static final String SERIALIZED_NAME_SORT_ORDER_CHILD_GROUPS = "sort_order_child_groups";
+  @SerializedName(SERIALIZED_NAME_SORT_ORDER_CHILD_GROUPS)
+  private String sortOrderChildGroups;
+
+  public static final String SERIALIZED_NAME_SORT_ORDER_CHILD_ITEMS = "sort_order_child_items";
+  @SerializedName(SERIALIZED_NAME_SORT_ORDER_CHILD_ITEMS)
+  private String sortOrderChildItems;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -124,6 +152,29 @@ public class SfvbPageResponse {
 
   public void setAttributes(List<SfvbPageAttribute> attributes) {
     this.attributes = attributes;
+  }
+
+
+  public SfvbPageResponse blogPostTemplate(String blogPostTemplate) {
+    
+    this.blogPostTemplate = blogPostTemplate;
+    return this;
+  }
+
+   /**
+   * Template that renders the blog posts under this page.  Omitted when not set.
+   * @return blogPostTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Template that renders the blog posts under this page.  Omitted when not set.")
+
+  public String getBlogPostTemplate() {
+    return blogPostTemplate;
+  }
+
+
+  public void setBlogPostTemplate(String blogPostTemplate) {
+    this.blogPostTemplate = blogPostTemplate;
   }
 
 
@@ -219,6 +270,29 @@ public class SfvbPageResponse {
   }
 
 
+  public SfvbPageResponse itemsPerPage(Integer itemsPerPage) {
+    
+    this.itemsPerPage = itemsPerPage;
+    return this;
+  }
+
+   /**
+   * Items per page on a template that paginates.  Omitted when the template&#39;s default applies.
+   * @return itemsPerPage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Items per page on a template that paginates.  Omitted when the template's default applies.")
+
+  public Integer getItemsPerPage() {
+    return itemsPerPage;
+  }
+
+
+  public void setItemsPerPage(Integer itemsPerPage) {
+    this.itemsPerPage = itemsPerPage;
+  }
+
+
   public SfvbPageResponse multimedia(List<SfvbPageMultimedia> multimedia) {
     
     this.multimedia = multimedia;
@@ -250,6 +324,29 @@ public class SfvbPageResponse {
   }
 
 
+  public SfvbPageResponse pageType(String pageType) {
+    
+    this.pageType = pageType;
+    return this;
+  }
+
+   /**
+   * S for a static page, D for a dynamic one.
+   * @return pageType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "S for a static page, D for a dynamic one.")
+
+  public String getPageType() {
+    return pageType;
+  }
+
+
+  public void setPageType(String pageType) {
+    this.pageType = pageType;
+  }
+
+
   public SfvbPageResponse path(String path) {
     
     this.path = path;
@@ -270,6 +367,98 @@ public class SfvbPageResponse {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+
+  public SfvbPageResponse reviewTemplate(String reviewTemplate) {
+    
+    this.reviewTemplate = reviewTemplate;
+    return this;
+  }
+
+   /**
+   * Template that renders the item review pages under this page.  Omitted when not set.
+   * @return reviewTemplate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Template that renders the item review pages under this page.  Omitted when not set.")
+
+  public String getReviewTemplate() {
+    return reviewTemplate;
+  }
+
+
+  public void setReviewTemplate(String reviewTemplate) {
+    this.reviewTemplate = reviewTemplate;
+  }
+
+
+  public SfvbPageResponse sortOrder(Integer sortOrder) {
+    
+    this.sortOrder = sortOrder;
+    return this;
+  }
+
+   /**
+   * Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.
+   * @return sortOrder
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set.")
+
+  public Integer getSortOrder() {
+    return sortOrder;
+  }
+
+
+  public void setSortOrder(Integer sortOrder) {
+    this.sortOrder = sortOrder;
+  }
+
+
+  public SfvbPageResponse sortOrderChildGroups(String sortOrderChildGroups) {
+    
+    this.sortOrderChildGroups = sortOrderChildGroups;
+    return this;
+  }
+
+   /**
+   * How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.
+   * @return sortOrderChildGroups
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom.")
+
+  public String getSortOrderChildGroups() {
+    return sortOrderChildGroups;
+  }
+
+
+  public void setSortOrderChildGroups(String sortOrderChildGroups) {
+    this.sortOrderChildGroups = sortOrderChildGroups;
+  }
+
+
+  public SfvbPageResponse sortOrderChildItems(String sortOrderChildItems) {
+    
+    this.sortOrderChildItems = sortOrderChildItems;
+    return this;
+  }
+
+   /**
+   * How the page&#39;s items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.
+   * @return sortOrderChildItems
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How the page's items are ordered.  IA or ID by item id, DA or DD by description, SA or SD by manufacturer SKU, PA or PD by price, RA or RD by review, NA or ND by inventory, C custom.")
+
+  public String getSortOrderChildItems() {
+    return sortOrderChildItems;
+  }
+
+
+  public void setSortOrderChildItems(String sortOrderChildItems) {
+    this.sortOrderChildItems = sortOrderChildItems;
   }
 
 
@@ -353,12 +542,19 @@ public class SfvbPageResponse {
     }
     SfvbPageResponse sfvbPageResponse = (SfvbPageResponse) o;
     return Objects.equals(this.attributes, sfvbPageResponse.attributes) &&
+        Objects.equals(this.blogPostTemplate, sfvbPageResponse.blogPostTemplate) &&
         Objects.equals(this.description, sfvbPageResponse.description) &&
         Objects.equals(this.excludeFromSitemap, sfvbPageResponse.excludeFromSitemap) &&
         Objects.equals(this.groupTemplate, sfvbPageResponse.groupTemplate) &&
         Objects.equals(this.itemTemplate, sfvbPageResponse.itemTemplate) &&
+        Objects.equals(this.itemsPerPage, sfvbPageResponse.itemsPerPage) &&
         Objects.equals(this.multimedia, sfvbPageResponse.multimedia) &&
+        Objects.equals(this.pageType, sfvbPageResponse.pageType) &&
         Objects.equals(this.path, sfvbPageResponse.path) &&
+        Objects.equals(this.reviewTemplate, sfvbPageResponse.reviewTemplate) &&
+        Objects.equals(this.sortOrder, sfvbPageResponse.sortOrder) &&
+        Objects.equals(this.sortOrderChildGroups, sfvbPageResponse.sortOrderChildGroups) &&
+        Objects.equals(this.sortOrderChildItems, sfvbPageResponse.sortOrderChildItems) &&
         Objects.equals(this.title, sfvbPageResponse.title) &&
         Objects.equals(this.visible, sfvbPageResponse.visible) &&
         Objects.equals(this.visibleDts, sfvbPageResponse.visibleDts);
@@ -366,7 +562,7 @@ public class SfvbPageResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, description, excludeFromSitemap, groupTemplate, itemTemplate, multimedia, path, title, visible, visibleDts);
+    return Objects.hash(attributes, blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, multimedia, pageType, path, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
   }
 
   @Override
@@ -374,12 +570,19 @@ public class SfvbPageResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbPageResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    blogPostTemplate: ").append(toIndentedString(blogPostTemplate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    groupTemplate: ").append(toIndentedString(groupTemplate)).append("\n");
     sb.append("    itemTemplate: ").append(toIndentedString(itemTemplate)).append("\n");
+    sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
+    sb.append("    pageType: ").append(toIndentedString(pageType)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    reviewTemplate: ").append(toIndentedString(reviewTemplate)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    sortOrderChildGroups: ").append(toIndentedString(sortOrderChildGroups)).append("\n");
+    sb.append("    sortOrderChildItems: ").append(toIndentedString(sortOrderChildItems)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("    visibleDts: ").append(toIndentedString(visibleDts)).append("\n");
@@ -406,12 +609,19 @@ public class SfvbPageResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("attributes");
+    openapiFields.add("blog_post_template");
     openapiFields.add("description");
     openapiFields.add("exclude_from_sitemap");
     openapiFields.add("group_template");
     openapiFields.add("item_template");
+    openapiFields.add("items_per_page");
     openapiFields.add("multimedia");
+    openapiFields.add("page_type");
     openapiFields.add("path");
+    openapiFields.add("review_template");
+    openapiFields.add("sort_order");
+    openapiFields.add("sort_order_child_groups");
+    openapiFields.add("sort_order_child_items");
     openapiFields.add("title");
     openapiFields.add("visible");
     openapiFields.add("visible_dts");
@@ -454,6 +664,9 @@ public class SfvbPageResponse {
           SfvbPageAttribute.validateJsonObject(jsonArrayattributes.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("blog_post_template") != null && !jsonObj.get("blog_post_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `blog_post_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("blog_post_template").toString()));
+      }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -475,8 +688,20 @@ public class SfvbPageResponse {
           SfvbPageMultimedia.validateJsonObject(jsonArraymultimedia.get(i).getAsJsonObject());
         };
       }
+      if (jsonObj.get("page_type") != null && !jsonObj.get("page_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `page_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("page_type").toString()));
+      }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      if (jsonObj.get("review_template") != null && !jsonObj.get("review_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `review_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("review_template").toString()));
+      }
+      if (jsonObj.get("sort_order_child_groups") != null && !jsonObj.get("sort_order_child_groups").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort_order_child_groups` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort_order_child_groups").toString()));
+      }
+      if (jsonObj.get("sort_order_child_items") != null && !jsonObj.get("sort_order_child_items").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sort_order_child_items` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort_order_child_items").toString()));
       }
       if (jsonObj.get("title") != null && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));

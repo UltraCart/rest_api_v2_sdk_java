@@ -27954,7 +27954,8 @@ paths:
         \ the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.\
         \  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade\
         \ false.  A version that was asked for and is not available is refused with\
-        \ sfvb.theme_upgrade_unavailable.\n"
+        \ sfvb.theme_upgrade_unavailable.  Limited to 10 a minute and 100 an hour\
+        \ per account.\n"
       operationId: getSfvbThemeUpgradeCheck
       parameters:
       - in: path
@@ -28015,6 +28016,18 @@ paths:
                 type: string
         "409":
           $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
         "500":
           content:
             application/json:
@@ -272804,6 +272817,15 @@ components:
       type: object
     SfvbPageResponse:
       example:
+        visible: true
+        exclude_from_sitemap: true
+        page_type: page_type
+        blog_post_template: blog_post_template
+        description: description
+        sort_order_child_groups: sort_order_child_groups
+        title: title
+        sort_order_child_items: sort_order_child_items
+        items_per_page: 0
         path: path
         multimedia:
         - declared: true
@@ -272820,10 +272842,8 @@ components:
           filename: filename
           description: description
           dimensions: dimensions
-        visible: true
-        exclude_from_sitemap: true
+        review_template: review_template
         group_template: group_template
-        description: description
         attributes:
         - undeclared: true
           used_by_current_theme: true
@@ -272843,7 +272863,7 @@ components:
           writable: true
         item_template: item_template
         visible_dts: visible_dts
-        title: title
+        sort_order: 6
       properties:
         attributes:
           description: "Every attribute this page has, including ones a template declares\
@@ -272852,6 +272872,10 @@ components:
           items:
             $ref: '#/components/schemas/SfvbPageAttribute'
           type: array
+        blog_post_template:
+          description: Template that renders the blog posts under this page.  Omitted
+            when not set.
+          type: string
         description:
           description: "The page description, the text a page template renders as\
             \ the page's description.  Omitted when empty."
@@ -272866,6 +272890,11 @@ components:
         item_template:
           description: Template file that renders the item pages under this page.
           type: string
+        items_per_page:
+          description: Items per page on a template that paginates.  Omitted when
+            the template's default applies.
+          format: int32
+          type: integer
         multimedia:
           description: "The page's images, including codes a template declares but\
             \ nothing has attached yet.  These are what the pageimage element renders\
@@ -272874,8 +272903,29 @@ components:
           items:
             $ref: '#/components/schemas/SfvbPageMultimedia'
           type: array
+        page_type:
+          description: "S for a static page, D for a dynamic one."
+          type: string
         path:
           description: "The page path, normalized to begin and end with a slash."
+          type: string
+        review_template:
+          description: Template that renders the item review pages under this page.  Omitted
+            when not set.
+          type: string
+        sort_order:
+          description: Position among its siblings when the parent sorts child pages
+            by a custom order.  Omitted when not set.
+          format: int32
+          type: integer
+        sort_order_child_groups:
+          description: "How the pages under this one are ordered.  TA or TD by title,\
+            \ DA or DD by description, C custom."
+          type: string
+        sort_order_child_items:
+          description: "How the page's items are ordered.  IA or ID by item id, DA\
+            \ or DD by description, SA or SD by manufacturer SKU, PA or PD by price,\
+            \ RA or RD by review, NA or ND by inventory, C custom."
           type: string
         title:
           description: The page title.
