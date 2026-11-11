@@ -14,7 +14,9 @@
 |**errorUri** | **String** |  |  [optional] |
 |**expiresIn** | **String** | The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token |  [optional] |
 |**merchantId** | **String** | The UltraCart merchant account that authorized this token.  Use it to map the token to the merchant within your own system.  Also returned by GET /oauth/me along with the account name. |  [optional] |
+|**minimumVersion** | **String** | With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports. |  [optional] |
 |**objectId** | **String** | With error_code sfvb.beta_access_required, the merchant id that was refused. |  [optional] |
+|**recommendedVersion** | **String** | With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install. |  [optional] |
 |**refreshToken** | **String** | The refresh token that should be used to fetch a new access token when the expiration occurs |  [optional] |
 |**refreshTokenExpiresIn** | **String** | Seconds until the refresh token expires.  Returned only by applications that rotate refresh tokens, which return a new refresh token on every refresh. |  [optional] |
 |**scope** | **String** | The scope of permissions associated with teh access token |  [optional] |

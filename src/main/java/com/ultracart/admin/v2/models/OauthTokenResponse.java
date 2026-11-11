@@ -77,9 +77,17 @@ public class OauthTokenResponse {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
 
+  public static final String SERIALIZED_NAME_MINIMUM_VERSION = "minimum_version";
+  @SerializedName(SERIALIZED_NAME_MINIMUM_VERSION)
+  private String minimumVersion;
+
   public static final String SERIALIZED_NAME_OBJECT_ID = "object_id";
   @SerializedName(SERIALIZED_NAME_OBJECT_ID)
   private String objectId;
+
+  public static final String SERIALIZED_NAME_RECOMMENDED_VERSION = "recommended_version";
+  @SerializedName(SERIALIZED_NAME_RECOMMENDED_VERSION)
+  private String recommendedVersion;
 
   public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
   @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
@@ -306,6 +314,29 @@ public class OauthTokenResponse {
   }
 
 
+  public OauthTokenResponse minimumVersion(String minimumVersion) {
+    
+    this.minimumVersion = minimumVersion;
+    return this;
+  }
+
+   /**
+   * With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.
+   * @return minimumVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "With error_code sfvb.cli_upgrade_required, the lowest StoreFront CLI version the server supports.")
+
+  public String getMinimumVersion() {
+    return minimumVersion;
+  }
+
+
+  public void setMinimumVersion(String minimumVersion) {
+    this.minimumVersion = minimumVersion;
+  }
+
+
   public OauthTokenResponse objectId(String objectId) {
     
     this.objectId = objectId;
@@ -326,6 +357,29 @@ public class OauthTokenResponse {
 
   public void setObjectId(String objectId) {
     this.objectId = objectId;
+  }
+
+
+  public OauthTokenResponse recommendedVersion(String recommendedVersion) {
+    
+    this.recommendedVersion = recommendedVersion;
+    return this;
+  }
+
+   /**
+   * With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.
+   * @return recommendedVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "With error_code sfvb.cli_upgrade_required, the StoreFront CLI version to install.")
+
+  public String getRecommendedVersion() {
+    return recommendedVersion;
+  }
+
+
+  public void setRecommendedVersion(String recommendedVersion) {
+    this.recommendedVersion = recommendedVersion;
   }
 
 
@@ -438,7 +492,9 @@ public class OauthTokenResponse {
         Objects.equals(this.errorUri, oauthTokenResponse.errorUri) &&
         Objects.equals(this.expiresIn, oauthTokenResponse.expiresIn) &&
         Objects.equals(this.merchantId, oauthTokenResponse.merchantId) &&
+        Objects.equals(this.minimumVersion, oauthTokenResponse.minimumVersion) &&
         Objects.equals(this.objectId, oauthTokenResponse.objectId) &&
+        Objects.equals(this.recommendedVersion, oauthTokenResponse.recommendedVersion) &&
         Objects.equals(this.refreshToken, oauthTokenResponse.refreshToken) &&
         Objects.equals(this.refreshTokenExpiresIn, oauthTokenResponse.refreshTokenExpiresIn) &&
         Objects.equals(this.scope, oauthTokenResponse.scope) &&
@@ -447,7 +503,7 @@ public class OauthTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, error, errorCode, errorDescription, errorUri, expiresIn, merchantId, objectId, refreshToken, refreshTokenExpiresIn, scope, tokenType);
+    return Objects.hash(accessToken, error, errorCode, errorDescription, errorUri, expiresIn, merchantId, minimumVersion, objectId, recommendedVersion, refreshToken, refreshTokenExpiresIn, scope, tokenType);
   }
 
   @Override
@@ -461,7 +517,9 @@ public class OauthTokenResponse {
     sb.append("    errorUri: ").append(toIndentedString(errorUri)).append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    minimumVersion: ").append(toIndentedString(minimumVersion)).append("\n");
     sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
+    sb.append("    recommendedVersion: ").append(toIndentedString(recommendedVersion)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    refreshTokenExpiresIn: ").append(toIndentedString(refreshTokenExpiresIn)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
@@ -495,7 +553,9 @@ public class OauthTokenResponse {
     openapiFields.add("error_uri");
     openapiFields.add("expires_in");
     openapiFields.add("merchant_id");
+    openapiFields.add("minimum_version");
     openapiFields.add("object_id");
+    openapiFields.add("recommended_version");
     openapiFields.add("refresh_token");
     openapiFields.add("refresh_token_expires_in");
     openapiFields.add("scope");
@@ -548,8 +608,14 @@ public class OauthTokenResponse {
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
       }
+      if (jsonObj.get("minimum_version") != null && !jsonObj.get("minimum_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `minimum_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("minimum_version").toString()));
+      }
       if (jsonObj.get("object_id") != null && !jsonObj.get("object_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_id").toString()));
+      }
+      if (jsonObj.get("recommended_version") != null && !jsonObj.get("recommended_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recommended_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recommended_version").toString()));
       }
       if (jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));

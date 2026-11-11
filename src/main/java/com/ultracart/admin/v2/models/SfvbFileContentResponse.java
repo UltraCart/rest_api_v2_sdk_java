@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbErrorDetail;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -68,6 +69,10 @@ public class SfvbFileContentResponse {
   public static final String SERIALIZED_NAME_MERGE_CONFLICT = "merge_conflict";
   @SerializedName(SERIALIZED_NAME_MERGE_CONFLICT)
   private Boolean mergeConflict;
+
+  public static final String SERIALIZED_NAME_METADATA_ERROR = "metadata_error";
+  @SerializedName(SERIALIZED_NAME_METADATA_ERROR)
+  private SfvbErrorDetail metadataError;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
@@ -212,6 +217,29 @@ public class SfvbFileContentResponse {
 
   public void setMergeConflict(Boolean mergeConflict) {
     this.mergeConflict = mergeConflict;
+  }
+
+
+  public SfvbFileContentResponse metadataError(SfvbErrorDetail metadataError) {
+    
+    this.metadataError = metadataError;
+    return this;
+  }
+
+   /**
+   * Get metadataError
+   * @return metadataError
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbErrorDetail getMetadataError() {
+    return metadataError;
+  }
+
+
+  public void setMetadataError(SfvbErrorDetail metadataError) {
+    this.metadataError = metadataError;
   }
 
 
@@ -391,6 +419,7 @@ public class SfvbFileContentResponse {
         Objects.equals(this.fsFileOid, sfvbFileContentResponse.fsFileOid) &&
         Objects.equals(this.hashSha256, sfvbFileContentResponse.hashSha256) &&
         Objects.equals(this.mergeConflict, sfvbFileContentResponse.mergeConflict) &&
+        Objects.equals(this.metadataError, sfvbFileContentResponse.metadataError) &&
         Objects.equals(this.mimeType, sfvbFileContentResponse.mimeType) &&
         Objects.equals(this.path, sfvbFileContentResponse.path) &&
         Objects.equals(this.size, sfvbFileContentResponse.size) &&
@@ -402,7 +431,7 @@ public class SfvbFileContentResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCompiled, content, fsFileOid, hashSha256, mergeConflict, mimeType, path, size, truncated, valid, velocityErrors, version);
+    return Objects.hash(autoCompiled, content, fsFileOid, hashSha256, mergeConflict, metadataError, mimeType, path, size, truncated, valid, velocityErrors, version);
   }
 
   @Override
@@ -414,6 +443,7 @@ public class SfvbFileContentResponse {
     sb.append("    fsFileOid: ").append(toIndentedString(fsFileOid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
     sb.append("    mergeConflict: ").append(toIndentedString(mergeConflict)).append("\n");
+    sb.append("    metadataError: ").append(toIndentedString(metadataError)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -448,6 +478,7 @@ public class SfvbFileContentResponse {
     openapiFields.add("fs_file_oid");
     openapiFields.add("hash_sha256");
     openapiFields.add("merge_conflict");
+    openapiFields.add("metadata_error");
     openapiFields.add("mime_type");
     openapiFields.add("path");
     openapiFields.add("size");
@@ -487,6 +518,10 @@ public class SfvbFileContentResponse {
       }
       if (jsonObj.get("hash_sha256") != null && !jsonObj.get("hash_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hash_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_sha256").toString()));
+      }
+      // validate the optional field `metadata_error`
+      if (jsonObj.getAsJsonObject("metadata_error") != null) {
+        SfvbErrorDetail.validateJsonObject(jsonObj.getAsJsonObject("metadata_error"));
       }
       if (jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
