@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbCliAccess;
 import com.ultracart.admin.v2.models.SfvbStorefront;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -87,6 +88,10 @@ public class SfvbWhoamiResponse {
   public static final String SERIALIZED_NAME_CAN_WRITE = "can_write";
   @SerializedName(SERIALIZED_NAME_CAN_WRITE)
   private Boolean canWrite;
+
+  public static final String SERIALIZED_NAME_CLI_ACCESS = "cli_access";
+  @SerializedName(SERIALIZED_NAME_CLI_ACCESS)
+  private SfvbCliAccess cliAccess;
 
   public static final String SERIALIZED_NAME_DEVICE_SCOPE = "device_scope";
   @SerializedName(SERIALIZED_NAME_DEVICE_SCOPE)
@@ -326,6 +331,29 @@ public class SfvbWhoamiResponse {
   }
 
 
+  public SfvbWhoamiResponse cliAccess(SfvbCliAccess cliAccess) {
+    
+    this.cliAccess = cliAccess;
+    return this;
+  }
+
+   /**
+   * Get cliAccess
+   * @return cliAccess
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCliAccess getCliAccess() {
+    return cliAccess;
+  }
+
+
+  public void setCliAccess(SfvbCliAccess cliAccess) {
+    this.cliAccess = cliAccess;
+  }
+
+
   public SfvbWhoamiResponse deviceScope(String deviceScope) {
     
     this.deviceScope = deviceScope;
@@ -522,6 +550,7 @@ public class SfvbWhoamiResponse {
         Objects.equals(this.canRead, sfvbWhoamiResponse.canRead) &&
         Objects.equals(this.canReadItems, sfvbWhoamiResponse.canReadItems) &&
         Objects.equals(this.canWrite, sfvbWhoamiResponse.canWrite) &&
+        Objects.equals(this.cliAccess, sfvbWhoamiResponse.cliAccess) &&
         Objects.equals(this.deviceScope, sfvbWhoamiResponse.deviceScope) &&
         Objects.equals(this.login, sfvbWhoamiResponse.login) &&
         Objects.equals(this.merchantId, sfvbWhoamiResponse.merchantId) &&
@@ -533,7 +562,7 @@ public class SfvbWhoamiResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actingAsUser, applicationName, authenticationType, canEditItems, canPublish, canPublishPublic, canRead, canReadItems, canWrite, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
+    return Objects.hash(actingAsUser, applicationName, authenticationType, canEditItems, canPublish, canPublishPublic, canRead, canReadItems, canWrite, cliAccess, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
   }
 
   @Override
@@ -549,6 +578,7 @@ public class SfvbWhoamiResponse {
     sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
     sb.append("    canReadItems: ").append(toIndentedString(canReadItems)).append("\n");
     sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
+    sb.append("    cliAccess: ").append(toIndentedString(cliAccess)).append("\n");
     sb.append("    deviceScope: ").append(toIndentedString(deviceScope)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
@@ -587,6 +617,7 @@ public class SfvbWhoamiResponse {
     openapiFields.add("can_read");
     openapiFields.add("can_read_items");
     openapiFields.add("can_write");
+    openapiFields.add("cli_access");
     openapiFields.add("device_scope");
     openapiFields.add("login");
     openapiFields.add("merchant_id");
@@ -626,6 +657,10 @@ public class SfvbWhoamiResponse {
       }
       if (jsonObj.get("authentication_type") != null && !jsonObj.get("authentication_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authentication_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication_type").toString()));
+      }
+      // validate the optional field `cli_access`
+      if (jsonObj.getAsJsonObject("cli_access") != null) {
+        SfvbCliAccess.validateJsonObject(jsonObj.getAsJsonObject("cli_access"));
       }
       if (jsonObj.get("device_scope") != null && !jsonObj.get("device_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `device_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device_scope").toString()));

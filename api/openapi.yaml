@@ -236245,16 +236245,23 @@ components:
         refresh_token: refresh_token
         error_description: error_description
         scope: scope
+        error_code: error_code
         merchant_id: merchant_id
         error: error
         error_uri: error_uri
         token_type: bearer
         expires_in: expires_in
+        object_id: object_id
       properties:
         access_token:
           description: Access token to use in OAuth authenticated API call
           type: string
         error:
+          type: string
+        error_code:
+          description: "With error access_denied, a machine readable reason.  sfvb.beta_access_required\
+            \ means the account isn't enabled for the StoreFront CLI beta, not that\
+            \ a person clicked Deny."
           type: string
         error_description:
           type: string
@@ -236268,6 +236275,10 @@ components:
           description: The UltraCart merchant account that authorized this token.  Use
             it to map the token to the merchant within your own system.  Also returned
             by GET /oauth/me along with the account name.
+          type: string
+        object_id:
+          description: "With error_code sfvb.beta_access_required, the merchant id\
+            \ that was refused."
           type: string
         refresh_token:
           description: The refresh token that should be used to fetch a new access
@@ -262718,6 +262729,19 @@ components:
             to the storefront's marketing setting.
           type: string
       type: object
+    SfvbCliAccess:
+      example:
+        request_access_url: request_access_url
+        enabled: true
+      properties:
+        enabled:
+          description: True when the account is on the StoreFront CLI beta list.  Omitted
+            when false.
+          type: boolean
+        request_access_url:
+          description: Where to request access.  Returned only when enabled is false.
+          type: string
+      type: object
     SfvbCodeLibraryEmail:
       example:
         preview_text: preview_text
@@ -283746,6 +283770,9 @@ components:
           storefront_oid: 6
           host_name: host_name
         acting_as_user: true
+        cli_access:
+          request_access_url: request_access_url
+          enabled: true
         scopes:
         - scopes
         - scopes
@@ -283793,6 +283820,8 @@ components:
           description: True when this token may write.  Writing a target that is not
             currently live needs only this.
           type: boolean
+        cli_access:
+          $ref: '#/components/schemas/SfvbCliAccess'
         device_scope:
           description: "Device scope name, when this is a device flow token."
           type: string

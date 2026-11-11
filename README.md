@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.243</version>
+    <version>4.1.244</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.243"
+     implementation "com.ultracart:rest-sdk:4.1.244"
   }
 ```
 
@@ -2045,6 +2045,7 @@ Class | Method | HTTP request | Description
  - [SfvbCampaignMembership](docs/SfvbCampaignMembership.md)
  - [SfvbCampaignWriteRequest](docs/SfvbCampaignWriteRequest.md)
  - [SfvbCampaignsResponse](docs/SfvbCampaignsResponse.md)
+ - [SfvbCliAccess](docs/SfvbCliAccess.md)
  - [SfvbCodeLibraryEmail](docs/SfvbCodeLibraryEmail.md)
  - [SfvbCodeLibraryEmailsResponse](docs/SfvbCodeLibraryEmailsResponse.md)
  - [SfvbCommsBranchStat](docs/SfvbCommsBranchStat.md)
@@ -2608,6 +2609,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.244 | 11/11/2026 | sfvb internal testing |
 | 4.1.243 | 11/11/2026 | sfvb internal testing |
 | 4.1.242 | 11/11/2026 | sfvb internal testing |
 | 4.1.241 | 11/10/2026 | sfvb internal testing |

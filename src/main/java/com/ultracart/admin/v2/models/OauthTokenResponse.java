@@ -57,6 +57,10 @@ public class OauthTokenResponse {
   @SerializedName(SERIALIZED_NAME_ERROR)
   private String error;
 
+  public static final String SERIALIZED_NAME_ERROR_CODE = "error_code";
+  @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+  private String errorCode;
+
   public static final String SERIALIZED_NAME_ERROR_DESCRIPTION = "error_description";
   @SerializedName(SERIALIZED_NAME_ERROR_DESCRIPTION)
   private String errorDescription;
@@ -72,6 +76,10 @@ public class OauthTokenResponse {
   public static final String SERIALIZED_NAME_MERCHANT_ID = "merchant_id";
   @SerializedName(SERIALIZED_NAME_MERCHANT_ID)
   private String merchantId;
+
+  public static final String SERIALIZED_NAME_OBJECT_ID = "object_id";
+  @SerializedName(SERIALIZED_NAME_OBJECT_ID)
+  private String objectId;
 
   public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
   @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
@@ -183,6 +191,29 @@ public class OauthTokenResponse {
   }
 
 
+  public OauthTokenResponse errorCode(String errorCode) {
+    
+    this.errorCode = errorCode;
+    return this;
+  }
+
+   /**
+   * With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn&#39;t enabled for the StoreFront CLI beta, not that a person clicked Deny.
+   * @return errorCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "With error access_denied, a machine readable reason.  sfvb.beta_access_required means the account isn't enabled for the StoreFront CLI beta, not that a person clicked Deny.")
+
+  public String getErrorCode() {
+    return errorCode;
+  }
+
+
+  public void setErrorCode(String errorCode) {
+    this.errorCode = errorCode;
+  }
+
+
   public OauthTokenResponse errorDescription(String errorDescription) {
     
     this.errorDescription = errorDescription;
@@ -272,6 +303,29 @@ public class OauthTokenResponse {
 
   public void setMerchantId(String merchantId) {
     this.merchantId = merchantId;
+  }
+
+
+  public OauthTokenResponse objectId(String objectId) {
+    
+    this.objectId = objectId;
+    return this;
+  }
+
+   /**
+   * With error_code sfvb.beta_access_required, the merchant id that was refused.
+   * @return objectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "With error_code sfvb.beta_access_required, the merchant id that was refused.")
+
+  public String getObjectId() {
+    return objectId;
+  }
+
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
   }
 
 
@@ -379,10 +433,12 @@ public class OauthTokenResponse {
     OauthTokenResponse oauthTokenResponse = (OauthTokenResponse) o;
     return Objects.equals(this.accessToken, oauthTokenResponse.accessToken) &&
         Objects.equals(this.error, oauthTokenResponse.error) &&
+        Objects.equals(this.errorCode, oauthTokenResponse.errorCode) &&
         Objects.equals(this.errorDescription, oauthTokenResponse.errorDescription) &&
         Objects.equals(this.errorUri, oauthTokenResponse.errorUri) &&
         Objects.equals(this.expiresIn, oauthTokenResponse.expiresIn) &&
         Objects.equals(this.merchantId, oauthTokenResponse.merchantId) &&
+        Objects.equals(this.objectId, oauthTokenResponse.objectId) &&
         Objects.equals(this.refreshToken, oauthTokenResponse.refreshToken) &&
         Objects.equals(this.refreshTokenExpiresIn, oauthTokenResponse.refreshTokenExpiresIn) &&
         Objects.equals(this.scope, oauthTokenResponse.scope) &&
@@ -391,7 +447,7 @@ public class OauthTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, error, errorDescription, errorUri, expiresIn, merchantId, refreshToken, refreshTokenExpiresIn, scope, tokenType);
+    return Objects.hash(accessToken, error, errorCode, errorDescription, errorUri, expiresIn, merchantId, objectId, refreshToken, refreshTokenExpiresIn, scope, tokenType);
   }
 
   @Override
@@ -400,10 +456,12 @@ public class OauthTokenResponse {
     sb.append("class OauthTokenResponse {\n");
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
     sb.append("    errorUri: ").append(toIndentedString(errorUri)).append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
     sb.append("    merchantId: ").append(toIndentedString(merchantId)).append("\n");
+    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    refreshTokenExpiresIn: ").append(toIndentedString(refreshTokenExpiresIn)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
@@ -432,10 +490,12 @@ public class OauthTokenResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("access_token");
     openapiFields.add("error");
+    openapiFields.add("error_code");
     openapiFields.add("error_description");
     openapiFields.add("error_uri");
     openapiFields.add("expires_in");
     openapiFields.add("merchant_id");
+    openapiFields.add("object_id");
     openapiFields.add("refresh_token");
     openapiFields.add("refresh_token_expires_in");
     openapiFields.add("scope");
@@ -473,6 +533,9 @@ public class OauthTokenResponse {
       if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
+      if (jsonObj.get("error_code") != null && !jsonObj.get("error_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `error_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_code").toString()));
+      }
       if (jsonObj.get("error_description") != null && !jsonObj.get("error_description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_description").toString()));
       }
@@ -484,6 +547,9 @@ public class OauthTokenResponse {
       }
       if (jsonObj.get("merchant_id") != null && !jsonObj.get("merchant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `merchant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_id").toString()));
+      }
+      if (jsonObj.get("object_id") != null && !jsonObj.get("object_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object_id").toString()));
       }
       if (jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
