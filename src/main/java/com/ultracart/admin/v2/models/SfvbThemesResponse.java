@@ -56,6 +56,14 @@ public class SfvbThemesResponse {
   @SerializedName(SERIALIZED_NAME_ACTIVE_THEME_OID)
   private Integer activeThemeOid;
 
+  public static final String SERIALIZED_NAME_THEME_COUNT = "theme_count";
+  @SerializedName(SERIALIZED_NAME_THEME_COUNT)
+  private Integer themeCount;
+
+  public static final String SERIALIZED_NAME_THEME_LIMIT = "theme_limit";
+  @SerializedName(SERIALIZED_NAME_THEME_LIMIT)
+  private Integer themeLimit;
+
   public static final String SERIALIZED_NAME_THEMES = "themes";
   @SerializedName(SERIALIZED_NAME_THEMES)
   private List<SfvbTheme> themes = null;
@@ -83,6 +91,52 @@ public class SfvbThemesResponse {
 
   public void setActiveThemeOid(Integer activeThemeOid) {
     this.activeThemeOid = activeThemeOid;
+  }
+
+
+  public SfvbThemesResponse themeCount(Integer themeCount) {
+    
+    this.themeCount = themeCount;
+    return this;
+  }
+
+   /**
+   * How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.
+   * @return themeCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many themes the storefront holds now.  When it equals theme_limit, delete an inactive theme in the admin before duplicating.")
+
+  public Integer getThemeCount() {
+    return themeCount;
+  }
+
+
+  public void setThemeCount(Integer themeCount) {
+    this.themeCount = themeCount;
+  }
+
+
+  public SfvbThemesResponse themeLimit(Integer themeLimit) {
+    
+    this.themeLimit = themeLimit;
+    return this;
+  }
+
+   /**
+   * Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.
+   * @return themeLimit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Most themes a storefront can hold, active and inactive together.  A duplicate or install at the limit is refused with sfvb.theme_limit_reached.")
+
+  public Integer getThemeLimit() {
+    return themeLimit;
+  }
+
+
+  public void setThemeLimit(Integer themeLimit) {
+    this.themeLimit = themeLimit;
   }
 
 
@@ -128,12 +182,14 @@ public class SfvbThemesResponse {
     }
     SfvbThemesResponse sfvbThemesResponse = (SfvbThemesResponse) o;
     return Objects.equals(this.activeThemeOid, sfvbThemesResponse.activeThemeOid) &&
+        Objects.equals(this.themeCount, sfvbThemesResponse.themeCount) &&
+        Objects.equals(this.themeLimit, sfvbThemesResponse.themeLimit) &&
         Objects.equals(this.themes, sfvbThemesResponse.themes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeThemeOid, themes);
+    return Objects.hash(activeThemeOid, themeCount, themeLimit, themes);
   }
 
   @Override
@@ -141,6 +197,8 @@ public class SfvbThemesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbThemesResponse {\n");
     sb.append("    activeThemeOid: ").append(toIndentedString(activeThemeOid)).append("\n");
+    sb.append("    themeCount: ").append(toIndentedString(themeCount)).append("\n");
+    sb.append("    themeLimit: ").append(toIndentedString(themeLimit)).append("\n");
     sb.append("    themes: ").append(toIndentedString(themes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -165,6 +223,8 @@ public class SfvbThemesResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("active_theme_oid");
+    openapiFields.add("theme_count");
+    openapiFields.add("theme_limit");
     openapiFields.add("themes");
 
     // a set of required properties/fields (JSON key names)

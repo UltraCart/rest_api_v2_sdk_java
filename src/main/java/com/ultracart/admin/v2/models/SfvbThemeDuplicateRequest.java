@@ -61,6 +61,10 @@ public class SfvbThemeDuplicateRequest {
   @SerializedName(SERIALIZED_NAME_THEME_NAME)
   private String themeName;
 
+  public static final String SERIALIZED_NAME_UPGRADE_TO_VERSION = "upgrade_to_version";
+  @SerializedName(SERIALIZED_NAME_UPGRADE_TO_VERSION)
+  private String upgradeToVersion;
+
   public SfvbThemeDuplicateRequest() { 
   }
 
@@ -133,6 +137,29 @@ public class SfvbThemeDuplicateRequest {
   }
 
 
+  public SfvbThemeDuplicateRequest upgradeToVersion(String upgradeToVersion) {
+    
+    this.upgradeToVersion = upgradeToVersion;
+    return this;
+  }
+
+   /**
+   * Upgrade the copy to this theme version after copying it, as the admin&#39;s Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.
+   * @return upgradeToVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Upgrade the copy to this theme version after copying it, as the admin's Duplicate and Upgrade does.  Only the copy is upgraded - the source theme is never touched.  Must be one of the available_versions from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.  Omit for a plain copy.")
+
+  public String getUpgradeToVersion() {
+    return upgradeToVersion;
+  }
+
+
+  public void setUpgradeToVersion(String upgradeToVersion) {
+    this.upgradeToVersion = upgradeToVersion;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -145,12 +172,13 @@ public class SfvbThemeDuplicateRequest {
     SfvbThemeDuplicateRequest sfvbThemeDuplicateRequest = (SfvbThemeDuplicateRequest) o;
     return Objects.equals(this.folder, sfvbThemeDuplicateRequest.folder) &&
         Objects.equals(this.targetStorefrontOid, sfvbThemeDuplicateRequest.targetStorefrontOid) &&
-        Objects.equals(this.themeName, sfvbThemeDuplicateRequest.themeName);
+        Objects.equals(this.themeName, sfvbThemeDuplicateRequest.themeName) &&
+        Objects.equals(this.upgradeToVersion, sfvbThemeDuplicateRequest.upgradeToVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(folder, targetStorefrontOid, themeName);
+    return Objects.hash(folder, targetStorefrontOid, themeName, upgradeToVersion);
   }
 
   @Override
@@ -160,6 +188,7 @@ public class SfvbThemeDuplicateRequest {
     sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
     sb.append("    targetStorefrontOid: ").append(toIndentedString(targetStorefrontOid)).append("\n");
     sb.append("    themeName: ").append(toIndentedString(themeName)).append("\n");
+    sb.append("    upgradeToVersion: ").append(toIndentedString(upgradeToVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,6 +214,7 @@ public class SfvbThemeDuplicateRequest {
     openapiFields.add("folder");
     openapiFields.add("target_storefront_oid");
     openapiFields.add("theme_name");
+    openapiFields.add("upgrade_to_version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -217,6 +247,9 @@ public class SfvbThemeDuplicateRequest {
       }
       if (jsonObj.get("theme_name") != null && !jsonObj.get("theme_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `theme_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("theme_name").toString()));
+      }
+      if (jsonObj.get("upgrade_to_version") != null && !jsonObj.get("upgrade_to_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upgrade_to_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upgrade_to_version").toString()));
       }
   }
 

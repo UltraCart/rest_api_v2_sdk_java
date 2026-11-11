@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -68,6 +70,10 @@ public class SfvbThemeJobResponse {
   public static final String SERIALIZED_NAME_JOB_ID = "job_id";
   @SerializedName(SERIALIZED_NAME_JOB_ID)
   private Integer jobId;
+
+  public static final String SERIALIZED_NAME_MERGE_CONFLICTS = "merge_conflicts";
+  @SerializedName(SERIALIZED_NAME_MERGE_CONFLICTS)
+  private List<String> mergeConflicts = null;
 
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
@@ -149,6 +155,14 @@ public class SfvbThemeJobResponse {
   public static final String SERIALIZED_NAME_TARGET_PATH = "target_path";
   @SerializedName(SERIALIZED_NAME_TARGET_PATH)
   private String targetPath;
+
+  public static final String SERIALIZED_NAME_THEME_OID = "theme_oid";
+  @SerializedName(SERIALIZED_NAME_THEME_OID)
+  private Integer themeOid;
+
+  public static final String SERIALIZED_NAME_UPGRADE_TO_VERSION = "upgrade_to_version";
+  @SerializedName(SERIALIZED_NAME_UPGRADE_TO_VERSION)
+  private String upgradeToVersion;
 
   public SfvbThemeJobResponse() { 
   }
@@ -265,6 +279,37 @@ public class SfvbThemeJobResponse {
 
   public void setJobId(Integer jobId) {
     this.jobId = jobId;
+  }
+
+
+  public SfvbThemeJobResponse mergeConflicts(List<String> mergeConflicts) {
+    
+    this.mergeConflicts = mergeConflicts;
+    return this;
+  }
+
+  public SfvbThemeJobResponse addMergeConflictsItem(String mergeConflictsItem) {
+    if (this.mergeConflicts == null) {
+      this.mergeConflicts = new ArrayList<>();
+    }
+    this.mergeConflicts.add(mergeConflictsItem);
+    return this;
+  }
+
+   /**
+   * Paths of the copy&#39;s files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.
+   * @return mergeConflicts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Paths of the copy's files that still have unresolved merge conflicts, read fresh on every poll, so the list shrinks as you resolve them.  Each needs its conflict marker lines resolved and the file saved before the theme can be activated.  Empty when there are none.")
+
+  public List<String> getMergeConflicts() {
+    return mergeConflicts;
+  }
+
+
+  public void setMergeConflicts(List<String> mergeConflicts) {
+    this.mergeConflicts = mergeConflicts;
   }
 
 
@@ -413,11 +458,11 @@ public class SfvbThemeJobResponse {
   }
 
    /**
-   * Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
+   * Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.
    * @return targetPath
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  The theme oid itself is NOT returned, so once the job completes you list themes and match on this path.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.")
+  @ApiModelProperty(value = "Path the new theme is being created at.  Returned when the job is started and on every poll, so you do not have to keep the response that started it.  Once the job completes, the theme found at this path is reported as theme_oid.  It is also what success is checked against - a finished job whose theme is not here reports success false rather than pretending.")
 
   public String getTargetPath() {
     return targetPath;
@@ -426,6 +471,52 @@ public class SfvbThemeJobResponse {
 
   public void setTargetPath(String targetPath) {
     this.targetPath = targetPath;
+  }
+
+
+  public SfvbThemeJobResponse themeOid(Integer themeOid) {
+    
+    this.themeOid = themeOid;
+    return this;
+  }
+
+   /**
+   * Oid of the theme the job created, once it is complete and the theme exists.  Null until then.
+   * @return themeOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Oid of the theme the job created, once it is complete and the theme exists.  Null until then.")
+
+  public Integer getThemeOid() {
+    return themeOid;
+  }
+
+
+  public void setThemeOid(Integer themeOid) {
+    this.themeOid = themeOid;
+  }
+
+
+  public SfvbThemeJobResponse upgradeToVersion(String upgradeToVersion) {
+    
+    this.upgradeToVersion = upgradeToVersion;
+    return this;
+  }
+
+   /**
+   * The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.
+   * @return upgradeToVersion
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The version the copy was asked to be upgraded to, when the duplicate asked for an upgrade.  Null for a plain copy.  A complete job reports success only when the copy is at this version.")
+
+  public String getUpgradeToVersion() {
+    return upgradeToVersion;
+  }
+
+
+  public void setUpgradeToVersion(String upgradeToVersion) {
+    this.upgradeToVersion = upgradeToVersion;
   }
 
 
@@ -444,18 +535,21 @@ public class SfvbThemeJobResponse {
         Objects.equals(this.errorMessage, sfvbThemeJobResponse.errorMessage) &&
         Objects.equals(this.finishedDts, sfvbThemeJobResponse.finishedDts) &&
         Objects.equals(this.jobId, sfvbThemeJobResponse.jobId) &&
+        Objects.equals(this.mergeConflicts, sfvbThemeJobResponse.mergeConflicts) &&
         Objects.equals(this.progress, sfvbThemeJobResponse.progress) &&
         Objects.equals(this.progressDescription, sfvbThemeJobResponse.progressDescription) &&
         Objects.equals(this.startedDts, sfvbThemeJobResponse.startedDts) &&
         Objects.equals(this.status, sfvbThemeJobResponse.status) &&
         Objects.equals(this.submittedDts, sfvbThemeJobResponse.submittedDts) &&
         Objects.equals(this.success, sfvbThemeJobResponse.success) &&
-        Objects.equals(this.targetPath, sfvbThemeJobResponse.targetPath);
+        Objects.equals(this.targetPath, sfvbThemeJobResponse.targetPath) &&
+        Objects.equals(this.themeOid, sfvbThemeJobResponse.themeOid) &&
+        Objects.equals(this.upgradeToVersion, sfvbThemeJobResponse.upgradeToVersion);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(complete, description, errorMessage, finishedDts, jobId, progress, progressDescription, startedDts, status, submittedDts, success, targetPath);
+    return Objects.hash(complete, description, errorMessage, finishedDts, jobId, mergeConflicts, progress, progressDescription, startedDts, status, submittedDts, success, targetPath, themeOid, upgradeToVersion);
   }
 
   @Override
@@ -467,6 +561,7 @@ public class SfvbThemeJobResponse {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    finishedDts: ").append(toIndentedString(finishedDts)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    mergeConflicts: ").append(toIndentedString(mergeConflicts)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    progressDescription: ").append(toIndentedString(progressDescription)).append("\n");
     sb.append("    startedDts: ").append(toIndentedString(startedDts)).append("\n");
@@ -474,6 +569,8 @@ public class SfvbThemeJobResponse {
     sb.append("    submittedDts: ").append(toIndentedString(submittedDts)).append("\n");
     sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    targetPath: ").append(toIndentedString(targetPath)).append("\n");
+    sb.append("    themeOid: ").append(toIndentedString(themeOid)).append("\n");
+    sb.append("    upgradeToVersion: ").append(toIndentedString(upgradeToVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -501,6 +598,7 @@ public class SfvbThemeJobResponse {
     openapiFields.add("error_message");
     openapiFields.add("finished_dts");
     openapiFields.add("job_id");
+    openapiFields.add("merge_conflicts");
     openapiFields.add("progress");
     openapiFields.add("progress_description");
     openapiFields.add("started_dts");
@@ -508,6 +606,8 @@ public class SfvbThemeJobResponse {
     openapiFields.add("submitted_dts");
     openapiFields.add("success");
     openapiFields.add("target_path");
+    openapiFields.add("theme_oid");
+    openapiFields.add("upgrade_to_version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -544,6 +644,10 @@ public class SfvbThemeJobResponse {
       if (jsonObj.get("finished_dts") != null && !jsonObj.get("finished_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `finished_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("finished_dts").toString()));
       }
+      // ensure the json data is an array
+      if (jsonObj.get("merge_conflicts") != null && !jsonObj.get("merge_conflicts").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merge_conflicts` to be an array in the JSON string but got `%s`", jsonObj.get("merge_conflicts").toString()));
+      }
       if (jsonObj.get("progress_description") != null && !jsonObj.get("progress_description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `progress_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("progress_description").toString()));
       }
@@ -558,6 +662,9 @@ public class SfvbThemeJobResponse {
       }
       if (jsonObj.get("target_path") != null && !jsonObj.get("target_path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `target_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_path").toString()));
+      }
+      if (jsonObj.get("upgrade_to_version") != null && !jsonObj.get("upgrade_to_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `upgrade_to_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("upgrade_to_version").toString()));
       }
   }
 

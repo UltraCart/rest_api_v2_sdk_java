@@ -65,6 +65,10 @@ public class SfvbFileContentResponse {
   @SerializedName(SERIALIZED_NAME_HASH_SHA256)
   private String hashSha256;
 
+  public static final String SERIALIZED_NAME_MERGE_CONFLICT = "merge_conflict";
+  @SerializedName(SERIALIZED_NAME_MERGE_CONFLICT)
+  private Boolean mergeConflict;
+
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   private String mimeType;
@@ -185,6 +189,29 @@ public class SfvbFileContentResponse {
 
   public void setHashSha256(String hashSha256) {
     this.hashSha256 = hashSha256;
+  }
+
+
+  public SfvbFileContentResponse mergeConflict(Boolean mergeConflict) {
+    
+    this.mergeConflict = mergeConflict;
+    return this;
+  }
+
+   /**
+   * True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.
+   * @return mergeConflict
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when a theme upgrade left unresolved merge conflicts in this file.  The content holds conflict marker lines.  Resolve each conflict and save the file without any marker lines to clear it - a save that still has marker lines is refused.")
+
+  public Boolean getMergeConflict() {
+    return mergeConflict;
+  }
+
+
+  public void setMergeConflict(Boolean mergeConflict) {
+    this.mergeConflict = mergeConflict;
   }
 
 
@@ -363,6 +390,7 @@ public class SfvbFileContentResponse {
         Objects.equals(this.content, sfvbFileContentResponse.content) &&
         Objects.equals(this.fsFileOid, sfvbFileContentResponse.fsFileOid) &&
         Objects.equals(this.hashSha256, sfvbFileContentResponse.hashSha256) &&
+        Objects.equals(this.mergeConflict, sfvbFileContentResponse.mergeConflict) &&
         Objects.equals(this.mimeType, sfvbFileContentResponse.mimeType) &&
         Objects.equals(this.path, sfvbFileContentResponse.path) &&
         Objects.equals(this.size, sfvbFileContentResponse.size) &&
@@ -374,7 +402,7 @@ public class SfvbFileContentResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoCompiled, content, fsFileOid, hashSha256, mimeType, path, size, truncated, valid, velocityErrors, version);
+    return Objects.hash(autoCompiled, content, fsFileOid, hashSha256, mergeConflict, mimeType, path, size, truncated, valid, velocityErrors, version);
   }
 
   @Override
@@ -385,6 +413,7 @@ public class SfvbFileContentResponse {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    fsFileOid: ").append(toIndentedString(fsFileOid)).append("\n");
     sb.append("    hashSha256: ").append(toIndentedString(hashSha256)).append("\n");
+    sb.append("    mergeConflict: ").append(toIndentedString(mergeConflict)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -418,6 +447,7 @@ public class SfvbFileContentResponse {
     openapiFields.add("content");
     openapiFields.add("fs_file_oid");
     openapiFields.add("hash_sha256");
+    openapiFields.add("merge_conflict");
     openapiFields.add("mime_type");
     openapiFields.add("path");
     openapiFields.add("size");

@@ -10,6 +10,8 @@
 |**active** | **Boolean** | True when this theme is the one serving live traffic.  Writing to an active theme requires the sfvb_publish scope. |  [optional] |
 |**description** | **String** | What the theme is, where the author supplied a description. |  [optional] |
 |**fsDirectoryOid** | **Integer** | Oid of the theme root directory in the storefront file system. |  [optional] |
+|**mergeConflictCount** | **Integer** | How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path. |  [optional] |
+|**okToActivate** | **Boolean** | False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check. |  [optional] |
 |**path** | **String** | Root path of the theme in the storefront file system, for example /themes/mytheme/ |  [optional] |
 |**storefrontOid** | **Integer** | StoreFront oid this theme belongs to. |  [optional] |
 |**themeName** | **String** | Theme name. |  [optional] |

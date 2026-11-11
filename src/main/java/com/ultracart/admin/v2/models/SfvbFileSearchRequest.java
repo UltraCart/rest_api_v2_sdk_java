@@ -468,11 +468,11 @@ public class SfvbFileSearchRequest {
   }
 
    /**
-   * Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible.
+   * Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.
    * @return text
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Text to find inside files.  Only text/_* files are searched.  This is the expensive filter; narrow with path or file_name where possible.")
+  @ApiModelProperty(value = "Text to find inside files.  Text files are searched, including .cjson and .json; binaries such as images, fonts and PDFs are skipped.  This is the expensive filter; narrow with path or file_name where possible.")
 
   public String getText() {
     return text;

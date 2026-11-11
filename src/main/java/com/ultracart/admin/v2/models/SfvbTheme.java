@@ -61,6 +61,14 @@ public class SfvbTheme {
   @SerializedName(SERIALIZED_NAME_FS_DIRECTORY_OID)
   private Integer fsDirectoryOid;
 
+  public static final String SERIALIZED_NAME_MERGE_CONFLICT_COUNT = "merge_conflict_count";
+  @SerializedName(SERIALIZED_NAME_MERGE_CONFLICT_COUNT)
+  private Integer mergeConflictCount;
+
+  public static final String SERIALIZED_NAME_OK_TO_ACTIVATE = "ok_to_activate";
+  @SerializedName(SERIALIZED_NAME_OK_TO_ACTIVATE)
+  private Boolean okToActivate;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
@@ -158,6 +166,52 @@ public class SfvbTheme {
 
   public void setFsDirectoryOid(Integer fsDirectoryOid) {
     this.fsDirectoryOid = fsDirectoryOid;
+  }
+
+
+  public SfvbTheme mergeConflictCount(Integer mergeConflictCount) {
+    
+    this.mergeConflictCount = mergeConflictCount;
+    return this;
+  }
+
+   /**
+   * How many of the theme&#39;s files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme&#39;s path.
+   * @return mergeConflictCount
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many of the theme's files still have unresolved merge conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts true and this theme's path.")
+
+  public Integer getMergeConflictCount() {
+    return mergeConflictCount;
+  }
+
+
+  public void setMergeConflictCount(Integer mergeConflictCount) {
+    this.mergeConflictCount = mergeConflictCount;
+  }
+
+
+  public SfvbTheme okToActivate(Boolean okToActivate) {
+    
+    this.okToActivate = okToActivate;
+    return this;
+  }
+
+   /**
+   * False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.
+   * @return okToActivate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "False while any file in the theme has an unresolved merge conflict.  Never activate a theme that reports false - resolve every conflict first.  Activation itself happens in the UltraCart admin, which runs the same check.")
+
+  public Boolean getOkToActivate() {
+    return okToActivate;
+  }
+
+
+  public void setOkToActivate(Boolean okToActivate) {
+    this.okToActivate = okToActivate;
   }
 
 
@@ -335,6 +389,8 @@ public class SfvbTheme {
     return Objects.equals(this.active, sfvbTheme.active) &&
         Objects.equals(this.description, sfvbTheme.description) &&
         Objects.equals(this.fsDirectoryOid, sfvbTheme.fsDirectoryOid) &&
+        Objects.equals(this.mergeConflictCount, sfvbTheme.mergeConflictCount) &&
+        Objects.equals(this.okToActivate, sfvbTheme.okToActivate) &&
         Objects.equals(this.path, sfvbTheme.path) &&
         Objects.equals(this.storefrontOid, sfvbTheme.storefrontOid) &&
         Objects.equals(this.themeName, sfvbTheme.themeName) &&
@@ -346,7 +402,7 @@ public class SfvbTheme {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, description, fsDirectoryOid, path, storefrontOid, themeName, themeOid, upgradeAvailable, valid, version);
+    return Objects.hash(active, description, fsDirectoryOid, mergeConflictCount, okToActivate, path, storefrontOid, themeName, themeOid, upgradeAvailable, valid, version);
   }
 
   @Override
@@ -356,6 +412,8 @@ public class SfvbTheme {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fsDirectoryOid: ").append(toIndentedString(fsDirectoryOid)).append("\n");
+    sb.append("    mergeConflictCount: ").append(toIndentedString(mergeConflictCount)).append("\n");
+    sb.append("    okToActivate: ").append(toIndentedString(okToActivate)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    storefrontOid: ").append(toIndentedString(storefrontOid)).append("\n");
     sb.append("    themeName: ").append(toIndentedString(themeName)).append("\n");
@@ -388,6 +446,8 @@ public class SfvbTheme {
     openapiFields.add("active");
     openapiFields.add("description");
     openapiFields.add("fs_directory_oid");
+    openapiFields.add("merge_conflict_count");
+    openapiFields.add("ok_to_activate");
     openapiFields.add("path");
     openapiFields.add("storefront_oid");
     openapiFields.add("theme_name");

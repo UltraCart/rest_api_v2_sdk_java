@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.241</version>
+    <version>4.1.242</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.241"
+     implementation "com.ultracart:rest-sdk:4.1.242"
   }
 ```
 
@@ -647,6 +647,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbTheme**](docs/SfvbApi.md#getSfvbTheme) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid} | Get a theme
 *SfvbApi* | [**getSfvbThemeAttributes**](docs/SfvbApi.md#getSfvbThemeAttributes) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/attributes | Read a theme&#39;s colors, fonts and settings
 *SfvbApi* | [**getSfvbThemeJob**](docs/SfvbApi.md#getSfvbThemeJob) | **GET** /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id} | Status of an asynchronous theme job
+*SfvbApi* | [**getSfvbThemeUpgradeCheck**](docs/SfvbApi.md#getSfvbThemeUpgradeCheck) | **GET** /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check | Check what upgrading a theme would do
 *SfvbApi* | [**getSfvbTrackingCheckPlan**](docs/SfvbApi.md#getSfvbTrackingCheckPlan) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/check_plan | Plan a browser check of a storefront&#39;s tracking
 *SfvbApi* | [**getSfvbTrackingHtml**](docs/SfvbApi.md#getSfvbTrackingHtml) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html/{slot} | Read one custom tracking HTML slot
 *SfvbApi* | [**getSfvbTrackingHtmlSlots**](docs/SfvbApi.md#getSfvbTrackingHtmlSlots) | **GET** /sfvb/storefronts/{storefront_oid}/tracking/html | List a storefront&#39;s custom tracking HTML slots
@@ -2368,10 +2369,12 @@ Class | Method | HTTP request | Description
  - [SfvbThemeAttributeUpdate](docs/SfvbThemeAttributeUpdate.md)
  - [SfvbThemeAttributeUpdateRequest](docs/SfvbThemeAttributeUpdateRequest.md)
  - [SfvbThemeAttributesResponse](docs/SfvbThemeAttributesResponse.md)
+ - [SfvbThemeChangeLogEntry](docs/SfvbThemeChangeLogEntry.md)
  - [SfvbThemeDuplicateRequest](docs/SfvbThemeDuplicateRequest.md)
  - [SfvbThemeFont](docs/SfvbThemeFont.md)
  - [SfvbThemeFontFamily](docs/SfvbThemeFontFamily.md)
  - [SfvbThemeJobResponse](docs/SfvbThemeJobResponse.md)
+ - [SfvbThemeUpgradeCheckResponse](docs/SfvbThemeUpgradeCheckResponse.md)
  - [SfvbThemesResponse](docs/SfvbThemesResponse.md)
  - [SfvbTrackingAdvanced](docs/SfvbTrackingAdvanced.md)
  - [SfvbTrackingAdvancedRequest](docs/SfvbTrackingAdvancedRequest.md)
@@ -2605,6 +2608,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.242 | 11/11/2026 | sfvb internal testing |
 | 4.1.241 | 11/10/2026 | sfvb internal testing |
 | 4.1.240 | 11/10/2026 | sfvb internal testing |
 | 4.1.239 | 11/10/2026 | sfvb internal testing |

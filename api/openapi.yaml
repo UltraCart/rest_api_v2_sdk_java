@@ -11333,10 +11333,13 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/files/search:
     post:
-      description: "Searches names and, when text is supplied, file contents.  For\
-        \ a CLI with no local copy this is the only way to answer where something\
-        \ is defined without walking the whole tree.  Results are capped and truncation\
-        \ is always reported.\n"
+      description: "Searches names and, when text is supplied, file contents.  Text\
+        \ search covers text files, including .cjson and .json, and skips binaries\
+        \ such as images, fonts and PDFs.  For a CLI with no local copy this is the\
+        \ only way to answer where something is defined without walking the whole\
+        \ tree.  Results are capped and truncation is always reported.  merge_conflicts\
+        \ true with a theme's path lists the files an upgrade left with unresolved\
+        \ conflicts, as the admin file manager's merge conflicts search does.\n"
       operationId: searchSfvbFiles
       parameters:
       - in: path
@@ -27301,10 +27304,10 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/theme_jobs/{job_id}:
     get:
-      description: "Poll until complete is true, then check success.  Note that the\
-        \ new theme's oid is not returned.  The job's product is a plain text report\
-        \ rather than a structured result, so once it completes, list themes and match\
-        \ on the target_path the start call gave you.\n"
+      description: "Poll until complete is true, then check success.  A successful\
+        \ job reports the new theme as theme_oid.  After a duplicate with upgrade_to_version,\
+        \ success also means the copy reached that version, and merge_conflicts lists\
+        \ the copy's files that still need resolving - read fresh on every poll.\n"
       operationId: getSfvbThemeJob
       parameters:
       - in: path
@@ -27733,7 +27736,14 @@ paths:
         \ rather than sfvb_publish, because the job explicitly does not activate what\
         \ it creates, so the worst outcome of a mistaken call is a spare theme.  This\
         \ is how you get somewhere safe to work - duplicate, edit the copy with an\
-        \ ordinary write scope, and let a human promote it.\n"
+        \ ordinary write scope, and let a human promote it.  Set upgrade_to_version\
+        \ to also upgrade the copy to a newer theme version, as the admin's Duplicate\
+        \ and Upgrade does - only the copy is upgraded.  Run getSfvbThemeUpgradeCheck\
+        \ first to see the available versions and the merge conflicts the upgrade\
+        \ will leave, then resolve those in the copy before anyone activates it. \
+        \ Refused with sfvb.theme_limit_reached at the storefront's theme limit, sfvb.theme_upgrade_unavailable\
+        \ for a version that can't be used, and sfvb.theme_merge_conflicts while the\
+        \ source theme has unresolved conflicts.\n"
       operationId: duplicateSfvbTheme
       parameters:
       - in: path
@@ -27934,6 +27944,96 @@ paths:
       - sfvb
       x-codegen-request-body-name: render_request
       x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/upgrade_check:
+    get:
+      description: "The same dry run the admin shows before an upgrade, and nothing\
+        \ is changed.  Lists the newer versions this account may use, and for one\
+        \ of them (version, or the newest when omitted) which customized files the\
+        \ upgrade would merge cleanly, leave with merge conflicts, or overwrite, plus\
+        \ the change log.  Use it before duplicateSfvbTheme with upgrade_to_version.\
+        \  When no upgrade is possible the response says why in reason with can_duplicate_and_upgrade\
+        \ false.  A version that was asked for and is not available is refused with\
+        \ sfvb.theme_upgrade_unavailable.\n"
+      operationId: getSfvbThemeUpgradeCheck
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: theme_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: query
+        name: version
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbThemeUpgradeCheckResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Check what upgrading a theme would do
+      tags:
+      - sfvb
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/themes/{theme_oid}/velocity/validate:
     post:
@@ -266869,6 +266969,7 @@ components:
         hash_sha256: hash_sha256
         valid: true
         path: path
+        merge_conflict: true
         size: 6
         mime_type: mime_type
         fs_file_oid: 0
@@ -266895,6 +266996,12 @@ components:
             \ append a suffix such as -gzip to it, so this body value is the authoritative\
             \ one.  Both forms are accepted on write."
           type: string
+        merge_conflict:
+          description: True when a theme upgrade left unresolved merge conflicts in
+            this file.  The content holds conflict marker lines.  Resolve each conflict
+            and save the file without any marker lines to clear it - a save that still
+            has marker lines is refused.
+          type: boolean
         mime_type:
           description: Mime type.
           type: string
@@ -267088,8 +267195,9 @@ components:
           description: Recurse below path.  Defaults to true.
           type: boolean
         text:
-          description: Text to find inside files.  Only text/* files are searched.  This
-            is the expensive filter; narrow with path or file_name where possible.
+          description: "Text to find inside files.  Text files are searched, including\
+            \ .cjson and .json; binaries such as images, fonts and PDFs are skipped.\
+            \  This is the expensive filter; narrow with path or file_name where possible."
           type: string
       type: object
     SfvbFileSearchResponse:
@@ -277236,15 +277344,17 @@ components:
       type: object
     SfvbTheme:
       example:
+        ok_to_activate: true
         upgrade_available: true
         valid: true
         path: path
+        merge_conflict_count: 5
         theme_name: theme_name
         active: true
         description: description
-        storefront_oid: 1
-        theme_oid: 5
-        fs_directory_oid: 6
+        storefront_oid: 2
+        theme_oid: 7
+        fs_directory_oid: 5
         version: version
       properties:
         active:
@@ -277258,6 +277368,18 @@ components:
           description: Oid of the theme root directory in the storefront file system.
           format: int32
           type: integer
+        merge_conflict_count:
+          description: "How many of the theme's files still have unresolved merge\
+            \ conflicts from an upgrade.  Find them with searchSfvbFiles, merge_conflicts\
+            \ true and this theme's path."
+          format: int32
+          type: integer
+        ok_to_activate:
+          description: "False while any file in the theme has an unresolved merge\
+            \ conflict.  Never activate a theme that reports false - resolve every\
+            \ conflict first.  Activation itself happens in the UltraCart admin, which\
+            \ runs the same check."
+          type: boolean
         path:
           description: "Root path of the theme in the storefront file system, for\
             \ example /themes/mytheme/"
@@ -277510,8 +277632,25 @@ components:
             $ref: '#/components/schemas/SfvbThemeAttributeUpdate'
           type: array
       type: object
+    SfvbThemeChangeLogEntry:
+      example:
+        changes:
+        - changes
+        - changes
+        version: version
+      properties:
+        changes:
+          description: "What changed in this version, each as category - description."
+          items:
+            type: string
+          type: array
+        version:
+          description: Theme version this entry describes.
+          type: string
+      type: object
     SfvbThemeDuplicateRequest:
       example:
+        upgrade_to_version: upgrade_to_version
         folder: folder
         target_storefront_oid: 0
         theme_name: theme_name
@@ -277533,6 +277672,13 @@ components:
           type: integer
         theme_name:
           description: Name for the new theme.
+          type: string
+        upgrade_to_version:
+          description: "Upgrade the copy to this theme version after copying it, as\
+            \ the admin's Duplicate and Upgrade does.  Only the copy is upgraded -\
+            \ the source theme is never touched.  Must be one of the available_versions\
+            \ from getSfvbThemeUpgradeCheck, which also predicts the merge conflicts.\
+            \  Omit for a plain copy."
           type: string
       type: object
     SfvbThemeFont:
@@ -277589,15 +277735,20 @@ components:
       example:
         error_message: error_message
         progress_description: progress_description
+        description: description
+        merge_conflicts:
+        - merge_conflicts
+        - merge_conflicts
+        submitted_dts: submitted_dts
+        target_path: target_path
+        upgrade_to_version: upgrade_to_version
         started_dts: started_dts
         job_id: 0
         success: true
-        description: description
         progress: 6
+        theme_oid: 1
         complete: true
         finished_dts: finished_dts
-        submitted_dts: submitted_dts
-        target_path: target_path
         status: submitted
       properties:
         complete:
@@ -277619,6 +277770,14 @@ components:
           description: Job handle.  Poll getSfvbThemeJob with this.
           format: int32
           type: integer
+        merge_conflicts:
+          description: "Paths of the copy's files that still have unresolved merge\
+            \ conflicts, read fresh on every poll, so the list shrinks as you resolve\
+            \ them.  Each needs its conflict marker lines resolved and the file saved\
+            \ before the theme can be activated.  Empty when there are none."
+          items:
+            type: string
+          type: array
         progress:
           description: "Percent complete, 0-100."
           format: int32
@@ -277652,40 +277811,66 @@ components:
         target_path:
           description: "Path the new theme is being created at.  Returned when the\
             \ job is started and on every poll, so you do not have to keep the response\
-            \ that started it.  The theme oid itself is NOT returned, so once the\
-            \ job completes you list themes and match on this path.  It is also what\
-            \ success is checked against - a finished job whose theme is not here\
-            \ reports success false rather than pretending."
+            \ that started it.  Once the job completes, the theme found at this path\
+            \ is reported as theme_oid.  It is also what success is checked against\
+            \ - a finished job whose theme is not here reports success false rather\
+            \ than pretending."
+          type: string
+        theme_oid:
+          description: "Oid of the theme the job created, once it is complete and\
+            \ the theme exists.  Null until then."
+          format: int32
+          type: integer
+        upgrade_to_version:
+          description: "The version the copy was asked to be upgraded to, when the\
+            \ duplicate asked for an upgrade.  Null for a plain copy.  A complete\
+            \ job reports success only when the copy is at this version."
           type: string
       type: object
     SfvbThemesResponse:
       example:
         themes:
-        - upgrade_available: true
+        - ok_to_activate: true
+          upgrade_available: true
           valid: true
           path: path
+          merge_conflict_count: 5
           theme_name: theme_name
           active: true
           description: description
-          storefront_oid: 1
-          theme_oid: 5
-          fs_directory_oid: 6
+          storefront_oid: 2
+          theme_oid: 7
+          fs_directory_oid: 5
           version: version
-        - upgrade_available: true
+        - ok_to_activate: true
+          upgrade_available: true
           valid: true
           path: path
+          merge_conflict_count: 5
           theme_name: theme_name
           active: true
           description: description
-          storefront_oid: 1
-          theme_oid: 5
-          fs_directory_oid: 6
+          storefront_oid: 2
+          theme_oid: 7
+          fs_directory_oid: 5
           version: version
         active_theme_oid: 0
+        theme_count: 6
+        theme_limit: 1
       properties:
         active_theme_oid:
           description: "Oid of the active theme, repeated here so a caller does not\
             \ have to scan the list."
+          format: int32
+          type: integer
+        theme_count:
+          description: "How many themes the storefront holds now.  When it equals\
+            \ theme_limit, delete an inactive theme in the admin before duplicating."
+          format: int32
+          type: integer
+        theme_limit:
+          description: "Most themes a storefront can hold, active and inactive together.\
+            \  A duplicate or install at the limit is refused with sfvb.theme_limit_reached."
           format: int32
           type: integer
         themes:
@@ -277694,6 +277879,106 @@ components:
           items:
             $ref: '#/components/schemas/SfvbTheme'
           type: array
+      type: object
+    SfvbThemeUpgradeCheckResponse:
+      example:
+        can_duplicate_and_upgrade: true
+        reason: reason
+        available_versions:
+        - available_versions
+        - available_versions
+        existing_merge_conflicts:
+        - existing_merge_conflicts
+        - existing_merge_conflicts
+        change_log:
+        - changes:
+          - changes
+          - changes
+          version: version
+        - changes:
+          - changes
+          - changes
+          version: version
+        files_merged:
+        - files_merged
+        - files_merged
+        files_overwritten:
+        - files_overwritten
+        - files_overwritten
+        theme_oid: 0
+        from_version: from_version
+        to_version: to_version
+        customized_files:
+        - customized_files
+        - customized_files
+        files_with_merge_conflicts:
+        - files_with_merge_conflicts
+        - files_with_merge_conflicts
+      properties:
+        available_versions:
+          description: "Newer versions this account may upgrade to, oldest first.\
+            \  Pass one as upgrade_to_version on duplicateSfvbTheme."
+          items:
+            type: string
+          type: array
+        can_duplicate_and_upgrade:
+          description: "True when duplicateSfvbTheme with upgrade_to_version set to\
+            \ to_version will be accepted.  When false, reason says why."
+          type: boolean
+        change_log:
+          description: "What changed in each version after the theme's current one,\
+            \ up to to_version."
+          items:
+            $ref: '#/components/schemas/SfvbThemeChangeLogEntry'
+          type: array
+        customized_files:
+          description: "The theme's files that were edited after the theme was installed\
+            \ or last upgraded.  Only these can merge, conflict or be overwritten\
+            \ - every other file is simply replaced with the new version's."
+          items:
+            type: string
+          type: array
+        existing_merge_conflicts:
+          description: "Files in this theme that still have unresolved conflicts from\
+            \ an earlier upgrade.  While any exist the theme can't be upgraded again,\
+            \ and the predicted lists above are empty."
+          items:
+            type: string
+          type: array
+        files_merged:
+          description: "Customized files the upgrade would merge with the new version\
+            \ cleanly.  Worth reviewing after the upgrade, but nothing to resolve."
+          items:
+            type: string
+          type: array
+        files_overwritten:
+          description: "Customized files that can't be merged (not a text type that\
+            \ merges) and are replaced by the new version's, losing the edits.  Copy\
+            \ anything you need from them first."
+          items:
+            type: string
+          type: array
+        files_with_merge_conflicts:
+          description: "Customized files whose edits collide with the new version.\
+            \  The upgrade writes them with conflict marker lines and flags them,\
+            \ and the theme can't be activated until each is resolved."
+          items:
+            type: string
+          type: array
+        from_version:
+          description: The theme's current version.
+          type: string
+        reason:
+          description: Why can_duplicate_and_upgrade is false.  Null when it is true.
+          type: string
+        theme_oid:
+          description: The theme that was checked.
+          format: int32
+          type: integer
+        to_version:
+          description: The version the check was run against.  Null when no upgrade
+            is available.
+          type: string
       type: object
     SfvbTrackingAdvanced:
       example:
