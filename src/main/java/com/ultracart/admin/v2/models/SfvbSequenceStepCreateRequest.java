@@ -65,6 +65,10 @@ public class SfvbSequenceStepCreateRequest {
   @SerializedName(SERIALIZED_NAME_CONFIG_JSON)
   private String configJson;
 
+  public static final String SERIALIZED_NAME_FILTER_PROFILE_EQUATION_JSON = "filter_profile_equation_json";
+  @SerializedName(SERIALIZED_NAME_FILTER_PROFILE_EQUATION_JSON)
+  private String filterProfileEquationJson;
+
   public static final String SERIALIZED_NAME_LIBRARY_ITEM_OID = "library_item_oid";
   @SerializedName(SERIALIZED_NAME_LIBRARY_ITEM_OID)
   private Integer libraryItemOid;
@@ -168,11 +172,11 @@ public class SfvbSequenceStepCreateRequest {
   }
 
    /**
-   * A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.
+   * A wait step&#39;s settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.
    * @return configJson
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  Not for an email step.")
+  @ApiModelProperty(value = "A wait step's settings, as the admin saves them and set-config changes them, namely delay_duration and delay_duration_unit (minutes, hours, days, weeks or months), and optionally the delay_until_* options.  For a split, percentage_left (0.01 to 0.99, 0.5 by default) and merchant_notes.  For a condition, reverse, disabled and merchant_notes.  Not for an email step.")
 
   public String getConfigJson() {
     return configJson;
@@ -181,6 +185,29 @@ public class SfvbSequenceStepCreateRequest {
 
   public void setConfigJson(String configJson) {
     this.configJson = configJson;
+  }
+
+
+  public SfvbSequenceStepCreateRequest filterProfileEquationJson(String filterProfileEquationJson) {
+    
+    this.filterProfileEquationJson = filterProfileEquationJson;
+    return this;
+  }
+
+   /**
+   * A condition step&#39;s rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.
+   * @return filterProfileEquationJson
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A condition step's rule, required for one, as an audience filter in the shape segments use.  Customers who match go to the yes side.  Only for a condition step.")
+
+  public String getFilterProfileEquationJson() {
+    return filterProfileEquationJson;
+  }
+
+
+  public void setFilterProfileEquationJson(String filterProfileEquationJson) {
+    this.filterProfileEquationJson = filterProfileEquationJson;
   }
 
 
@@ -306,11 +333,11 @@ public class SfvbSequenceStepCreateRequest {
   }
 
    /**
-   * The kind of step, one of email (the default), wait or post_card.
+   * The kind of step, one of email (the default), wait, post_card, split or condition.
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The kind of step, one of email (the default), wait or post_card.")
+  @ApiModelProperty(value = "The kind of step, one of email (the default), wait, post_card, split or condition.")
 
   public String getType() {
     return type;
@@ -336,6 +363,7 @@ public class SfvbSequenceStepCreateRequest {
         Objects.equals(this.afterStepUuid, sfvbSequenceStepCreateRequest.afterStepUuid) &&
         Objects.equals(this.branchStepUuid, sfvbSequenceStepCreateRequest.branchStepUuid) &&
         Objects.equals(this.configJson, sfvbSequenceStepCreateRequest.configJson) &&
+        Objects.equals(this.filterProfileEquationJson, sfvbSequenceStepCreateRequest.filterProfileEquationJson) &&
         Objects.equals(this.libraryItemOid, sfvbSequenceStepCreateRequest.libraryItemOid) &&
         Objects.equals(this.name, sfvbSequenceStepCreateRequest.name) &&
         Objects.equals(this.previewText, sfvbSequenceStepCreateRequest.previewText) &&
@@ -346,7 +374,7 @@ public class SfvbSequenceStepCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acknowledgeExecutable, afterStepUuid, branchStepUuid, configJson, libraryItemOid, name, previewText, side, subject, type);
+    return Objects.hash(acknowledgeExecutable, afterStepUuid, branchStepUuid, configJson, filterProfileEquationJson, libraryItemOid, name, previewText, side, subject, type);
   }
 
   @Override
@@ -357,6 +385,7 @@ public class SfvbSequenceStepCreateRequest {
     sb.append("    afterStepUuid: ").append(toIndentedString(afterStepUuid)).append("\n");
     sb.append("    branchStepUuid: ").append(toIndentedString(branchStepUuid)).append("\n");
     sb.append("    configJson: ").append(toIndentedString(configJson)).append("\n");
+    sb.append("    filterProfileEquationJson: ").append(toIndentedString(filterProfileEquationJson)).append("\n");
     sb.append("    libraryItemOid: ").append(toIndentedString(libraryItemOid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    previewText: ").append(toIndentedString(previewText)).append("\n");
@@ -389,6 +418,7 @@ public class SfvbSequenceStepCreateRequest {
     openapiFields.add("after_step_uuid");
     openapiFields.add("branch_step_uuid");
     openapiFields.add("config_json");
+    openapiFields.add("filter_profile_equation_json");
     openapiFields.add("library_item_oid");
     openapiFields.add("name");
     openapiFields.add("preview_text");
@@ -430,6 +460,9 @@ public class SfvbSequenceStepCreateRequest {
       }
       if (jsonObj.get("config_json") != null && !jsonObj.get("config_json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `config_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("config_json").toString()));
+      }
+      if (jsonObj.get("filter_profile_equation_json") != null && !jsonObj.get("filter_profile_equation_json").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `filter_profile_equation_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter_profile_equation_json").toString()));
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

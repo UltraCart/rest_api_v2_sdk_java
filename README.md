@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.247</version>
+    <version>4.1.248</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.247"
+     implementation "com.ultracart:rest-sdk:4.1.248"
   }
 ```
 
@@ -680,7 +680,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
-*SfvbApi* | [**insertSfvbSequenceStep**](docs/SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, or a postcard step, with its new postcard
+*SfvbApi* | [**insertSfvbSequenceStep**](docs/SfvbApi.md#insertSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps | Add an email step, with its new email, a wait step, a postcard step, with its new postcard, or a split or condition step
 *SfvbApi* | [**insertSfvbUpsellOffer**](docs/SfvbApi.md#insertSfvbUpsellOffer) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_offers | Create an upsell offer
 *SfvbApi* | [**insertSfvbUpsellPath**](docs/SfvbApi.md#insertSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths | Create an upsell path
 *SfvbApi* | [**insertSfvbUtmShortcode**](docs/SfvbApi.md#insertSfvbUtmShortcode) | **POST** /sfvb/storefronts/{storefront_oid}/utm_shortcodes | Create a UTM shortcode
@@ -2610,6 +2610,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.248 | 11/12/2026 | sfvb internal testing |
 | 4.1.247 | 11/12/2026 | sfvb internal testing |
 | 4.1.246 | 11/11/2026 | sfvb internal testing |
 | 4.1.245 | 11/11/2026 | sfvb internal testing |
