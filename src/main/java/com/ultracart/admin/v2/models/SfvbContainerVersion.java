@@ -90,13 +90,15 @@ public class SfvbContainerVersion {
   private String hashSha256;
 
   /**
-   * What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.
+   * What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.
    */
   @JsonAdapter(OperationEnum.Adapter.class)
   public enum OperationEnum {
     CREATE("create"),
     
-    UPDATE("update");
+    UPDATE("update"),
+    
+    DELETE("delete");
 
     private String value;
 
@@ -445,11 +447,11 @@ public class SfvbContainerVersion {
   }
 
    /**
-   * What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.
+   * What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.
    * @return operation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here.")
+  @ApiModelProperty(value = "What the container was before the write this entry precedes.  create means it did not exist, so reverting to this entry removes it again; update means it held the cjson recorded here; delete means it held the cjson recorded here and the write after it removed the container, so reverting to this entry puts that cjson back.")
 
   public OperationEnum getOperation() {
     return operation;

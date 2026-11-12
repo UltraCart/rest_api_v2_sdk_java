@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.250</version>
+    <version>4.1.251</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.250"
+     implementation "com.ultracart:rest-sdk:4.1.251"
   }
 ```
 
@@ -2610,6 +2610,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.251 | 11/12/2026 | sfvb internal test |
 | 4.1.250 | 11/12/2026 | sfvb internal testing |
 | 4.1.249 | 11/12/2026 | sfvb internal testing |
 | 4.1.248 | 11/12/2026 | sfvb internal testing |

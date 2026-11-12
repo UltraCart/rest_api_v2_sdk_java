@@ -265814,10 +265814,13 @@ components:
         operation:
           description: "What the container was before the write this entry precedes.\
             \  create means it did not exist, so reverting to this entry removes it\
-            \ again; update means it held the cjson recorded here."
+            \ again; update means it held the cjson recorded here; delete means it\
+            \ held the cjson recorded here and the write after it removed the container,\
+            \ so reverting to this entry puts that cjson back."
           enum:
           - create
           - update
+          - delete
           type: string
         owner_object_id:
           description: Owner object identifier.
