@@ -197,6 +197,10 @@ public class SfvbApprovalCreateRequest {
   @SerializedName(SERIALIZED_NAME_CONTENT)
   private String content;
 
+  public static final String SERIALIZED_NAME_DELEGATE_EMAIL = "delegate_email";
+  @SerializedName(SERIALIZED_NAME_DELEGATE_EMAIL)
+  private String delegateEmail;
+
   public static final String SERIALIZED_NAME_EXPERIMENT_START = "experiment_start";
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_START)
   private SfvbExperimentStartRequest experimentStart;
@@ -380,6 +384,29 @@ public class SfvbApprovalCreateRequest {
 
   public void setContent(String content) {
     this.content = content;
+  }
+
+
+  public SfvbApprovalCreateRequest delegateEmail(String delegateEmail) {
+    
+    this.delegateEmail = delegateEmail;
+    return this;
+  }
+
+   /**
+   * Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can&#39;t be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.
+   * @return delegateEmail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Optional.  The email of a colleague on this account who should decide the request instead of the person who signed in.  They must hold an admin permission that covers the action; they get an email with a link and decide with their own authenticator code.  Any colleague who can't be used is refused with sfvb.delegate_not_allowed, for every reason alike.  The approval stays yours to poll and use.")
+
+  public String getDelegateEmail() {
+    return delegateEmail;
+  }
+
+
+  public void setDelegateEmail(String delegateEmail) {
+    this.delegateEmail = delegateEmail;
   }
 
 
@@ -813,6 +840,7 @@ public class SfvbApprovalCreateRequest {
         Objects.equals(this.commsListImport, sfvbApprovalCreateRequest.commsListImport) &&
         Objects.equals(this.commsSettings, sfvbApprovalCreateRequest.commsSettings) &&
         Objects.equals(this.content, sfvbApprovalCreateRequest.content) &&
+        Objects.equals(this.delegateEmail, sfvbApprovalCreateRequest.delegateEmail) &&
         Objects.equals(this.experimentStart, sfvbApprovalCreateRequest.experimentStart) &&
         Objects.equals(this.flowBackfill, sfvbApprovalCreateRequest.flowBackfill) &&
         Objects.equals(this.itemAttributeRows, sfvbApprovalCreateRequest.itemAttributeRows) &&
@@ -834,7 +862,7 @@ public class SfvbApprovalCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, experimentStart, flowBackfill, itemAttributeRows, itemDefaultPageRows, itemPreorder, itemPreorderChildren, itemPricing, itemVariations, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
+    return Objects.hash(action, affiliateNetwork, commsListImport, commsSettings, content, delegateEmail, experimentStart, flowBackfill, itemAttributeRows, itemDefaultPageRows, itemPreorder, itemPreorderChildren, itemPricing, itemVariations, params, postcardTestMail, reason, redirectRows, segmentUpdate, siteSeo, smartAttribution, trackingProvider, transactionalEmail);
   }
 
   @Override
@@ -846,6 +874,7 @@ public class SfvbApprovalCreateRequest {
     sb.append("    commsListImport: ").append(toIndentedString(commsListImport)).append("\n");
     sb.append("    commsSettings: ").append(toIndentedString(commsSettings)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    delegateEmail: ").append(toIndentedString(delegateEmail)).append("\n");
     sb.append("    experimentStart: ").append(toIndentedString(experimentStart)).append("\n");
     sb.append("    flowBackfill: ").append(toIndentedString(flowBackfill)).append("\n");
     sb.append("    itemAttributeRows: ").append(toIndentedString(itemAttributeRows)).append("\n");
@@ -890,6 +919,7 @@ public class SfvbApprovalCreateRequest {
     openapiFields.add("comms_list_import");
     openapiFields.add("comms_settings");
     openapiFields.add("content");
+    openapiFields.add("delegate_email");
     openapiFields.add("experiment_start");
     openapiFields.add("flow_backfill");
     openapiFields.add("item_attribute_rows");
@@ -951,6 +981,9 @@ public class SfvbApprovalCreateRequest {
       }
       if (jsonObj.get("content") != null && !jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
+      }
+      if (jsonObj.get("delegate_email") != null && !jsonObj.get("delegate_email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delegate_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delegate_email").toString()));
       }
       // validate the optional field `experiment_start`
       if (jsonObj.getAsJsonObject("experiment_start") != null) {

@@ -3011,9 +3011,10 @@ paths:
       x-accepts: application/json
     post:
       description: "Asks the person who signed in the CLI to approve one gated action\
-        \ on one exact target.  Name the storefront with the storefront_oid query\
-        \ parameter.  The target is checked the way the action will check it, so nobody\
-        \ is asked to approve a call that would fail.  Show the person approval_url\
+        \ on one exact target, or with delegate_email a colleague on the account who\
+        \ holds a permission covering the action.  Name the storefront with the storefront_oid\
+        \ query parameter.  The target is checked the way the action will check it,\
+        \ so nobody is asked to approve a call that would fail.  Show the person approval_url\
         \ and user_code, poll GET approvals/{approval_id} every interval_seconds,\
         \ and once it is approved repeat the gated call with the approval_id in the\
         \ Approval-Id header.  Asking again for the same thing returns the pending\
@@ -260986,6 +260987,7 @@ components:
         created_at: created_at
         description: description
         storefront_oid: 1
+        delegate_name: delegate_name
         approval_url: approval_url
         params:
           esp_twilio_uuid: esp_twilio_uuid
@@ -261020,6 +261022,7 @@ components:
         outcome_code: outcome_code
         outcome_http_status: 1
         approval_id: approval_id
+        decided_by: requester
         expires_in_seconds: 0
         expires_at: expires_at
         user_code: user_code
@@ -261052,6 +261055,7 @@ components:
           prompt_version: prompt_version
         scope: scope
         action: action
+        delegated: true
         outcome: succeeded
         status: reviewing
       properties:
@@ -261070,6 +261074,19 @@ components:
           description: "When the request was made, ISO 8601 UTC."
           format: dateTime
           type: string
+        decided_by:
+          description: "Who decided the request, once decided."
+          enum:
+          - requester
+          - delegate
+          type: string
+        delegate_name:
+          description: "The name of the colleague the request was handed to, while\
+            \ it is.  Tell the person who is now deciding."
+          type: string
+        delegated:
+          description: True when the request was handed to a colleague to decide.
+          type: boolean
         description:
           description: "The sentence the person reads before approving.  Written by\
             \ the server, not the agent."
@@ -261371,6 +261388,7 @@ components:
           filter_profile_equation_json: filter_profile_equation_json
           folder_uuid: folder_uuid
           name: name
+        delegate_email: delegate_email
         item_attribute_rows:
         - merchant_item_id: merchant_item_id
           name: name
@@ -261495,6 +261513,14 @@ components:
             \  For tracking_html.put, the exact HTML the write will send, at most\
             \ 256 KB.  UltraCart reviews it and keeps only its hash, so send the same\
             \ bytes again on the write.  Leave it out for a revert, which names params.version."
+          type: string
+        delegate_email:
+          description: "Optional.  The email of a colleague on this account who should\
+            \ decide the request instead of the person who signed in.  They must hold\
+            \ an admin permission that covers the action; they get an email with a\
+            \ link and decide with their own authenticator code.  Any colleague who\
+            \ can't be used is refused with sfvb.delegate_not_allowed, for every reason\
+            \ alike.  The approval stays yours to poll and use."
           type: string
         experiment_start:
           $ref: '#/components/schemas/SfvbExperimentStartRequest'
@@ -261815,6 +261841,7 @@ components:
           created_at: created_at
           description: description
           storefront_oid: 1
+          delegate_name: delegate_name
           approval_url: approval_url
           params:
             esp_twilio_uuid: esp_twilio_uuid
@@ -261849,6 +261876,7 @@ components:
           outcome_code: outcome_code
           outcome_http_status: 1
           approval_id: approval_id
+          decided_by: requester
           expires_in_seconds: 0
           expires_at: expires_at
           user_code: user_code
@@ -261881,6 +261909,7 @@ components:
             prompt_version: prompt_version
           scope: scope
           action: action
+          delegated: true
           outcome: succeeded
           status: reviewing
         - reason: reason
@@ -261889,6 +261918,7 @@ components:
           created_at: created_at
           description: description
           storefront_oid: 1
+          delegate_name: delegate_name
           approval_url: approval_url
           params:
             esp_twilio_uuid: esp_twilio_uuid
@@ -261923,6 +261953,7 @@ components:
           outcome_code: outcome_code
           outcome_http_status: 1
           approval_id: approval_id
+          decided_by: requester
           expires_in_seconds: 0
           expires_at: expires_at
           user_code: user_code
@@ -261955,6 +261986,7 @@ components:
             prompt_version: prompt_version
           scope: scope
           action: action
+          delegated: true
           outcome: succeeded
           status: reviewing
       properties:

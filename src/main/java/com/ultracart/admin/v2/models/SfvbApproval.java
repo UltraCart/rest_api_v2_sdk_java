@@ -67,6 +67,65 @@ public class SfvbApproval {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private String createdAt;
 
+  /**
+   * Who decided the request, once decided.
+   */
+  @JsonAdapter(DecidedByEnum.Adapter.class)
+  public enum DecidedByEnum {
+    REQUESTER("requester"),
+    
+    DELEGATE("delegate");
+
+    private String value;
+
+    DecidedByEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DecidedByEnum fromValue(String value) {
+      for (DecidedByEnum b : DecidedByEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DecidedByEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DecidedByEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DecidedByEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DecidedByEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DECIDED_BY = "decided_by";
+  @SerializedName(SERIALIZED_NAME_DECIDED_BY)
+  private DecidedByEnum decidedBy;
+
+  public static final String SERIALIZED_NAME_DELEGATE_NAME = "delegate_name";
+  @SerializedName(SERIALIZED_NAME_DELEGATE_NAME)
+  private String delegateName;
+
+  public static final String SERIALIZED_NAME_DELEGATED = "delegated";
+  @SerializedName(SERIALIZED_NAME_DELEGATED)
+  private Boolean delegated;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -329,6 +388,75 @@ public class SfvbApproval {
 
   public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
+  }
+
+
+  public SfvbApproval decidedBy(DecidedByEnum decidedBy) {
+    
+    this.decidedBy = decidedBy;
+    return this;
+  }
+
+   /**
+   * Who decided the request, once decided.
+   * @return decidedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Who decided the request, once decided.")
+
+  public DecidedByEnum getDecidedBy() {
+    return decidedBy;
+  }
+
+
+  public void setDecidedBy(DecidedByEnum decidedBy) {
+    this.decidedBy = decidedBy;
+  }
+
+
+  public SfvbApproval delegateName(String delegateName) {
+    
+    this.delegateName = delegateName;
+    return this;
+  }
+
+   /**
+   * The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.
+   * @return delegateName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the colleague the request was handed to, while it is.  Tell the person who is now deciding.")
+
+  public String getDelegateName() {
+    return delegateName;
+  }
+
+
+  public void setDelegateName(String delegateName) {
+    this.delegateName = delegateName;
+  }
+
+
+  public SfvbApproval delegated(Boolean delegated) {
+    
+    this.delegated = delegated;
+    return this;
+  }
+
+   /**
+   * True when the request was handed to a colleague to decide.
+   * @return delegated
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "True when the request was handed to a colleague to decide.")
+
+  public Boolean getDelegated() {
+    return delegated;
+  }
+
+
+  public void setDelegated(Boolean delegated) {
+    this.delegated = delegated;
   }
 
 
@@ -714,6 +842,9 @@ public class SfvbApproval {
         Objects.equals(this.approvalId, sfvbApproval.approvalId) &&
         Objects.equals(this.approvalUrl, sfvbApproval.approvalUrl) &&
         Objects.equals(this.createdAt, sfvbApproval.createdAt) &&
+        Objects.equals(this.decidedBy, sfvbApproval.decidedBy) &&
+        Objects.equals(this.delegateName, sfvbApproval.delegateName) &&
+        Objects.equals(this.delegated, sfvbApproval.delegated) &&
         Objects.equals(this.description, sfvbApproval.description) &&
         Objects.equals(this.expiresAt, sfvbApproval.expiresAt) &&
         Objects.equals(this.expiresInSeconds, sfvbApproval.expiresInSeconds) &&
@@ -734,7 +865,7 @@ public class SfvbApproval {
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, approvalId, approvalUrl, createdAt, description, expiresAt, expiresInSeconds, freshCodeRequired, intervalSeconds, outcome, outcomeCode, outcomeHttpStatus, params, reason, review, scope, status, storefrontOid, usedAt, userCode);
+    return Objects.hash(action, approvalId, approvalUrl, createdAt, decidedBy, delegateName, delegated, description, expiresAt, expiresInSeconds, freshCodeRequired, intervalSeconds, outcome, outcomeCode, outcomeHttpStatus, params, reason, review, scope, status, storefrontOid, usedAt, userCode);
   }
 
   @Override
@@ -745,6 +876,9 @@ public class SfvbApproval {
     sb.append("    approvalId: ").append(toIndentedString(approvalId)).append("\n");
     sb.append("    approvalUrl: ").append(toIndentedString(approvalUrl)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    decidedBy: ").append(toIndentedString(decidedBy)).append("\n");
+    sb.append("    delegateName: ").append(toIndentedString(delegateName)).append("\n");
+    sb.append("    delegated: ").append(toIndentedString(delegated)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    expiresInSeconds: ").append(toIndentedString(expiresInSeconds)).append("\n");
@@ -787,6 +921,9 @@ public class SfvbApproval {
     openapiFields.add("approval_id");
     openapiFields.add("approval_url");
     openapiFields.add("created_at");
+    openapiFields.add("decided_by");
+    openapiFields.add("delegate_name");
+    openapiFields.add("delegated");
     openapiFields.add("description");
     openapiFields.add("expires_at");
     openapiFields.add("expires_in_seconds");
@@ -841,6 +978,12 @@ public class SfvbApproval {
       }
       if (jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if (jsonObj.get("decided_by") != null && !jsonObj.get("decided_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `decided_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decided_by").toString()));
+      }
+      if (jsonObj.get("delegate_name") != null && !jsonObj.get("delegate_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delegate_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delegate_name").toString()));
       }
       if (jsonObj.get("description") != null && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
