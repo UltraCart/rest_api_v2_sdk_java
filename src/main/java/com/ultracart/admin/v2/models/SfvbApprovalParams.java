@@ -335,11 +335,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.
+   * For file.put_script, file.put_template and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.
    * @return contentSha256
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For file.put_script and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.")
+  @ApiModelProperty(value = "For file.put_script, file.put_template and tracking_html.put, the SHA-256 of the exact bytes approved, and for affiliate_network.change the SHA-256 of the conversion pixel.  Set by the server, never by the caller.  The write must send bytes with this hash.")
 
   public String getContentSha256() {
     return contentSha256;
@@ -473,11 +473,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
+   * The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.
    * @return path
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The file path, for file.delete and file.put_script, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.")
+  @ApiModelProperty(value = "The file path, for file.delete, file.put_script and file.put_template, or the page path for experiment.start of a page experiment.  Exactly as the gated call will send it.")
 
   public String getPath() {
     return path;
@@ -749,11 +749,11 @@ public class SfvbApprovalParams {
   }
 
    /**
-   * For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.
+   * For file.put_script and file.put_template, the history version a revert restores.  Leave it out, and send content instead, for a write.
    * @return version
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For file.put_script, the history version a revert restores.  Leave it out, and send content instead, for a write.")
+  @ApiModelProperty(value = "For file.put_script and file.put_template, the history version a revert restores.  Leave it out, and send content instead, for a write.")
 
   public Integer getVersion() {
     return version;

@@ -11,7 +11,7 @@
 |**affiliateNetwork** | [**SfvbAffiliateNetworkRequest**](SfvbAffiliateNetworkRequest.md) |  |  [optional] |
 |**commsListImport** | [**SfvbCommsProviderImportRequest**](SfvbCommsProviderImportRequest.md) |  |  [optional] |
 |**commsSettings** | [**SfvbCommsSettingsUpdateRequest**](SfvbCommsSettingsUpdateRequest.md) |  |  [optional] |
-|**content** | **String** | For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version. |  [optional] |
+|**content** | **String** | For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version. |  [optional] |
 |**experimentStart** | [**SfvbExperimentStartRequest**](SfvbExperimentStartRequest.md) |  |  [optional] |
 |**flowBackfill** | [**SfvbFlowBackfillRequest**](SfvbFlowBackfillRequest.md) |  |  [optional] |
 |**itemAttributeRows** | [**List&lt;SfvbItemAttributeBatchRow&gt;**](SfvbItemAttributeBatchRow.md) | For item.attribute_batch, exactly the rows the batch will send - the dry run&#39;s change rows, each with merchant_item_oid and current_sha256.  UltraCart keeps only their hash. |  [optional] |
@@ -39,6 +39,7 @@
 | FILE_DELETE | &quot;file.delete&quot; |
 | BLOG_POST_DELETE | &quot;blog_post.delete&quot; |
 | FILE_PUT_SCRIPT | &quot;file.put_script&quot; |
+| FILE_PUT_TEMPLATE | &quot;file.put_template&quot; |
 | REDIRECT_DELETE_BATCH | &quot;redirect.delete_batch&quot; |
 | EXPERIMENT_START | &quot;experiment.start&quot; |
 | EXPERIMENT_END | &quot;experiment.end&quot; |

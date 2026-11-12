@@ -27946,7 +27946,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script and file.put_template send the file as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These four start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @return SfvbApproval
@@ -27971,7 +27971,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script and file.put_template send the file as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These four start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @return ApiResponse&lt;SfvbApproval&gt;
@@ -27997,7 +27997,7 @@ public class SfvbApi {
 
     /**
      * Request a human approval (asynchronously)
-     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script send the script as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These three start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
+     * Asks the person who signed in the CLI to approve one gated action on one exact target.  Name the storefront with the storefront_oid query parameter.  The target is checked the way the action will check it, so nobody is asked to approve a call that would fail.  Show the person approval_url and user_code, poll GET approvals/{approval_id} every interval_seconds, and once it is approved repeat the gated call with the approval_id in the Approval-Id header.  Asking again for the same thing returns the pending request (200) rather than a new one (201).  A request lapses after 10 minutes.  Requires a token that resolves to a user, so use the device authorization flow.  For file.put_script and file.put_template send the file as content, or params.version for a revert; for tracking_html.put send the HTML as content and params.slot; for affiliate_network.change send affiliate_network.  These four start as reviewing while UltraCart&#39;s scanner and two AI models read the content, then become pending with the review attached, or refused.  Keep polling, and show approval_url only once it is pending.  Only the hash is kept, so the write must send the same content. 
      * @param approvalRequest The request (required)
      * @param storefrontOid The storefront the action runs on.  Required for storefront actions, left out for account-wide ones. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -35463,7 +35463,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -35570,7 +35570,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @return SfvbFileWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -35599,7 +35599,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbFileWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -35629,7 +35629,7 @@ public class SfvbApi {
      * @param ifMatch Content hash from the last read.  Required; 428 when absent, 412 when stale. (required)
      * @param fileWriteRequest File content to write (required)
      * @param path  (optional)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request for exactly these bytes, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -41932,7 +41932,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -42033,7 +42033,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @return SfvbFileWriteResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -42060,7 +42060,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @return ApiResponse&lt;SfvbFileWriteResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -42088,7 +42088,7 @@ public class SfvbApi {
      * @param storefrontOid  (required)
      * @param ifMatch Content hash of the file being reverted.  Required; 428 when absent, 412 when stale. (required)
      * @param fileRevertRequest Version to revert the file to (required)
-     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version.  Required for scripts.  See POST /sfvb/approvals. (optional)
+     * @param approvalId For a .js or .mjs file, the approval_id of an approved file.put_script request naming this version, and for a .vm or .html file inside a theme, of an approved file.put_template request.  Required for scripts and templates.  See POST /sfvb/approvals. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -3019,13 +3019,13 @@ paths:
         \ Approval-Id header.  Asking again for the same thing returns the pending\
         \ request (200) rather than a new one (201).  A request lapses after 10 minutes.\
         \  Requires a token that resolves to a user, so use the device authorization\
-        \ flow.  For file.put_script send the script as content, or params.version\
-        \ for a revert; for tracking_html.put send the HTML as content and params.slot;\
-        \ for affiliate_network.change send affiliate_network.  These three start\
-        \ as reviewing while UltraCart's scanner and two AI models read the content,\
-        \ then become pending with the review attached, or refused.  Keep polling,\
-        \ and show approval_url only once it is pending.  Only the hash is kept, so\
-        \ the write must send the same content.\n"
+        \ flow.  For file.put_script and file.put_template send the file as content,\
+        \ or params.version for a revert; for tracking_html.put send the HTML as content\
+        \ and params.slot; for affiliate_network.change send affiliate_network.  These\
+        \ four start as reviewing while UltraCart's scanner and two AI models read\
+        \ the content, then become pending with the review attached, or refused. \
+        \ Keep polling, and show approval_url only once it is pending.  Only the hash\
+        \ is kept, so the write must send the same content.\n"
       operationId: insertSfvbApproval
       parameters:
       - description: "The storefront the action runs on.  Required for storefront\
@@ -11057,7 +11057,9 @@ paths:
         schema:
           type: string
       - description: "For a .js or .mjs file, the approval_id of an approved file.put_script\
-          \ request for exactly these bytes.  Required for scripts.  See POST /sfvb/approvals."
+          \ request for exactly these bytes, and for a .vm or .html file inside a\
+          \ theme, of an approved file.put_template request.  Required for scripts\
+          \ and templates.  See POST /sfvb/approvals."
         in: header
         name: Approval-Id
         schema:
@@ -11242,7 +11244,9 @@ paths:
         schema:
           type: string
       - description: "For a .js or .mjs file, the approval_id of an approved file.put_script\
-          \ request naming this version.  Required for scripts.  See POST /sfvb/approvals."
+          \ request naming this version, and for a .vm or .html file inside a theme,\
+          \ of an approved file.put_template request.  Required for scripts and templates.\
+          \  See POST /sfvb/approvals."
         in: header
         name: Approval-Id
         schema:
@@ -261443,6 +261447,7 @@ components:
           - file.delete
           - blog_post.delete
           - file.put_script
+          - file.put_template
           - redirect.delete_batch
           - experiment.start
           - experiment.end
@@ -261480,10 +261485,10 @@ components:
           $ref: '#/components/schemas/SfvbCommsSettingsUpdateRequest'
         content:
           description: "For a file.put_script write, the exact script to be written,\
-            \ at most 256 KB.  For tracking_html.put, the exact HTML the write will\
-            \ send, at most 256 KB.  UltraCart reviews it and keeps only its hash,\
-            \ so send the same bytes again on the write.  Leave it out for a revert,\
-            \ which names params.version."
+            \ at most 256 KB, and for a file.put_template write the exact template.\
+            \  For tracking_html.put, the exact HTML the write will send, at most\
+            \ 256 KB.  UltraCart reviews it and keeps only its hash, so send the same\
+            \ bytes again on the write.  Leave it out for a revert, which names params.version."
           type: string
         experiment_start:
           $ref: '#/components/schemas/SfvbExperimentStartRequest'
@@ -261593,10 +261598,10 @@ components:
             \ step it moves to the start of a side of."
           type: string
         content_sha256:
-          description: "For file.put_script and tracking_html.put, the SHA-256 of\
-            \ the exact bytes approved, and for affiliate_network.change the SHA-256\
-            \ of the conversion pixel.  Set by the server, never by the caller.  The\
-            \ write must send bytes with this hash."
+          description: "For file.put_script, file.put_template and tracking_html.put,\
+            \ the SHA-256 of the exact bytes approved, and for affiliate_network.change\
+            \ the SHA-256 of the conversion pixel.  Set by the server, never by the\
+            \ caller.  The write must send bytes with this hash."
           type: string
         domain:
           description: "For sending_domain.delete, the sending domain."
@@ -261619,9 +261624,9 @@ components:
           format: int32
           type: integer
         path:
-          description: "The file path, for file.delete and file.put_script, or the\
-            \ page path for experiment.start of a page experiment.  Exactly as the\
-            \ gated call will send it."
+          description: "The file path, for file.delete, file.put_script and file.put_template,\
+            \ or the page path for experiment.start of a page experiment.  Exactly\
+            \ as the gated call will send it."
           type: string
         request_sha256:
           description: "For experiment.start of a url experiment, the hash of the\
@@ -261675,8 +261680,8 @@ components:
           format: int32
           type: integer
         version:
-          description: "For file.put_script, the history version a revert restores.\
-            \  Leave it out, and send content instead, for a write."
+          description: "For file.put_script and file.put_template, the history version\
+            \ a revert restores.  Leave it out, and send content instead, for a write."
           format: int32
           type: integer
         widget_id:
@@ -265706,16 +265711,18 @@ components:
       type: object
     SfvbContainerVersion:
       example:
-        hash_sha256: hash_sha256
-        current: true
         owner_object_id: owner_object_id
         container_history_oid: 0
+        cjson: cjson
+        hash_sha256: hash_sha256
+        current: true
+        content_created_dts: content_created_dts
         container_name: container_name
+        content_edited_by: content_edited_by
         size: 6
         comment: comment
         created_dts: created_dts
         operation: create
-        cjson: cjson
         edited_by: edited_by
         owner_type: item
       properties:
@@ -265737,15 +265744,31 @@ components:
         container_name:
           description: "Container name, where the owner has more than one container."
           type: string
+        content_created_dts:
+          description: "When this version's content was written, ISO 8601 UTC.  Same\
+            \ source and limits as content_edited_by."
+          format: dateTime
+          type: string
+        content_edited_by:
+          description: "Login of whoever wrote this version's content, taken from\
+            \ the write recorded on the next older entry.  Absent on a create entry\
+            \ and on the oldest entry kept, such as a template body that was in place\
+            \ before any history.  Saves made outside this API, in the admin visual\
+            \ builder, are not recorded, so after one this names the previous API\
+            \ write."
+          type: string
         created_dts:
-          description: "When this snapshot was taken, ISO 8601 UTC."
+          description: "When the write that replaced this version happened, ISO 8601\
+            \ UTC.  On the current entry, when it was written."
           format: dateTime
           type: string
         current:
           description: True for the value currently stored.
           type: boolean
         edited_by:
-          description: Login of whoever caused this snapshot.
+          description: "Login of whoever made the write that replaced this version.\
+            \  On the current entry, whoever wrote it.  See content_edited_by for\
+            \ who wrote a history entry's content."
           type: string
         hash_sha256:
           description: SHA-256 of this version's CJSON.
@@ -265778,28 +265801,32 @@ components:
     SfvbContainerVersionsResponse:
       example:
         versions:
-        - hash_sha256: hash_sha256
-          current: true
-          owner_object_id: owner_object_id
+        - owner_object_id: owner_object_id
           container_history_oid: 0
+          cjson: cjson
+          hash_sha256: hash_sha256
+          current: true
+          content_created_dts: content_created_dts
           container_name: container_name
+          content_edited_by: content_edited_by
           size: 6
           comment: comment
           created_dts: created_dts
           operation: create
-          cjson: cjson
           edited_by: edited_by
           owner_type: item
-        - hash_sha256: hash_sha256
-          current: true
-          owner_object_id: owner_object_id
+        - owner_object_id: owner_object_id
           container_history_oid: 0
+          cjson: cjson
+          hash_sha256: hash_sha256
+          current: true
+          content_created_dts: content_created_dts
           container_name: container_name
+          content_edited_by: content_edited_by
           size: 6
           comment: comment
           created_dts: created_dts
           operation: create
-          cjson: cjson
           edited_by: edited_by
           owner_type: item
       properties:

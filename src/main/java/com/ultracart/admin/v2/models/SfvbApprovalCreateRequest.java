@@ -81,6 +81,8 @@ public class SfvbApprovalCreateRequest {
     
     FILE_PUT_SCRIPT("file.put_script"),
     
+    FILE_PUT_TEMPLATE("file.put_template"),
+    
     REDIRECT_DELETE_BATCH("redirect.delete_batch"),
     
     EXPERIMENT_START("experiment.start"),
@@ -365,11 +367,11 @@ public class SfvbApprovalCreateRequest {
   }
 
    /**
-   * For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
+   * For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.
    * @return content
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For a file.put_script write, the exact script to be written, at most 256 KB.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.")
+  @ApiModelProperty(value = "For a file.put_script write, the exact script to be written, at most 256 KB, and for a file.put_template write the exact template.  For tracking_html.put, the exact HTML the write will send, at most 256 KB.  UltraCart reviews it and keeps only its hash, so send the same bytes again on the write.  Leave it out for a revert, which names params.version.")
 
   public String getContent() {
     return content;

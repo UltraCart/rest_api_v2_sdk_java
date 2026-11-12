@@ -65,6 +65,14 @@ public class SfvbContainerVersion {
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
   private String containerName;
 
+  public static final String SERIALIZED_NAME_CONTENT_CREATED_DTS = "content_created_dts";
+  @SerializedName(SERIALIZED_NAME_CONTENT_CREATED_DTS)
+  private String contentCreatedDts;
+
+  public static final String SERIALIZED_NAME_CONTENT_EDITED_BY = "content_edited_by";
+  @SerializedName(SERIALIZED_NAME_CONTENT_EDITED_BY)
+  private String contentEditedBy;
+
   public static final String SERIALIZED_NAME_CREATED_DTS = "created_dts";
   @SerializedName(SERIALIZED_NAME_CREATED_DTS)
   private String createdDts;
@@ -292,6 +300,52 @@ public class SfvbContainerVersion {
   }
 
 
+  public SfvbContainerVersion contentCreatedDts(String contentCreatedDts) {
+    
+    this.contentCreatedDts = contentCreatedDts;
+    return this;
+  }
+
+   /**
+   * When this version&#39;s content was written, ISO 8601 UTC.  Same source and limits as content_edited_by.
+   * @return contentCreatedDts
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "When this version's content was written, ISO 8601 UTC.  Same source and limits as content_edited_by.")
+
+  public String getContentCreatedDts() {
+    return contentCreatedDts;
+  }
+
+
+  public void setContentCreatedDts(String contentCreatedDts) {
+    this.contentCreatedDts = contentCreatedDts;
+  }
+
+
+  public SfvbContainerVersion contentEditedBy(String contentEditedBy) {
+    
+    this.contentEditedBy = contentEditedBy;
+    return this;
+  }
+
+   /**
+   * Login of whoever wrote this version&#39;s content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write.
+   * @return contentEditedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Login of whoever wrote this version's content, taken from the write recorded on the next older entry.  Absent on a create entry and on the oldest entry kept, such as a template body that was in place before any history.  Saves made outside this API, in the admin visual builder, are not recorded, so after one this names the previous API write.")
+
+  public String getContentEditedBy() {
+    return contentEditedBy;
+  }
+
+
+  public void setContentEditedBy(String contentEditedBy) {
+    this.contentEditedBy = contentEditedBy;
+  }
+
+
   public SfvbContainerVersion createdDts(String createdDts) {
     
     this.createdDts = createdDts;
@@ -299,11 +353,11 @@ public class SfvbContainerVersion {
   }
 
    /**
-   * When this snapshot was taken, ISO 8601 UTC.
+   * When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written.
    * @return createdDts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When this snapshot was taken, ISO 8601 UTC.")
+  @ApiModelProperty(value = "When the write that replaced this version happened, ISO 8601 UTC.  On the current entry, when it was written.")
 
   public String getCreatedDts() {
     return createdDts;
@@ -345,11 +399,11 @@ public class SfvbContainerVersion {
   }
 
    /**
-   * Login of whoever caused this snapshot.
+   * Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry&#39;s content.
    * @return editedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Login of whoever caused this snapshot.")
+  @ApiModelProperty(value = "Login of whoever made the write that replaced this version.  On the current entry, whoever wrote it.  See content_edited_by for who wrote a history entry's content.")
 
   public String getEditedBy() {
     return editedBy;
@@ -490,6 +544,8 @@ public class SfvbContainerVersion {
         Objects.equals(this.comment, sfvbContainerVersion.comment) &&
         Objects.equals(this.containerHistoryOid, sfvbContainerVersion.containerHistoryOid) &&
         Objects.equals(this.containerName, sfvbContainerVersion.containerName) &&
+        Objects.equals(this.contentCreatedDts, sfvbContainerVersion.contentCreatedDts) &&
+        Objects.equals(this.contentEditedBy, sfvbContainerVersion.contentEditedBy) &&
         Objects.equals(this.createdDts, sfvbContainerVersion.createdDts) &&
         Objects.equals(this.current, sfvbContainerVersion.current) &&
         Objects.equals(this.editedBy, sfvbContainerVersion.editedBy) &&
@@ -502,7 +558,7 @@ public class SfvbContainerVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cjson, comment, containerHistoryOid, containerName, createdDts, current, editedBy, hashSha256, operation, ownerObjectId, ownerType, size);
+    return Objects.hash(cjson, comment, containerHistoryOid, containerName, contentCreatedDts, contentEditedBy, createdDts, current, editedBy, hashSha256, operation, ownerObjectId, ownerType, size);
   }
 
   @Override
@@ -513,6 +569,8 @@ public class SfvbContainerVersion {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    containerHistoryOid: ").append(toIndentedString(containerHistoryOid)).append("\n");
     sb.append("    containerName: ").append(toIndentedString(containerName)).append("\n");
+    sb.append("    contentCreatedDts: ").append(toIndentedString(contentCreatedDts)).append("\n");
+    sb.append("    contentEditedBy: ").append(toIndentedString(contentEditedBy)).append("\n");
     sb.append("    createdDts: ").append(toIndentedString(createdDts)).append("\n");
     sb.append("    current: ").append(toIndentedString(current)).append("\n");
     sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
@@ -547,6 +605,8 @@ public class SfvbContainerVersion {
     openapiFields.add("comment");
     openapiFields.add("container_history_oid");
     openapiFields.add("container_name");
+    openapiFields.add("content_created_dts");
+    openapiFields.add("content_edited_by");
     openapiFields.add("created_dts");
     openapiFields.add("current");
     openapiFields.add("edited_by");
@@ -590,6 +650,12 @@ public class SfvbContainerVersion {
       }
       if (jsonObj.get("container_name") != null && !jsonObj.get("container_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container_name").toString()));
+      }
+      if (jsonObj.get("content_created_dts") != null && !jsonObj.get("content_created_dts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content_created_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_created_dts").toString()));
+      }
+      if (jsonObj.get("content_edited_by") != null && !jsonObj.get("content_edited_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content_edited_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_edited_by").toString()));
       }
       if (jsonObj.get("created_dts") != null && !jsonObj.get("created_dts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_dts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_dts").toString()));
