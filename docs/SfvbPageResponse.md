@@ -17,6 +17,8 @@
 |**multimedia** | [**List&lt;SfvbPageMultimedia&gt;**](SfvbPageMultimedia.md) | The page&#39;s images, including codes a template declares but nothing has attached yet.  These are what the pageimage element renders - the default image when pageImageCode is empty, otherwise the image with that code.  The default image comes first. |  [optional] |
 |**pageType** | **String** | S for a static page, D for a dynamic one. |  [optional] |
 |**path** | **String** | The page path, normalized to begin and end with a slash. |  [optional] |
+|**redirect** | [**SfvbRedirect**](SfvbRedirect.md) |  |  [optional] |
+|**redirectWarnings** | [**List&lt;SfvbErrorDetail&gt;**](SfvbErrorDetail.md) | Findings on that redirect that did not block it, such as a chain.  Left out when there are none. |  [optional] |
 |**reviewTemplate** | **String** | Template that renders the item review pages under this page.  Omitted when not set. |  [optional] |
 |**sortOrder** | **Integer** | Position among its siblings when the parent sorts child pages by a custom order.  Omitted when not set. |  [optional] |
 |**sortOrderChildGroups** | **String** | How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom. |  [optional] |

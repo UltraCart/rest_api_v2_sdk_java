@@ -20,8 +20,10 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbErrorDetail;
 import com.ultracart.admin.v2.models.SfvbPageAttribute;
 import com.ultracart.admin.v2.models.SfvbPageMultimedia;
+import com.ultracart.admin.v2.models.SfvbRedirect;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -92,6 +94,14 @@ public class SfvbPageResponse {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_REDIRECT = "redirect";
+  @SerializedName(SERIALIZED_NAME_REDIRECT)
+  private SfvbRedirect redirect;
+
+  public static final String SERIALIZED_NAME_REDIRECT_WARNINGS = "redirect_warnings";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_WARNINGS)
+  private List<SfvbErrorDetail> redirectWarnings = null;
 
   public static final String SERIALIZED_NAME_REVIEW_TEMPLATE = "review_template";
   @SerializedName(SERIALIZED_NAME_REVIEW_TEMPLATE)
@@ -370,6 +380,60 @@ public class SfvbPageResponse {
   }
 
 
+  public SfvbPageResponse redirect(SfvbRedirect redirect) {
+    
+    this.redirect = redirect;
+    return this;
+  }
+
+   /**
+   * Get redirect
+   * @return redirect
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbRedirect getRedirect() {
+    return redirect;
+  }
+
+
+  public void setRedirect(SfvbRedirect redirect) {
+    this.redirect = redirect;
+  }
+
+
+  public SfvbPageResponse redirectWarnings(List<SfvbErrorDetail> redirectWarnings) {
+    
+    this.redirectWarnings = redirectWarnings;
+    return this;
+  }
+
+  public SfvbPageResponse addRedirectWarningsItem(SfvbErrorDetail redirectWarningsItem) {
+    if (this.redirectWarnings == null) {
+      this.redirectWarnings = new ArrayList<>();
+    }
+    this.redirectWarnings.add(redirectWarningsItem);
+    return this;
+  }
+
+   /**
+   * Findings on that redirect that did not block it, such as a chain.  Left out when there are none.
+   * @return redirectWarnings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Findings on that redirect that did not block it, such as a chain.  Left out when there are none.")
+
+  public List<SfvbErrorDetail> getRedirectWarnings() {
+    return redirectWarnings;
+  }
+
+
+  public void setRedirectWarnings(List<SfvbErrorDetail> redirectWarnings) {
+    this.redirectWarnings = redirectWarnings;
+  }
+
+
   public SfvbPageResponse reviewTemplate(String reviewTemplate) {
     
     this.reviewTemplate = reviewTemplate;
@@ -551,6 +615,8 @@ public class SfvbPageResponse {
         Objects.equals(this.multimedia, sfvbPageResponse.multimedia) &&
         Objects.equals(this.pageType, sfvbPageResponse.pageType) &&
         Objects.equals(this.path, sfvbPageResponse.path) &&
+        Objects.equals(this.redirect, sfvbPageResponse.redirect) &&
+        Objects.equals(this.redirectWarnings, sfvbPageResponse.redirectWarnings) &&
         Objects.equals(this.reviewTemplate, sfvbPageResponse.reviewTemplate) &&
         Objects.equals(this.sortOrder, sfvbPageResponse.sortOrder) &&
         Objects.equals(this.sortOrderChildGroups, sfvbPageResponse.sortOrderChildGroups) &&
@@ -562,7 +628,7 @@ public class SfvbPageResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, multimedia, pageType, path, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
+    return Objects.hash(attributes, blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, multimedia, pageType, path, redirect, redirectWarnings, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
   }
 
   @Override
@@ -579,6 +645,8 @@ public class SfvbPageResponse {
     sb.append("    multimedia: ").append(toIndentedString(multimedia)).append("\n");
     sb.append("    pageType: ").append(toIndentedString(pageType)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    redirect: ").append(toIndentedString(redirect)).append("\n");
+    sb.append("    redirectWarnings: ").append(toIndentedString(redirectWarnings)).append("\n");
     sb.append("    reviewTemplate: ").append(toIndentedString(reviewTemplate)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    sortOrderChildGroups: ").append(toIndentedString(sortOrderChildGroups)).append("\n");
@@ -618,6 +686,8 @@ public class SfvbPageResponse {
     openapiFields.add("multimedia");
     openapiFields.add("page_type");
     openapiFields.add("path");
+    openapiFields.add("redirect");
+    openapiFields.add("redirect_warnings");
     openapiFields.add("review_template");
     openapiFields.add("sort_order");
     openapiFields.add("sort_order_child_groups");
@@ -693,6 +763,22 @@ public class SfvbPageResponse {
       }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      // validate the optional field `redirect`
+      if (jsonObj.getAsJsonObject("redirect") != null) {
+        SfvbRedirect.validateJsonObject(jsonObj.getAsJsonObject("redirect"));
+      }
+      JsonArray jsonArrayredirectWarnings = jsonObj.getAsJsonArray("redirect_warnings");
+      if (jsonArrayredirectWarnings != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("redirect_warnings").isJsonArray()) {
+          throw new IllegalArgumentException(String.format("Expected the field `redirect_warnings` to be an array in the JSON string but got `%s`", jsonObj.get("redirect_warnings").toString()));
+        }
+
+        // validate the optional field `redirect_warnings` (array)
+        for (int i = 0; i < jsonArrayredirectWarnings.size(); i++) {
+          SfvbErrorDetail.validateJsonObject(jsonArrayredirectWarnings.get(i).getAsJsonObject());
+        };
       }
       if (jsonObj.get("review_template") != null && !jsonObj.get("review_template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `review_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("review_template").toString()));

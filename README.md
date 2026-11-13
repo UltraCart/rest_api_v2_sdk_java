@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.252</version>
+    <version>4.1.253</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.252"
+     implementation "com.ultracart:rest-sdk:4.1.253"
   }
 ```
 
@@ -633,6 +633,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbRecordingSettings**](docs/SfvbApi.md#getSfvbRecordingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings
 *SfvbApi* | [**getSfvbRedirect**](docs/SfvbApi.md#getSfvbRedirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Read one redirect rule
 *SfvbApi* | [**getSfvbRedirects**](docs/SfvbApi.md#getSfvbRedirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules
+*SfvbApi* | [**getSfvbSearchFacets**](docs/SfvbApi.md#getSfvbSearchFacets) | **GET** /sfvb/storefronts/{storefront_oid}/search/facets | Read the storefront&#39;s faceted search configuration
 *SfvbApi* | [**getSfvbSecretKinds**](docs/SfvbApi.md#getSfvbSecretKinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects
 *SfvbApi* | [**getSfvbSecretRequest**](docs/SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request
 *SfvbApi* | [**getSfvbSecretRequests**](docs/SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests
@@ -706,6 +707,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**listSfvbThemes**](docs/SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront
 *SfvbApi* | [**listSfvbUpsellOffers**](docs/SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers
 *SfvbApi* | [**listSfvbUpsellPaths**](docs/SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths
+*SfvbApi* | [**moveSfvbPage**](docs/SfvbApi.md#moveSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/move | Move or rename a page
 *SfvbApi* | [**moveSfvbSequenceStep**](docs/SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step
 *SfvbApi* | [**moveSfvbUpsellPath**](docs/SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path
 *SfvbApi* | [**proofSfvbSequencePostcard**](docs/SfvbApi.md#proofSfvbSequencePostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it
@@ -783,6 +785,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**updateSfvbItemDefaultPage**](docs/SfvbApi.md#updateSfvbItemDefaultPage) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page | Move items&#39; default (canonical) pages
 *SfvbApi* | [**updateSfvbLibraryEntry**](docs/SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft
 *SfvbApi* | [**updateSfvbRedirect**](docs/SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule
+*SfvbApi* | [**updateSfvbSearchFacets**](docs/SfvbApi.md#updateSfvbSearchFacets) | **PUT** /sfvb/storefronts/{storefront_oid}/search/facets | Change the storefront&#39;s faceted search configuration
 *SfvbApi* | [**updateSfvbSequenceStep**](docs/SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter
 *SfvbApi* | [**updateSfvbSiteSeo**](docs/SfvbApi.md#updateSfvbSiteSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings
 *SfvbApi* | [**updateSfvbSmartAttribution**](docs/SfvbApi.md#updateSfvbSmartAttribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration
@@ -2272,6 +2275,8 @@ Class | Method | HTTP request | Description
  - [SfvbPageItemsRemoveRequest](docs/SfvbPageItemsRemoveRequest.md)
  - [SfvbPageItemsResponse](docs/SfvbPageItemsResponse.md)
  - [SfvbPageListResponse](docs/SfvbPageListResponse.md)
+ - [SfvbPageMoveRequest](docs/SfvbPageMoveRequest.md)
+ - [SfvbPageMoveResponse](docs/SfvbPageMoveResponse.md)
  - [SfvbPageMultimedia](docs/SfvbPageMultimedia.md)
  - [SfvbPageMultimediaRequest](docs/SfvbPageMultimediaRequest.md)
  - [SfvbPageRefreshRequest](docs/SfvbPageRefreshRequest.md)
@@ -2320,6 +2325,10 @@ Class | Method | HTTP request | Description
  - [SfvbRenderRequest](docs/SfvbRenderRequest.md)
  - [SfvbRenderResponse](docs/SfvbRenderResponse.md)
  - [SfvbRobotsTxt](docs/SfvbRobotsTxt.md)
+ - [SfvbSearchFacet](docs/SfvbSearchFacet.md)
+ - [SfvbSearchFacetUpdate](docs/SfvbSearchFacetUpdate.md)
+ - [SfvbSearchFacetsRequest](docs/SfvbSearchFacetsRequest.md)
+ - [SfvbSearchFacetsResponse](docs/SfvbSearchFacetsResponse.md)
  - [SfvbSecretHandle](docs/SfvbSecretHandle.md)
  - [SfvbSecretKind](docs/SfvbSecretKind.md)
  - [SfvbSecretKindsResponse](docs/SfvbSecretKindsResponse.md)
@@ -2610,6 +2619,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.253 | 11/13/2026 | sfvb internal testing |
 | 4.1.252 | 11/12/2026 | sfvb internal testing |
 | 4.1.251 | 11/12/2026 | sfvb internal test |
 | 4.1.250 | 11/12/2026 | sfvb internal testing |

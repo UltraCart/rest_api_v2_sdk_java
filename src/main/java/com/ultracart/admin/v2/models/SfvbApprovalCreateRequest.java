@@ -137,7 +137,9 @@ public class SfvbApprovalCreateRequest {
     
     POSTCARD_TEST_MAIL("postcard.test_mail"),
     
-    FLOW_BACKFILL("flow.backfill");
+    FLOW_BACKFILL("flow.backfill"),
+    
+    PAGE_MOVE("page.move");
 
     private String value;
 

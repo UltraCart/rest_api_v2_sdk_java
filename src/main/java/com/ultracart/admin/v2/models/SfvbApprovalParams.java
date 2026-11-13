@@ -95,9 +95,21 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_MERCHANT_ITEM_OID)
   private Integer merchantItemOid;
 
+  public static final String SERIALIZED_NAME_NEW_PATH = "new_path";
+  @SerializedName(SERIALIZED_NAME_NEW_PATH)
+  private String newPath;
+
+  public static final String SERIALIZED_NAME_PAGES_MOVED = "pages_moved";
+  @SerializedName(SERIALIZED_NAME_PAGES_MOVED)
+  private Integer pagesMoved;
+
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
+  public static final String SERIALIZED_NAME_REDIRECT_OLD_URL = "redirect_old_url";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_OLD_URL)
+  private String redirectOldUrl;
 
   public static final String SERIALIZED_NAME_REQUEST_SHA256 = "request_sha256";
   @SerializedName(SERIALIZED_NAME_REQUEST_SHA256)
@@ -466,6 +478,52 @@ public class SfvbApprovalParams {
   }
 
 
+  public SfvbApprovalParams newPath(String newPath) {
+    
+    this.newPath = newPath;
+    return this;
+  }
+
+   /**
+   * For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.
+   * @return newPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For page.move, where the page goes, exactly as the move will send it.  path is the page as it is now.")
+
+  public String getNewPath() {
+    return newPath;
+  }
+
+
+  public void setNewPath(String newPath) {
+    this.newPath = newPath;
+  }
+
+
+  public SfvbApprovalParams pagesMoved(Integer pagesMoved) {
+    
+    this.pagesMoved = pagesMoved;
+    return this;
+  }
+
+   /**
+   * For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.
+   * @return pagesMoved
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For page.move, how many pages move, the page itself included, when it was requested.  Set by the server.")
+
+  public Integer getPagesMoved() {
+    return pagesMoved;
+  }
+
+
+  public void setPagesMoved(Integer pagesMoved) {
+    this.pagesMoved = pagesMoved;
+  }
+
+
   public SfvbApprovalParams path(String path) {
     
     this.path = path;
@@ -486,6 +544,29 @@ public class SfvbApprovalParams {
 
   public void setPath(String path) {
     this.path = path;
+  }
+
+
+  public SfvbApprovalParams redirectOldUrl(String redirectOldUrl) {
+    
+    this.redirectOldUrl = redirectOldUrl;
+    return this;
+  }
+
+   /**
+   * For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.
+   * @return redirectOldUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For page.move, 301 when the move also redirects the old addresses, as the move will send it.  Left out or none for no redirect.")
+
+  public String getRedirectOldUrl() {
+    return redirectOldUrl;
+  }
+
+
+  public void setRedirectOldUrl(String redirectOldUrl) {
+    this.redirectOldUrl = redirectOldUrl;
   }
 
 
@@ -832,7 +913,10 @@ public class SfvbApprovalParams {
         Objects.equals(this.experimentOid, sfvbApprovalParams.experimentOid) &&
         Objects.equals(this.itemCount, sfvbApprovalParams.itemCount) &&
         Objects.equals(this.merchantItemOid, sfvbApprovalParams.merchantItemOid) &&
+        Objects.equals(this.newPath, sfvbApprovalParams.newPath) &&
+        Objects.equals(this.pagesMoved, sfvbApprovalParams.pagesMoved) &&
         Objects.equals(this.path, sfvbApprovalParams.path) &&
+        Objects.equals(this.redirectOldUrl, sfvbApprovalParams.redirectOldUrl) &&
         Objects.equals(this.requestSha256, sfvbApprovalParams.requestSha256) &&
         Objects.equals(this.rowsSha256, sfvbApprovalParams.rowsSha256) &&
         Objects.equals(this.ruleCount, sfvbApprovalParams.ruleCount) &&
@@ -851,7 +935,7 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateNetworkOid, afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, path, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, trackingProvider, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(affiliateNetworkOid, afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, newPath, pagesMoved, path, redirectOldUrl, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, trackingProvider, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
@@ -869,7 +953,10 @@ public class SfvbApprovalParams {
     sb.append("    experimentOid: ").append(toIndentedString(experimentOid)).append("\n");
     sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
     sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
+    sb.append("    newPath: ").append(toIndentedString(newPath)).append("\n");
+    sb.append("    pagesMoved: ").append(toIndentedString(pagesMoved)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    redirectOldUrl: ").append(toIndentedString(redirectOldUrl)).append("\n");
     sb.append("    requestSha256: ").append(toIndentedString(requestSha256)).append("\n");
     sb.append("    rowsSha256: ").append(toIndentedString(rowsSha256)).append("\n");
     sb.append("    ruleCount: ").append(toIndentedString(ruleCount)).append("\n");
@@ -917,7 +1004,10 @@ public class SfvbApprovalParams {
     openapiFields.add("experiment_oid");
     openapiFields.add("item_count");
     openapiFields.add("merchant_item_oid");
+    openapiFields.add("new_path");
+    openapiFields.add("pages_moved");
     openapiFields.add("path");
+    openapiFields.add("redirect_old_url");
     openapiFields.add("request_sha256");
     openapiFields.add("rows_sha256");
     openapiFields.add("rule_count");
@@ -978,8 +1068,14 @@ public class SfvbApprovalParams {
       if (jsonObj.get("esp_twilio_uuid") != null && !jsonObj.get("esp_twilio_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `esp_twilio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("esp_twilio_uuid").toString()));
       }
+      if (jsonObj.get("new_path") != null && !jsonObj.get("new_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `new_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_path").toString()));
+      }
       if (jsonObj.get("path") != null && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      if (jsonObj.get("redirect_old_url") != null && !jsonObj.get("redirect_old_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `redirect_old_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_old_url").toString()));
       }
       if (jsonObj.get("request_sha256") != null && !jsonObj.get("request_sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_sha256").toString()));

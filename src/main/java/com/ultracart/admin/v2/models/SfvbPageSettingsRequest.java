@@ -77,6 +77,63 @@ public class SfvbPageSettingsRequest {
   @SerializedName(SERIALIZED_NAME_PAGE_TYPE)
   private String pageType;
 
+  public static final String SERIALIZED_NAME_REDIRECT_NOTE = "redirect_note";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_NOTE)
+  private String redirectNote;
+
+  /**
+   * 301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.
+   */
+  @JsonAdapter(RedirectOldUrlEnum.Adapter.class)
+  public enum RedirectOldUrlEnum {
+    _301("301");
+
+    private String value;
+
+    RedirectOldUrlEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RedirectOldUrlEnum fromValue(String value) {
+      for (RedirectOldUrlEnum b : RedirectOldUrlEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RedirectOldUrlEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RedirectOldUrlEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RedirectOldUrlEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RedirectOldUrlEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_REDIRECT_OLD_URL = "redirect_old_url";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_OLD_URL)
+  private RedirectOldUrlEnum redirectOldUrl;
+
+  public static final String SERIALIZED_NAME_REDIRECT_TARGET = "redirect_target";
+  @SerializedName(SERIALIZED_NAME_REDIRECT_TARGET)
+  private String redirectTarget;
+
   public static final String SERIALIZED_NAME_REVIEW_TEMPLATE = "review_template";
   @SerializedName(SERIALIZED_NAME_REVIEW_TEMPLATE)
   private String reviewTemplate;
@@ -269,6 +326,75 @@ public class SfvbPageSettingsRequest {
   }
 
 
+  public SfvbPageSettingsRequest redirectNote(String redirectNote) {
+    
+    this.redirectNote = redirectNote;
+    return this;
+  }
+
+   /**
+   * The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.
+   * @return redirectNote
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out.")
+
+  public String getRedirectNote() {
+    return redirectNote;
+  }
+
+
+  public void setRedirectNote(String redirectNote) {
+    this.redirectNote = redirectNote;
+  }
+
+
+  public SfvbPageSettingsRequest redirectOldUrl(RedirectOldUrlEnum redirectOldUrl) {
+    
+    this.redirectOldUrl = redirectOldUrl;
+    return this;
+  }
+
+   /**
+   * 301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.
+   * @return redirectOldUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "301 to redirect the page's address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither.")
+
+  public RedirectOldUrlEnum getRedirectOldUrl() {
+    return redirectOldUrl;
+  }
+
+
+  public void setRedirectOldUrl(RedirectOldUrlEnum redirectOldUrl) {
+    this.redirectOldUrl = redirectOldUrl;
+  }
+
+
+  public SfvbPageSettingsRequest redirectTarget(String redirectTarget) {
+    
+    this.redirectTarget = redirectTarget;
+    return this;
+  }
+
+   /**
+   * Where the hidden page&#39;s address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.
+   * @return redirectTarget
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Where the hidden page's address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule.")
+
+  public String getRedirectTarget() {
+    return redirectTarget;
+  }
+
+
+  public void setRedirectTarget(String redirectTarget) {
+    this.redirectTarget = redirectTarget;
+  }
+
+
   public SfvbPageSettingsRequest reviewTemplate(String reviewTemplate) {
     
     this.reviewTemplate = reviewTemplate;
@@ -447,6 +573,9 @@ public class SfvbPageSettingsRequest {
         Objects.equals(this.itemTemplate, sfvbPageSettingsRequest.itemTemplate) &&
         Objects.equals(this.itemsPerPage, sfvbPageSettingsRequest.itemsPerPage) &&
         Objects.equals(this.pageType, sfvbPageSettingsRequest.pageType) &&
+        Objects.equals(this.redirectNote, sfvbPageSettingsRequest.redirectNote) &&
+        Objects.equals(this.redirectOldUrl, sfvbPageSettingsRequest.redirectOldUrl) &&
+        Objects.equals(this.redirectTarget, sfvbPageSettingsRequest.redirectTarget) &&
         Objects.equals(this.reviewTemplate, sfvbPageSettingsRequest.reviewTemplate) &&
         Objects.equals(this.sortOrder, sfvbPageSettingsRequest.sortOrder) &&
         Objects.equals(this.sortOrderChildGroups, sfvbPageSettingsRequest.sortOrderChildGroups) &&
@@ -458,7 +587,7 @@ public class SfvbPageSettingsRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, pageType, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
+    return Objects.hash(blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, pageType, redirectNote, redirectOldUrl, redirectTarget, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
   }
 
   @Override
@@ -472,6 +601,9 @@ public class SfvbPageSettingsRequest {
     sb.append("    itemTemplate: ").append(toIndentedString(itemTemplate)).append("\n");
     sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
     sb.append("    pageType: ").append(toIndentedString(pageType)).append("\n");
+    sb.append("    redirectNote: ").append(toIndentedString(redirectNote)).append("\n");
+    sb.append("    redirectOldUrl: ").append(toIndentedString(redirectOldUrl)).append("\n");
+    sb.append("    redirectTarget: ").append(toIndentedString(redirectTarget)).append("\n");
     sb.append("    reviewTemplate: ").append(toIndentedString(reviewTemplate)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    sortOrderChildGroups: ").append(toIndentedString(sortOrderChildGroups)).append("\n");
@@ -508,6 +640,9 @@ public class SfvbPageSettingsRequest {
     openapiFields.add("item_template");
     openapiFields.add("items_per_page");
     openapiFields.add("page_type");
+    openapiFields.add("redirect_note");
+    openapiFields.add("redirect_old_url");
+    openapiFields.add("redirect_target");
     openapiFields.add("review_template");
     openapiFields.add("sort_order");
     openapiFields.add("sort_order_child_groups");
@@ -556,6 +691,15 @@ public class SfvbPageSettingsRequest {
       }
       if (jsonObj.get("page_type") != null && !jsonObj.get("page_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `page_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("page_type").toString()));
+      }
+      if (jsonObj.get("redirect_note") != null && !jsonObj.get("redirect_note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `redirect_note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_note").toString()));
+      }
+      if (jsonObj.get("redirect_old_url") != null && !jsonObj.get("redirect_old_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `redirect_old_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_old_url").toString()));
+      }
+      if (jsonObj.get("redirect_target") != null && !jsonObj.get("redirect_target").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `redirect_target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirect_target").toString()));
       }
       if (jsonObj.get("review_template") != null && !jsonObj.get("review_template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `review_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("review_template").toString()));

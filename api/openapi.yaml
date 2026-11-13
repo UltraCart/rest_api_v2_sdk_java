@@ -9632,8 +9632,9 @@ paths:
         name: container_name
         schema:
           type: string
-      - description: "CJSON hash of the container being reverted.  Required; 428 when\
-          \ absent, 412 when stale."
+      - description: "CJSON hash of the container being reverted.  Required while\
+          \ the container holds content; 428 when absent, 412 when stale.  Leave it\
+          \ out when the container has been removed, since there is nothing to match."
         in: header
         name: If-Match
         required: true
@@ -22085,6 +22086,144 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/pages/move:
+    post:
+      description: "Moves a page to a new path - a new parent, a new last part, or\
+        \ both, so a rename is a move under the same parent.  Its sub-pages, their\
+        \ items and the page folder with its body move with it.  Refused for the root\
+        \ page, a path inside the page itself, a path where a page or folder already\
+        \ exists, a parent that does not exist, and a page whose folder holds a started\
+        \ experiment.  With redirect_old_url 301 the same call adds one pattern redirect\
+        \ from the old path to the new one, so every old address, sub-pages and items\
+        \ included, keeps working; the redirect is checked before anything moves,\
+        \ and if it is refused after the move the move is undone, so the page moves\
+        \ with its redirect or not at all.  dry_run runs every check and reports what\
+        \ would move.  Needs sfvb_publish, plus the approval of the person who signed\
+        \ in the CLI, as an approved page.move request for exactly this path, new\
+        \ path and redirect in the Approval-Id header.\n"
+      operationId: moveSfvbPage
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "The approval_id of an approved page.move request for exactly\
+          \ this path, new path and redirect.  Required unless dry_run.  See POST\
+          \ /sfvb/approvals."
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbPageMoveRequest'
+        description: The page and where it goes
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbPageMoveResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Move or rename a page
+      tags:
+      - sfvb
+      x-codegen-request-body-name: page_move_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/pages/multimedia:
     delete:
       description: |
@@ -22566,7 +22705,9 @@ paths:
         \ items, selectors and permissions are left exactly as they are.  Fields that\
         \ would move or rename the page, and fields this endpoint does not know, are\
         \ refused.  The root page cannot be hidden.  Always needs sfvb_publish, because\
-        \ page settings are live.\n"
+        \ page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target\
+        \ also adds a 301 redirect from its address, checked first like any redirect\
+        \ rule.  The page is hidden and the rule added together, or neither.\n"
       operationId: putSfvbPageSettings
       parameters:
       - in: path
@@ -24964,6 +25105,199 @@ paths:
       tags:
       - sfvb
       x-codegen-request-body-name: redirect_request
+      x-content-type: application/json; charset=UTF-8
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/search/facets:
+    get:
+      description: "Every facet the storefront can offer shoppers - the standard ones\
+        \ and one per item attribute on the storefront - with its heading and whether\
+        \ it is on, in the fixed order shoppers see them, and the Cost facet's price\
+        \ breaks.  The same settings as the store admin's Faceted Search Results.\
+        \  Send hash_sha256 as If-Match to change them.\n"
+      operationId: getSfvbSearchFacets
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSearchFacetsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read the storefront's faceted search configuration
+      tags:
+      - sfvb
+      x-accepts: application/json
+    put:
+      description: "A partial update.  Turn facets on or off, change their headings,\
+        \ and replace the Cost facet's price breaks; facets left out and every other\
+        \ search setting are unchanged.  Facets cannot be reordered - the order is\
+        \ fixed.  Turning facets on or off, or changing the price breaks, starts a\
+        \ search index rebuild, reported in rebuild.  dry_run checks the change and\
+        \ reports it, and the rebuild it would start, without saving.  Needs sfvb_publish,\
+        \ because facets show on every search and category page at once.\n"
+      operationId: updateSfvbSearchFacets
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - description: "hash_sha256 from the last read.  Required unless dry_run; 428\
+          \ when absent, 412 when stale."
+        in: header
+        name: If-Match
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SfvbSearchFacetsRequest'
+        description: The facets and price breaks to change
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbSearchFacetsResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "412":
+          $ref: '#/components/responses/412'
+        "428":
+          $ref: '#/components/responses/428'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Change the storefront's faceted search configuration
+      tags:
+      - sfvb
+      x-codegen-request-body-name: search_facets_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/segments:
@@ -260986,11 +261320,12 @@ components:
         interval_seconds: 6
         created_at: created_at
         description: description
-        storefront_oid: 1
+        storefront_oid: 6
         delegate_name: delegate_name
         approval_url: approval_url
         params:
           esp_twilio_uuid: esp_twilio_uuid
+          pages_moved: 3
           affiliate_network_oid: 5
           slot: slot
           after_step_uuid: after_step_uuid
@@ -260999,8 +261334,8 @@ components:
           experiment_oid: 2
           segment_uuid: segment_uuid
           branch_step_uuid: branch_step_uuid
-          rule_count: 3
-          upsell_oid: 2
+          rule_count: 2
+          upsell_oid: 4
           item_count: 7
           attribute_names:
           - attribute_names
@@ -261009,14 +261344,16 @@ components:
           step_uuid: step_uuid
           content_sha256: content_sha256
           tracking_provider: tracking_provider
-          version: 4
+          version: 7
           request_sha256: request_sha256
           blog_post_oid: 5
+          new_path: new_path
           sequence_uuid: sequence_uuid
           upsell_kind: offer
+          redirect_old_url: redirect_old_url
           domain: domain
           rows_sha256: rows_sha256
-          winner_variation_number: 7
+          winner_variation_number: 1
           merchant_item_oid: 9
         fresh_code_required: true
         outcome_code: outcome_code
@@ -261312,6 +261649,7 @@ components:
           dry_run: true
         params:
           esp_twilio_uuid: esp_twilio_uuid
+          pages_moved: 3
           affiliate_network_oid: 5
           slot: slot
           after_step_uuid: after_step_uuid
@@ -261320,8 +261658,8 @@ components:
           experiment_oid: 2
           segment_uuid: segment_uuid
           branch_step_uuid: branch_step_uuid
-          rule_count: 3
-          upsell_oid: 2
+          rule_count: 2
+          upsell_oid: 4
           item_count: 7
           attribute_names:
           - attribute_names
@@ -261330,14 +261668,16 @@ components:
           step_uuid: step_uuid
           content_sha256: content_sha256
           tracking_provider: tracking_provider
-          version: 4
+          version: 7
           request_sha256: request_sha256
           blog_post_oid: 5
+          new_path: new_path
           sequence_uuid: sequence_uuid
           upsell_kind: offer
+          redirect_old_url: redirect_old_url
           domain: domain
           rows_sha256: rows_sha256
-          winner_variation_number: 7
+          winner_variation_number: 1
           merchant_item_oid: 9
         smart_attribution:
           mode: mode
@@ -261500,6 +261840,7 @@ components:
           - comms_list.import
           - postcard.test_mail
           - flow.backfill
+          - page.move
           type: string
         affiliate_network:
           $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
@@ -261577,6 +261918,7 @@ components:
     SfvbApprovalParams:
       example:
         esp_twilio_uuid: esp_twilio_uuid
+        pages_moved: 3
         affiliate_network_oid: 5
         slot: slot
         after_step_uuid: after_step_uuid
@@ -261585,8 +261927,8 @@ components:
         experiment_oid: 2
         segment_uuid: segment_uuid
         branch_step_uuid: branch_step_uuid
-        rule_count: 3
-        upsell_oid: 2
+        rule_count: 2
+        upsell_oid: 4
         item_count: 7
         attribute_names:
         - attribute_names
@@ -261595,14 +261937,16 @@ components:
         step_uuid: step_uuid
         content_sha256: content_sha256
         tracking_provider: tracking_provider
-        version: 4
+        version: 7
         request_sha256: request_sha256
         blog_post_oid: 5
+        new_path: new_path
         sequence_uuid: sequence_uuid
         upsell_kind: offer
+        redirect_old_url: redirect_old_url
         domain: domain
         rows_sha256: rows_sha256
-        winner_variation_number: 7
+        winner_variation_number: 1
         merchant_item_oid: 9
       properties:
         affiliate_network_oid:
@@ -261655,10 +261999,23 @@ components:
           description: "For item.pricing, the item whose pricing changes."
           format: int32
           type: integer
+        new_path:
+          description: "For page.move, where the page goes, exactly as the move will\
+            \ send it.  path is the page as it is now."
+          type: string
+        pages_moved:
+          description: "For page.move, how many pages move, the page itself included,\
+            \ when it was requested.  Set by the server."
+          format: int32
+          type: integer
         path:
           description: "The file path, for file.delete, file.put_script and file.put_template,\
             \ or the page path for experiment.start of a page experiment.  Exactly\
             \ as the gated call will send it."
+          type: string
+        redirect_old_url:
+          description: "For page.move, 301 when the move also redirects the old addresses,\
+            \ as the move will send it.  Left out or none for no redirect."
           type: string
         request_sha256:
           description: "For experiment.start of a url experiment, the hash of the\
@@ -261840,11 +262197,12 @@ components:
           interval_seconds: 6
           created_at: created_at
           description: description
-          storefront_oid: 1
+          storefront_oid: 6
           delegate_name: delegate_name
           approval_url: approval_url
           params:
             esp_twilio_uuid: esp_twilio_uuid
+            pages_moved: 3
             affiliate_network_oid: 5
             slot: slot
             after_step_uuid: after_step_uuid
@@ -261853,8 +262211,8 @@ components:
             experiment_oid: 2
             segment_uuid: segment_uuid
             branch_step_uuid: branch_step_uuid
-            rule_count: 3
-            upsell_oid: 2
+            rule_count: 2
+            upsell_oid: 4
             item_count: 7
             attribute_names:
             - attribute_names
@@ -261863,14 +262221,16 @@ components:
             step_uuid: step_uuid
             content_sha256: content_sha256
             tracking_provider: tracking_provider
-            version: 4
+            version: 7
             request_sha256: request_sha256
             blog_post_oid: 5
+            new_path: new_path
             sequence_uuid: sequence_uuid
             upsell_kind: offer
+            redirect_old_url: redirect_old_url
             domain: domain
             rows_sha256: rows_sha256
-            winner_variation_number: 7
+            winner_variation_number: 1
             merchant_item_oid: 9
           fresh_code_required: true
           outcome_code: outcome_code
@@ -261917,11 +262277,12 @@ components:
           interval_seconds: 6
           created_at: created_at
           description: description
-          storefront_oid: 1
+          storefront_oid: 6
           delegate_name: delegate_name
           approval_url: approval_url
           params:
             esp_twilio_uuid: esp_twilio_uuid
+            pages_moved: 3
             affiliate_network_oid: 5
             slot: slot
             after_step_uuid: after_step_uuid
@@ -261930,8 +262291,8 @@ components:
             experiment_oid: 2
             segment_uuid: segment_uuid
             branch_step_uuid: branch_step_uuid
-            rule_count: 3
-            upsell_oid: 2
+            rule_count: 2
+            upsell_oid: 4
             item_count: 7
             attribute_names:
             - attribute_names
@@ -261940,14 +262301,16 @@ components:
             step_uuid: step_uuid
             content_sha256: content_sha256
             tracking_provider: tracking_provider
-            version: 4
+            version: 7
             request_sha256: request_sha256
             blog_post_oid: 5
+            new_path: new_path
             sequence_uuid: sequence_uuid
             upsell_kind: offer
+            redirect_old_url: redirect_old_url
             domain: domain
             rows_sha256: rows_sha256
-            winner_variation_number: 7
+            winner_variation_number: 1
             merchant_item_oid: 9
           fresh_code_required: true
           outcome_code: outcome_code
@@ -272861,6 +273224,198 @@ components:
             $ref: '#/components/schemas/SfvbPageSummary'
           type: array
       type: object
+    SfvbPageMoveRequest:
+      example:
+        path: path
+        new_path: new_path
+        redirect_old_url: "301"
+        redirect_note: redirect_note
+        dry_run: true
+      properties:
+        dry_run:
+          description: "True to run every check and report what would move, without\
+            \ moving anything or needing an approval."
+          type: boolean
+        new_path:
+          description: "Where the page goes, for example /lp/summer-sale/ or /sale/spring/.\
+            \  Its parent page must exist, and nothing may be at this path yet."
+          type: string
+        path:
+          description: "The page to move, for example /lp/spring-sale/."
+          type: string
+        redirect_note:
+          description: The note on that redirect rule.  Up to 500 characters.  A note
+            naming the move is used when left out.
+          type: string
+        redirect_old_url:
+          description: "301 to add one pattern redirect from the old path, sub-pages\
+            \ and items included, to the new one in the same call.  Leave it out to\
+            \ add none, and the old addresses answer 404."
+          enum:
+          - "301"
+          type: string
+      type: object
+    SfvbPageMoveResponse:
+      example:
+        redirect:
+          note: note
+          exclude_from_sitemap: true
+          source: source
+          type: type
+          pinned_page_path: pinned_page_path
+          redirect_id: 6
+          target: target
+          hash_sha256: hash_sha256
+          modified_dts: modified_dts
+          target_invalid_message: target_invalid_message
+          target_invalid: true
+          created_dts: created_dts
+          status: status
+        path: path
+        new_path: new_path
+        pages_moved: 0
+        warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        dry_run: true
+        page:
+          redirect:
+            note: note
+            exclude_from_sitemap: true
+            source: source
+            type: type
+            pinned_page_path: pinned_page_path
+            redirect_id: 6
+            target: target
+            hash_sha256: hash_sha256
+            modified_dts: modified_dts
+            target_invalid_message: target_invalid_message
+            target_invalid: true
+            created_dts: created_dts
+            status: status
+          redirect_warnings:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          visible: true
+          exclude_from_sitemap: true
+          page_type: page_type
+          blog_post_template: blog_post_template
+          description: description
+          sort_order_child_groups: sort_order_child_groups
+          title: title
+          sort_order_child_items: sort_order_child_items
+          items_per_page: 0
+          path: path
+          multimedia:
+          - declared: true
+            public_url: public_url
+            default: true
+            code: code
+            filename: filename
+            description: description
+            dimensions: dimensions
+          - declared: true
+            public_url: public_url
+            default: true
+            code: code
+            filename: filename
+            description: description
+            dimensions: dimensions
+          review_template: review_template
+          group_template: group_template
+          attributes:
+          - undeclared: true
+            used_by_current_theme: true
+            deprecated: true
+            name: name
+            type: string
+            used_by: used_by
+            value: value
+            writable: true
+          - undeclared: true
+            used_by_current_theme: true
+            deprecated: true
+            name: name
+            type: string
+            used_by: used_by
+            value: value
+            writable: true
+          item_template: item_template
+          visible_dts: visible_dts
+          sort_order: 1
+        redirect_source: redirect_source
+      properties:
+        dry_run:
+          description: True when nothing was moved.
+          type: boolean
+        new_path:
+          description: The page's path after the move.
+          type: string
+        page:
+          $ref: '#/components/schemas/SfvbPageResponse'
+        pages_moved:
+          description: "How many pages moved, the page itself included."
+          format: int32
+          type: integer
+        path:
+          description: The page's path before the move.
+          type: string
+        redirect:
+          $ref: '#/components/schemas/SfvbRedirect'
+        redirect_source:
+          description: "The pattern the old addresses redirect from, when a redirect\
+            \ was asked for."
+          type: string
+        warnings:
+          description: "Findings that did not block the move, such as a redirect chain."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
+      type: object
     SfvbPageMultimedia:
       example:
         declared: true
@@ -272964,6 +273519,45 @@ components:
       type: object
     SfvbPageResponse:
       example:
+        redirect:
+          note: note
+          exclude_from_sitemap: true
+          source: source
+          type: type
+          pinned_page_path: pinned_page_path
+          redirect_id: 6
+          target: target
+          hash_sha256: hash_sha256
+          modified_dts: modified_dts
+          target_invalid_message: target_invalid_message
+          target_invalid: true
+          created_dts: created_dts
+          status: status
+        redirect_warnings:
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+        - severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
         visible: true
         exclude_from_sitemap: true
         page_type: page_type
@@ -273010,7 +273604,7 @@ components:
           writable: true
         item_template: item_template
         visible_dts: visible_dts
-        sort_order: 6
+        sort_order: 1
       properties:
         attributes:
           description: "Every attribute this page has, including ones a template declares\
@@ -273056,6 +273650,14 @@ components:
         path:
           description: "The page path, normalized to begin and end with a slash."
           type: string
+        redirect:
+          $ref: '#/components/schemas/SfvbRedirect'
+        redirect_warnings:
+          description: "Findings on that redirect that did not block it, such as a\
+            \ chain.  Left out when there are none."
+          items:
+            $ref: '#/components/schemas/SfvbErrorDetail'
+          type: array
         review_template:
           description: Template that renders the item review pages under this page.  Omitted
             when not set.
@@ -273161,12 +273763,15 @@ components:
         exclude_from_sitemap: true
         page_type: page_type
         blog_post_template: blog_post_template
+        redirect_note: redirect_note
         description: description
         sort_order_child_groups: sort_order_child_groups
         title: title
         sort_order_child_items: sort_order_child_items
         items_per_page: 0
+        redirect_target: redirect_target
         review_template: review_template
+        redirect_old_url: "301"
         group_template: group_template
         item_template: item_template
         visible_dts: visible_dts
@@ -273194,6 +273799,22 @@ components:
           type: integer
         page_type:
           description: "S for a static page, D for a dynamic one."
+          type: string
+        redirect_note:
+          description: The note on that redirect rule.  Up to 500 characters.  A note
+            naming the page is used when left out.
+          type: string
+        redirect_old_url:
+          description: "301 to redirect the page's address to redirect_target in the\
+            \ same call (#1102).  Only with visible false, on a page that is visible\
+            \ now.  The page is hidden and the rule added together, or neither."
+          enum:
+          - "301"
+          type: string
+        redirect_target:
+          description: "Where the hidden page's address redirects to, for example\
+            \ /lp/summer-sale/.  Required with redirect_old_url, and checked like\
+            \ any redirect rule."
           type: string
         review_template:
           description: Template that renders the item review pages under this page.
@@ -274354,7 +274975,7 @@ components:
         source: source
         type: type
         pinned_page_path: pinned_page_path
-        redirect_id: 1
+        redirect_id: 6
         target: target
         hash_sha256: hash_sha256
         modified_dts: modified_dts
@@ -275065,7 +275686,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 1
+          redirect_id: 6
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -275115,7 +275736,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 1
+          redirect_id: 6
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -275128,7 +275749,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 1
+          redirect_id: 6
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -275334,6 +275955,141 @@ components:
           type: array
         url:
           description: The robots.txt URL on the storefront's host.
+          type: string
+      type: object
+    SfvbSearchFacet:
+      example:
+        csv: true
+        name: name
+        label: label
+        display_name: display_name
+        enabled: true
+      properties:
+        csv:
+          description: "True when the attribute values are comma separated lists,\
+            \ each value its own choice."
+          type: boolean
+        display_name:
+          description: The heading shoppers see for the facet.
+          type: string
+        enabled:
+          description: True when the facet is offered to shoppers.
+          type: boolean
+        label:
+          description: "What the facet is, such as Cost or Attribute color.  Fixed."
+          type: string
+        name:
+          description: "The facet key, such as facet_cost or facet_attrcolor.  Fixed;\
+            \ this is how a change names the facet."
+          type: string
+      type: object
+    SfvbSearchFacetsRequest:
+      example:
+        cost_price_points:
+        - 0
+        - 0
+        dry_run: true
+        facets:
+        - csv: true
+          name: name
+          display_name: display_name
+          enabled: true
+        - csv: true
+          name: name
+          display_name: display_name
+          enabled: true
+      properties:
+        cost_price_points:
+          description: "The Cost facet price breaks, 1 to 20 whole amounts in the\
+            \ base currency, each 1 to 10,000,000, smallest first.  Replaces the list."
+          items:
+            type: integer
+          type: array
+        dry_run:
+          description: True to check the change and report it without saving.
+          type: boolean
+        facets:
+          description: The facets to change.
+          items:
+            $ref: '#/components/schemas/SfvbSearchFacetUpdate'
+          type: array
+      type: object
+    SfvbSearchFacetsResponse:
+      example:
+        hash_sha256: hash_sha256
+        rebuild: rebuild
+        cost_price_points:
+        - 0
+        - 0
+        price_points_changed: true
+        dry_run: true
+        changed_facets:
+        - changed_facets
+        - changed_facets
+        facets:
+        - csv: true
+          name: name
+          label: label
+          display_name: display_name
+          enabled: true
+        - csv: true
+          name: name
+          label: label
+          display_name: display_name
+          enabled: true
+      properties:
+        changed_facets:
+          description: "After a change, the facets it changed."
+          items:
+            type: string
+          type: array
+        cost_price_points:
+          description: "The Cost facet price breaks, smallest first."
+          items:
+            type: integer
+          type: array
+        dry_run:
+          description: True when nothing was saved.
+          type: boolean
+        facets:
+          description: "Every facet the storefront can offer, in the fixed order shoppers\
+            \ see them."
+          items:
+            $ref: '#/components/schemas/SfvbSearchFacet'
+          type: array
+        hash_sha256:
+          description: Hash of the facets and price points.  Send it as If-Match on
+            a change.
+          type: string
+        price_points_changed:
+          description: "After a change, true when the price points changed."
+          type: boolean
+        rebuild:
+          description: "After a change, the search index rebuild it started.  none,\
+            \ quick (minutes, small catalogs), slow (the regular rebuild cycle) or\
+            \ failed (the change is saved but the rebuild could not be started; save\
+            \ again or contact support)."
+          type: string
+      type: object
+    SfvbSearchFacetUpdate:
+      example:
+        csv: true
+        name: name
+        display_name: display_name
+        enabled: true
+      properties:
+        csv:
+          description: True when the attribute values are comma separated lists.
+          type: boolean
+        display_name:
+          description: "The heading shoppers see, 1 to 100 characters, without angle\
+            \ brackets."
+          type: string
+        enabled:
+          description: "True to offer the facet to shoppers, false to stop."
+          type: boolean
+        name:
+          description: "The facet to change, a name from GET search/facets.  Required."
           type: string
       type: object
     SfvbSecretHandle:

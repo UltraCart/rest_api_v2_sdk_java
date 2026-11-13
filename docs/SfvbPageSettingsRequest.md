@@ -14,6 +14,9 @@
 |**itemTemplate** | **String** | Template that renders the item pages under this page. |  [optional] |
 |**itemsPerPage** | **Integer** | Items per page on a template that paginates.  Null returns to the template&#39;s default. |  [optional] |
 |**pageType** | **String** | S for a static page, D for a dynamic one. |  [optional] |
+|**redirectNote** | **String** | The note on that redirect rule.  Up to 500 characters.  A note naming the page is used when left out. |  [optional] |
+|**redirectOldUrl** | [**RedirectOldUrlEnum**](#RedirectOldUrlEnum) | 301 to redirect the page&#39;s address to redirect_target in the same call (#1102).  Only with visible false, on a page that is visible now.  The page is hidden and the rule added together, or neither. |  [optional] |
+|**redirectTarget** | **String** | Where the hidden page&#39;s address redirects to, for example /lp/summer-sale/.  Required with redirect_old_url, and checked like any redirect rule. |  [optional] |
 |**reviewTemplate** | **String** | Template that renders the item review pages under this page. |  [optional] |
 |**sortOrder** | **Integer** | Position among its siblings when the parent sorts child pages by a custom order.  Null clears it. |  [optional] |
 |**sortOrderChildGroups** | **String** | How the pages under this one are ordered.  TA or TD by title, DA or DD by description, C custom. |  [optional] |
@@ -21,6 +24,14 @@
 |**title** | **String** | The page title. |  [optional] |
 |**visible** | **Boolean** | False hides the page, so it answers 404 to shoppers.  The root page cannot be hidden. |  [optional] |
 |**visibleDts** | **String** | Keep the page hidden until this time (ISO 8601).  Null or empty clears it. |  [optional] |
+
+
+
+## Enum: RedirectOldUrlEnum
+
+| Name | Value |
+|---- | -----|
+| _301 | &quot;301&quot; |
 
 
 

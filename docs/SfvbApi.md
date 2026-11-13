@@ -142,6 +142,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**getSfvbRecordingSettings**](SfvbApi.md#getSfvbRecordingSettings) | **GET** /sfvb/storefronts/{storefront_oid}/recording_settings | Get the storefront&#39;s screen recording settings |
 | [**getSfvbRedirect**](SfvbApi.md#getSfvbRedirect) | **GET** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Read one redirect rule |
 | [**getSfvbRedirects**](SfvbApi.md#getSfvbRedirects) | **GET** /sfvb/storefronts/{storefront_oid}/redirects | List the storefront&#39;s redirect rules |
+| [**getSfvbSearchFacets**](SfvbApi.md#getSfvbSearchFacets) | **GET** /sfvb/storefronts/{storefront_oid}/search/facets | Read the storefront&#39;s faceted search configuration |
 | [**getSfvbSecretKinds**](SfvbApi.md#getSfvbSecretKinds) | **GET** /sfvb/secrets/kinds | List the secrets this server collects |
 | [**getSfvbSecretRequest**](SfvbApi.md#getSfvbSecretRequest) | **GET** /sfvb/secrets/{request_id} | Read one secret request |
 | [**getSfvbSecretRequests**](SfvbApi.md#getSfvbSecretRequests) | **GET** /sfvb/secrets | List this sign-in&#39;s secret requests |
@@ -215,6 +216,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**listSfvbThemes**](SfvbApi.md#listSfvbThemes) | **GET** /sfvb/storefronts/{storefront_oid}/themes | List themes for a storefront |
 | [**listSfvbUpsellOffers**](SfvbApi.md#listSfvbUpsellOffers) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_offers | List upsell offers |
 | [**listSfvbUpsellPaths**](SfvbApi.md#listSfvbUpsellPaths) | **GET** /sfvb/storefronts/{storefront_oid}/upsell_paths | List upsell paths |
+| [**moveSfvbPage**](SfvbApi.md#moveSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages/move | Move or rename a page |
 | [**moveSfvbSequenceStep**](SfvbApi.md#moveSfvbSequenceStep) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/move | Move one step |
 | [**moveSfvbUpsellPath**](SfvbApi.md#moveSfvbUpsellPath) | **POST** /sfvb/storefronts/{storefront_oid}/upsell_paths/{upsell_path_oid}/move | Move an upsell path |
 | [**proofSfvbSequencePostcard**](SfvbApi.md#proofSfvbSequencePostcard) | **POST** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid}/postcard_proof | Proof a postcard step without mailing it |
@@ -292,6 +294,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 | [**updateSfvbItemDefaultPage**](SfvbApi.md#updateSfvbItemDefaultPage) | **POST** /sfvb/storefronts/{storefront_oid}/items/default_page | Move items&#39; default (canonical) pages |
 | [**updateSfvbLibraryEntry**](SfvbApi.md#updateSfvbLibraryEntry) | **PUT** /sfvb/storefronts/{storefront_oid}/library/{library_oid} | Update a library entry&#39;s draft |
 | [**updateSfvbRedirect**](SfvbApi.md#updateSfvbRedirect) | **PUT** /sfvb/storefronts/{storefront_oid}/redirects/{redirect_id} | Change a redirect rule |
+| [**updateSfvbSearchFacets**](SfvbApi.md#updateSfvbSearchFacets) | **PUT** /sfvb/storefronts/{storefront_oid}/search/facets | Change the storefront&#39;s faceted search configuration |
 | [**updateSfvbSequenceStep**](SfvbApi.md#updateSfvbSequenceStep) | **PUT** /sfvb/storefronts/{storefront_oid}/sequences/{sequence_uuid}/steps/{step_uuid} | Change one step&#39;s settings or audience filter |
 | [**updateSfvbSiteSeo**](SfvbApi.md#updateSfvbSiteSeo) | **PUT** /sfvb/storefronts/{storefront_oid}/seo | Change a storefront&#39;s search engine settings |
 | [**updateSfvbSmartAttribution**](SfvbApi.md#updateSfvbSmartAttribution) | **PUT** /sfvb/storefronts/{storefront_oid}/smart_attribution | Change a storefront&#39;s Smart Attribution configuration |
@@ -6504,6 +6507,48 @@ Every redirect rule, exact and pattern.  Filter with q (searches source, target 
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="getSfvbSearchFacets"></a>
+# **getSfvbSearchFacets**
+> SfvbSearchFacetsResponse getSfvbSearchFacets(storefrontOid)
+
+Read the storefront&#39;s faceted search configuration
+
+Every facet the storefront can offer shoppers - the standard ones and one per item attribute on the storefront - with its heading and whether it is on, in the fixed order shoppers see them, and the Cost facet&#39;s price breaks.  The same settings as the store admin&#39;s Faceted Search Results.  Send hash_sha256 as If-Match to change them. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+
+### Return type
+
+[**SfvbSearchFacetsResponse**](SfvbSearchFacetsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="getSfvbSecretKinds"></a>
 # **getSfvbSecretKinds**
 > SfvbSecretKindsResponse getSfvbSecretKinds()
@@ -9731,6 +9776,55 @@ In path order, first to last.  status current (the default) leaves out archived 
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
 
+<a name="moveSfvbPage"></a>
+# **moveSfvbPage**
+> SfvbPageMoveResponse moveSfvbPage(storefrontOid, pageMoveRequest, approvalId)
+
+Move or rename a page
+
+Moves a page to a new path - a new parent, a new last part, or both, so a rename is a move under the same parent.  Its sub-pages, their items and the page folder with its body move with it.  Refused for the root page, a path inside the page itself, a path where a page or folder already exists, a parent that does not exist, and a page whose folder holds a started experiment.  With redirect_old_url 301 the same call adds one pattern redirect from the old path to the new one, so every old address, sub-pages and items included, keeps working; the redirect is checked before anything moves, and if it is refused after the move the move is undone, so the page moves with its redirect or not at all.  dry_run runs every check and reports what would move.  Needs sfvb_publish, plus the approval of the person who signed in the CLI, as an approved page.move request for exactly this path, new path and redirect in the Approval-Id header. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **pageMoveRequest** | [**SfvbPageMoveRequest**](SfvbPageMoveRequest.md)| The page and where it goes | |
+| **approvalId** | **String**| The approval_id of an approved page.move request for exactly this path, new path and redirect.  Required unless dry_run.  See POST /sfvb/approvals. | [optional] |
+
+### Return type
+
+[**SfvbPageMoveResponse**](SfvbPageMoveResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **409** |  |  -  |
+| **410** | Status Code 410: Your authorized application has been disabled by UltraCart |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **412** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
 <a name="moveSfvbSequenceStep"></a>
 # **moveSfvbSequenceStep**
 > SfvbSequenceStepMoveResponse moveSfvbSequenceStep(storefrontOid, sequenceUuid, stepUuid, ifMatch, sequenceStepMoveRequest, approvalId)
@@ -10842,7 +10936,7 @@ Each list you send replaces that whole set, and an empty list clears it.  A list
 
 Change a page&#39;s settings
 
-A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin&#39;s page save, the page&#39;s attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live. 
+A partial update.  Only the fields you send change - title, description, templates, visibility, sitemap exclusion, sort orders, items per page and page type.  Unlike the store admin&#39;s page save, the page&#39;s attributes, images, items, selectors and permissions are left exactly as they are.  Fields that would move or rename the page, and fields this endpoint does not know, are refused.  The root page cannot be hidden.  Always needs sfvb_publish, because page settings are live.  Hiding a page with redirect_old_url 301 and redirect_target also adds a 301 redirect from its address, checked first like any redirect rule.  The page is hidden and the rule added together, or neither. 
 
 ### Example
 
@@ -11712,7 +11806,7 @@ The restore is itself snapshotted, so a revert can be undone in turn.  Reverting
 | **storefrontOid** | **Integer**|  | |
 | **ownerType** | **String**|  | |
 | **ownerObjectId** | **String**|  | |
-| **ifMatch** | **String**| CJSON hash of the container being reverted.  Required; 428 when absent, 412 when stale. | |
+| **ifMatch** | **String**| CJSON hash of the container being reverted.  Required while the container holds content; 428 when absent, 412 when stale.  Leave it out when the container has been removed, since there is nothing to match. | |
 | **containerRevertRequest** | [**SfvbContainerRevertRequest**](SfvbContainerRevertRequest.md)| Version to revert the container to | |
 | **containerName** | **String**|  | [optional] |
 
@@ -13357,6 +13451,54 @@ Changes the source, target or note, and can turn an admin rule into a 301.  Fiel
 | **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **409** |  |  -  |
+| **412** |  |  -  |
+| **428** |  |  -  |
+| **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **500** | Status Code 500: any server side error.  the body will contain a generic server error message |  * UC-REST-ERROR - Contains human readable error message <br>  |
+
+<a name="updateSfvbSearchFacets"></a>
+# **updateSfvbSearchFacets**
+> SfvbSearchFacetsResponse updateSfvbSearchFacets(storefrontOid, searchFacetsRequest, ifMatch)
+
+Change the storefront&#39;s faceted search configuration
+
+A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+
+### Example
+
+
+(No example for this operation).
+
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **storefrontOid** | **Integer**|  | |
+| **searchFacetsRequest** | [**SfvbSearchFacetsRequest**](SfvbSearchFacetsRequest.md)| The facets and price breaks to change | |
+| **ifMatch** | **String**| hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. | [optional] |
+
+### Return type
+
+[**SfvbSearchFacetsResponse**](SfvbSearchFacetsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | Status Code 400: bad request input such as invalid json |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **401** | Status Code 401: invalid credentials supplied |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **403** | Status Code 403: forbidden |  * UC-REST-ERROR - Contains human readable error message <br>  |
+| **404** | Status Code 404: not found |  * UC-REST-ERROR - Contains human readable error message <br>  |
 | **412** |  |  -  |
 | **428** |  |  -  |
 | **429** | Status Code 429: you have exceeded the allowed API call rate limit for your application. |  * UC-REST-ERROR - Contains human readable error message <br>  |
