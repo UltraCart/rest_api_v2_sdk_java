@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.253</version>
+    <version>4.1.254</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.253"
+     implementation "com.ultracart:rest-sdk:4.1.254"
   }
 ```
 
@@ -598,6 +598,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbExperiment**](docs/SfvbApi.md#getSfvbExperiment) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/{experiment_oid} | Read one experiment and its statistics
 *SfvbApi* | [**getSfvbExperimentObjectives**](docs/SfvbApi.md#getSfvbExperimentObjectives) | **GET** /sfvb/storefronts/{storefront_oid}/experiments/objectives | List the objectives an experiment can optimize
 *SfvbApi* | [**getSfvbFileContent**](docs/SfvbApi.md#getSfvbFileContent) | **GET** /sfvb/storefronts/{storefront_oid}/files/content | Read a storefront file
+*SfvbApi* | [**getSfvbFileContents**](docs/SfvbApi.md#getSfvbFileContents) | **POST** /sfvb/storefronts/{storefront_oid}/files/content | Read several storefront files
 *SfvbApi* | [**getSfvbFileUploadUrl**](docs/SfvbApi.md#getSfvbFileUploadUrl) | **GET** /sfvb/storefronts/{storefront_oid}/files/upload_url/{extension} | Get a URL to upload a binary asset to
 *SfvbApi* | [**getSfvbFlow**](docs/SfvbApi.md#getSfvbFlow) | **GET** /sfvb/storefronts/{storefront_oid}/flows/{flow_uuid} | Get a flow
 *SfvbApi* | [**getSfvbI18nGlossary**](docs/SfvbApi.md#getSfvbI18nGlossary) | **GET** /sfvb/storefronts/{storefront_oid}/i18n/glossary | Read the storefront&#39;s translation glossary
@@ -2148,6 +2149,7 @@ Class | Method | HTTP request | Description
  - [SfvbExperimentVariationUpdateRequest](docs/SfvbExperimentVariationUpdateRequest.md)
  - [SfvbExperimentsResponse](docs/SfvbExperimentsResponse.md)
  - [SfvbFileContentResponse](docs/SfvbFileContentResponse.md)
+ - [SfvbFileContentResult](docs/SfvbFileContentResult.md)
  - [SfvbFileEntry](docs/SfvbFileEntry.md)
  - [SfvbFileRevertRequest](docs/SfvbFileRevertRequest.md)
  - [SfvbFileSearchRequest](docs/SfvbFileSearchRequest.md)
@@ -2158,6 +2160,8 @@ Class | Method | HTTP request | Description
  - [SfvbFileVersionsResponse](docs/SfvbFileVersionsResponse.md)
  - [SfvbFileWriteRequest](docs/SfvbFileWriteRequest.md)
  - [SfvbFileWriteResponse](docs/SfvbFileWriteResponse.md)
+ - [SfvbFilesContentRequest](docs/SfvbFilesContentRequest.md)
+ - [SfvbFilesContentResponse](docs/SfvbFilesContentResponse.md)
  - [SfvbFilesResponse](docs/SfvbFilesResponse.md)
  - [SfvbFlow](docs/SfvbFlow.md)
  - [SfvbFlowBackfillRequest](docs/SfvbFlowBackfillRequest.md)
@@ -2619,6 +2623,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.254 | 11/15/2026 | sfvb internal testing |
 | 4.1.253 | 11/13/2026 | sfvb internal testing |
 | 4.1.252 | 11/12/2026 | sfvb internal testing |
 | 4.1.251 | 11/12/2026 | sfvb internal test |

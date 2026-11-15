@@ -1109,6 +1109,7 @@ docs/SfvbExperimentStartVariation.md
 docs/SfvbExperimentVariationUpdateRequest.md
 docs/SfvbExperimentsResponse.md
 docs/SfvbFileContentResponse.md
+docs/SfvbFileContentResult.md
 docs/SfvbFileEntry.md
 docs/SfvbFileRevertRequest.md
 docs/SfvbFileSearchRequest.md
@@ -1119,6 +1120,8 @@ docs/SfvbFileVersion.md
 docs/SfvbFileVersionsResponse.md
 docs/SfvbFileWriteRequest.md
 docs/SfvbFileWriteResponse.md
+docs/SfvbFilesContentRequest.md
+docs/SfvbFilesContentResponse.md
 docs/SfvbFilesResponse.md
 docs/SfvbFlow.md
 docs/SfvbFlowBackfillRequest.md
@@ -2624,6 +2627,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbExperimentStartVariation.java
 src/main/java/com/ultracart/admin/v2/models/SfvbExperimentVariationUpdateRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbExperimentsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileContentResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFileContentResult.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileEntry.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileRevertRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileSearchRequest.java
@@ -2634,6 +2638,8 @@ src/main/java/com/ultracart/admin/v2/models/SfvbFileVersion.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileVersionsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFileWriteResponse.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFilesContentRequest.java
+src/main/java/com/ultracart/admin/v2/models/SfvbFilesContentResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFilesResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFlow.java
 src/main/java/com/ultracart/admin/v2/models/SfvbFlowBackfillRequest.java

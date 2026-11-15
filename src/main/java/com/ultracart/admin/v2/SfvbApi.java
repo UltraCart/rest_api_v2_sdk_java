@@ -112,6 +112,8 @@ import com.ultracart.admin.v2.models.SfvbFileUploadUrlResponse;
 import com.ultracart.admin.v2.models.SfvbFileVersionsResponse;
 import com.ultracart.admin.v2.models.SfvbFileWriteRequest;
 import com.ultracart.admin.v2.models.SfvbFileWriteResponse;
+import com.ultracart.admin.v2.models.SfvbFilesContentRequest;
+import com.ultracart.admin.v2.models.SfvbFilesContentResponse;
 import com.ultracart.admin.v2.models.SfvbFilesResponse;
 import com.ultracart.admin.v2.models.SfvbFlow;
 import com.ultracart.admin.v2.models.SfvbFlowBackfillRequest;
@@ -17124,6 +17126,162 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for getSfvbFileContents
+     * @param storefrontOid  (required)
+     * @param filesRequest The files to read (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbFileContentsCall(Integer storefrontOid, SfvbFilesContentRequest filesRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = filesRequest;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/storefronts/{storefront_oid}/files/content"
+            .replaceAll("\\{" + "storefront_oid" + "\\}", localVarApiClient.escapeString(storefrontOid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSfvbFileContentsValidateBeforeCall(Integer storefrontOid, SfvbFilesContentRequest filesRequest, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'storefrontOid' is set
+        if (storefrontOid == null) {
+            throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbFileContents(Async)");
+        }
+        
+        // verify the required parameter 'filesRequest' is set
+        if (filesRequest == null) {
+            throw new ApiException("Missing the required parameter 'filesRequest' when calling getSfvbFileContents(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getSfvbFileContentsCall(storefrontOid, filesRequest, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read several storefront files
+     * The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can&#39;t be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+     * @param storefrontOid  (required)
+     * @param filesRequest The files to read (required)
+     * @return SfvbFilesContentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbFilesContentResponse getSfvbFileContents(Integer storefrontOid, SfvbFilesContentRequest filesRequest) throws ApiException {
+        ApiResponse<SfvbFilesContentResponse> localVarResp = getSfvbFileContentsWithHttpInfo(storefrontOid, filesRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read several storefront files
+     * The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can&#39;t be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+     * @param storefrontOid  (required)
+     * @param filesRequest The files to read (required)
+     * @return ApiResponse&lt;SfvbFilesContentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbFilesContentResponse> getSfvbFileContentsWithHttpInfo(Integer storefrontOid, SfvbFilesContentRequest filesRequest) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbFileContentsValidateBeforeCall(storefrontOid, filesRequest, null);
+        Type localVarReturnType = new TypeToken<SfvbFilesContentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read several storefront files (asynchronously)
+     * The current content of up to 50 files in one call, each answered exactly as the single file read answers it.  A file that can&#39;t be read carries its own error and the others are still read.  When the response reaches its size limit, the paths not yet read come back in remaining_paths; send them again.  Only reads - a POST because the list of paths can be long. 
+     * @param storefrontOid  (required)
+     * @param filesRequest The files to read (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSfvbFileContentsAsync(Integer storefrontOid, SfvbFilesContentRequest filesRequest, final ApiCallback<SfvbFilesContentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSfvbFileContentsValidateBeforeCall(storefrontOid, filesRequest, _callback);
+        Type localVarReturnType = new TypeToken<SfvbFilesContentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSfvbFileUploadUrl
      * @param storefrontOid  (required)
      * @param extension  (required)
@@ -20141,6 +20299,7 @@ public class SfvbApi {
     /**
      * Build call for getSfvbMenus
      * @param storefrontOid  (required)
+     * @param includeEntries True to include each menu&#39;s entries (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20154,7 +20313,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbMenusCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSfvbMenusCall(Integer storefrontOid, Boolean includeEntries, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20180,6 +20339,10 @@ public class SfvbApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (includeEntries != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_entries", includeEntries));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -20201,7 +20364,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSfvbMenusValidateBeforeCall(Integer storefrontOid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSfvbMenusValidateBeforeCall(Integer storefrontOid, Boolean includeEntries, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -20209,15 +20372,16 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = getSfvbMenusCall(storefrontOid, _callback);
+        okhttp3.Call localVarCall = getSfvbMenusCall(storefrontOid, includeEntries, _callback);
         return localVarCall;
 
     }
 
     /**
      * List a storefront&#39;s store menus
-     * The menus a menu element&#39;s menuName can name, sorted by code and without their entries.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+     * The menus a menu element&#39;s menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries&#x3D;true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
      * @param storefrontOid  (required)
+     * @param includeEntries True to include each menu&#39;s entries (optional)
      * @return SfvbMenusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20230,15 +20394,16 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbMenusResponse getSfvbMenus(Integer storefrontOid) throws ApiException {
-        ApiResponse<SfvbMenusResponse> localVarResp = getSfvbMenusWithHttpInfo(storefrontOid);
+    public SfvbMenusResponse getSfvbMenus(Integer storefrontOid, Boolean includeEntries) throws ApiException {
+        ApiResponse<SfvbMenusResponse> localVarResp = getSfvbMenusWithHttpInfo(storefrontOid, includeEntries);
         return localVarResp.getData();
     }
 
     /**
      * List a storefront&#39;s store menus
-     * The menus a menu element&#39;s menuName can name, sorted by code and without their entries.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+     * The menus a menu element&#39;s menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries&#x3D;true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
      * @param storefrontOid  (required)
+     * @param includeEntries True to include each menu&#39;s entries (optional)
      * @return ApiResponse&lt;SfvbMenusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -20251,16 +20416,17 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbMenusResponse> getSfvbMenusWithHttpInfo(Integer storefrontOid) throws ApiException {
-        okhttp3.Call localVarCall = getSfvbMenusValidateBeforeCall(storefrontOid, null);
+    public ApiResponse<SfvbMenusResponse> getSfvbMenusWithHttpInfo(Integer storefrontOid, Boolean includeEntries) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbMenusValidateBeforeCall(storefrontOid, includeEntries, null);
         Type localVarReturnType = new TypeToken<SfvbMenusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List a storefront&#39;s store menus (asynchronously)
-     * The menus a menu element&#39;s menuName can name, sorted by code and without their entries.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
+     * The menus a menu element&#39;s menuName can name, sorted by code.  Without include_entries each menu is listed without its entries; with include_entries&#x3D;true each carries the tree the single-menu read returns, so one call reads every menu.  A code the active theme&#39;s templates ask for but nothing has created is included with unconfigured true - that code renders an empty list today, and writing it creates it.  A menu no template names is marked undeclared, which usually means a menuName is misspelled. 
      * @param storefrontOid  (required)
+     * @param includeEntries True to include each menu&#39;s entries (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -20274,9 +20440,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbMenusAsync(Integer storefrontOid, final ApiCallback<SfvbMenusResponse> _callback) throws ApiException {
+    public okhttp3.Call getSfvbMenusAsync(Integer storefrontOid, Boolean includeEntries, final ApiCallback<SfvbMenusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSfvbMenusValidateBeforeCall(storefrontOid, _callback);
+        okhttp3.Call localVarCall = getSfvbMenusValidateBeforeCall(storefrontOid, includeEntries, _callback);
         Type localVarReturnType = new TypeToken<SfvbMenusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -20950,7 +21116,8 @@ public class SfvbApi {
     /**
      * Build call for getSfvbPage
      * @param storefrontOid  (required)
-     * @param path Page path, for example /catalog/dispensers/ (required)
+     * @param path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param catalogGroupOid The page&#39;s id, in place of path (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -20964,7 +21131,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbPageCall(Integer storefrontOid, String path, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSfvbPageCall(Integer storefrontOid, String path, Integer catalogGroupOid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20994,6 +21161,10 @@ public class SfvbApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("path", path));
         }
 
+        if (catalogGroupOid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("catalog_group_oid", catalogGroupOid));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -21015,29 +21186,25 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSfvbPageValidateBeforeCall(Integer storefrontOid, String path, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSfvbPageValidateBeforeCall(Integer storefrontOid, String path, Integer catalogGroupOid, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
             throw new ApiException("Missing the required parameter 'storefrontOid' when calling getSfvbPage(Async)");
         }
         
-        // verify the required parameter 'path' is set
-        if (path == null) {
-            throw new ApiException("Missing the required parameter 'path' when calling getSfvbPage(Async)");
-        }
-        
 
-        okhttp3.Call localVarCall = getSfvbPageCall(storefrontOid, path, _callback);
+        okhttp3.Call localVarCall = getSfvbPageCall(storefrontOid, path, catalogGroupOid, _callback);
         return localVarCall;
 
     }
 
     /**
      * Read a page&#39;s attributes and images
-     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
      * @param storefrontOid  (required)
-     * @param path Page path, for example /catalog/dispensers/ (required)
+     * @param path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param catalogGroupOid The page&#39;s id, in place of path (optional)
      * @return SfvbPageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21050,16 +21217,17 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbPageResponse getSfvbPage(Integer storefrontOid, String path) throws ApiException {
-        ApiResponse<SfvbPageResponse> localVarResp = getSfvbPageWithHttpInfo(storefrontOid, path);
+    public SfvbPageResponse getSfvbPage(Integer storefrontOid, String path, Integer catalogGroupOid) throws ApiException {
+        ApiResponse<SfvbPageResponse> localVarResp = getSfvbPageWithHttpInfo(storefrontOid, path, catalogGroupOid);
         return localVarResp.getData();
     }
 
     /**
      * Read a page&#39;s attributes and images
-     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
      * @param storefrontOid  (required)
-     * @param path Page path, for example /catalog/dispensers/ (required)
+     * @param path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param catalogGroupOid The page&#39;s id, in place of path (optional)
      * @return ApiResponse&lt;SfvbPageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -21072,17 +21240,18 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbPageResponse> getSfvbPageWithHttpInfo(Integer storefrontOid, String path) throws ApiException {
-        okhttp3.Call localVarCall = getSfvbPageValidateBeforeCall(storefrontOid, path, null);
+    public ApiResponse<SfvbPageResponse> getSfvbPageWithHttpInfo(Integer storefrontOid, String path, Integer catalogGroupOid) throws ApiException {
+        okhttp3.Call localVarCall = getSfvbPageValidateBeforeCall(storefrontOid, path, catalogGroupOid, null);
         Type localVarReturnType = new TypeToken<SfvbPageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Read a page&#39;s attributes and images (asynchronously)
-     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved. 
+     * What the pageattribute and pageimage elements render for this page.  These are not in any file, which is why a page folder can be empty and its elements still render something.  Attributes and image codes a template declares but nothing has set are included, so the response describes what the page can show rather than only what has been saved.  Name the page by path or by catalog_group_oid, not both.  The oid is the id the page list and menu reads return, and it stays the same when the page moves. 
      * @param storefrontOid  (required)
-     * @param path Page path, for example /catalog/dispensers/ (required)
+     * @param path Page path, for example /catalog/dispensers/.  Required unless catalog_group_oid is given. (optional)
+     * @param catalogGroupOid The page&#39;s id, in place of path (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -21096,9 +21265,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call getSfvbPageAsync(Integer storefrontOid, String path, final ApiCallback<SfvbPageResponse> _callback) throws ApiException {
+    public okhttp3.Call getSfvbPageAsync(Integer storefrontOid, String path, Integer catalogGroupOid, final ApiCallback<SfvbPageResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSfvbPageValidateBeforeCall(storefrontOid, path, _callback);
+        okhttp3.Call localVarCall = getSfvbPageValidateBeforeCall(storefrontOid, path, catalogGroupOid, _callback);
         Type localVarReturnType = new TypeToken<SfvbPageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -33346,6 +33515,9 @@ public class SfvbApi {
      * Build call for listSfvbPages
      * @param storefrontOid  (required)
      * @param under Only this page and the pages below it, for example /lp/ (optional)
+     * @param detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -33359,7 +33531,7 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call listSfvbPagesCall(Integer storefrontOid, String under, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listSfvbPagesCall(Integer storefrontOid, String under, Boolean detail, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -33389,6 +33561,18 @@ public class SfvbApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("under", under));
         }
 
+        if (detail != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("detail", detail));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -33410,7 +33594,7 @@ public class SfvbApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listSfvbPagesValidateBeforeCall(Integer storefrontOid, String under, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listSfvbPagesValidateBeforeCall(Integer storefrontOid, String under, Boolean detail, Integer offset, Integer limit, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'storefrontOid' is set
         if (storefrontOid == null) {
@@ -33418,16 +33602,19 @@ public class SfvbApi {
         }
         
 
-        okhttp3.Call localVarCall = listSfvbPagesCall(storefrontOid, under, _callback);
+        okhttp3.Call localVarCall = listSfvbPagesCall(storefrontOid, under, detail, offset, limit, _callback);
         return localVarCall;
 
     }
 
     /**
      * List the storefront&#39;s pages
-     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail&#x3D;true to get each page&#39;s single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
      * @param storefrontOid  (required)
      * @param under Only this page and the pages below it, for example /lp/ (optional)
+     * @param detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      * @return SfvbPageListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -33440,16 +33627,19 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public SfvbPageListResponse listSfvbPages(Integer storefrontOid, String under) throws ApiException {
-        ApiResponse<SfvbPageListResponse> localVarResp = listSfvbPagesWithHttpInfo(storefrontOid, under);
+    public SfvbPageListResponse listSfvbPages(Integer storefrontOid, String under, Boolean detail, Integer offset, Integer limit) throws ApiException {
+        ApiResponse<SfvbPageListResponse> localVarResp = listSfvbPagesWithHttpInfo(storefrontOid, under, detail, offset, limit);
         return localVarResp.getData();
     }
 
     /**
      * List the storefront&#39;s pages
-     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail&#x3D;true to get each page&#39;s single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
      * @param storefrontOid  (required)
      * @param under Only this page and the pages below it, for example /lp/ (optional)
+     * @param detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      * @return ApiResponse&lt;SfvbPageListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -33462,17 +33652,20 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public ApiResponse<SfvbPageListResponse> listSfvbPagesWithHttpInfo(Integer storefrontOid, String under) throws ApiException {
-        okhttp3.Call localVarCall = listSfvbPagesValidateBeforeCall(storefrontOid, under, null);
+    public ApiResponse<SfvbPageListResponse> listSfvbPagesWithHttpInfo(Integer storefrontOid, String under, Boolean detail, Integer offset, Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = listSfvbPagesValidateBeforeCall(storefrontOid, under, detail, offset, limit, null);
         Type localVarReturnType = new TypeToken<SfvbPageListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List the storefront&#39;s pages (asynchronously)
-     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write. 
+     * Every page with its settings, sorted by path with the root first.  Hidden pages are included.  Pass under to list one page and everything below it.  Read from the same cached catalog the admin page tree uses, so a page created a moment ago can take a moment to appear here - read it directly with the single-page read to confirm a write.  Pass detail&#x3D;true to get each page&#39;s single-page read in detail as well, at most 25 pages a call.  Page through with offset and limit, following next_offset until it is omitted. 
      * @param storefrontOid  (required)
      * @param under Only this page and the pages below it, for example /lp/ (optional)
+     * @param detail True to include each page&#39;s single-page read, a window at a time (optional)
+     * @param offset Where the window starts, with detail&#x3D;true.  Default 0. (optional)
+     * @param limit Pages in the window, 1 to 25, with detail&#x3D;true.  Default 25. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -33486,9 +33679,9 @@ public class SfvbApi {
         <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
      </table>
      */
-    public okhttp3.Call listSfvbPagesAsync(Integer storefrontOid, String under, final ApiCallback<SfvbPageListResponse> _callback) throws ApiException {
+    public okhttp3.Call listSfvbPagesAsync(Integer storefrontOid, String under, Boolean detail, Integer offset, Integer limit, final ApiCallback<SfvbPageListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listSfvbPagesValidateBeforeCall(storefrontOid, under, _callback);
+        okhttp3.Call localVarCall = listSfvbPagesValidateBeforeCall(storefrontOid, under, detail, offset, limit, _callback);
         Type localVarReturnType = new TypeToken<SfvbPageListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -48462,7 +48655,7 @@ public class SfvbApi {
 
     /**
      * Change the storefront&#39;s faceted search configuration
-     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
      * @param storefrontOid  (required)
      * @param searchFacetsRequest The facets and price breaks to change (required)
      * @param ifMatch hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)
@@ -48489,7 +48682,7 @@ public class SfvbApi {
 
     /**
      * Change the storefront&#39;s faceted search configuration
-     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
      * @param storefrontOid  (required)
      * @param searchFacetsRequest The facets and price breaks to change (required)
      * @param ifMatch hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)
@@ -48517,7 +48710,7 @@ public class SfvbApi {
 
     /**
      * Change the storefront&#39;s faceted search configuration (asynchronously)
-     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once. 
+     * A partial update.  Turn facets on or off, change their headings, and replace the Cost facet&#39;s price breaks; facets left out and every other search setting are unchanged.  Facets cannot be reordered - the order is fixed.  Turning facets on or off, or changing the price breaks, starts a search index rebuild, reported in rebuild.  dry_run checks the change and reports it, and the rebuild it would start, without saving.  Needs sfvb_publish, because facets show on every search and category page at once.  Changes are limited to 30 an hour and 100 a day per storefront, and those that start a rebuild to 6 an hour and 20 a day (429, nothing saved). 
      * @param storefrontOid  (required)
      * @param searchFacetsRequest The facets and price breaks to change (required)
      * @param ifMatch hash_sha256 from the last read.  Required unless dry_run; 428 when absent, 412 when stale. (optional)

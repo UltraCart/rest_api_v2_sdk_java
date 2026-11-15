@@ -52,12 +52,43 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbPageListResponse {
+  public static final String SERIALIZED_NAME_NEXT_OFFSET = "next_offset";
+  @SerializedName(SERIALIZED_NAME_NEXT_OFFSET)
+  private Integer nextOffset;
+
   public static final String SERIALIZED_NAME_PAGES = "pages";
   @SerializedName(SERIALIZED_NAME_PAGES)
   private List<SfvbPageSummary> pages = null;
 
+  public static final String SERIALIZED_NAME_TOTAL = "total";
+  @SerializedName(SERIALIZED_NAME_TOTAL)
+  private Integer total;
+
   public SfvbPageListResponse() { 
   }
+
+  public SfvbPageListResponse nextOffset(Integer nextOffset) {
+    
+    this.nextOffset = nextOffset;
+    return this;
+  }
+
+   /**
+   * The offset of the next window, omitted on the last one.  Only with detail&#x3D;true.
+   * @return nextOffset
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The offset of the next window, omitted on the last one.  Only with detail=true.")
+
+  public Integer getNextOffset() {
+    return nextOffset;
+  }
+
+
+  public void setNextOffset(Integer nextOffset) {
+    this.nextOffset = nextOffset;
+  }
+
 
   public SfvbPageListResponse pages(List<SfvbPageSummary> pages) {
     
@@ -90,6 +121,29 @@ public class SfvbPageListResponse {
   }
 
 
+  public SfvbPageListResponse total(Integer total) {
+    
+    this.total = total;
+    return this;
+  }
+
+   /**
+   * How many pages the whole list has.  Only with detail&#x3D;true.
+   * @return total
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "How many pages the whole list has.  Only with detail=true.")
+
+  public Integer getTotal() {
+    return total;
+  }
+
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -100,19 +154,23 @@ public class SfvbPageListResponse {
       return false;
     }
     SfvbPageListResponse sfvbPageListResponse = (SfvbPageListResponse) o;
-    return Objects.equals(this.pages, sfvbPageListResponse.pages);
+    return Objects.equals(this.nextOffset, sfvbPageListResponse.nextOffset) &&
+        Objects.equals(this.pages, sfvbPageListResponse.pages) &&
+        Objects.equals(this.total, sfvbPageListResponse.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pages);
+    return Objects.hash(nextOffset, pages, total);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbPageListResponse {\n");
+    sb.append("    nextOffset: ").append(toIndentedString(nextOffset)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,7 +193,9 @@ public class SfvbPageListResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("next_offset");
     openapiFields.add("pages");
+    openapiFields.add("total");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -11033,6 +11033,101 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    post:
+      description: "The current content of up to 50 files in one call, each answered\
+        \ exactly as the single file read answers it.  A file that can't be read carries\
+        \ its own error and the others are still read.  When the response reaches\
+        \ its size limit, the paths not yet read come back in remaining_paths; send\
+        \ them again.  Only reads - a POST because the list of paths can be long.\n"
+      operationId: getSfvbFileContents
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbFilesContentRequest'
+        description: The files to read
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbFilesContentResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Read several storefront files
+      tags:
+      - sfvb
+      x-codegen-request-body-name: files_request
+      x-content-type: application/json
+      x-accepts: application/json
     put:
       description: "Runs the template sandbox, Velocity validation and the internationalization\
         \ check, records a version, and compiles the sibling .vm when the file is\
@@ -19934,11 +20029,13 @@ paths:
       x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/menus:
     get:
-      description: "The menus a menu element's menuName can name, sorted by code and\
-        \ without their entries.  A code the active theme's templates ask for but\
-        \ nothing has created is included with unconfigured true - that code renders\
-        \ an empty list today, and writing it creates it.  A menu no template names\
-        \ is marked undeclared, which usually means a menuName is misspelled.\n"
+      description: "The menus a menu element's menuName can name, sorted by code.\
+        \  Without include_entries each menu is listed without its entries; with include_entries=true\
+        \ each carries the tree the single-menu read returns, so one call reads every\
+        \ menu.  A code the active theme's templates ask for but nothing has created\
+        \ is included with unconfigured true - that code renders an empty list today,\
+        \ and writing it creates it.  A menu no template names is marked undeclared,\
+        \ which usually means a menuName is misspelled.\n"
       operationId: getSfvbMenus
       parameters:
       - in: path
@@ -19947,6 +20044,11 @@ paths:
         schema:
           format: int32
           type: integer
+      - description: True to include each menu's entries
+        in: query
+        name: include_entries
+        schema:
+          type: boolean
       responses:
         "200":
           content:
@@ -21072,7 +21174,9 @@ paths:
         \ page.  These are not in any file, which is why a page folder can be empty\
         \ and its elements still render something.  Attributes and image codes a template\
         \ declares but nothing has set are included, so the response describes what\
-        \ the page can show rather than only what has been saved.\n"
+        \ the page can show rather than only what has been saved.  Name the page by\
+        \ path or by catalog_group_oid, not both.  The oid is the id the page list\
+        \ and menu reads return, and it stays the same when the page moves.\n"
       operationId: getSfvbPage
       parameters:
       - in: path
@@ -21081,12 +21185,18 @@ paths:
         schema:
           format: int32
           type: integer
-      - description: "Page path, for example /catalog/dispensers/"
+      - description: "Page path, for example /catalog/dispensers/.  Required unless\
+          \ catalog_group_oid is given."
         in: query
         name: path
-        required: true
         schema:
           type: string
+      - description: "The page's id, in place of path"
+        in: query
+        name: catalog_group_oid
+        schema:
+          format: int32
+          type: integer
       responses:
         "200":
           content:
@@ -22012,7 +22122,9 @@ paths:
         \  Hidden pages are included.  Pass under to list one page and everything\
         \ below it.  Read from the same cached catalog the admin page tree uses, so\
         \ a page created a moment ago can take a moment to appear here - read it directly\
-        \ with the single-page read to confirm a write.\n"
+        \ with the single-page read to confirm a write.  Pass detail=true to get each\
+        \ page's single-page read in detail as well, at most 25 pages a call.  Page\
+        \ through with offset and limit, following next_offset until it is omitted.\n"
       operationId: listSfvbPages
       parameters:
       - in: path
@@ -22026,6 +22138,24 @@ paths:
         name: under
         schema:
           type: string
+      - description: "True to include each page's single-page read, a window at a\
+          \ time"
+        in: query
+        name: detail
+        schema:
+          type: boolean
+      - description: "Where the window starts, with detail=true.  Default 0."
+        in: query
+        name: offset
+        schema:
+          format: int32
+          type: integer
+      - description: "Pages in the window, 1 to 25, with detail=true.  Default 25."
+        in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
       responses:
         "200":
           content:
@@ -25189,7 +25319,9 @@ paths:
         \ fixed.  Turning facets on or off, or changing the price breaks, starts a\
         \ search index rebuild, reported in rebuild.  dry_run checks the change and\
         \ reports it, and the rebuild it would start, without saving.  Needs sfvb_publish,\
-        \ because facets show on every search and category page at once.\n"
+        \ because facets show on every search and category page at once.  Changes\
+        \ are limited to 30 an hour and 100 a day per storefront, and those that start\
+        \ a rebuild to 6 an hour and 20 a day (429, nothing saved).\n"
       operationId: updateSfvbSearchFacets
       parameters:
       - in: path
@@ -267550,6 +267682,57 @@ components:
           format: int32
           type: integer
       type: object
+    SfvbFileContentResult:
+      example:
+        path: path
+        file:
+          truncated: true
+          version: 1
+          content: content
+          hash_sha256: hash_sha256
+          valid: true
+          path: path
+          merge_conflict: true
+          metadata_error:
+            severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          size: 6
+          mime_type: mime_type
+          fs_file_oid: 0
+          auto_compiled: true
+          velocity_errors: velocity_errors
+        error:
+          severity: error
+          pointer: pointer
+          code: code
+          found: found
+          line: 6
+          expected: expected
+          suggestion: suggestion
+          column: 0
+          did_you_mean:
+          - did_you_mean
+          - did_you_mean
+          message: message
+      properties:
+        error:
+          $ref: '#/components/schemas/SfvbErrorDetail'
+        file:
+          $ref: '#/components/schemas/SfvbFileContentResponse'
+        path:
+          description: The path as it was asked for.
+          type: string
+      type: object
     SfvbFileEntry:
       example:
         i18n_violation: true
@@ -267642,6 +267825,119 @@ components:
           description: "Version to restore, as returned by files/versions."
           format: int32
           type: integer
+      type: object
+    SfvbFilesContentRequest:
+      example:
+        paths:
+        - paths
+        - paths
+      properties:
+        paths:
+          description: "Paths of the files to read, the same paths the single file\
+            \ read takes.  At most 50.  A path given twice is answered once."
+          items:
+            type: string
+          type: array
+      type: object
+    SfvbFilesContentResponse:
+      example:
+        remaining_paths:
+        - remaining_paths
+        - remaining_paths
+        files:
+        - path: path
+          file:
+            truncated: true
+            version: 1
+            content: content
+            hash_sha256: hash_sha256
+            valid: true
+            path: path
+            merge_conflict: true
+            metadata_error:
+              severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            size: 6
+            mime_type: mime_type
+            fs_file_oid: 0
+            auto_compiled: true
+            velocity_errors: velocity_errors
+          error:
+            severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+        - path: path
+          file:
+            truncated: true
+            version: 1
+            content: content
+            hash_sha256: hash_sha256
+            valid: true
+            path: path
+            merge_conflict: true
+            metadata_error:
+              severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            size: 6
+            mime_type: mime_type
+            fs_file_oid: 0
+            auto_compiled: true
+            velocity_errors: velocity_errors
+          error:
+            severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+      properties:
+        files:
+          description: "One entry per path read, in the order asked."
+          items:
+            $ref: '#/components/schemas/SfvbFileContentResult'
+          type: array
+        remaining_paths:
+          description: "Paths not read because the response reached its size limit,\
+            \ in the order asked.  Send them again to read them.  Omitted when every\
+            \ path was read."
+          items:
+            type: string
+          type: array
       type: object
     SfvbFileSearchRequest:
       example:
@@ -272452,7 +272748,8 @@ components:
       properties:
         menus:
           description: "The storefront's menus, sorted by code.  Entries are omitted\
-            \ here - read a single menu to get its tree."
+            \ unless include_entries=true was passed, in which case each menu carries\
+            \ the same tree the single-menu read returns."
           items:
             $ref: '#/components/schemas/SfvbMenu'
           type: array
@@ -273188,41 +273485,230 @@ components:
       type: object
     SfvbPageListResponse:
       example:
+        total: 2
         pages:
-        - item_count: 6
+        - item_count: 5
           visible: true
           exclude_from_sitemap: true
           uses_selectors: true
           page_type: page_type
-          child_count: 0
+          child_count: 1
           title: title
           path: path
           root: true
           group_template: group_template
+          catalog_group_oid: 6
           item_template: item_template
           parent_path: parent_path
+          detail:
+            redirect:
+              note: note
+              exclude_from_sitemap: true
+              source: source
+              type: type
+              pinned_page_path: pinned_page_path
+              redirect_id: 1
+              target: target
+              hash_sha256: hash_sha256
+              modified_dts: modified_dts
+              target_invalid_message: target_invalid_message
+              target_invalid: true
+              created_dts: created_dts
+              status: status
+            redirect_warnings:
+            - severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            - severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            visible: true
+            exclude_from_sitemap: true
+            page_type: page_type
+            blog_post_template: blog_post_template
+            description: description
+            sort_order_child_groups: sort_order_child_groups
+            title: title
+            sort_order_child_items: sort_order_child_items
+            items_per_page: 6
+            path: path
+            multimedia:
+            - declared: true
+              public_url: public_url
+              default: true
+              code: code
+              filename: filename
+              description: description
+              dimensions: dimensions
+            - declared: true
+              public_url: public_url
+              default: true
+              code: code
+              filename: filename
+              description: description
+              dimensions: dimensions
+            review_template: review_template
+            group_template: group_template
+            attributes:
+            - undeclared: true
+              used_by_current_theme: true
+              deprecated: true
+              name: name
+              type: string
+              used_by: used_by
+              value: value
+              writable: true
+            - undeclared: true
+              used_by_current_theme: true
+              deprecated: true
+              name: name
+              type: string
+              used_by: used_by
+              value: value
+              writable: true
+            catalog_group_oid: 0
+            item_template: item_template
+            visible_dts: visible_dts
+            sort_order: 5
           visible_dts: visible_dts
-          sort_order: 1
-        - item_count: 6
+          sort_order: 5
+        - item_count: 5
           visible: true
           exclude_from_sitemap: true
           uses_selectors: true
           page_type: page_type
-          child_count: 0
+          child_count: 1
           title: title
           path: path
           root: true
           group_template: group_template
+          catalog_group_oid: 6
           item_template: item_template
           parent_path: parent_path
+          detail:
+            redirect:
+              note: note
+              exclude_from_sitemap: true
+              source: source
+              type: type
+              pinned_page_path: pinned_page_path
+              redirect_id: 1
+              target: target
+              hash_sha256: hash_sha256
+              modified_dts: modified_dts
+              target_invalid_message: target_invalid_message
+              target_invalid: true
+              created_dts: created_dts
+              status: status
+            redirect_warnings:
+            - severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            - severity: error
+              pointer: pointer
+              code: code
+              found: found
+              line: 6
+              expected: expected
+              suggestion: suggestion
+              column: 0
+              did_you_mean:
+              - did_you_mean
+              - did_you_mean
+              message: message
+            visible: true
+            exclude_from_sitemap: true
+            page_type: page_type
+            blog_post_template: blog_post_template
+            description: description
+            sort_order_child_groups: sort_order_child_groups
+            title: title
+            sort_order_child_items: sort_order_child_items
+            items_per_page: 6
+            path: path
+            multimedia:
+            - declared: true
+              public_url: public_url
+              default: true
+              code: code
+              filename: filename
+              description: description
+              dimensions: dimensions
+            - declared: true
+              public_url: public_url
+              default: true
+              code: code
+              filename: filename
+              description: description
+              dimensions: dimensions
+            review_template: review_template
+            group_template: group_template
+            attributes:
+            - undeclared: true
+              used_by_current_theme: true
+              deprecated: true
+              name: name
+              type: string
+              used_by: used_by
+              value: value
+              writable: true
+            - undeclared: true
+              used_by_current_theme: true
+              deprecated: true
+              name: name
+              type: string
+              used_by: used_by
+              value: value
+              writable: true
+            catalog_group_oid: 0
+            item_template: item_template
+            visible_dts: visible_dts
+            sort_order: 5
           visible_dts: visible_dts
-          sort_order: 1
+          sort_order: 5
+        next_offset: 0
       properties:
+        next_offset:
+          description: "The offset of the next window, omitted on the last one.  Only\
+            \ with detail=true."
+          format: int32
+          type: integer
         pages:
           description: "Pages sorted by path, the root first.  Hidden pages are included."
           items:
             $ref: '#/components/schemas/SfvbPageSummary'
           type: array
+        total:
+          description: How many pages the whole list has.  Only with detail=true.
+          format: int32
+          type: integer
       type: object
     SfvbPageMoveRequest:
       example:
@@ -273263,7 +273749,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 6
+          redirect_id: 1
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -273307,7 +273793,7 @@ components:
             source: source
             type: type
             pinned_page_path: pinned_page_path
-            redirect_id: 6
+            redirect_id: 1
             target: target
             hash_sha256: hash_sha256
             modified_dts: modified_dts
@@ -273348,7 +273834,7 @@ components:
           sort_order_child_groups: sort_order_child_groups
           title: title
           sort_order_child_items: sort_order_child_items
-          items_per_page: 0
+          items_per_page: 6
           path: path
           multimedia:
           - declared: true
@@ -273384,9 +273870,10 @@ components:
             used_by: used_by
             value: value
             writable: true
+          catalog_group_oid: 0
           item_template: item_template
           visible_dts: visible_dts
-          sort_order: 1
+          sort_order: 5
         redirect_source: redirect_source
       properties:
         dry_run:
@@ -273525,7 +274012,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 6
+          redirect_id: 1
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -273566,7 +274053,7 @@ components:
         sort_order_child_groups: sort_order_child_groups
         title: title
         sort_order_child_items: sort_order_child_items
-        items_per_page: 0
+        items_per_page: 6
         path: path
         multimedia:
         - declared: true
@@ -273602,9 +274089,10 @@ components:
           used_by: used_by
           value: value
           writable: true
+        catalog_group_oid: 0
         item_template: item_template
         visible_dts: visible_dts
-        sort_order: 1
+        sort_order: 5
       properties:
         attributes:
           description: "Every attribute this page has, including ones a template declares\
@@ -273617,6 +274105,12 @@ components:
           description: Template that renders the blog posts under this page.  Omitted
             when not set.
           type: string
+        catalog_group_oid:
+          description: "The page's id.  It stays the same when the page is moved or\
+            \ renamed, where the path and the page folder's id do not.  The page read\
+            \ accepts it in place of path."
+          format: int32
+          type: integer
         description:
           description: "The page description, the text a page template renders as\
             \ the page's description.  Omitted when empty."
@@ -273848,25 +274342,122 @@ components:
       type: object
     SfvbPageSummary:
       example:
-        item_count: 6
+        item_count: 5
         visible: true
         exclude_from_sitemap: true
         uses_selectors: true
         page_type: page_type
-        child_count: 0
+        child_count: 1
         title: title
         path: path
         root: true
         group_template: group_template
+        catalog_group_oid: 6
         item_template: item_template
         parent_path: parent_path
+        detail:
+          redirect:
+            note: note
+            exclude_from_sitemap: true
+            source: source
+            type: type
+            pinned_page_path: pinned_page_path
+            redirect_id: 1
+            target: target
+            hash_sha256: hash_sha256
+            modified_dts: modified_dts
+            target_invalid_message: target_invalid_message
+            target_invalid: true
+            created_dts: created_dts
+            status: status
+          redirect_warnings:
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          - severity: error
+            pointer: pointer
+            code: code
+            found: found
+            line: 6
+            expected: expected
+            suggestion: suggestion
+            column: 0
+            did_you_mean:
+            - did_you_mean
+            - did_you_mean
+            message: message
+          visible: true
+          exclude_from_sitemap: true
+          page_type: page_type
+          blog_post_template: blog_post_template
+          description: description
+          sort_order_child_groups: sort_order_child_groups
+          title: title
+          sort_order_child_items: sort_order_child_items
+          items_per_page: 6
+          path: path
+          multimedia:
+          - declared: true
+            public_url: public_url
+            default: true
+            code: code
+            filename: filename
+            description: description
+            dimensions: dimensions
+          - declared: true
+            public_url: public_url
+            default: true
+            code: code
+            filename: filename
+            description: description
+            dimensions: dimensions
+          review_template: review_template
+          group_template: group_template
+          attributes:
+          - undeclared: true
+            used_by_current_theme: true
+            deprecated: true
+            name: name
+            type: string
+            used_by: used_by
+            value: value
+            writable: true
+          - undeclared: true
+            used_by_current_theme: true
+            deprecated: true
+            name: name
+            type: string
+            used_by: used_by
+            value: value
+            writable: true
+          catalog_group_oid: 0
+          item_template: item_template
+          visible_dts: visible_dts
+          sort_order: 5
         visible_dts: visible_dts
-        sort_order: 1
+        sort_order: 5
       properties:
+        catalog_group_oid:
+          description: "The page's id.  It stays the same when the page is moved or\
+            \ renamed, where the path and the page folder's id do not, and it is what\
+            \ a menu entry's catalog_group_oid names."
+          format: int32
+          type: integer
         child_count:
           description: Number of pages directly under this one.
           format: int32
           type: integer
+        detail:
+          $ref: '#/components/schemas/SfvbPageResponse'
         exclude_from_sitemap:
           description: True when the page is left out of the sitemap and marked noindex.
           type: boolean
@@ -274975,7 +275566,7 @@ components:
         source: source
         type: type
         pinned_page_path: pinned_page_path
-        redirect_id: 6
+        redirect_id: 1
         target: target
         hash_sha256: hash_sha256
         modified_dts: modified_dts
@@ -275686,7 +276277,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 6
+          redirect_id: 1
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -275736,7 +276327,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 6
+          redirect_id: 1
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts
@@ -275749,7 +276340,7 @@ components:
           source: source
           type: type
           pinned_page_path: pinned_page_path
-          redirect_id: 6
+          redirect_id: 1
           target: target
           hash_sha256: hash_sha256
           modified_dts: modified_dts

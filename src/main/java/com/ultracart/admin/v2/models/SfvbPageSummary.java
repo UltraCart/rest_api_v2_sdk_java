@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.ultracart.admin.v2.models.SfvbPageResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -49,9 +50,17 @@ import com.ultracart.admin.v2.util.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SfvbPageSummary {
+  public static final String SERIALIZED_NAME_CATALOG_GROUP_OID = "catalog_group_oid";
+  @SerializedName(SERIALIZED_NAME_CATALOG_GROUP_OID)
+  private Integer catalogGroupOid;
+
   public static final String SERIALIZED_NAME_CHILD_COUNT = "child_count";
   @SerializedName(SERIALIZED_NAME_CHILD_COUNT)
   private Integer childCount;
+
+  public static final String SERIALIZED_NAME_DETAIL = "detail";
+  @SerializedName(SERIALIZED_NAME_DETAIL)
+  private SfvbPageResponse detail;
 
   public static final String SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP = "exclude_from_sitemap";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_FROM_SITEMAP)
@@ -108,6 +117,29 @@ public class SfvbPageSummary {
   public SfvbPageSummary() { 
   }
 
+  public SfvbPageSummary catalogGroupOid(Integer catalogGroupOid) {
+    
+    this.catalogGroupOid = catalogGroupOid;
+    return this;
+  }
+
+   /**
+   * The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not, and it is what a menu entry&#39;s catalog_group_oid names.
+   * @return catalogGroupOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not, and it is what a menu entry's catalog_group_oid names.")
+
+  public Integer getCatalogGroupOid() {
+    return catalogGroupOid;
+  }
+
+
+  public void setCatalogGroupOid(Integer catalogGroupOid) {
+    this.catalogGroupOid = catalogGroupOid;
+  }
+
+
   public SfvbPageSummary childCount(Integer childCount) {
     
     this.childCount = childCount;
@@ -128,6 +160,29 @@ public class SfvbPageSummary {
 
   public void setChildCount(Integer childCount) {
     this.childCount = childCount;
+  }
+
+
+  public SfvbPageSummary detail(SfvbPageResponse detail) {
+    
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Get detail
+   * @return detail
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbPageResponse getDetail() {
+    return detail;
+  }
+
+
+  public void setDetail(SfvbPageResponse detail) {
+    this.detail = detail;
   }
 
 
@@ -440,7 +495,9 @@ public class SfvbPageSummary {
       return false;
     }
     SfvbPageSummary sfvbPageSummary = (SfvbPageSummary) o;
-    return Objects.equals(this.childCount, sfvbPageSummary.childCount) &&
+    return Objects.equals(this.catalogGroupOid, sfvbPageSummary.catalogGroupOid) &&
+        Objects.equals(this.childCount, sfvbPageSummary.childCount) &&
+        Objects.equals(this.detail, sfvbPageSummary.detail) &&
         Objects.equals(this.excludeFromSitemap, sfvbPageSummary.excludeFromSitemap) &&
         Objects.equals(this.groupTemplate, sfvbPageSummary.groupTemplate) &&
         Objects.equals(this.itemCount, sfvbPageSummary.itemCount) &&
@@ -458,14 +515,16 @@ public class SfvbPageSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(childCount, excludeFromSitemap, groupTemplate, itemCount, itemTemplate, pageType, parentPath, path, root, sortOrder, title, usesSelectors, visible, visibleDts);
+    return Objects.hash(catalogGroupOid, childCount, detail, excludeFromSitemap, groupTemplate, itemCount, itemTemplate, pageType, parentPath, path, root, sortOrder, title, usesSelectors, visible, visibleDts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SfvbPageSummary {\n");
+    sb.append("    catalogGroupOid: ").append(toIndentedString(catalogGroupOid)).append("\n");
     sb.append("    childCount: ").append(toIndentedString(childCount)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    groupTemplate: ").append(toIndentedString(groupTemplate)).append("\n");
     sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
@@ -501,7 +560,9 @@ public class SfvbPageSummary {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("catalog_group_oid");
     openapiFields.add("child_count");
+    openapiFields.add("detail");
     openapiFields.add("exclude_from_sitemap");
     openapiFields.add("group_template");
     openapiFields.add("item_count");
@@ -541,6 +602,10 @@ public class SfvbPageSummary {
         if (!SfvbPageSummary.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SfvbPageSummary` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      // validate the optional field `detail`
+      if (jsonObj.getAsJsonObject("detail") != null) {
+        SfvbPageResponse.validateJsonObject(jsonObj.getAsJsonObject("detail"));
       }
       if (jsonObj.get("group_template") != null && !jsonObj.get("group_template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `group_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_template").toString()));

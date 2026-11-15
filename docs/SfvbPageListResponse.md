@@ -7,7 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**nextOffset** | **Integer** | The offset of the next window, omitted on the last one.  Only with detail&#x3D;true. |  [optional] |
 |**pages** | [**List&lt;SfvbPageSummary&gt;**](SfvbPageSummary.md) | Pages sorted by path, the root first.  Hidden pages are included. |  [optional] |
+|**total** | **Integer** | How many pages the whole list has.  Only with detail&#x3D;true. |  [optional] |
 
 
 

@@ -63,6 +63,10 @@ public class SfvbPageResponse {
   @SerializedName(SERIALIZED_NAME_BLOG_POST_TEMPLATE)
   private String blogPostTemplate;
 
+  public static final String SERIALIZED_NAME_CATALOG_GROUP_OID = "catalog_group_oid";
+  @SerializedName(SERIALIZED_NAME_CATALOG_GROUP_OID)
+  private Integer catalogGroupOid;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -185,6 +189,29 @@ public class SfvbPageResponse {
 
   public void setBlogPostTemplate(String blogPostTemplate) {
     this.blogPostTemplate = blogPostTemplate;
+  }
+
+
+  public SfvbPageResponse catalogGroupOid(Integer catalogGroupOid) {
+    
+    this.catalogGroupOid = catalogGroupOid;
+    return this;
+  }
+
+   /**
+   * The page&#39;s id.  It stays the same when the page is moved or renamed, where the path and the page folder&#39;s id do not.  The page read accepts it in place of path.
+   * @return catalogGroupOid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The page's id.  It stays the same when the page is moved or renamed, where the path and the page folder's id do not.  The page read accepts it in place of path.")
+
+  public Integer getCatalogGroupOid() {
+    return catalogGroupOid;
+  }
+
+
+  public void setCatalogGroupOid(Integer catalogGroupOid) {
+    this.catalogGroupOid = catalogGroupOid;
   }
 
 
@@ -607,6 +634,7 @@ public class SfvbPageResponse {
     SfvbPageResponse sfvbPageResponse = (SfvbPageResponse) o;
     return Objects.equals(this.attributes, sfvbPageResponse.attributes) &&
         Objects.equals(this.blogPostTemplate, sfvbPageResponse.blogPostTemplate) &&
+        Objects.equals(this.catalogGroupOid, sfvbPageResponse.catalogGroupOid) &&
         Objects.equals(this.description, sfvbPageResponse.description) &&
         Objects.equals(this.excludeFromSitemap, sfvbPageResponse.excludeFromSitemap) &&
         Objects.equals(this.groupTemplate, sfvbPageResponse.groupTemplate) &&
@@ -628,7 +656,7 @@ public class SfvbPageResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, blogPostTemplate, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, multimedia, pageType, path, redirect, redirectWarnings, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
+    return Objects.hash(attributes, blogPostTemplate, catalogGroupOid, description, excludeFromSitemap, groupTemplate, itemTemplate, itemsPerPage, multimedia, pageType, path, redirect, redirectWarnings, reviewTemplate, sortOrder, sortOrderChildGroups, sortOrderChildItems, title, visible, visibleDts);
   }
 
   @Override
@@ -637,6 +665,7 @@ public class SfvbPageResponse {
     sb.append("class SfvbPageResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    blogPostTemplate: ").append(toIndentedString(blogPostTemplate)).append("\n");
+    sb.append("    catalogGroupOid: ").append(toIndentedString(catalogGroupOid)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    excludeFromSitemap: ").append(toIndentedString(excludeFromSitemap)).append("\n");
     sb.append("    groupTemplate: ").append(toIndentedString(groupTemplate)).append("\n");
@@ -678,6 +707,7 @@ public class SfvbPageResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("attributes");
     openapiFields.add("blog_post_template");
+    openapiFields.add("catalog_group_oid");
     openapiFields.add("description");
     openapiFields.add("exclude_from_sitemap");
     openapiFields.add("group_template");
