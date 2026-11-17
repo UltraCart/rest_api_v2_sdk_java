@@ -87,6 +87,10 @@ public class SfvbApprovalParams {
   @SerializedName(SERIALIZED_NAME_EXPERIMENT_OID)
   private Integer experimentOid;
 
+  public static final String SERIALIZED_NAME_IP = "ip";
+  @SerializedName(SERIALIZED_NAME_IP)
+  private String ip;
+
   public static final String SERIALIZED_NAME_ITEM_COUNT = "item_count";
   @SerializedName(SERIALIZED_NAME_ITEM_COUNT)
   private Integer itemCount;
@@ -429,6 +433,29 @@ public class SfvbApprovalParams {
 
   public void setExperimentOid(Integer experimentOid) {
     this.experimentOid = experimentOid;
+  }
+
+
+  public SfvbApprovalParams ip(String ip) {
+    
+    this.ip = ip;
+    return this;
+  }
+
+   /**
+   * For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller&#39;s own address, never by the caller.
+   * @return ip
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "For cli.location, the IPv4 address the StoreFront CLI sign-in asks to be used from.  Set by the server from the caller's own address, never by the caller.")
+
+  public String getIp() {
+    return ip;
+  }
+
+
+  public void setIp(String ip) {
+    this.ip = ip;
   }
 
 
@@ -911,6 +938,7 @@ public class SfvbApprovalParams {
         Objects.equals(this.domain, sfvbApprovalParams.domain) &&
         Objects.equals(this.espTwilioUuid, sfvbApprovalParams.espTwilioUuid) &&
         Objects.equals(this.experimentOid, sfvbApprovalParams.experimentOid) &&
+        Objects.equals(this.ip, sfvbApprovalParams.ip) &&
         Objects.equals(this.itemCount, sfvbApprovalParams.itemCount) &&
         Objects.equals(this.merchantItemOid, sfvbApprovalParams.merchantItemOid) &&
         Objects.equals(this.newPath, sfvbApprovalParams.newPath) &&
@@ -935,7 +963,7 @@ public class SfvbApprovalParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliateNetworkOid, afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, itemCount, merchantItemOid, newPath, pagesMoved, path, redirectOldUrl, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, trackingProvider, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
+    return Objects.hash(affiliateNetworkOid, afterStepUuid, attributeNames, blogPostOid, branchStepUuid, contentSha256, domain, espTwilioUuid, experimentOid, ip, itemCount, merchantItemOid, newPath, pagesMoved, path, redirectOldUrl, requestSha256, rowsSha256, ruleCount, segmentUuid, sequenceUuid, side, slot, stepUuid, trackingProvider, upsellKind, upsellOid, version, widgetId, winnerVariationNumber);
   }
 
   @Override
@@ -951,6 +979,7 @@ public class SfvbApprovalParams {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    espTwilioUuid: ").append(toIndentedString(espTwilioUuid)).append("\n");
     sb.append("    experimentOid: ").append(toIndentedString(experimentOid)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    itemCount: ").append(toIndentedString(itemCount)).append("\n");
     sb.append("    merchantItemOid: ").append(toIndentedString(merchantItemOid)).append("\n");
     sb.append("    newPath: ").append(toIndentedString(newPath)).append("\n");
@@ -1002,6 +1031,7 @@ public class SfvbApprovalParams {
     openapiFields.add("domain");
     openapiFields.add("esp_twilio_uuid");
     openapiFields.add("experiment_oid");
+    openapiFields.add("ip");
     openapiFields.add("item_count");
     openapiFields.add("merchant_item_oid");
     openapiFields.add("new_path");
@@ -1067,6 +1097,9 @@ public class SfvbApprovalParams {
       }
       if (jsonObj.get("esp_twilio_uuid") != null && !jsonObj.get("esp_twilio_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `esp_twilio_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("esp_twilio_uuid").toString()));
+      }
+      if (jsonObj.get("ip") != null && !jsonObj.get("ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip").toString()));
       }
       if (jsonObj.get("new_path") != null && !jsonObj.get("new_path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_path").toString()));

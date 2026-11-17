@@ -139,7 +139,9 @@ public class SfvbApprovalCreateRequest {
     
     FLOW_BACKFILL("flow.backfill"),
     
-    PAGE_MOVE("page.move");
+    PAGE_MOVE("page.move"),
+    
+    CLI_LOCATION("cli.location");
 
     private String value;
 

@@ -29942,6 +29942,304 @@ public class SfvbApi {
         return localVarCall;
     }
     /**
+     * Build call for insertSfvbLocation
+     * @param approvalId The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbLocationCall(String approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/location";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (approvalId != null) {
+            localVarHeaderParams.put("Approval-Id", localVarApiClient.parameterToString(approvalId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbLocationValidateBeforeCall(String approvalId, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = insertSfvbLocationCall(approvalId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Add the caller&#39;s address to this StoreFront CLI sign-in
+     * Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+     * @param approvalId The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public void insertSfvbLocation(String approvalId) throws ApiException {
+        insertSfvbLocationWithHttpInfo(approvalId);
+    }
+
+    /**
+     * Add the caller&#39;s address to this StoreFront CLI sign-in
+     * Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+     * @param approvalId The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> insertSfvbLocationWithHttpInfo(String approvalId) throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbLocationValidateBeforeCall(approvalId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Add the caller&#39;s address to this StoreFront CLI sign-in (asynchronously)
+     * Spends an approved cli.location approval, named in the Approval-Id header, from the address it was asked for.  From then on the sign-in may be used from that address until it ends.  An approval asked for from another address is refused with sfvb.approval_mismatch. 
+     * @param approvalId The approval_id of an approved cli.location request asked for from this address.  See POST /sfvb/location/approval. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 404 </td><td> Status Code 404: not found </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 410 </td><td> Status Code 410: Your authorized application has been disabled by UltraCart </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbLocationAsync(String approvalId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbLocationValidateBeforeCall(approvalId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for insertSfvbLocationApproval
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbLocationApprovalCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/sfvb/location/approval";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ultraCartOauth", "ultraCartSimpleApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call insertSfvbLocationApprovalValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = insertSfvbLocationApprovalCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Ask to use this StoreFront CLI sign-in from the caller&#39;s address
+     * For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn&#39;t expect warns them. 
+     * @return SfvbApproval
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public SfvbApproval insertSfvbLocationApproval() throws ApiException {
+        ApiResponse<SfvbApproval> localVarResp = insertSfvbLocationApprovalWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Ask to use this StoreFront CLI sign-in from the caller&#39;s address
+     * For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn&#39;t expect warns them. 
+     * @return ApiResponse&lt;SfvbApproval&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public ApiResponse<SfvbApproval> insertSfvbLocationApprovalWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = insertSfvbLocationApprovalValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<SfvbApproval>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Ask to use this StoreFront CLI sign-in from the caller&#39;s address (asynchronously)
+     * For a StoreFront CLI sign-in refused with sfvb.location_approval_required.  Asks the person who signed in to approve the address this call comes from (a cli.location approval).  Show them approval_url and user_code, poll GET approvals/{approval_id}, and once it is approved call POST location from the same address with the approval_id in the Approval-Id header.  Asking again returns the pending request (200).  The person is also emailed, so a request they didn&#39;t expect warns them. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful response </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Status Code 400: bad request input such as invalid json </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 401 </td><td> Status Code 401: invalid credentials supplied </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 403 </td><td> Status Code 403: forbidden </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 409 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Status Code 429: you have exceeded the allowed API call rate limit for your application. </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+        <tr><td> 500 </td><td> Status Code 500: any server side error.  the body will contain a generic server error message </td><td>  * UC-REST-ERROR - Contains human readable error message <br>  </td></tr>
+     </table>
+     */
+    public okhttp3.Call insertSfvbLocationApprovalAsync(final ApiCallback<SfvbApproval> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = insertSfvbLocationApprovalValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<SfvbApproval>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for insertSfvbPage
      * @param storefrontOid  (required)
      * @param pageCreateRequest The page to create (required)

@@ -70,6 +70,7 @@
 | POSTCARD_TEST_MAIL | &quot;postcard.test_mail&quot; |
 | FLOW_BACKFILL | &quot;flow.backfill&quot; |
 | PAGE_MOVE | &quot;page.move&quot; |
+| CLI_LOCATION | &quot;cli.location&quot; |
 
 
 

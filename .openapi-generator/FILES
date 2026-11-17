@@ -1010,6 +1010,7 @@ docs/SfvbCampaignMembership.md
 docs/SfvbCampaignWriteRequest.md
 docs/SfvbCampaignsResponse.md
 docs/SfvbCliAccess.md
+docs/SfvbCliLocation.md
 docs/SfvbCliVersion.md
 docs/SfvbCodeLibraryEmail.md
 docs/SfvbCodeLibraryEmailsResponse.md
@@ -2528,6 +2529,7 @@ src/main/java/com/ultracart/admin/v2/models/SfvbCampaignMembership.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignWriteRequest.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCampaignsResponse.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCliAccess.java
+src/main/java/com/ultracart/admin/v2/models/SfvbCliLocation.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCliVersion.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCodeLibraryEmail.java
 src/main/java/com/ultracart/admin/v2/models/SfvbCodeLibraryEmailsResponse.java

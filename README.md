@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.254</version>
+    <version>4.1.255</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.254"
+     implementation "com.ultracart:rest-sdk:4.1.255"
   }
 ```
 
@@ -679,6 +679,8 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbCommsTwilioAccount**](docs/SfvbApi.md#insertSfvbCommsTwilioAccount) | **POST** /sfvb/comms/twilio_account | Connect the Twilio account
 *SfvbApi* | [**insertSfvbDocsGap**](docs/SfvbApi.md#insertSfvbDocsGap) | **POST** /sfvb/docs/gaps | Send UltraCart a documentation-gap report
 *SfvbApi* | [**insertSfvbItemChild**](docs/SfvbApi.md#insertSfvbItemChild) | **POST** /sfvb/storefronts/{storefront_oid}/items/children | Create a child item for a parent&#39;s variations
+*SfvbApi* | [**insertSfvbLocation**](docs/SfvbApi.md#insertSfvbLocation) | **POST** /sfvb/location | Add the caller&#39;s address to this StoreFront CLI sign-in
+*SfvbApi* | [**insertSfvbLocationApproval**](docs/SfvbApi.md#insertSfvbLocationApproval) | **POST** /sfvb/location/approval | Ask to use this StoreFront CLI sign-in from the caller&#39;s address
 *SfvbApi* | [**insertSfvbPage**](docs/SfvbApi.md#insertSfvbPage) | **POST** /sfvb/storefronts/{storefront_oid}/pages | Create a page
 *SfvbApi* | [**insertSfvbRedirect**](docs/SfvbApi.md#insertSfvbRedirect) | **POST** /sfvb/storefronts/{storefront_oid}/redirects | Create a 301 redirect rule
 *SfvbApi* | [**insertSfvbSecretRequest**](docs/SfvbApi.md#insertSfvbSecretRequest) | **POST** /sfvb/secrets | Ask a person to enter secret values
@@ -2050,6 +2052,7 @@ Class | Method | HTTP request | Description
  - [SfvbCampaignWriteRequest](docs/SfvbCampaignWriteRequest.md)
  - [SfvbCampaignsResponse](docs/SfvbCampaignsResponse.md)
  - [SfvbCliAccess](docs/SfvbCliAccess.md)
+ - [SfvbCliLocation](docs/SfvbCliLocation.md)
  - [SfvbCliVersion](docs/SfvbCliVersion.md)
  - [SfvbCodeLibraryEmail](docs/SfvbCodeLibraryEmail.md)
  - [SfvbCodeLibraryEmailsResponse](docs/SfvbCodeLibraryEmailsResponse.md)
@@ -2623,6 +2626,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.255 | 11/17/2026 | sfvb internal testing |
 | 4.1.254 | 11/15/2026 | sfvb internal testing |
 | 4.1.253 | 11/13/2026 | sfvb internal testing |
 | 4.1.252 | 11/12/2026 | sfvb internal testing |

@@ -5131,6 +5131,200 @@ paths:
       x-codegen-request-body-name: events_auth_request
       x-content-type: application/json; charset=UTF-8
       x-accepts: application/json
+  /sfvb/location:
+    post:
+      description: "Spends an approved cli.location approval, named in the Approval-Id\
+        \ header, from the address it was asked for.  From then on the sign-in may\
+        \ be used from that address until it ends.  An approval asked for from another\
+        \ address is refused with sfvb.approval_mismatch.\n"
+      operationId: insertSfvbLocation
+      parameters:
+      - description: The approval_id of an approved cli.location request asked for
+          from this address.  See POST /sfvb/location/approval.
+        in: header
+        name: Approval-Id
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 410: Your authorized application has been disabled\
+            \ by UltraCart"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Add the caller's address to this StoreFront CLI sign-in
+      tags:
+      - sfvb
+      x-accepts: application/json
+  /sfvb/location/approval:
+    post:
+      description: "For a StoreFront CLI sign-in refused with sfvb.location_approval_required.\
+        \  Asks the person who signed in to approve the address this call comes from\
+        \ (a cli.location approval).  Show them approval_url and user_code, poll GET\
+        \ approvals/{approval_id}, and once it is approved call POST location from\
+        \ the same address with the approval_id in the Approval-Id header.  Asking\
+        \ again returns the pending request (200).  The person is also emailed, so\
+        \ a request they didn't expect warns them.\n"
+      operationId: insertSfvbLocationApproval
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbApproval'
+          description: Successful response
+        "201":
+          $ref: '#/components/responses/'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "409":
+          $ref: '#/components/responses/409'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 429: you have exceeded the allowed API call rate\
+            \ limit for your application."
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: Ask to use this StoreFront CLI sign-in from the caller's address
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/secrets:
     get:
       description: "Requests made with this sign-in in the last 24 hours, newest first,\
@@ -261475,6 +261669,7 @@ components:
           side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
+          ip: ip
           tracking_provider: tracking_provider
           version: 7
           request_sha256: request_sha256
@@ -261799,6 +261994,7 @@ components:
           side: side
           step_uuid: step_uuid
           content_sha256: content_sha256
+          ip: ip
           tracking_provider: tracking_provider
           version: 7
           request_sha256: request_sha256
@@ -261973,6 +262169,7 @@ components:
           - postcard.test_mail
           - flow.backfill
           - page.move
+          - cli.location
           type: string
         affiliate_network:
           $ref: '#/components/schemas/SfvbAffiliateNetworkRequest'
@@ -262068,6 +262265,7 @@ components:
         side: side
         step_uuid: step_uuid
         content_sha256: content_sha256
+        ip: ip
         tracking_provider: tracking_provider
         version: 7
         request_sha256: request_sha256
@@ -262122,6 +262320,11 @@ components:
           description: "For experiment.end, the experiment to end."
           format: int32
           type: integer
+        ip:
+          description: "For cli.location, the IPv4 address the StoreFront CLI sign-in\
+            \ asks to be used from.  Set by the server from the caller's own address,\
+            \ never by the caller."
+          type: string
         item_count:
           description: "For item.attribute_batch, how many items the batch would change\
             \ when it was requested.  Set by the server."
@@ -262352,6 +262555,7 @@ components:
             side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
+            ip: ip
             tracking_provider: tracking_provider
             version: 7
             request_sha256: request_sha256
@@ -262432,6 +262636,7 @@ components:
             side: side
             step_uuid: step_uuid
             content_sha256: content_sha256
+            ip: ip
             tracking_provider: tracking_provider
             version: 7
             request_sha256: request_sha256
@@ -263291,6 +263496,19 @@ components:
         request_access_url:
           description: Where to request access.  Returned only when enabled is false.
           type: string
+      type: object
+    SfvbCliLocation:
+      example:
+        trusted: true
+        ip: ip
+      properties:
+        ip:
+          description: "The IPv4 address this call came from, as UltraCart sees it."
+          type: string
+        trusted:
+          description: "True when the sign-in may be used from this address.  When\
+            \ false (omitted), ask for approval with POST /sfvb/location/approval."
+          type: boolean
       type: object
     SfvbCliVersion:
       example:
@@ -285244,6 +285462,9 @@ components:
         can_read: true
         application_name: application_name
         can_publish: true
+        cli_location:
+          trusted: true
+          ip: ip
         storefronts:
         - active_theme_oid: 0
           storefront_oid: 6
@@ -285310,6 +285531,8 @@ components:
           type: boolean
         cli_access:
           $ref: '#/components/schemas/SfvbCliAccess'
+        cli_location:
+          $ref: '#/components/schemas/SfvbCliLocation'
         cli_version:
           $ref: '#/components/schemas/SfvbCliVersion'
         device_scope:

@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.ultracart.admin.v2.models.SfvbCliAccess;
+import com.ultracart.admin.v2.models.SfvbCliLocation;
 import com.ultracart.admin.v2.models.SfvbCliVersion;
 import com.ultracart.admin.v2.models.SfvbStorefront;
 import io.swagger.annotations.ApiModel;
@@ -93,6 +94,10 @@ public class SfvbWhoamiResponse {
   public static final String SERIALIZED_NAME_CLI_ACCESS = "cli_access";
   @SerializedName(SERIALIZED_NAME_CLI_ACCESS)
   private SfvbCliAccess cliAccess;
+
+  public static final String SERIALIZED_NAME_CLI_LOCATION = "cli_location";
+  @SerializedName(SERIALIZED_NAME_CLI_LOCATION)
+  private SfvbCliLocation cliLocation;
 
   public static final String SERIALIZED_NAME_CLI_VERSION = "cli_version";
   @SerializedName(SERIALIZED_NAME_CLI_VERSION)
@@ -359,6 +364,29 @@ public class SfvbWhoamiResponse {
   }
 
 
+  public SfvbWhoamiResponse cliLocation(SfvbCliLocation cliLocation) {
+    
+    this.cliLocation = cliLocation;
+    return this;
+  }
+
+   /**
+   * Get cliLocation
+   * @return cliLocation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SfvbCliLocation getCliLocation() {
+    return cliLocation;
+  }
+
+
+  public void setCliLocation(SfvbCliLocation cliLocation) {
+    this.cliLocation = cliLocation;
+  }
+
+
   public SfvbWhoamiResponse cliVersion(SfvbCliVersion cliVersion) {
     
     this.cliVersion = cliVersion;
@@ -579,6 +607,7 @@ public class SfvbWhoamiResponse {
         Objects.equals(this.canReadItems, sfvbWhoamiResponse.canReadItems) &&
         Objects.equals(this.canWrite, sfvbWhoamiResponse.canWrite) &&
         Objects.equals(this.cliAccess, sfvbWhoamiResponse.cliAccess) &&
+        Objects.equals(this.cliLocation, sfvbWhoamiResponse.cliLocation) &&
         Objects.equals(this.cliVersion, sfvbWhoamiResponse.cliVersion) &&
         Objects.equals(this.deviceScope, sfvbWhoamiResponse.deviceScope) &&
         Objects.equals(this.login, sfvbWhoamiResponse.login) &&
@@ -591,7 +620,7 @@ public class SfvbWhoamiResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actingAsUser, applicationName, authenticationType, canEditItems, canPublish, canPublishPublic, canRead, canReadItems, canWrite, cliAccess, cliVersion, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
+    return Objects.hash(actingAsUser, applicationName, authenticationType, canEditItems, canPublish, canPublishPublic, canRead, canReadItems, canWrite, cliAccess, cliLocation, cliVersion, deviceScope, login, merchantId, scopes, storefronts, storefrontsWithheld, userName);
   }
 
   @Override
@@ -608,6 +637,7 @@ public class SfvbWhoamiResponse {
     sb.append("    canReadItems: ").append(toIndentedString(canReadItems)).append("\n");
     sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
     sb.append("    cliAccess: ").append(toIndentedString(cliAccess)).append("\n");
+    sb.append("    cliLocation: ").append(toIndentedString(cliLocation)).append("\n");
     sb.append("    cliVersion: ").append(toIndentedString(cliVersion)).append("\n");
     sb.append("    deviceScope: ").append(toIndentedString(deviceScope)).append("\n");
     sb.append("    login: ").append(toIndentedString(login)).append("\n");
@@ -648,6 +678,7 @@ public class SfvbWhoamiResponse {
     openapiFields.add("can_read_items");
     openapiFields.add("can_write");
     openapiFields.add("cli_access");
+    openapiFields.add("cli_location");
     openapiFields.add("cli_version");
     openapiFields.add("device_scope");
     openapiFields.add("login");
@@ -692,6 +723,10 @@ public class SfvbWhoamiResponse {
       // validate the optional field `cli_access`
       if (jsonObj.getAsJsonObject("cli_access") != null) {
         SfvbCliAccess.validateJsonObject(jsonObj.getAsJsonObject("cli_access"));
+      }
+      // validate the optional field `cli_location`
+      if (jsonObj.getAsJsonObject("cli_location") != null) {
+        SfvbCliLocation.validateJsonObject(jsonObj.getAsJsonObject("cli_location"));
       }
       // validate the optional field `cli_version`
       if (jsonObj.getAsJsonObject("cli_version") != null) {
