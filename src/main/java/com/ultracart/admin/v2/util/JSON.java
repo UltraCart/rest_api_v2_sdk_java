@@ -1084,7 +1084,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCliLocation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCliVersion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryEmail.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryEmailCreateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryEmailDetail.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryEmailResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryEmailsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryFile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCodeLibraryFileSkipped.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCommsBranchStat.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCommsChange.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.ultracart.admin.v2.models.SfvbCommsClick.CustomTypeAdapterFactory());

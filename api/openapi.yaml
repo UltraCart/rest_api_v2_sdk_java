@@ -7949,6 +7949,188 @@ paths:
       tags:
       - sfvb
       x-accepts: application/json
+    post:
+      description: "Saves a whole email (body, subject and preview text) as a code\
+        \ library email item that the admin's \"start from library\" picker and the\
+        \ step insert's library_item_oid can start a new email from (#2126).  No flow,\
+        \ campaign, sequence or step is made, and nothing sends.  The item is private\
+        \ to this account, never published or shared.  The body must pass the library\
+        \ content scanner and the email container rules.  Image files the body names\
+        \ by a path starting with / are carried with the item when they are PNG, JPEG\
+        \ or GIF and their contents are that image, up to 25 files, 5 MB each and\
+        \ 20 MB in all; any other file is listed in files_skipped with the reason.\
+        \  Make a new uuid for each save.  Sending the same uuid again returns the\
+        \ item it saved, unchanged, with created false, so a retry after an uncertain\
+        \ response is safe.  Titles may repeat.\n"
+      operationId: insertSfvbCodeLibraryEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SfvbCodeLibraryEmailCreateRequest'
+        description: "The email to save, with the uuid that makes a retry safe"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCodeLibraryEmailResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 403: forbidden"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_write
+      - ultraCartSimpleApiKey: []
+      summary: Save a reusable email to this account's code library
+      tags:
+      - sfvb
+      x-codegen-request-body-name: code_library_email_create_request
+      x-content-type: application/json
+      x-accepts: application/json
+  /sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid}:
+    get:
+      description: "Answers for an item this account owns, one shared with it, or\
+        \ one published for everyone, approved by UltraCart and free, the same items\
+        \ listSfvbCodeLibraryEmails lists; anything else is not found.  Returns the\
+        \ title, description, subject, preview text, the body as stored and the image\
+        \ files the item carries, without their contents (#2126).\n"
+      operationId: getSfvbCodeLibraryEmail
+      parameters:
+      - in: path
+        name: storefront_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - in: path
+        name: library_item_oid
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SfvbCodeLibraryEmailResponse'
+          description: Successful response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 400: bad request input such as invalid json"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 401: invalid credentials supplied"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 404: not found"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: "Status Code 500: any server side error.  the body will contain\
+            \ a generic server error message"
+          headers:
+            UC-REST-ERROR:
+              description: Contains human readable error message
+              schema:
+                type: string
+      security:
+      - ultraCartOauth:
+        - sfvb_read
+      - ultraCartSimpleApiKey: []
+      summary: "One code library email item, with its body and file list"
+      tags:
+      - sfvb
+      x-accepts: application/json
   /sfvb/storefronts/{storefront_oid}/comms/flows/{flow_uuid}/backfill:
     post:
       description: "Enrolls customers who would have met the flow's trigger before\
@@ -263570,6 +263752,136 @@ components:
           description: The item's title.
           type: string
       type: object
+    SfvbCodeLibraryEmailCreateRequest:
+      example:
+        container_cjson: container_cjson
+        preview_text: preview_text
+        subject: subject
+        description: description
+        title: title
+        uuid: uuid
+      properties:
+        container_cjson:
+          description: "The email body, a container that passes the email container\
+            \ rules."
+          type: string
+        description:
+          description: "Up to 1000 characters on one line, or empty."
+          type: string
+        preview_text:
+          description: "The preview text a new email started from the item takes,\
+            \ 5 to 150 characters on one line."
+          type: string
+        subject:
+          description: "The subject a new email started from the item takes, 5 to\
+            \ 150 characters on one line."
+          type: string
+        title:
+          description: "The title the new-email picker shows, 4 to 100 characters\
+            \ on one line."
+          type: string
+        uuid:
+          description: "A UUID the caller makes for this save.  Sending the same uuid\
+            \ again returns the item it saved, unchanged, so a retry after an uncertain\
+            \ response never makes a second item."
+          type: string
+      type: object
+    SfvbCodeLibraryEmailDetail:
+      example:
+        container_cjson: container_cjson
+        preview_text: preview_text
+        subject: subject
+        description: description
+        files:
+        - path: path
+          mime_type: mime_type
+          theme_storage: true
+        - path: path
+          mime_type: mime_type
+          theme_storage: true
+        source: source
+        title: title
+        library_item_oid: 0
+      properties:
+        container_cjson:
+          description: The item's body as stored.  Starting a new email from it gives
+            its elements new ids.
+          type: string
+        description:
+          description: The item's description.
+          type: string
+        files:
+          description: "The image files the item carries, without their contents."
+          items:
+            $ref: '#/components/schemas/SfvbCodeLibraryFile'
+          type: array
+        library_item_oid:
+          description: "The item, to send as library_item_oid on the step insert."
+          format: int32
+          type: integer
+        preview_text:
+          description: "The preview text a new email takes from the item, or null\
+            \ when it has none."
+          type: string
+        source:
+          description: "owned (this account's own), shared (shared with this account)\
+            \ or public (published and approved by UltraCart)."
+          type: string
+        subject:
+          description: "The subject a new email takes from the item, or null when\
+            \ it has none."
+          type: string
+        title:
+          description: The item's title.
+          type: string
+      type: object
+    SfvbCodeLibraryEmailResponse:
+      example:
+        notes:
+        - notes
+        - notes
+        created: true
+        files_skipped:
+        - path: path
+          reason: reason
+        - path: path
+          reason: reason
+        email:
+          container_cjson: container_cjson
+          preview_text: preview_text
+          subject: subject
+          description: description
+          files:
+          - path: path
+            mime_type: mime_type
+            theme_storage: true
+          - path: path
+            mime_type: mime_type
+            theme_storage: true
+          source: source
+          title: title
+          library_item_oid: 0
+      properties:
+        created:
+          description: "On a save, true when this request made the item and false\
+            \ when an earlier save with the same uuid had, in which case nothing changed.\
+            \  Absent on a read."
+          type: boolean
+        email:
+          $ref: '#/components/schemas/SfvbCodeLibraryEmailDetail'
+        files_skipped:
+          description: "On a save, the files the body names that the item does not\
+            \ carry, each with the reason.  Absent on a read."
+          items:
+            $ref: '#/components/schemas/SfvbCodeLibraryFileSkipped'
+          type: array
+        notes:
+          description: "Plain sentences about the save, for example executable elements\
+            \ or absolute file URLs in the body."
+          items:
+            type: string
+          type: array
+      type: object
     SfvbCodeLibraryEmailsResponse:
       example:
         emails:
@@ -263596,6 +263908,39 @@ components:
           description: True when there were more items than listed.  Narrow the search
             to see the rest.
           type: boolean
+      type: object
+    SfvbCodeLibraryFile:
+      example:
+        path: path
+        mime_type: mime_type
+        theme_storage: true
+      properties:
+        mime_type:
+          description: The file's type.
+          type: string
+        path:
+          description: "The path the body names the file by.  Starting a new email\
+            \ from the item writes the file there, never over an existing file."
+          type: string
+        theme_storage:
+          description: "True when the file lives under the storefront's theme, so\
+            \ it is written under the theme of the storefront that uses the item."
+          type: boolean
+      type: object
+    SfvbCodeLibraryFileSkipped:
+      example:
+        path: path
+        reason: reason
+      properties:
+        path:
+          description: The path the body names the file by.
+          type: string
+        reason:
+          description: "not_found (no such file on the storefront), not_an_image (only\
+            \ PNG, JPEG and GIF files whose contents are that image are carried),\
+            \ too_large (over 5 MB), over_limit (past 25 files or 20 MB in all) or\
+            \ unreadable."
+          type: string
       type: object
     SfvbCommsBranchStat:
       example:

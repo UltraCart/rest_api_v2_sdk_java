@@ -24,7 +24,7 @@ See https://mvnrepository.com/artifact/com.ultracart/rest-sdk
 <dependency>
     <groupId>com.ultracart</groupId>
     <artifactId>rest-sdk</artifactId>
-    <version>4.1.256</version>
+    <version>4.1.257</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.ultracart:rest-sdk:4.1.256"
+     implementation "com.ultracart:rest-sdk:4.1.257"
   }
 ```
 
@@ -565,6 +565,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**getSfvbBlogPost**](docs/SfvbApi.md#getSfvbBlogPost) | **GET** /sfvb/storefronts/{storefront_oid}/blog_posts/{blog_post_oid} | Read a blog post
 *SfvbApi* | [**getSfvbCampaign**](docs/SfvbApi.md#getSfvbCampaign) | **GET** /sfvb/storefronts/{storefront_oid}/campaigns/{campaign_uuid} | Get a campaign
 *SfvbApi* | [**getSfvbCjsonUsedElements**](docs/SfvbApi.md#getSfvbCjsonUsedElements) | **POST** /sfvb/cjson/elements | Element types used by a container
+*SfvbApi* | [**getSfvbCodeLibraryEmail**](docs/SfvbApi.md#getSfvbCodeLibraryEmail) | **GET** /sfvb/storefronts/{storefront_oid}/code_library/emails/{library_item_oid} | One code library email item, with its body and file list
 *SfvbApi* | [**getSfvbCommsCampaignFolder**](docs/SfvbApi.md#getSfvbCommsCampaignFolder) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders/{folder_uuid} | Read one campaign folder
 *SfvbApi* | [**getSfvbCommsCampaignFolders**](docs/SfvbApi.md#getSfvbCommsCampaignFolders) | **GET** /sfvb/storefronts/{storefront_oid}/campaign_folders | List the campaign folders
 *SfvbApi* | [**getSfvbCommsDashboardStats**](docs/SfvbApi.md#getSfvbCommsDashboardStats) | **GET** /sfvb/storefronts/{storefront_oid}/comms/stats/dashboard | Read every flow&#39;s and campaign&#39;s counts over a window, with the account&#39;s daily sending
@@ -670,6 +671,7 @@ Class | Method | HTTP request | Description
 *SfvbApi* | [**insertSfvbAffiliateNetwork**](docs/SfvbApi.md#insertSfvbAffiliateNetwork) | **POST** /sfvb/storefronts/{storefront_oid}/tracking/affiliate_networks | Add an affiliate network
 *SfvbApi* | [**insertSfvbApproval**](docs/SfvbApi.md#insertSfvbApproval) | **POST** /sfvb/approvals | Request a human approval
 *SfvbApi* | [**insertSfvbBlogPost**](docs/SfvbApi.md#insertSfvbBlogPost) | **POST** /sfvb/storefronts/{storefront_oid}/blog_posts | Create a blog post
+*SfvbApi* | [**insertSfvbCodeLibraryEmail**](docs/SfvbApi.md#insertSfvbCodeLibraryEmail) | **POST** /sfvb/storefronts/{storefront_oid}/code_library/emails | Save a reusable email to this account&#39;s code library
 *SfvbApi* | [**insertSfvbCommsCampaignFolder**](docs/SfvbApi.md#insertSfvbCommsCampaignFolder) | **POST** /sfvb/storefronts/{storefront_oid}/campaign_folders | Create a campaign folder
 *SfvbApi* | [**insertSfvbCommsFlowFolder**](docs/SfvbApi.md#insertSfvbCommsFlowFolder) | **POST** /sfvb/storefronts/{storefront_oid}/flow_folders | Create a flow folder
 *SfvbApi* | [**insertSfvbCommsFolder**](docs/SfvbApi.md#insertSfvbCommsFolder) | **POST** /sfvb/storefronts/{storefront_oid}/list_segment_folders | Create a list and segment folder
@@ -2055,7 +2057,12 @@ Class | Method | HTTP request | Description
  - [SfvbCliLocation](docs/SfvbCliLocation.md)
  - [SfvbCliVersion](docs/SfvbCliVersion.md)
  - [SfvbCodeLibraryEmail](docs/SfvbCodeLibraryEmail.md)
+ - [SfvbCodeLibraryEmailCreateRequest](docs/SfvbCodeLibraryEmailCreateRequest.md)
+ - [SfvbCodeLibraryEmailDetail](docs/SfvbCodeLibraryEmailDetail.md)
+ - [SfvbCodeLibraryEmailResponse](docs/SfvbCodeLibraryEmailResponse.md)
  - [SfvbCodeLibraryEmailsResponse](docs/SfvbCodeLibraryEmailsResponse.md)
+ - [SfvbCodeLibraryFile](docs/SfvbCodeLibraryFile.md)
+ - [SfvbCodeLibraryFileSkipped](docs/SfvbCodeLibraryFileSkipped.md)
  - [SfvbCommsBranchStat](docs/SfvbCommsBranchStat.md)
  - [SfvbCommsChange](docs/SfvbCommsChange.md)
  - [SfvbCommsClick](docs/SfvbCommsClick.md)
@@ -2626,6 +2633,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.1.257 | 11/19/2026 | sfvb internal testing |
 | 4.1.256 | 11/17/2026 | sfvb internal testing |
 | 4.1.255 | 11/17/2026 | sfvb internal testing |
 | 4.1.254 | 11/15/2026 | sfvb internal testing |
